@@ -18,6 +18,7 @@
 \theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
 \newcommand{\Z}{\mathbb{Z}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\F}{\mathbb{F}}\newcommand{\C}{\mathbb{C}}
 \newcommand{\Sig}{\mathfrak S}\newcommand{\Off}{\mathrm{Off}}\newcommand{\Frob}{\operatorname{Frob}}
+\providecommand{\Var}{\operatorname{Var}}\providecommand{\E}{\mathbb{E}}
 \newcommand{\Sym}{\operatorname{Sym}}\newcommand{\Res}{\operatorname*{Res}}
 % status tags for the draft; remove before submission
 \newcommand{\status}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
@@ -25,71 +26,139 @@
 \title{The pair singular series of a polynomial II:\\ zeros of Dedekind zeta functions in the second
 moment of prime values}
 \author{Jasper Reichardt \and Claude Fable 5.1}
-\date{Skeleton, \today}
+\date{Draft of \today}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-\status{draft; numbers to be filled from WP0--WP3}
-Let $f\in\Z[t]$ be irreducible without fixed prime divisor, $K=\Q[t]/(f)$, and $S_f(h)$ its pair
-singular series. In part I we proved that the diagonal part of $\sum_{h\le H}(S_f(h)-C(f)^2)$ has
-Dirichlet series $D_f(s)=\zeta_K(s+1)E_f(s)$. Here we determine the analytic structure of $E_f$
-completely: it is an infinite product of Artin $L$-functions of virtual representations of the Galois
-group, the first of which is $L(2s+2,\Sym^2V_f)^{-1}=\bigl(\zeta_K(2s+2)\prod_O\zeta_{K_O}(2s+2)\bigr)^{-1}$
-with $K_O$ the fields cut out by the unordered pairs of roots; $D_f$ is meromorphic in $\Re s>-1$, has
-real poles at $s=-1+1/k$, and $\Re s=-1$ is a natural boundary. Consequently the Riesz means of the
-diagonal satisfy an explicit formula, unconditional for $m\ge2$, whose oscillating part is indexed by the
-zeros of these Dedekind zeta functions, with terms $x^{m-1+\rho/2}$, and whose smooth part contains
-$x^{m-2/3}$. For $f=t^2+1$ every coefficient is computed exactly and the formula is verified against
-the exact Riesz means to $x=4\cdot10^7$: \status{WP0 result}. We prove $\Omega_\pm(x^{m-3/4})$
-unconditionally, $O(x^{m-7/8+\varepsilon})$ after the real terms under GRH for $\zeta_K$, and give the
-function-field version, where the formula is an exact finite sum. Assuming the Hardy--Littlewood pair
-conjecture with a power-saving error, these results describe the second-order term of the variance of
-the number of prime values of $f$; we explain precisely why the zero-induced fluctuations lie below the
-scale at which that transfer is valid, so that no statement about prime values themselves and the zeros
-of $\zeta_K$ is claimed.
+How much does the number of primes among the values $f(1),f(2),\dots$ of a polynomial fluctuate? Part~I
+of this work showed that the answer is encoded in an explicit arithmetic function, the pair singular
+series $S_f(h)$, and that the diagonal part of its second moment has the Dedekind zeta function
+$\zeta_K$ of $K=\Q[t]/(f)$ as generating function. Here we determine that generating function completely.
+It is an infinite product of Artin $L$-functions of the Galois group of $f$, evaluated at $N(s+1)$,
+$N=1,2,3,\dots$, whose exponents are virtual characters given by a plethystic logarithm; for quadratics the
+exponents are necklace numbers. The first factor beyond $\zeta_K$ is $1/L(2s+2,\Sym^2V)$, and $L(s,\Sym^2V)$ is
+the product of the Dedekind zeta functions of the field of a root and of the field of a pair of roots. The
+line $\Re s=-1$ is a natural boundary, for every $f$ including the twin-prime case. Consequently the Riesz
+means of the diagonal satisfy an explicit formula whose oscillating part is indexed by the zeros of these
+Dedekind zeta functions, with terms $x^{m-1+\rho/2}$, and whose smooth part contains an unexpected term
+$x^{m-2/3}$; the formula is proved for quadratics under the Riemann hypothesis for $\zeta$ and $L(s,\chi_D)$,
+and for general $f$ under the corresponding hypotheses; unconditionally the error term is
+$\Omega_\pm(x^{m-3/4})$. For $f=t^2+1$ every coefficient is computed and the formula is verified against the
+exact Riesz means to $x=4\cdot10^7$: the data reproduce the predicted sum over the zeros of $\zeta$ and
+$L(s,\chi_{-4})$ with regression coefficient $\wpBeta$. The remaining conjecture of part~I (the off-diagonal)
+is reformulated as the analytic continuation of a Dirichlet series of Weyl sums of the roots of $f$, for
+quadratics a series of Sali\'e-type sums, and the two estimates its proof requires are stated. Assuming the
+Hardy--Littlewood pair conjecture these results describe the second-order term of the variance of the number
+of prime values of $f$; the zero-induced fluctuations lie below the scale at which that transfer is valid,
+and no statement about prime values themselves and the zeros of $\zeta_K$ is claimed.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
 
-\paragraph{Recollection of part I.} \status{copy the definitions: $\omega_f$, $C(f)$, $S_f$, $b(q)$, $W_f$,
-$a_f(d)=W_f(d)\omega_f(d)$, $A_f=a_f*1$, Theorems 2--4 of part I.} The identity
+\paragraph{The question.} Let $f\in\Z[t]$ be irreducible, without fixed prime divisor, and let $C(f)$ be its
+Bateman--Horn constant, the conjectural density factor for primes among $f(1),f(2),f(3),\dots$. Part~I of
+this work~\cite{ReichardtFable2026a} studied not the density but the \emph{fluctuation} of the number of
+primes along the sequence, through the pair singular series
 \[
-\sum_{h\le H}\bigl(S_f(h)-C^2\bigr)=-C^2\sum_{d\ge2}a_f(d)\Bigl\{\frac Hd\Bigr\}+C^2\Off_f(H)
+S_f(h)=\prod_p\frac{1-\omega_{f,2}(p,h)/p}{(1-1/p)^2},\qquad\omega_{f,2}(p,h)=2\omega_f(p)-\nu_f(p,h),
 \]
-splits the sum into a diagonal, generated by $D_f(s)=\sum_da_f(d)d^{-s}=\zeta_K(s+1)E_f(s)$ with
-$\Res_{s=0}D_f=1/C(f)$, and an off-diagonal over pairs of distinct roots. Conjecture~1 of part I,
-$\sum_{h\le H}(S_f(h)-C^2)=-\tfrac12C\log H+A_f+o(1)$, is equivalent (Ces\`aro form) to
-$\Off^\ast_f(H)=o(H\log H)$.
+where $\omega_f(p)$ is the number of roots of $f$ modulo $p$ and $\nu_f(p,h)$ the number of roots $s$ with
+$s+h$ again a root. Under the Hardy--Littlewood conjecture $S_f(h)/(\log f(t)\log f(t+h))$ is the probability
+that $f(t)$ and $f(t+h)$ are both prime, and the quantity that measures how far the primes along $f$ are from
+independent trials is
+\begin{equation}\label{eq:Sigma}
+\Sigma_f(H)=\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr).
+\end{equation}
+Part~I proved an exact identity,
+\begin{equation}\label{eq:split}
+\Sigma_f(H)=-C^2\sum_{d\ge2}a_f(d)\Bigl\{\frac Hd\Bigr\}+C^2\,\Off_f(H),\qquad a_f(d)=W_f(d)\,\omega_f(d),
+\end{equation}
+with explicit multiplicative weights $W_f(d)$ on squarefree $d$ (notation below), where the first sum, the
+\emph{diagonal}, comes from pairs of equal roots of $f$ modulo $d$ and $\Off_f$, the \emph{off-diagonal}, from
+pairs of distinct roots; it showed that the diagonal has Dirichlet series
+\[
+D_f(s)=\sum_da_f(d)d^{-s}=\zeta_K(s+1)E_f(s),\qquad K=\Q[t]/(f),\qquad\Res_{s=0}D_f=\frac1{C(f)};
+\]
+and it conjectured (Conjecture~1 there)
+\begin{equation}\label{eq:conj}
+\Sigma_f(H)=-\tfrac12\,C(f)\log H+A_f+o(1),
+\end{equation}
+a theorem for linear $f$ (Friedlander--Goldston, Vaughan, Montgomery--Soundararajan) and equivalent, in
+Ces\`aro form, to the statement that the off-diagonal contributes no logarithm (``Hypothesis~(E)''). This
+paper determines $E_f$ and draws the consequences; the off-diagonal is reformulated in
+Section~\ref{sec:off} and left for part~III.
 
-\paragraph{The linear case as template.} For $f(t)=t$, Goldston and
-Suriajaya~\cite{GoldstonSuriajaya2021} proved that the Riesz means $\sum_{k\le x}(x-k)^m\Sig(k)$, $m\ge2$,
-equal $x^{m+1}/(m+1)-\tfrac12x^m(\log x-H_m+\gamma+\log2\pi)+x^{m-1}\sum_{|\gamma|\le U}a(\rho)x^{\rho/2}+O(x^{m-1+\varepsilon})$,
-the zeros of $\zeta$ entering through the factor $1/\zeta(2s+2)$ of the generating series; and
-$\Omega_\pm(x^{m-3/4})$. \status{cite also Vaughan 2001, Friedlander--Goldston 1995, GS JNT 2021.}
+\paragraph{In plain terms.} The primes along $f$ are not independent trials: divisibility of $f(t)$ by a
+small prime $p$ is periodic in $t$, so the small primes act deterministically and only the large ones are
+random. $\Sigma_f(H)$ is the resulting total correlation up to distance $H$, and its main term
+$-\tfrac12C(f)\log H$ is the polynomial version of the fact that primes in short intervals are more regular
+than random. This paper is about the next layer, the oscillations of $\Sigma_f$ around its main terms. For
+the twin-prime problem Goldston and Suriajaya showed that these oscillations are a sum of waves, one for
+each zero of the Riemann zeta function. For a polynomial the same happens with the zeros of the Dedekind
+zeta functions of the number fields cut out by $f$; there is one more smooth term, $x^{m-2/3}$, that the
+linear case does not have; the generating function has a natural boundary at $\Re s=-1$, which changes what
+can be proved; and all of this is visible in exact computations for $t^2+1$. Nothing here is a statement
+about primes themselves: that needs the Hardy--Littlewood pair conjecture, and the conjecture~\eqref{eq:conj}
+remains a conjecture, now reduced to a precise analytic statement.
 
-\paragraph{Results.} \status{one paragraph per theorem, in the order of the sections.}
+\paragraph{The linear case as template.} For $f(t)=t$, $S_f=\Sig$ is the twin-prime singular series, and
+Goldston and Suriajaya~\cite{GoldstonSuriajaya2021} proved that the Riesz means $\sum_{k\le x}(x-k)^m\Sig(k)$,
+$m\ge2$, equal $x^{m+1}/(m+1)-\tfrac12x^m(\log x-H_m+\gamma+\log2\pi)+x^{m-1}\sum_{|\gamma|\le U}a(\rho)x^{\rho/2}+O(x^{m-1+\varepsilon})$,
+the zeros of $\zeta$ entering through the factor $1/\zeta(2s+2)$ of the generating series, with error
+$\Omega_\pm(x^{m-3/4})$ (see also \cite{GoldstonSuriajaya2021b,Vaughan2001,FriedlanderGoldston1995}). Our
+generating series is $\zeta_K(s+1)E_f(s)$; the question is what $E_f$ is.
 
-\paragraph{What is conditional on what.} \status{Reuse part I's paragraph (A)/(B)/(C) and add:}
-(D)~Everything in Sections~\ref{sec:structure}--\ref{sec:omega} is unconditional and concerns the
-arithmetic function $A_f$; the Riemann hypothesis for $\zeta_K$ enters only in the sharp form of the
-error term. (E)~Section~\ref{sec:primes} is conditional on the Hardy--Littlewood pair conjecture for $f$
-with an error term $O(T^{1/2+\varepsilon})$, as in Montgomery--Soundararajan~\cite{MontgomerySoundararajan2004};
-the zero terms of the explicit formula are of relative size $T^{-1/4}$, \emph{below} that tolerance.
-Unconditionally, the low-lying zeros of $\zeta_K$ govern the second-order fluctuations of the Riesz
-means of $S_f$; under a Bateman--Horn pair conjecture with power saving these means control the
-variance of prime values of $f$ only at a scale above the zero-induced fluctuations; and under GRH the
-variance is in turn equivalent, by the Goldston--Montgomery theorem~\cite{GoldstonMontgomery1987} in
-the form of Bui, Keating and Smith~\cite{BuiKeatingSmith2016}, to pair correlation of the zeros of
-$\zeta_K$. We claim no unconditional link between prime values of $f$ and zeros of $\zeta_K$.
+\paragraph{Results.} Section~\ref{sec:structure}: $E_f$ is an infinite product of Artin $L$-functions
+$L(N(s+1),\Psi_N)$, $N\ge2$, with virtual characters $\Psi_N$ given by an explicit formula
+(Theorem~\ref{thm:structure}); $\Psi_2=-\Sym^2V$ and $L(s,\Sym^2V)$ is a product of Dedekind zeta functions of
+``pair fields'' (Lemma~\ref{lem:pairs}); for quadratics the exponents are necklace numbers
+(Proposition~\ref{prop:exponents}); $\Re s=-1$ is a natural boundary (Theorem~\ref{thm:boundary}).
+Section~\ref{sec:explicit}: the explicit formula for the Riesz means of the diagonal, for quadratics under
+the Riemann hypothesis for $\zeta$ and $L(s,\chi_D)$ with a complete proof (Theorem~\ref{thm:explicit-quadratic})
+and for general $f$ under the analogous hypotheses (Theorem~\ref{thm:explicit-general}), and its comparison
+with exact data for $t^2+1$. Section~\ref{sec:omega}: unconditionally the error term is $\Omega_\pm(x^{m-3/4})$
+(Theorem~\ref{thm:omega}). Section~\ref{sec:off}: Hypothesis~(E) as the analytic continuation of a
+Dirichlet series of Weyl sums of roots, and the two estimates that would prove it for quadratics.
+Section~\ref{sec:ff}: what carries over to $\F_q[u]$. Section~\ref{sec:primes}: what all of this means for
+prime values under the Hardy--Littlewood conjecture. Section~\ref{sec:disc}: what should be done next.
+Appendix~\ref{app:comp} specifies the computations.
 
-\paragraph{Relation to the literature.} \status{from LITERATURE.md \S0: Kuperberg--Rodgers--Roditty-Gershon
-(prime elements of $K$, $\zeta_K(s+1)$ in a singular-series average, no explicit formula);
-Bhowmik--Halupczok--Matsumoto--Suzuki and Goldston--Suriajaya 2023 (multi-$L$ explicit formulas in the
-Goldbach setting); Hall--Keating--Roditty-Gershon and Hochfilzer (variances governed by higher-degree
-$L$-functions over $\F_q[t]$); no prior appearance of $\Sym^2V_f$ or of a polynomial singular-series
-explicit formula.}
+\paragraph{What is conditional on what.} As in part~I: (A)~Bateman--Horn for non-linear $f$, open, used
+nowhere; (B)~the Hardy--Littlewood pair conjecture for $f$, used only in Section~\ref{sec:primes};
+(C)~Conjecture~\eqref{eq:conj}, equivalently Hypothesis~(E), a statement about the explicit function $S_f$,
+reformulated in Section~\ref{sec:off}, not proved here; and now (D)~the Riemann hypothesis for $\zeta$,
+$L(s,\chi_D)$ and, for general $f$, the Artin $L$-functions of its Galois group, needed for the explicit
+formulas of Section~\ref{sec:explicit} because the natural boundary prevents the contour from leaving the
+critical strip. Everything in Section~\ref{sec:structure} and Theorem~\ref{thm:omega} is unconditional.
+The zero-induced fluctuations have relative size $T^{-1/4}$, below the error tolerated by the transfer~(B):
+unconditionally, the low-lying zeros of $\zeta_K$ govern the second-order fluctuations of the Riesz means of
+$S_f$; under GRH the variance of primes is related to the pair correlation of the zeros of $\zeta_K$ by the
+Goldston--Montgomery theorem~\cite{GoldstonMontgomery1987} in the Selberg-class form of Bui, Keating and
+Smith~\cite{BuiKeatingSmith2016}; we claim no unconditional link between prime values of $f$ and zeros of
+$\zeta_K$.
+
+\paragraph{Relation to the literature.} The only prior appearance of $\zeta_K(s+1)$ in a singular-series
+average that we know of is Kuperberg, Rodgers and Roditty-Gershon~\cite{KuperbergRodgersRodittyGershon2022},
+for prime \emph{elements} of a number field; explicit formulas over the zeros of several $L$-functions occur
+in the Goldbach setting~\cite{BhowmikHalupczokMatsumotoSuzuki2019,GoldstonSuriajaya2023}; variances
+governed by higher-degree $L$-functions over $\F_q[t]$ are in~\cite{HallKeatingRodittyGershon2019}. Natural
+boundaries of Euler products go back to Estermann~\cite{Estermann1928} and Dahlquist~\cite{Dahlquist1952},
+with the multivariable case in~\cite{BhowmikEssouabriLichtin2007}. We found no previous identification of
+$\Sym^2V$, of the characters $\Psi_N$, or of a natural boundary in a singular-series average.
+
+\paragraph{Reader's guide.} The theorems are in Sections~\ref{sec:structure}, \ref{sec:explicit} and
+\ref{sec:omega}; each is followed by a short paragraph ``in words''. Section~\ref{sec:off} is the foundation
+of part~III. Appendix~\ref{app:comp} lists every computation with inputs, outputs and cost.
+
+\paragraph{Notation.} $f\in\Z[t]$ irreducible of degree $n$ without fixed prime divisor; $G=\operatorname{Gal}(f)$;
+$V=V_f$ its permutation representation on the roots, $\chi_V(g)$ the number of roots fixed by $g$;
+$\omega_f(p)=\chi_V(\Frob_p)$ for unramified $p$; $K=\Q[t]/(f)$; $w=s+1$; $u=1/p$, $v=p^{-w}$;
+$P_p=1-\omega_f(p)^2/(p-\omega_f(p))^2$, $b(p)=(p-\omega_f(p))^{-2}$, $W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ for squarefree $d$;
+$a_f=W_f\omega_f$; $A_f=a_f*1$; $D_f(s)=\sum_da_f(d)d^{-s}$; $R_m(x)=\sum_{n\le x}(x-n)^mA_f(n)$;
+$\rho=\beta+i\gamma$ a zero of the $L$-function in question; for a virtual character $\Psi$, $L(s,\Psi)$ is its
+Artin $L$-function.
 
 \section{The analytic structure of $D_f$}\label{sec:structure}
 
@@ -130,6 +199,11 @@ For quadratics, $\Sym^2V=\mathbf 1\oplus\mathbf 1\oplus\chi_D$ and $L(s,\Sym^2V)
 $S_3$-cubic $K^{(2)}\cong K$ and $L(s,\Sym^2V)=\zeta_K(s)^2$; for an $S_4$- or $A_4$-quartic $K^{(2)}$ is the
 resolvent sextic field.
 
+\emph{In words.} The symmetric square of the permutation representation, identified in part~I as the
+source of the zeros, is the permutation action on \emph{pairs} of roots. Every zero that appears below is
+therefore a zero of the Dedekind zeta function of an explicit number field: the field of one root, or the
+field of a pair of roots.
+
 \subsection{The plethystic exponents}
 
 \begin{definition}\label{def:psi}
@@ -166,6 +240,13 @@ For $f$ linear, $\chi_V=1$ and $1+v=(1-v^2)/(1-v)$: $\Psi_1=1$, $\Psi_2=-1$, $\P
 the factor $\zeta(s+1)/\zeta(2s+2)$ of the twin-prime case~\cite{GoldstonSuriajaya2021}. For $n\ge2$
 infinitely many $\Psi_N$ are non-zero, because $1+\chi_V(g)v$ with $\chi_V(g)\ge2$ is not a finite product
 of cyclotomic polynomials in $v$.
+
+\emph{In words.} Let $p\to\infty$ in the local factor of $D_f$ keeping $v=p^{-(s+1)}$ fixed: what remains is
+$1+\omega v$, $\omega$ the number of roots of $f$ modulo $p$. For $\omega=1$ this is a ratio of two cyclotomic
+polynomials, which is why one factor $1/\zeta(2s+2)$ suffices in the twin-prime problem; for $\omega\ge2$ no
+finite product of cyclotomic polynomials equals $1+\omega v$, and infinitely many $L$-functions are needed,
+one for each $\Psi_N$. Lemma~\ref{lem:psi} says the $\Psi_N$ are (virtual) characters, so these are Artin
+$L$-functions.
 
 \subsection{The structure theorem}
 
@@ -207,6 +288,11 @@ $M_p$ are $\det(1-g_pv^N\mid\Psi_N)$, non-zero for $\Re w>0$). Letting $K\to\inf
 continuation to $\Re s>-1$, the finitely many $L(Nw,\Psi_N)$ being meromorphic by Brauer's theorem.
 \end{proof}
 
+\emph{In words.} $D_f$ is a product of finitely many Artin $L$-functions evaluated at $N(s+1)$, times a
+remainder that is harmless in a half-plane that grows with the number of factors extracted but never
+reaches $\Re s=-1$. Every singularity of $D_f$ to the right of $-1$ is a zero or pole of an $L$-function of the
+Galois group of $f$, at a predictable place.
+
 \begin{remark}
 $M_{f,K}$ is \emph{not} $1+O(p^{-2})$ at the level of individual primes: the mixed term $2\omega^2uv/(1+\omega v)$
 is of size $p^{-1-\Re w}$. In the numerical work these terms are extracted as well
@@ -239,6 +325,11 @@ Definition~\ref{def:psi}, using $(-1)^{k+1}2^k=-(-2)^k$ for the first formula. F
 divisor, so $a_N=b_N=-\tfrac12M_N(-2)=\tfrac12M_N(2)$; $M_N(2)>0$ counts binary Lyndon words.
 \end{proof}
 
+\emph{In words.} For a quadratic the $L$-functions are $\zeta$ and $L(s,\chi_D)$ and the exponents are
+the necklace numbers of Table~\ref{tab:exponents}. Two features matter later: $\zeta(3s+3)$ in the numerator,
+which gives a real pole at $s=-\tfrac23$ and hence a term $x^{m-2/3}$ in every average of $S_f$; and
+$1/(\zeta(2s+2)^2L(2s+2,\chi_D))$, whose poles at half the zeros give the oscillating terms $x^{\rho/2}$.
+
 \subsection{The natural boundary}
 
 \begin{theorem}[natural boundary]\label{thm:boundary}
@@ -267,6 +358,12 @@ punctured neighbourhood of a pole $|D_f|$ is large, whereas zeros $s_{p,j}$ lie 
 $-1+it_0$: a contradiction. For $\zeta(s)D_f(s)$ the same argument applies, since $\zeta(s)\ne0$ on $\Re s=-1$. For $f(t)=t$, $F_p=(1-2u+v)/(1-u)^2$ vanishes at $p^{-w}=-(1-2/p)$ and the argument is
 identical.
 \end{proof}
+
+\emph{In words.} Each local factor vanishes on a lattice of points whose real parts tend to $-1$ and whose
+imaginary parts become dense, so $D_f$ cannot be continued across $\Re s=-1$. This is why the explicit formula
+below is conditional while the twin-prime formula of Goldston and Suriajaya is not: they could move the
+contour up to the wall without crossing anything dangerous; for non-linear $f$ the $L$-factors with $N\ge3$
+pile up in front of it.
 
 \begin{remark}
 For $f(t)=t$ the pure-$v$ part of the local factor is $1+v=(1-v^2)/(1-v)$, so the $L$-function part of
@@ -315,6 +412,11 @@ $\varepsilon_0$.
 The coefficient of $x^m\log x$ is $-1/(2C(f))$ because $\Res_{s=0}D_f=1/C(f)$ (part I, Theorem~3) and
 $\zeta(0)=-\tfrac12$; explicitly $c_{f,m}=-\frac1{2C(f)}\bigl(\log2\pi-H_m\bigr)-\tfrac12\kappa_f$ with
 $\kappa_f$ the constant term of the Laurent expansion of $D_f$ at $0$ and $H_m=\sum_{k\le m}1/k$.
+
+\emph{In words.} After the expected terms $x^{m+1}$, $x^m\log x$, $x^m$ comes an unexpected real term
+$x^{m-2/3}$, then oscillating terms of size $x^{m-3/4}$ with frequencies $\gamma/2$ in $\log x$, $\gamma$ the
+ordinates of the zeros of $\zeta$ and $L(s,\chi_D)$; the rest is smaller by a fixed power of $x$. The
+hypothesis is needed because the proof evaluates $1/\zeta$ and $1/L$ just left of the critical line.
 
 \subsection{Growth lemmas}
 
@@ -402,6 +504,39 @@ $\sum_{|\gamma|\le T}|\zeta'(\rho)|^{-2}\ll T$ (Gonek--Hejhal) would make $x^{m-
 absolutely convergent for $m\ge2$. Numerically the coefficients decay like $|\gamma|^{-5/4}$ for $m=2$.
 \end{remark}
 
+\subsection{General $f$}
+
+\begin{theorem}[general $f$]\label{thm:explicit-general}
+Let $f$ be irreducible of degree $n\ge2$ and $m\ge2$. Assume that the Artin $L$-functions of the irreducible
+constituents of $\Psi_1=\chi_V$, $\Psi_2=-\chi_{\Sym^2V}$ and $\Psi_3=\tfrac13(\chi_V^3-\psi^3\chi_V)$ are entire
+(automatic when $G$ is an $M$-group, e.g.\ $S_3$, $S_4$, $A_4$, $D_n$) and satisfy the Riemann hypothesis. Then
+there is $\varepsilon_0>0$ such that, for $U\in[x^{16},2x^{16}]$ suitably chosen,
+\[
+R_m(x)=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+c'_{f,m}\,x^{m-2/3}
++x^{m-1}\sum_{\substack{\rho\\|\gamma|\le2U}}Q_{m,\rho}(\log x)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
+\]
+where $\rho$ runs over the zeros of $L(s,\Sym^2V)=\zeta_K(s)\prod_O\zeta_{K_O}(s)$, and $c'_{f,m}=0$ unless the
+trivial character occurs in $\Psi_3$, in which case $c'_{f,m}x^{m-2/3}$ is the residue at $s=-\tfrac23$. For
+$G=S_n$ the trivial character occurs in $\Psi_3$ with multiplicity $1$, so the term $x^{m-2/3}$ is present for
+every $S_n$-polynomial.
+\end{theorem}
+\begin{proof}
+Identical to the proof of Theorem~\ref{thm:explicit-quadratic}, with $\zeta(w)L(w,\chi_D)$ replaced by
+$L(w,\Psi_1)=\zeta_K(w)$, $\zeta(2w)^{-2}L(2w,\chi_D)^{-1}$ by $L(2w,\Psi_2)=1/L(2w,\Sym^2V)$, and
+$\zeta(3w)L(3w,\chi_D)$ by $L(3w,\Psi_3)$: (G1) and (G2) hold for entire Artin $L$-functions satisfying the
+Riemann hypothesis with the same proofs (Hadamard product and functional equation), the factors
+$L(Nw,\Psi_N)$, $N\ge4$, are evaluated at $\Re(Nw)\ge1-4\varepsilon_0$ where they are $\ll|t|^\varepsilon$ and free of
+zeros and poles, and $M_{f,K}$ is bounded by Theorem~\ref{thm:structure}. The multiplicity of the trivial
+character in $\Psi_3$ is $\tfrac13(\langle\chi_V^3,1\rangle-\langle\psi^3\chi_V,1\rangle)$; for $S_n$, $n\ge3$,
+$\langle\chi_V^3,1\rangle=5$ (orbits of $S_n$ on maps $\{1,2,3\}\to\{1,\dots,n\}$) and $\langle\psi^3\chi_V,1\rangle$ is
+the mean number of fixed points of $g^3$, i.e.\ $\mathbb E[c_1+3c_3]=1+3\cdot\tfrac13=2$ with $c_k$ the number of
+$k$-cycles; for $n=2$ the values are $4$ and $1$.
+\end{proof}
+
+\emph{In words.} In any degree the same formula holds with the zeros of the Dedekind zeta functions of the
+root field and of the pair fields, under the corresponding Riemann hypotheses; the real term $x^{m-2/3}$
+is universal for the generic Galois group.
+
 \subsection{$f=t^2+1$: every coefficient}\label{sec:t2p1}
 
 For $f=t^2+1$, $D=-4$, $\chi_D=\chi_{-4}$, $K=\Q(i)$, and every quantity in~\eqref{eq:explicit} is computable:
@@ -410,8 +545,8 @@ $1.3728134628\dots$), $c_{f,2}=-0.454974899864$, $c_{f,3}=-0.333569719058$, and 
 $Q_{m,\rho}$ for the zeros with $\gamma\le100$ are computed as Taylor coefficients of
 $(s-\rho/2+1)^{\mathrm{ord}}G_m(s)$ by trapezoidal Cauchy integrals on circles of radius $0.015$
 (\texttt{explicit-diag.py}; $M_{f,K}$ with $K=15$ and primes up to $4\cdot10^6$, with the tails of the
-mixed terms handled by the prime number theorem). \status{Table of $Q_{2,\rho}$ for the first $8$ zeros of
-$L(\chi_{-4})$ and $6$ of $\zeta$; generate from the cached residues.}
+mixed terms handled by the prime number theorem). The table of the first
+coefficients is item~(C1) of Appendix~\ref{app:comp}.
 
 \subsection{Numerical verification}\label{sec:num}
 
@@ -446,8 +581,11 @@ $R^2$. For $m=3$ the zero terms (rms $0.11$) lie below the smooth leftover (rms 
 $\beta=\wpBetaNuisThree$. The remaining rms $0.29$ is accounted for by the truncation at $\gamma\le100$
 (the coefficients decay only like $\gamma^{-5/4}$) and the $O(x^{m-3/4-\varepsilon_0})$ term. We regard this as
 a confirmation of Theorem~\ref{thm:explicit-quadratic} with the predicted amplitudes and phases to about
-$1\%$; it does \emph{not} resolve individual ordinates closer than $4\pi/8.3\approx1.5$. \status{say what
-happened when the contour was pushed to $-7/8$: the second family has rms $13$ and $92$ and $\beta=0.001$.}
+$1\%$; it does \emph{not} resolve individual ordinates closer than $4\pi/8.3\approx1.5$. When the contour is pushed
+to $\Re s=-\tfrac78$ and the second family of zero terms is added, the predicted sum has root mean square
+$13$ (zeros of $\zeta$) and $92$ (zeros of $L$) in the same units and regression coefficient $0.001$ against the
+data: the second family is real as a set of residues but cancels against the line integral, as explained
+after Theorem~\ref{thm:boundary}.
 
 \section{$\Omega$-results and conditional bounds}\label{sec:omega}
 
@@ -494,45 +632,225 @@ looks like a constant multiple of $x^{m-3/4}$. The family $\{L(s,\chi_D)\}$ has 
 \cite{KatzSarnak1999}, so such a low zero is the class-number-one exception, not the rule.
 \end{remark}
 
-\section{The off-diagonal}\label{sec:off}
+\emph{In words.} Independently of any hypothesis, one uncancelled pole on $\Re s=-\tfrac34$ forces the error
+term to be as large as $x^{m-3/4}$ in both directions infinitely often: the zeros of $L(s,\chi_D)$ are
+visible in the second moment of $S_f$ unconditionally.
 
-\status{Route A of routes.tex: Prop.~A1 (proved), A2/A3 (to prove) for quadratics. New here: the
-off-diagonal Dirichlet series $\sum_dd^{-s}W_f(d)\sum_{s\ne s'}\zeta(s,\langle(s'-s)/d\rangle)$ and the
-statement that Conjecture~1 of part I, in analytic form, is its continuation to a pole-free strip left of
-$0$. Numerical: $\Off_f(H)$ for $t^2+1$ to $10^7$ and its spectrum. If nothing more: state clearly that the
-explicit formula of Section~\ref{sec:explicit} is for the diagonal and that the full sum adds an
-$O(H)$-in-Ces\`aro-form term whose fluctuations are those of the fractional parts of the root differences.}
+\section{The off-diagonal: what part~III must prove}\label{sec:off}
 
-\section{The function field $\F_q[u]$}\label{sec:ff}
+\emph{This section turns Hypothesis~(E) of part~I into the analytic continuation of one Dirichlet series
+and identifies that series for quadratics.}
 
-\status{Route B. New: with $T=q^{-s}$ the diagonal generating function is a rational function of $T$
-(Prop.~B2 of routes.tex + Theorem~\ref{thm:structure}), so the Riesz-mean analogue is an EXACT finite sum
-over the inverse roots: the Weil zeros of $L(T,\chi_D)$ and of the extracted factors, and the real
-"poles" $T=q^{1/k}$. Write it down for $f=t^2-D$; compare with \texttt{thesis/ff.ts} data. Then
-Prop.~B3, $q\to\infty$, for the off-diagonal (Katz/Deligne).}
+\subsection{The analytic reformulation}
 
-\section{Consequences for prime values}\label{sec:primes}
+For $d$ squarefree and roots $s\ne s'$ of $f$ modulo $d$ let $m_{ss'}\in[1,d-1]$ be the representative of
+$s'-s$. Define, for $\Re s>1$,
+\begin{equation}\label{eq:Of}
+O_f(s)=\sum_{d}W_f(d)\sum_{\substack{s,s'\bmod d\\ s\ne s'}}\Bigl(d^{-s}\zeta\Bigl(s,\frac{m_{ss'}}d\Bigr)-\frac{\zeta(s)}d\Bigr),
+\end{equation}
+$\zeta(s,\alpha)$ the Hurwitz zeta function, so that $d^{-s}\zeta(s,m/d)=\sum_{h\equiv m\ (d)}h^{-s}$; each bracket is
+entire in $s$, the poles at $s=1$ cancelling.
 
-\status{Conditional section. (i) Under the HL pair conjecture with error $O(T^{1/2+\varepsilon})$, the
-variance formula of part I with the diagonal explicit formula inserted: the polynomial
-Montgomery--Soundararajan law plus an explicit oscillatory correction of relative size $T^{-1/4}$, which is
-below the error tolerated by the hypothesis --- say so. (ii) Goldston--Montgomery for $\zeta_K$: what
-Bui--Keating--Smith give for the degree-$2$ non-primitive $\zeta_K=\zeta L(\chi_D)$ (union of two
-independent GUE processes, Murty--Perelli), and why no analogue exists for prime values of a non-linear
-$f$ (no Dirichlet series). (iii) What GRH for $\zeta_K$ does say as a theorem: Grenié--Molteni--Perelli
-for prime ideals; our $O(x^{m-7/8+\varepsilon})$.}
+\begin{proposition}\label{prop:Of}
+(i) For $\Re s>1$,
+\[
+\sum_{h\ge1}\bigl(S_f(h)-C(f)^2\bigr)h^{-s}=C(f)^2\,\zeta(s)\bigl(D_f(s)-D_f(1)\bigr)+C(f)^2\,O_f(s),
+\]
+the left side converging absolutely and the double series~\eqref{eq:Of} converging in the indicated order.
+(ii) If $O_f$ continues holomorphically to $\Re s>-\delta$ for some $\delta>0$ with $O_f(\sigma+it)\ll(1+|t|)^{A}$
+there, then for some $\delta'>0$
+\[
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr)=-\tfrac12C(f)\log H+A_f^{\ast}+O(H^{-\delta'}),
+\qquad A_f^\ast=C^2\bigl(\kappa^\ast_f+O_f(0)\bigr),
+\]
+$\kappa^\ast_f$ the explicit constant produced by the diagonal. In particular Conjecture~\eqref{eq:conj} holds
+in Ces\`aro form and Hypothesis~(E) in Ces\`aro form, $\Off^\ast_f(H)=O(H)$, holds.
+\end{proposition}
+\begin{proof}
+(i) By part~I, Theorem~2, $S_f(h)/C^2=\sum_qb(q)c^f_q(h)$ absolutely, and the sum over $h$ in a residue class
+regroups, for each squarefree $d$, into pairs of roots modulo $d$, the subtraction of the mean per pair being
+allowed because $\sum_{d\mid q}\mu(q/d)=0$ for $q>1$. With $h^{-s}$ in place of the indicator of $h\le H$,
+$\sum_{h\equiv m(d)}h^{-s}=d^{-s}\zeta(s,m/d)$ for $m\in[1,d-1]$ and $d^{-s}\zeta(s)$ for $m\equiv0$, and the
+subtracted mean becomes $\zeta(s)/d$. The diagonal pairs give $\sum_da_f(d)\zeta(s)(d^{-s}-d^{-1})=\zeta(s)(D_f(s)-D_f(1))$
+and the remaining pairs give $O_f(s)$. Absolute convergence of the left side for $\Re s>1$ follows from
+$\sum_{h\le H}S_f(h)=C^2H+O(\log H)$ (part~I, Theorem~2) by partial summation.
+(ii) By Perron's formula with the weight $1-h/H$,
+\[
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr)=\frac{C^2}{2\pi i}\int_{(2)}\bigl[\zeta(s)(D_f(s)-D_f(1))+O_f(s)\bigr]\frac{H^{s}}{s(s+1)}\,ds .
+\]
+Move the contour to $\Re s=-\delta'$, $0<\delta'<\min(\delta,\tfrac12)$. The diagonal factor
+$\zeta(s)(D_f(s)-D_f(1))$ is holomorphic there except at $s=0$ (a simple pole of $D_f$ times the kernel's
+$1/s$; $D_f(s)-D_f(1)$ vanishes at $s=1$, so there is no pole at $1$), where the residue is
+$-\tfrac1{2C}\log H+\kappa^\ast_f$ because $\zeta(0)=-\tfrac12$ and $\Res_0D_f=1/C$; the off-diagonal factor is
+holomorphic and contributes the residue $O_f(0)$ at the pole of the kernel. On $\Re s=-\delta'$ the diagonal
+factor has polynomial growth ($D_f=\zeta_K(w)\times$ an absolutely convergent product for $\Re s>-\tfrac12$,
+Theorem~\ref{thm:structure} with $K=1$), and so has $O_f$ by hypothesis; the kernel makes the integral
+$O(H^{-\delta'})$.
+\end{proof}
+
+\emph{In words.} Conjecture~\eqref{eq:conj} is the statement that one Dirichlet series, $O_f$, has no
+singularity at $s=0$ and none slightly to its left. A pole of $O_f$ at $s=0$ would add a term $H\log H$ to
+the Ces\`aro sum and break the universality of $-\tfrac12$; this is the danger for Galois groups that are
+not $2$-transitive noted in part~I, and~\eqref{eq:Of} is where it would show.
+
+\subsection{Quadratics: a Dirichlet series of Sali\'e-type sums}
+
+Let $f=at^2+bt+c$ with discriminant $D$. For $d$ coprime to $2aD$ the roots of $f$ modulo $d$ correspond to
+the square roots of $D'=D/a^2$ modulo $d$, and the differences of distinct roots modulo $d$ are indexed by
+divisors $d'\mid d$, $d'>1$, and square roots $\nu$ of $D'$ modulo $d'$ (part~I, companion note,
+Proposition~A1). Hurwitz's formula, valid for $\Re s<0$,
+\[
+\zeta(s,\alpha)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\sum_{k\ge1}\frac{\sin(2\pi k\alpha+\pi s/2)}{k^{1-s}},
+\]
+turns each term $d^{-s}\zeta(s,m/d)$ into a Fourier series in $m/d$, and hence $O_f(s)$, \emph{if} it continues
+to $\Re s<0$, into
+\begin{equation}\label{eq:Osalie}
+O_f(s)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\sum_{k\ge1}\frac1{k^{1-s}}\sum_{d}\frac{W_f(d)}{d^{s}}\sum_{\substack{d'\mid d\\ d'>1}}2^{\,k(d)-k(d')}
+\sum_{\nu^2\equiv D'\ (d')}\sin\Bigl(2\pi k\,\frac{\overline{(d/d')}\,\nu}{d'}+\frac{\pi s}2\Bigr),
+\end{equation}
+$k(\cdot)$ the number of prime factors and $\overline{(d/d')}$ the inverse of $d/d'$ modulo $d'$. The innermost
+sum is a Weyl sum of quadratic roots, a Sali\'e-type sum: for prime $d'$ it is
+$\sum_{\nu^2\equiv D'}e(k\nu/d')$ up to the phase. Dirichlet series in $d$ of such sums, for fixed $k$ and
+without the weights $W_f$, are the objects of Hooley~\cite{Hooley1963}, Bykovskii, Duke, Friedlander and
+Iwaniec~\cite{DFI1995,DFI2012} and T\'oth~\cite{Toth2000}: their continuation is the equidistribution of the
+roots of $\nu^2\equiv D'$ modulo $d$, and its spectral source is the theory of Maass forms through the
+Kuznetsov formula and its Sali\'e-sum analogue. The identity~\eqref{eq:Osalie} is formal (it interchanges
+the sums over $d$ and $k$); making it rigorous is the content of the following programme.
+
+\begin{proposition}[the two estimates]\label{prop:AB}
+Hypothesis~(E) in Ces\`aro form holds for the quadratic $f$ if the following two statements hold.
+\begin{itemize}
+\item[(E1)] (Small moduli.) For every $k\ge1$ and every unit class, the weighted Weyl sums
+$\sum_{d\le x}\lambda(d)\sum_{\nu^2\equiv D'(d)}e(k\bar u\nu/d)$, with $\lambda$ the multiplicative weight
+$\lambda(p)=p/(p-4)$ on split primes (so that $|W_f(d)|\asymp\lambda(d)/d$), are $\ll x(\log x)^{-1-\eta}$
+uniformly in $k\le x^{c}$, for some $\eta,c>0$.
+\item[(E2)] (Large moduli.) $\displaystyle\sum_{h\le H}\ \sum_{\substack{e\mid Q(h)\\ e<Q(h)/H}}\frac{e\,\lambda(Q(h)/e)}{Q(h)}
+-H\sum_{d>H}\frac{W_f(d)\,\omega^\circ_f(d)}{d}=O(1)$, where $Q(h)=a^2h^2-D$ and $\omega_f^\circ=\omega_f^2-\omega_f$.
+\end{itemize}
+\end{proposition}
+\begin{proof}
+This is Propositions~A1--A3 of the companion note to part~I: the moduli $d\le H$ contribute a weighted sum
+of discrepancies of the roots at the points $\{H/d\}$, which (E1) controls through the Erd\H os--Tur\'an
+inequality, and the moduli $d>H$ contribute the hyperbola sum of (E2), because a pair of distinct roots
+modulo $d>H$ has a difference $\le H$ only if every prime factor of $d$ divides $hQ(h)$ for some $h\le H$.
+\end{proof}
+
+\emph{In words.} For quadratics the off-diagonal is a question about square roots modulo composite numbers:
+do the square roots of $D$ modulo $d$, weighted by a divisor-like function of $d$, spread out evenly? Hooley
+proved this without weights, Duke, Friedlander and Iwaniec much more for prime moduli; the weights and the
+fractional-part test function are the new features, and part~III will prove (E1) and (E2). For Galois
+groups with three or more orbits on pairs of roots, the analogue of~\eqref{eq:Osalie} has several independent
+families of Weyl sums, and a bias between them could produce a pole of $O_f$ at $s=0$; we do not know
+whether this happens.
+
+\section{What carries over to $\F_q[u]$}\label{sec:ff}
+
+Let $\mathcal A=\F_q[u]$, $q$ odd, $f\in\mathcal A[t]$ irreducible and separable in $t$, and define $\omega_f$,
+$P_P$, $W_f$, $a_f$, $D_f$ as over $\Z$ with $|P|=q^{\deg P}$ in place of $p$; put $T=q^{-s}$.
+
+\begin{theorem}\label{thm:ffstructure}
+Theorem~\ref{thm:structure} holds verbatim over $\mathcal A$: $D_f(s)=\prod_{N\le K}L(N(s+1),\Psi_N)\,M_{f,K}(s)$
+with the same virtual characters $\Psi_N$ of the Galois group of $f$ over $\F_q(u)$, the $L$-functions being
+Artin $L$-functions over $\F_q(u)$ (rational functions of $T^N$ by Weil), and $M_{f,K}$ an Euler product over
+the primes of $\mathcal A$ converging absolutely for $|T|<q^{1-1/(K+1)}$. The circle $|T|=q$ is a natural
+boundary; in particular $D_f$ is not a rational function of $T$ when $\deg_tf\ge2$.
+\end{theorem}
+\begin{proof}
+The local computation~\eqref{eq:Fp} and Lemma~\ref{lem:psi} are identical with $u=|P|^{-1}$, $v=|P|^{-(s+1)}$;
+Chebotarev over $\F_q(u)$ supplies infinitely many primes with $\omega_f(P)\ge1$, and the zeros of $F_P$ have
+$|T|\to q$ with arguments $(2j+1)\pi/\deg P$, dense as $\deg P\to\infty$.
+\end{proof}
+
+\emph{In words.} The function field does not make the generating function rational, as one might hope; the
+structure and the wall are the same. What it gives is an \emph{unconditional} explicit formula: the analogue
+of $R_m(x)$ is a coefficient extraction, a contour integral over a circle $|T|=r$, and Weil's theorem places
+every zero of every $L(T^N,\Psi_N)$ on an explicit circle, so the residue computation of
+Section~\ref{sec:explicit} goes through with no hypothesis. Writing it out for $f=t^2-D$ and comparing with
+the exact data of part~I is item~(C5) of Appendix~\ref{app:comp}. (The companion note to part~I claimed that
+the remaining Euler product converges for $|T|<q$; this is wrong, for the same reason as over $\Z$.)
+
+\section{Consequences for prime values, conditionally}\label{sec:primes}
+
+\emph{Everything in this section assumes the Hardy--Littlewood pair conjecture for $f$ with a power-saving
+error term.} Let $\mathbf 1_t$ be the indicator that $f(t)$ is prime, $A_T=\sum_{t<T}\mathbf 1_t$, and suppose,
+as in Montgomery--Soundararajan~\cite{MontgomerySoundararajan2004}, that
+$\sum_{t<T}\mathbf 1_t\mathbf 1_{t+h}=S_f(h)\sum_{t<T-h}w_tw_{t+h}+O(T^{1/2+\varepsilon})$ uniformly for $h\le T$,
+$w_t=1/\log f(t)$. Then formula~(6) of part~I expresses $\Var(A_T)$ through $\sum_{h<T}(S_f(h)-C^2)W_T(h)$ with a
+smooth weight $W_T$, and inserting the explicit formula gives, provided Conjecture~\eqref{eq:conj} holds with
+the constant $A_f$,
+\[
+\frac{\Var(A_T)}{\E(A_T)}=1-\frac{\log T}{\log X}+\frac{1+2A_f/C(f)}{\log X}+\frac{c_1(f)\,T^{-2/3}+\sum_\rho c_\rho(f,T)\,T^{-3/4}}{\log X}
++O\Bigl(\frac{T^{-1/2+\varepsilon}}{\log X}\Bigr),\qquad X\approx f(T),
+\]
+with $c_\rho(f,T)$ bounded and oscillating in $\log T$. Three remarks. (i) The first three terms are the
+polynomial Montgomery--Soundararajan law of part~I; $A_f$ consists of an explicit diagonal part and
+$C^2O_f(0)$ (Proposition~\ref{prop:Of}). (ii) The zero-induced terms have relative size $T^{-3/4}$, below the
+$T^{-1/2+\varepsilon}$ that the hypothesis tolerates: nothing about primes and zeros follows, and we do not
+claim it. (iii) Under GRH the variance side is related to pair correlation of zeros by the
+Goldston--Montgomery theorem; for $\zeta_K=\zeta L(\chi_D)$ the Selberg-class version~\cite{BuiKeatingSmith2016}
+applies to each primitive factor, and Murty and Perelli~\cite{MurtyPerelli1999} predict that the zeros of the
+two factors are uncorrelated; but this concerns prime \emph{ideals} of $K$, for which a Dirichlet series
+exists, not prime values of $f$, for which none does.
 
 \section{Discussion and open problems}\label{sec:disc}
-\status{(1) Prove Theorem~\ref{thm:explicit-general} in general. (2) The off-diagonal for quadratics
-(Route A). (3) Is the natural boundary known for the Goldston--Suriajaya series? (4) Higher moments:
-$R_k$ for polynomial tuples and Gaussian fluctuations. (5) The constant $A_f$ in closed form.}
+
+\paragraph{What we learned.} (1)~The object behind the second moment of prime values of $f$ is not one
+$L$-function but the plethystic expansion of $1+\chi_Vv$: a canonical sequence of virtual characters $\Psi_N$
+of the Galois group, with $\Psi_1=V$ and $\Psi_2=-\Sym^2V$. (2)~The linear case is degenerate: its expansion
+terminates, which is why the twin-prime explicit formula is unconditional and why the wall at $\Re s=-1$ was
+never in the way. (3)~For non-linear $f$ there is a term $x^{m-2/3}$ larger than the zero terms; a numerical
+search for the zeros that does not subtract it fails, which is what happened in part~I. (4)~Near a natural
+boundary an explicit formula is asymptotic, not convergent, in the position of the contour. (5)~With the
+smooth terms subtracted exactly, the zeros of $L(s,\chi_{-4})$ appear in the second moment of $t^2+1$ with the
+predicted amplitude and phase.
+
+\paragraph{Open problems.} (a)~Prove (E1) and (E2) for quadratics (part~III). (b)~The multiplicity of the
+trivial character in $\Psi_N$ for general $G$, hence the full list of real poles $-1+1/N$; for $S_n$ it is
+$\tfrac1N\sum_{j\mid N}\mu(j)(-1)^{N/j+1}\,\mathbb E[\chi_V(g^j)^{N/j}]$, with moments of fixed-point counts of powers
+of random permutations. (c)~The limiting logarithmic distribution of $E_m(x)/x^{m-3/4}$ (in the sense of
+Rubinstein--Sarnak) and whether it is biased. (d)~Higher moments: the $k$-point singular series of
+Montgomery--Soundararajan for polynomial tuples and the virtual characters that appear. (e)~The unconditional
+function-field explicit formula for $t^2-D$ against the exact data. (f)~Whether Hypothesis~(E) can fail for
+non-$2$-transitive Galois groups.
+
+\appendix
+\section{Computational programme}\label{app:comp}
+
+Every number in this paper comes from \texttt{followup/scripts/riesz-raw.ts} (exact Riesz means; seconds)
+and \texttt{followup/scripts/explicit-diag.py} (exponents, constants, residues by Cauchy integrals,
+comparison; about $25$ minutes with primes to $4\cdot10^6$ and ordinates to $100$; residues cached). The
+following items are specified for execution elsewhere; none is needed for the theorems.
+\begin{itemize}
+\item[(C1)] Table of $Q_{2,\rho}$, $Q_{3,\rho}$ for the first $8$ zeros of $L(s,\chi_{-4})$ and $6$ of $\zeta$, with an
+independent check by direct differentiation of $\log G_m$ (analytic derivatives of the local factors) instead
+of Cauchy integrals. Input: \texttt{data/explicit-diag-terms-*.pkl}. Output: a \LaTeX\ table. Minutes.
+\item[(C2)] Zero sum to $\gamma\le300$ (\texttt{--analyse-only} reuses the cache; new poles about $2$ hours), to
+see how the unexplained root mean square $0.29$ decreases; a phase-randomised control (same ordinates,
+random phases) beside the shifted-ordinate control.
+\item[(C3)] Other polynomials: $t^2+t+41$ ($D=-163$; the zero at $0.2029$ treated as a known non-oscillating
+component), $t^2-2$ ($D=8$), an $S_3$ cubic ($t^3-2$; zeros of $\zeta_{\Q(2^{1/3})}$ from the LMFDB, $\omega_f(p)$
+from the factorisation of $f$ modulo $p$). Requires generalising the driver from $\chi_{-4}$ to arbitrary
+$\omega_f(p)$. A day of programming, hours of computing per polynomial.
+\item[(C4)] $\Off_f(H)$ for $t^2+1$ to $H=10^7$ (extending \texttt{thesis/offdiag.ts}) and its spectrum in
+$\log H$: whether the off-diagonal carries oscillations of its own (Section~\ref{sec:off}) or bounded noise.
+Hours.
+\item[(C5)] The function-field explicit formula for $f=t^2-D$ over $\F_q[u]$, $q=3,5,7$: $L$-polynomials,
+exponents (Table~\ref{tab:exponents}), residues on circles, comparison with \texttt{thesis/ff.ts}. A day.
+\item[(C6)] Raw Riesz means to $x=10^9$ by a segmented sieve of $A_f(n)$, extending the $\log x$ range from
+$8.3$ to $11.5$ and separating the ordinates $12.99$ and $14.13$. Hours, $\ge16$ GB or a segmented rewrite.
+\end{itemize}
 
 \section*{Data and code}
-\texttt{followup/scripts/riesz-raw.ts} (raw Riesz means), \texttt{followup/scripts/explicit-diag.py}
-(exponents, constants, residues, comparison), \texttt{followup/data/*}. \status{add WP2 scripts}
+\texttt{followup/scripts/riesz-raw.ts}, \texttt{followup/scripts/explicit-diag.py},
+\texttt{followup/scripts/gen-wp0.py}; results in \texttt{followup/data/}. Part~I's code is in \texttt{thesis/}.
 
 \section*{Statement on authorship and the use of AI}
-\status{as in part I}
+The questions, the direction of the research and the decisions about scope were the first author's; the
+mathematics, the software and the text were produced by the Anthropic model Claude Fable 5.1 working
+interactively under the first author's direction, in September 2026; the first author has verified the
+code and the results and takes responsibility for the content. Most journals do not permit an AI system as
+an author; if the venue requires it, the second author line becomes an acknowledgement and this statement
+the required disclosure.
 
 \bibliographystyle{plain}
 \bibliography{refs}

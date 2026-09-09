@@ -81,6 +81,18 @@ formula) → WP2 → WP3 → primes section (WP6, honest framing) → two review
 - To check by a second reader: the constants in the horizontal-segment lemma; the claim (G1) for L(s,χ_D)
   under GRH (standard); the A = 16 bookkeeping; the definition of c_{f,m}.
 
+## 1d. State of the manuscript (9 Sep, night)
+- main.tex is now a 17-page draft: abstract and introduction in the style of paper I (question, plain terms,
+  template, results, what is conditional on what, literature, reader's guide, notation); Sections 2–4 with
+  proofs and one short "in words" paragraph after each theorem; Section 5 = analytic reformulation of
+  Hypothesis (E) (Proposition: Σ(S_f−C²)h^{-s} = C²ζ(s)(D_f(s)−D_f(1)) + C²O_f(s); holomorphy of O_f in
+  Re s > −δ ⇒ Conjecture in Cesàro form; quadratics: O_f as a Dirichlet series of Salié-type Weyl sums via
+  Hurwitz's formula; the two estimates (E1)/(E2) for part III); Section 6 = function-field structure theorem
+  (corrected: not rational; unconditional circle-contour formula deferred); Section 7 = conditional
+  consequences for primes; Section 8 = discussion; Appendix = computational programme (C1)–(C6) for an
+  external machine. No \status tags remain.
+- Per the author (9 Sep): computations are to be run externally later; the paper must stand on the theorems.
+
 ## 2. Work packages
 
 ### WP0 — Exact explicit formula for the diagonal of t²+1, tested against data  [NUMERICAL, first result 9 Sep]
