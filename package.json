@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "thesis": "tsx thesis/run.ts",
+    "thesis": "tsx research/experiments/run.ts",
     "test": "vitest run"
   },
   "dependencies": {

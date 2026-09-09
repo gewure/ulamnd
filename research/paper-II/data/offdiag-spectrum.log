@@ -1,0 +1,25 @@
+sieve (0 s)
+S_f(h)/C^2 built, 3183623 large cofactors (3 s)
+A_f sums (3 s)
+Off_f: mean -0.0129, sd 0.5061, min -1.400, max 1.491 (3 s)
+drift of Off_f per unit log H: -0.00128 (a log H term would show here; trivial bound ~ C^-1 = 0.73)
+resolution in omega: 0.682
+  peak omega=2.38 power=0.00008225 |nearest Maass| 7.15 |nearest zeta/2| 4.69
+  peak omega=13.16 power=0.00007553 |nearest Maass| 0.62 |nearest zeta/2| 0.65
+  peak omega=5.36 power=0.00005735 |nearest Maass| 4.17 |nearest zeta/2| 1.71
+  peak omega=18.32 power=0.00005606 |nearest Maass| 0.14 |nearest zeta/2| 0.47
+  peak omega=17.2 power=0.00005176 |nearest Maass| 0.54 |nearest zeta/2| 0.73
+  peak omega=16.46 power=0.00005101 |nearest Maass| 0.18 |nearest zeta/2| 0.01
+  peak omega=21 power=0.00004965 |nearest Maass| 1.52 |nearest zeta/2| 0.54
+  peak omega=23.04 power=0.00004431 |nearest Maass| 3.56 |nearest zeta/2| 0.97
+  peak omega=7.58 power=0.00003678 |nearest Maass| 1.95 |nearest zeta/2| 0.51
+  peak omega=25.28 power=0.00003181 |nearest Maass| 5.8 |nearest zeta/2| 0.32
+  peak omega=29.7 power=0.00002478 |nearest Maass| 10.22 |nearest zeta/2| 4.74
+  peak omega=0.98 power=0.00001465 |nearest Maass| 8.55 |nearest zeta/2| 6.09
+  peak omega=14.78 power=0.000008596 |nearest Maass| 0.42 |nearest zeta/2| 0.43
+  peak omega=10.54 power=0.000007806 |nearest Maass| 1.01 |nearest zeta/2| 0.03
+  peak omega=19.58 power=0.000005939 |nearest Maass| 0.1 |nearest zeta/2| 0.79
+mean z at Maass lines 0.46 (n=10); at zeta/2 lines 0.69 (n=8); random 0.50 +- 0.66
+  per Maass line: -0.8 0.4 1.2 -0.3 1.0 1.0 1.1 1.1 0.0 -0.1
+  per zeta/2 line: 0.8 -0.3 1.1 0.1 1.0 1.1 0.9 0.8
+done (4 s)
