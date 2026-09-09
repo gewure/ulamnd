@@ -93,6 +93,14 @@ formula) → WP2 → WP3 → primes section (WP6, honest framing) → two review
   external machine. No \status tags remain.
 - Per the author (9 Sep): computations are to be run externally later; the paper must stand on the theorems.
 
+## 1f. Revisions after the second opinion (10 Sep; see KNOWLEDGE.md §5)
+- Route B (F_q[u], q → ∞) reinstated as a paper III target beside Route A (KNOWLEDGE P2).
+- Paper III's theorem is the Cesàro form; say so in the title; O(1) is an open problem.
+- No general Frobenian Dahlquist section in paper II; a remark and open problem (h) only.
+- Kurokawa–Moroz/Alberts attribution fixed in paper II (10 Sep).
+- External review action for paper I (arXiv endorsement; one precise question to a specialist) recorded as
+  the author's decision; it does not block paper III.
+
 ## 1e. Paper III plan (from LITERATURE-3.md, 9 Sep night)
 Target theorem: Hypothesis (E) in Cesàro form for every irreducible quadratic ⇒ Conjecture 1 of paper I in
 Cesàro form for quadratics. Route: Vaaler expansion; Lemma A (twisted Weyl sums of quadratic roots over
