@@ -37,6 +37,8 @@ for quadratics. Nothing here proves anything about primes; all prime statements 
   at resolution 0.68); F_q[u] q-sweep of Off_f(N) for t²−u (research/paper-III/data/offq.*). Paper III scaffold
   with the precise Lemma A (frequencies only up to (log H)^A thanks to the Cesàro k^{-2} decay; DFI 2012 covers
   d ≥ kH only, Hooley's method needed below). Singularity-map figure in paper II.
+- 10 Sep. F_q[u] q-sweep (research/paper-III/data/offq.*): Off_f(N) ≈ −2.05/q for f = t²−u, N = 1, 2 — a
+  1/q law, not q^{-1/2}. Paper III §5 records it; Theorem B's target sharpened.
 - 10 Sep. Second opinion (Claude Opus 5.1, via the author) assessed below; Alberts's survey checked:
   Kurokawa–Moroz criterion covers Frobenian coefficients only, not our 1/p dependence.
 
@@ -88,7 +90,7 @@ F10. Programming: `pkill -f <script>` kills the harness's own shell when the com
 | # | path | rating | comment |
 |---|------|--------|---------|
 | P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
-| P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★☆ | Now formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5); q-sweep data for t²−u. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
+| P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
 | P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
 | P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★☆☆☆ (was ★★★, 10 Sep) | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |
 | P5 | Job (C4): spectrum of Off_f(e^u) for t²+1 | done to 10⁷ (10 Sep) | Null: no Maass or ζ lines at resolution 0.68; Off bounded, no drift. Extend to 10⁹ externally (segmented sieve) before closing the question. |

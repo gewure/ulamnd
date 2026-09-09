@@ -170,21 +170,38 @@ equidistribution for the Sali\'e sums of the roots over primes of fixed degree.
 \begin{tikzpicture}
 \begin{axis}[width=0.7\textwidth,height=5.2cm,xlabel={$q$},ylabel={$\Off_f(N)$},legend pos=south east,legend style={font=\scriptsize},
   title={$f=t^2-u$ over $\F_q[u]$: the off-diagonal at fixed $N$ as $q$ grows}]
-\addplot[only marks,mark=*,blue!70!black] table[x=q,y=off,row sep=newline] {data/offq-N2.dat};
+\addplot[only marks,mark=*,blue!70!black] table[x=q,y=off] {data/offq-N2.dat};
+\addplot[only marks,mark=triangle*,gray] table[x=q,y=off] {data/offq-N1.dat};
+\addplot[domain=3:43,samples=100,dashed,blue!50!black] {-2.05/x};
 \addplot[only marks,mark=square*,red!70!black] table[x=q,y=off] {data/offq-N3.dat};
 \addplot[dashed,gray] coordinates {(3,0) (47,0)};
-\legend{$N=2$,$N=3$}
+\legend{$N=2$,$N=3$,$N=1$ ($=-T_{\exp}$),$-2.05/q$}
 \end{axis}
 \end{tikzpicture}
-\caption{Exact values of $\Off_f(N)$ over $\F_q[u]$ for $f=t^2-u$ (\texttt{scripts/offq.ts}). Theorem~\ref{thm:B}
-predicts decay like $q^{-1/2}$.}
+\caption{Exact values of $\Off_f(N)$ over $\F_q[u]$ for $f=t^2-u$ (\texttt{scripts/offq.ts}; $N=2$ for the primes
+$3\le q\le43$, $N=3$ for $q\le7$). The decay is faster than the $q^{-1/2}$ of Theorem~\ref{thm:B}: $q\,\Off_f(2)$
+is $-1.96,-2.25,-2.19,-2.02,-2.03,-2.11,-2.02,-2.08,-2.08,-2.02$ for $q=11,\dots,43$, and $q\,\Off_f(1)$
+decreases monotonically towards the same value ($-2.13$ at $q=41$).}
 \label{fig:offq}
 \end{figure}}{}
+
+\begin{remark}[a $1/q$ law]
+The data suggest $\Off_f(N)=-\kappa/q+O(q^{-3/2})$ with $\kappa$ close to $2$ and apparently independent of
+$N$ (for $N=1$, $\Off_f(1)=-T_{\exp}(1)$ exactly, since no modulus of degree in $(1,M(1)]$ exists). If true, the
+main terms of the two point counts in the reduction above agree not only at order $q^{\dim}$ but at order
+$q^{\dim-1/2}$ as well, and the first discrepancy is at relative order $q^{-1}$: the varieties $V_{k,N}$ would have
+point counts polynomial in $q$ to one order beyond Lang--Weil, as rational varieties do. This sharpens the
+target of Theorem~\ref{thm:B} to an asymptotic with an explicit constant, and it is the first place in the
+programme where the off-diagonal has a \emph{main term} rather than a bound. \target{compute $\kappa$ from
+the degree-$(N+1)$ split primes: the leading contribution to $T_{\exp}$ is $q^N\sum_{\deg P=N+1,\ \omega=2}W_f(P)\cdot2/|P|\approx1/((N+1)q)$;
+the observed $-2/q$ must therefore come from $T_{\mathrm{act}}-T_{\exp}$ at the moduli of degree $N+1$ and
+$N+2$ jointly, i.e.\ from the pairs whose difference has degree exactly $N-1$; work it out for $N=1,2$.}
+\end{remark}
 
 \section{Numerical evidence}\label{sec:num}
 Over $\Z$: the off-diagonal of $t^2+1$ is bounded to $H=10^7$, with mean $-0.01$, standard deviation $0.51$ and
 no drift in $\log H$ (part~II, Section~5.3); a failure of Hypothesis~(E) would show as a slope of order $0.73$
-per unit of $\log H$. Over $\F_q[u]$: Figure~\ref{fig:offq}.
+per unit of $\log H$. Over $\F_q[u]$: Figure~\ref{fig:offq} and the $1/q$ law of the remark after it.
 
 \section{Open issues}
 (1)~The core of Lemma~A: the phase $e(kH/d)$ for $d<(kH)^{1/2}$ within Hooley's parametrisation. (2)~The
