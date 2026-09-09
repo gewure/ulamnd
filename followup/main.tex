@@ -145,8 +145,16 @@ for prime \emph{elements} of a number field; explicit formulas over the zeros of
 in the Goldbach setting~\cite{BhowmikHalupczokMatsumotoSuzuki2019,GoldstonSuriajaya2023}; variances
 governed by higher-degree $L$-functions over $\F_q[t]$ are in~\cite{HallKeatingRodittyGershon2019}. Natural
 boundaries of Euler products go back to Estermann~\cite{Estermann1928} and Dahlquist~\cite{Dahlquist1952},
-with the multivariable case in~\cite{BhowmikEssouabriLichtin2007}. We found no previous identification of
-$\Sym^2V$, of the characters $\Psi_N$, or of a natural boundary in a singular-series average.
+with the multivariable case in~\cite{BhowmikEssouabriLichtin2007} and the ``ghost'' formalism of du Sautoy
+and Grunewald~\cite{duSautoyGrunewald2002}; the factorisation of Euler products \emph{of Galois type} through
+$L$-functions of virtual characters, and the criterion for meromorphy in terms of the representation ring,
+are due to Kurokawa~\cite{Kurokawa1986}, and the explicit continuation of Frobenian Euler products to
+$\Re s>0$ is surveyed by Alberts~\cite{Alberts2024}. Relative to that theory, what is new here is the
+two-variable situation (the local factor depends on $p^{-1}$ as well as on $p^{-s}$ and on $\Frob_p$), the
+explicit characters $\Psi_N$ for the specific series $D_f$, the location of the boundary, and its
+consequences for the explicit formula; we found no previous identification of $\Sym^2V$ or of a natural
+boundary in a singular-series average, including Goldston--Suriajaya's series for $f(t)=t$, whose factor
+$G(s)$ is stated there as continuing to $\Re s>-1$ with no remark on the boundary.
 
 \paragraph{Reader's guide.} The theorems are in Sections~\ref{sec:structure}, \ref{sec:explicit} and
 \ref{sec:omega}; each is followed by a short paragraph ``in words''. Section~\ref{sec:off} is the foundation
@@ -359,6 +367,16 @@ $-1+it_0$: a contradiction. For $\zeta(s)D_f(s)$ the same argument applies, sinc
 identical.
 \end{proof}
 
+\begin{remark}[no asymptotic explicit formula]
+Bhowmik and Schlage-Puchta~\cite{BhowmikSchlagePuchta2007} proved that a Dirichlet series with a natural
+boundary at $\Re s=\sigma_0$ admits no asymptotic expansion of its summatory function by residue terms with
+error $O(x^{\sigma_0-\varepsilon})$. Applied to $\zeta(s)D_f(s)$ (subject to checking their growth hypotheses in our
+setting), this says that for every $\varepsilon>0$ the Riesz mean $R_m(x)$ minus the sum of \emph{all} residues
+in $\Re s>-1+\varepsilon$ is $\Omega(x^{m-1-\varepsilon})$: the error term $O(x^{m-1+\varepsilon})$ of the
+twin-prime explicit formula~\cite{GoldstonSuriajaya2021} is best possible in this strong sense, and so is
+ours.
+\end{remark}
+
 \emph{In words.} Each local factor vanishes on a lattice of points whose real parts tend to $-1$ and whose
 imaginary parts become dense, so $D_f$ cannot be continued across $\Re s=-1$. This is why the explicit formula
 below is conditional while the twin-prime formula of Goldston and Suriajaya is not: they could move the
@@ -408,6 +426,13 @@ c'_{f,m}=\Res_{s=-2/3}G_m(s)=\frac{m!\,\zeta(-\tfrac23)\zeta(\tfrac13)L(\tfrac13
 $c_{f,m}$ being the constant term of the residue at $s=0$. The implied constant depends on $f$, $m$ and
 $\varepsilon_0$.
 \end{theorem}
+
+\begin{remark}[the class number in the term $x^{m-2/3}$]
+The coefficient $c'_{f,m}$ contains the factor $L(1,\chi_D)$, which for $D<0$ equals $2\pi h(D)/(w_D\sqrt{|D|})$
+by Dirichlet's class number formula: the class number of $\Q(\sqrt D)$ enters the second moment of the pair
+singular series of $f$ through the real term $x^{m-2/3}$, alongside the values $\zeta(\tfrac13)$,
+$L(\tfrac13,\chi_D)$ and the Euler product $M_{f,K}(-\tfrac23)$.
+\end{remark}
 
 The coefficient of $x^m\log x$ is $-1/(2C(f))$ because $\Res_{s=0}D_f=1/C(f)$ (part I, Theorem~3) and
 $\zeta(0)=-\tfrac12$; explicitly $c_{f,m}=-\frac1{2C(f)}\bigl(\log2\pi-H_m\bigr)-\tfrac12\kappa_f$ with
@@ -811,7 +836,14 @@ of random permutations. (c)~The limiting logarithmic distribution of $E_m(x)/x^{
 Rubinstein--Sarnak) and whether it is biased. (d)~Higher moments: the $k$-point singular series of
 Montgomery--Soundararajan for polynomial tuples and the virtual characters that appear. (e)~The unconditional
 function-field explicit formula for $t^2-D$ against the exact data. (f)~Whether Hypothesis~(E) can fail for
-non-$2$-transitive Galois groups.
+non-$2$-transitive Galois groups. (g)~By the general theorem of Akbary, Ng and
+Shahabi~\cite{AkbaryNgShahabi2014}, the normalised error $E_m(x)/(x^{m-3/4}\log x)$ has a limiting logarithmic
+distribution under RH and a Gonek--Hejhal-type bound; under linear independence of the ordinates of
+$\zeta\cdot\zeta_{\Q(\sqrt D)}$ it is symmetric, so $E_m$ is negative with logarithmic density exactly $\tfrac12$
+despite the negative main term of~\eqref{eq:conj}: a ``no bias'' statement worth proving. (h)~Lowering the
+Riesz order from $m\ge2$ to all $m>0$ by the double Mellin transform technique of Br\"udern, Kaczorowski and
+Perelli~\cite{BrudernKaczorowskiPerelli2019}, and a converse: does $E_m(x)\ll x^{m-3/4+\varepsilon}$ imply the
+Riemann hypothesis for $\zeta_{\Q(\sqrt D)}$?
 
 \appendix
 \section{Computational programme}\label{app:comp}
