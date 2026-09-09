@@ -43,35 +43,31 @@ requires it, this line becomes an acknowledgement and the statement the required
 \maketitle
 
 \begin{abstract}
-Let $f\in\Q[t]$ be irreducible, integer-valued and without fixed prime divisor, with Bateman--Horn
-constant $C(f)$, and let $S_f(h)$ be its pair singular series: the explicit Euler product that, under the
-Hardy--Littlewood conjecture, weights the simultaneous primality of $f(t)$ and $f(t+h)$. This paper is
-about the arithmetic function $S_f$, and its theorems involve no prime. We prove an exact identity
-expressing $\sum_{h\le H}(S_f(h)-C(f)^2)$ through the roots of $f$ modulo squarefree $d$; that the
-diagonal part (equal roots) has Dirichlet series $\zeta_K(s+1)E_f(s)$, $K=\Q[t]/(f)$, with residue exactly
-$1/C(f)$, where $1/E_f$ is essentially the Artin $L$-function of the symmetric square of the permutation
-representation on the roots; a closed twin-prime-type formula for $S_f(h)$ when $f$ is quadratic; that the
-Ces\`aro form of the asymptotic
+How many primes lie among the values $f(1),f(2),f(3),\dots$ of a polynomial, and how much does that
+number fluctuate? The first question has a conjectural answer, the Bateman--Horn constant $C(f)$; this
+paper is about the second, which for the sequence of all primes is the question that leads to the zeros
+of the Riemann zeta function. The fluctuation is governed by an explicit arithmetic function, the pair
+singular series $S_f(h)$, the Euler product that under the Hardy--Littlewood conjecture weights the
+simultaneous primality of $f(t)$ and $f(t+h)$; all our theorems concern $S_f$ and involve no prime. We
+prove an exact identity for $\sum_{h\le H}(S_f(h)-C(f)^2)$ in terms of the roots of $f$ modulo squarefree
+$d$; that its diagonal part has Dirichlet series $\zeta_K(s+1)E_f(s)$, $K=\Q[t]/(f)$, with residue exactly
+$1/C(f)$ and $1/E_f$ essentially the Artin $L$-function of the symmetric square of the permutation
+representation on the roots, so that the Dedekind zeta function of the field cut out by $f$ governs the
+second moment of its prime values; a closed formula for $S_f(h)$ when $f$ is quadratic; and that the
+Ces\`aro form of
 \[
 \sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)
 \]
-holds unconditionally for linear $f$ (the Montgomery--Soundararajan case) and, for general $f$, holds if
-and only if the off-diagonal sum over pairs of distinct roots is $o(H\log H)$---for a $2$-transitive
-Galois group the trivial bound is $O(H\log H)$, so any unbounded saving suffices; and that over $\F_q[u]$
-the off-diagonal contribution of every modulus of degree $\le N$ vanishes identically, the remainder
-being a finite sum over moduli of degree between $N$ and $3N$. We conjecture the displayed asymptotic
-for every $f$, with the \emph{first} power of $C(f)$; this is a statement about an explicit function,
-in the family of the equidistribution theorems of Hooley and of Duke, Friedlander and Iwaniec for the
-roots of quadratic congruences. The closed formula makes $S_f(h)$ exactly computable by sieving: for
-$\exN$ quadratics with $\exCmin\le C(f)\le\exCmax$ and $H\le10^6$ the fitted exponent in
-$\sum_{h\le H}(S_f(h)-C^2)\approx-k\,C^\alpha\log H$ is $\alpha=\exAlpha\pm\exAlphaSe$
-($\exAlphaLin\pm\exAlphaLinSe$ unweighted), excluding the $C^2$ law by at least $\exSigmaTwoMin$
-standard errors, while the finite-$H$ coefficient is about $\exFracHalf$ of the predicted $\tfrac12$.
-Assuming the Hardy--Littlewood pair conjecture for $f$, the conjecture implies that the
-Montgomery--Soundararajan law $\Var/\E\to1-\log T/\log X$ for primes in short intervals holds for the
-prime values $f(t)$, $t<T$, of every polynomial, with a polynomial-dependent correction that is large at
-accessible $T$; prime counts along $\nCells$ cells of polynomial sequences agree with this against a
-random-integer control.
+holds unconditionally for linear $f$ and, for general $f$, exactly when the sum over pairs of distinct
+roots is $o(H\log H)$. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
+rather than the second that a naive rescaling predicts; $\exN$ quadratics computed exactly to $H=10^6$
+give the exponent $\exAlpha\pm\exAlphaSe$. In plain terms: primes along any polynomial sequence fluctuate
+less than independent coin flips would, by the mechanism that Montgomery and Soundararajan found for
+primes in short intervals, and the size of the effect is set by an $L$-function attached to the
+polynomial. Assuming the Hardy--Littlewood pair conjecture, the law $\Var/\E\to1-\log T/\log X$ therefore
+holds for the prime values of every polynomial, with a polynomial-dependent correction that is large at
+accessible $T$, as prime counts along $\nCells$ polynomial sequences confirm against a random-integer
+control.
 \end{abstract}
 
 \section{Introduction}
@@ -125,6 +121,23 @@ the variance statements are theorems~\cite{KeatingRudnick2014}.) The point of Co
 the \emph{first} power of $C(f)$: the second-order term is not $C(f)^2$ times the linear case, as a
 naive rescaling of the twin-prime heuristic would give, but $C(f)$ times it.
 
+\paragraph{Why this matters, in plain terms.} A polynomial sequence such as $t^2+1$ is expected to
+contain primes with density $C(f)/\log f(t)$, as if each value were an independent coin flip with that
+probability. Independent coin flips would make the number of primes among the first $T$ values fluctuate
+with variance equal to its mean. Primes are not independent: whether $f(t)$ is divisible by a small prime
+$p$ repeats with period $p$ in $t$, so the sieving by small primes is deterministic along the sequence and
+only the large primes contribute randomness. The function $S_f(h)$ measures the resulting correlation
+between $f(t)$ and $f(t+h)$, and the sum $\sum_{h\le H}(S_f(h)-C^2)$ is the total correlation up to
+distance $H$: it is negative, and it is exactly the amount by which the variance falls short of the
+coin-flip value. Our result is that this shortfall is $\tfrac12C(f)\log H$ for every polynomial, with the
+\emph{first} power of $C(f)$, and that it is generated by the Dedekind zeta function of the number field
+defined by $f$. For the linear polynomial this is the classical statement, going back to Montgomery and
+Soundararajan, that primes in short intervals are ``more regular than random''; the present paper shows
+that the same regularity, with the same constant $\tfrac12$, holds along every polynomial, and identifies
+the $L$-function behind it. What the paper does \emph{not} do is prove anything about the primes
+themselves: the translation from $S_f$ to prime counts assumes the Hardy--Littlewood pair conjecture,
+which is open for every non-linear $f$.
+
 \paragraph{Results.} Section~\ref{sec:sum} proves an exact identity for the left side
 of~\eqref{eq:conj} (Theorem~\ref{thm:expansion}), identifies the Dirichlet series of its diagonal part
 as $\zeta_K(s+1)E_f(s)$ with residue $1/C(f)$ at $s=0$ (Theorem~\ref{thm:dirichlet}), which is where
@@ -176,11 +189,22 @@ the explicit arithmetic function $S_f$, provable or refutable with no conjecture
 Hypothesis~(E) is a concrete equidistribution statement about the roots of $f$ modulo $d$ on average
 over $d$, in the family of the theorems of Hooley~\cite{Hooley1963} and of Duke, Friedlander and
 Iwaniec~\cite{DFI1995} on the roots of quadratic congruences. The theorems of Section~\ref{sec:sum} are
-unconditional; Proposition~\ref{thm:explicit} is conditional only on writing out a contour argument that
-we have sketched. Section~\ref{sec:spiral} records where our polynomial families come from (a
+unconditional; Proposition~\ref{thm:explicit} assumes the Riemann hypothesis for $\zeta$ and
+$L(s,\chi_D)$ and a contour argument that we have sketched. Section~\ref{sec:spiral} records where our polynomial families come from (a
 $d$-dimensional Ulam spiral whose lattice lines carry polynomials of degree exactly $d$,
 Theorem~\ref{thm:poly}). Section~\ref{sec:disc} discusses what is proved, what is heuristic, and what
 should be done next.
+
+\paragraph{Reader's guide.} Section~\ref{sec:pair} defines $S_f$ and records its elementary properties.
+Section~\ref{sec:sum} contains the theorems: the exact identity (\S\ref{sec:heur}), the Dedekind zeta
+function (\S\ref{sec:diag}), the Artin $L$-function and the quadratic closed formula (\S\ref{sec:artin}),
+the Ces\`aro theorem and the reduction to the off-diagonal (\S\ref{sec:thms}), the numerical tests
+(\S\ref{sec:sumnum}) and the function-field identity (\S\ref{sec:ff}). Section~\ref{sec:riesz} explains where
+the zeros of $L(s,\chi_D)$ enter and why they are hard to see numerically. Section~\ref{sec:primes}
+compares the prediction with actual prime counts, Section~\ref{sec:spiral} records where our polynomial
+families come from, and Section~\ref{sec:disc} summarises what is proved, what is conjectured and what
+should be done next. A reader interested only in the main theorem needs Sections~\ref{sec:pair},
+\ref{sec:heur}, \ref{sec:diag} and~\ref{sec:thms}.
 
 \section{The pair singular series}\label{sec:pair}
 
@@ -207,6 +231,12 @@ and Banks and Ford~\cite{BanksFord2026} that random sets of the right density sa
 statistics almost surely.
 
 \section{The sum of the pair singular series}\label{sec:sum}
+
+\emph{This section contains the theorems of the paper. The idea is simple: expand $S_f(h)$ into a sum
+over moduli $d$ of terms that depend on $h$ only through $h\bmod d$, sum over $h\le H$, and read off the
+secondary term from the moduli whose contribution does not average out. The pairs of equal roots of $f$
+modulo $d$ give a Dirichlet series with a pole whose residue is $1/C(f)$; the pairs of distinct roots
+are the obstacle.}
 
 Throughout this section $f\in\Z[t]$ is irreducible of degree $n\ge1$, with positive leading
 coefficient and no fixed prime divisor, so that $\omega_f(p)<p$ for every $p$; $R(h)$ denotes the
@@ -338,7 +368,13 @@ symbol,
 D_f(s)=\frac{\zeta(s+1)\,L(s+1,\chi_D)}{\zeta(2s+2)^2\,L(2s+2,\chi_D)}\;H_f(s),
 \]
 and extracting the cubic terms as well, $H_f(s)=\zeta(3s+3)L(3s+3,\chi_D)\,\tilde H_f(s)$ with $\tilde H_f$
-absolutely convergent for $\Re s>-1$.
+absolutely convergent for $\Re s>-\tfrac34$. The extraction does not stop: writing $v=p^{-(s+1)}$, the
+part of the local factor of $E_f$ at a split prime that survives as $p\to\infty$ with $v$ fixed is
+$(1+2v)(1-v)^2=1-3v^2+2v^3$, whose logarithm has infinitely many terms, so that
+$\tilde H_f(s)=\zeta(4s+4)^{-1}L(4s+4,\chi_D)^{-2}\,\zeta(5s+5)^3L(5s+5,\chi_D)^3\cdots M_f(s)$ with integer
+exponents and $M_f$ absolutely convergent for $\Re s>-1$; $D_f$ is meromorphic in $\Re s>-1$, has a real
+pole at $s=-\tfrac23$ (from $\zeta(3s+3)$) and further real poles at $s=-1+1/k$, $k$ odd, and $\Re s=-1$ is
+a natural boundary, the zeros of the local factors $F_p$ accumulating at every point of it.
 \end{theorem}
 
 \begin{proof}
@@ -352,6 +388,14 @@ and terms $p^{-k(1+s)}$, $k\ge3$, with bounded coefficients, whence the converge
 quadratic, $V_f=\mathbf 1\oplus\chi_D$, so $\zeta_K=\zeta L(\chi_D)$, $\operatorname{Sym}^2V_f=\mathbf 1\oplus\mathbf 1\oplus\chi_D$,
 and the cubic coefficient is $\chi_{\Lambda^3}-\omega\chi_{\Lambda^2}=-\omega\chi_D(p)$ for $\dim V=2$; with
 $\omega=1+\chi_D(p)$ this is $-(\chi_D+1)$ up to the sign convention, giving the factor $\zeta(3s+3)L(3s+3,\chi_D)$.
+Continuing the expansion of $\log\bigl((1+2v)(1-v)^2\bigr)$ (split $p$) and $\log(1-v^2)$ (inert $p$) and
+inverting over the divisors of each degree gives the exponents of the higher factors ($-3v^4$ at split
+primes is the first uncancelled term, whence the abscissa $-\tfrac34$); the mixed terms $p^{-a}v^b$,
+$a\ge1$, converge absolutely for $\Re s>-1$. In the region $\Re s>-1+1/(K+1)$ the finitely extracted
+product vanishes exactly where a local factor $F_p(s)=P_p+p\,b(p)\omega_f(p)p^{-s}$ does, i.e.\ at
+$p^{-s}=-P_p/(p\,b(p)\omega_f(p))$; these zeros have real part $\to-1$ and imaginary parts
+$(2j+1)\pi/\log p$, dense as $p\to\infty$, which gives the natural boundary. The exponents and the
+convergence claims are checked to high precision in the code accompanying the sequel.
 \end{proof}
 
 The poles of $1/L(2s+2,\operatorname{Sym}^2V_f)$ lie at $s=\rho/2-1$ for the zeros $\rho$ of the symmetric-square
@@ -809,6 +853,11 @@ $q$ & $D$ & $N$ & $M(N)$ & $\#d$ & finite sum & series & difference & $\mathrm{O
 \FloatBarrier
 \section{Where the zeros of $L(s,\chi_D)$ enter, and why they are hard to see}\label{sec:riesz}
 
+\emph{This section is about lower-order terms. It explains the mechanism by which the zeros of $\zeta$
+and of $L(s,\chi_D)$ enter the fluctuations of $\sum_{h\le H}S_f(h)$, exactly as the zeros of $\zeta$ enter
+the twin-prime case, and reports an honest negative result: at the ranges we can compute they are not
+yet visible.}
+
 \subsection{The explicit formula for the diagonal}
 
 For $f(t)=t$ the mechanism is known: Vaughan~\cite{Vaughan2001} proved
@@ -823,13 +872,14 @@ part of $\sum_{h\le H}(S_f(h)-C^2)$ is $-C^2\sum_da_f(d)\{H/d\}=C^2\bigl(\sum_{n
 and $\sum_nA_f(n)n^{-s}=\zeta(s)D_f(s)$.
 
 \begin{proposition}\label{thm:explicit}
-Let $f$ be an irreducible quadratic with discriminant $D$ and $m\ge2$. Then
+Let $f$ be an irreducible quadratic with discriminant $D$, $m\ge2$, and assume the Riemann hypothesis for
+$\zeta$ and for $L(s,\chi_D)$. Then there is $\varepsilon_0>0$ such that
 \[
-\sum_{n\le x}(x-n)^mA_f(n)=P_m(x)+x^{m-1}\sum_{\substack{\rho\\|\gamma|\le U}}a_m(\rho)\,x^{\rho/2}+O(x^{m-1+\varepsilon}),
+\sum_{n\le x}(x-n)^mA_f(n)=P_m(x)+c_f\,x^{m-2/3}+x^{m-1}\sum_{\substack{\rho\\|\gamma|\le U}}a_m(\rho)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
 \]
-for some $x^5\le U\le2x^5$, where $P_m$ collects the residues at $s=1$ ($x^{m+1}$), $s=0$
-($x^m\log x$ and $x^m$) and $s=-1,\dots,-m$ (lower powers), $\rho$ runs over the zeros of
-$\zeta(s)^2L(s,\chi_D)$, and $a_m(\rho)$ is the residue of
+for some $x^5\le U\le2x^5$, where $P_m$ collects the residues at $s=1$ ($x^{m+1}$) and $s=0$
+($x^m\log x$ and $x^m$), $c_f\,x^{m-2/3}$ is the residue at the pole $s=-\tfrac23$ of $\zeta(3s+3)$,
+$\rho$ runs over the zeros of $\zeta(s)^2L(s,\chi_D)$, and $a_m(\rho)$ is the residue of
 \[
 \frac{m!\,\zeta(s)\zeta(s+1)L(s+1,\chi_D)\zeta(3s+3)L(3s+3,\chi_D)\tilde H_f(s)}{\zeta(2s+2)^2L(2s+2,\chi_D)\,s(s+1)\cdots(s+m)}
 \]
@@ -837,28 +887,35 @@ at $s=\rho/2-1$ (a polynomial of degree one in $\log x$ at the double zeros of $
 \end{proposition}
 
 \begin{proof}[Sketch]
-For $\dim V_f=2$, $\det(1-\operatorname{Frob}_pT\mid V_f)=1-\omega_f(p)T+\chi_D(p)T^2$, and the local factor
-$F_p$ contains $p^{-s}$ only linearly, so the product $E_f$ has, beyond the terms extracted in
-Theorem~\ref{thm:artin}, only terms $p^{-2}$, $p^{-2-s}$, $p^{-3-s}$, $p^{-3-2s}$ and smaller: $\tilde H_f$
-converges absolutely and is bounded in $\Re s\ge-1+\delta$. The generating series of $A_f$ is therefore
-meromorphic in $\Re s>-1$ with the poles listed and those at $s=\rho/2-1$, and it is of polynomial growth
-on vertical lines by the convexity bounds for $\zeta$ and $L(s,\chi_D)$. The proof of
+By Theorem~\ref{thm:artin} the generating series $\zeta(s)D_f(s)$ of $A_f$ is meromorphic in $\Re s>-1$;
+in the strip $-\tfrac34-\varepsilon_0\le\Re s\le2$, for $\varepsilon_0<\tfrac1{20}$, its poles are exactly
+$s=1$, $s=0$, $s=-\tfrac23$ and the points $s=\rho/2-1$ (the next real pole is at $-\tfrac45$ and the next
+family of zero-induced poles, from $\zeta(4s+4)L(4s+4,\chi_D)^2$, lies on $\Re s=-\tfrac78$). The proof of
 \cite[Theorem~1]{GoldstonSuriajaya2021} applies with $\zeta(2s+2)^2L(2s+2,\chi_D)$ in place of
-$\zeta(2s)$: the contour is moved to $\Re s=-1+\delta$ at a height $U$ chosen, by a zero-density estimate
-for $\zeta$ and $L(s,\chi_D)$, so that $1/(\zeta^2L)$ is not large on the horizontal segments, and the
-Riesz weight of order $m\ge2$ makes the vertical integral absolutely convergent. We state this as a
-proposition rather than a theorem because we have transplanted the argument and checked the new
-ingredients (the location of the poles, the growth of $\tilde H_f$), but have not written out the
-contour estimates line by line.
+$\zeta(2s)$: the contour is moved to $\Re s=-\tfrac34-\varepsilon_0$ at a height $U$ chosen, by a
+zero-density estimate for $\zeta$ and $L(s,\chi_D)$, so that $1/(\zeta^2L)$ is not large on the horizontal
+segments, and the Riesz weight of order $m\ge2$ makes the vertical integral absolutely convergent; on the
+vertical line, $\Re(2s+2)=\tfrac12-2\varepsilon_0$ lies just left of the critical line, and the Riemann
+hypothesis with the functional equation gives $1/\zeta(2s+2)$, $1/L(2s+2,\chi_D)\ll|t|^{2\varepsilon_0+\varepsilon}$
+there, while $\tilde H_f$ is bounded. Unlike the linear case, the contour cannot be moved across the
+whole critical strip of $\zeta(2s+2)$, because $\Re s=-1$ is a natural boundary; this is why the
+statement is conditional and why the error term is $x^{m-3/4-\varepsilon_0}$ rather than $x^{m-1+\varepsilon}$.
+(Moving the contour further, to $\Re s=-\tfrac78-\varepsilon_0$, is possible but useless: $|D_f|$ grows
+towards the natural boundary and the coefficients of the second family of zero terms are individually
+enormous, cancelling against the line integral.) We state this as a proposition rather than a theorem
+because we have transplanted the argument and checked the new ingredients (the location of the poles,
+the growth of $\tilde H_f$, the exponents), but have not written out the contour estimates line by line.
 \end{proof}
 
 Since $A_f(n)\ge0$ for $f=t^2+1$, Landau's theorem applies as in \cite[Theorem~4]{GoldstonSuriajaya2021} and
-gives $\Omega_\pm(x^{m-3/4})$ for the error term unconditionally. Thus the fluctuations of the diagonal
+gives, unconditionally, $\Omega_\pm(x^{m-3/4})$ for the error term after $P_m(x)+c_fx^{m-2/3}$ (the pole at
+$-\tfrac23$ is real and must be subtracted first; the first non-real singularity is at $-\tfrac34+3.01i$,
+from the zero $\tfrac12+6.02i$ of $L(s,\chi_{-4})$). Thus the fluctuations of the diagonal
 part of the pair-correlation sum of $t^2+1$ are governed by the zeros of $\zeta$ and of $L(s,\chi_{-4})$,
 the Dirichlet $L$-function of $\Q(i)$: this is the precise sense in which the field cut out by a
 polynomial enters the second moment of its prime values. Under the Riemann Hypothesis for $\zeta$ and
-$L(s,\chi_{-4})$ the diagonal error is $O(x^{m-3/4+\varepsilon})$; without it, it can be as large as
-$x^{m-1+\beta/2}$ for a zero of real part $\beta$.
+$L(s,\chi_{-4})$ the diagonal error after the smooth terms is $O(x^{m-3/4+\varepsilon})$; a zero of real
+part $\beta>\tfrac12$ would produce a term of size $x^{m-1+\beta/2}$.
 
 \subsection{A numerical search}
 
@@ -904,15 +961,15 @@ predicted frequency $\gamma/2$. Resolution $\rdRes$; the predicted frequencies h
 \end{tabular}
 \end{table}
 
-So the zeros are not detected at $x\le2\cdot10^7$, and the reason is instructive. The explicit
-formula's secondary error is $O(x^{m-1+\varepsilon})$ against zero terms of size $|a_m(\rho)|x^{m-3/4}$
-with $|a_m(\rho)|$ decaying in $\gamma$; at $x=2\cdot10^7$ the ratio $x^{1/4}\approx67$ is not enough to
-lift the first few zeros above the secondary terms and above the $\gamma/2$-spacing set by the length
-of the $\log x$ range. To see the zeros of $L(s,\chi_{-4})$ one needs either the exact coefficients
-$a_m(\rho)$ (which requires $\tilde H_f$ on $\Re s=-\tfrac34$ and the derivatives of $\zeta$ and $L$ at
-the zeros), so that the predicted oscillation can be subtracted and the remainder examined, or a range
-$x\ge10^{10}$, beyond a direct sieve of $A_f(n)$. We record the negative result and leave the
-computation to the next step of the programme.
+So the zeros are not detected at $x\le2\cdot10^7$ by this method, and the reason is instructive. The
+fitted smooth basis did not contain the term $c_fx^{m-2/3}$ of Proposition~\ref{thm:explicit}, which is
+larger than the zero terms $|a_m(\rho)|x^{m-3/4}$, and the $\gamma/2$-spacing set by the length of the
+$\log x$ range is comparable to the spacing of the predicted frequencies. In the sequel we compute the
+main terms, $c_f$ and the coefficients $a_m(\rho)$ exactly and subtract them; the residual then agrees
+with the predicted sum over the zeros of $\zeta$ and $L(s,\chi_{-4})$ in amplitude and phase (regression
+coefficient $1.01$ for $m=2$, with the two families separately at $1.006$ and $1.020$). Without the exact coefficients one would need a range
+$x\ge10^{10}$, beyond a direct sieve of $A_f(n)$. We record the negative result of the fitting method
+here; the exact computation is the first step of the sequel.
 
 \subsection{The Galois group}\label{sec:galois}
 
@@ -949,6 +1006,8 @@ group & $r_f$ & $n$ & mean $C$ & slope$/C$ & s.e.\\
 \FloatBarrier
 \section{Primes along polynomial sequences}\label{sec:primes}
 
+\emph{Summary: primes along polynomial sequences fluctuate less than a random model of the same density,
+and the deficit matches the pair-correlation prediction cell by cell (Table~\ref{tab:summary}).}
 Everything in this section is conditional on the Hardy--Littlewood pair conjecture for $f$, in the
 sense explained in the introduction: we test whether primes behave as~\eqref{eq:varHL} predicts when
 Conjecture~\ref{conj} is inserted. With $\mathbf 1_t$, $p_t$, $w_t$, $A_T$, $V_T$ as in the
@@ -1058,7 +1117,8 @@ values of polynomials must control this (see~\cite{Volfson2026} for tail estimat
 \FloatBarrier
 \section{Polynomials of the $d$-dimensional Ulam spiral}\label{sec:spiral}
 
-Our ``spiral'' families come from the following construction, which is of independent interest because it
+\emph{This section records the origin of the project; the reader interested only in the analytic results
+can skip it.} Our ``spiral'' families come from the following construction, which is of independent interest because it
 turns the familiar Ulam picture~\cite{Stein1964} into a generator of polynomial families in every degree.
 
 \begin{definition}\label{def:spiral}
@@ -1107,7 +1167,12 @@ of Sections~\ref{sec:sum} and~\ref{sec:primes}, a property of polynomial sequenc
 \FloatBarrier
 \section{Discussion}\label{sec:disc}
 
-What is proved is Theorems~\ref{thm:expansion}--\ref{thm:smoothed}, \ref{thm:ff} and~\ref{thm:poly}:
+\paragraph{Summary.} The message of the paper in one sentence: the fluctuation of the number of prime
+values of a polynomial is governed, at second order, by an explicit arithmetic function whose generating
+series is the Dedekind zeta function of the field cut out by the polynomial, and the resulting variance
+deficit is $\tfrac12C(f)\log H$, universal in form and linear in $C(f)$.
+
+\paragraph{What is proved and what is not.} What is proved is Theorems~\ref{thm:expansion}--\ref{thm:smoothed}, \ref{thm:ff} and~\ref{thm:poly}:
 the exact identity, the Dedekind-zeta generating function of the diagonal with residue $1/C(f)$, the
 symmetric-square $L$-function inside it, the closed formula for quadratics, the Ces\`aro form of
 Conjecture~\ref{conj} for linear $f$ and its reduction for general $f$ to $\mathrm{Off}^\ast_f=o(H\log H)$

@@ -1,0 +1,43 @@
+exponents (k: a_k, b_k): {1: (0, 0), 2: (-2, -1), 3: (1, 1), 4: (-1, -2), 5: (3, 3), 6: (-6, -5), 7: (9, 9), 8: (-14, -16), 9: (28, 28), 10: (-54, -51), 11: (93, 93), 12: (-165, -170), 13: (315, 315), 14: (-594, -585), 15: (1091, 1091)}
+283146 primes up to 4000000 (   0.0s)
+  residual local factor p=  1009 s=0.0: |r-1| = 1.56e-08  (p^-2 = 9.8e-07, p^-(1+3Re w) = 9.6e-13)
+  residual local factor p=  1009 s=(-0.75+5j): |r-1| = 2.86e-04  (p^-2 = 9.8e-07, p^-(1+3Re w) = 5.5e-06)
+  residual local factor p=  1009 s=-0.9: |r-1| = 3.03e-02  (p^-2 = 9.8e-07, p^-(1+3Re w) = 1.2e-04)
+  residual local factor p= 10009 s=0.0: |r-1| = 1.60e-11  (p^-2 = 1.0e-08, p^-(1+3Re w) = 1.0e-16)
+  residual local factor p= 10009 s=(-0.75+5j): |r-1| = 3.46e-06  (p^-2 = 1.0e-08, p^-(1+3Re w) = 1.0e-07)
+  residual local factor p= 10009 s=-0.9: |r-1| = 8.14e-04  (p^-2 = 1.0e-08, p^-(1+3Re w) = 6.3e-06)
+  residual local factor p=100003 s=0.0: |r-1| = 1.11e-16  (p^-2 = 1.0e-10, p^-(1+3Re w) = 1.0e-20)
+  residual local factor p=100003 s=(-0.75+5j): |r-1| = 1.26e-12  (p^-2 = 1.0e-10, p^-(1+3Re w) = 1.8e-09)
+  residual local factor p=100003 s=-0.9: |r-1| = 1.36e-07  (p^-2 = 1.0e-10, p^-(1+3Re w) = 3.2e-07)
+  tail check p=100049 s=(-0.75+5j): log r = -5.253e-08-9.515e-09j   predicted u-series = -5.254e-08-9.542e-09j
+  tail check p=1000009 s=(-0.75+5j): log r = 9.469e-10+1.046e-10j   predicted u-series = 9.470e-10+1.046e-10j
+  tail check p=100049 s=(-0.875+5j): log r = -2.691e-06-1.352e-06j   predicted u-series = -2.990e-06-1.261e-06j
+  tail check p=1000009 s=(-0.875+5j): log r = 1.295e-07+1.189e-08j   predicted u-series = 1.321e-07+1.359e-08j
+D_f(1) = (0.750790813651844 + 0.0j)   partial sum to X: 0.750790797475  (tail ~ 1/(C X) = 1.8e-08)  (   0.2s)
+residue of D_f at 0 = 0.728431084835882 = 1/C(f)  =>  C(t^2+1) = 1.37281346282099   (known: 1.3728134628182...)
+A0 exact = 0.517476844264072349, script A0 = 0.5174768456657720, rescale factor - 1 = -2.7087e-9  (   0.5s)
+452 zeta zeros, 617 L(chi_-4) zeros up to 750; first L zeros [6.020948904697597, 10.243770304166555, 12.988098012312422, 16.342607104587223]  ( 453.6s)
+   real pole k=3 order 1 done ( 474.0s)
+   real pole k=5 order 3 done ( 484.1s)
+   real pole k=7 order 9 done ( 502.4s)
+   family k=2 done, 84 terms so far (1361.2s)
+84 residue terms (1361.2s)
+   rms of each family / x^{m-3/4}: {'s=1': '9.36e+11', 's=0': '9.41e+05', 'real k=3': '1', 'real k=5': '0.216', 'real k=7': '0.137', 'zeta k=2': '0.399', 'L k=2': '0.325'}
+   x^(m+1) coefficient: exact (0.250263604550632 - 3.55687663397802e-23j)  [D_f(1)/(m+1) = (0.250263604550615 + 0.0j)]
+   x^m log x coefficient: (-0.364215542418 + 1.83634095987e-22j)  [-1/(2C) = -0.364215542418],  x^m: (-0.454974899865 - 2.64697796017e-22j)
+   x^(m+1) correction fitted to the data after exact subtraction: -2.543e-13, i.e. data/exact - 1 = -1.02e-12
+   (A) rms residual 0.5279, rms predicted zero sum 0.2723, rms(residual - prediction) 0.4510; beta = 1.0078, R^2 = -0.0861
+   (A') with nuisance x^(m-8/9)(log x)^j: beta = 0.9910, R^2 = 0.5489, rms left 0.2907
+   (B) refit x^(m+1), x^m log x, x^m: beta = 0.9338, R^2 = -0.2057, rms(residual - prediction) 0.5110
+   (C) controls (delta, beta, R^2): [(-0.6, '-0.511', '-0.385'), (-0.5, '0.177', '-0.476'), (-0.4, '0.677', '-0.308'), (-0.3, '-0.219', '-0.469'), (-0.2, '-0.878', '-0.185'), (-0.1, '0.132', '-0.481'), (0.1, '0.088', '-0.485'), (0.2, '-0.943', '-0.134'), (0.3, '-0.305', '-0.452'), (0.4, '0.680', '-0.303'), (0.5, '0.354', '-0.439'), (0.6, '-0.372', '-0.433')]
+   (D) per-family beta: {'zeta k=2': '1.006', 'L k=2': '1.020'}
+   rms of each family / x^{m-3/4}: {'s=1': '7.02e+11', 's=0': '9.23e+05', 'real k=3': '1.29', 'real k=5': '0.287', 'real k=7': '0.19', 'zeta k=2': '0.0864', 'L k=2': '0.0925'}
+   x^(m+1) coefficient: exact (0.187697703412975 - 1.90251540887196e-23j)  [D_f(1)/(m+1) = (0.187697703412961 + 0.0j)]
+   x^m log x coefficient: (-0.364215542418 + 1.7508656299e-22j)  [-1/(2C) = -0.364215542418],  x^m: (-0.333569719059 + 1.76465197345e-22j)
+   x^(m+1) correction fitted to the data after exact subtraction: -1.691e-13, i.e. data/exact - 1 = -9.01e-13
+   (A) rms residual 0.6073, rms predicted zero sum 0.1140, rms(residual - prediction) 0.6013; beta = 0.7790, R^2 = -1.0693
+   (A') with nuisance x^(m-8/9)(log x)^j: beta = 0.9983, R^2 = 0.3378, rms left 0.3399
+   (B) refit x^(m+1), x^m log x, x^m: beta = 0.6264, R^2 = -1.1050, rms(residual - prediction) 0.6779
+   (C) controls (delta, beta, R^2): [(-0.6, '-0.791', '-1.066'), (-0.5, '0.104', '-1.114'), (-0.4, '0.959', '-1.044'), (-0.3, '0.233', '-1.110'), (-0.2, '-0.792', '-1.067'), (-0.1, '-0.176', '-1.112'), (0.1, '0.053', '-1.114'), (0.2, '-1.002', '-1.041'), (0.3, '-0.237', '-1.110'), (0.4, '1.019', '-1.037'), (0.5, '0.588', '-1.088'), (0.6, '-0.602', '-1.087')]
+   (D) per-family beta: {'zeta k=2': '1.162', 'L k=2': '0.455'}
+done (1361.5s)
