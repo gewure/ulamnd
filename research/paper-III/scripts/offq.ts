@@ -136,7 +136,7 @@ function run(q: number, Dcoeffs: number[], Nmax: number, degPrimes: number) {
 
 const out: { q: number; D: string; P1: number; A1: number; rows: { N: number; M: number; nD: number; Tact: number; Texp: number; off: number }[] }[] = [];
 const qs2 = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
-const qs3 = [3, 5, 7, 11, 13];
+const qs3 = [3, 5, 7];   // N = 3 needs all squarefree d of degree <= 6 (q^6 enumeration): too slow beyond q = 7 locally
 for (const q of qs2) {
   const t0 = performance.now();
   const Nmax = qs3.includes(q) ? 3 : 2;

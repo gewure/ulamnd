@@ -1,3 +1,22 @@
+# ulamnd
+
+Two things live in this repository, deliberately separated:
+
+- `research/` — the mathematics. `paper-I/` (submitted: the pair singular series, its Dedekind zeta function,
+  the variance of prime values), `paper-II/` (draft: zeros of Dedekind zeta functions in the second moment),
+  `paper-III/` (working draft: the off-diagonal in Cesàro form), `experiments/` (the scripts and results behind
+  paper I), `lib/` (the shared TypeScript number-theory library), `tests/`. Start with `research/KNOWLEDGE.md`
+  (timeline, status board, known fallacies, rated paths), then `research/paper-II/ROADMAP.md`.
+- `src/` — the Ulam-nD web workbench (Next.js): a visual companion for exploring polynomial rays of the
+  d-dimensional Ulam spiral. It imports the math library from `research/lib`; nothing in the papers depends on it.
+
+Commands (from the repository root): `npm run dev` (workbench), `npm run test` (library tests),
+`npm run thesis` (paper I's experiment suite), `npx tsx research/paper-I/gen-macros.ts` (regenerate paper I's
+numbers), `cd research/paper-II && ~/.local/bin/tectonic main.tex` (compile a paper). Python scripts use
+`~/.venvs/ulamnd/bin/python` (mpmath, numpy).
+
+---
+
 # Ulam-nD — prime spiral research workbench
 
 A local Next.js tool for exploring n-dimensional Ulam spirals and testing whether the

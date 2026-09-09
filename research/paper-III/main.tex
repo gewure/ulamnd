@@ -1,0 +1,197 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,caption,microtype,xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\captionsetup{font=small,labelfont=bf}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb{Z}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\F}{\mathbb{F}}
+\newcommand{\Off}{\mathrm{Off}}\newcommand{\Frob}{\operatorname{Frob}}
+\newcommand{\target}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
+
+\title{The pair singular series of a polynomial III:\\ the off-diagonal in Ces\`aro form}
+\author{Jasper Reichardt \and Claude Fable 5.1}
+\date{Working draft, \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\target{Working draft. Theorem A is the target; nothing in Sections~3--4 is proved yet.}
+Parts~I and~II reduced the conjecture $\sum_{h\le H}(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+A_f+o(1)$ for the pair
+singular series of an irreducible polynomial $f$ to a statement about the off-diagonal sum over pairs of
+distinct roots of $f$ modulo squarefree $d$ (``Hypothesis~(E)''), and showed that in Ces\`aro form any
+unbounded saving over the trivial bound suffices when the Galois group is $2$-transitive. Here we prove
+Hypothesis~(E) in Ces\`aro form for every irreducible quadratic, \target{goal}, by reducing it to weighted
+Weyl sums of the roots of $\nu^2\equiv D\pmod d$ with a phase $e(kH/d)$, in the manner of Hooley's treatment of
+$\sum_{n\le x}\tau(n^2+a)$; the frequency $k$ only needs to be controlled up to a power of $\log H$, because the
+Ces\`aro weight makes the Fourier coefficients of the test function decay like $k^{-2}$. Over $\F_q[u]$ the
+analogous statement, that the off-diagonal tends to zero as $q\to\infty$ at fixed degree, is a finite family
+of point counts to which the Lang--Weil estimate applies. Numerically the off-diagonal of $t^2+1$ is bounded to
+$10^7$ over $\Z$ and decreases with $q$ over $\F_q[u]$.
+\end{abstract}
+
+\section{The target and the reduction}\label{sec:target}
+
+\paragraph{In plain terms.} The primes along a polynomial are correlated through the small primes; part~I
+turned the strength of that correlation into an exact identity, whose main part (equal roots) is understood,
+and whose remaining part (distinct roots modulo $d$) is a question about how the square roots of $D$ modulo
+composite $d$ are distributed. That question has a sixty-year-old template, Hooley's divisor problem for
+$n^2+a$; this paper adapts it. The weaker, Ces\`aro form of the statement is what the argument gives, and it is
+enough for the leading term of the conjecture.
+
+Notation is that of parts I and II: $f=at^2+bt+c$ irreducible with discriminant $D$, $\omega_f(p)$,
+$W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ on squarefree $d$ with $|W_f(d)|\asymp\lambda(d)/d$, $\lambda$ multiplicative with
+$\lambda(p)=p/(p-4)$ at split primes and $\lambda(p)=1$ at inert ones, $C=C(f)$, $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C^2)$.
+Part~I, Theorem~6: with $\phi(\theta)=\theta-\theta^2$ and $m=m_{ss'}\in[1,d-1]$ the representative of $s'-s$,
+\begin{equation}\label{eq:cesaro}
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr)=-\tfrac12C\log H+O_f(1)+\frac{C^2}H\Off^\ast_f(H),\qquad
+\Off^\ast_f(H)=\sum_{d\ge2}W_f(d)\sum_{\{s,s'\}}\Bigl[-\frac{m(d-m)}d+\frac d2\Bigl(\phi\Bigl(\Bigl\{\frac{H-m}d\Bigr\}\Bigr)+\phi\Bigl(\Bigl\{\frac{H+m}d\Bigr\}\Bigr)\Bigr)\Bigr],
+\end{equation}
+the inner sum over unordered pairs of distinct roots modulo $d$, and trivially $\Off^\ast_f(H)\ll H\log H$.
+
+\begin{theorem}[target]\label{thm:A}\target{TO PROVE}
+For every irreducible quadratic $f$ there is $\eta>0$ with $\Off^\ast_f(H)\ll H(\log H)^{1-\eta}$. Consequently
+\[
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12C(f)\log H+O\bigl((\log H)^{1-\eta}\bigr),
+\]
+i.e.\ Conjecture~1 of part~I holds in Ces\`aro form for every quadratic, with the first power of $C(f)$.
+\end{theorem}
+
+\subsection{Fourier expansion}
+
+Since $\phi(\{x\})=\tfrac16-\pi^{-2}\sum_{k\ge1}k^{-2}\cos(2\pi kx)$ (absolutely convergent),
+\begin{equation}\label{eq:fourier}
+\Off^\ast_f(H)=\Omega_0-\frac1{\pi^2}\sum_{k\ge1}\frac1{k^2}\,T_k(H),\qquad
+T_k(H)=\sum_{d}d\,W_f(d)\cos\Bigl(\frac{2\pi kH}d\Bigr)\sum_{\{s,s'\}}\cos\Bigl(\frac{2\pi km}d\Bigr),
+\end{equation}
+where $\Omega_0=\sum_dW_f(d)\sum_{\{s,s'\}}\bigl(\tfrac d6-\tfrac{m(d-m)}d\bigr)$ is independent of $H$. \target{check:
+$\Omega_0$ converges absolutely (it is the second-moment discrepancy of the root differences, $\ll\sum_d\lambda(d)\,\omega(d)^2\,\mathrm{disc}_d$;
+Kowalski--Soundararajan give $\mathrm{disc}_d\to0$ on average, but absolute convergence needs a rate; for
+quadratics Hooley's Theorem~1 gives a power saving, which suffices).} The trivial bound $|T_k(H)|\ll H\log H$
+comes from $d\,W_f(d)\asymp\lambda(d)$, so that with $K=(\log H)^{A}$ the frequencies $k>K$ contribute
+$\ll H\log H/K$ to~\eqref{eq:fourier}, and Theorem~\ref{thm:A} follows from:
+
+\begin{lemma}[A: twisted weighted Weyl sums]\label{lem:A}\target{TO PROVE}
+There are $\eta,A>0$ such that for all $X,H\ge2$ and $1\le k\le(\log X)^{A}$,
+\[
+\sum_{d\le X}\lambda(d)\sum_{\nu^2\equiv D'\ (d)}e\Bigl(\frac{k(\nu+H)}d\Bigr)\ll X(\log X)^{1-\eta},\qquad D'=D/a^2,
+\]
+uniformly in $H$ (the phase $e(kH/d)$ is the point), together with the same bound for the moduli in
+progressions $e\mid d$ with polynomial dependence on $e$, and the corresponding statement for the large
+moduli $d>H$ after Hooley's reflection (Lemma~C below).
+\end{lemma}
+
+\emph{Why the frequency range is mild.} With the sawtooth $\{H/d\}$ of part~I's unsmoothed identity the
+Fourier coefficients decay like $1/k$ and one would need $T_k$ to decay in $k$; the Ces\`aro weight replaces
+$1/k$ by $1/k^2$, so it is enough to control $k\le(\log X)^{A}$ with any polynomial loss in $k$. This is the
+single reason the Ces\`aro form is within reach and the sharp form is not.
+
+\section{What is known about the pieces}\label{sec:known}
+
+\paragraph{Unweighted, untwisted.} Hooley~\cite{Hooley1963}, Theorem~1: $\sum_{d\le X}\sum_{\nu^2\equiv D'(d)}e(k\nu/d)\ll_kX^{\theta}\log^2X$
+with $\theta<1$, by parametrising the pairs $(\nu,d)$ through the primitive representations $d=Q(r,s)$ by a
+finite set of binary quadratic forms of discriminant $4D'$ and reducing to incomplete Kloosterman sums (Weil's
+bound). Hooley~\cite{Hooley1964} gives equidistribution without a power saving for any irreducible polynomial;
+Kowalski--Soundararajan~\cite{KowalskiSoundararajan2021} reprove it as a mixing property of the Chinese
+remainder theorem, with an average discrepancy $(\log X)^{-c}$.
+
+\paragraph{Twisted, unweighted.} Hooley's Lemma~5 is a bound $R^\pm(h,X)=\sum_{k\le X}\rho(h,k)e(\pm hx/k)\ll\sigma(h)|h|X^{\theta}\log^3X$
+for the same sums with the phase $e(\pm hx/k)$ built into the parametrisation \target{transcribe the exact
+exponent from the original; the extracted text is illegible there}; it is exactly what his $\Sigma_5$, our
+$\Off$, requires, and it is uniform in $x$.
+
+\paragraph{Smooth weights, moduli in a progression.} Duke, Friedlander and Iwaniec~\cite{DFI2012}, Theorem~1.1:
+for $f$ smooth on $[Y,2Y]$ with $|f|\le1$, $y^2|f''|\le1$, and either sign of $D$ (their \S16),
+$\sum_{c\equiv0(q)}f(c)\sum_{b^2\equiv D(c)}e(hb/c)\ll h^{1/4}(Y+h\sqrt D)^{3/4}D^{1/8-1/1331}$, via the Kuznetsov
+formula for half-integral-weight Kloosterman sums. Our phase $e(kH/c)$ has $c^2|\partial_c^2e(kH/c)|\asymp(kH/c)^2$, so
+it satisfies their smoothness condition only for $Y\ge kH$: their theorem covers the moduli $c\ge kH$, not the
+range $c\le H$ that carries the trivial bound. For $c\le H$ one needs Hooley's method with the phase, or a
+version of Theorem~1.1 with $y^2|f''|\le\Delta^2$ and polynomial loss in $\Delta$ \target{check their proof for
+the dependence on the derivative bound; the scaling $g(x)=\dots$ in their \S11 suggests the loss is
+polynomial}.
+
+\paragraph{Weights.} Write $\lambda=1*g$ with $g$ multiplicative, $g(p)=4/(p-4)$ at split primes and $0$
+otherwise; then $\sum_{d\le X}\lambda(d)F(d)=\sum_{e}g(e)\sum_{m\le X/e}F(em)$, the moduli $e>E$ contribute
+$\ll E^{-1+\varepsilon}X\log X$, and only $e\le(\log X)^{B}$ matter. So Lemma~A reduces to the unweighted sums over
+moduli $\equiv0\bmod e$ with polynomial dependence on $e$ (Iwaniec~\cite{Iwaniec1978} for $D=-1$; Ngo for $D>0$).
+
+\paragraph{Large moduli.} For $d>H$ a pair of distinct roots modulo $d$ has $m\le H$ only if every prime
+factor of $d$ divides $hQ(h)$ for some $h\le H$, $Q(h)=a^2h^2-D$; Hooley's reflection writes $d=Q(h)/e$ with
+$e<Q(h)/H$, turning the large moduli into a sum over the small divisors $e$ of $Q(h)$ (part~I, companion note,
+Prop.~A3), which is the same structure with $e$ in place of $d$ and the level-of-distribution input for
+$\#\{h\le H:e\mid Q(h)\}$ from~\cite{Iwaniec1978} and Grimmelt--Merikoski.
+
+\section{Plan of the proof of Lemma~A}\label{sec:plan}
+\target{To be written. Steps: (1) Dirichlet convolution to remove $\lambda$; (2) dyadic decomposition in $d$;
+(3) $d\ge kH$: DFI Theorem~1.1 with the phase absorbed in $f$; (4) $d<kH$: Hooley's parametrisation
+$\nu^2-D'=d\ell$, $d=Q(r,s)$ primitive, $\nu/d\equiv\bar s\,(\dots)/Q(r,s)$; the phase $e(kH/Q(r,s))$ is slowly
+varying in $(r,s)$ over the regions where Hooley bounds the incomplete Kloosterman sums, so it can be removed by
+partial summation at the cost of a factor $kH/Y$ per region unless $Y\ge(kH)^{1/2}$, and below that a genuinely
+new estimate is needed: this is the open core. (5) Assemble with $K=(\log H)^{A}$.}
+
+\section{Route B: the same statement over $\F_q[u]$}\label{sec:B}
+
+Let $\mathcal A=\F_q[u]$, $q$ odd, $f=t^2-D$ with $D\in\mathcal A$ squarefree, and for $N\ge1$ let $\Off_f(N)$ be the
+off-diagonal of the identity of part~I, Theorem~8 (the sum over the $q^N-1$ nonzero $h$ of degree $<N$). Part~I
+proved that the moduli of degree $\le N$ contribute nothing and that the remainder is a finite sum:
+\[
+\Off_f(N)=\sum_{N<\deg d\le M(N)}W_f(d)\,A_N(d)-q^N\sum_{\deg d>N}\frac{W_f(d)(\omega_f(d)^2-\omega_f(d))}{|d|},\qquad M(N)=N-1+\max(2N-2,\deg D),
+\]
+$A_N(d)$ the number of ordered pairs of distinct roots modulo $d$ whose difference has degree $<N$.
+
+\begin{theorem}[target]\label{thm:B}\target{TO PROVE}
+For fixed $N$ and $\deg D$, $\Off_f(N)=O(q^{-1/2})$ as $q\to\infty$. Hence the function-field form of
+Conjecture~1, $\sum_{h}(S_f(h)-C^2)=-C(f)N+O(1)$, holds with $O(1)$ replaced by $O(q^{-1/2})$.
+\end{theorem}
+
+\emph{Reduction to point counts.} For each degree $k\in(N,M(N)]$, the sum $\sum_{\deg d=k}W_f(d)A_N(d)$ is a
+weighted count of triples $(d,s,s')$ with $d$ squarefree monic of degree $k$, $s^2\equiv s'^2\equiv D\pmod d$,
+$s\ne s'$, and $\deg(\widetilde{s'-s})<N$. Writing $s'-s=m$ with $d\mid m^2-4D$ on the part of $d$ where the roots
+differ and $d\mid m$ on the rest (part~I, Lemma~9), the condition is algebraic in the coefficients of $d$ and
+$m$, so the count is $\#V_{k,N}(\F_q)$ for an explicit variety $V_{k,N}$ defined over $\F_q$ (depending on $D$),
+weighted by $W_f(d)=P(1)\lambda(d)/|d|$, and $\lambda(d)$ is a product of local factors $1+O(q^{-\deg P})$ over the
+prime factors of $d$. The expected term $q^N\sum_{\deg d>N}W_f(d)\omega^\circ_f(d)/|d|$ is the same count with the
+probability $q^{N-k}$ in place of the indicator of $\deg m<N$. Theorem~\ref{thm:B} therefore follows from the
+Lang--Weil estimate once one knows, for each of the finitely many $(k,N)$, that the components of $V_{k,N}$ over
+$\overline{\F}_q$ have the dimensions and multiplicities that make the main term equal to the expected one;
+this is a finite algebraic computation for each $N$, and a uniform statement is the content of Katz-type
+equidistribution for the Sali\'e sums of the roots over primes of fixed degree.
+
+\IfFileExists{data/offq.dat}{%
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}
+\begin{axis}[width=0.7\textwidth,height=5.2cm,xlabel={$q$},ylabel={$\Off_f(N)$},legend pos=south east,legend style={font=\scriptsize},
+  title={$f=t^2-u$ over $\F_q[u]$: the off-diagonal at fixed $N$ as $q$ grows}]
+\addplot[only marks,mark=*,blue!70!black] table[x=q,y=off,row sep=newline] {data/offq-N2.dat};
+\addplot[only marks,mark=square*,red!70!black] table[x=q,y=off] {data/offq-N3.dat};
+\addplot[dashed,gray] coordinates {(3,0) (47,0)};
+\legend{$N=2$,$N=3$}
+\end{axis}
+\end{tikzpicture}
+\caption{Exact values of $\Off_f(N)$ over $\F_q[u]$ for $f=t^2-u$ (\texttt{scripts/offq.ts}). Theorem~\ref{thm:B}
+predicts decay like $q^{-1/2}$.}
+\label{fig:offq}
+\end{figure}}{}
+
+\section{Numerical evidence}\label{sec:num}
+Over $\Z$: the off-diagonal of $t^2+1$ is bounded to $H=10^7$, with mean $-0.01$, standard deviation $0.51$ and
+no drift in $\log H$ (part~II, Section~5.3); a failure of Hypothesis~(E) would show as a slope of order $0.73$
+per unit of $\log H$. Over $\F_q[u]$: Figure~\ref{fig:offq}.
+
+\section{Open issues}
+(1)~The core of Lemma~A: the phase $e(kH/d)$ for $d<(kH)^{1/2}$ within Hooley's parametrisation. (2)~The
+absolute convergence of $\Omega_0$ with a rate. (3)~Theorem~B: identify the components of $V_{k,N}$ for $N=2,3$
+and $\deg D=1$ by hand, then the general pattern. (4)~Non-$2$-transitive Galois groups, where a saving over the
+trivial bound is not enough (part~I, Remark~7).
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}

@@ -32,6 +32,11 @@ for quadratics. Nothing here proves anything about primes; all prime statements 
   external computations. Literature rounds 2–3: Kurokawa/Moroz attribution, Hooley 1963 precedent, paper III
   route, second-spectrum hypothesis. Decisions: quadratics in full + general f under hypotheses; Route A in
   paper III; four polynomials for numerics (deferred to external machine); paper I submitted as v7.
+- 10 Sep. Repository restructured: research/ vs src/ (web). Local runs: off-diagonal of t²+1 exact to 10⁷
+  (bounded, mean −0.01, sd 0.51, drift −0.001/log H; spectrum shows NO lines at Maass parameters or ζ/2 — null
+  at resolution 0.68); F_q[u] q-sweep of Off_f(N) for t²−u (research/paper-III/data/offq.*). Paper III scaffold
+  with the precise Lemma A (frequencies only up to (log H)^A thanks to the Cesàro k^{-2} decay; DFI 2012 covers
+  d ≥ kH only, Hooley's method needed below). Singularity-map figure in paper II.
 - 10 Sep. Second opinion (Claude Opus 5.1, via the author) assessed below; Alberts's survey checked:
   Kurokawa–Moroz criterion covers Frobenian coefficients only, not our 1/p dependence.
 
@@ -73,6 +78,9 @@ F8. Novelty claims without reading the classics: Kurokawa (1986)/Moroz (1988) ha
 F9. Sign of a character sum in the exact constant A0 (prime zeta helper); and catastrophic cancellation
     P(j) − 2^{−j}/2 at large j. Caught by the 1e-12 consistency check of D_f(1). Lesson: every exact constant
     must have an independent check (D_f(1) vs partial sum; C(f) vs literature; refitted x^{m+1} coefficient).
+F11. "DFI 2012 applies to the phase e(kH/d) for d ≥ (kH)^{1/2}" (roadmap, 9 Sep). Wrong: their condition
+    y²|f''| ≤ 1 with f(c) = g(c/Y)e(kH/c) needs Y ≥ kH, so their theorem covers only moduli above kH; the
+    trivial-bound range d ≤ H needs Hooley's method with the phase (paper III §2–3).
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
@@ -80,10 +88,10 @@ F10. Programming: `pkill -f <script>` kills the harness's own shell when the com
 | # | path | rating | comment |
 |---|------|--------|---------|
 | P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
-| P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★☆ | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
+| P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★☆ | Now formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5); q-sweep data for t²−u. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
 | P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
-| P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★★☆☆ | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |
-| P5 | Job (C4): spectrum of Off_f(e^u) for t²+1 to 10⁸ | ★★★★★ | Cheapest, most informative computation; decides P4. External machine. |
+| P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★☆☆☆ (was ★★★, 10 Sep) | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |
+| P5 | Job (C4): spectrum of Off_f(e^u) for t²+1 | done to 10⁷ (10 Sep) | Null: no Maass or ζ lines at resolution 0.68; Off bounded, no drift. Extend to 10⁹ externally (segmented sieve) before closing the question. |
 | P6 | General two-variable Frobenian Dahlquist/Kurokawa–Moroz theorem | ★★☆☆☆ | Opus's argument adopted: a remark in paper II, not a section; a referee is more likely to say "known, see X" than to demand it. Possible short note later, after reading Kurokawa I and Moroz. |
 | P7 | Non-abelian example (t³−2, S₃): Ψ_N, pair field = K, zeros of ζ_K | ★★★☆☆ | Theory item (compute Ψ_N for S₃, list poles) + numerics (C3). Good for the general-f theorem's credibility. |
 | P8 | Limiting distribution / no-bias theorem (Akbary–Ng–Shahabi) | ★★★☆☆ | Conditional (RH + LI + Gonek–Hejhal); clean statement; medium effort. Paper II open problem (g). |
