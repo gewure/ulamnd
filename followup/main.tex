@@ -760,6 +760,57 @@ inequality, and the moduli $d>H$ contribute the hyperbola sum of (E2), because a
 modulo $d>H$ has a difference $\le H$ only if every prime factor of $d$ divides $hQ(h)$ for some $h\le H$.
 \end{proof}
 
+\subsection{What Hooley already did, and the route}
+
+The decomposition~\eqref{eq:split} is not new in spirit: Hooley's 1963 asymptotic for $\sum_{n\le x}\tau(n^2+a)$
+\cite{Hooley1963} splits the count, after the hyperbola reflection at $\sqrt{n^2+a}$, into a Dirichlet-series
+part $\sum_{k\le X}\rho(k)/k$ (our diagonal at $s=1$) and a sum $\sum_k\{2\Psi_k(x)-\Psi_k(Y_k)\}$ of sawtooth
+values $\Psi_k(y)=\sum_{\nu^2\equiv-a\,(k)}\psi((y-\nu)/k)$ at the roots (our $\Off_f$, with $Y_k$ the reflected
+argument giving our large-moduli part). He notes that his untwisted Weyl-sum bound does not apply to these
+sums because of the factors depending on $k$, and proves a twisted bound (his Lemma~5) for
+$\sum_{k\le x}\rho(h,k)e(\pm hx/k)$ by building the phase into the parametrisation of the roots by binary
+quadratic forms and into the resulting incomplete Kloosterman sums. That twisted sum, with the phase $e(kH/d)$
+and our weights, is what (E1) needs. The route to (E1) and (E2) is therefore:
+\begin{itemize}
+\item[(A)] a bound $\sum_{d\le X,\ e\mid d}\rho(k,d)\,e(kH/d)\ll k^{A}e^{B}X^{1-\delta}$ for moduli in a
+progression, with polynomial dependence on $k$ and $e$: for $d\asymp C\ge(kH)^{1/2+\varepsilon}$ the phase is
+smooth at scale $C$ and the theorem of Duke, Friedlander and Iwaniec~\cite{DFI2012} (smooth weights, moduli
+$\equiv0\bmod q$, either sign of $D$) applies as it stands; for smaller $C$ one must redo Hooley's Lemma~5 with
+the phase, or treat $e(kH\cdot\Im\gamma i)$ as part of the test function of the Poincar\'e series of
+Bykovskii~\cite{Bykovskii1984}; Iwaniec~\cite{Iwaniec1978} gives the case $e\mid d$ for $D=-1$ with the
+uniformity needed for a sieve;
+\item[(B)] the weights: $W_f(d)=d^{-1}\sum_{e\mid d}g(e)$ with $g(e)\ll e^{-1+\varepsilon}\tau(e)^{A}$, so that only
+$e\le(\log H)^{A}$ matter and polynomial dependence on $e$ in (A) suffices; no theorem with genuinely
+multiplicative weights on composite moduli is needed, which is fortunate because none exists;
+\item[(C)] the large moduli: Hooley's reflection turns them into the same structure with the divisors $e$ of
+$Q(h)$ in place of $d$, and the level-of-distribution input for $\#\{h\le H:e\mid Q(h)\}$ is in
+\cite{Iwaniec1978} and, uniformly in the shift, in the recent work of Grimmelt and Merikoski.
+\end{itemize}
+Expanding the sawtooth to length $K$ (Vaaler) and using (A)--(C) gives $\Off_f(H)\ll K^{A}+(\log H)/K$, i.e.\
+$\Off_f(H)=o(\log H)$: this is Hypothesis~(E) in Ces\`aro form, hence Conjecture~\eqref{eq:conj} in Ces\`aro form
+for every quadratic, since $S_2$ is $2$-transitive on the two roots. The sharp form $\Off_f(H)=O(1)$ needs decay
+in the frequency $k$ that the $k^{1/4}$ of~\cite{DFI2012} does not provide; it is the spectral problem of the next
+remark.
+
+\begin{remark}[a second spectrum]
+The weighted counts of roots of quadratic congruences summed over moduli have an explicit formula over the
+Laplace eigenvalues of the modular surface: Bykovskii's formula, in the form of Soundararajan and
+Young~\cite[Prop.~2.2]{SoundararajanYoung2013}, writes the prime geodesic counting function as
+$2\sum_{n\le X}\sqrt{n^2-4}\,L(1,n^2-4)$ with $L(s,\delta)=\frac{\zeta(2s)}{\zeta(s)}\sum_q\rho_q(\delta)q^{-s}$,
+$\rho_q(\delta)$ the number of roots of $x^2\equiv\delta$ modulo $4q$, and its explicit formula runs over the
+Maass eigenvalues; Hejhal~\cite{Hejhal1986} treats the Weyl sums for $D>0$ as integrals of automorphic
+functions over closed geodesics. In our setting the discriminant is fixed and the modulus varies, the regime
+of Poincar\'e series and long horocycles (Bykovskii; Marklof and Welsh~\cite{MarklofWelsh2023}); $\Off_f(H)$ is a
+Poincar\'e series with a $y$-dependent sawtooth test function, and its natural expansion is
+$\sum_jc_j(D)\hat h_H(t_j)+(\text{Eisenstein})$, the Eisenstein term reintroducing the zeros of $\zeta$. The
+dichotomy ``diagonal governed by zeros of $\zeta$, off-diagonal by the discrete spectrum'' is the one of the
+additive divisor problem and of Motohashi's formula for the fourth moment~\cite{Motohashi1993}. Whether the
+discrete spectrum really contributes to $\Off_f$, or decouples as in the non-dihedral cases of Templier and
+Tsimerman, is testable: for $f=t^2+1$ the Fourier transform of $\Off_f(e^u)$ in $u$ should, or should not, show
+lines at the Laplace parameters $t_j=9.5337, 12.1730, 13.7798,\dots$ of $\mathrm{SL}_2(\Z)$ beside the lines
+$\gamma/2$ of the zeros of $\zeta$ (item~(C4) of Appendix~\ref{app:comp}).
+\end{remark}
+
 \emph{In words.} For quadratics the off-diagonal is a question about square roots modulo composite numbers:
 do the square roots of $D$ modulo $d$, weighted by a divisor-like function of $d$, spread out evenly? Hooley
 proved this without weights, Duke, Friedlander and Iwaniec much more for prime moduli; the weights and the
@@ -836,7 +887,12 @@ of random permutations. (c)~The limiting logarithmic distribution of $E_m(x)/x^{
 Rubinstein--Sarnak) and whether it is biased. (d)~Higher moments: the $k$-point singular series of
 Montgomery--Soundararajan for polynomial tuples and the virtual characters that appear. (e)~The unconditional
 function-field explicit formula for $t^2-D$ against the exact data. (f)~Whether Hypothesis~(E) can fail for
-non-$2$-transitive Galois groups. (g)~By the general theorem of Akbary, Ng and
+non-$2$-transitive Galois groups: each orbit $O$ of ordered pairs gives a root sum of the difference resolvent
+$R_O(y)=\prod_O(y-(s'-s))$, quadratic for quadratics, reducible with quadratic factors for $V_4$ and $D_4$
+quartics ($x^4+1$: $R_O=(y^2-2)(y^2+2)$), irreducible of degree $4$ for the cyclic quartic, where only
+qualitative equidistribution is known (Hooley~\cite{Hooley1964}, Kowalski--Soundararajan
+\cite{KowalskiSoundararajan2021}); the test is whether $\Sigma_f(H)+\tfrac12C\log H$ converges for
+$x^4+1$, $x^4-2$, $x^4+x^3+x^2+x+1$ and a generic $S_4$ quartic. (g)~By the general theorem of Akbary, Ng and
 Shahabi~\cite{AkbaryNgShahabi2014}, the normalised error $E_m(x)/(x^{m-3/4}\log x)$ has a limiting logarithmic
 distribution under RH and a Gonek--Hejhal-type bound; under linear independence of the ordinates of
 $\zeta\cdot\zeta_{\Q(\sqrt D)}$ it is symmetric, so $E_m$ is negative with logarithmic density exactly $\tfrac12$
@@ -863,9 +919,10 @@ random phases) beside the shifted-ordinate control.
 component), $t^2-2$ ($D=8$), an $S_3$ cubic ($t^3-2$; zeros of $\zeta_{\Q(2^{1/3})}$ from the LMFDB, $\omega_f(p)$
 from the factorisation of $f$ modulo $p$). Requires generalising the driver from $\chi_{-4}$ to arbitrary
 $\omega_f(p)$. A day of programming, hours of computing per polynomial.
-\item[(C4)] $\Off_f(H)$ for $t^2+1$ to $H=10^7$ (extending \texttt{thesis/offdiag.ts}) and its spectrum in
-$\log H$: whether the off-diagonal carries oscillations of its own (Section~\ref{sec:off}) or bounded noise.
-Hours.
+\item[(C4)] $\Off_f(H)$ for $t^2+1$ to $H=10^8$ (extending \texttt{thesis/offdiag.ts}; a sum over $d$ of two
+roots, cheap) and its spectrum in $u=\log H$ after removing the mean: presence or absence of lines at the
+$\mathrm{SL}_2(\Z)$ Laplace parameters $9.5337$, $12.1730$, $13.7798$, $14.3585$, $16.1381$ and at
+$\gamma/2=7.0673$, $10.5110$, $12.5054,\dots$ (Section~\ref{sec:off}). Hours.
 \item[(C5)] The function-field explicit formula for $f=t^2-D$ over $\F_q[u]$, $q=3,5,7$: $L$-polynomials,
 exponents (Table~\ref{tab:exponents}), residues on circles, comparison with \texttt{thesis/ff.ts}. A day.
 \item[(C6)] Raw Riesz means to $x=10^9$ by a segmented sieve of $A_f(n)$, extending the $\log x$ range from

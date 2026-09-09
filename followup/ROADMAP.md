@@ -93,6 +93,16 @@ formula) → WP2 → WP3 → primes section (WP6, honest framing) → two review
   external machine. No \status tags remain.
 - Per the author (9 Sep): computations are to be run externally later; the paper must stand on the theorems.
 
+## 1e. Paper III plan (from LITERATURE-3.md, 9 Sep night)
+Target theorem: Hypothesis (E) in Cesàro form for every irreducible quadratic ⇒ Conjecture 1 of paper I in
+Cesàro form for quadratics. Route: Vaaler expansion; Lemma A (twisted Weyl sums of quadratic roots over
+moduli in a progression, phase e(kH/d), polynomial dependence on k and e) — DFI 2012 for large moduli, Hooley
+1963 Lemma 5 redone with the phase (or Bykovskiĭ Poincaré series) for small moduli; Lemma B (weights by
+Dirichlet convolution, only e ≤ (log H)^A matter); Lemma C (large moduli via Hooley's reflection + Iwaniec
+1978 / Grimmelt–Merikoski level of distribution). Outcome Off_f(H) = o(log H). The sharp O(1) form is the
+Maass-spectral explicit formula (Soundararajan–Young/Bykovskiĭ precedent) — paper III's stretch goal or a
+paper IV. First step when starting paper III: read Hooley 1963 §§3–6 and DFI 2012 §§1–3, 16 in full.
+
 ## 2. Work packages
 
 ### WP0 — Exact explicit formula for the diagonal of t²+1, tested against data  [NUMERICAL, first result 9 Sep]
