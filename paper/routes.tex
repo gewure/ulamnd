@@ -1,0 +1,298 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{xcolor}
+\input{data/macros.tex}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathcal A}
+\newcommand{\Sig}{\mathfrak S}
+\newcommand{\Off}{\mathrm{Off}}
+
+\title{Two routes to the variance conjecture for prime values of polynomials:\\
+the off-diagonal over $\Z$ and over $\F_q[u]$}
+\author{Jasper Reichardt \and Claude Fable 5.1}
+\date{Working document, \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Companion to \emph{The variance of the number of prime values of a polynomial}. That paper reduces the
+conjecture $\sum_{h\le H}(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+O(1)$ to Hypothesis~(E): the off-diagonal
+sum over pairs of distinct roots of $f$ modulo $d$ contributes no logarithm. Here we work on the two
+routes to proving~(E). Over $\Z$, for quadratics, we show that~(E) is exactly an average
+equidistribution statement for the roots of $x^2\equiv D\pmod d$ of the type proved by Hooley, and we
+isolate the one estimate still needed (the large moduli, Section~\ref{sec:A}). Over $\F_q[u]$ we prove
+that the off-diagonal vanishes identically for all moduli of degree at most $N$, so that the analogue
+of the conjecture reduces to the moduli of degree $>N$ alone, where it becomes an equidistribution
+statement of Katz type; we verify the resulting exact identity numerically over $\F_3$, $\F_5$ and
+$\F_7$ (Section~\ref{sec:B}).
+\end{abstract}
+
+\section{Notation and the identity to be proved}
+
+$f\in\Z[t]$ irreducible, without fixed prime divisor; $\omega_f(p)$ roots modulo $p$;
+$\nu_f(d,h)=\#\{s\bmod d: d\mid f(s),\ d\mid f(s+h)\}$; $C=C(f)$; $S_f(h)$ the pair singular series;
+$b(d)=\prod_{p\mid d}(p-\omega_f(p))^{-2}$, $P_p=1-\omega_f(p)^2/(p-\omega_f(p))^2$,
+$W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$, $a_f(d)=W_f(d)\omega_f(d)$ ($d$ squarefree). The exact identity
+of the paper is
+\begin{equation}\label{eq:id}
+\sum_{h\le H}\bigl(S_f(h)-C^2\bigr)=-C^2\sum_{d}a_f(d)\Bigl\{\frac Hd\Bigr\}+C^2\,\Off_f(H),\qquad
+\Off_f(H)=\sum_dW_f(d)\sum_{s\ne s'}\psi_d(s'-s,H),
+\end{equation}
+$\psi_d(m,H)=\#\{h\le H:h\equiv m\ (d)\}-H/d$, the inner sum over ordered pairs of distinct roots of $f$
+modulo $d$. The diagonal is understood (Theorems~3--4 of the paper); \textbf{Hypothesis (E)} is
+$\Off_f(H)=O(1)$, and its Ces\`aro form $\Off^\ast_f(H)=O(H)$ gives the conjecture with the leading term.
+
+\section{Route A: quadratics over $\Z$ and the roots of $x^2\equiv D$}\label{sec:A}
+
+Let $f=at^2+bt+c$, $D=b^2-4ac$, $Q(h)=a^2h^2-D$. For $p\nmid2aD$ the roots of $f$ modulo a split prime
+differ by $\pm\delta_p$, $\delta_p\equiv\sqrt D/a$. For $d$ squarefree and coprime to $2aD$ with all
+prime factors split, the ordered pairs of roots modulo $d$ correspond to sign patterns
+$\varepsilon\in\{-1,0,1\}^{k}$ ($k$ the number of prime factors) with multiplicity $2^{k-j(\varepsilon)}$,
+$j$ the number of non-zero entries, and the difference $m_\varepsilon$ satisfies
+$m_\varepsilon\equiv\varepsilon_p\delta_p\pmod p$. Hence, with $d'=\prod_{\varepsilon_p\ne0}p$,
+$m_\varepsilon\equiv0\pmod{d/d'}$ and $m_\varepsilon\bmod d'$ is a root of $x^2\equiv D/a^2\pmod{d'}$.
+
+\subsection{Reduction to root discrepancies}
+
+For $d\le H$ write $R=d\{H/d\}$; then $\psi_d(m,H)=\mathbf 1_{m\le R}-\{H/d\}$ for $1\le m\le d$, so
+\begin{equation}\label{eq:disc}
+\sum_{s\ne s'}\psi_d(s'-s,H)=\Delta_d\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr),\qquad
+\Delta_d(\alpha):=\#\{\text{pairs}:\ m_{ss'}\le\alpha d\}-\alpha\,\omega^\circ_f(d),
+\end{equation}
+the discrepancy of the multiset of root differences at the point $\alpha$, with
+$\omega^\circ_f(d)=\omega_f(d)^2-\omega_f(d)$. By the correspondence above, for $d$ coprime to $2aD$,
+\[
+\Delta_d(\alpha)=\sum_{d'\mid d,\ d'>1}2^{\,k(d)-k(d')}\Bigl(\#\{\nu\bmod d':\ \nu^2\equiv D/a^2,\ \overline{(d/d')}\,\nu\bmod d'\le\alpha d'\}-\alpha\rho(d')\Bigr),
+\]
+where $\rho(d')=2^{k(d')}$ is the number of roots and $\overline{(d/d')}$ the inverse of $d/d'$ modulo $d'$
+(the map $\nu\mapsto\nu\,(d/d')\,\overline{(d/d')}$ identifies the classes). Thus the off-diagonal of a
+quadratic is a weighted sum, over moduli $d'$, of discrepancies of the roots of a fixed quadratic
+congruence, dilated by a unit and evaluated at the point $\{H/d\}$.
+
+\begin{proposition}\label{prop:A1}
+For an irreducible quadratic $f$,
+\[
+\Off_f(H)=\sum_{d\le H}W_f(d)\,\Delta_d\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr)+T_f(H),\qquad
+T_f(H)=\sum_{d>H}W_f(d)\Bigl(\#\{\text{pairs}:\ m_{ss'}\le H\}-\frac{H\,\omega^\circ_f(d)}d\Bigr),
+\]
+both sums converging absolutely.
+\end{proposition}
+
+\subsection{Small moduli: Hooley's equidistribution}
+
+The Erd\H os--Tur\'an inequality bounds the sup-discrepancy $D^\ast_{d'}$ of the roots of $x^2\equiv D/a^2$
+modulo $d'$ (dilated by a unit) by $\rho(d')/K+\sum_{k\le K}k^{-1}|\sum_\nu e(k\bar u\nu/d')|$. Hooley
+\cite{Hooley1963} proved, as the key lemma of his asymptotic for $\sum_{n\le x}\tau(n^2+D)$, that the Weyl
+sums $\sum_{m\le x}\sum_{\nu^2\equiv D(m)}e(k\nu/m)$ have a power saving over the trivial bound
+$\sum_{m\le x}\rho(m)\asymp x$, uniformly in $k$ in a suitable range, by parametrising the solutions
+$(\nu,m)$ of $\nu^2-D=m\ell$ and applying Weil's bound for Kloosterman sums; the same argument gives the
+statement with the unit twist $\bar u$ and with weights that are multiplicative and bounded on average.
+Since $|W_f(d)|\asymp\lambda(d)/d$ with $\lambda$ multiplicative and $\lambda(p)=p/(p-4)$ on split primes,
+partial summation of a bound $\sum_{d\le x}\lambda(d)D^\ast_d\ll x(\log x)^{-1-\eta}$ gives
+
+\begin{proposition}[conditional]\label{prop:A2}
+If $\sum_{d\le x}\lambda(d)\,D^\ast_d\ll x(\log x)^{-1-\eta}$ for some $\eta>0$, then
+$\sum_{d\le H}W_f(d)\Delta_d(\{H/d\})=O_f(1)$.
+\end{proposition}
+
+Hooley's lemma gives this bound with a power saving for the unweighted discrepancy of the roots of
+$x^2\equiv D\pmod m$ over all $m\le x$; the extension to the weights $\lambda$ (bounded by a divisor-type
+function) and to the dilations by units is routine in his method, since the Kloosterman-sum bound is
+uniform in the residue class. We have not rewritten his proof in this generality and record it as the
+first of the two estimates needed.
+
+\subsection{Large moduli: the hyperbola}
+
+For $d>H$ only differences $m\le H$ count. A pair with difference $m=h$ ($1\le h\le H$) modulo $d$ exists
+iff $\nu_f(d,h)\ne0$, i.e.\ iff every prime factor of $d$ divides $h\,Q(h)$; hence
+\[
+T_f(H)=\sum_{h\le H}\ \sum_{\substack{d>H\\ d\mid\operatorname{rad}(hQ(h))}}W_f(d)\,\nu_f(d,h)\;-\;H\sum_{d>H}\frac{W_f(d)\,\omega^\circ_f(d)}d .
+\]
+Both terms are of size $\asymp\log H$ (the second by the Dirichlet series
+$\sum_dW_f(d)\omega_f(d)^2d^{-s}\sim c\,\zeta(s+1)^2$; the first because $\sum_{h\le H}\tau(Q(h))\asymp H\log H$),
+so their difference is a genuine secondary-term problem. Writing $W_f(d)=P(1)\,d^{-1}\prod_{p\mid d}p/(p-4)$
+on split moduli and $d=Q(h)/e$ with the complementary divisor $e<Q(h)/H\le a^2H+|D|$, the first term
+becomes
+\[
+P(1)\sum_{h\le H}\frac1{Q(h)}\sum_{\substack{e\mid Q(h)\\ e<Q(h)/H}}e\;\lambda\bigl(Q(h)/e\bigr)\quad(+\text{the terms with }p\mid h),
+\]
+a sum over the \emph{small} divisors $e$ of the quadratic polynomial $Q(h)$: this is the structure of
+Hooley's problem $\sum_{n\le x}\tau(n^2+D)$, where the divisors $d>x$ are handled through $e=(n^2+D)/d<x$
+and the count $\#\{h\le H:\ e\mid Q(h)\}=H\rho(e)/e+O(\text{discrepancy})$ is again controlled by the
+equidistribution of the roots of $Q$ modulo $e$. The only new feature is the weight $\lambda(Q(h)/e)$,
+which depends on the cofactor; writing $\lambda=\sum_{g\mid\cdot}\kappa(g)$ with $\kappa(p)=4/(p-4)$
+reduces it to sums of the same type with $e$ replaced by $eg$. We therefore expect, but have not carried
+out,
+
+\begin{proposition}[expected]\label{prop:A3}
+$T_f(H)=O_f(1)$ for every irreducible quadratic $f$, by Hooley's method applied to the small divisors
+of $Q(h)$ with the multiplicative weight $\lambda$.
+\end{proposition}
+
+Propositions~\ref{prop:A2} and~\ref{prop:A3} together give Hypothesis~(E) for quadratics, and hence
+(with Theorem~6 of the paper) the conjecture in Ces\`aro form. Numerically, $\Off_f(H)$ is bounded for
+the $25$ quadratics tested to $H=10^5$ (paper, Table~2). The work remaining is the transcription of
+\cite{Hooley1963} with weights; it is not conceptual.
+
+\section{Route B: the function field $\F_q[u]$}\label{sec:B}
+
+Let $\A=\F_q[u]$, $q$ odd, and $f\in\A[t]$ irreducible in $t$, separable, without fixed prime divisor.
+For a prime $P$ of $\A$ write $|P|=q^{\deg P}$, $\omega_f(P)$ for the number of roots of $f$ in $\A/P$,
+and define $\nu_f(d,h)$, $C(f)$, $S_f(h)$, $b$, $P_P$, $W_f$, $a_f$ exactly as over $\Z$ with $|P|$ in place
+of $p$; all products converge absolutely as before. ``$h\le H$'' becomes ``$h\ne0$, $\deg h<N$'', a set of
+$q^N-1$ elements, and $\log H$ becomes $N$.
+
+\begin{theorem}\label{thm:B1}
+With $a_f(d)=W_f(d)\omega_f(d)$ and $P(1)=\prod_PP_P=W_f(1)$, for every $N\ge1$,
+\begin{align*}
+\sum_{\substack{h\ne0\\\deg h<N}}\Bigl(\frac{S_f(h)}{C^2}-1\Bigr)
+&=-\sum_{1\le\deg d\le N}a_f(d)-q^N\sum_{\deg d>N}\frac{a_f(d)}{|d|}+\bigl(1-P(1)\bigr)+\mathrm{Off}_f(N),\\
+\mathrm{Off}_f(N)&=\sum_{\deg d>N}W_f(d)\sum_{s\ne s'}\Bigl(\mathbf 1_{0\le\deg\tilde m<N}-q^{N-\deg d}\Bigr),
+\end{align*}
+$\tilde m$ the representative of $s'-s$ of degree $<\deg d$. In particular the pairs of \emph{distinct}
+roots modulo $d$ contribute nothing for $\deg d\le N$: Hypothesis~(E) is empty for small moduli.
+\end{theorem}
+
+\begin{proof}
+The expansion $S_f(h)/C^2=\sum_Qb(Q)c^f_Q(h)$ over squarefree monic $Q$ holds verbatim, and for $Q\ne1$,
+$\sum_{h\ne0,\deg h<N}c^f_Q(h)=\sum_{d\mid Q}|d|\mu(Q/d)\omega_f(Q/d)^2\sum_{s,s'\bmod d}\psi_d(s'-s)$ with
+$\psi_d(m)=\#\{h\ne0,\deg h<N:\ h\equiv m\ (d)\}-q^{N-\deg d}$ (the subtraction is allowed because
+$\sum_{d\mid Q}\mu(Q/d)=0$). For $\deg d\le N$ every class modulo $d$ contains exactly $q^{N-\deg d}$
+polynomials of degree $<N$, of which one is $0$ iff $d\mid m$, so $\psi_d(m)=-\mathbf 1_{d\mid m}$, and this
+includes $d=1$: $\psi_1=-1$, since $h=0$ is excluded. For $\deg d>N$ a class contains at most one nonzero
+$h$ of degree $<N$, so $\psi_d(m)=\mathbf 1_{0\le\deg\tilde m<N}-q^{N-\deg d}$. Regrouping by $d$ gives
+$\sum_dW_f(d)\sum_{s,s'}\psi_d(s'-s)+1$, the $+1$ compensating the excluded term $Q=1$, whose value in the
+regrouped sum is $\psi_1=-1$. For $\deg d\le N$ the inner sum is $-\omega_f(d)$ (the pairs with
+$s\equiv s'$), giving $-P(1)-\sum_{1\le\deg d\le N}a_f(d)$; for $\deg d>N$ the diagonal pairs give
+$-\omega_f(d)q^{N-\deg d}$ and the off-diagonal pairs give $\mathrm{Off}_f(N)$. (Over $\Z$ the modulus
+$d=1$ drops out because $\#\{h\le H\}=H$ exactly; here it leaves the constant $1-P(1)$.)
+\end{proof}
+
+\begin{proposition}\label{prop:B2}
+$P_N(d)=P(d)+O(q^{-(N-\deg d)/2}\cdot\text{polylog})$ and, with $D_f(s)=\sum_da_f(d)|d|^{-s}$,
+\[
+\sum_{1\le\deg d\le N}a_f(d)=\frac N{C(f)}+c_f+O(q^{-N/2}),
+\]
+because, with $T=q^{-s}$, $D_f(s)=\zeta_\A(s+1)L(s+1,\chi_D)E_f(s)$ where $\zeta_\A(s+1)=1/(1-T)$,
+$L(s+1,\chi_D)$ is a polynomial in $T$, and $E_f(s)=\tilde H_f(s)(1-q^{-1}T^2)^2/L(2s+2,\chi_D)$ with
+$\tilde H_f$ absolutely convergent for $|T|<q$ and the zeros of the polynomial $L(2s+2,\chi_D)$ on
+$|T|=q^{3/4}$ by Weil; so $D_f$ is meromorphic in $|T|<q^{3/4}$ with the single simple pole $T=1$, at which
+$(1-T)D_f\to1/C(f)$ by the same local computation as over $\Z$. (The error term is in fact
+$O(q^{-(3/4-\varepsilon)N})$.)
+\end{proposition}
+
+Thus, over $\F_q[u]$, the function-field form of the conjecture,
+\begin{equation}\label{eq:ffconj}
+\sum_{\substack{h\ne0\\\deg h<N}}\bigl(S_f(h)-C(f)^2\bigr)=-C(f)\,N+O_f(1),
+\end{equation}
+is equivalent to $\mathrm{Off}_f(N)=O(1)$: the whole content of Hypothesis~(E) sits in the off-diagonal
+pairs modulo the moduli of degree $>N$ (the diagonal tail $q^N\sum_{\deg d>N}a_f(d)/|d|$ tends to
+$1/(C(f)(q-1))$). The coefficient is $-C$ rather than $-\tfrac12C$ because the fractional parts $\{H/d\}$,
+whose mean $\tfrac12$ produces the $\tfrac12$ over $\Z$, are replaced by the exact value $1$: a modulus of
+degree $\le N$ misses exactly the class of $0$.
+
+\subsection{The remainder as a finite degree-distribution problem}
+
+For $\deg d>N$ a residue class $m$ modulo $d$ contains at most one nonzero $h$ of degree $<N$, namely its
+representative $\tilde m$ when $0\le\deg\tilde m<N$. For a quadratic $f=t^2-D$ this has a strong
+consequence: if $(s,s')$, $s\ne s'$, has $0\le\deg\tilde m<N$, split $d=d_1d_2$ with
+$d_2=\prod\{P\mid d:\ s\equiv s'\ (P)\}$; then $d_2\mid\tilde m$, so $\deg d_2\le N-1$, and for $P\mid d_1$
+the roots are $\pm\sqrt D$, so $d_1\mid\tilde m^2-4D\ne0$ and $\deg d_1\le\max(2N-2,\deg D)$. Hence
+\[
+\mathrm{Off}_f(N)=\sum_{N<\deg d\le M(N)}W_f(d)A_N(d)-q^N\sum_{\deg d>N}\frac{W_f(d)(\omega_f(d)^2-\omega_f(d))}{|d|},
+\qquad M(N)=N-1+\max(2N-2,\deg D),
+\]
+with $A_N(d)$ the number of ordered pairs of distinct roots whose difference has degree $<N$; the series
+is computable from $\sum_dW_f(d)\omega_f(d)^2/|d|=1$ and $\sum_dW_f(d)\omega_f(d)/|d|=\prod_P(1+b_P(\omega_P-\omega_P^2))$
+(both by $\sum_{d\mid Q}\mu(Q/d)=0$). So the whole question is whether, over the moduli of degree between
+$N$ and about $3N$, the differences $\pm2\sqrt D$ of the roots modulo $d$ fall among the residues of degree
+$<N$ with frequency $q^{N-\deg d}$ up to a bounded total discrepancy. For a prime modulus $P$ of degree
+$k$, writing the indicator of $\deg\tilde x<N$ through the additive characters trivial on $\A_{<N}$,
+\[
+\mathbf 1_{\deg\tilde x<N}=q^{N-k}\sum_{\deg a<k-N}\psi\Bigl(\frac{ax}{P}\Bigr),
+\]
+the count becomes a sum over $a\ne0$ of the Weyl sums $\sum_{\deg P=k}\psi(2a\sqrt D/P)$ of the roots of a
+quadratic congruence over the primes of degree $k$: the function-field analogue of the sums of Duke,
+Friedlander and Iwaniec~\cite{DFI1995}. Over $\F_q[u]$ such sums are governed by the monodromy of the
+relevant Kloosterman-type sheaf and Deligne's equidistribution theorem~\cite{Katz1988}: for fixed $N,k$
+and $q\to\infty$ each has square-root cancellation, $O(q^{k/2})$ against the trivial $q^k/k$, and since
+only the finitely many degrees $k\le M(N)$ occur, the remainder is $O(q^{-1/2})$ in that regime.
+
+\begin{proposition}[expected, $q\to\infty$]\label{prop:B3}
+For a fixed irreducible quadratic $f=t^2-D(u)$ and fixed $N$, $\mathrm{Off}_f(N)=O_{N,\deg D}(q^{-1/2})$;
+hence \eqref{eq:ffconj} holds with the $O(1)$ replaced by $O(q^{-1/2})$ as $q\to\infty$.
+\end{proposition}
+
+This is the function-field theorem to write out: its only input beyond Theorem~\ref{thm:B1} is the
+equidistribution of the roots of a quadratic congruence over primes of a given degree, which in the
+large-$q$ regime is a standard consequence of Deligne's theorem, in the same way as the results of
+Bary-Soroker and Entin~\cite{BarySoroker2012,Entin2016} on prime values of polynomials over $\F_q[u]$.
+
+\subsection{Exact computation}
+
+Theorem~\ref{thm:B1} and the finite-support formula can be checked exactly, and in two independent
+ways: from the $S_f(h)$ themselves (each $S_f(h)/(C^2P(1))$ is a finite product over the primes dividing
+$h(h^2-4D)$; \texttt{thesis/ff.ts}) and from the roots of $f$ modulo every squarefree $d$ of degree
+$\le M(N)$ (\texttt{thesis/ff-tail.ts}, with a brute-force recomputation of the finite sum for the
+smallest cases). Table~\ref{tab:ff} reports the result for $q=3,5,7$ and six choices of $D$ (the cases
+$D$ and $D(u+c)$ coincide, since $u\mapsto u+c$ is a degree-preserving automorphism, so only one
+representative of each translation class is listed). The two computations of $\mathrm{Off}_f(N)$ agree to
+$\fftailMaxDev$; the increments of $\sum_{\deg d\le N}a_f(d)$ converge to $1/C(f)$ as
+Proposition~\ref{prop:B2} predicts, after a transient for $q=3$ caused by the primes of norm $3$ with
+$\omega_f(P)=2$, where $P_P=1-4/(3-2)^2=-3$ and $P(1)$ is negative; the diagonal tail converges to
+$1/(C(f)(q-1))$; and $\mathrm{Off}_f(N)$ is bounded, $|\mathrm{Off}_f(N)|\le\ffOffMax$ with a variation
+over $N$ of at most $\ffOffSwing$, with no sign of growth, which is what \eqref{eq:ffconj} requires.
+
+\begin{table}[h]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Theorem~\ref{thm:B1} for $f=t^2-D$ over $\F_q[u]$: LHS, $\sum_{1\le\deg d\le N}a_f(d)$ and its
+increment (limit $1/C(f)$), the diagonal tail $q^N\sum_{\deg d>N}a_f(d)/|d|$ (limit $1/(C(f)(q-1))$),
+and $\mathrm{Off}_f(N)$.}\label{tab:ff}
+\begin{tabular}{rlrrrrrrrrr}
+\toprule
+$q$ & $D$ & $C(f)$ & $1-P(1)$ & $N$ & $\#h$ & LHS & $\sum a_f$ & incr. & diag.\ tail & $\mathrm{Off}_f(N)$\\
+\midrule
+\input{data/ff-rows.tex}
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering\footnotesize\setlength{\tabcolsep}{5pt}
+\caption{The finite-support formula checked: finite sum, series, their difference, and
+$\mathrm{Off}_f(N)$ from Table~\ref{tab:ff}.}\label{tab:fftail}
+\begin{tabular}{rlrrrrrrr}
+\toprule
+$q$ & $D$ & $N$ & $M(N)$ & $\#d$ & finite sum & series & difference & $\mathrm{Off}_f(N)$ from LHS\\
+\midrule
+\input{data/fftail-rows.tex}
+\end{tabular}
+\end{table}
+
+\section{Assessment}
+
+Route B is the shorter path to a theorem: Theorem~\ref{thm:B1} is proved, Proposition~\ref{prop:B2} is a
+standard consequence of Weil's theorem, and Proposition~\ref{prop:B3} needs one equidistribution input
+that exists in the literature in the large-$q$ regime. Route A is the harder and more valuable path,
+since it concerns the integers; it is a transcription of Hooley's 1963 method with multiplicative weights,
+and we have identified exactly where the two estimates (Propositions~\ref{prop:A2} and~\ref{prop:A3})
+enter. Neither is done here.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}

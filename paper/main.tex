@@ -1,0 +1,1193 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{placeins}
+\captionsetup{font=small,labelfont=bf}
+
+\input{data/macros.tex}
+\input{data/variance-fit.tex}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Sig}{\mathfrak S}
+
+\title{The pair singular series of a polynomial:\\ an exact identity, its Dedekind zeta function,\\ and the variance of prime values}
+\author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com.}
+\and Claude Fable 5.1\thanks{Anthropic large language model (\texttt{claude-fable-5-1}). See the statement on
+authorship and AI use at the end. Most journals do not permit an AI system as an author; if the venue
+requires it, this line becomes an acknowledgement and the statement the required disclosure.}}
+\date{Draft of \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $f\in\Q[t]$ be irreducible, integer-valued and without fixed prime divisor, with Bateman--Horn
+constant $C(f)$, and let $S_f(h)$ be its pair singular series: the explicit Euler product that, under the
+Hardy--Littlewood conjecture, weights the simultaneous primality of $f(t)$ and $f(t+h)$. This paper is
+about the arithmetic function $S_f$, and its theorems involve no prime. We prove an exact identity
+expressing $\sum_{h\le H}(S_f(h)-C(f)^2)$ through the roots of $f$ modulo squarefree $d$; that the
+diagonal part (equal roots) has Dirichlet series $\zeta_K(s+1)E_f(s)$, $K=\Q[t]/(f)$, with residue exactly
+$1/C(f)$, where $1/E_f$ is essentially the Artin $L$-function of the symmetric square of the permutation
+representation on the roots; a closed twin-prime-type formula for $S_f(h)$ when $f$ is quadratic; that the
+Ces\`aro form of the asymptotic
+\[
+\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)
+\]
+holds unconditionally for linear $f$ (the Montgomery--Soundararajan case) and, for general $f$, holds if
+and only if the off-diagonal sum over pairs of distinct roots is $o(H\log H)$---for a $2$-transitive
+Galois group the trivial bound is $O(H\log H)$, so any unbounded saving suffices; and that over $\F_q[u]$
+the off-diagonal contribution of every modulus of degree $\le N$ vanishes identically, the remainder
+being a finite sum over moduli of degree between $N$ and $3N$. We conjecture the displayed asymptotic
+for every $f$, with the \emph{first} power of $C(f)$; this is a statement about an explicit function,
+in the family of the equidistribution theorems of Hooley and of Duke, Friedlander and Iwaniec for the
+roots of quadratic congruences. The closed formula makes $S_f(h)$ exactly computable by sieving: for
+$\exN$ quadratics with $\exCmin\le C(f)\le\exCmax$ and $H\le10^6$ the fitted exponent in
+$\sum_{h\le H}(S_f(h)-C^2)\approx-k\,C^\alpha\log H$ is $\alpha=\exAlpha\pm\exAlphaSe$
+($\exAlphaLin\pm\exAlphaLinSe$ unweighted), excluding the $C^2$ law by at least $\exSigmaTwoMin$
+standard errors, while the finite-$H$ coefficient is about $\exFracHalf$ of the predicted $\tfrac12$.
+Assuming the Hardy--Littlewood pair conjecture for $f$, the conjecture implies that the
+Montgomery--Soundararajan law $\Var/\E\to1-\log T/\log X$ for primes in short intervals holds for the
+prime values $f(t)$, $t<T$, of every polynomial, with a polynomial-dependent correction that is large at
+accessible $T$; prime counts along $\nCells$ cells of polynomial sequences agree with this against a
+random-integer control.
+\end{abstract}
+
+\section{Introduction}
+
+For an irreducible polynomial $f\in\Q[t]$ that is integer-valued, has positive leading coefficient and
+no fixed prime divisor, the Bateman--Horn conjecture~\cite{BatemanHorn1962} (Conjecture~F of Hardy and
+Littlewood~\cite{HardyLittlewood1923} for quadratics; see~\cite{Aletheia2020} for a survey) predicts
+\begin{equation}\label{eq:BH}
+\#\{t<T:\ f(t)\ \text{prime}\}\sim C(f)\sum_{t<T}\frac1{\log f(t)},\qquad
+C(f)=\prod_p\frac{1-\omega_f(p)/p}{1-1/p},
+\end{equation}
+where $\omega_f(p)$ is the number of roots of $f$ modulo $p$ (for primes dividing the denominator of
+$f$, $\omega_f(p)/p$ denotes the density of $t$ with $p\mid f(t)$). The object of this paper is not the
+count of primes but an arithmetic function attached to $f$. For $h\ge1$ let
+\begin{equation}\label{eq:S}
+S_f(h)=\prod_p\frac{1-\omega_{f,2}(p,h)/p}{(1-1/p)^2},\qquad
+\omega_{f,2}(p,h)=2\omega_f(p)-\nu_f(p,h),
+\end{equation}
+where $\nu_f(p,h)=\#\{t\bmod p:\ p\mid f(t)\text{ and }p\mid f(t+h)\}$ is the number of roots $s$ of
+$f$ modulo $p$ such that $s+h$ is again a root (with the same convention for primes dividing the
+denominator). This is the \emph{pair singular series} of Hardy and Littlewood: heuristically,
+$S_f(h)/(\log f(t)\log f(t+h))$ is the probability that $f(t)$ and $f(t+h)$ are both prime, and for
+$f(t)=t$ it is the twin-prime singular series $\Sig(h)$. But $S_f(h)$ is also, in itself, an explicit
+and exactly computable function of $h$: an absolutely convergent Euler product, equal to $C(f)^2$ times
+a product over the primes dividing a resultant, and for quadratics a finite product of twin-prime type
+(Theorem~\ref{thm:quadratic}). Everything we prove concerns this function and no prime. Its mean value is
+$C(f)^2$ (Theorem~\ref{thm:expansion} gives $\sum_{h\le H}S_f(h)=C(f)^2H+O(\log H)$), and the question is
+the second-order term. Our main proposal is:
+
+\begin{conjecture}\label{conj}
+For every irreducible, integer-valued $f$ without fixed prime divisor,
+\begin{equation}\label{eq:conj}
+\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+A_f+o(1)\qquad(H\to\infty),
+\end{equation}
+with a constant $A_f$ depending on $f$.
+\end{conjecture}
+
+For $f(t)=t$ this is a theorem: $\sum_{h\le H}\Sig(h)=H-\tfrac12\log H+O((\log H)^{2/3})$, due to
+Friedlander and Goldston~\cite{FriedlanderGoldston1995} and Vaughan~\cite{Vaughan2001} after
+Montgomery and Soundararajan~\cite{MontgomerySoundararajan2004}, who derived from it, assuming a
+uniform Hardy--Littlewood conjecture, that the number of primes in an interval of length $H$ near $X$
+has
+\begin{equation}\label{eq:MS}
+\frac{\Var}{\E}\approx 1-\frac{\log H}{\log X}.
+\end{equation}
+(Gallagher~\cite{Gallagher1976} had shown that the prime-tuple conjectures imply Poisson statistics in
+intervals of length $\lambda\log X$, and Goldston and Montgomery~\cite{GoldstonMontgomery1987} that,
+under the Riemann Hypothesis, the asymptotic variance for $H=X^\theta$ is equivalent to Montgomery's
+pair correlation conjecture for the zeros of $\zeta$~\cite{Montgomery1973}; in the function-field setting
+the variance statements are theorems~\cite{KeatingRudnick2014}.) The point of Conjecture~\ref{conj} is
+the \emph{first} power of $C(f)$: the second-order term is not $C(f)^2$ times the linear case, as a
+naive rescaling of the twin-prime heuristic would give, but $C(f)$ times it.
+
+\paragraph{Results.} Section~\ref{sec:sum} proves an exact identity for the left side
+of~\eqref{eq:conj} (Theorem~\ref{thm:expansion}), identifies the Dirichlet series of its diagonal part
+as $\zeta_K(s+1)E_f(s)$ with residue $1/C(f)$ at $s=0$ (Theorem~\ref{thm:dirichlet}), which is where
+the first power of $C(f)$ comes from, identifies $E_f$ as the inverse of the Artin $L$-function of the
+symmetric square of the permutation representation on the roots (Theorem~\ref{thm:artin}), gives a
+closed twin-prime-type formula for $S_f(h)$ when $f$ is quadratic (Theorem~\ref{thm:quadratic}), proves
+the Ces\`aro form of~\eqref{eq:conj} for every linear $f$ and reduces it for general $f$ to a bound
+$o(H\log H)$ for the off-diagonal sum over pairs of distinct roots of $f$ modulo $d$
+(Theorem~\ref{thm:smoothed}; the constant term needs the sharper Hypothesis~(E)), tests the conjecture
+numerically for $\sumsN$ polynomials of degree $1$--$4$ up to $H=10^5$ and, exactly and with $C(f)$
+varying over more than a decade, for $\exN$ quadratics up to $H=10^6$ (Tables~\ref{tab:sums},
+\ref{tab:exact}, Figures~\ref{fig:curves}, \ref{fig:exact}), isolates the off-diagonal remainder for
+quadratics (Table~\ref{tab:off}), and proves that over $\F_q[u]$ the off-diagonal contribution of every
+modulus of degree $\le N$ vanishes identically, the remainder being a finite sum over moduli of degree
+between $N$ and about $3N$ (Theorem~\ref{thm:ff}, Lemma~\ref{lem:support}). Section~\ref{sec:riesz}
+draws a consequence: for a quadratic the diagonal Riesz means have an explicit formula over the zeros of
+$\zeta^2L(\chi_D)$ (Proposition~\ref{thm:explicit}), explains why these zeros are nevertheless invisible
+in a direct computation to $4\cdot10^7$, and tests whether the Galois group affects the constant.
+
+\paragraph{Consequences for primes.} Let $\mathbf 1_t$ be the indicator that $f(t)$ is prime,
+$p_t=\min(1,C(f)/\log f(t))$ its Bateman--Horn probability, $A_T=\sum_{t<T}\mathbf 1_t$ and
+$V_T=\sum_{t<T}p_t(1-p_t)$ the independent-trials variance. If the Hardy--Littlewood conjecture holds for
+the pair $(f(t),f(t+h))$, i.e.\ $\Pr[\mathbf 1_t\mathbf 1_{t+h}=1]\approx S_f(h)\,w_tw_{t+h}$ with
+$w_t=1/\log f(t)$, then
+\begin{equation}\label{eq:varHL}
+\Var_{\mathrm{HL}}(A_T)=V_T+2\sum_{h=1}^{T-1}\bigl(S_f(h)-C(f)^2\bigr)\,W_T(h),\qquad W_T(h)=\sum_{t<T-h}w_tw_{t+h},
+\end{equation}
+and inserting~\eqref{eq:conj} gives
+\begin{equation}\label{eq:law}
+\frac{\Var}{\E}\approx1-\frac{\log T}{\log X}+\frac{1+2\bar A_f(T)/C(f)}{\log X},\qquad X\approx f(T),
+\end{equation}
+where $\bar A_f(T)$ is the average over $H<T$ of $\Sigma_f(H)+\tfrac12C\log H$ (it tends to $A_f$).
+So the Montgomery--Soundararajan law~\eqref{eq:MS} holds asymptotically for every polynomial, with a
+correction that depends on $f$ only through $A_f/C(f)$; but $\Sigma_f(H)$ approaches its asymptotic form
+slowly, $\bar A_f(T)/C$ is of order $-1$ to $-2$ for $T\le10^3$, and the correction is a negative
+$0.1$--$0.2$ at the lengths one can compute. Section~\ref{sec:primes} compares this with primes along
+$\nCells$ cells of polynomial sequences, with a random-integer control.
+
+\paragraph{What is conditional on what.} Three statements of very different status appear in this
+paper, and we separate them. (A)~The Bateman--Horn conjecture~\eqref{eq:BH} for a non-linear $f$, i.e.\
+that $f$ takes infinitely many prime values at the predicted density. It is not known for a single
+non-linear polynomial; for $t^2+1$ it is one of Landau's problems of 1912, and the obstruction is the
+parity barrier of sieve theory. No theorem of this paper depends on it. (B)~The Hardy--Littlewood pair
+conjecture for $f$, which is stronger than~(A). It is used only in~\eqref{eq:varHL} and
+Section~\ref{sec:primes}, to translate Conjecture~\ref{conj} into a statement about the variance of prime
+counts; the paper of Montgomery and Soundararajan is conditional in exactly the same way. (C)~Conjecture~\ref{conj}
+itself, and the Hypothesis~(E) to which Theorem~\ref{thm:smoothed} reduces it. These are statements about
+the explicit arithmetic function $S_f$, provable or refutable with no conjecture about primes anywhere;
+Hypothesis~(E) is a concrete equidistribution statement about the roots of $f$ modulo $d$ on average
+over $d$, in the family of the theorems of Hooley~\cite{Hooley1963} and of Duke, Friedlander and
+Iwaniec~\cite{DFI1995} on the roots of quadratic congruences. The theorems of Section~\ref{sec:sum} are
+unconditional; Proposition~\ref{thm:explicit} is conditional only on writing out a contour argument that
+we have sketched. Section~\ref{sec:spiral} records where our polynomial families come from (a
+$d$-dimensional Ulam spiral whose lattice lines carry polynomials of degree exactly $d$,
+Theorem~\ref{thm:poly}). Section~\ref{sec:disc} discusses what is proved, what is heuristic, and what
+should be done next.
+
+\section{The pair singular series}\label{sec:pair}
+
+We record the elementary properties of $S_f$ that are used below. Write $R(h)$ for the resultant of $f(t)$
+and $f(t+h)$ (up to the denominators of $f$), a nonzero integer for $h\ne0$ since $f$ is irreducible and
+not constant. For $p\nmid R(h)$ the polynomials $f(t)$ and $f(t+h)$ have no common root modulo $p$, so
+$\nu_f(p,h)=0$ and the local factor of~\eqref{eq:S} equals $(1-2\omega_f(p)/p)/(1-1/p)^2=(1-\omega_f(p)/p)^2(1-1/p)^{-2}\cdot P_p$
+with $P_p=(1-2\omega_f(p)/p)/(1-\omega_f(p)/p)^2=1-\omega_f(p)^2/(p-\omega_f(p))^2$; since
+$\sum_p\omega_f(p)^2/p^2<\infty$, the product converges absolutely and
+\[
+S_f(h)=C(f)^2\prod_pP_p\prod_{p\mid R(h)}\frac{1+g_p(h)}{P_p},\qquad
+1+g_p(h)=\frac{1-\omega_{f,2}(p,h)/p}{(1-\omega_f(p)/p)^2},
+\]
+a finite correction to the constant $C(f)^2\prod_pP_p$. In particular $S_f(h)\ge0$, with $S_f(h)=0$
+exactly when some prime divides $f(t)f(t+h)$ for every $t$. For $f(t)=t$ one has $\omega_f=1$,
+$\nu_f(p,h)=\mathbf 1_{p\mid h}$, and $S_f=\Sig$ is the twin-prime singular series
+$2\prod_{p>2}(1-(p-1)^{-2})\prod_{p\mid h,p>2}\frac{p-1}{p-2}$ for even $h$. For a general $f$ the
+correction factors depend on $h$ through the residues of the differences of roots of $f$ modulo $p$, and
+Section~\ref{sec:sum} makes this dependence exact. The pair-correlation interpretation of $S_f$, and the
+prime counts it predicts, are taken up in Section~\ref{sec:primes}. The Bateman--Horn conjecture is
+open for every non-linear $f$, but Kravitz, Woo and Xu~\cite{KravitzWooXu2025} have shown that a
+polynomial analogue of the prime-tuples conjecture holds for $100\%$ of polynomials in an $L^2$ sense,
+and Banks and Ford~\cite{BanksFord2026} that random sets of the right density satisfy Bateman--Horn
+statistics almost surely.
+
+\section{The sum of the pair singular series}\label{sec:sum}
+
+Throughout this section $f\in\Z[t]$ is irreducible of degree $n\ge1$, with positive leading
+coefficient and no fixed prime divisor, so that $\omega_f(p)<p$ for every $p$; $R(h)$ denotes the
+resultant of $f(t)$ and $f(t+h)$, a non-zero integer for $h\ne0$ (two roots of an irreducible
+polynomial never differ by a non-zero integer), and $K=\Q[t]/(f)$. (The spiral polynomials of
+Section~\ref{sec:spiral} have denominators dividing $d!$; everything below goes through with the
+period $p^{v_p(\mathrm{den})+1}$ in place of $p$ at the finitely many primes dividing the denominator,
+as implemented in the code.)
+
+\subsection{An exact identity}\label{sec:heur}
+
+For squarefree $q$ let $\rho_q(a)=\sum_{s\bmod q,\ f(s)\equiv0}e(as/q)$ be the exponential sum over the
+roots of $f$ modulo $q$, and define the \emph{root Ramanujan sum}
+\[
+c^f_q(h)=\sum_{\substack{a\bmod q\\(a,q)=1}}|\rho_q(a)|^2\,e(-ah/q)=\sum_{s,s'\bmod q}c_q(s'-s-h),
+\]
+where $c_q$ is the classical Ramanujan sum; $c^f_q$ is multiplicative in $q$ by the Chinese remainder
+theorem, and $c^f_p(h)=p\,\nu_f(p,h)-\omega_f(p)^2$. For $f(t)=t$ one has $c^f_q=c_q$.
+
+\begin{theorem}\label{thm:expansion}
+Let $b(q)=\prod_{p\mid q}(p-\omega_f(p))^{-2}$. For every $h\ge1$,
+\begin{equation}\label{eq:expansion}
+\frac{S_f(h)}{C(f)^2}=\sum_{q\ \mathrm{squarefree}}b(q)\,c^f_q(h),
+\end{equation}
+the series converging absolutely. Consequently, for every $H\ge1$,
+\begin{equation}\label{eq:identity}
+\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=C(f)^2\sum_{d\ge2}W_f(d)\,\Psi_d(H),\qquad
+W_f(d)=d\,b(d)\prod_{p\nmid d}\Bigl(1-\frac{\omega_f(p)^2}{(p-\omega_f(p))^2}\Bigr),
+\end{equation}
+where $d$ runs over squarefree integers,
+$\Psi_d(H)=\sum_{s,s'}\psi_d(s'-s,H)$, the sum over pairs of roots of $f$ modulo $d$, with
+$\psi_d(m,H)=\#\{h\le H:\ h\equiv m\ (d)\}-H/d$, and the series converges absolutely.
+Splitting the pairs $(s,s')$ into $s=s'$ and $s\ne s'$,
+\begin{equation}\label{eq:split}
+\sum_{h\le H}\bigl(S_f(h)-C^2\bigr)=-C^2\sum_{d\ge2}a_f(d)\Bigl\{\frac Hd\Bigr\}+C^2\,\mathrm{Off}_f(H),
+\qquad a_f(d)=W_f(d)\,\omega_f(d),
+\end{equation}
+with $\mathrm{Off}_f(H)=\sum_{d}W_f(d)\sum_{s\ne s'}\psi_d(s'-s,H)$.
+\end{theorem}
+
+\begin{proof}
+Put $a_p=\omega_f(p)/p$. By~\eqref{eq:S} and~\eqref{eq:BH},
+$S_f(h)/C^2=\prod_p(1+g_p(h))$ with
+$g_p(h)=(\nu_f(p,h)/p-a_p^2)/(1-a_p)^2=c^f_p(h)/(p-\omega_f(p))^2$. For $p\nmid R(h)$ one has
+$\nu_f(p,h)=0$, so $g_p(h)=-a_p^2/(1-a_p)^2=O(p^{-2})$ and $\sum_p|g_p(h)|<\infty$; hence the product
+converges absolutely and equals $\sum_q\prod_{p\mid q}g_p(h)$, which is~\eqref{eq:expansion} by
+multiplicativity. Summing over $h\le H$ (a finite sum) and using
+$\sum_{h\le H}c_q(m-h)=\sum_{d\mid q}d\,\mu(q/d)\,\#\{h\le H:\ d\mid m-h\}$, we get for $q>1$
+\[
+\sum_{h\le H}c^f_q(h)=\sum_{d\mid q}d\,\mu(q/d)\sum_{s,s'\bmod q}\Bigl(\frac Hd+\psi_d(s'-s,H)\Bigr)
+=\sum_{d\mid q,\ d>1}d\,\mu(q/d)\,\omega_f(q/d)^2\,\Psi_d(H),
+\]
+because $\sum_{d\mid q}\mu(q/d)=0$ and pairs of roots modulo $q$ project onto pairs modulo $d$ with
+multiplicity $\omega_f(q/d)^2$. Writing $q=dm$ with $(m,d)=1$ and summing over $m$,
+$\sum_{(m,d)=1}\mu(m)b(m)\omega_f(m)^2=\prod_{p\nmid d}(1-\omega_f(p)^2/(p-\omega_f(p))^2)$, an
+absolutely convergent product; this gives~\eqref{eq:identity}. The rearrangement is justified because
+$\sum_d d\,b(d)|\Psi_d(H)|<\infty$: for fixed $h$, $\nu_f(d,h)\ne0$ forces $d\mid R(h)$ up to a bounded
+factor, so $\sum_d d\,b(d)\sum_{h\le H}\nu_f(d,h)$ is a finite sum, while
+$\sum_d d\,b(d)\,\omega_f(d)^2H/d<\infty$. Finally $\psi_d(0,H)=-\{H/d\}$ gives~\eqref{eq:split}.
+\end{proof}
+
+The diagonal part of~\eqref{eq:split} is a sum of fractional parts weighted by the multiplicative
+function $a_f$; the off-diagonal part collects, for every $d$, the discrepancies of the residue classes
+$s'-s$ of \emph{differences of distinct roots} of $f$ modulo $d$, each of size $O(1)$ and of mean zero
+over the residues. For linear $f$ there are no distinct roots and $\mathrm{Off}_f\equiv0$.
+
+\subsection{The diagonal: the Dedekind zeta function and the residue $1/C(f)$}\label{sec:diag}
+
+\begin{theorem}\label{thm:dirichlet}
+The Dirichlet series $D_f(s)=\sum_d a_f(d)d^{-s}$ has the Euler product
+$D_f(s)=\prod_p\bigl(P_p+p\,b(p)\,\omega_f(p)\,p^{-s}\bigr)$ with $P_p=1-\omega_f(p)^2/(p-\omega_f(p))^2$,
+and
+\[
+D_f(s)=\zeta_K(s+1)\,E_f(s)
+\]
+with $E_f$ holomorphic in $\Re s>-\tfrac12$. In particular $D_f$ is meromorphic there with a single
+simple pole at $s=0$, and
+\[
+\operatorname*{Res}_{s=0}D_f(s)=\prod_p\frac{1-1/p}{1-\omega_f(p)/p}=\frac1{C(f)},\qquad
+\sum_{d\le x}a_f(d)=\frac{\log x}{C(f)}+B_f+O\Bigl(\frac1{\log x}\Bigr).
+\]
+\end{theorem}
+
+\begin{proof}
+$a_f$ is supported on squarefree $d$ with $a_f(d)=\prod_{p\mid d}p\,b(p)\omega_f(p)\prod_{p\nmid d}P_p$,
+which gives the Euler product. At $s=0$ the local factor is
+$P_p+p\,b(p)\omega_f(p)=\bigl((p-\omega)^2-\omega^2+p\omega\bigr)/(p-\omega)^2=p/(p-\omega_f(p))$. For
+large $p$, $P_p+p\,b(p)\omega_f(p)p^{-s}=1+\omega_f(p)p^{-1-s}+O(p^{-2})$ uniformly in $\Re s\ge-\tfrac12+\delta$,
+while for every $p$ not dividing the discriminant of $f$ the Euler factor of $\zeta_K(s+1)$ is
+$1+\omega_f(p)p^{-1-s}+O(p^{-2-2\Re s})$ by the Dedekind--Kummer theorem ($\omega_f(p)$ is then the
+number of degree-one prime ideals above $p$).
+The quotient is therefore $1+O(p^{-2+2\delta})$ and $E_f$ is an absolutely convergent Euler product, holomorphic
+in $\Re s>-\tfrac12$. Since $\zeta_K$ has a simple pole at $1$, so has $D_f$ at $0$, and
+$\operatorname*{Res}_{s=0}D_f=\lim_{s\to0^+}sD_f(s)=\lim_{s\to0^+}\prod_p(P_p+pb(p)\omega_f(p)p^{-s})(1-p^{-1-s})$;
+the logarithm of the product is $\sum_p(\omega_f(p)-1)p^{-1-s}+(\text{absolutely convergent})$, and
+$\sum_p(\omega_f(p)-1)p^{-1-s}$ converges at $s=0$ by the prime ideal theorem ($\sum_{p\le x}(\omega_f(p)-1)=o(x/\log x)$),
+hence uniformly for $s\ge0$, so the limit is the value at $s=0$, $\prod_p\frac{p}{p-\omega_f(p)}(1-\frac1p)=1/C(f)$.
+The asymptotic for $\sum_{d\le x}a_f(d)$ follows from the Selberg--Delange method~\cite[II.5]{Tenenbaum2015}
+applied to $\sum_d d\,a_f(d)\,d^{-s}=D_f(s-1)=\zeta(s)\cdot\frac{\zeta_K(s)}{\zeta(s)}E_f(s-1)$, whose second
+factor is holomorphic and non-vanishing in a neighbourhood of $s=1$ and in a standard zero-free region,
+followed by partial summation.
+\end{proof}
+
+Theorem~\ref{thm:dirichlet} is the rigorous content of the phrase ``the correlation carried by a prime
+$p$ dividing $h$ has weight $\omega_f(p)/(p-\omega_f(p))$'': the partial sums of that weight grow like
+$\log H/C(f)$, exactly as $\sum_{k\le H}\mu(k)^2/\varphi(k)\sim\log H$ does in the
+Montgomery--Soundararajan computation~\cite{MontgomerySoundararajan2004} for $f(t)=t$. It also exhibits
+the Dedekind zeta function of the field cut out by $f$ as the generating function of the diagonal.
+
+\subsection{The Artin $L$-function of the symmetric square, and quadratics in closed form}\label{sec:artin}
+
+The factor $E_f$ of Theorem~\ref{thm:dirichlet} is not just ``holomorphic near $0$'': it is itself an
+$L$-function, and this is what connects the second moment to zeros. Let $V_f$ be the permutation
+representation of $G=\operatorname{Gal}(f)$ on the roots of $f$, and $\Lambda^kV_f$, $\operatorname{Sym}^2V_f$ its
+exterior powers and symmetric square. For $p$ not dividing the discriminant of $f$, $\omega_f(p)$ is the
+number of fixed points of $\operatorname{Frob}_p$ on the roots, and the Euler factor of $1/\zeta_K(w)$ at $p$ is
+$\det(1-\operatorname{Frob}_pp^{-w}\mid V_f)=\sum_k(-1)^k\chi_{\Lambda^kV_f}(\operatorname{Frob}_p)p^{-kw}$.
+
+\begin{theorem}\label{thm:artin}
+Write $\chi_2(p)=\chi_{\operatorname{Sym}^2V_f}(\operatorname{Frob}_p)=\tfrac12\omega_f(p)(\omega_f(p)+1)+n_2(p)$, where
+$n_2(p)$ is the number of $2$-cycles of $\operatorname{Frob}_p$ on the roots. Then
+\[
+E_f(s)=\frac{H_f(s)}{L(2s+2,\operatorname{Sym}^2V_f)},
+\]
+with $H_f(s)$ an Euler product whose factors are $1+O(p^{-2})+O(p^{-2-s})+O(p^{-3-3s})$, absolutely
+convergent for $\Re s>-\tfrac23$. For a quadratic $f$ of discriminant $D$, with $\chi_D$ the Kronecker
+symbol,
+\[
+D_f(s)=\frac{\zeta(s+1)\,L(s+1,\chi_D)}{\zeta(2s+2)^2\,L(2s+2,\chi_D)}\;H_f(s),
+\]
+and extracting the cubic terms as well, $H_f(s)=\zeta(3s+3)L(3s+3,\chi_D)\,\tilde H_f(s)$ with $\tilde H_f$
+absolutely convergent for $\Re s>-1$.
+\end{theorem}
+
+\begin{proof}
+The local factor of $D_f$ is $F_p(s)=P_p+p\,b(p)\omega_f(p)p^{-s}$; it contains $p^{-s}$ only to the first
+power. Multiplying by $\det(1-\operatorname{Frob}_pp^{-1-s}\mid V_f)=1-\omega p^{-1-s}+\chi_{\Lambda^2}p^{-2-2s}-\cdots$
+and using $F_p=1-\omega^2p^{-2}+\omega p^{-1-s}+2\omega^2p^{-2-s}+O(p^{-3})$, the coefficient of $p^{-2-2s}$ in
+the $E_f$-factor is $\chi_{\Lambda^2}(\operatorname{Frob}_p)-\omega^2=-\chi_{\operatorname{Sym}^2}(\operatorname{Frob}_p)$, since
+$V\otimes V=\Lambda^2V\oplus\operatorname{Sym}^2V$; and $\chi_{\operatorname{Sym}^2}(g)=\tfrac12(\chi_V(g)^2+\chi_V(g^2))$ with
+$\chi_V(g^2)=\omega+2n_2$ gives the stated formula. The remaining terms are $-\omega^2p^{-2}$, $2\omega^2p^{-2-s}$,
+and terms $p^{-k(1+s)}$, $k\ge3$, with bounded coefficients, whence the convergence statement. For a
+quadratic, $V_f=\mathbf 1\oplus\chi_D$, so $\zeta_K=\zeta L(\chi_D)$, $\operatorname{Sym}^2V_f=\mathbf 1\oplus\mathbf 1\oplus\chi_D$,
+and the cubic coefficient is $\chi_{\Lambda^3}-\omega\chi_{\Lambda^2}=-\omega\chi_D(p)$ for $\dim V=2$; with
+$\omega=1+\chi_D(p)$ this is $-(\chi_D+1)$ up to the sign convention, giving the factor $\zeta(3s+3)L(3s+3,\chi_D)$.
+\end{proof}
+
+The poles of $1/L(2s+2,\operatorname{Sym}^2V_f)$ lie at $s=\rho/2-1$ for the zeros $\rho$ of the symmetric-square
+$L$-function; for a quadratic these are the zeros of $\zeta$ (double) and of $L(s,\chi_D)$ (simple). In the
+Perron integral for the Riesz means of the diagonal part they produce terms $x^{\rho/2}$, exactly as the
+zeros of $\zeta$ do through $1/\zeta(2s)$ in the work of Goldston and
+Suriajaya~\cite{GoldstonSuriajaya2021} on $\sum_{h\le x}\Sig(h)$; see Section~\ref{sec:riesz}.
+
+For quadratics the pair singular series itself has a closed form of twin-prime type.
+
+\begin{theorem}\label{thm:quadratic}
+Let $f=at^2+bt+c\in\Z[t]$ be irreducible with discriminant $D=b^2-4ac$, and let $Q(h)=a^2h^2-D$. For
+every prime $p\nmid 2aD$: $\omega_f(p)=1+\chi_D(p)$, the two roots of $f$ modulo a split prime differ by
+$\pm\sqrt D/a$, and hence $\nu_f(p,h)=\omega_f(p)$ if $p\mid h$, $\nu_f(p,h)=1$ if $p\mid Q(h)$ and $p\nmid h$,
+and $\nu_f(p,h)=0$ otherwise. Consequently
+\[
+S_f(h)=C(f)^2\prod_pP_p\;\prod_{p\mid h}\frac{p-\omega_f(p)}{p-2\omega_f(p)}\;\prod_{\substack{p\mid Q(h)\\p\nmid h}}\frac{p-3}{p-4},
+\]
+with the finitely many primes dividing $2aD$ carrying their exact local factors instead. For $f=t^2+1$:
+$S_f(h)=0$ for odd $h$ and, for even $h$,
+$S_f(h)=2C(f)^2\prod_{p\equiv1(4)}P_p\prod_{p\mid h,\,p\equiv1(4)}\frac{p-2}{p-4}\prod_{p\mid h^2+4,\,p\nmid h}\frac{p-3}{p-4}$.
+\end{theorem}
+
+\begin{proof}
+For $p\nmid 2aD$ split, the roots are $(-b\pm\sqrt D)/2a$, so the ordered pairs of distinct roots have
+differences $\pm\sqrt D/a$, and $h\equiv\pm\sqrt D/a$ iff $p\mid a^2h^2-D$; for $p$ odd exactly one of the two
+signs occurs, so $\nu_f(p,h)=1$. Then $1+g_p(h)$ equals $1/(1-\omega/p)$ for $p\mid h$, $(1-3/p)/(1-2/p)^2$
+for $p\mid Q(h)$, $p\nmid h$ (where $\omega=2$), and $P_p$ otherwise; dividing by $P_p$ gives the factors
+$(p-\omega)/(p-2\omega)$ and $(p-3)/(p-4)$. For $t^2+1$, $\omega(2)=1$ makes $P_2=0$ and the local factor at
+$2$ equal to $2$ for even $h$ and $0$ for odd $h$.
+\end{proof}
+
+The factor $(p-\omega)/(p-2\omega)$ for $p\mid h$ is the analogue of the twin-prime factor $(p-1)/(p-2)$;
+the new ingredient is the second product over the primes represented by the quadratic form $Q(h)$. This
+makes $S_f(h)$ computable exactly, by sieving $h$ and $Q(h)$, for all $h$ up to $4\cdot10^7$ in a minute.
+
+\subsection{Theorems}\label{sec:thms}
+
+The fractional-part sum $\sum_d a_f(d)\{H/d\}$ equals $\frac1{2C}\log H+O(1)$ if the fractional parts
+$\{H/d\}$ have mean $\tfrac12$ against the weights $a_f(d)$; for $f(t)=t$ this is the theorem of
+Friedlander--Goldston and Vaughan~\cite{FriedlanderGoldston1995,Vaughan2001}
+($\sum_{h\le H}\Sig(h)=H-\tfrac12\log H+O((\log H)^{2/3})$), whose proof needs exponential-sum
+estimates of Vinogradov type. Under a Ces\`aro weight the fractional parts are tamed and an elementary
+argument suffices.
+
+\begin{theorem}\label{thm:smoothed}
+Let $\phi(\theta)=\theta-\theta^2$. For $H\ge2$,
+\begin{equation}\label{eq:smoothed}
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)+\frac{C(f)^2}{H}\,\mathrm{Off}^{\ast}_f(H),
+\end{equation}
+where, with $m=s'-s\bmod d\in[1,d-1]$ and the sum over unordered pairs of distinct roots,
+\[
+\mathrm{Off}^{\ast}_f(H)=\sum_{d\ge2}W_f(d)\sum_{\{s,s'\}}\Bigl[-\frac{m(d-m)}d+\frac d2\Bigl(\phi\Bigl(\Bigl\{\frac{H-m}d\Bigr\}\Bigr)+\phi\Bigl(\Bigl\{\frac{H+m}d\Bigr\}\Bigr)\Bigr)\Bigr]
+\]
+converges absolutely. In particular:
+\begin{enumerate}
+\item[(i)] if $\omega_f(p)\le1$ for all $p$, e.g.\ for every linear $f$, then $\mathrm{Off}^\ast_f\equiv0$ and
+$\sum_{h\le H}(1-h/H)(S_f(h)-C^2)=-\tfrac12C\log H+O_f(1)$;
+\item[(ii)] for general $f$, Conjecture~\ref{conj} in Ces\`aro form holds, with the leading term
+$-\tfrac12C(f)\log H$, if and only if $\mathrm{Off}^\ast_f(H)=o(H\log H)$; trivially
+$\mathrm{Off}^\ast_f(H)\ll H(\log H)^{r_f-1}$, where $r_f\ge2$ is the number of orbits of the Galois
+group of $f$ on ordered pairs of roots.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Multiply~\eqref{eq:expansion} by $H-h$ and sum. As in the proof of Theorem~\ref{thm:expansion},
+\[
+\sum_{h\le H}(H-h)\bigl(S_f(h)-C^2\bigr)=C^2\sum_{d\ge2}W_f(d)\sum_{s,s'\bmod d}B_d(s'-s),\qquad
+B_d(m)=\sum_{\substack{h\le H\\h\equiv m\ (d)}}(H-h)-\frac{H^2}{2d},
+\]
+the subtraction of $H^2/(2d)$ being allowed because $\sum_{d\mid q}\mu(q/d)=0$ for $q>1$. An elementary
+computation gives, for $1\le m\le d$ and every $d\ge1$ (also for $d>H$),
+\[
+B_d(m)=-\frac{Hm}d+\frac{m^2}{2d}+\frac H2-\frac m2+\frac d2\,\phi\Bigl(\Bigl\{\frac{H-m}d\Bigr\}\Bigr),
+\qquad\text{so}\qquad
+B_d(d)=-\frac H2+\frac d2\,\phi\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr),
+\]
+and $B_d(m)+B_d(d-m)$ is the bracket in the definition of $\mathrm{Off}^\ast_f$. The diagonal is
+\[
+\sum_d a_f(d)B_d(d)=-\frac H2\sum_{d\le H}a_f(d)+\frac12\sum_{d\le H}d\,a_f(d)\,\phi\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr)-\frac{H^2}2\sum_{d>H}\frac{a_f(d)}d,
+\]
+using $B_d(d)=-H^2/(2d)$ for $d>H$. By Theorem~\ref{thm:dirichlet} the first term is
+$-\frac{H}{2C}\log H+O(H)$ and, by partial summation, $\sum_{d>H}a_f(d)/d=1/(CH)+o(1/H)$, so the third
+term is $O(H)$. In the second, $0\le\phi\le\tfrac14$ and $\sum_{d\le H}d\,|a_f(d)|=O(H)$ by Shiu's
+theorem~\cite{Shiu1980} for the non-negative multiplicative function $d\,|a_f(d)|$, whose value at $p$
+is $\omega_f(p)(1+O(1/p))$ and satisfies $\sum_{p\le x}(\omega_f(p)-1)/p=O(1)$. Dividing by $H$
+gives~\eqref{eq:smoothed}. Absolute convergence of $\mathrm{Off}^\ast_f$ and the bound in~(ii) follow
+from $|B_d(m)|\ll d+H^2/d$ for $d>H$, $\ll d$ for $d\le H$, together with
+$\sum_{d\le x}|W_f(d)|\,\omega_f(d)^2\,d\ll x(\log x)^{r_f-1}$ (Shiu's theorem again, since the mean
+value of $\omega_f(p)^2$ over primes is $r_f$ by Chebotarev) and the finiteness of
+$\sum_d W_f(d)\sum_{h\le H}\nu_f(d,h)(H-h)$. If $\omega_f(p)\le1$ for all $p$ there are no pairs of
+distinct roots and $\mathrm{Off}^\ast_f=0$.
+\end{proof}
+
+For $f(t)=t$, Theorem~\ref{thm:smoothed}(i) is the Ces\`aro form of the Friedlander--Goldston--Vaughan
+asymptotic, with an elementary proof of the leading term; Goldston and
+Suriajaya~\cite{GoldstonSuriajaya2021,GoldstonSuriajaya2021b} have shown that the error term of the
+Riesz means of $\sum_{h\le x}\Sig(h)$ is an explicit formula over the zeros of $\zeta$. In our setting the
+generating series is $\zeta_K(s+1)E_f(s)$, and the same analysis would express the fluctuations of
+$\sum_{h\le H}S_f(h)$ through the zeros of the Dedekind zeta function of $K$; we return to this in
+Section~\ref{sec:disc}.
+
+\begin{remark}\label{rem:two}
+Part~(ii) deserves emphasis. The Galois group of $f$ acts on ordered pairs of distinct roots; it is
+$2$-transitive exactly when $r_f=2$, which is the generic case ($S_n$, $A_n$, and every $2$-transitive
+group). Then the trivial bound is $\mathrm{Off}^\ast_f(H)\ll H\log H$, and the leading term
+$-\tfrac12C(f)\log H$ of Conjecture~\ref{conj} in Ces\`aro form follows from \emph{any} saving of an
+unbounded factor over the trivial bound: one needs the residue classes $s'-s\bmod d$ of differences of
+distinct roots to be distributed among the $d-1$ nonzero classes with a discrepancy that is $o(1)$ on
+average over $d\le H$ against the weights $W_f(d)$, not a power saving. For a quadratic the pairs are
+$(\pm\sqrt D)$ and the differences $\pm2\sqrt D\bmod d$; the equidistribution of the roots of
+$x^2\equiv D\pmod d$ on average over $d$, with a power saving, is Hooley's theorem~\cite{Hooley1963},
+and the analogous statements for prime moduli are those of Duke, Friedlander and
+Iwaniec~\cite{DFI1995} and T\'oth~\cite{Toth2000}. What is not in the literature is the average with
+the multiplicative weights $W_f(d)$ and the fractional-part test function; we set out the transcription
+in a companion note and do not claim it here. For $r_f\ge3$ the trivial bound has an extra power of
+$\log H$ and a genuine cancellation among the orbits is required (Section~\ref{sec:galois}).
+\end{remark}
+
+The full conjecture~\eqref{eq:conj}, with a constant term, needs more than the leading term:
+
+\medskip\noindent\textbf{Hypothesis (E).} $\mathrm{Off}_f(H)=O(1)$, equivalently $\mathrm{Off}^\ast_f(H)=O(H)$:
+the fractional parts $\{(H\pm m)/d\}$, $m$ ranging over the differences of distinct roots of $f$
+modulo $d$, have mean $\tfrac12$ against the weights $W_f(d)$.
+
+\medskip\noindent
+This is the equidistribution statement of Remark~\ref{rem:two} with a bounded, rather than merely
+$o(H\log H)$, error; we have not proved it. We test it directly for quadratics, where $\omega_f(p)=1+\bigl(\frac{\mathrm{disc}f}{p}\bigr)$
+allows the diagonal sum $\sum_d a_f(d)\{H/d\}$ to be computed exactly to $d\le\offDmax$, so that
+$\mathrm{Off}_f(H)$ is obtained from~\eqref{eq:split} by subtraction (Section~\ref{sec:sumnum}).
+
+\subsection{Numerical verification}\label{sec:sumnum}
+
+We computed $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C(f)^2)$ for $H\le10^5$, with every Euler product taken
+over $p\le\sumsP$ using the exact period $p^{v_p(\mathrm{den})+1}$, for $\sumsN$ polynomials: $\sumsLinN$
+progressions $a+qt$ with $q\le300$; sixteen ``spiral'' polynomials each of degree $2,3,4$ (eventual
+ray polynomials of the spiral of Section~\ref{sec:spiral}, rational coefficients with denominator
+dividing $d!$, leading coefficient $2^d$); sixteen random integer polynomials each of degree $2,3,4$
+(coefficients in $[-60,60]$, leading coefficient in $[1,8]$); and six named polynomials including
+Euler's $t^2+t+41$, $t^2+1$ and $t^3+2$. Polynomials with a fixed divisor or a square discriminant were
+excluded. The script \texttt{thesis/sumS.ts} reproduces everything; no primes are used.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{4.5pt}
+\caption{Growth of $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C^2)$. Slopes are increments per unit of
+$\log H$ over the indicated decade, divided by $C$ or by $C^2$ (mean $\pm$ s.d.\ over the polynomials of
+the group). $A_f/C$ is the constant term of~\eqref{eq:conj} estimated at $H=10^5$. Conjecture~\ref{conj}
+predicts $-0.50$ in the ``$/C$'' columns for every group.}\label{tab:sums}
+\begin{tabular}{lrrrrrrr}
+\toprule
+group & $d$ & $n$ & mean $C$ & slope$/C$, $10^3$--$10^4$ & slope$/C$, $10^4$--$10^5$ & slope$/C^2$, $10^4$--$10^5$ & $A_f/C$\\
+\midrule
+\input{data/sums-rows.tex}
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=0.7\textwidth,height=0.42\textwidth,xmode=log,xlabel={$H$},ylabel={$\Sigma_f(H)/C(f)$},
+grid=major,grid style={gray!20},legend style={font=\scriptsize,at={(0.02,0.02)},anchor=south west},cycle list name=color list]
+\addplot[black,thick,dashed] table[x=H,y=ref]{data/sums-curves.dat};
+\addlegendentry{$-\tfrac12\log H$}
+\addplot+[mark=*,mark size=1.5pt] table[x=H,y=p0]{data/sums-curves.dat};
+\addplot+[mark=*,mark size=1.5pt] table[x=H,y=p1]{data/sums-curves.dat};
+\addplot+[mark=*,mark size=1.5pt] table[x=H,y=p2]{data/sums-curves.dat};
+\addplot+[mark=*,mark size=1.5pt] table[x=H,y=p3]{data/sums-curves.dat};
+\addplot+[mark=*,mark size=1.5pt] table[x=H,y=p4]{data/sums-curves.dat};
+\addplot+[mark=*,mark size=1.5pt] table[x=H,y=p5]{data/sums-curves.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{$\Sigma_f(H)/C(f)$ for the six named polynomials (\sumsNamedLegend) against the reference
+slope $-\tfrac12\log H$. The curves are parallel to the reference up to arithmetic fluctuations, with
+polynomial-dependent offsets $A_f/C$; the fluctuations are largest for $t^2+t+41$, whose large
+$C$ (no roots modulo any $p<41$) makes $S_f(h)/C^2$ vary most strongly with $h$.}\label{fig:curves}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=0.62\textwidth,height=0.42\textwidth,xmode=log,ymode=log,xlabel={$C(f)$},
+ylabel={$-\bigl(\Sigma_f(10^6)-\Sigma_f(10^3)\bigr)/\log10^3$},grid=major,grid style={gray!20},
+legend style={font=\scriptsize,at={(0.02,0.98)},anchor=north west},xmin=0.3,xmax=8,
+log ticks with fixed point,xtick={0.5,1,2,4,8},ytick={0.1,0.2,0.5,1,2,5}]
+\addplot[domain=0.3:8,samples=2,black,dashed] {0.5*x};
+\addlegendentry{$\tfrac12C$ (Conjecture~\ref{conj}, asymptotic)}
+\addplot[domain=0.3:8,samples=2,red!70!black,dotted,thick] {\exKtwo*x^2};
+\addlegendentry{$\exKtwo\,C^2$ (best $C^2$ law)}
+\addplot[domain=0.3:8,samples=2,blue!60!black] {\exK*x^\exAlpha};
+\addlegendentry{fit $\exK\,C^{\exAlpha}$}
+\addplot+[only marks,mark=*,mark size=1.6pt,blue!60!black] table[x=C,y expr=-\thisrow{slope}]{data/exact.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{The exact test. For $\exN$ quadratics the slope of $\Sigma_f(H)$ per unit of $\log H$ over
+$10^3\le H\le10^6$, computed from the closed formula of Theorem~\ref{thm:quadratic} with no
+Euler-product truncation, against $C(f)$ on logarithmic axes. A law $-kC^\alpha$ is a straight line of
+slope $\alpha$; the logarithmic fit gives $\alpha=\exAlpha\pm\exAlphaSe$ (unweighted: $\exAlphaLin\pm\exAlphaLinSe$). The dashed line is the conjectured
+asymptotic $\tfrac12C$; the finite-$H$ points lie below it by the drift of the constant term
+(Table~\ref{tab:exact}).}\label{fig:exact}
+\end{figure}
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{5pt}
+\caption{The exact test for $\exN$ quadratics ($H\le10^6$; \texttt{thesis/exact.ts}). $\Sigma_f(H)$ is
+computed from Theorem~\ref{thm:quadratic} by sieving $h$ and $Q(h)=a^2h^2-D$; $C(f)$ from
+$L(1,\chi_{D_0})$ and an absolutely convergent correction. Slope is the increment per unit of $\log H$
+between $H=10^3$ and $10^6$. Conjecture~\ref{conj} predicts $-0.50$ asymptotically in the ``$/C$'' column
+for every $f$; a $C^2$ law would put a constant in the ``$/C^2$'' column.}\label{tab:exact}
+\begin{tabular}{lrrrrrr}
+\toprule
+$f$ & $D$ & $C(f)$ & $\Sigma_f(10^3)$ & $\Sigma_f(10^6)$ & slope$/C$ & slope$/C^2$\\
+\midrule
+\input{data/exact-rows.tex}
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:sums} and Figure~\ref{fig:curves} show the result. Over the last computed decade the
+slope divided by $C$ is $\sumsLinSlopeC\pm\sumsLinSlopeCsd$ for the progressions and
+$\sumsPolySlopeC\pm\sumsPolySlopeCsd$ (standard error $\sumsPolySlopeCse$) for the $\sumsPolyN$
+non-linear polynomials, with no visible dependence on the degree. The scatter of individual slopes is not
+statistical error but genuine arithmetic fluctuation of $\Sigma_f(H)$ (the terms $S_f(h)-C^2$ are large
+and of both signs, and the partial sums over one decade of $H$ do not average them completely); it is
+largest for polynomials with large $C$, which have no roots modulo the small primes and hence the most
+irregular $S_f$. The constant $A_f/C$ is negative and of order $-1$ for most polynomials, i.e.\ the
+sum is more negative at finite $H$ than $-\tfrac12C\log H$; this is the quantity that governs the
+finite-$T$ variance in~\eqref{eq:law}. Because the mean $C$ of this sample is close to $1$,
+Table~\ref{tab:sums} cannot by itself separate $C$ from $C^2$; that is the purpose of the next test.
+
+\paragraph{The exact test: $C$ against $C^2$.} Theorem~\ref{thm:quadratic} removes the Euler-product
+truncation altogether for quadratics: $S_f(h)/C^2$ is $\prod_pP_p$ (an absolutely convergent product,
+terms $1+O(p^{-2})$) times a finite product over the primes dividing $h$ and $Q(h)=a^2h^2-D$, which we
+obtain by sieving $h\le10^6$ and $Q(h)$ with the roots $\pm\sqrt D/a$ of $Q$ modulo each prime up to
+$\sqrt{Q(10^6)}$; the remaining cofactor is $1$ or a prime. $C(f)$ is computed from $L(1,\chi_{D_0})$,
+$D_0$ the fundamental discriminant, by the digamma formula, times an absolutely convergent correction.
+We checked the implementation against the definition~\eqref{eq:S} for four quadratics and $h\le3000$,
+truncating both at the same set of primes: the two agree to $\exRatioSpread$ in relative terms, i.e.\ to
+rounding, including the vanishing values. We then chose $\exN$ irreducible quadratics without fixed
+divisor, $a\le7$, with $C(f)$ spread uniformly in $\log C$ over $[\exCmin,\exCmax]$, a lever arm of more
+than a decade in $C$, and fitted
+\[
+\frac{\Sigma_f(10^6)-\Sigma_f(10^3)}{\log10^3}=-k\,C(f)^\alpha
+\]
+in two ways (Table~\ref{tab:exact}, Figure~\ref{fig:exact}): by least squares on
+$\log(-\text{slope})$ against $\log C$, which weights every polynomial equally in relative terms, and by
+unweighted least squares on the slopes themselves, which weights the large-$C$ polynomials more. The
+results are
+\[
+\alpha=\exAlpha\pm\exAlphaSe,\ k=\exK\quad\text{(logarithmic)};\qquad
+\alpha=\exAlphaLin\pm\exAlphaLinSe,\ k=\exKLin\pm\exKLinSe\quad\text{(unweighted)},
+\]
+respectively $\exSigmaOne$ and $\exSigmaOneLin$ standard errors from $\alpha=1$, and $\exSigmaTwo$ and
+$\exSigmaTwoLin$ from $\alpha=2$; the correlation of slope$/C$ with $C$ is $\exCorrC$, that of
+slope$/C^2$ with $C$ is $\exCorrCC$. The two fits bracket $\alpha=1$ and both exclude $\alpha=2$: the
+first power of $C$ is the law. The mean slope$/C$ is $\exSlopeC\pm\exSlopeCsd$
+(standard error $\exSlopeCse$), i.e.\ $k$ is about $\exFracHalf$ of the asymptotic $\tfrac12$; by decades
+the mean slope$/C$ is $\exDecA$, $\exDecB$, $\exDecC$ over $10^3$--$10^4$, $10^4$--$10^5$,
+$10^5$--$10^6$. The finite-$H$ slope is thus systematically short of $\tfrac12$ over three decades. This
+is what the exact identity predicts: the diagonal $-C^2\sum_da_f(d)\{H/d\}$ approaches
+$\frac1{2C}\log H$ only as the mean of $\{H/d\}$ against $a_f(d)$ settles to $\tfrac12$, and the drift of
+that mean over $d\le H$, together with the bounded oscillation of $\mathrm{Off}_f$, is the slowly varying
+$A_f$ of~\eqref{eq:conj}. The individual slopes scatter by $\pm\exSlopeCsd$ around the mean; this
+scatter, not the standard error of the fit, is the honest uncertainty of the coefficient at $H=10^6$,
+and the value $\tfrac12$ is a prediction of Theorem~\ref{thm:dirichlet}, not a measurement.
+
+\paragraph{The off-diagonal remainder is bounded (Hypothesis~(E) for quadratics).} For $\offN$
+quadratics (the named ones and random ones with coefficients in $[-60,60]$) we computed both sides
+of~\eqref{eq:split}: the left side from the pair series ($p\le\sumsP$), the diagonal sum
+$\sum_da_f(d)\{H/d\}$ exactly over squarefree $d\le\offDmax$ with $\omega_f(p)$ from Legendre symbols
+(the tail is about $H/(C\cdot\offDmax)$), and $\mathrm{Off}_f(H)$ as the difference
+(Table~\ref{tab:off}; script \texttt{thesis/offdiag.ts}). Between $H=10^3$ and $H=10^5$ the two sides grow
+by $\offSumGrowth$ and $\offDiagGrowth$ times $\frac1{2C}\log H$ respectively (averages over the
+$\offN$ polynomials), while $\mathrm{Off}_f(H)$ stays bounded: mean $\offMeanHigh$, standard deviation
+$\offSdHigh$, largest absolute value $\offMaxAbsHigh$ at $H=10^5$, and its change over the two decades is
+$\offOffGrowth$ times $\frac1{2C}\log H$. The whole logarithmic growth of $\Sigma_f(H)$ is carried by
+the diagonal, as Theorem~\ref{thm:dirichlet} predicts, and the off-diagonal remainder behaves like the
+bounded oscillating quantity that Hypothesis~(E) asserts.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Both sides of~\eqref{eq:split} for the named quadratics at $H=10^3$ and $H=10^5$:
+$\Sigma_f(H)/C^2$, the diagonal $-\sum_da_f(d)\{H/d\}$, and their difference $\mathrm{Off}_f(H)$.
+Conjecture~\ref{conj} predicts a growth of $\frac1{2C}\log H$ for the first two columns, i.e.\
+$2.30/C$ per decade, and $O(1)$ for the last.}\label{tab:off}
+\begin{tabular}{lrrrrrrr}
+\toprule
+$f$ & $C$ & $\Sigma/C^2$, $10^3$ & $\Sigma/C^2$, $10^5$ & diag, $10^3$ & diag, $10^5$ & $\mathrm{Off}$, $10^3$ & $\mathrm{Off}$, $10^5$\\
+\midrule
+\input{data/off-rows.tex}
+\end{tabular}
+\end{table}
+
+\subsection{The function-field analogue: the off-diagonal vanishes for small moduli}\label{sec:ff}
+
+Over $\A=\F_q[u]$, $q$ odd, every object above has a verbatim analogue: for $f\in\A[t]$ irreducible in
+$t$, separable and without fixed prime divisor, $|P|=q^{\deg P}$ replaces $p$, ``$h\le H$'' becomes
+``$h\ne0$, $\deg h<N$'' ($q^N-1$ elements) and $\log H$ becomes $N$; the products $C(f)$, $b$, $P_P$,
+$W_f$, $a_f$ converge absolutely as before. The identity~\eqref{eq:identity} holds with one decisive
+simplification.
+
+\begin{theorem}\label{thm:ff}
+Let $f\in\A[t]$ be as above, let $a_f(d)=W_f(d)\,\omega_f(d)$ with $W_f$ as in Theorem~\ref{thm:expansion}
+(products over the primes of $\A$), and put $P(1)=\prod_PP_P=W_f(1)$. For every $N\ge1$,
+\begin{align*}
+\sum_{\substack{h\ne0\\\deg h<N}}\Bigl(\frac{S_f(h)}{C(f)^2}-1\Bigr)
+&=-\sum_{1\le\deg d\le N}a_f(d)\;-\;q^N\sum_{\deg d>N}\frac{a_f(d)}{|d|}\;+\;\bigl(1-P(1)\bigr)\;+\;\mathrm{Off}_f(N),\\
+\mathrm{Off}_f(N)&=\sum_{\deg d>N}W_f(d)\sum_{\substack{s,s'\bmod d\\ s\ne s'}}\Bigl(\mathbf 1_{0\le\deg\tilde m<N}-q^{N-\deg d}\Bigr),
+\qquad \tilde m\equiv s'-s\ (d),\ \deg\tilde m<\deg d,
+\end{align*}
+where $\mathrm{Off}_f(N)$
+runs over squarefree $d$ of degree $>N$ only. In particular the pairs of \emph{distinct} roots modulo $d$
+contribute nothing for $\deg d\le N$: the off-diagonal part of~\eqref{eq:split} vanishes identically for
+all moduli of degree $\le N$.
+\end{theorem}
+
+\begin{proof}
+The expansion $S_f(h)/C^2=\sum_Qb(Q)c^f_Q(h)$ over squarefree monic $Q$ is proved as in
+Theorem~\ref{thm:expansion}, and for $Q\ne1$
+\[
+\sum_{\substack{h\ne0\\\deg h<N}}c^f_Q(h)=\sum_{d\mid Q}|d|\,\mu(Q/d)\,\omega_f(Q/d)^2\sum_{s,s'\bmod d}\mathrm{cnt}_d(s'-s),
+\]
+where $\mathrm{cnt}_d(m)=\#\{h\ne0:\ \deg h<N,\ h\equiv m\ (d)\}$.
+Since $\sum_{d\mid Q}\mu(Q/d)=0$ we may replace $\mathrm{cnt}_d$ by $\psi_d(m)=\mathrm{cnt}_d(m)-q^{N-\deg d}$.
+For $\deg d\le N$ every residue class modulo $d$ contains exactly $q^{N-\deg d}$ polynomials of degree $<N$
+(the class of $m$ is $\{\tilde m+dg:\ \deg g<N-\deg d\}$), of which one is $0$ iff $d\mid m$; hence
+$\psi_d(m)=-\mathbf 1_{d\mid m}$, including $d=1$, where $\psi_1=-1$ because $h=0$ is excluded. For
+$\deg d>N$ a class contains at most one nonzero $h$ of degree $<N$, namely $\tilde m$ when
+$0\le\deg\tilde m<N$, so $\psi_d(m)=\mathbf 1_{0\le\deg\tilde m<N}-q^{N-\deg d}$. Regrouping the moduli
+$Q=dm$, $(m,d)=1$, by $d$ (absolute convergence as in Theorem~\ref{thm:expansion}) gives
+$\sum_{Q\ne1}b(Q)\sum_hc^f_Q(h)=\sum_dW_f(d)\sum_{s,s'}\psi_d(s'-s)+1$, the $+1$ compensating the term
+$Q=1$, i.e.\ $(d,m)=(1,1)$, of the regrouped sum, whose value is $\psi_1=-1$. For $\deg d\le N$,
+$\sum_{s,s'}\psi_d(s'-s)=-\#\{(s,s'):\ s\equiv s'\ (d)\}=-\omega_f(d)$, which gives $-P(1)-\sum_{1\le\deg d\le N}a_f(d)$.
+For $\deg d>N$ the pairs with $s=s'$ have $\tilde m=0$ and contribute $-\omega_f(d)q^{N-\deg d}$, the
+pairs with $s\ne s'$ contribute $\mathrm{Off}_f(N)$.
+\end{proof}
+
+Over $\Z$ the modulus $d=1$ drops out of~\eqref{eq:identity} because $\#\{h\le H\}=H$ exactly; over $\A$
+it leaves the constant $1-P(1)$ because $h=0$ is excluded from the $q^N$ polynomials of degree $<N$.
+The three diagonal terms are the exact analogue of $-C^2\sum_da_f(d)\{H/d\}$ in~\eqref{eq:split}: the
+fractional part $\{H/d\}$, of mean $\tfrac12$ for $d\le H$ and equal to $H/d$ for $d>H$, is replaced by
+$1$ for $\deg d\le N$ and by $q^N/|d|$ for $\deg d>N$.
+
+The counterpart of Theorem~\ref{thm:dirichlet} is the following. Put $T=q^{-s}$. The Dirichlet series
+$D_f(s)=\sum_da_f(d)|d|^{-s}$ is a power series in $T$ whose coefficient of $T^j$ is $\sum_{\deg d=j}a_f(d)$,
+and the local computation of Theorems~\ref{thm:dirichlet} and~\ref{thm:artin} goes through verbatim:
+$D_f(s)=\zeta_\A(s+1)L(s+1,\chi_D)E_f(s)$ with $\zeta_\A(s+1)=1/(1-T)$, $L(s+1,\chi_D)$ a polynomial in
+$T$, and $E_f(s)=\tilde H_f(s)(1-q^{-1}T^2)^2/L(2s+2,\chi_D)$, where $\tilde H_f$ converges absolutely for
+$|T|<q$ and the polynomial $L(2s+2,\chi_D)$ has its zeros on $|T|=q^{3/4}$ by Weil's theorem. Hence
+$D_f$ is meromorphic in $|T|<q^{3/4}$ with a single simple pole at $T=1$, and $(1-T)D_f\to1/C(f)$ as
+$T\to1$ by the same computation as over $\Q$; therefore
+$\sum_{\deg d=j}a_f(d)=1/C(f)+O(q^{-(3/4-\varepsilon)j})$,
+$\sum_{1\le\deg d\le N}a_f(d)=N/C(f)+c_f+O(q^{-(3/4-\varepsilon)N})$ and
+$q^N\sum_{\deg d>N}a_f(d)/|d|=1/(C(f)(q-1))+O(q^{-(3/4-\varepsilon)N})$. Hence over $\F_q[u]$ the
+analogue of Conjecture~\ref{conj},
+\begin{equation}\label{eq:ffconj}
+\sum_{\substack{h\ne0\\\deg h<N}}\bigl(S_f(h)-C(f)^2\bigr)=-C(f)\,N+O_f(1),
+\end{equation}
+is \emph{equivalent} to $\mathrm{Off}_f(N)=O(1)$: the whole content of Hypothesis~(E) sits in the
+off-diagonal pairs modulo the moduli of degree $>N$. (The coefficient is $-C$ rather than $-\tfrac12C$
+because the mean $\tfrac12$ of $\{H/d\}$ is replaced by the exact value $1$.) The remainder is more
+concrete than it looks: its first part is a finite sum.
+
+\begin{lemma}\label{lem:support}
+Let $f=t^2-D$ with $D\in\A$ not a square, and for squarefree $d$ let $A_N(d)$ be the number of ordered
+pairs $(s,s')$ of roots of $f$ modulo $d$ with $s\ne s'$ whose difference $\tilde m$ is nonzero of degree
+$<N$. Then
+\[
+\mathrm{Off}_f(N)=\sum_{N<\deg d\le M(N)}W_f(d)\,A_N(d)\;-\;q^N\sum_{\deg d>N}\frac{W_f(d)\bigl(\omega_f(d)^2-\omega_f(d)\bigr)}{|d|},
+\]
+with $M(N)=N-1+\max(2N-2,\deg D)$.
+The series converges absolutely, and it is computable from the exact identities
+\[
+\sum_{d}\frac{W_f(d)\,\omega_f(d)^2}{|d|}=1,\qquad
+\sum_{d}\frac{W_f(d)\,\omega_f(d)}{|d|}=\prod_P\Bigl(1+\frac{\omega_f(P)(1-\omega_f(P))}{(|P|-\omega_f(P))^2}\Bigr)=:A_f(1),
+\]
+both sums over all squarefree monic $d$ including $d=1$.
+\end{lemma}
+
+\begin{proof}
+By definition $\mathrm{Off}_f(N)=\sum_{\deg d>N}W_f(d)\bigl(A_N(d)-(\omega_f(d)^2-\omega_f(d))q^{N-\deg d}\bigr)$,
+so it remains to bound the degrees with $A_N(d)\ne0$. Let $(s,s')$, $s\ne s'$, have $0\le\deg\tilde m<N$,
+and split $d=d_1d_2$ with $d_2=\prod\{P\mid d:\ s\equiv s'\ (P)\}$. Then $d_2\mid\tilde m$, so
+$\deg d_2\le\deg\tilde m\le N-1$ because $\tilde m\ne0$. For $P\mid d_1$ the two roots are distinct modulo
+$P$, hence $P\nmid D$ and $s'-s\equiv\pm2\sqrt D$, so $\tilde m^2\equiv4D\pmod{d_1}$ and
+$d_1\mid\tilde m^2-4D$; since $D$ is not a square, $\tilde m^2-4D\ne0$ and
+$\deg d_1\le\deg(\tilde m^2-4D)\le\max(2N-2,\deg D)$. Adding the two bounds gives $\deg d\le M(N)$. For
+the identities, $W_f(d)/|d|=b(d)\sum_{(m,d)=1}\mu(m)b(m)\omega_f(m)^2$, so
+$\sum_dW_f(d)\omega_f(d)^2/|d|=\sum_Qb(Q)\omega_f(Q)^2\sum_{d\mid Q}\mu(Q/d)=b(1)\omega_f(1)^2=1$, and
+$\sum_dW_f(d)\omega_f(d)/|d|=\sum_Qb(Q)\sum_{d\mid Q}\mu(Q/d)\omega_f(d)\omega_f(Q/d)^2$ is multiplicative
+in $Q$ with local factor $1+b_P(\omega_f(P)-\omega_f(P)^2)$; all rearrangements are justified by absolute
+convergence, since $\sum_Qb(Q)\omega_f(Q)^2<\infty$.
+\end{proof}
+
+So~\eqref{eq:ffconj} is equivalent to the statement that, over the moduli $d$ of degree between $N$ and
+$M(N)\approx3N$, the differences of distinct roots of $f$ modulo $d$ fall among the residues of degree
+$<N$ with the frequency $q^{N-\deg d}$, up to a bounded total discrepancy; nothing about moduli of degree
+$\le N$ or $>M(N)$ is involved. Neither term of Lemma~\ref{lem:support} is bounded a priori; only their
+difference is claimed to be. For a prime modulus $P$ of degree $k$ the count asks whether the residue
+$2\sqrt D\bmod P$ has degree $<N$; written through the additive characters trivial on $\A_{<N}$, this is
+a Weyl sum of the roots of a quadratic congruence over primes of fixed degree, the function-field
+analogue of the sums of Duke, Friedlander and Iwaniec, and for fixed $N$ and $q\to\infty$ each of the
+finitely many degrees in Lemma~\ref{lem:support} is an algebraic count with square-root cancellation by
+Deligne's theorem~\cite{Katz1988}, as in the work of Bary-Soroker and Entin on prime values of
+polynomials over $\F_q[u]$~\cite{BarySoroker2012,Entin2016}. We have not written this out; the large-$q$
+form of \eqref{eq:ffconj}, with $O(q^{-1/2})$ in place of $O(1)$, is where we expect the first theorem
+beyond the linear case, and Lemma~\ref{lem:support} says exactly which finite family of counts it
+requires.
+
+\paragraph{Exact computation.} Theorem~\ref{thm:ff} and Lemma~\ref{lem:support} can be checked exactly,
+and we did so in two independent ways. First (\texttt{thesis/ff.ts}), for each nonzero $h$ of degree $<N$,
+$S_f(h)/(C^2P(1))$ is a finite product over the primes dividing $h(h^2-4D)$; the two diagonal sums are
+computed from the local data (the series through $A_f(1)$), and $\mathrm{Off}_f(N)$ follows from the
+identity by subtraction. Second (\texttt{thesis/ff-tail.ts}), $\mathrm{Off}_f(N)$ is computed from
+Lemma~\ref{lem:support}: the finite sum from the roots of $f$ modulo every squarefree $d$ of degree
+$\le M(N)$ with all prime factors split or ramified, assembled by the Chinese remainder theorem, and the
+series from the two identities; for the $\fftailBruteN$ smallest cases the finite sum was recomputed by
+brute force (all monic $d$, roots by exhaustive search), with agreement to $\fftailBruteDev$.
+Tables~\ref{tab:ff} and~\ref{tab:fftail} report $f=t^2-D$ for $q=3,5,7$ and $\ffCases$ choices of $D$.
+The two computations of $\mathrm{Off}_f(N)$ agree to $\fftailMaxDev$ (the residual is the truncation of
+the Euler products at the prime table); the increments of $\sum_{\deg d\le N}a_f(d)$ converge to
+$1/C(f)$ and the diagonal tail to $1/(C(f)(q-1))$ as predicted (after a transient at $N\le2$ for $q=3$,
+where a prime of norm $3$ with $\omega_f=2$ makes $P_P=-3$ and $P(1)<0$); and $\mathrm{Off}_f(N)$ is
+bounded, $|\mathrm{Off}_f(N)|\le\ffOffMax$ in all cases with a variation over $N$ of at most
+$\ffOffSwing$, with no sign of growth.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{The function-field identity of Theorem~\ref{thm:ff} for $f=t^2-D$ over $\F_q[u]$
+(\texttt{thesis/ff.ts}): the left side (LHS), $\sum_{1\le\deg d\le N}a_f(d)$ and its increment from $N-1$
+to $N$ (limit $1/C(f)$), the diagonal tail $q^N\sum_{\deg d>N}a_f(d)/|d|$ (limit $1/(C(f)(q-1))$), and
+the off-diagonal remainder $\mathrm{Off}_f(N)$, conjectured $O(1)$.}\label{tab:ff}
+\begin{tabular}{rlrrrrrrrrr}
+\toprule
+$q$ & $D$ & $C(f)$ & $1-P(1)$ & $N$ & $\#h$ & LHS & $\sum a_f$ & incr. & diag.\ tail & $\mathrm{Off}_f(N)$\\
+\midrule
+\input{data/ff-rows.tex}
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{5pt}
+\caption{Lemma~\ref{lem:support} checked (\texttt{thesis/ff-tail.ts}): the finite sum
+$\sum_{N<\deg d\le M(N)}W_f(d)A_N(d)$ over the $\#d$ squarefree moduli with all prime factors split or
+ramified, the series $q^N\sum_{\deg d>N}W_f(d)(\omega_f(d)^2-\omega_f(d))/|d|$, their difference, and
+$\mathrm{Off}_f(N)$ obtained independently from the $S_f(h)$ through Theorem~\ref{thm:ff}
+(Table~\ref{tab:ff}).}\label{tab:fftail}
+\begin{tabular}{rlrrrrrrr}
+\toprule
+$q$ & $D$ & $N$ & $M(N)$ & $\#d$ & finite sum & series & difference & $\mathrm{Off}_f(N)$ from LHS\\
+\midrule
+\input{data/fftail-rows.tex}
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{Where the zeros of $L(s,\chi_D)$ enter, and why they are hard to see}\label{sec:riesz}
+
+\subsection{The explicit formula for the diagonal}
+
+For $f(t)=t$ the mechanism is known: Vaughan~\cite{Vaughan2001} proved
+$\sum_{k\le x}(x-k)\Sig(k)=\tfrac12x^2-\tfrac12x\log x+\tfrac12(1-\gamma-\log2\pi)x+E(x)$ with
+$E(x)=\Omega_\pm(x^{1/4})$, and Goldston and Suriajaya~\cite{GoldstonSuriajaya2021} showed that for the
+Riesz means $\sum_{k\le x}(x-k)^m\Sig(k)$, $m\ge2$, the error term is
+$x^{m-1}\sum_{|\gamma|\le U}a(\rho)x^{\rho/2}+O(x^{m-1+\varepsilon})$ over the zeros $\rho=\beta+i\gamma$ of
+$\zeta$, the zeros entering through the factor $1/\zeta(2s)$ of the generating Dirichlet series, and that
+unconditionally $E_m(x)=\Omega_\pm(x^{m-3/4})$. Theorem~\ref{thm:artin} puts the diagonal part of our
+sum in exactly this situation. Let $A_f=a_f*1$, i.e.\ $A_f(n)=\sum_{d\mid n}a_f(d)$, so that the diagonal
+part of $\sum_{h\le H}(S_f(h)-C^2)$ is $-C^2\sum_da_f(d)\{H/d\}=C^2\bigl(\sum_{n\le H}A_f(n)-H\sum_da_f(d)/d\bigr)$
+and $\sum_nA_f(n)n^{-s}=\zeta(s)D_f(s)$.
+
+\begin{proposition}\label{thm:explicit}
+Let $f$ be an irreducible quadratic with discriminant $D$ and $m\ge2$. Then
+\[
+\sum_{n\le x}(x-n)^mA_f(n)=P_m(x)+x^{m-1}\sum_{\substack{\rho\\|\gamma|\le U}}a_m(\rho)\,x^{\rho/2}+O(x^{m-1+\varepsilon}),
+\]
+for some $x^5\le U\le2x^5$, where $P_m$ collects the residues at $s=1$ ($x^{m+1}$), $s=0$
+($x^m\log x$ and $x^m$) and $s=-1,\dots,-m$ (lower powers), $\rho$ runs over the zeros of
+$\zeta(s)^2L(s,\chi_D)$, and $a_m(\rho)$ is the residue of
+\[
+\frac{m!\,\zeta(s)\zeta(s+1)L(s+1,\chi_D)\zeta(3s+3)L(3s+3,\chi_D)\tilde H_f(s)}{\zeta(2s+2)^2L(2s+2,\chi_D)\,s(s+1)\cdots(s+m)}
+\]
+at $s=\rho/2-1$ (a polynomial of degree one in $\log x$ at the double zeros of $\zeta$).
+\end{proposition}
+
+\begin{proof}[Sketch]
+For $\dim V_f=2$, $\det(1-\operatorname{Frob}_pT\mid V_f)=1-\omega_f(p)T+\chi_D(p)T^2$, and the local factor
+$F_p$ contains $p^{-s}$ only linearly, so the product $E_f$ has, beyond the terms extracted in
+Theorem~\ref{thm:artin}, only terms $p^{-2}$, $p^{-2-s}$, $p^{-3-s}$, $p^{-3-2s}$ and smaller: $\tilde H_f$
+converges absolutely and is bounded in $\Re s\ge-1+\delta$. The generating series of $A_f$ is therefore
+meromorphic in $\Re s>-1$ with the poles listed and those at $s=\rho/2-1$, and it is of polynomial growth
+on vertical lines by the convexity bounds for $\zeta$ and $L(s,\chi_D)$. The proof of
+\cite[Theorem~1]{GoldstonSuriajaya2021} applies with $\zeta(2s+2)^2L(2s+2,\chi_D)$ in place of
+$\zeta(2s)$: the contour is moved to $\Re s=-1+\delta$ at a height $U$ chosen, by a zero-density estimate
+for $\zeta$ and $L(s,\chi_D)$, so that $1/(\zeta^2L)$ is not large on the horizontal segments, and the
+Riesz weight of order $m\ge2$ makes the vertical integral absolutely convergent. We state this as a
+proposition rather than a theorem because we have transplanted the argument and checked the new
+ingredients (the location of the poles, the growth of $\tilde H_f$), but have not written out the
+contour estimates line by line.
+\end{proof}
+
+Since $A_f(n)\ge0$ for $f=t^2+1$, Landau's theorem applies as in \cite[Theorem~4]{GoldstonSuriajaya2021} and
+gives $\Omega_\pm(x^{m-3/4})$ for the error term unconditionally. Thus the fluctuations of the diagonal
+part of the pair-correlation sum of $t^2+1$ are governed by the zeros of $\zeta$ and of $L(s,\chi_{-4})$,
+the Dirichlet $L$-function of $\Q(i)$: this is the precise sense in which the field cut out by a
+polynomial enters the second moment of its prime values. Under the Riemann Hypothesis for $\zeta$ and
+$L(s,\chi_{-4})$ the diagonal error is $O(x^{m-3/4+\varepsilon})$; without it, it can be as large as
+$x^{m-1+\beta/2}$ for a zero of real part $\beta$.
+
+\subsection{A numerical search}
+
+The proposition invites a test: compute the Riesz means, remove the main terms, and look in the residual for
+oscillations $\cos(\tfrac{\gamma}{2}\log x)$. We did this for $f=t^2+1$ in two versions
+(\texttt{thesis/riesz.ts}, \texttt{thesis/riesz-diag.ts}, \texttt{thesis/riesz-fit.ts}).
+
+\emph{Full sum.} By Theorem~\ref{thm:quadratic}, $S_f(h)$ is computable exactly by sieving $h$ and
+$h^2+4$; we did so for all $h\le\rieszX$, formed $R_m(x)=\sum_{h\le x}(x-h)^mS_f(h)$ at $4096$ points
+equally spaced in $u=\log x\in[\log10^4,\log\rieszX]$, removed the smooth terms by least squares and
+analysed the residual, normalised by $x^{m-3/4}$, by a windowed Fourier transform in $u$ (frequency
+resolution $\rieszRes$). The zeros of $L(s,\chi_{-4})$ were located independently
+($\gamma=\rieszLone,\rieszLtwo,\rieszLthree,\dots$). The result is a clear null: after detrending the
+spectrum, the power at the predicted frequencies $\gamma/2$ is statistically indistinguishable from the
+power at control and at random frequencies. This is exactly what Theorem~\ref{thm:smoothed} predicts.
+The off-diagonal part contributes $O(H)$ to the Ces\`aro sum, and it fluctuates: it is a sum of
+fractional parts over the differences of the roots of $f$ modulo $d$, and these fluctuations are of
+size $x$ in $R_1$, against $x^{1/4}$ for the zero terms of the diagonal. The zeros are buried under the
+off-diagonal.
+
+\emph{Diagonal sum.} Proposition~\ref{thm:explicit} concerns the diagonal alone, which is computable
+exactly (via $\omega_f(p)=1+\chi_{-4}(p)$) for $n\le\rdX$. Here the residual after the smooth terms has
+the size the theorem predicts ($\approx0.1\,x^{m-3/4}$ in amplitude), and its strongest spectral peaks
+lie near predicted frequencies (Table~\ref{tab:rieszd}), but the predicted frequencies are dense
+(about one per $0.8$ in $\omega$) while the resolution is $\rdRes$, so proximity proves little. Two
+sharper tests are both negative at this range: the detrended power at the predicted frequencies in the
+band $4\le\omega\le24$ averages $\rdZL$ (zeros of $L$) and $\rdZZ$ (zeros of $\zeta$) in units of the
+spectrum's scatter, against $\rdZR\pm\rdZRsd$ at random frequencies in the same band; and a matched
+filter, fitting cosines and sines at $\gamma/2$ for the first $\mfNL$ zeros of $L(s,\chi_{-4})$ and
+$\mfNZ$ of $\zeta$, explains $\mfRpred\%$ of the residual variance, while the same set of frequencies
+shifted by $0.15$--$0.6$ explains $\mfRctrlMean\%$ on average and up to $\mfRctrlMax\%$.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Strongest peaks of the spectrum of the diagonal residual ($m=2$, $x\le\rdX$) and the nearest
+predicted frequency $\gamma/2$. Resolution $\rdRes$; the predicted frequencies have mean spacing $\approx0.8$.}
+\label{tab:rieszd}
+\begin{tabular}{rrlrr}
+\toprule
+\# & $\omega$ & nearest & $\gamma/2$ & $|\Delta|$\\
+\midrule
+\input{data/rieszd-rows.tex}
+\end{tabular}
+\end{table}
+
+So the zeros are not detected at $x\le2\cdot10^7$, and the reason is instructive. The explicit
+formula's secondary error is $O(x^{m-1+\varepsilon})$ against zero terms of size $|a_m(\rho)|x^{m-3/4}$
+with $|a_m(\rho)|$ decaying in $\gamma$; at $x=2\cdot10^7$ the ratio $x^{1/4}\approx67$ is not enough to
+lift the first few zeros above the secondary terms and above the $\gamma/2$-spacing set by the length
+of the $\log x$ range. To see the zeros of $L(s,\chi_{-4})$ one needs either the exact coefficients
+$a_m(\rho)$ (which requires $\tilde H_f$ on $\Re s=-\tfrac34$ and the derivatives of $\zeta$ and $L$ at
+the zeros), so that the predicted oscillation can be subtracted and the remainder examined, or a range
+$x\ge10^{10}$, beyond a direct sieve of $A_f(n)$. We record the negative result and leave the
+computation to the next step of the programme.
+
+\subsection{The Galois group}\label{sec:galois}
+
+The off-diagonal Dirichlet series $\sum_dd^{-s}W_f(d)\sum_{s\ne s'}\zeta(s,\langle(s'-s)/d\rangle)$
+(Hurwitz zeta functions of the root differences) has, at $s=0$, a polar part of order at most $r_f-2$
+times the bias of the distribution of the root differences, where $r_f$ is the number of orbits of the
+Galois group on ordered pairs of roots; $r_f=2$ exactly when the group is $2$-transitive. For
+$r_f\ge3$ (cyclic cubics, $D_4$, $C_4$ and $V_4$ quartics) a biased distribution of the differences of
+distinct roots modulo $d$ could therefore add a logarithm to $\Sigma_f(H)$ and break the universality
+of $-\tfrac12$. We tested this on $\galNonN$ polynomials with non-$2$-transitive groups (Shanks' simplest
+cubics $t^3-at^2-(a+3)t-1$, $t^4-c$, and $C_4$, $V_4$ quartics; the group was verified from the
+distribution of $\omega_f(p)$) against $\galTwoN$ with $S_3$ or $S_4$ (Table~\ref{tab:galois};
+\texttt{thesis/galois.ts}). The slope of $\Sigma_f(H)/C$ over $10^3\le H\le10^5$ averages
+$\galNonMean\pm\galNonSd$ for the non-$2$-transitive groups and $\galTwoMean\pm\galTwoSd$ for the
+$2$-transitive ones. The means agree with each other and with the finite-$H$ value expected from
+Section~\ref{sec:sumnum}; the scatter between individual polynomials is $3$--$5$ times larger when the
+group is not $2$-transitive, which is what a higher-order polar part with fluctuating coefficient
+produces. The constant $-\tfrac12$ appears to be independent of the Galois group; the rate of
+approach to it is not.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Slope of $\Sigma_f(H)$ per unit of $\log H$ over $10^3\le H\le10^5$, divided by $C(f)$, by
+Galois group (mean $\pm$ s.d.\ over the polynomials of the group). $r_f$ is the number of orbits on
+ordered pairs of roots. Conjecture~\ref{conj} predicts $-0.50$ asymptotically.}\label{tab:galois}
+\begin{tabular}{lrrrrr}
+\toprule
+group & $r_f$ & $n$ & mean $C$ & slope$/C$ & s.e.\\
+\midrule
+\input{data/galois-rows.tex}
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+\section{Primes along polynomial sequences}\label{sec:primes}
+
+Everything in this section is conditional on the Hardy--Littlewood pair conjecture for $f$, in the
+sense explained in the introduction: we test whether primes behave as~\eqref{eq:varHL} predicts when
+Conjecture~\ref{conj} is inserted. With $\mathbf 1_t$, $p_t$, $w_t$, $A_T$, $V_T$ as in the
+introduction and $\mu_T=\sum_{t<T}p_t$, the prediction is
+\begin{equation}\label{eq:varHL2}
+\Var(A_T)\approx V_T+2\sum_{h=1}^{T-1}\bigl(S_f(h)-C(f)^2\bigr)W_T(h),\qquad W_T(h)=\sum_{t<T-h}w_tw_{t+h},
+\end{equation}
+which is~\eqref{eq:varHL}; for $f(t)=t$, inserting $\sum_{h\le H}\Sig(h)=H-\tfrac12\log H+O(1)$ with
+$w_t\approx1/\log X$ gives~\eqref{eq:MS}.
+
+\paragraph{Design.} For a polynomial $f$ and a length $T$ we count the primes $A$ among
+$f(t_0),\dots,f(t_0+T-1)$ and form the dispersion $\Phi=(A-\mu)^2/V$ with $\mu=\mu_T$, $V=V_T$ as
+above; averaged over the polynomials of a cell, $\Phi=1$ for independent trials with the
+Bateman--Horn probabilities, $\Phi<1$ for a variance deficit. $\Phi_{\mathrm{HL}}$ is the average of
+$\Var_{\mathrm{HL}}/V$ from~\eqref{eq:varHL2}. Three families are used, $\nPoly$ polynomials each per
+degree: arithmetic progressions ($2\le q\le300$); spiral polynomials of degree $2$ to $6$ with base
+point in a box of radius $\le20$; random integer polynomials of degree $2$ to $6$ as above. $T$ runs
+over $25,50,\dots$ up to $3200$ ($d\le2$), $1600$ ($d=3$), $800$, $400$, $200$; the values reach
+$10^{16}$ and primality is decided by Miller--Rabin with the first twelve prime bases (deterministic
+below $3.3\cdot10^{23}$). The Euler products for $C$ and $S_f$ are truncated at $p\le20000$
+($d\le2$), $8000$ ($d=3$), $3000$ otherwise. Standard errors are bootstrap over the polynomials of a
+cell. As a control, for every polynomial and $T$ the same number of integers is drawn uniformly at random
+from $[f(t_0),f(t_0+T)]$ and passed through the identical primality and weighting code; its dispersion
+$\Phi_{\mathrm{rand}}$ must be $1$. Everything is generated by \texttt{thesis/variance.ts} from a fixed
+seed.
+
+\begin{table}[htbp]
+\centering\footnotesize\setlength{\tabcolsep}{4.5pt}
+\caption{Variance experiment, averaged over the $T$-grid of each family and degree (weighted by
+$1/\mathrm{se}^2$). $\rho=\log T/\overline{\log f}$, so $1-\rho$ is the law~\eqref{eq:MS} with
+$H=T$; $\Phi_{\mathrm{HL}}$ is the pair-correlation prediction~\eqref{eq:varHL2}; $\kappa$ and
+$\kappa_C$ are the means of $\Sigma_f(T)/(C^2\log T)$ and $\Sigma_f(T)/(C\log T)$ over the polynomials
+of the cell (Conjecture~\ref{conj}: $\kappa_C\to-\tfrac12$); obs/pred is the ratio of the total number
+of primes to the Bateman--Horn total. All cells are listed in Appendix~\ref{app:cells}.}\label{tab:summary}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+family & cells & $\rho$ & $1-\rho$ & $\Phi$ & $\Phi_{\mathrm{HL}}$ & $\Phi_{\mathrm{rand}}$ & $\kappa$ & $\kappa_C$ & obs/pred\\
+\midrule
+\input{data/summary-rows.tex}
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=0.5\textwidth,height=0.42\textwidth,xlabel={$\rho=\log T/\overline{\log f(t)}$},
+ylabel={$\Phi$},ymin=-0.05,ymax=1.5,xmin=0.1,xmax=0.75,
+legend style={font=\scriptsize,at={(0.98,0.98)},anchor=north east},grid=major,grid style={gray!20}]
+\addplot[domain=0.1:0.75,black,thick,dashed] {1-x};
+\addlegendentry{$1-\rho$}
+\addplot[domain=0.1:0.75,black!50,thin] {1};
+\addlegendentry{independent trials}
+\addplot+[only marks,mark=*,mark size=1.4pt,blue!70!black,error bars/.cd,y dir=both,y explicit] table[x=rho,y=phi,y error=se]{data/variance-spiral.dat};
+\addlegendentry{spiral, $d=2..6$}
+\addplot+[only marks,mark=square*,mark size=1.4pt,red!70!black,error bars/.cd,y dir=both,y explicit] table[x=rho,y=phi,y error=se]{data/variance-random.dat};
+\addlegendentry{random, $d=2..6$}
+\addplot+[only marks,mark=triangle*,mark size=1.8pt,green!50!black,error bars/.cd,y dir=both,y explicit] table[x=rho,y=phi,y error=se]{data/variance-linear.dat};
+\addlegendentry{progressions}
+\addplot+[only marks,mark=x,mark size=2pt,gray] table[x=rho,y=phiRandom]{data/variance-spiral.dat};
+\addlegendentry{control}
+\end{axis}
+\end{tikzpicture}\hfill
+\begin{tikzpicture}
+\begin{axis}[width=0.46\textwidth,height=0.42\textwidth,xlabel={$\Phi_{\mathrm{HL}}$ (eq.~\ref{eq:varHL2})},
+ylabel={$\Phi$ observed},xmin=0,xmax=1.05,ymin=0,ymax=1.05,grid=major,grid style={gray!20}]
+\addplot[domain=0:1.05,black,dashed] {x};
+\addplot+[only marks,mark=*,mark size=1.4pt,blue!70!black,error bars/.cd,y dir=both,y explicit,x dir=both,x explicit] table[x=phiHL,y=phi,y error=se,x error=seHL]{data/variance-spiral.dat};
+\addplot+[only marks,mark=square*,mark size=1.4pt,red!70!black,error bars/.cd,y dir=both,y explicit,x dir=both,x explicit] table[x=phiHL,y=phi,y error=se,x error=seHL]{data/variance-random.dat};
+\addplot+[only marks,mark=triangle*,mark size=1.8pt,green!50!black,error bars/.cd,y dir=both,y explicit,x dir=both,x explicit] table[x=phiHL,y=phi,y error=se,x error=seHL]{data/variance-linear.dat};
+\end{axis}
+\end{tikzpicture}
+\caption{Left: observed dispersion of prime counts along polynomial sequences against
+$\rho=\log T/\overline{\log f}$ (within a degree $\rho\to1/d$, so degrees form clusters); the control
+stays at $1$, the sequences lie below $1$ and, for degree $2$ and the random families, well below
+$1-\rho$. Right: the same cells against the pair-correlation prediction.}\label{fig:phi}
+\end{figure}
+
+\paragraph{Results.} Every one of the $\nPolyCells$ polynomial cells has $\Phi<1$
+($\chi^2=\fitChiOne$ against $\Phi=1$), while the $\nCells$ control cells average $\ctrlMean$ (range
+$\ctrlMin$--$\ctrlMax$) and the total prime counts agree with Bateman--Horn to
+$\obsPredMin$--$\obsPredMax$ (Table~\ref{tab:summary}, Figure~\ref{fig:phi}). The deficit is therefore
+not an artefact of the primality test, of the weights, or of a biased $C(f)$ (a bias in $C$ inflates
+$\Phi$ and can only hide a deficit). The pair-correlation prediction~\eqref{eq:varHL2} reproduces the
+observed dispersion cell by cell to within a few hundredths (Figure~\ref{fig:phi}, right):
+$\chi^2=\fitChiHL$ on $\fitDof$ polynomial cells and $\chiHLlin$ on the $\nLin$ progression cells with
+statistical errors only, $\nBadHL$ cells being off by more than $2\sigma$. The residuals are of the size
+of the systematic uncertainty of $\Phi_{\mathrm{HL}}$ from the truncation of $S_f$ (below), and the
+largest ones occur for the random quadratics at $T\le50$, whose values are in the tens and hundreds,
+where the asymptotic formula is not expected to apply. The law $1-\rho$ with
+$H=T$ does not fit ($\chi^2=\fitChi$); the observed deficits are larger, most strikingly for quadratics
+($\Phi=\phiTwoMin$--$\phiTwoMax$ at $\rho\approx\rhoTwo$). This is what Conjecture~\ref{conj} predicts
+at finite $T$: the cell values of $\kappa_C=\Sigma_f(T)/(C\log T)$ lie between $\kappaCFamMin$ and
+$\kappaCFamMax$ (progressions: $\kappaCLinMean$), i.e.\ $\Sigma_f(T)$ is below $-\tfrac12C\log T$ by
+about $1.1\,C$ at $T\approx10^3$, consistent with Figure~\ref{fig:curves}, and the cell values move
+slowly towards $-\tfrac12$ as $T$ grows (Appendix~\ref{app:cells}); Table~\ref{tab:sums} shows that
+$\Sigma_f(H)+\tfrac12C\log H$ has drifted to $\approx\sumsAmean\,C$ only by $H=10^5$. The excess
+deficit is the lower-order term of~\eqref{eq:law}, and it is polynomial-dependent: the two families of
+the same degree sit at visibly different $\Phi$ for the same $\rho$ in Figure~\ref{fig:phi}.
+
+\paragraph{A computational warning.} In a first run the pair series of the quadratics was truncated at
+$p\le5000$; the predicted variances at $T\ge1600$ then came out negative for many polynomials. With
+$p\le20000$ they are positive and correct. $\Sigma_f(H)$ inherits the conditional convergence of the
+Euler product, and for five test quadratics moving the truncation from $5000$ to $60000$ still changes
+$\Sigma_f(3200)$ by $5$--$20\%$ (\texttt{thesis/trunc.ts}); numerical work on second moments of prime
+values of polynomials must control this (see~\cite{Volfson2026} for tail estimates).
+
+\FloatBarrier
+\section{Polynomials of the $d$-dimensional Ulam spiral}\label{sec:spiral}
+
+Our ``spiral'' families come from the following construction, which is of independent interest because it
+turns the familiar Ulam picture~\cite{Stein1964} into a generator of polynomial families in every degree.
+
+\begin{definition}\label{def:spiral}
+Let $\sigma_2:\N\to\Z^2$ be the Ulam spiral ($\sigma_2(1)=(0,0)$, $\sigma_2(2)=(1,0)$,
+$\sigma_2(3)=(1,1)$, counter-clockwise), so that ring $k$ carries the integers $(2k-1)^2+1,\dots,(2k+1)^2$.
+For $d\ge3$, shell $k$ of $\Z^d$ (Chebyshev norm $k$) carries $(2k-1)^d+1,\dots,(2k+1)^d$: the
+$(d-1)$-dimensional shell of radius $k$ is swept through the new axis $x_d$ in the layer order
+$0,+1,-1,\dots,\pm(k-1)$, each layer in the order of $\sigma_{d-1}$, and the caps $x_d=\pm k$ are then
+filled with the $(d-1)$-dimensional ball of radius $k$ in the order of $\sigma_{d-1}$.
+\end{definition}
+
+\begin{theorem}\label{thm:poly}
+For $b\in\Z^d$ and $v\in\{-1,0,1\}^d\setminus\{0\}$ there are $t_0\le2\max_i|b_i|+2$ and
+$f_{b,v}\in\Q[t]$ of degree exactly $d$, with leading coefficient $2^d$ and denominator dividing $d!$,
+such that the integer at $b+tv$ equals $f_{b,v}(t)$ for all $t\ge t_0$.
+\end{theorem}
+
+\begin{proof}
+For $t>2\max|b_i|+1$ the order of the $|b_i+tv_i|$ is fixed, so the shell index
+$k(t)=\max_i|b_i+tv_i|$ is linear in $t$ with slope $1$, and the point stays in one face (band or cap)
+of the shell with a fixed layer-sign. By induction on $d$ the offset of the point within its shell is a
+polynomial in $k$ of degree at most $d-1$: for $d=2$ it is the position along one ring side; for
+$d\ge3$ it is $\ell\,s_{d-1}(k)+\mathrm{off}_{d-1}$ in a band, with $\ell$ the layer index (linear in
+$t$) and $s_{d-1}(k)=(2k+1)^{d-1}-(2k-1)^{d-1}$, and $(2k-1)s_{d-1}(k)+\varepsilon(2k+1)^{d-1}+n_{d-1}-1$
+in a cap, where $\mathrm{off}_{d-1}$ and $n_{d-1}$ are the corresponding quantities of the projected ray.
+Hence the integer is $(2k(t)-1)^d+O(k^{d-1})$, of degree $d$ in $t$ with leading coefficient $2^d$; the
+coefficients are rational, and the denominator of an integer-valued polynomial of degree $d$ divides
+$d!$.
+\end{proof}
+
+Before $t_0$ a ray runs through a lower-degree transient inside one shell and possibly through other
+degree-$d$ regimes; only the eventual regime governs the far part of the line. Our detector locates it
+by exact finite differences at $t\ge2\max|b_i|+2$ and was checked on $\tOneRays$ random rays in
+dimensions $2$--$7$. The spiral was the starting point of this work: the first author asked whether its
+``pseudo-patterns'' become polynomial in higher dimensions, whether the Fibonacci dimensions are special,
+and whether the patterns might be quasiperiodic. Theorem~\ref{thm:poly} answers the first question; the
+other two have negative answers, documented in the repository (\texttt{thesis/REPORT-full.md}): along
+random rays the number of primes agrees with Bateman--Horn within one standard error in every dimension,
+the line-to-line dispersion of prime counts inside a box is reproduced by the spread of the constants
+$C(f)$ alone, the Fibonacci dimensions are indistinguishable from their neighbours, and the diffraction
+pattern of the primes on the spiral consists of rational Bragg peaks over a diffuse background. The
+visible pattern of a prime spiral in any dimension is the function $\text{line}\mapsto C(f_{\text{line}})$
+and nothing else; the one thing the spiral revealed that is not in the constants is the variance deficit
+of Sections~\ref{sec:sum} and~\ref{sec:primes}, a property of polynomial sequences and not of the geometry.
+
+\FloatBarrier
+\section{Discussion}\label{sec:disc}
+
+What is proved is Theorems~\ref{thm:expansion}--\ref{thm:smoothed}, \ref{thm:ff} and~\ref{thm:poly}:
+the exact identity, the Dedekind-zeta generating function of the diagonal with residue $1/C(f)$, the
+symmetric-square $L$-function inside it, the closed formula for quadratics, the Ces\`aro form of
+Conjecture~\ref{conj} for linear $f$ and its reduction for general $f$ to $\mathrm{Off}^\ast_f=o(H\log H)$
+(Hypothesis~(E) for the constant term), and the vanishing of the small-modulus off-diagonal over
+$\F_q[u]$ together with the finite support of what remains (Lemma~\ref{lem:support}). Proposition~\ref{thm:explicit} rests on transplanting the proof of Goldston and Suriajaya,
+which we have sketched but not written out. What is numerical is the rest: for $\exN$ quadratics computed
+exactly to $H=10^6$ with $C$ spanning more than a decade the slope of $\Sigma_f$ scales as
+$C^{\alpha}$ with $\alpha=\exAlpha\pm\exAlphaSe$ ($\exAlphaLin\pm\exAlphaLinSe$ unweighted), excluding
+the $C^2$ law; the coefficient is about $\exFracHalf$ of the
+asymptotic $\tfrac12$ at these $H$, as the drift of $A_f$ predicts; the off-diagonal remainder of
+quadratics is bounded to $10^5$ and the function-field tail to $N=\ffNmax$; and the prime counts along
+polynomial sequences have the variance that~\eqref{eq:varHL2} predicts, with the finite-$T$ excess of the
+deficit accounted for by the constant terms $A_f$.
+
+Three consequences and open problems. (i)~The Montgomery--Soundararajan law $\Var/\E\to1-\log T/\log X$
+is universal for polynomial prime values, but the approach to it is slow and polynomial-dependent;
+any numerical or heuristic study of the second moment at accessible $T$ must include $A_f$. The
+smoothed diagonal gives $A_f$ in terms of the constant $B_f$ of Theorem~\ref{thm:dirichlet}, i.e.\ of
+$E_f'(0)/E_f(0)$ and the residue of $\zeta_K$, up to the $O(1)$ contribution of the off-diagonal.
+(ii)~Proving the leading term of Conjecture~\ref{conj} for a $2$-transitive Galois group is now the
+problem of saving an unbounded factor over the trivial bound for $\mathrm{Off}^\ast_f$
+(Remark~\ref{rem:two}); the constant term needs Hypothesis~(E). For quadratics the roots modulo $d$ are
+controlled by Kloosterman sums (Hooley; Duke, Friedlander and Iwaniec), and this is the case to attempt
+first; over $\F_q[u]$ Theorem~\ref{thm:ff} reduces everything to the moduli of degree $>N$, where
+Deligne's theorem applies as $q\to\infty$. (iii)~The Dedekind zeta function. For $f(t)=t$ the
+error term in the Riesz means of $\sum_{h\le x}\Sig(h)$ is an explicit formula over the zeros of
+$\zeta$~\cite{GoldstonSuriajaya2021}, the zeros entering through the factor $1/\zeta(2s)$ that the
+squarefree support of the Ramanujan-sum expansion produces. The expansion~\eqref{eq:expansion} has the
+same shape, with $D_f(s)=\zeta_K(s+1)E_f(s)$ generating the diagonal and the squarefree support
+producing, inside $E_f$, Euler factors of the form $1-c_p\,p^{-2-2s}$ with $c_p$ a quadratic expression
+in $\omega_f(p)$; working out the corresponding explicit formula would show that the fluctuations of the pair-correlation sum, hence
+of the conjectured variance of the prime values of $f$, are governed by the zeros of $\zeta_K$ (and of
+the $L$-function of the permutation representation of the Galois group of $f$ on pairs of roots, which
+enters through the $p^{-2}$ terms of the local factors). This is the precise sense in which a Riemann
+hypothesis, that of the field cut out by a lattice line's polynomial, governs the primes on that line.
+By contrast a direct analogue of the Goldston--Montgomery equivalence~\cite{GoldstonMontgomery1987} is
+not available, because prime values of a non-linear polynomial are not the support of a Dirichlet
+series. Finally, the framework
+of~\cite{MontgomerySoundararajan2004} predicts Gaussian fluctuations only for $H\le X^{1-\delta}$; along
+a polynomial sequence $T$ is at most $X^{1/d}$, so the restriction is automatically satisfied, and the
+higher moments should be computable by the same means.
+
+\section*{Data and code}
+
+All code (TypeScript), the raw results and the scripts that generate every number, table and figure of
+this paper from them are in the repository accompanying the manuscript: \texttt{thesis/sumS.ts},
+\texttt{thesis/exact.ts}, \texttt{thesis/offdiag.ts}, \texttt{thesis/ff.ts}, \texttt{thesis/ff-tail.ts}
+(Section~\ref{sec:sum}),
+the \texttt{riesz} scripts and \texttt{thesis/galois.ts} (Section~\ref{sec:riesz}),
+\texttt{thesis/variance.ts} (Section~\ref{sec:primes}),
+\texttt{thesis/run.ts} (Section~\ref{sec:spiral} and the negative results),
+\texttt{paper/gen-macros.ts} (tables). Random seeds are fixed.
+
+\section*{Statement on authorship and the use of AI}
+
+The questions about the Ulam spiral that started this work, and the decision to pursue the variance
+phenomenon, were the first author's. The construction of Definition~\ref{def:spiral}, the proof of
+Theorem~\ref{thm:poly}, the heuristic of Section~\ref{sec:heur}, the software, the experiments and the
+text were produced by the Anthropic model Claude Fable 5.1 working interactively under the first
+author's direction in September 2026. The first author has verified the code and the results and takes
+responsibility for the content.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\appendix
+\section{All cells of the variance experiment}\label{app:cells}
+
+\begin{center}\footnotesize
+\begin{longtable}{llrrrrrrrr}
+\toprule
+family & $d$ & $T$ & $\rho$ & $\bar\mu$ & $\Phi$ & $\Phi_{\mathrm{HL}}$ & $\Phi_{\mathrm{rand}}$ & $\kappa$ & obs/pred\\
+\midrule
+\endfirsthead
+\toprule
+family & $d$ & $T$ & $\rho$ & $\bar\mu$ & $\Phi$ & $\Phi_{\mathrm{HL}}$ & $\Phi_{\mathrm{rand}}$ & $\kappa$ & obs/pred\\
+\midrule
+\endhead
+\input{data/cell-rows.tex}
+\end{longtable}
+\end{center}
+
+\end{document}
