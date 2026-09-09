@@ -135,15 +135,17 @@ function run(q: number, Dcoeffs: number[], Nmax: number, degPrimes: number) {
 }
 
 const out: { q: number; D: string; P1: number; A1: number; rows: { N: number; M: number; nD: number; Tact: number; Texp: number; off: number }[] }[] = [];
-const qs2 = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
-const qs3 = [3, 5, 7];   // N = 3 needs all squarefree d of degree <= 6 (q^6 enumeration): too slow beyond q = 7 locally
+const Dc = (process.env.D ?? "0,1").split(",").map(Number);   // coefficients of D, low degree first
+const TAG = process.env.TAG ?? "";
+const qs2 = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43];
+const qs3 = process.env.N3 === "0" ? [] : [3, 5, 7];   // N = 3 needs all squarefree d of degree <= 6 (q^6 enumeration): too slow beyond q = 7 locally
 for (const q of qs2) {
   const t0 = performance.now();
   const Nmax = qs3.includes(q) ? 3 : 2;
   const degP = Nmax === 3 ? 6 : 4;   // M(2) = 3, M(3) = 6; one extra degree for the Euler products when cheap
-  const r = run(q, [0, 1], Nmax, degP);
+  const r = run(q, Dc, Nmax, degP);
   out.push(r);
   console.log(`q=${q}: ` + r.rows.map((row) => `N=${row.N} Off=${f3(row.off)} (Tact ${f3(row.Tact)} Texp ${f3(row.Texp)}, #d=${row.nD})`).join("  ") + `  (${((performance.now() - t0) / 1000).toFixed(1)} s)`);
 }
-writeFileSync("research/paper-III/data/offq.json", JSON.stringify(out, null, 1));
-writeFileSync("research/paper-III/data/offq.dat", "q N off Tact Texp sqrtq_off\n" + out.flatMap((r) => r.rows.map((row) => `${r.q} ${row.N} ${row.off} ${row.Tact} ${row.Texp} ${row.off * Math.sqrt(r.q)}`)).join("\n") + "\n");
+writeFileSync(`research/paper-III/data/offq${TAG}.json`, JSON.stringify(out, null, 1));
+writeFileSync(`research/paper-III/data/offq${TAG}.dat`, "q N off Tact Texp sqrtq_off\n" + out.flatMap((r) => r.rows.map((row) => `${r.q} ${row.N} ${row.off} ${row.Tact} ${row.Texp} ${row.off * Math.sqrt(r.q)}`)).join("\n") + "\n");

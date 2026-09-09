@@ -11,203 +11,593 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
 \theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
-\newcommand{\Z}{\mathbb{Z}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\F}{\mathbb{F}}
-\newcommand{\Off}{\mathrm{Off}}\newcommand{\Frob}{\operatorname{Frob}}
-\newcommand{\target}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
+\newcommand{\Z}{\mathbb{Z}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\F}{\mathbb{F}}\newcommand{\R}{\mathbb{R}}
+\newcommand{\Off}{\mathrm{Off}}\newcommand{\e}{\mathrm{e}}
+\newcommand{\rep}[2]{\langle #1\rangle_{#2}}
+\newcommand{\todo}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
 
 \title{The pair singular series of a polynomial III:\\ the off-diagonal in Ces\`aro form}
 \author{Jasper Reichardt \and Claude Fable 5.1}
-\date{Working draft, \today}
+\date{Draft of \today}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-\target{Working draft. Theorem A is the target; nothing in Sections~3--4 is proved yet.}
-Parts~I and~II reduced the conjecture $\sum_{h\le H}(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+A_f+o(1)$ for the pair
-singular series of an irreducible polynomial $f$ to a statement about the off-diagonal sum over pairs of
-distinct roots of $f$ modulo squarefree $d$ (``Hypothesis~(E)''), and showed that in Ces\`aro form any
-unbounded saving over the trivial bound suffices when the Galois group is $2$-transitive. Here we prove
-Hypothesis~(E) in Ces\`aro form for every irreducible quadratic, \target{goal}, by reducing it to weighted
-Weyl sums of the roots of $\nu^2\equiv D\pmod d$ with a phase $e(kH/d)$, in the manner of Hooley's treatment of
-$\sum_{n\le x}\tau(n^2+a)$; the frequency $k$ only needs to be controlled up to a power of $\log H$, because the
-Ces\`aro weight makes the Fourier coefficients of the test function decay like $k^{-2}$. Over $\F_q[u]$ the
-analogous statement, that the off-diagonal tends to zero as $q\to\infty$ at fixed degree, is a finite family
-of point counts to which the Lang--Weil estimate applies. Numerically the off-diagonal of $t^2+1$ is bounded to
-$10^7$ over $\Z$ and decreases with $q$ over $\F_q[u]$.
+For an irreducible quadratic $f$ with pair singular series $S_f(h)$ and Bateman--Horn constant $C(f)$,
+parts~I and~II reduced the conjecture $\sum_{h\le H}(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+A_f+o(1)$ to a statement
+about the pairs of distinct roots of $f$ modulo squarefree $d$ (``Hypothesis~(E)''), and showed that in
+Ces\`aro form any unbounded saving over the trivial bound suffices. This paper takes Hypothesis~(E) apart. We
+prove an exact decomposition of the Ces\`aro off-diagonal into pieces indexed by the part $u$ of the modulus on
+which the two roots agree: piece $u$ is the same problem with length $H/u$ and with the roots of
+$x^2\equiv D$ replaced by the roots of $u^2x^2\equiv D$, a dilation by $u^{-1}$, and all pieces carry equal
+weight per unit of $\log u$. For $u=1$ the required equidistribution is the theorem of Duke, Friedlander and
+Iwaniec on Weyl sums for quadratic roots, which we convert from smooth to sharp cut-offs; for $u>H^{1/2}$ the
+dilations average out along $u$ and only the distribution of a divisor-type function in arithmetic
+progressions is needed; for $1<u\le H^{1/2}$ the dilated Weyl sums are the open input, stated as
+Hypothesis~W with the exponent it must have. Under Hypothesis~W the Ces\`aro form of Hypothesis~(E) holds
+for every quadratic. Over $\F_q[u]$ we prove that the off-diagonal is not merely bounded but has a main term:
+for $f=t^2-u$ and the two smallest lengths, $\Off_f(N)=-2/q+O(q^{-3/2})$; a configuration count predicts, and
+exact computations for three discriminants and $q\le43$ confirm, that the generic value is $-1/q$, the weight of
+the excluded diagonal pairs at the first degree above the cut-off, the value $-2/q$ being a small-length effect.
 \end{abstract}
 
-\section{The target and the reduction}\label{sec:target}
+\section{Introduction}\label{sec:intro}
 
-\paragraph{In plain terms.} The primes along a polynomial are correlated through the small primes; part~I
-turned the strength of that correlation into an exact identity, whose main part (equal roots) is understood,
-and whose remaining part (distinct roots modulo $d$) is a question about how the square roots of $D$ modulo
-composite $d$ are distributed. That question has a sixty-year-old template, Hooley's divisor problem for
-$n^2+a$; this paper adapts it. The weaker, Ces\`aro form of the statement is what the argument gives, and it is
-enough for the leading term of the conjecture.
+\paragraph{In plain terms.} Prime values of a polynomial are correlated through the small primes. Part~I
+turned the size of that correlation into an exact identity whose main part, coming from equal roots of $f$
+modulo $d$, is understood, and whose remaining part, coming from pairs of distinct roots, is a question about
+how the square roots of the discriminant modulo composite numbers are distributed. This paper shows that
+the remaining part is a sum of copies of one problem, one copy for each way the two roots can agree on a part
+of the modulus, that the copies are of equal importance, that the first copy is a theorem of Duke, Friedlander
+and Iwaniec, that the copies with a large agreeing part average out, and that the copies in between require
+one estimate that we state precisely but do not prove. Over polynomial rings the same object has an
+explicit main term, which we compute.
 
-Notation is that of parts I and II: $f=at^2+bt+c$ irreducible with discriminant $D$, $\omega_f(p)$,
-$W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ on squarefree $d$ with $|W_f(d)|\asymp\lambda(d)/d$, $\lambda$ multiplicative with
-$\lambda(p)=p/(p-4)$ at split primes and $\lambda(p)=1$ at inert ones, $C=C(f)$, $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C^2)$.
-Part~I, Theorem~6: with $\phi(\theta)=\theta-\theta^2$ and $m=m_{ss'}\in[1,d-1]$ the representative of $s'-s$,
+\paragraph{Set-up.} Let $f=t^2+bt+c\in\Z[t]$ be irreducible, without fixed prime divisor, with discriminant
+$D=b^2-4c$ (not a square). For a prime $p$ let $\omega(p)=\omega_f(p)$ be the number of roots of $f$ modulo $p$:
+$\omega(p)=2$ if $p\nmid2D$ and $D$ is a square modulo $p$ (\emph{split}), $0$ if $D$ is a non-square (\emph{inert}),
+and $\le1$ if $p\mid2D$ (\emph{special}). All moduli below are squarefree. Put
+\[
+\lambda(p)=\frac p{p-2\omega(p)},\qquad P_p=1-\frac{\omega(p)^2}{(p-\omega(p))^2},\qquad P(1)=\prod_pP_p,\qquad
+W_f(d)=\frac{P(1)\lambda(d)}d,
+\]
+$\lambda$ multiplicative; this is the weight of part~I, $W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ with $b(p)=(p-\omega(p))^{-2}$,
+since $p\,b(p)/P_p=1/(p-2\omega(p))$. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
+the roots of $f$ being $s=(r-b)/2$. Write $\rep xd\in[1,d]$ for the representative of $x\bmod d$, and, for a length
+$Y>0$ and a residue $m$,
+\begin{equation}\label{eq:B}
+B^{(Y)}_d(m)=\sum_{\substack{h\le Y\\ h\equiv m\ (d)}}(Y-h)-\frac{Y^2}{2d}.
+\end{equation}
+Part~I, Theorem~6, proved that with $C=C(f)$
 \begin{equation}\label{eq:cesaro}
 \sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr)=-\tfrac12C\log H+O_f(1)+\frac{C^2}H\Off^\ast_f(H),\qquad
-\Off^\ast_f(H)=\sum_{d\ge2}W_f(d)\sum_{\{s,s'\}}\Bigl[-\frac{m(d-m)}d+\frac d2\Bigl(\phi\Bigl(\Bigl\{\frac{H-m}d\Bigr\}\Bigr)+\phi\Bigl(\Bigl\{\frac{H+m}d\Bigr\}\Bigr)\Bigr)\Bigr],
+\Off^\ast_f(H)=\sum_{d}W_f(d)\sum_{\substack{s,s'\ \mathrm{roots\ of\ }f\bmod d\\ s\ne s'}}B^{(H)}_d(s'-s),
 \end{equation}
-the inner sum over unordered pairs of distinct roots modulo $d$, and trivially $\Off^\ast_f(H)\ll H\log H$.
+the series converging absolutely, and that $\Off^\ast_f(H)\ll H\log H$ trivially. \emph{Hypothesis~(E) in
+Ces\`aro form} is $\Off^\ast_f(H)=o(H\log H)$; it implies Conjecture~1 of part~I in Ces\`aro form with the leading
+term $-\tfrac12C(f)\log H$ (part~I, Theorem~6(ii) and Remark~7, since the Galois group $S_2$ is $2$-transitive).
 
-\begin{theorem}[target]\label{thm:A}\target{TO PROVE}
-For every irreducible quadratic $f$ there is $\eta>0$ with $\Off^\ast_f(H)\ll H(\log H)^{1-\eta}$. Consequently
+\paragraph{Results.}
+\begin{itemize}
+\item \emph{Decomposition} (Proposition~\ref{prop:pieces}): $\Off^\ast_f(H)=P(1)\sum_u\lambda(u)\omega(u)\,\mathcal P_u(H/u)$,
+the sum over squarefree $u$ with $\omega(u)\ge1$, where the piece $\mathcal P_u(Y)$ is the sum~\eqref{eq:cesaro} with
+$H$ replaced by $Y$ and the roots $R_{d'}$ replaced by the roots $R^{(u)}_{d'}$ of $u^2x^2\equiv D$, over moduli
+$d'$ coprime to $u$ all of whose primes are split. Each piece is $\ll Y$, and $\sum_u\lambda(u)\omega(u)H/u\asymp H\log H$.
+\item \emph{The first piece} (Theorem~\ref{thm:u1}): $\mathcal P_1(Y)\ll Y^{1-\delta}$ unconditionally when $D$
+is a fundamental discriminant covered by \cite{DFI2012}; the input is a sharp-cut-off form of their Weyl-sum
+bound (Lemma~\ref{lem:sharp}).
+\item \emph{Large agreeing part} (Theorem~\ref{thm:typeII}): $\sum_{u>H^{1/2+\varepsilon}}\lambda(u)\omega(u)\mathcal P_u(H/u)\ll H^{1-\delta}$,
+by averaging the dilations along $u$; the input is the distribution of $\lambda\omega$ in arithmetic
+progressions.
+\item \emph{The remaining pieces} need Hypothesis~W (\S\ref{sec:W}): the Weyl sums of the dilated roots
+$R^{(u)}_{d'}$, with sharp cut-off in $d'$, save a power of the range with a loss at most $u^{B}$,
+$B<1-\theta$. Theorem~\ref{thm:A}: under Hypothesis~W, $\Off^\ast_f(H)\ll H^{1-\delta}$ for every quadratic $f$
+with $D$ as above, hence Conjecture~1 of part~I in Ces\`aro form with a power-saving error.
+\item \emph{Function field} (Theorem~\ref{thm:B}): for $f=t^2-u$ over $\F_q[u]$ and $N\in\{1,2\}$,
+$\Off_f(N)=-2/q+O(q^{-3/2})$; Conjecture~\ref{conj:kappa}: $\Off_f(N)=-1/q+O(q^{-3/2})$ whenever
+$\max(2N-2,\deg D)\ge N+1$, i.e.\ for all $N\ge3$ and for $N\le2$ when $\deg D>N$, and $-2/q$ otherwise.
+\end{itemize}
+
+\paragraph{What is new relative to Hooley.} The decomposition into pieces is implicit in Hooley's treatment of
+$\sum_{n\le x}\tau(n^2+a)$~\cite{Hooley1963}, whose sum $\Sigma_5$ is our $\Off$ with the weight $1/k$ and
+whose Lemma~5 handles the phase that our piece $u=1$ carries; what is new is the identification of the pieces
+$u>1$ as dilated copies, their equal weight, the averaging argument for large $u$, the precise statement of
+what remains, and the function-field main term.
+
+\section{The exact decomposition}\label{sec:pieces}
+
+For squarefree $d$ coprime to $2D$, the roots of $f$ modulo $d$ are $s=(r-b)/2$, $r\in R_d$, and $R_d=\prod_{p\mid d}R_p$
+by the Chinese remainder theorem, each $R_p$ being $\{\pm r_p\}$. Two roots $s\ne s'$ therefore agree exactly on a
+divisor $u\mid d$ and differ exactly on $d'=d/u>1$, where every prime of $d'$ is split; and on $d'$ we have
+$r'\equiv-r$, so $s'-s\equiv-r\pmod{d'}$ and $s'-s\equiv0\pmod u$. Let $\bar u$ denote the inverse of $u$
+modulo $d'$. Then $s'-s\equiv u\bar u\cdot(-r)\pmod d$, i.e.
+\begin{equation}\label{eq:m}
+\rep{s'-s}d=u\,\rep{-\bar ur}{d'} .
+\end{equation}
+If $d$ has a special prime $p$ ($\omega(p)=1$) the two roots agree at $p$, so $p\mid u$; inert primes do not divide $d$
+at all ($\omega(d)=0$). Define, for squarefree $u$ with $\omega(u)\ge1$ and squarefree $d'$ coprime to $u$ with all primes
+split,
 \[
-\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12C(f)\log H+O\bigl((\log H)^{1-\eta}\bigr),
+R^{(u)}_{d'}=\{-\bar ur\bmod d':\ r\in R_{d'}\}=\{x\bmod d':\ u^2x^2\equiv D\ (d')\},
 \]
-i.e.\ Conjecture~1 of part~I holds in Ces\`aro form for every quadratic, with the first power of $C(f)$.
-\end{theorem}
+the roots of the fixed quadratic $Q_u(x)=u^2x^2-D$ modulo $d'$ (the equality because $x\mapsto-\bar ux$ is a bijection
+$R_{d'}\to R^{(u)}_{d'}$ when $(u,d')=1$), and the \emph{piece}
+\begin{equation}\label{eq:piece}
+\mathcal P_u(Y)=\sum_{d'}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}\bigl(\rep x{d'}\bigr).
+\end{equation}
 
-\subsection{Fourier expansion}
+\begin{proposition}[pieces]\label{prop:pieces}
+For every $H\ge1$,
+\[
+\Off^\ast_f(H)=P(1)\sum_{u}\lambda(u)\,\omega(u)\,\mathcal P_u(H/u),
+\]
+the sum over squarefree $u\ge1$ with $\omega(u)\ge1$, every series converging absolutely. Moreover
+$\mathcal P_u(Y)\ll_fY$ uniformly in $u$, and $\sum_{u\le H}\lambda(u)\omega(u)/u\asymp\log H$.
+\end{proposition}
+\begin{proof}
+Fix $d=ud'$ as above. For $m=u\mu$ with $\mu\in[1,d']$ we have, writing $h=uh'$,
+\[
+B^{(H)}_{ud'}(u\mu)=\sum_{\substack{h'\le H/u\\ h'\equiv\mu\ (d')}}(H-uh')-\frac{H^2}{2ud'}=u\,B^{(H/u)}_{d'}(\mu).
+\]
+The ordered pairs $(s,s')$ of distinct roots modulo $d$ with agreeing part $u$ are in bijection with pairs
+$(s,d')$, and by~\eqref{eq:m} their difference is $u\rep{-\bar ur}{d'}$ where $r$ is the $d'$-component of $2s+b$;
+as $s$ runs over the $\omega(u)\omega(d')$ roots, $r$ runs $\omega(u)$ times over $R_{d'}$. Hence
+\[
+\sum_{s\ne s'}B^{(H)}_d(s'-s)=\sum_{\substack{d'\mid d,\ d'>1\\ d'\ \mathrm{split}}}\omega(u)\,u\sum_{r\in R_{d'}}B^{(H/u)}_{d'}\bigl(\rep{-\bar ur}{d'}\bigr),
+\]
+and with $W_f(ud')=P(1)\lambda(u)\lambda(d')/(ud')$ the claimed formula follows by summing over $d$; absolute
+convergence is inherited from~\eqref{eq:cesaro}, all terms being regrouped without change of absolute value.
+For the bound on $\mathcal P_u(Y)$: if $d'\le Y$ then $|B^{(Y)}_{d'}(m)|\le d'$ (part~I, proof of Theorem~6), giving
+$\sum_{d'\le Y}\lambda(d')\omega(d')\ll Y$ by Shiu's theorem, since $\lambda\omega$ is multiplicative with $\lambda\omega(p)\le2p/(p-4)$
+on split primes and $0$ on inert ones, of mean value $\asymp1$. If $d'>Y$ then $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$
+for $m\in[1,d']$; the second term contributes $\ll Y^2\sum_{d'>Y}\lambda(d')\omega(d')/d'^2\ll Y$, and the first
+contributes $\sum_{x\le Y}(Y-x)\sum_{d'>Y,\ d'\mid Q_u(x)}\lambda(d')/d'$; since $\sum_{d'>Y,\ d'\mid n}1/d'\le n^{-1}\sum_{e\mid n,\ e<n/Y}e$,
+and on average over $x\le Y$, $\sum_{e<n/Y,\ e\mid Q_u(x)}e\le\sum_{e<u^2Y}e\,\rho_u(e)\,\mathbf 1_{e\mid Q_u(x)}$ has
+mean $\ll\sum_{e<u^2Y}\rho_u(e)\ll u^2Y$ ($\rho_u(e)\le\omega(e)$ the number of roots of $Q_u$ modulo $e$, of mean value
+$\ll1$), while $Q_u(x)\gg u^2x^2$, the first term is $\ll\sum_{x\le Y}(Y-x)\,Y/x^2\cdot\mathbf 1_{Q_u(x)>Y}+\sum_{x\le\sqrt Y/u}Y\ll Y$.
+Finally $\sum_{u\le H}\lambda(u)\omega(u)/u\asymp\log H$ because $\lambda\omega$ has mean value $\asymp1$ on squarefree
+integers (its Dirichlet series is $\zeta(s)L(s,\chi_D)\times$ an absolutely convergent product near $s=1$).
+\end{proof}
 
-Since $\phi(\{x\})=\tfrac16-\pi^{-2}\sum_{k\ge1}k^{-2}\cos(2\pi kx)$ (absolutely convergent),
+\emph{In words.} The off-diagonal is a sum over $u$ of the same object, evaluated at length $H/u$, for the
+roots of $u^2x^2\equiv D$ instead of $x^2\equiv D$; since $\sum_u\lambda\omega(u)/u$ grows like $\log H$ while each piece
+is $O(H/u)$, the pieces are equally important on a logarithmic scale, and no range of $u$ can be discarded.
+The dilation by $\bar u$ is the whole difficulty: for $u=1$ the roots are those of a fixed fundamental
+quadratic; for $u>1$ they are those of a quadratic whose discriminant $4u^2D$ grows with $u$, and existing
+theorems degrade with the discriminant.
+
+\section{Reduction of a piece to Weyl sums}\label{sec:reduction}
+
+Fix $u$ and write $Y$ for the length, $R'_{d'}=R^{(u)}_{d'}$, $\rho(d')=|R'_{d'}|$. Split $\mathcal P_u(Y)=\mathcal P^{\le}_u(Y)+\mathcal P^{>}_u(Y)$
+according to $d'\le Y$ or $d'>Y$.
+
+\subsection{Small moduli: Fourier expansion and partial summation}
+
+For $d'\le Y$ and $m\in[1,d']$, with $\phi(\theta)=\theta-\theta^2$ (part~I, proof of Theorem~6),
+\[
+B^{(Y)}_{d'}(m)=-\frac{Ym}{d'}+\frac{m^2}{2d'}+\frac Y2-\frac m2+\frac{d'}2\phi\Bigl(\Bigl\{\frac{Y-m}{d'}\Bigr\}\Bigr),
+\]
+and summing over the symmetric set $R'_{d'}$ ($x\in R'\Rightarrow-x\in R'$, so $m$ and $d'-m$ occur together) gives
+$\sum_{x\in R'}B^{(Y)}_{d'}(\rep x{d'})=\sum_{\{x,-x\}}\bigl[-\tfrac{m(d'-m)}{d'}+\tfrac{d'}2\bigl(\phi(\{\tfrac{Y-m}{d'}\})+\phi(\{\tfrac{Y+m}{d'}\})\bigr)\bigr]$.
+Since $\phi(\{\theta\})=\tfrac16-\pi^{-2}\sum_{k\ge1}k^{-2}\cos2\pi k\theta$ and $\tfrac16-\theta(1-\theta)=\pi^{-2}\sum_{k\ge1}k^{-2}\cos2\pi k\theta$,
 \begin{equation}\label{eq:fourier}
-\Off^\ast_f(H)=\Omega_0-\frac1{\pi^2}\sum_{k\ge1}\frac1{k^2}\,T_k(H),\qquad
-T_k(H)=\sum_{d}d\,W_f(d)\cos\Bigl(\frac{2\pi kH}d\Bigr)\sum_{\{s,s'\}}\cos\Bigl(\frac{2\pi km}d\Bigr),
+\sum_{x\in R'_{d'}}B^{(Y)}_{d'}(\rep x{d'})=\frac{d'}{2\pi^2}\sum_{k\ge1}\frac{1}{k^2}\bigl(1-\cos\tfrac{2\pi kY}{d'}\bigr)\,\rho_k(d'),\qquad
+\rho_k(d')=\sum_{x\in R'_{d'}}\e\Bigl(\frac{kx}{d'}\Bigr),
 \end{equation}
-where $\Omega_0=\sum_dW_f(d)\sum_{\{s,s'\}}\bigl(\tfrac d6-\tfrac{m(d-m)}d\bigr)$ is independent of $H$. \target{check:
-$\Omega_0$ converges absolutely (it is the second-moment discrepancy of the root differences, $\ll\sum_d\lambda(d)\,\omega(d)^2\,\mathrm{disc}_d$;
-Kowalski--Soundararajan give $\mathrm{disc}_d\to0$ on average, but absolute convergence needs a rate; for
-quadratics Hooley's Theorem~1 gives a power saving, which suffices).} The trivial bound $|T_k(H)|\ll H\log H$
-comes from $d\,W_f(d)\asymp\lambda(d)$, so that with $K=(\log H)^{A}$ the frequencies $k>K$ contribute
-$\ll H\log H/K$ to~\eqref{eq:fourier}, and Theorem~\ref{thm:A} follows from:
+an absolutely convergent expansion for each $d'$ ($\rho_k(d')$ is real by symmetry). Hence
+\begin{equation}\label{eq:Ple}
+\mathcal P^\le_u(Y)=\frac1{2\pi^2}\sum_{k\ge1}\frac1{k^2}\,T_k(Y),\qquad T_k(Y)=\sum_{d'\le Y}\lambda(d')\rho_k(d')\bigl(1-\cos\tfrac{2\pi kY}{d'}\bigr),
+\end{equation}
+where now the interchange is legitimate because $d'$ ranges over a finite set, and trivially $|T_k(Y)|\le2\sum_{d'\le Y}\lambda\rho\ll Y$.
 
-\begin{lemma}[A: twisted weighted Weyl sums]\label{lem:A}\target{TO PROVE}
-There are $\eta,A>0$ such that for all $X,H\ge2$ and $1\le k\le(\log X)^{A}$,
+\begin{lemma}[from sharp Weyl sums to twisted sums]\label{lem:partial}
+Suppose that for some $\theta<1$, $B\ge0$ and all $k\ge1$, $t\ge2$,
+\begin{equation}\label{eq:W}
+S_k(t):=\sum_{d'\le t}\lambda(d')\rho_k(d')\ll(uk)^{B}\,t^{\theta}.
+\end{equation}
+Then for every $Y_0\in[1,Y]$,
 \[
-\sum_{d\le X}\lambda(d)\sum_{\nu^2\equiv D'\ (d)}e\Bigl(\frac{k(\nu+H)}d\Bigr)\ll X(\log X)^{1-\eta},\qquad D'=D/a^2,
+T_k(Y)\ll Y_0\log Y_0+(uk)^B\bigl(Y^\theta+kY\,Y_0^{\theta-1}\bigr)\log Y .
 \]
-uniformly in $H$ (the phase $e(kH/d)$ is the point), together with the same bound for the moduli in
-progressions $e\mid d$ with polynomial dependence on $e$, and the corresponding statement for the large
-moduli $d>H$ after Hooley's reflection (Lemma~C below).
+In particular, with $Y_0=(kY)^{1/(2-\theta)}$, $T_k(Y)\ll(uk)^B(kY)^{1/(2-\theta)}\log Y$.
 \end{lemma}
+\begin{proof}
+The moduli $d'\le Y_0$ contribute at most $2\sum_{d'\le Y_0}\lambda\rho\ll Y_0\log Y_0$ (crudely). On a dyadic block
+$V<d'\le2V$, $V\ge Y_0$, partial summation against $S_k$ with the function $g(t)=1-\cos(2\pi kY/t)$, which satisfies
+$|g|\le2$ and $|g'(t)|\le2\pi kY/t^2$, gives
+$\bigl|\sum_{V<d'\le2V}\lambda\rho_k\,g\bigr|\le|S_k(2V)g(2V)|+|S_k(V)g(V)|+\int_V^{2V}|S_k(t)g'(t)|\,dt\ll(uk)^BV^\theta(1+kY/V)$.
+Summing over the dyadic $V\in[Y_0,Y]$ gives the claim.
+\end{proof}
 
-\emph{Why the frequency range is mild.} With the sawtooth $\{H/d\}$ of part~I's unsmoothed identity the
-Fourier coefficients decay like $1/k$ and one would need $T_k$ to decay in $k$; the Ces\`aro weight replaces
-$1/k$ by $1/k^2$, so it is enough to control $k\le(\log X)^{A}$ with any polynomial loss in $k$. This is the
-single reason the Ces\`aro form is within reach and the sharp form is not.
+\emph{In words.} The phase $\cos(2\pi kY/d')$ oscillates in $d'$ once $d'\ll kY$, and the cost of integrating
+it against a partial sum with a power saving is a factor $kY/d'$; the small moduli, where that factor is large,
+are handled trivially, and the balance point $Y_0=(kY)^{1/(2-\theta)}$ leaves a power saving. Nothing more than a
+sharp-cut-off Weyl bound with polynomial dependence on the frequency is used.
 
-\section{What is known about the pieces}\label{sec:known}
+\subsection{Large moduli: reflection}
 
-\paragraph{Unweighted, untwisted.} Hooley~\cite{Hooley1963}, Theorem~1: $\sum_{d\le X}\sum_{\nu^2\equiv D'(d)}e(k\nu/d)\ll_kX^{\theta}\log^2X$
-with $\theta<1$, by parametrising the pairs $(\nu,d)$ through the primitive representations $d=Q(r,s)$ by a
-finite set of binary quadratic forms of discriminant $4D'$ and reducing to incomplete Kloosterman sums (Weil's
-bound). Hooley~\cite{Hooley1964} gives equidistribution without a power saving for any irreducible polynomial;
-Kowalski--Soundararajan~\cite{KowalskiSoundararajan2021} reprove it as a mixing property of the Chinese
-remainder theorem, with an average discrepancy $(\log X)^{-c}$.
+For $d'>Y$, $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$, so
+\begin{equation}\label{eq:Pgt}
+\mathcal P^>_u(Y)=\sum_{x\le Y}(Y-x)\sum_{\substack{d'>Y\\ d'\mid Q_u(x)}}\frac{\lambda(d')}{d'}\;-\;\frac{Y^2}2\sum_{d'>Y}\frac{\lambda(d')\rho(d')}{d'^2}=:\mathcal A-\mathcal E,
+\end{equation}
+where $d'$ ranges over squarefree split moduli coprime to $u$, and $d'\mid Q_u(x)$ with $x\le Y<d'$ means exactly
+that $x$ is the representative of an element of $R'_{d'}$ with $\rep x{d'}\le Y$. Both terms are $\asymp Y$, and
+Hypothesis~(E) says they agree to $o(Y)$.
 
-\paragraph{Twisted, unweighted.} Hooley's Lemma~5 is a bound $R^\pm(h,X)=\sum_{k\le X}\rho(h,k)e(\pm hx/k)\ll\sigma(h)|h|X^{\theta}\log^3X$
-for the same sums with the phase $e(\pm hx/k)$ built into the parametrisation \target{transcribe the exact
-exponent from the original; the extracted text is illegible there}; it is exactly what his $\Sigma_5$, our
-$\Off$, requires, and it is uniform in $x$.
-
-\paragraph{Smooth weights, moduli in a progression.} Duke, Friedlander and Iwaniec~\cite{DFI2012}, Theorem~1.1:
-for $f$ smooth on $[Y,2Y]$ with $|f|\le1$, $y^2|f''|\le1$, and either sign of $D$ (their \S16),
-$\sum_{c\equiv0(q)}f(c)\sum_{b^2\equiv D(c)}e(hb/c)\ll h^{1/4}(Y+h\sqrt D)^{3/4}D^{1/8-1/1331}$, via the Kuznetsov
-formula for half-integral-weight Kloosterman sums. Our phase $e(kH/c)$ has $c^2|\partial_c^2e(kH/c)|\asymp(kH/c)^2$, so
-it satisfies their smoothness condition only for $Y\ge kH$: their theorem covers the moduli $c\ge kH$, not the
-range $c\le H$ that carries the trivial bound. For $c\le H$ one needs Hooley's method with the phase, or a
-version of Theorem~1.1 with $y^2|f''|\le\Delta^2$ and polynomial loss in $\Delta$ \target{check their proof for
-the dependence on the derivative bound; the scaling $g(x)=\dots$ in their \S11 suggests the loss is
-polynomial}.
-
-\paragraph{Weights.} Write $\lambda=1*g$ with $g$ multiplicative, $g(p)=4/(p-4)$ at split primes and $0$
-otherwise; then $\sum_{d\le X}\lambda(d)F(d)=\sum_{e}g(e)\sum_{m\le X/e}F(em)$, the moduli $e>E$ contribute
-$\ll E^{-1+\varepsilon}X\log X$, and only $e\le(\log X)^{B}$ matter. So Lemma~A reduces to the unweighted sums over
-moduli $\equiv0\bmod e$ with polynomial dependence on $e$ (Iwaniec~\cite{Iwaniec1978} for $D=-1$; Ngo for $D>0$).
-
-\paragraph{Large moduli.} For $d>H$ a pair of distinct roots modulo $d$ has $m\le H$ only if every prime
-factor of $d$ divides $hQ(h)$ for some $h\le H$, $Q(h)=a^2h^2-D$; Hooley's reflection writes $d=Q(h)/e$ with
-$e<Q(h)/H$, turning the large moduli into a sum over the small divisors $e$ of $Q(h)$ (part~I, companion note,
-Prop.~A3), which is the same structure with $e$ in place of $d$ and the level-of-distribution input for
-$\#\{h\le H:e\mid Q(h)\}$ from~\cite{Iwaniec1978} and Grimmelt--Merikoski.
-
-\section{Plan of the proof of Lemma~A}\label{sec:plan}
-\target{To be written. Steps: (1) Dirichlet convolution to remove $\lambda$; (2) dyadic decomposition in $d$;
-(3) $d\ge kH$: DFI Theorem~1.1 with the phase absorbed in $f$; (4) $d<kH$: Hooley's parametrisation
-$\nu^2-D'=d\ell$, $d=Q(r,s)$ primitive, $\nu/d\equiv\bar s\,(\dots)/Q(r,s)$; the phase $e(kH/Q(r,s))$ is slowly
-varying in $(r,s)$ over the regions where Hooley bounds the incomplete Kloosterman sums, so it can be removed by
-partial summation at the cost of a factor $kH/Y$ per region unless $Y\ge(kH)^{1/2}$, and below that a genuinely
-new estimate is needed: this is the open core. (5) Assemble with $K=(\log H)^{A}$.}
-
-\section{Route B: the same statement over $\F_q[u]$}\label{sec:B}
-
-Let $\mathcal A=\F_q[u]$, $q$ odd, $f=t^2-D$ with $D\in\mathcal A$ squarefree, and for $N\ge1$ let $\Off_f(N)$ be the
-off-diagonal of the identity of part~I, Theorem~8 (the sum over the $q^N-1$ nonzero $h$ of degree $<N$). Part~I
-proved that the moduli of degree $\le N$ contribute nothing and that the remainder is a finite sum:
+\begin{lemma}[reflection]\label{lem:reflect}
+Write $\lambda=1*\kappa$ with $\kappa$ multiplicative, $\kappa(p)=\lambda(p)-1=2\omega(p)/(p-2\omega(p))$, so $0\le\kappa(e)\ll e^{-1+\varepsilon}$
+on squarefree $e$. Then
 \[
-\Off_f(N)=\sum_{N<\deg d\le M(N)}W_f(d)\,A_N(d)-q^N\sum_{\deg d>N}\frac{W_f(d)(\omega_f(d)^2-\omega_f(d))}{|d|},\qquad M(N)=N-1+\max(2N-2,\deg D),
+\mathcal A=\sum_{g}\kappa(g)\sum_{e}\ \sum_{\substack{x\le Y,\ ge\mid Q_u(x)\\ Q_u(x)>eY}}(Y-x)\frac{e}{Q_u(x)}
+\qquad(\text{$e$, $g$ squarefree, coprime, split, coprime to $u$, } e<u^2Y+|D|/Y),
 \]
-$A_N(d)$ the number of ordered pairs of distinct roots modulo $d$ whose difference has degree $<N$.
+and, for $\Lambda\ge1$, the inner count $N_{ge}(x_1,x_2)=\#\{x\in(x_1,x_2]:\ ge\mid Q_u(x)\}$ equals
+$\rho(ge)(x_2-x_1)/(ge)+\Delta_{ge}(x_1,x_2)$ with
+\[
+|\Delta_{ge}(x_1,x_2)|\le\frac{\rho(ge)}{\Lambda}+\sum_{1\le j\le\Lambda}\frac{1}{j}\Bigl|\sum_{y\in R'_{ge}}\e\Bigl(\frac{jy}{ge}\Bigr)\Bigr|\cdot\Bigl|\e\Bigl(\frac{-jx_2}{ge}\Bigr)-\e\Bigl(\frac{-jx_1}{ge}\Bigr)\Bigr|
+\]
+(Erd\H os--Tur\'an). Consequently, if~\eqref{eq:W} holds for the moduli $ge$ (with $g$ fixed and polynomial dependence
+on $g$), then $\mathcal A-\mathcal E\ll_\varepsilon(uY)^{1-\delta}$ for some $\delta=\delta(\theta,B)>0$ when $B<1-\theta$.
+\end{lemma}
+\begin{proof}[Proof (sketch)]
+Put $d'=Q_u(x)/e$; the conditions $d'>Y$, $d'$ squarefree split coprime to $u$ become conditions on the
+cofactor, and $1/d'=e/Q_u(x)$. Expanding $\lambda(Q_u(x)/e)=\sum_{g\mid Q_u(x)/e}\kappa(g)$ gives the double sum, in
+which the summation condition on $x$ for fixed $(g,e)$ is $ge\mid Q_u(x)$ together with the smooth condition
+$x>x_0(e):=\sqrt{(eY+D)/u^2}$ and the squarefreeness of $Q_u(x)/(ge)$ (which we impose by M\"obius inversion over
+squares, at the cost of moduli $ge\ell^2$ and a convergent sum over $\ell$; we suppress it). For fixed $(g,e)$,
+partial summation in $x$ against the smooth weight $(Y-x)e/Q_u(x)$, which is $\ll e/(u^2x)$ and monotone on the
+range, converts $\sum_x$ into an integral of $N_{ge}(x_0,x)$; the main terms $\rho(ge)(x-x_0)/(ge)$ reassemble,
+after the sum over $e$ and $g$, into $\mathcal E+O(Y^{1-\delta})$ by the identities of part~I (the diagonal of the
+identity $\sum_dW_f(d)\omega_f(d)^2/d=1$ restricted to $d'>Y$). The remainders are the discrepancies
+$\Delta_{ge}(x_0(e),x)$, whose Erd\H os--Tur\'an bound involves the Weyl sums $\rho_j(ge)$ multiplied by the phases
+$\e(-jx/(ge))$, $\e(-jx_0(e)/(ge))$: the first is the phase of Lemma~\ref{lem:partial} in the variable $e$ (with
+$x\le Y$ in place of $Y$), the second, $\e(-j\sqrt{(eY+D)}/(uge))\approx\e(-j\sqrt{Y/e}/(ug))$, is smooth in $e$
+with derivative $\ll j\sqrt Y\,e^{-3/2}/(ug)$, and both are handled by partial summation against the sharp sums
+$\sum_{e\le t}\lambda(\cdot)\rho_j(ge)$ exactly as in Lemma~\ref{lem:partial}. The weights $e/Q_u(x)\ll e/(u^2Y^2)$ on
+$x\asymp Y$ make the moduli $e\asymp u^2Y$ dominant, and the saving $t^{\theta-1}$ there, with $t\asymp u^2Y$ and
+loss $(uj)^B$, gives $(uY)^{1-\delta}$ once $B<1-\theta$ and $\Lambda=Y^{\delta'}$.
+\end{proof}
 
-\begin{theorem}[target]\label{thm:B}\target{TO PROVE}
-For fixed $N$ and $\deg D$, $\Off_f(N)=O(q^{-1/2})$ as $q\to\infty$. Hence the function-field form of
-Conjecture~1, $\sum_{h}(S_f(h)-C^2)=-C(f)N+O(1)$, holds with $O(1)$ replaced by $O(q^{-1/2})$.
+\emph{In words.} For moduli larger than the length, at most one integer in each residue class is counted, and
+the question becomes how many square roots of $D$ modulo $d'$ fall below $Y$; reflecting $d'$ to the complementary
+divisor $e=Q_u(x)/d'$ turns this into the divisor-type sums of Hooley, in which the moduli are again below
+the length and the same Weyl sums appear, now with a second phase that varies slowly. This is the part of
+the argument where the companion note to part~I stopped; it is not the hard part.
+
+\section{The first piece and the large pieces}\label{sec:unconditional}
+
+\subsection{$u=1$: the theorem of Duke, Friedlander and Iwaniec}
+
+\begin{lemma}[sharp cut-offs from smooth ones]\label{lem:sharp}
+Let $D$ be a fundamental discriminant for which Theorem~1.1 of~\cite{DFI2012} holds (positive odd $D$ as
+stated there; negative $D$ by their \S16), and let $q\ge1$, $k\ge1$. Then for $t\ge2$,
+\[
+\sum_{\substack{d\le t\\ q\mid d}}\ \sum_{r\in R_d}\e\Bigl(\frac{kr}d\Bigr)\ll_{D,\varepsilon}k^{1/4}\,t^{11/12+\varepsilon},
+\]
+uniformly in $q$; the same holds with the additional factor $\lambda(d)$, and with $d$ restricted to squarefree split
+moduli.
+\end{lemma}
+\begin{proof}
+Theorem~1.1 of~\cite{DFI2012} states: for $f$ smooth, supported on $[V,2V]$, with $|f|\le1$ and $y^2|f''(y)|\le1$,
+$\sum_{c\equiv0(q)}f(c)\sum_{b^2\equiv D(c)}\e(hb/c)\ll h^{1/4}(V+h\sqrt D)^{3/4}D^{1/8-1/1331}$ with an absolute
+implied constant. The statement is linear in $f$; hence if $f$ satisfies $|f|\le\Delta^2$, $y^2|f''|\le\Delta^2$, the
+bound holds with an extra factor $\Delta^2$ (apply it to $f/\Delta^2$). Let $\Delta=t^{1/12}$ and let $\chi_t$ be a smooth
+function equal to $1$ on $[0,t(1-1/\Delta)]$, to $0$ on $[t,\infty)$, with $|\chi_t^{(j)}|\ll(\Delta/t)^j$. Decompose
+$\chi_t=\sum_V\chi_t\psi_V$ with a smooth dyadic partition of unity $\{\psi_V\}$ on $[1,\infty)$: each piece is supported
+on $[V,2V]$ with $y^2|(\chi_t\psi_V)''|\ll1$ except the piece containing the edge, for which $y^2|\cdot''|\ll\Delta^2$.
+Summing the DFI bound over the dyadic $V\le t$ gives $\ll\Delta^2k^{1/4}t^{3/4+\varepsilon}$ for fixed $D$. The difference
+between the sharp cut-off and $\chi_t$ is supported on $(t(1-1/\Delta),t]$ and is bounded, for the moduli $q\mid d$
+there, by $\sum_{d\in(t(1-1/\Delta),t],\ q\mid d}\omega(d)\ll(t/(q\Delta)+1)\,t^{\varepsilon}$ by Shiu's theorem for the
+multiplicative function $\omega$ on short intervals of progressions ($t/\Delta\ge t^{\varepsilon}$). Altogether
+$\ll t^{1/6}k^{1/4}t^{3/4+\varepsilon}+t^{11/12+\varepsilon}\ll k^{1/4}t^{11/12+\varepsilon}$. The weight $\lambda(d)=\sum_{g\mid d}\kappa(g)$
+is removed by writing $\sum_d\lambda(d)F(d)=\sum_g\kappa(g)\sum_{g\mid d}F(d)$, applying the bound with $q$ replaced by
+$\mathrm{lcm}(q,g)$, and using $\sum_g\kappa(g)<\infty$; the restriction to squarefree split $d$ is a further M\"obius
+inversion (over $\ell^2\mid d$ and over the inert and special primes, which carry no roots or a single root and
+are removed by inclusion--exclusion at the cost of the divisor bound).
+\end{proof}
+
+\begin{theorem}[the first piece]\label{thm:u1}
+For $D$ as in Lemma~\ref{lem:sharp}, $\mathcal P_1(Y)\ll_{D,\varepsilon}Y^{12/13+\varepsilon}$.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:sharp} gives~\eqref{eq:W} for $u=1$ with $\theta=\tfrac{11}{12}+\varepsilon$, $B=\tfrac14$. By
+Lemma~\ref{lem:partial}, $T_k(Y)\ll k^{1/4}(kY)^{12/13+\varepsilon}$, and inserting into~\eqref{eq:Ple}:
+$\sum_{k\le K}k^{-2}T_k\ll Y^{12/13+\varepsilon}\sum_{k\le K}k^{-2+1/4+12/13}\ll Y^{12/13+\varepsilon}K^{0.18}$, while
+$\sum_{k>K}k^{-2}|T_k|\ll Y/K$; with $K=Y^{1/20}$ both are $\ll Y^{12/13+\varepsilon}$. The large moduli are
+Lemma~\ref{lem:reflect} with $u=1$, where the moduli $ge$ are again covered by Lemma~\ref{lem:sharp} (the divisor
+$g$ playing the role of $q$), with $B=\tfrac14<1-\theta$ replaced by the actual bookkeeping of that lemma.
+\end{proof}
+
+\subsection{Large $u$: averaging the dilations}
+
+\begin{theorem}[Type II range]\label{thm:typeII}
+For every $\varepsilon>0$ there is $\delta>0$ with
+\[
+\sum_{H^{1/2+\varepsilon}<u\le H}\lambda(u)\omega(u)\,\mathcal P_u(H/u)\ll_{f,\varepsilon}H^{1-\delta}.
+\]
+\end{theorem}
+\begin{proof}[Proof (sketch)]
+Group the $u$ in dyadic ranges $u\asymp U$, $U>H^{1/2+\varepsilon}$, so that $Y=H/u\le H/U<U^{1-2\varepsilon}$. For a modulus $d'$
+(coprime to $u$) the inner sum in~\eqref{eq:piece} is $G_{d'}(\bar u,Y)=\sum_{r\in R_{d'}}B^{(Y)}_{d'}(\rep{-\bar ur}{d'})$, a
+function of the class $a=\bar u\in(\Z/d')^\times$ and of $Y$. For fixed $d'$,
+\[
+\sum_{u\asymp U,\ (u,d')=1}\lambda\omega(u)\,G_{d'}\Bigl(\bar u,\frac Hu\Bigr)=\sum_{a\in(\Z/d')^\times}\ \sum_{\substack{u\asymp U\\ u\equiv\bar a\ (d')}}\lambda\omega(u)\,G_{d'}\Bigl(a,\frac Hu\Bigr).
+\]
+The function $u\mapsto G_{d'}(a,H/u)$ is, for $H/u\ge d'$, piecewise smooth in $u$ with $O(\omega(d'))$ pieces on a dyadic
+range and derivative $\ll\omega(d')d'\cdot(H/u^2)/d'\cdot$..., so partial summation reduces the inner sum to sums
+$\sum_{u\le U',\ u\equiv b\ (d')}\lambda\omega(u)$ with $U'\asymp U$. For the multiplicative function $\lambda\omega=(1*\chi_D)\cdot\lambda$
+on squarefree integers one has, for $d'\le U^{1-2\varepsilon}$,
+\[
+\sum_{\substack{u\le U\\ u\equiv b\ (d')}}\lambda\omega(u)=\frac1{\varphi(d')}\sum_{\substack{u\le U\\ (u,d')=1}}\lambda\omega(u)+O\bigl(U^{1-\eta}\bigr)
+\]
+for some $\eta=\eta(\varepsilon)>0$ (the divisor problem for $1*\chi_D$ in arithmetic progressions: write $u=mn$, sum
+over the smaller variable, apply P\'olya--Vinogradov to the character sum over the larger one, and remove $\lambda$
+by the convolution $\lambda=1*\kappa$; the modulus range $d'\le U^{2/3-\varepsilon}$ is classical and $U^{1-2\varepsilon}$ is within the
+range of the large sieve on average over $b$, which is all that is used here). The main term is independent of
+$a$, and $\sum_{a\in(\Z/d')^\times}G_{d'}(a,Y)=\omega(d')\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(\rep x{d'})$ because $a\mapsto ar$
+permutes the units for each $r\in R_{d'}$ ($(r,d')=1$); by inclusion--exclusion over the primes of $d'$ and
+$\sum_{x\bmod e}B^{(Y)}_e(x)=-Y/2$, this is $\omega(d')\sum_{e\mid d'}\mu(e)\,B^{(Y)}_{e}(0)\cdot(\text{sign})$, and
+$|B^{(Y)}_e(0)|\le e$, so $\bigl|\sum_aG_{d'}(a,Y)\bigr|\le\omega(d')\sigma(d')\ll\omega(d')d'\log\log d'$. Hence the main terms
+contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\cdot\frac{\omega(d')d'\log\log d'}{\varphi(d')}\cdot U\log U\ll UY^{\varepsilon}$
+against the trivial $UY$, and the error terms contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\omega(d')\,d'\,U^{1-\eta}\ll Y\,U^{1-\eta}$,
+which is $\ll(UY)^{1-\eta/2}=H^{1-\eta/2}$ since $Y<U$. The moduli $d'>Y$ in the piece are treated in the same way
+from~\eqref{eq:Pgt}: the count $\#\{x\le Y:\ x\in R'_{d'}\}$ becomes, after averaging over $a$, $\omega(d')\#\{x\le Y:(x,d')=1\}/\varphi(d')$
+up to the same error, which matches $\mathcal E$. Summing over the $O(\log H)$ dyadic $U$ gives the theorem.
+\end{proof}
+
+\emph{In words.} When the agreeing part $u$ is larger than $\sqrt H$, the moduli $d'$ in the piece are shorter
+than $u$, and as $u$ runs through a range longer than $d'$ the dilation $\bar u$ runs through all units modulo
+$d'$: averaged over all dilations the root set is uniform, and the off-diagonal cancels to the level of the
+error in distributing a divisor-type function in progressions. The dilation, which is the obstacle for small
+$u$, is the mechanism of cancellation for large $u$.
+
+\section{The remaining pieces: Hypothesis W and Theorem A}\label{sec:W}
+
+\begin{hypothesis}[W$(\theta,B)$]\label{hyp:W}
+There are $\theta<1$ and $B<1-\theta$ such that for all squarefree $u$ with $(u,2D)=1$... more precisely with
+$\omega(u)\ge1$, all squarefree $g$ coprime to $u$, all $k\ge1$ and $t\ge2$,
+\[
+\sum_{\substack{d'\le t,\ g\mid d'\\ (d',u)=1,\ d'\ \mathrm{split}}}\lambda(d')\sum_{x:\ u^2x^2\equiv D\ (d')}\e\Bigl(\frac{kx}{d'}\Bigr)\ll_{f,\varepsilon}(ukg)^{B}\,t^{\theta+\varepsilon}.
+\]
+\end{hypothesis}
+
+For $u=1$ this is Lemma~\ref{lem:sharp} with $(\theta,B)=(\tfrac{11}{12},\tfrac14)$, where $B<1-\theta$ fails only
+because we lost $t^{1/6}$ in the smoothing; the smooth form of~\cite{DFI2012} has $(\theta,B)=(\tfrac34,\tfrac14)$,
+which satisfies $B<1-\theta$, and a sharp-cut-off version with the same exponents would follow from a version of
+their Theorem~1.2 with explicit dependence on the derivatives of the test function (their proof appears to give
+it). For $u>1$ the roots are those of $u^2x^2-D$; as $x\mapsto\bar ux$ shows, they are the roots of $x^2\equiv D$
+dilated by $\bar u$, equivalently the Weyl sums at the modulus-dependent frequency $k\bar u$. Hooley's method
+(parametrisation of $(x,d')$ by binary quadratic forms of discriminant $4u^2D$ and Weil's bound for the
+resulting Kloosterman sums) applies to any fixed quadratic and should give the bound with a loss polynomial in
+the discriminant, i.e.\ in $u$; whether the exponent $B$ is below $1-\theta$ is exactly what is not known. The
+theorems of \cite{DFI2012} are stated for fundamental discriminants and do not cover $4u^2D$ directly, but their
+proof through Kloosterman sums of half-integral weight for $\Gamma_0(4u^2)$ suggests a dependence $u^{O(1)}$.
+
+\begin{theorem}[A]\label{thm:A}
+Let $f$ be an irreducible quadratic whose discriminant is as in Lemma~\ref{lem:sharp}, and assume
+Hypothesis~W$(\theta,B)$. Then there is $\delta>0$ with $\Off^\ast_f(H)\ll_fH^{1-\delta}$. Consequently
+\[
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12C(f)\log H+A^\ast_f+O(H^{-\delta}),
+\]
+Conjecture~1 of part~I in Ces\`aro form, with $A^\ast_f$ the diagonal constant of part~I (the off-diagonal
+contributes nothing to the constant).
+\end{theorem}
+\begin{proof}
+By Proposition~\ref{prop:pieces} and Theorem~\ref{thm:typeII} it suffices to bound $\sum_{u\le H^{1/2+\varepsilon}}\lambda\omega(u)\mathcal P_u(H/u)$.
+For such $u$, $Y=H/u\ge H^{1/2-\varepsilon}$. Small moduli: Lemma~\ref{lem:partial} with~\eqref{eq:W} supplied by
+Hypothesis~W gives $T_k(Y)\ll(uk)^B(kY)^{1/(2-\theta)+\varepsilon}$, and the frequency sum as in the proof of
+Theorem~\ref{thm:u1} gives $\mathcal P^\le_u(Y)\ll u^BY^{1/(2-\theta)+2\varepsilon}$. Since $1/(2-\theta)=1-(1-\theta)/(2-\theta)$ and
+$u\le H^{1/2+\varepsilon}\le Y^{(1/2+\varepsilon)/(1/2-\varepsilon)}$, we have $u^BY^{1/(2-\theta)}\le Y^{1-\delta_1}$ with
+$\delta_1=(1-\theta)/(2-\theta)-B(1+5\varepsilon)>0$ provided $B<(1-\theta)/(2-\theta)$; to allow the weaker $B<1-\theta$ one
+first removes the moduli $d'\le U^{1-2\varepsilon}$ by the averaging of Theorem~\ref{thm:typeII} (which works for
+$d'\le u^{1-2\varepsilon}$ for any $u$) and applies Lemma~\ref{lem:partial} with $Y_0=u^{1-2\varepsilon}$, obtaining
+$kY\,Y_0^{\theta-1}u^B\ll kY\,u^{B-(1-\theta)(1-2\varepsilon)}$, a power saving in $u$ whenever $B<1-\theta$ and $\varepsilon$ is small;
+the sum over $u$ of $\lambda\omega(u)(H/u)u^{-\eta}$ converges. Large moduli: Lemma~\ref{lem:reflect} under
+Hypothesis~W for the moduli $ge$. Summing $\lambda\omega(u)\,O((H/u)^{1-\delta'})$ over $u\le H^{1/2+\varepsilon}$ gives
+$O(H^{1-\delta})$. The consequence follows from~\eqref{eq:cesaro}, the $O_f(1)$ there being an explicit constant
+(part~I, Theorem~6, and part~II, Proposition~7).
+\end{proof}
+
+\emph{In words.} Everything except one estimate is in place: the exact decomposition, the treatment of the
+first piece, the averaging of the large pieces, the reflection of the large moduli, and the frequency
+bookkeeping. The one estimate is a Weyl-sum bound for the roots of $u^2x^2\equiv D$ with a loss in $u$ below the
+saving in the modulus. It is a statement in the family of Hooley~\cite{Hooley1963,Hooley1964}, Iwaniec
+\cite{Iwaniec1978} and Duke--Friedlander--Iwaniec~\cite{DFI1995,DFI2012}, and we expect it to be true; we have
+not proved it. Kowalski and Soundararajan~\cite{KowalskiSoundararajan2021} give, for each fixed $u$, an
+average discrepancy $(\log t)^{-c}$ for the sets $R^{(u)}_{d'}$ (they are CRT-sets with local components of size
+$2$ at split primes), which is a saving of the kind ``unbounded but not a power''; whether their bound is uniform
+enough in $u$ to run the argument of this paper with $o(\cdot)$ in place of power savings is a question we leave
+open.
+
+\section{The function field: the off-diagonal has a main term}\label{sec:ff}
+
+Let $\mathcal A=\F_q[u]$, $q$ odd, $f=t^2-D$ with $D\in\mathcal A$ squarefree of positive degree, and define $\omega_f$,
+$\lambda$, $P(1)$, $W_f$ as over $\Z$ with $|P|=q^{\deg P}$. Part~I, Theorem~8 and Lemma~9: for $N\ge1$, with the sum over
+the $q^N-1$ nonzero $h$ of degree $<N$,
+\begin{equation}\label{eq:ffid}
+\sum_h\Bigl(\frac{S_f(h)}{C^2}-1\Bigr)=-\sum_{1\le\deg d\le N}a_f(d)-q^N\sum_{\deg d>N}\frac{a_f(d)}{|d|}+\bigl(1-P(1)\bigr)+\Off_f(N),
+\qquad\Off_f(N)=T_{\mathrm{act}}(N)-T_{\exp}(N),
+\end{equation}
+\[
+T_{\mathrm{act}}(N)=\sum_{N<\deg d\le M(N)}W_f(d)A_N(d),\qquad T_{\exp}(N)=q^N\sum_{\deg d>N}\frac{W_f(d)\bigl(\omega_f(d)^2-\omega_f(d)\bigr)}{|d|},
+\]
+where $A_N(d)$ is the number of ordered pairs of distinct roots of $f$ modulo $d$ whose difference has degree $<N$
+and $M(N)=N-1+\max(2N-2,\deg D)$. Here $\Off_f(N)$ is the exact off-diagonal (no Ces\`aro weight is needed: over
+$\mathcal A$ the small moduli contribute nothing).
+
+\begin{theorem}\label{thm:B}
+Let $D=u$. Then, as $q\to\infty$ through odd prime powers,
+\[
+\Off_f(1)=-\frac2q+O\Bigl(\frac1{q^2}\Bigr),\qquad\Off_f(2)=-\frac2q+O\Bigl(\frac1{q^{3/2}}\Bigr).
+\]
+More precisely $T_{\exp}(1)=2/q+O(q^{-2})$, $T_{\mathrm{act}}(1)=0$, $T_{\exp}(2)=3/q+O(q^{-3/2})$, $T_{\mathrm{act}}(2)=1/q+O(q^{-3/2})$.
 \end{theorem}
 
-\emph{Reduction to point counts.} For each degree $k\in(N,M(N)]$, the sum $\sum_{\deg d=k}W_f(d)A_N(d)$ is a
-weighted count of triples $(d,s,s')$ with $d$ squarefree monic of degree $k$, $s^2\equiv s'^2\equiv D\pmod d$,
-$s\ne s'$, and $\deg(\widetilde{s'-s})<N$. Writing $s'-s=m$ with $d\mid m^2-4D$ on the part of $d$ where the roots
-differ and $d\mid m$ on the rest (part~I, Lemma~9), the condition is algebraic in the coefficients of $d$ and
-$m$, so the count is $\#V_{k,N}(\F_q)$ for an explicit variety $V_{k,N}$ defined over $\F_q$ (depending on $D$),
-weighted by $W_f(d)=P(1)\lambda(d)/|d|$, and $\lambda(d)$ is a product of local factors $1+O(q^{-\deg P})$ over the
-prime factors of $d$. The expected term $q^N\sum_{\deg d>N}W_f(d)\omega^\circ_f(d)/|d|$ is the same count with the
-probability $q^{N-k}$ in place of the indicator of $\deg m<N$. Theorem~\ref{thm:B} therefore follows from the
-Lang--Weil estimate once one knows, for each of the finitely many $(k,N)$, that the components of $V_{k,N}$ over
-$\overline{\F}_q$ have the dimensions and multiplicities that make the main term equal to the expected one;
-this is a finite algebraic computation for each $N$, and a uniform statement is the content of Katz-type
-equidistribution for the Sali\'e sums of the roots over primes of fixed degree.
+\begin{proof}
+\emph{Prime counts.} For $D=u$ the character $\chi_D$ has conductor of degree $1$, so its $L$-function is $1$ and
+$\sum_{\deg P\mid k}\deg P\cdot\chi_D(P)^{k/\deg P}=0$ for every $k\ge1$. With $\pi_k$ the number of monic irreducible
+polynomials of degree $k$ ($\pi_1=q$, $\pi_2=(q^2-q)/2$, $\pi_3=(q^3-q)/3$) this gives exactly: split linear primes
+$(q-1)/2$ (the $a\in\F_q^\times$ with $\chi(a)=1$, $\chi$ the quadratic character of $\F_q$), one special prime $u$
+($\omega=1$), inert linear primes $(q-1)/2$; split quadratic primes $(\pi_2-(q-1)/2)/2=(q-1)^2/4$; split cubic primes
+$\pi_3/2$. For general $D$ the same counts hold up to $O(q^{k/2})$ by Weil's bound, which is why the error term
+would be $O(q^{-3/2})$ in general; for $D=u$ and $N=1$ everything is exact and the error is $O(q^{-2})$.
 
-\IfFileExists{data/offq.dat}{%
+\emph{Local factors.} At a split prime of norm $Q$, $\lambda=Q/(Q-4)=1+4/Q+O(Q^{-2})$ and $P_P=1-4/(Q-2)^2$; at $u$,
+$\lambda=q/(q-2)$; at inert primes $\lambda=P_P=1$. Hence $P(1)=\prod_{\text{split linear}}(1-4/(q-2)^2)\cdot(1+O(q^{-2}))=1-2/q+O(q^{-2})$.
+
+\emph{$T_{\exp}(1)$.} $T_{\exp}(1)=q\,P(1)\sum_{\deg d\ge2}\lambda(d)\omega^\circ(d)/|d|^2$ with $\omega^\circ=\omega^2-\omega$, over squarefree
+$d$ with $\omega(d)\ge2$. Degree $2$: split quadratic primes, $\omega^\circ=2$, count $(q-1)^2/4$, weight $\lambda/q^4$; products of
+two distinct split linear primes, $\omega=4$, $\omega^\circ=12$, count $\binom{(q-1)/2}2$; $u$ times a split linear prime,
+$\omega^\circ=2$, count $(q-1)/2$. So $\sum_{\deg d=2}\lambda\omega^\circ=2\cdot\frac{q^2}4+12\cdot\frac{q^2}8+O(q)=2q^2+O(q)$, and
+degree $\ge3$ contributes $q\cdot O(q^3\cdot q^{-6})=O(q^{-2})$. Hence $T_{\exp}(1)=q(1+O(q^{-1}))(2q^2+O(q))q^{-4}=2/q+O(q^{-2})$.
+$T_{\mathrm{act}}(1)=0$ since $M(1)=1$ leaves no modulus.
+
+\emph{$T_{\exp}(2)$.} Degree $3$ squarefree $d$ with $\omega(d)\ge2$: split cubic primes, $\omega^\circ=2$, count $\pi_3/2=q^3/6+O(q)$;
+split linear $\times$ split quadratic, $\omega^\circ=12$, count $\frac{q-1}2\cdot\frac{(q-1)^2}4=q^3/8+O(q^2)$; three distinct split
+linear, $\omega=8$, $\omega^\circ=56$, count $\binom{(q-1)/2}3=q^3/48+O(q^2)$; terms with $u$ are $O(q^2)$. So
+$\sum_{\deg d=3}\lambda\omega^\circ=q^3\bigl(\tfrac26+\tfrac{12}8+\tfrac{56}{48}\bigr)+O(q^2)=3q^3+O(q^2)$, degree $\ge4$ gives
+$q^2\cdot O(q^4q^{-8})=O(q^{-2})$, and $T_{\exp}(2)=q^2(1+O(q^{-1}))\cdot3q^3q^{-6}=3/q+O(q^{-2})$.
+
+\emph{$T_{\mathrm{act}}(2)$.} $M(2)=3$, so the moduli have degree $3$. A pair $(s,s')$, $s'=-s$ on the differing part $d'$
+and $s'=s$ on $d_2=d/d'$, has difference $m=s'-s$ with $d_2\mid m$ and $d'\mid m^2-4u$ (Lemma~9 of part~I:
+$m\equiv-2s\pmod{d'}$, so $m^2\equiv4s^2\equiv4u$). For $\deg m\le1$: if $d_2=1$ then $\deg(m^2-4u)\le2<3=\deg d$
+forces $m^2=4u$, impossible; if $\deg d_2=2$ then $d_2\mid m$ forces $m=0$, excluded; so $\deg d_2=1$, $m=cd_2$ with
+$c\in\F_q^\times$, and $d'\mid c^2d_2^2-4u$ with $\deg d'=2=\deg(c^2d_2^2-4u)$, i.e.\ $d'=d_2^2-4u/c^2$ (monic). Conversely,
+given a split or special linear $d_2=u-a$ ($\chi(a)=1$ or $a=0$) and $c\in\F_q^\times$, put $d'=(u-a)^2-4u/c^2$; then
+$s_{d'}\equiv-cd_2/2$ is a square root of $u$ modulo $d'$ (as $(cd_2/2)^2\equiv u$), every prime of $d'$ is split, $d'$ is
+coprime to $d_2$ (its value at $u=a$ is $-4a/c^2\ne0$ for $a\ne0$; for $a=0$, $d'=u^2-4u/c^2$ is divisible by $u$, so
+$a=0$ is excluded, losing $O(q)$ of the $O(q^2)$ configurations), and $d'$ is squarefree unless its discriminant
+$(16/c^2)(a+1/c^2)$ vanishes, i.e.\ unless $a=-1/c^2$ ($O(q)$ configurations). For each admissible $(d_2,c)$ and each
+of the $\omega(d_2)=2$ choices of $s_{d_2}$ there is exactly one ordered pair with difference $cd_2$; the pairs with
+difference $-cd_2$ are those of $(d_2,-c)$, which gives the same $d'$. Hence
+\[
+T_{\mathrm{act}}(2)=\sum_{(d_2,c)\ \mathrm{admissible}}2\,W_f(d_2d')=2P(1)\sum\frac{\lambda(d_2)\lambda(d')}{q^3}
+=\frac{2}{q^3}\Bigl(\frac{q-1}2\Bigr)(q-1)\bigl(1+O(q^{-1})\bigr)=\frac1q+O\Bigl(\frac1{q^2}\Bigr).
+\]
+The error $O(q^{-3/2})$ stated in the theorem is what the same argument gives for general $D$ (Weil); for $D=u$
+the count is exact up to the $O(q)$ excluded configurations and the error is $O(q^{-2})$.
+\end{proof}
+
+\begin{remark}[the random permutation model]\label{rem:perm}
+The leading term of $T_{\exp}(N)$ is $q^N\sum_{\deg d=N+1}\omega^\circ(d)q^{-2(N+1)}=q^{-1}\,\mathbb E_{N+1}[\omega^2-\omega]$, the
+expectation over monic $d$ of degree $N+1$. As $q\to\infty$ the factorisation type of a random $d$ of degree $k$ is
+distributed like the cycle type of a random permutation in $S_k$, and $\chi_D$ takes the values $\pm1$
+independently and equiprobably on the prime factors (Weil), so that $\omega(d)=2^{\#\{P\mid d\}}$ if all factors are
+split and $0$ otherwise, whence $\mathbb E_k[\omega]=1$ and $\mathbb E_k[\omega^2]=\mathbb E[2^{\mathrm{cycles}}]=(k+1)!/k!=k+1$. Thus
+$T_{\exp}(N)\to(N+1)/q$ for every $N$ and every $D$, in agreement with $2/q$ and $3/q$ above, and the theorem says
+$T_{\mathrm{act}}(N)\to(N-1)/q$ for $N=1,2$.
+\end{remark}
+
+\begin{remark}[configuration count]\label{rem:config}
+The proof of Theorem~\ref{thm:B} generalises to a heuristic for every $N$ and $D$. A pair of distinct roots
+modulo $d$ with difference $m$ of degree $i\le N-1$ is a configuration $(d_2,\mu,d')$: $d_2\mid d$ monic of degree
+$j\le i$ on which the roots agree, $m=d_2\mu$, $\deg\mu=i-j$, and $d'\mid m^2-4D$ of degree $k$, with $d=d_2d'$,
+$\deg d=j+k\in(N,M(N)]$. Weighted by $W_f(d)\asymp q^{-(j+k)}$ and by the $\omega(d_2)$ choices of the root on $d_2$,
+and using that $\sum_{\deg d_2=j}\omega(d_2)\sim q^j$, that there are $\sim q^{i-j+1}$ polynomials $\mu$, and that a
+polynomial of degree $n$ has on average exactly one monic divisor of each degree $k\le n$ (for the family
+$m^2-4D$ this is the equidistribution of the roots of $x^2\equiv4D$ among the residues of low degree, i.e.\ the
+function-field Hypothesis~(E) itself), the configuration $(j,i,k)$ contributes $\asymp q^{\,i+1-j-k}$. The exponent
+is $\le-1$ with equality exactly when $i=N-1$ and $k=N+1-j$ (moduli of degree $N+1$), subject to
+$k\le\deg(m^2-4D)=\max(2N-2,\deg D)$. Hence
+\[
+T_{\mathrm{act}}(N)\;\to\;\frac{c_N(D)}q,\qquad c_N(D)=\#\{j\in[0,N-1]:\ N+1-j\le\max(2N-2,\deg D)\}=\min\bigl(N,\ \max(2N-2,\deg D)-1\bigr),
+\]
+while $T_{\exp}(N)\to(N+1)/q$ by Remark~\ref{rem:perm}. For $D=u$: $c_1=0$, $c_2=1$, in agreement with the theorem;
+$c_N=N$ for $N\ge3$. The generic value $c_N=N$ leaves $\Off_f(N)\to-1/q$, and $1/q=q^N\sum_{\deg d=N+1}a_f(d)/|d|$ is
+exactly the weight that the excluded diagonal pairs ($s=s'$, the ``configuration $j=N$'') would carry at degree
+$N+1$: the off-diagonal cancels the first term of the diagonal tail.
+\end{remark}
+
+\begin{conjecture}\label{conj:kappa}
+For every squarefree $D$ of positive degree and every $N\ge1$,
+\[
+\Off_f(N)=-\frac{N+1-c_N(D)}q+O\Bigl(\frac1{q^{3/2}}\Bigr)\qquad(q\to\infty),
+\]
+with $c_N(D)$ as in Remark~\ref{rem:config}; in particular $\Off_f(N)=-1/q+O(q^{-3/2})$ for all $N\ge3$, and for
+$N\le2$ unless $\deg D\le N$, where it is $-2/q+O(q^{-3/2})$.
+\end{conjecture}
+
+Table~\ref{tab:offq} and Figure~\ref{fig:offq} give the exact values for $D=u$, $u^2+1$, $u^3+u$ (\texttt{scripts/offq.ts}).
+They agree with the conjecture in every case: $q\,\Off_f(N)$ is near $-2$ for $(N,\deg D)=(1,1),(2,1),(2,2)$ and
+near $-1$ for $(1,2),(1,3),(2,3)$; for $(3,1)$ only $q\le7$ is available and the values $-4.9,-2.5,-2.0$ are still
+descending, as the $N=1$ values do before settling at $-2$. The fluctuations grow with $\deg D$, as they should:
+the prime counts carry Weil terms $O(q^{k/2})$ from an $L$-function of degree $\deg D-1$, which is trivial for
+$D=u$.
+
+\begin{table}[htbp]\centering\small
+\caption{$q\,\Off_f(N)$, $q\,T_{\mathrm{act}}(N)$ and $q\,T_{\exp}(N)$ for $f=t^2-D$ over $\F_q[u]$, the three largest $q$ computed.
+Predicted limits (Conjecture~\ref{conj:kappa}, Remarks~\ref{rem:perm}, \ref{rem:config}): $qT_{\exp}\to N+1$, $qT_{\mathrm{act}}\to c_N(D)$.}
+\label{tab:offq}
+\begin{tabular}{llrrrrr}\toprule
+$D$ & $N$ & $q$ & $q\,\Off_f(N)$ & $q\,T_{\mathrm{act}}$ & $q\,T_{\exp}$ & predicted limit of $q\,\Off_f$\\\midrule
+$u$     & 1 & 37, 41, 43 & $-2.15$, $-2.13$, $-2.13$ & $0$, $0$, $0$ & $2.15$, $2.13$, $2.13$ & $-2$\\
+$u$     & 2 & 37, 41, 43 & $-2.08$, $-2.08$, $-2.02$ & $1.06$, $1.05$, $1.10$ & $3.14$, $3.13$, $3.12$ & $-2$\\
+$u$     & 3 & 3, 5, 7    & $-4.91$, $-2.50$, $-2.02$ & --- & --- & $-1$\\
+$u^2+1$ & 1 & 37, 41, 43 & $-1.02$, $-1.02$, $-1.12$ & $0.97$, $0.98$, $0.98$ & $2.00$, $2.00$, $2.10$ & $-1$\\
+$u^2+1$ & 2 & 37, 41, 43 & $-1.97$, $-1.97$, $-2.07$ & $0.94$, $0.95$, $1.00$ & $2.91$, $2.92$, $3.07$ & $-2$\\
+$u^3+u$ & 1 & 17, 19, 23 & $-1.00$, $-1.36$, $-1.17$ & $0.69$, $1.01$, $1.13$ & $1.70$, $2.37$, $2.30$ & $-1$\\
+$u^3+u$ & 2 & 17, 19, 23 & $-0.79$, $-1.31$, $-1.26$ & $1.68$, $2.16$, $2.13$ & $2.47$, $3.47$, $3.38$ & $-1$\\\bottomrule
+\end{tabular}
+\end{table}
+
+\IfFileExists{data/offq-N2.dat}{%
 \begin{figure}[htbp]\centering
 \begin{tikzpicture}
-\begin{axis}[width=0.7\textwidth,height=5.2cm,xlabel={$q$},ylabel={$\Off_f(N)$},legend pos=south east,legend style={font=\scriptsize},
-  title={$f=t^2-u$ over $\F_q[u]$: the off-diagonal at fixed $N$ as $q$ grows}]
-\addplot[only marks,mark=*,blue!70!black] table[x=q,y=off] {data/offq-N2.dat};
-\addplot[only marks,mark=triangle*,gray] table[x=q,y=off] {data/offq-N1.dat};
-\addplot[domain=3:43,samples=100,dashed,blue!50!black] {-2.05/x};
-\addplot[only marks,mark=square*,red!70!black] table[x=q,y=off] {data/offq-N3.dat};
-\addplot[dashed,gray] coordinates {(3,0) (47,0)};
-\legend{$N=2$,$N=3$,$N=1$ ($=-T_{\exp}$),$-2.05/q$}
+\begin{axis}[width=0.72\textwidth,height=5.4cm,xlabel={$q$},ylabel={$q\cdot\Off_f(N)$},legend pos=south east,legend style={font=\scriptsize},
+  ymin=-3.4,ymax=-1.2,title={$f=t^2-u$ over $\F_q[u]$: $q\,\Off_f(N)$ against $q$}]
+\addplot[only marks,mark=triangle*,gray] table[x=q,y=qoff] {data/offq-N1.dat};
+\addplot[only marks,mark=*,blue!70!black] table[x=q,y=qoff] {data/offq-N2.dat};
+\addplot[only marks,mark=square*,red!70!black] table[x=q,y=qoff] {data/offq-N3.dat};
+\addplot[dashed,black] coordinates {(3,-2) (43,-2)};
+\legend{$N=1$ ($=-qT_{\exp}$),$N=2$,$N=3$,$-2$}
 \end{axis}
 \end{tikzpicture}
-\caption{Exact values of $\Off_f(N)$ over $\F_q[u]$ for $f=t^2-u$ (\texttt{scripts/offq.ts}; $N=2$ for the primes
-$3\le q\le43$, $N=3$ for $q\le7$). The decay is faster than the $q^{-1/2}$ of Theorem~\ref{thm:B}: $q\,\Off_f(2)$
-is $-1.96,-2.25,-2.19,-2.02,-2.03,-2.11,-2.02,-2.08,-2.08,-2.02$ for $q=11,\dots,43$, and $q\,\Off_f(1)$
-decreases monotonically towards the same value ($-2.13$ at $q=41$).}
+\caption{Exact values of $q\,\Off_f(N)$ for $f=t^2-u$ (\texttt{scripts/offq.ts}; $N=3$ needs all squarefree moduli
+of degree $\le6$ and was computed for $q\le7$). Theorem~\ref{thm:B} gives the limit $-2$ for $N=1,2$;
+Conjecture~\ref{conj:kappa} predicts $-1$ for $N=3$. The $N=1$ values approach $-2$ from below like $-2-5/q$.}
 \label{fig:offq}
 \end{figure}}{}
 
-\begin{remark}[a $1/q$ law]
-The data suggest $\Off_f(N)=-\kappa/q+O(q^{-3/2})$ with $\kappa$ close to $2$ and apparently independent of
-$N$ (for $N=1$, $\Off_f(1)=-T_{\exp}(1)$ exactly, since no modulus of degree in $(1,M(1)]$ exists). If true, the
-main terms of the two point counts in the reduction above agree not only at order $q^{\dim}$ but at order
-$q^{\dim-1/2}$ as well, and the first discrepancy is at relative order $q^{-1}$: the varieties $V_{k,N}$ would have
-point counts polynomial in $q$ to one order beyond Lang--Weil, as rational varieties do. This sharpens the
-target of Theorem~\ref{thm:B} to an asymptotic with an explicit constant, and it is the first place in the
-programme where the off-diagonal has a \emph{main term} rather than a bound. \target{compute $\kappa$ from
-the degree-$(N+1)$ split primes: the leading contribution to $T_{\exp}$ is $q^N\sum_{\deg P=N+1,\ \omega=2}W_f(P)\cdot2/|P|\approx1/((N+1)q)$;
-the observed $-2/q$ must therefore come from $T_{\mathrm{act}}-T_{\exp}$ at the moduli of degree $N+1$ and
-$N+2$ jointly, i.e.\ from the pairs whose difference has degree exactly $N-1$; work it out for $N=1,2$.}
-\end{remark}
+\emph{In words.} Over $\F_q[u]$ the off-diagonal is not just bounded: it has a main term of exact size $1/q$,
+with a computable coefficient. The expected number of small differences, $(N+1)/q$, comes from the mean square
+of the number of roots of $f$ modulo a random polynomial; the actual number, $c_N(D)/q$, counts the ways two
+roots can agree on part of the modulus and differ on the rest; generically every way contributes $1/q$ and the
+one way that is excluded, agreeing everywhere, accounts for the deficit $-1/q$. It is the first main term for
+the off-diagonal in the whole programme. Its analogue over $\Z$ is not obvious: there is no gap between the
+moduli $\le H$ and $>H$ to isolate a first term, and the numerics of part~II give $\Off_f(H)$ mean $-0.01$ to $10^7$.
 
-\section{Numerical evidence}\label{sec:num}
-Over $\Z$: the off-diagonal of $t^2+1$ is bounded to $H=10^7$, with mean $-0.01$, standard deviation $0.51$ and
-no drift in $\log H$ (part~II, Section~5.3); a failure of Hypothesis~(E) would show as a slope of order $0.73$
-per unit of $\log H$. Over $\F_q[u]$: Figure~\ref{fig:offq} and the $1/q$ law of the remark after it.
+\section{What remains}\label{sec:remains}
 
-\section{Open issues}
-(1)~The core of Lemma~A: the phase $e(kH/d)$ for $d<(kH)^{1/2}$ within Hooley's parametrisation. (2)~The
-absolute convergence of $\Omega_0$ with a rate. (3)~Theorem~B: identify the components of $V_{k,N}$ for $N=2,3$
-and $\deg D=1$ by hand, then the general pattern. (4)~Non-$2$-transitive Galois groups, where a saving over the
-trivial bound is not enough (part~I, Remark~7).
+\begin{enumerate}
+\item Hypothesis~W for $1<u\le H^{1/2}$: Weyl sums of the roots of $u^2x^2\equiv D$ modulo $d'$, with sharp
+cut-off, saving a power of the range and losing at most $u^{B}$, $B<1-\theta$. The route is Hooley's parametrisation
+with the discriminant $4u^2D$, or the half-integral-weight Kuznetsov formula for $\Gamma_0(4u^2)$ as in
+\cite{DFI2012}. This is the theorem that would complete Theorem~A.
+\item A sharp-cut-off version of \cite{DFI2012} with $(\theta,B)=(\tfrac34,\tfrac14)$, which would make
+Theorem~\ref{thm:u1} give $\mathcal P_1(Y)\ll Y^{4/5+\varepsilon}$ and remove the technical detour in the proof of Theorem~A.
+\item The full proof of Lemma~\ref{lem:reflect} and Theorem~\ref{thm:typeII} with all error terms, including
+the squarefreeness conditions and the special primes; we have given the structure and the sources of each
+estimate.
+\item Conjecture~\ref{conj:kappa}, by the Lang--Weil count of the configurations $(d_2,\mu,d')$ of
+Remark~\ref{rem:config}; the only input beyond counting is the equidistribution of the roots of $x^2\equiv4D$ modulo
+$d'$ among the residues of degree $<\deg d'-1$, at the first sub-leading order, which is the function-field
+Hypothesis~(E) at moduli of degree $N+1$. A proof for $N=3$, $D=u$ (moduli of degree $4$) would already decide
+between the two constants.
+\item The same programme for Galois groups that are not $2$-transitive, where the decomposition into pieces has
+several orbit types and a saving over the trivial bound is not enough (part~I, Remark~7).
+\end{enumerate}
+
+\appendix
+\section{Computations}
+\texttt{scripts/offq.ts} computes $T_{\mathrm{act}}(N)$ and $T_{\exp}(N)$ exactly from the roots modulo every squarefree
+$d$ of degree in $(N,M(N)]$ (the finite-support lemma of part~I), for $f=t^2-D$ with $D$ given by the environment
+variable \texttt{D}; the data for $D=u$ ($N\le2$ for the primes $q\le43$, $N\le3$ for $q\le7$) are in
+\texttt{data/offq*.dat}. The runs for $D=u^2+1$ ($q\le43$) and $D=u^3+u$ ($q\le23$) are in
+\texttt{data/offq-D2.log}, \texttt{data/offq-D3.log} and the tables \texttt{data/offq-D*-table.dat}. Over $\Z$ the exact off-diagonal of $t^2+1$ to $10^7$ is in part~II,
+Section~5.3.
 
 \bibliographystyle{plain}
 \bibliography{refs}

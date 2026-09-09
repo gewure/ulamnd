@@ -101,6 +101,13 @@ formula) → WP2 → WP3 → primes section (WP6, honest framing) → two review
 - External review action for paper I (arXiv endorsement; one precise question to a specialist) recorded as
   the author's decision; it does not block paper III.
 
+## 1g. Paper III written (10 Sep) — see research/paper-III/main.tex and KNOWLEDGE.md
+Status: Theorem A conditional on Hypothesis W (dilated Weyl sums for 1 < u ≤ √H); u = 1 and u > √H unconditional
+(sketch-level proofs for the Type II lemma and the reflection lemma; full proofs to be written). Theorem B proved
+for D = u, N ≤ 2 (−2/q); generic conjecture −1/q with the configuration count c_N(D). Next mathematical steps:
+(i) write Lemma (reflection) and Theorem (Type II) with all error terms; (ii) attack Hypothesis W via Hooley's
+parametrisation with discriminant 4u²D; (iii) prove Conjecture (c_N) for N = 3, D = u by Lang–Weil.
+
 ## 1e. Paper III plan (from LITERATURE-3.md, 9 Sep night)
 Target theorem: Hypothesis (E) in Cesàro form for every irreducible quadratic ⇒ Conjecture 1 of paper I in
 Cesàro form for quadratics. Route: Vaaler expansion; Lemma A (twisted Weyl sums of quadratic roots over

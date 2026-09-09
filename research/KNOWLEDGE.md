@@ -37,8 +37,16 @@ for quadratics. Nothing here proves anything about primes; all prime statements 
   at resolution 0.68); F_q[u] q-sweep of Off_f(N) for t²−u (research/paper-III/data/offq.*). Paper III scaffold
   with the precise Lemma A (frequencies only up to (log H)^A thanks to the Cesàro k^{-2} decay; DFI 2012 covers
   d ≥ kH only, Hooley's method needed below). Singularity-map figure in paper II.
-- 10 Sep. F_q[u] q-sweep (research/paper-III/data/offq.*): Off_f(N) ≈ −2.05/q for f = t²−u, N = 1, 2 — a
-  1/q law, not q^{-1/2}. Paper III §5 records it; Theorem B's target sharpened.
+- 10 Sep. F_q[u] q-sweeps (research/paper-III/data/offq*): Off_f(N) has a main term of size 1/q. Proved for
+  D = u, N = 1, 2: −2/q (T_exp → (N+1)/q from E[2^cycles] = k+1; T_act → c_N/q). Configuration count gives
+  c_N(D) = min(N, max(2N−2, deg D) − 1), so the GENERIC constant is −1/q (= the weight of the excluded
+  diagonal pairs at degree N+1); −2/q only for (N, deg D) ∈ {(1,1),(2,1),(2,2)}. Confirmed by D = u²+1
+  (−1, −2) and D = u³+u (−1, −1). The first "κ = 2 for all N" guess was wrong (F12).
+- 10 Sep. Paper III written (11 pp): exact decomposition into pieces indexed by the agreeing part u (dilated
+  roots of u²x² ≡ D, equal weight per unit log u); u = 1 unconditional via DFI + sharp-cutoff lemma (Δ²
+  normalisation trick); u > H^{1/2} via averaging the dilations (Type II, divisor-type functions in APs);
+  1 < u ≤ H^{1/2}: Hypothesis W (dilated Weyl sums with loss u^B, B < 1−θ) — the single open input.
+  Theorem A conditional on W; Theorem B (F_q[u]) unconditional.
 - 10 Sep. Second opinion (Claude Opus 5.1, via the author) assessed below; Alberts's survey checked:
   Kurokawa–Moroz criterion covers Frobenian coefficients only, not our 1/p dependence.
 
@@ -83,14 +91,20 @@ F9. Sign of a character sum in the exact constant A0 (prime zeta helper); and ca
 F11. "DFI 2012 applies to the phase e(kH/d) for d ≥ (kH)^{1/2}" (roadmap, 9 Sep). Wrong: their condition
     y²|f''| ≤ 1 with f(c) = g(c/Y)e(kH/c) needs Y ≥ kH, so their theorem covers only moduli above kH; the
     trivial-bound range d ≤ H needs Hooley's method with the phase (paper III §2–3).
+F12. "κ = 2 for all N" (10 Sep, morning). Based on N ≤ 2 for D = u only; the configuration count and the
+    D = u²+1, u³+u sweeps show the generic constant is 1. Lesson: a conjecture from two data points in one
+    family is not a conjecture; vary the family before naming a constant.
+F13. "DFI covers the pieces u > 1" (implicit in the 9 Sep roadmap). The pieces need Weyl sums of roots of
+    u²x² ≡ D, i.e. roots of x² ≡ D dilated by u^{-1} modulo d'; DFI's theorem is for a fixed fundamental
+    discriminant. Only u = 1 is covered. (Paper III §2, §5.)
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
 ## 4. Paths and their ratings (10 Sep 2026)
 | # | path | rating | comment |
 |---|------|--------|---------|
-| P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
-| P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
+| P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (structure done 10 Sep) | Written: pieces, u=1, Type II, reflection; open = Hypothesis W for 1 < u ≤ √H. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
+| P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep; Thm B proved for N ≤ 2, D = u) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
 | P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
 | P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★☆☆☆ (was ★★★, 10 Sep) | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |
 | P5 | Job (C4): spectrum of Off_f(e^u) for t²+1 | done to 10⁷ (10 Sep) | Null: no Maass or ζ lines at resolution 0.68; Off bounded, no drift. Extend to 10⁹ externally (segmented sieve) before closing the question. |
