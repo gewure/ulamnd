@@ -243,3 +243,11 @@ contributes an exact constant 1 − P(1) over F_q[u] (h = 0 excluded), which the
 missed; the corrected identity mirrors the integer one exactly, and a new lemma shows the off-diagonal
 remainder Off_f(N) is a finite sum over moduli of degree between N and ≈3N minus an explicit series.
 Both were verified by two independent exact computations (`thesis/ff.ts`, `thesis/ff-tail.ts`).
+
+
+## Correction (9 September 2026, evening)
+
+The exact C-vs-C² test (`thesis/exact.ts`) truncated ∏_p P_p at p ≤ 2·10⁶ without a tail; the truncation
+error δ ≈ 2/(P log P) ≈ 7·10⁻⁸ enters Σ_f(H) as a drift δC²H and biases α towards 2 (uncorrected α_log:
+0.81, 0.87, 0.91 at P = 10⁶, 2·10⁶, 10⁷). With the prime-number-theorem tail exp(−2E₁(log P)) the result is
+α_log = 0.92 ± 0.08, α_lin = 1.19 ± 0.11 (C² excluded by ≥ 7σ), stable in P. Paper I v7 uses these numbers.

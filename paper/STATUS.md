@@ -1,6 +1,15 @@
 # Status and hand-off (evening of 9 September 2026)
 
-## v7 (9 Sep, late): readability pass
+## v7 (9 Sep, late): readability pass, errata, exact test recomputed
+- Reviewer round 4 (via the author): plain-terms paragraph no longer claims the conjecture as proved
+  (Hypothesis (E) named as the larger gap); "exactly" dropped; Figure 2 caption says "no truncation of the
+  h-dependent part"; the ∏P_p cutoff (P = 2·10⁶) and its prime-number-theorem tail are now stated.
+- thesis/exact.ts: tail correction exp(−2E₁(log P)) added to ∏P_p (env: PGEN, NOTAIL=1, EXACT_OUT).
+  Cutoff study (followup/data/exact-notail-P*.json): uncorrected α_log = 0.81 / 0.87 / 0.91 at
+  P = 10⁶ / 2·10⁶ / 10⁷ (fit undefined at 10⁵); corrected at 2·10⁶: α_log = 0.92 ± 0.08, α_lin = 1.19 ± 0.11,
+  C² excluded by ≥ 7σ, finite-H coefficient 0.86·½. Macros regenerated; the paper's numbers changed
+  accordingly (were 0.87 / 1.10 / 8σ / 0.82).
+
 - Abstract rewritten to lead with the question and its relevance ("how much does the number of primes
   along a polynomial fluctuate"), ends with a plain-terms sentence; 10 % shorter than v6 by a uniform token count (348 vs 387).
 - New paragraphs: "Why this matters, in plain terms" and "Reader's guide" in the introduction; one-sentence

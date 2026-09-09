@@ -1,0 +1,7 @@
+wrote macros (51), 11 summary rows, 67 cell rows, thesis rows from thesis/results-full.json
+sumS: 110 polynomials
+offdiag: 25 quadratics
+riesz: 10 peaks, 5 within 0.25
+exact: 25 quadratics, alpha = 1.19 ± 0.11
+ff: 6 cases, max |Off| = 1.832
+ff-tail: 6 cases, max |Off(direct) − Off(LHS)| = 3.01e-5, brute-force checks 15, max dev 4.44e-16

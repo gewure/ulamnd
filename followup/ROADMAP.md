@@ -68,6 +68,19 @@ for multivariable Euler products (add to refs after checking).
 Order of work: a_m(ρ) cross-check → WP1 (quadratic theorem, full proof) → WP5 (exact function-field
 formula) → WP2 → WP3 → primes section (WP6, honest framing) → two review rounds → submit.
 
+## 1c. Theorems written with proofs on 9 Sep (evening), followup/main.tex §§2–4
+- Lemma (pair fields); Definition/Lemma (plethystic exponents Ψ_N(g) = (1/N)Σ_{j|N} μ(j)(−1)^{N/j+1}χ_V(g^j)^{N/j},
+  virtual characters, bound 2n^N/N); Theorem (structure: D_f = Π_{N≤K}L(Nw,Ψ_N)·M_{f,K}, M_{f,K} absolutely
+  convergent for Re s > −1 + 1/(K+1)); Proposition (quadratic exponents: a_N+b_N = −M_N(−2), a_N−b_N = even-divisor
+  sum; a_N = b_N = ½M_N(2) for odd N); Theorem (natural boundary, all f incl. f = t); Theorem (explicit
+  formula for quadratics under RH, m ≥ 2, with a full proof: growth lemma (G1)/(G2), horizontal-segment
+  Lemma via Markov averaging over the zone |σ−½| ≤ 2ε₀, U ∈ [x^16, 2x^16]); Theorem (Ω_±(x^{m−3/4})
+  unconditional for every quadratic with one uncancelled pole, no positivity needed; Landau).
+- Verified: closed-form exponents against the level-by-level solution up to N = 16; general Ψ_N formula
+  reproduces (a_N, b_N) for S₂.
+- To check by a second reader: the constants in the horizontal-segment lemma; the claim (G1) for L(s,χ_D)
+  under GRH (standard); the A = 16 bookkeeping; the definition of c_{f,m}.
+
 ## 2. Work packages
 
 ### WP0 — Exact explicit formula for the diagonal of t²+1, tested against data  [NUMERICAL, first result 9 Sep]
@@ -154,11 +167,17 @@ in the contour position.
   look at its spectrum in log H: if the off-diagonal is "just" bounded + noise, its Riesz means are
   O(x^{m−1})-ish and the diagonal formula is the whole story at order x^{m−3/4}.
 
-### WP5 — Function field  [TO PROVE; Route B of routes.tex]
-- Over F_q[u] everything is rational in T = q^{−s}: the diagonal generating function is
-  ζ_A(w)L(w,χ_D)·Π_k(…)·M_f, a rational function, and the "explicit formula" is an EXACT finite sum over
-  the inverse roots (Weil zeros of L(T,χ_D) and of the extracted factors), no error term. Write this
-  down (it is a theorem already, given Lemma 2), then Prop. B3 (q → ∞) for the off-diagonal.
+### WP5 — Function field  [TO PROVE; Route B of routes.tex; CORRECTED 9 Sep evening]
+- Earlier note claimed the diagonal generating function over F_q[u] is rational in T = q^{−s} and the
+  explicit formula an exact finite sum. WRONG for the same reason as over Z: E_f is an infinite product of
+  L-functions in T (each rational), with a natural boundary at |T| = 1 (Re w = 0). Correct statement: for
+  each K, D_f = ζ_A(w)Π_{N≤K}L(Nw,Ψ_N)·M_{f,K}(T) with M_{f,K} analytic in |T| < q^{−1/(K+1)}; the sum over
+  h of degree < N is a coefficient extraction (circle contour in T), so the explicit formula is
+  UNCONDITIONAL there (Weil: zeros of L(T,χ_D) on |T| = q^{−1/2}) with error q^{N(1−1/(K+1)+ε)}-type after
+  the k = 2 family. Nicer than over Z: no vertical-line growth problem. Write this down for t² − D.
+- Prop. B2 of routes.tex has the same error as paper I's Theorem 4 ("H̃_f absolutely convergent for
+  |T| < q"): fix when routes.tex is next touched.
+- Then Prop. B3 (q → ∞) for the off-diagonal (Katz/Deligne).
 
 ### WP6 — Primes  [CONDITIONAL / NUMERICAL]
 - Under the HL pair conjecture for f with error O(T^{1/2+ε}) — the Montgomery–Soundararajan hypothesis —
@@ -187,6 +206,12 @@ in the contour position.
 - M4: WP2 numerics for 3–4 polynomials; WP3 constants. (~1 week)
 - M5: draft v1 of the follow-up (Sections 1–3, 5, 7); external review.
 - M6: WP4 attempt (open-ended); decide whether it goes in this paper or a third one.
+
+## 3b. Note on paper I's exact test (9 Sep, late)
+The ∏P_p truncation in thesis/exact.ts needed a tail correction (drift δC²H); done, α now 0.92 ± 0.08.
+Lesson for paper II's numerics: every truncated Euler product that multiplies a quantity growing like H (or
+x^{m+1}) must be completed analytically — explicit-diag.py already does this (A0 via prime zeta functions,
+mixed-term tails via E₁).
 
 ## 4. Risks and honesty checks
 - The user's framing "primes correlate with zeta zeros" must not appear. What is provable is

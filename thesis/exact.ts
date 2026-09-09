@@ -16,7 +16,16 @@ import { smallPrimes } from "../lib/sieve";
 
 const H = 1_000_000;
 const CHECK = [1_000, 10_000, 100_000, 1_000_000];
-const PGEN = 2_000_000; // truncation of the absolutely convergent products (error ≲ 4/(P log P) ≈ 1e-7)
+const PGEN = Number(process.env.PGEN ?? 2_000_000); // truncation of the absolutely convergent products
+// Tail of ∏_{p>PGEN} P_p: the split primes (density 1/2) contribute log P_p ≈ −4/p², so by the prime number
+// theorem Σ_{p>P} log P_p ≈ −2 E₁(log P) ≈ −2/(P log P) ≈ −7e-8 at P = 2e6. Without this correction the
+// truncation error δ enters Σ_{h≤H}(S_f(h) − C²) as a drift δ C² H (0.07 C² at H = 1e6) and biases the fitted
+// exponent α towards 2. NOTAIL=1 reproduces the uncorrected computation.  (The analogous tail of the
+// C(f) correction product is a character sum Σ_{p>P} χ(p)/p² with no main term; it is < 1e-10.)
+const NOTAIL = process.env.NOTAIL === "1";
+function expint1(y: number): number { return Math.exp(-y) * (1 / y - 1 / y ** 2 + 2 / y ** 3 - 6 / y ** 4 + 24 / y ** 5); }
+const PGEN_TAIL = NOTAIL ? 1 : Math.exp(-2 * expint1(Math.log(PGEN)));
+const OUT = process.env.EXACT_OUT ?? "thesis/exact.json";
 const primes = smallPrimes(10_000_000);
 const f3 = (x: number, k = 3) => x.toFixed(k);
 
@@ -176,6 +185,7 @@ function run(q: Quad) {
     const w = 1 + legendre(D, p);
     Pgen *= (1 - (2 * w) / p) / (1 - w / p) ** 2;
   }
+  Pgen *= PGEN_TAIL;
   // special primes: exact local factor as a function of h mod p (ν_p(h) = #{t: p | f(t), p | f(t+h)})
   const specTab = special.map((p) => {
     const roots: number[] = [];
@@ -462,9 +472,9 @@ console.log(`  [log-fit for comparison: α = ${f3(fit.alphaLog)} ± ${f3(seAlpha
 console.log(`  corr(slope/C, C) = ${f3(fit.corrC, 2)}   corr(slope/C², C) = ${f3(fit.corrC2, 2)}`);
 console.log(`  slope/C = ${f3(fit.meanSlopeC)} ± ${f3(fit.sdSlopeC)}   slope/C² = ${f3(fit.meanSlopeC2)} ± ${f3(fit.sdSlopeC2)}`);
 console.log(`  per-decade slope/C: ${fit.decade.map((d) => `${f3(d.mean)}±${f3(d.sd)}`).join("  ")}`);
-writeFileSync("thesis/exact.json", JSON.stringify({ H, CHECK, PGEN, validation: [v1, v2, v3, v4], fit, recs }, null, 1));
-writeFileSync("paper/data/exact.dat", "C slope slopeC slopeC2\n" + recs.map((r) => `${r.C} ${r.slope} ${r.slope / r.C} ${r.slope / r.C ** 2}`).join("\n") + "\n");
-writeFileSync(
+writeFileSync(OUT, JSON.stringify({ H, CHECK, PGEN, NOTAIL, PGEN_TAIL, validation: [v1, v2, v3, v4], fit, recs }, null, 1));
+if (OUT === "thesis/exact.json") writeFileSync("paper/data/exact.dat", "C slope slopeC slopeC2\n" + recs.map((r) => `${r.C} ${r.slope} ${r.slope / r.C} ${r.slope / r.C ** 2}`).join("\n") + "\n");
+if (OUT === "thesis/exact.json") writeFileSync(
   "paper/data/exact-rows.tex",
   recs.map((r) => `$${r.name.replace(/\^2/g, "^{2}")}$ & ${r.D} & ${f3(r.C)} & ${f3(r.sums[0], 2)} & ${f3(r.sums[3], 2)} & ${f3(r.slope / r.C)} & ${f3(r.slope / r.C ** 2)} \\\\`).join("\n") + "\n\\bottomrule\n",
 );
