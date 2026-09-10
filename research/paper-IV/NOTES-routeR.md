@@ -16,11 +16,35 @@ ones (t_j = 9.5337, 12.1730, 14.3585, 16.1381, 16.6443, 18.1809):
   t²+2        −8     2   10⁷     0.012              20 %                          0.027    64 %  (no signal)
   t²+t+41   −163     1   10⁷     0.003              0 %                           0.007    37 %  (no signal)
 
-The pattern of presence/absence is exactly the size of the Katok–Sarnak periods (§3): for D < 0 the amplitude is
-governed by the value of the Maass form at the Heegner point z_D (Im z_D = √|D|/2: 0.87 for D=−3, 1 for D=−4, 1.41 for
-D=−8, 6.4 for D=−163, and Maass forms decay like e^{−2πy}), for D > 0 by the integral over the closed geodesic, which
-is not exponentially small (short geodesics for D = 5, 8, 12). Odd forms vanish at i and ρ, cancel over conjugate pairs of
-Heegner points, and integrate to zero over reflection-symmetric geodesics — hence "even only".
+## 1b. The periods, computed (12 Sep, scripts/maass-period.py; coefficients of LMFDB 1.0.1.3.1)
+For D < 0 with class number one the Katok–Sarnak period is u_1(z_D), z_D = (−b+i√|D|)/2, computed from
+u(z) = 2√y Σ a(n) K_{iR}(2πny) cos(2πnx), R = 13.7797513. Relative to D = −4 (a common factor e^{−πR/2} cancels):
+
+  D      |u_1(z_D)|/|u_1(i)|   fitted amp / amp(−4)   even-set significance
+  −3           0.649                  0.483            yes (100th pct)
+  −4           1.000                  1.000            yes (100th pct)
+  −7           0.542                  0.111            yes (100th pct)
+  −8           0.318                  0.281            NO  (47th pct)
+  −11          0.302                  0.461            NO  (44th pct)
+  −19          0.444                  1.358            marginal (92nd pct)
+  −43          0.0066                   —              no signal
+  −67          1.03e−4                  —              no signal
+  −163         2.2e−10                  —              no signal
+
+WHAT THIS DOES AND DOES NOT SHOW.
+CONFIRMED (order of magnitude): K_{iR}(x) decays exponentially only once x > R, and 2πy_D = π√|D| crosses R = 13.78 at
+|D| = (R/π)² ≈ 19.2. Below that threshold all periods lie within a factor 3 of each other — and all six discriminants
+with |D| ≤ 19 show amplitudes within a factor 12 of each other. Above it the periods collapse by 10² (D=−43), 10⁴
+(D=−67), 10¹⁰ (D=−163) — and those three show nothing. The presence/absence pattern is explained.
+NOT CONFIRMED: the detailed amplitude law. The ratios disagree by up to a factor 5 (worst: D = −7, predicted 0.54,
+observed 0.11). Two unmodelled effects of the right size: the local factors (E F_u ranges over 0.35–1.60 across these
+polynomials and enters multiplicatively) and the amplitude uncertainty (the two half-ranges give 0.0026 vs 0.0053 for
+D = −7, a factor 2). Settling this needs the local factors modelled and Y extended beyond 10⁷.
+CORRECTED: the earlier note "the absences are explained by exponentially small periods" is right for D = −163
+(period 2·10⁻¹⁰) but WRONG for D = −8, whose period, 0.32, is comparable to D = −4's. The absence at D = −8 and
+D = −11 is NOT explained by the period and is currently unexplained. (Fallacy F22.)
+SHARP PREDICTION, falsifiable: for the first even form the visibility threshold is |D| ≈ 19; for the next even forms
+(R = 17.74, 19.42, …) it is at |D| ≈ 32, 38, …, so higher lines should persist to larger |D| than the first line does.
 
 ## 2. The mechanism (derivation outline — to be made rigorous in paper IV)
 (a) Sawtooth form. S_u(t) = Σ_{h≤t}(F_u(Q_u(h)) − E F_u) = Σ_{d' adm} (λ(d')/d') Σ_{x∈R^{(u)}_{d'}} (½ − {(t − x)/d'})  (paper III,

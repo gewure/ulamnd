@@ -88,6 +88,13 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. Katok–Sarnak periods COMPUTED (LMFDB coefficients of the first even Maass form, R=13.7798, via
+  scripts/maass-period.py). Presence/absence of the spectral signal is explained at the order-of-magnitude level:
+  the periods are all within a factor 3 for |D| <= 19 (all six such discriminants show a signal) and collapse by
+  10^2..10^10 for |D| = 43, 67, 163 (none shows a signal). Threshold: 2*pi*y_D = pi sqrt|D| crosses R at |D| = 19.2.
+  The DETAILED amplitude law is NOT confirmed (ratios off by up to 5x; local factors E F_u vary 0.35-1.60 and the
+  fitted amplitudes are uncertain by up to 2x). Absences at D = -8, -11 remain unexplained (F22).
+  Parity rule stands: even set significant (92-100th pct) for D = -3, -4, -7, 5, 8, 12; odd set never.
 - 12 Sep. Paper IV Sections 2-3 written with full proofs, each identity verified numerically first:
   (a) SAWTOOTH IDENTITY (exact, machine precision, D = -4, 8, -3, 12): S_u(t) = sum_d (lambda(d)/d) sum_{x in R_d}
       psi((t-x)/d), psi = 1/2 - {.}. The linear term that normally accompanies such a count VANISHES because the
@@ -236,6 +243,12 @@ F20. "No Maass lines in Off_f(H) ⇒ the second-spectrum idea is dead" (paper II
     numerically), with the spectrum of level 4u² and weight 1/2 — the sharp Off_f(H) is a different, bounded object
     and the SL₂(Z) parameters are not the relevant ones. RULE: before a null spectral test, derive which spectrum and
     which observable the theory predicts; a null on the wrong observable proves nothing.
+F22. "The polynomials with no Maass signal are those with exponentially small Katok–Sarnak periods" (NOTES-routeR,
+    12 Sep). Only true for D = −163 (period 2e−10 relative to D = −4). For D = −8 the period is 0.32, comparable to
+    D = −4's, yet the signal is absent (47th percentile). The reason: K_{iR}(x) is exponentially small in the ORDER,
+    not the argument, until x > R; the periods are all comparable for |D| < (R/pi)^2 = 19.2. So the absences at
+    D = −8, −11 are UNEXPLAINED. RULE: before invoking exponential decay of a Bessel function, check which of the
+    order and the argument is large.
 F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep). It was not; the author had only
     said they would upload it, and I recorded the intention as a fact. RULE: record submissions, uploads and
     external actions only when the author confirms they happened.
