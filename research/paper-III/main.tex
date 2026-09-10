@@ -949,6 +949,21 @@ range $2/3$ of Theorem~\ref{thm:typeII} enters through the factor $\tfrac23$ in 
 valid for $u>H^{1/2+\varepsilon}$ would relax the first condition to $3\theta+3B<2$.
 \end{remark}
 
+\begin{remark}[the size of the pieces]\label{rem:piecesize}
+The pieces can be computed exactly, and their size says how far the truth is from what is needed. For $f=t^2+1$ the
+piece is $\mathcal P_u(Y)=\sum_{h\le Y}(Y-h)\bigl(F_u(Q'_u(h))-\mathbb EF_u\bigr)-(\mathbb EF_u-1)Y/2$ with
+$Q'_u(h)=(u/2)^2h^2+1$, $F_u(n)=\prod_{p\mid n,\ p\equiv1(4),\ p\nmid u}(1+\tfrac1{p-4})$ and
+$\mathbb EF_u=\prod_{p\equiv1(4),\ p\nmid u}(1+\tfrac2{p(p-4)})$ (the divisor-sum form of~\eqref{eq:piece}: $F_u(n)=\sum_{d'\mid n}\lambda(d')/d'$),
+which is a sieve computation (\texttt{research/paper-IV/scripts/piece.ts}, with $\mathbb EF_u$ to $22$ digits). For $u\in\{2,10,26,130\}$
+and $Y\le10^7$ (resp.\ $10^6$) we find $|\mathcal P_u(Y)|\le0.4\sqrt Y$ throughout, e.g.\ $\mathcal P_2(10^7)=42.7$ and
+$\mathcal P_{10}(10^7)=229.8$, against the trivial size $Y\log(u^2L)$; and the sharp pieces
+$S_u(t)=\sum_{h\le t}(F_u(Q'_u(h))-\mathbb EF_u)$, which are trivially $O(\log t)$, stay below $1.3$ in absolute value for all
+$t\le10^7$. So the off-diagonal pieces exhibit square-root cancellation: each prime $p\mid Q'_u(h)$ contributes a sawtooth
+of size $1/p$ in $t$, and the sawtooths at different moduli cancel like independent signs. This is the same phenomenon as
+in the diagonal sum $\sum_da_f(d)(\{H/d\}-\tfrac12)$ of part~I, where the Dirichlet series proves it. What Theorem~\ref{thm:Aprime}
+needs, $o(Y\log u)$ per piece on average, is very far from this truth; the gap between the two is the subject of part~IV.
+\end{remark}
+
 \emph{In words.} Two mechanisms are in place, and they meet with a gap between them. For pieces with a large
 agreeing part the dilations average out along $u$, leaving the main term $c_{\mathrm{off}}H$; for small moduli in
 every piece the Chinese remainder theorem alone equidistributes the dilated roots. Neither reaches the window: the

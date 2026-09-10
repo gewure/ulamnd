@@ -31,9 +31,9 @@ for (const u of Us) {
   const Yok = Ys.filter((Y) => 2 * u * u * Y * L <= NCAP); if (!Yok.length) continue;
   const cap = 2 * u * u * Math.max(...Yok) * L;
   // accumulators per Y: [small, window, far, count of d' in window]
-  const acc = Ys.map(() => [0, 0, 0, 0]);
+  const acc = Ys.map(() => [0, 0, 0, 0, 0, 0, 0]); // + window-rough (P+(d') > Y), window-smooth, #rough
   // DFS over squarefree products of primes = 1 mod 4, coprime to u, carrying (d, lambda, roots of x^2=-1 mod d)
-  const rec = (start: number, d: number, lam: number, roots: number[]) => {
+  const rec = (start: number, d: number, lam: number, roots: number[], pmax: number) => {
     for (let i = start; i < P.length; i++) {
       const p = P[i]; if (d * p > cap) break; if (u % p === 0) continue;
       const dp = d * p, lp = lam * (p / (p - 4)), ip = sqrtm1.get(p)!;
@@ -48,14 +48,14 @@ for (const u of Us) {
         const Y = Ys[yi]; if (2 * u * u * Y * L > NCAP || dp > 2 * u * u * Y * L) continue;
         let s = 0; for (const x of dil) s += B(Y, x === 0 ? dp : x, dp);
         const val = (lp / dp) * s;
-        if (dp <= Y) acc[yi][0] += val; else if (dp <= u * u * Y * L) { acc[yi][1] += val; acc[yi][3]++; } else acc[yi][2] += val;
+        if (dp <= Y) acc[yi][0] += val; else if (dp <= u * u * Y * L) { acc[yi][1] += val; acc[yi][3]++; if (Math.max(pmax, p) > Y) { acc[yi][4] += val; acc[yi][6]++; } else acc[yi][5] += val; } else acc[yi][2] += val;
       }
-      rec(i + 1, dp, lp, nr);
+      rec(i + 1, dp, lp, nr, Math.max(pmax, p));
     }
   };
-  rec(0, 1, 1, [0]);
+  rec(0, 1, 1, [0], 0);
   for (let yi = 0; yi < Ys.length; yi++) {
-    const Y = Ys[yi]; if (2 * u * u * Y * L > NCAP) continue; const [sm, wi, fa, n] = acc[yi];
-    console.log(`u=${u} Y=${Y}: small=${sm.toFixed(3)} window=${wi.toFixed(3)} far(1x)=${fa.toFixed(3)} total=${(sm + wi + fa).toFixed(3)} | trivial scale Y log(u^2 L)=${(Y * Math.log(u * u * L)).toFixed(0)}, #d' in window ${n}, window/Y=${(wi / Y).toFixed(4)} (${el()})`);
+    const Y = Ys[yi]; if (2 * u * u * Y * L > NCAP) continue; const [sm, wi, fa, n, wr, ws, nr] = acc[yi];
+    console.log(`u=${u} Y=${Y}: small=${sm.toFixed(3)} window=${wi.toFixed(3)} far(1x)=${fa.toFixed(3)} total=${(sm + wi + fa).toFixed(3)} | trivial scale Y log(u^2 L)=${(Y * Math.log(u * u * L)).toFixed(0)}, #d' in window ${n}, window/Y=${(wi / Y).toFixed(4)} | window split: rough (P+>Y) ${wr.toFixed(3)} over ${nr} moduli, smooth ${ws.toFixed(3)} over ${n - nr} (${el()})`);
   }
 }

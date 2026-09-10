@@ -52,8 +52,19 @@ Gives: the windows with d' having a suitable divisor; the rest (d' with all prim
 numbers) has density → 0 in the window, which is the unbounded saving (W) needs.
 Obstruction: the two sides d₁, d₂ are tied by d₁d₂ | Q_u(x) via CRT — the root mod d₁d₂ is not a product of independent
 counts; need the correlation (it is exactly the KS mixing). And the uniformity in u (the dilation ū enters both factors).
-TEST: compute numerically the contribution to W_u of the d' with no divisor in [u², Y] vs the rest, for t²+1, u = 2·5,
-Y = 10⁴..10⁵. If the "rough" part is already ≪ Y/log Y the route is alive.
+TEST DONE (11 Sep, scripts/window.ts, data/window-split.log): split the window moduli by P⁺(d') > Y ("rough": d' = p·m, p prime
+> Y, m < u²) vs P⁺(d') ≤ Y ("smooth"). Result: the rough moduli are NOT a vanishing proportion at any practical scale —
+they are the MAJORITY for u ≥ 10 (u=10, Y=10⁵: 404 303 rough vs 219 638 smooth; u=26, Y=10⁴: 383 452 vs 97 989), because
+admissible integers have density ~ 1/√log while primes have 1/log, so the rough fraction is ~ log(u²)/√log Y and decays
+only like 1/√log Y. Both parts show full cancellation individually (rough −25.0 / smooth +49.3 at u=2, Y=10⁵; rough +15.9
+/ smooth −5.0 at u=10, Y=10⁵). CONSEQUENCES: (i) "ignore the rough moduli" costs a factor 1/√log at best — still an
+unbounded saving in principle, so route 1 is not dead for (W), but it is not the clean win hoped for; (ii) the rough part
+d' = p·m is a PRIME-modulus problem: roots of x² ≡ D mod p (CRT-glued with the small m) in an interval of length Y ≥ p/u²,
+i.e. a positive fraction 1/u² of the period — exactly the setting of DFI 1995 (equidistribution to prime moduli, saving
+(N²/x)^{1/20} → x^{−1/20} for N = 1) with frequencies k up to u²m: for BOUNDED u this is a theorem. So for bounded u the
+rough part is done by DFI 1995 + CRT with m, and the smooth part d' = d₁d₂ (both factors ≤ Y) is the Type I side. Rating
+stays ★★★★☆ but the route is now "rough = DFI 1995 per prime, smooth = factorisation", and the u-uniformity is the issue
+in both halves.
 
 ## 2. Kloosterman fractions for a PARTIAL average over u — ★★★★☆
 Idea: the dilation ū mod d' averaged over u in a short range U' ≪ U: Σ_{u ~ U, u ≡ ...} λω(u) e(k ū r/d') is a bilinear

@@ -1,0 +1,5 @@
+u=2 Y=10000: small=-1.393 window=10.772 far(1x)=-5.867 total=3.511 | trivial scale Y log(u^2 L)=13863, #d' in window 2731, window/Y=0.0011 | window split: rough (P+>Y) 0.409 over 1476 moduli, smooth 10.363 over 1255 (4 s)
+u=2 Y=100000: small=-5.167 window=24.338 far(1x)=-6.344 total=12.827 | trivial scale Y log(u^2 L)=138629, #d' in window 25047, window/Y=0.0002 | window split: rough (P+>Y) -24.995 over 12117 moduli, smooth 49.333 over 12930 (4 s)
+u=10 Y=10000: small=0.327 window=-7.333 far(1x)=0.010 total=-6.996 | trivial scale Y log(u^2 L)=46052, #d' in window 67088, window/Y=-0.0007 | window split: rough (P+>Y) -6.000 over 47965 moduli, smooth -1.333 over 19123 (5 s)
+u=10 Y=100000: small=-4.298 window=10.902 far(1x)=0.238 total=6.843 | trivial scale Y log(u^2 L)=460517, #d' in window 623941, window/Y=0.0001 | window split: rough (P+>Y) 15.942 over 404303 moduli, smooth -5.039 over 219638 (5 s)
+u=26 Y=10000: small=-3.967 window=41.386 far(1x)=-0.062 total=37.357 | trivial scale Y log(u^2 L)=65162, #d' in window 481441, window/Y=0.0041 | window split: rough (P+>Y) -9.228 over 383452 moduli, smooth 50.614 over 97989 (6 s)
