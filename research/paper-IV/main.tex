@@ -54,7 +54,7 @@ theory; the theory, once written down, predicts exactly the pattern of presence 
 $u$ with $\omega(u)\ge1$ and $Q_u(x)=u^2x^2-D$,
 \[
 \mathcal P_u(Y)=\sum_{h\le Y}(Y-h)\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)-\tfrac12(\mathbb EF_u-1)Y,\qquad
-F_u(n)=\sum_{\substack{d\mid n\\ d\ \mathrm{admissible}}}\frac{\lambda(d)}d,\qquad \mathbb EF_u=\sum_{d\ \mathrm{adm}}\frac{\lambda(d)\omega(d)}{d^2},
+F_u(n)=\sum_{\substack{d\mid n,\ d>1\\ d\ \mathrm{admissible}}}\frac{\lambda(d)}d,\qquad \mathbb EF_u=\sum_{\substack{d>1\\ d\ \mathrm{adm}}}\frac{\lambda(d)\omega(d)}{d^2},
 \]
 admissible meaning squarefree, all primes split, coprime to $2Du$. Part~III, Theorem~A$'$:
 $\Off^\ast_f(H)=c_{\mathrm{off}}(f)H+\sum_{u\le H^{2/3+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)+O(H(\log H)^{1-c})$, and the
@@ -80,9 +80,172 @@ $A<\tfrac14$; the level dependence of the Kuznetsov formula is therefore the who
 \end{itemize}
 
 \section{The piece as a twisted Walfisz sum}\label{sec:walfisz}
-\todo{Sawtooth identity $S_u(t)=\sum_d(\lambda(d)/d)\sum_{x\in R^{(u)}_d}(\tfrac12-\{(t-x)/d\})$; Fourier form;
-Dirichlet series $\sum_kk^{s-2}\Gamma$-factor$\cdot W_k(s)$, $W_k(s)=\sum_d\lambda(d)\rho_k(d)d^{-s}$; comparison with
-the classical $\sum_{n\le x}\frac1n(\tfrac12-\{x/n\})=O((\log x)^{2/3})$ (Walfisz) and with the diagonal of part~I.}
+
+Throughout, $f$ is an irreducible quadratic of discriminant $D$ and $u$ is squarefree with $\omega(u)\ge1$. Call a
+modulus $d$ \emph{admissible} (for $u$) if it is squarefree, coprime to $2Du$, and every prime dividing it is split,
+i.e.\ $\omega(p)=2$. For admissible $d$ put
+\[
+R_d=R^{(u)}_d=\{x\bmod d:\ u^2x^2\equiv D\},\qquad \rho(d)=|R_d|=\omega(d)=2^{\nu(d)},\qquad
+\rho_k(d)=\sum_{x\in R_d}\e\Bigl(\frac{kx}d\Bigr),
+\]
+$\nu$ the number of prime factors and $\e(y)=e^{2\pi iy}$. Two properties are used constantly: $R_d$ is
+\emph{symmetric}, $x\in R_d\Rightarrow-x\in R_d$, and $0\notin R_d$, both because $(D,d)=1$; consequently every
+$\rho_k(d)$ is real. Write $\lambda(p)=p/(p-4)$ on split primes, $\lambda$ multiplicative, and
+\begin{equation}\label{eq:FE}
+F_u(n)=\sum_{\substack{d\mid n,\ d>1\\ d\ \mathrm{admissible}}}\frac{\lambda(d)}d,\qquad
+\mathbb EF_u=\sum_{\substack{d>1\\ d\ \mathrm{admissible}}}\frac{\lambda(d)\rho(d)}{d^2},\qquad Q_u(h)=u^2h^2-D,
+\end{equation}
+both sums absolutely convergent ($\lambda(d)\rho(d)\ll d^{\varepsilon}$). \emph{All sums over moduli below run over
+admissible $d>1$}: including $d=1$ would add $1$ to $F_u$ and to $\mathbb EF_u$, leaving~\eqref{eq:Sm} unchanged but
+spoiling the symmetry used in Lemma~\ref{lem:sawtooth}, since $R_1=\{0\}$ is not a union of pairs $\{x,-x\}$ with
+$x\ne-x$. The \emph{sharp piece} and the
+\emph{Riesz pieces} are
+\begin{equation}\label{eq:Sm}
+S_u(t)=\sum_{h\le t}\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr),\qquad
+\mathcal P^{(m)}_u(Y)=\frac1{m!}\sum_{h\le Y}(Y-h)^m\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)\quad(m\ge0),
+\end{equation}
+so that $\mathcal P^{(0)}_u=S_u$ and, for integers $Y$, $\mathcal P^{(1)}_u(Y)=\sum_{t<Y}S_u(t)$; up to the explicit
+constant of part~III, Remark~\ref{rem:piecesize}, $\mathcal P^{(1)}_u(Y)$ is the piece $\mathcal P_u(Y)$ of part~III.
+The connection with part~III is that $F_u(Q_u(h))$ is the divisor-sum form of the inner sum of a piece: $d\mid Q_u(h)$
+exactly when $h$ lies in one of the $\rho(d)$ classes $R_d$.
+
+\begin{lemma}[sawtooth form]\label{lem:sawtooth}
+Let $\psi(y)=\tfrac12-\{y\}$. For every $t\ge0$,
+\begin{equation}\label{eq:sawtooth}
+S_u(t)=\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)}d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
+\end{equation}
+the series converging absolutely.
+\end{lemma}
+
+\begin{proof}
+The right-hand side is not absolutely convergent term by term, since $\sum_d\lambda(d)\rho(d)/d$ diverges; it is summed
+with the terms $x$ and $-x$ grouped, and converges in that sense, as shown at the end. Expanding $F_u$ and counting,
+\[
+\sum_{h\le t}F_u(Q_u(h))=\sum_{d}\frac{\lambda(d)}d\,\#\{h\le t:\ d\mid Q_u(h)\}
+=\sum_{d}\frac{\lambda(d)}d\sum_{x\in R_d}\#\{h\le t:\ h\equiv x\ (d)\},
+\]
+the interchange being legitimate because $\sum_{d\mid Q_u(h)}\lambda(d)/d$ converges absolutely for each $h\le t$ and
+there are finitely many $h$. Represent each $x\in R_d$ by $\rep xd\in[1,d]$. For $0\le t$ and $1\le x\le d$,
+\[
+\#\{1\le h\le t:\ h\equiv x\ (d)\}=\Bigl\lfloor\frac{t-x}d\Bigr\rfloor+1,
+\]
+valid also when $x>t$, where both sides vanish because $-1<(t-x)/d<0$. Writing $\lfloor y\rfloor=y-\tfrac12+\psi(y)$,
+\[
+\#\{h\le t:\ h\equiv x\ (d)\}=\frac td+\Bigl(\frac12-\frac xd\Bigr)+\psi\Bigl(\frac{t-x}d\Bigr).
+\]
+Now sum over $x\in R_d$. Since $R_d$ is symmetric and $0\notin R_d$, its representatives split into pairs
+$\{\rep xd,\,d-\rep xd\}$, and $(\tfrac12-\tfrac xd)+(\tfrac12-\tfrac{d-x}d)=0$; hence
+$\sum_{x\in R_d}(\tfrac12-\rep xd/d)=0$ for every admissible $d>1$. Therefore
+\[
+\sum_{h\le t}F_u(Q_u(h))=t\sum_{d}\frac{\lambda(d)\rho(d)}{d^2}+\sum_d\frac{\lambda(d)}d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr)
+=t\,\mathbb EF_u+\sum_d\frac{\lambda(d)}d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
+\]
+which is~\eqref{eq:sawtooth}. For the convergence, group the terms of a pair $\{x,-x\}$ and write $a=\rep xd$ with
+$a\le d/2$, so that the pair is $\{a,d-a\}$. If $d>2t$ and $a>t$ then $\{(t-a)/d\}=(t-a+d)/d$ and
+$\{(t+a)/d\}=(t+a)/d$, so by the periodicity of $\psi$ the two sawtooths sum to $-2t/d$; if $a\le t$ their sum is
+bounded by $1$, and this happens for at most $\rho(d)$ values with $a\le t<d/2$, a set that is empty once $d>2t$.
+Hence for $d>2t$ each pair contributes $\ll t/d$ and
+\[
+\sum_{d>2t}\frac{\lambda(d)}d\cdot\frac{t\,\rho(d)}{d}\ \ll\ t\sum_{d>2t}\frac{\lambda(d)\rho(d)}{d^2}\ \ll\ t^{\varepsilon},
+\]
+while the range $d\le2t$ is a finite sum. So the paired series converges and~\eqref{eq:sawtooth} holds.
+\end{proof}
+
+\emph{In words.} A piece counts, for each admissible modulus $d$, how far the number of $h\le t$ with $d\mid Q_u(h)$
+departs from its expectation, weighted by $\lambda(d)/d$; and that departure is a sawtooth evaluated at the roots.
+The linear term that normally accompanies such a count cancels because the roots come in pairs $\pm x$. This is the
+same cancellation that makes the diagonal of part~I a sum of sawtooths $\{H/d\}-\tfrac12$, and it is why the piece is
+a Walfisz-type sum: in the classical case $\sum_{n\le x}n^{-1}(\tfrac12-\{x/n\})$ one sums a sawtooth over all moduli
+with weight $1/n$, and here one sums it over admissible moduli, at the roots of a quadratic congruence, with weight
+$\lambda(d)/d$.
+
+\begin{lemma}[Weyl-sum form]\label{lem:weyl}
+For every $t\ge0$ and every $K\ge1$,
+\begin{equation}\label{eq:weylform}
+S_u(t)=\frac1\pi\sum_{k\ge1}\frac1k\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)\rho_k(d)}{d}\,\sin\frac{2\pi kt}d ,
+\end{equation}
+the $k$-sum converging boundedly. Consequently, for the Riesz pieces of order $m\ge1$ and integer $Y$,
+\begin{equation}\label{eq:rieszweyl}
+\mathcal P^{(m)}_u(Y)=\frac1\pi\sum_{k\ge1}\frac1k\sum_{d}\frac{\lambda(d)\rho_k(d)}{d}\,\Phi_m\Bigl(\frac{2\pi k}d;Y\Bigr),
+\qquad \Phi_m(\theta;Y)=\frac1{m!}\sum_{h\le Y}(Y-h)^m\sin(\theta h),
+\end{equation}
+with $\Phi_m(\theta;Y)\ll_m\min\bigl(Y^{m+1},\ Y^{m}\|\theta/2\pi\|^{-1}\bigr)$, $\|\cdot\|$ the distance to $\Z$.
+\end{lemma}
+
+\begin{proof}
+The Fourier expansion $\psi(y)=\sum_{k\ge1}\sin(2\pi ky)/(\pi k)$ holds for $y\notin\Z$, boundedly and uniformly on
+compact subsets of $\R\setminus\Z$, and the partial sums are uniformly bounded. Insert it into~\eqref{eq:sawtooth}
+and use, for each $d$,
+\[
+\sum_{x\in R_d}\sin\frac{2\pi k(t-x)}d=\Im\Bigl[\e\Bigl(\frac{kt}d\Bigr)\overline{\rho_k(d)}\Bigr]=\rho_k(d)\,\sin\frac{2\pi kt}d,
+\]
+since $\rho_k(d)$ is real. The interchange of the $k$-sum with the $d$-sum is justified by the uniform boundedness of
+the partial sums of the Fourier series together with the absolute convergence established in
+Lemma~\ref{lem:sawtooth} (dominated convergence for series). For~\eqref{eq:rieszweyl}, apply $\frac1{m!}\sum_{h\le Y}(Y-h)^m$
+to $t=h$ in~\eqref{eq:weylform}, which is a finite sum, and evaluate $\Phi_m$ by summation by parts $m$ times against
+the geometric sum $\sum_{h\le Y}\e(\theta h/2\pi)\ll\min(Y,\|\theta/2\pi\|^{-1})$.
+\end{proof}
+
+\begin{remark}\label{rem:whyk}
+Two features of~\eqref{eq:rieszweyl} decide everything that follows. First, the frequencies $k$ enter only through the
+\emph{Weyl sums} $\rho_k(d)$ of the dilated roots, so the arithmetic of the problem is entirely contained in the
+Dirichlet series
+\begin{equation}\label{eq:Wk}
+W_k(s)=\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)\rho_k(d)}{d^{s}}\qquad(\Re s>1),
+\end{equation}
+one for each $k$. Second, the weight $1/k$ in front decays only like $k^{-1}$, so a bound for $W_k$ that loses a power
+of $k$ is expensive: this is the same phenomenon that forced the condition $\theta+6B<1$ in part~III,
+Theorem~A, and it is the reason we do not bound the $\rho_k(d)$ one frequency at a time. The route of this paper is
+instead to continue $W_k(s)$ analytically, where the dependence on $k$ appears as a Fourier coefficient of an
+automorphic form and therefore \emph{decays} on average.
+\end{remark}
+
+\begin{proposition}[the Mellin representation]\label{prop:mellin}
+Let $m\ge1$ and let
+\[
+A_u(s)=\sum_{h\ge1}\frac{F_u(Q_u(h))-\mathbb EF_u}{h^{s}}\qquad(\Re s>1).
+\]
+Then $A_u$ extends to a function holomorphic in $\Re s>\tfrac12$ except possibly for the singularities inherited from
+the $W_k$, and for integer $Y\ge2$ and any $c>1$,
+\begin{equation}\label{eq:perron}
+\mathcal P^{(m)}_u(Y)=\frac1{2\pi i}\int_{(c)}A_u(s)\,\frac{Y^{s+m}}{s(s+1)\cdots(s+m)}\,ds .
+\end{equation}
+Moreover, for $0<\Re s<1$,
+\begin{equation}\label{eq:AviaW}
+A_u(s)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\,\sin\frac{\pi s}2\;\sum_{k\ge1}k^{s-1}\,W_k(s+1)\;+\;\bigl(\text{entire}\bigr),
+\end{equation}
+whenever the $k$-sum converges, where $W_k$ is as in~\eqref{eq:Wk}.
+\end{proposition}
+
+\begin{proof}
+\eqref{eq:perron} is the Riesz--Perron formula, valid because $F_u(Q_u(h))-\mathbb EF_u\ll h^{\varepsilon}$ so that $A_u$
+converges absolutely for $\Re s>1$. For~\eqref{eq:AviaW}, expand $F_u$ and sum over each residue class:
+\[
+\sum_{h\ge1}\frac{F_u(Q_u(h))}{h^s}=\sum_d\frac{\lambda(d)}{d^{1+s}}\sum_{x\in R_d}\zeta\Bigl(s,\frac{\rep xd}d\Bigr),
+\]
+$\zeta(s,\alpha)$ the Hurwitz zeta function. Since $\zeta(s,\alpha)$ has residue $1$ at $s=1$ for every $\alpha$, the
+pole of the $d$-th term is $\rho(d)\lambda(d)d^{-1-s}$, and summing over $d$ these residues total $\mathbb EF_u$, which
+is exactly the pole of $\mathbb EF_u\zeta(s)$: each bracket
+$\lambda(d)d^{-1-s}\sum_{x}\zeta(s,\rep xd/d)-\lambda(d)\rho(d)d^{-2}\zeta(s)$ is entire, which is the statement that
+$A_u$ continues past $s=1$. Hurwitz's formula,
+\[
+\zeta(s,\alpha)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\Bigl[\sin\frac{\pi s}2\sum_{k\ge1}\frac{\cos2\pi k\alpha}{k^{1-s}}
++\cos\frac{\pi s}2\sum_{k\ge1}\frac{\sin2\pi k\alpha}{k^{1-s}}\Bigr],
+\]
+valid for $\Re s<0$ and by continuation for $\Re s<1$ with the series interpreted as the analytic continuations of the
+periodic zeta functions, gives after summing over the symmetric set $R_d$
+\[
+\sum_{x\in R_d}\zeta\Bigl(s,\frac{\rep xd}d\Bigr)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\sin\frac{\pi s}2\sum_{k\ge1}\frac{\rho_k(d)}{k^{1-s}},
+\]
+the sine term vanishing identically because $\sum_{x\in R_d}\sin(2\pi kx/d)=0$ by symmetry. Multiplying by
+$\lambda(d)d^{-1-s}$ and summing over $d$ gives~\eqref{eq:AviaW}.
+\end{proof}
+
+\emph{In words.} The piece is determined by one Dirichlet series for each frequency, namely the Dirichlet series of
+the Weyl sums of the roots of $u^2x^2\equiv D$; the symmetry of the root set kills the odd half of Hurwitz's formula,
+so only the even half survives. That the odd half disappears here is the first appearance of the parity phenomenon
+that will select the even Maass forms in \S\ref{sec:ks}, and it has the same source: the root set of a quadratic
+congruence is invariant under $x\mapsto-x$.
 
 \section{Sali\'e sums and the Kuznetsov formula of weight one half}\label{sec:salie}
 \todo{Weyl sums of quadratic roots as Sali\'e sums (DFI 1995 \S2); the dilation as a fractional frequency; Kuznetsov
