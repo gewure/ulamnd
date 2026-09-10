@@ -478,21 +478,50 @@ $\mathrm{SL}_2(\Z)$, with
 \]
 \end{theorem}
 
-\paragraph{What is missing.} Steps 1 and 3 are structurally complete, and Step 2 is an identity. Three things stand
+\paragraph{Step 5: why the Poincar\'e series converges.} As it stands $|\Phi_t(z)|\le\tfrac12\Im z$ and
+$\sum_{\gamma\in\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent and Step~3 is formal. The
+divergence is exactly that of the Eisenstein series at $s=1$. It is removed by the symmetry of the Heegner orbit,
+which we may as well build into the seed.
+
+\begin{lemma}[the symmetrised seed decays quadratically]\label{lem:seed}
+Write $z=x+iy$, $a=a_t(y)=2ty/\sqrt{|D|}$, and
+$\Phi^+_t(z)=\tfrac12\bigl(\Phi_t(z)+\Phi_t(-\bar z)\bigr)=\tfrac y2\bigl(\psi(a+2x)+\psi(a-2x)\bigr)$. Then
+\begin{enumerate}
+\item[(i)] if $\|2x\|>a$, where $\|\cdot\|$ is the distance to $\Z$ and $a<\tfrac12$, then
+$\Phi^+_t(z)=-ay=-2ty^2/\sqrt{|D|}$ exactly;
+\item[(ii)] $|\Phi^+_t(z)|\le y/2$ always, and the exceptional set $\{x:\|2x\|\le a\}$ has measure $2a$ in $x$
+modulo $1$.
+\end{enumerate}
+Moreover $\Phi^+_t$ may replace $\Phi_t$ in~\eqref{eq:orbit} without changing the value, because the Heegner orbit is
+stable under $z\mapsto-\bar z$: the pair $(d,b)$ maps to $(d,-b)$.
+\end{lemma}
+\begin{proof}
+$\psi$ is odd and, on any interval free of integers, satisfies $\psi(\theta+a)=\psi(\theta)-a$. If $\|2x\|>a$ then
+neither $2x$ nor $-2x$ crosses an integer when shifted by $a$, so
+$\psi(2x+a)+\psi(-2x+a)=\psi(2x)+\psi(-2x)-2a=-2a$, giving (i); (ii) is $|\psi|\le\tfrac12$ and the definition of the
+exceptional set. The last statement is $z_{(d,-b)}=-\overline{z_{(d,b)}}$ for $D<0$.
+\end{proof}
+
+So the seed is $O(t\,y^2)$ off a set of $x$-measure $O(ty)$, on which it is $O(y)$; both contributions to
+$\sum_\gamma|\Phi^+_t(\gamma w)|$ are then dominated by $t\sum_\gamma(\Im\gamma w)^2=tE(w,2)$, which converges. The
+arithmetic form of this convergence is the tail estimate already proved in Lemma~\ref{lem:sawtooth}. This is the
+fourth and last appearance of one symmetry: the root set of a quadratic congruence is stable under $x\mapsto-x$, and
+that single fact makes the linear term of the sawtooth identity vanish (Lemma~\ref{lem:sawtooth}), kills the odd half
+of Hurwitz's formula (Proposition~\ref{prop:mellin}), annihilates the periods of the odd Maass forms
+(Proposition~\ref{prop:parity}), and now renders the Poincar\'e series convergent.
+
+\paragraph{What is missing.} Steps 1, 3 and 5 are structurally complete, and Step 2 is an identity. Two things stand
 between the above and a proof.
 \begin{enumerate}
-\item \emph{Convergence.} $|\Phi_t(z)|\le\tfrac12\Im z$ and $\sum_{\gamma\in\Gamma}\Im(\gamma w)$ diverges, so
-$P[\Phi_t]$ is not absolutely convergent and the unfolding of Step 3 is formal as written. The divergence is exactly
-that of the Eisenstein series at $s=1$, and it must be removed either by subtracting the mean, which is what
-$\mathbb E\sigma^{*}_{-1}$ does on the arithmetic side, or by regularising in an auxiliary variable and continuing.
-This is the technical heart of the matter and it is what Bykovski\u\i\ \cite{Bykovskii1984} carries out for the
-closely related sums $\sum_{|n|\le P}\sigma_{-s}(n^2+D)$.
 \item \emph{Smoothness.} $\psi$ has a jump, so $\Phi_t$ is not smooth and the spectral expansion does not converge
 pointwise. The Riesz mean of order $m\ge1$ is what repairs this, and the order needed depends on the growth of
 $\langle\Phi_t,u_j\rangle$ in $t_j$, which is governed by~\eqref{eq:mellinK} and the exponential decay
 $|\Gamma(\tfrac{\sigma\pm it_j}2)|\asymp e^{-\pi t_j/4}$.
 \item \emph{The error term.} Bounding the tail of the spectral sum and the Eisenstein contribution is what produces
-$\delta$, and it is where the standard bounds for $\sum_j|\mathrm{Per}_D(u_j)|^2$ and the Weyl law enter.
+$\delta$, and it is where the standard bounds for $\sum_j|\mathrm{Per}_D(u_j)|^2$ and the Weyl law enter. The
+Eisenstein part is not a nuisance here: by Lemma~\ref{lem:seed} the seed is a multiple of $y^2$ plus a small
+remainder, so its Eisenstein contribution is governed by $E(w,2)$ and produces the main term $c_DY$
+of Hypothesis~K rather than an error.
 \end{enumerate}
 We have not carried these out. What we claim in this paper is the identification of the mechanism, the parity rule
 (Proposition~\ref{prop:parity}), the reduction of Steps 1--3, and the numerical evidence of \S\ref{sec:numerics}.
