@@ -83,6 +83,30 @@ prime statements need Hardy–Littlewood.
 - 12 Sep. Record corrected: NOTHING has been submitted (earlier notes said v7 was submitted — false, F21). Author
   wants paper I on arXiv; concern: hallucinated content. Safeguard executed: all 31 references of paper I verified
   against Crossref/arXiv (ERRATA 9); confidence statement per theorem given to the author.
+- 12 Sep (later, Opus 5 session). Paper I pre-arXiv pass: Theorem 2 INDEPENDENTLY re-verified by a brute-force
+  script written from the printed statement alone (4 quadratics x 6 shifts, agreement to the truncation error);
+  abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
+  names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
+  no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. Paper IV Sections 2-3 written with full proofs, each identity verified numerically first:
+  (a) SAWTOOTH IDENTITY (exact, machine precision, D = -4, 8, -3, 12): S_u(t) = sum_d (lambda(d)/d) sum_{x in R_d}
+      psi((t-x)/d), psi = 1/2 - {.}. The linear term that normally accompanies such a count VANISHES because the
+      roots come in pairs +-x. Requires excluding d = 1 from both F_u and E F_u (R_1 = {0} is not a +-pair).
+  (b) The piece is therefore a Walfisz-type sum: a sawtooth summed over admissible moduli at the roots of a quadratic
+      congruence, weight lambda(d)/d. Mellin/Hurwitz gives A_u(s) via W_k(s+1) = sum_d lambda rho_k d^{-s-1}; the ODD
+      half of Hurwitz's formula vanishes by the same +-symmetry -- the first appearance of the parity rule that later
+      selects the EVEN Maass forms. One source for both.
+  (c) DILATION IS A CHANGE OF FREQUENCY: rho_k(d) = W_{k ubar}(D;d) -- the dilation does not change the quadratic, it
+      moves the frequency to k ubar, which DEPENDS ON THE MODULUS. That is exactly why u > 1 leaves the range of
+      DFI's theorems (stated for frequencies fixed independently of the modulus). Crispest statement so far of the
+      obstruction.
+  (d) SALIE: verified for all split p <= 37 and D in {-4,-3,5,8,12}: W_{2h}(D;p) = K_chi(D,h^2;p)/(eps_p sqrt p),
+      plus multiplicativity for composite squarefree c. So the Weyl sums ARE half-integral-weight Kloosterman sums
+      with arguments (D, (k ubar/2)^2): first argument fixed by the polynomial, second carries frequency and dilation.
+      Amplitudes are then a product of two Fourier coefficients: the Katok-Sarnak period at D, and (Shimura, at a
+      square) a Hecke eigenvalue. Matches the observed law.
+  Hypothesis K states what Kuznetsov must give; uniformity in k and in the level 4u^2 are the two things not in the
+  literature.
 - 12 Sep. DISCOVERY (numerical): the off-diagonal pieces oscillate with the even Maass cusp forms of SL₂(Z).
   P_u(Y)/√Y for t²+1 (u=2), t²+t+1, t²−2, t²−3, t²+t−1 (Y to 10⁷ or 3·10⁷) is fitted by cos(t_j log Y + φ_j) over the six
   even parameters 13.78…24.11 at the 92–100th percentile among random 6-sets (t²−2: R² 0.25, above all 300 random sets),
