@@ -2,7 +2,7 @@
 
 Two things live in this repository, deliberately separated:
 
-- `research/` — the mathematics. `paper-I/` (submitted: the pair singular series, its Dedekind zeta function,
+- `research/` — the mathematics. `paper-I/` (v8, arXiv preprint in preparation: the pair singular series, its Dedekind zeta function,
   the variance of prime values), `paper-II/` (draft: zeros of Dedekind zeta functions in the second moment),
   `paper-III/` (working draft: the off-diagonal in Cesàro form), `experiments/` (the scripts and results behind
   paper I), `lib/` (the shared TypeScript number-theory library), `tests/`. Start with `research/KNOWLEDGE.md`

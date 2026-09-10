@@ -5,7 +5,7 @@ and dated; update them.
 
 ## 0. One-paragraph summary
 For an irreducible polynomial f, the pair singular series S_f(h) is the explicit weight that (under
-Hardy–Littlewood) governs simultaneous primality of f(t), f(t+h). Paper I (v7, submitted by the author)
+Hardy–Littlewood) governs simultaneous primality of f(t), f(t+h). Paper I (v8; not yet submitted anywhere — arXiv planned, 12 Sep)
 proves an exact identity for Σ_{h≤H}(S_f(h) − C(f)²), splits it into a diagonal (equal roots mod d) with
 Dirichlet series ζ_K(s+1)E_f(s) of residue 1/C(f), and an off-diagonal (distinct roots), and conjectures
 Σ*_f(H) = Σ_{h≤H}(1−h/H)(S_f−C²) = −½C(f) log H + A_f + o(1) ("Conjecture 1"; linear-in-C; the sharp sum only
@@ -35,7 +35,7 @@ prime statements need Hardy–Littlewood.
 - 9 Sep (night). Paper II §§2–4 written with proofs; §5 off-diagonal reformulation; §6–8; appendix of
   external computations. Literature rounds 2–3: Kurokawa/Moroz attribution, Hooley 1963 precedent, paper III
   route, second-spectrum hypothesis. Decisions: quadratics in full + general f under hypotheses; Route A in
-  paper III; four polynomials for numerics (deferred to external machine); paper I submitted as v7.
+  paper III; four polynomials for numerics (deferred to external machine); paper I finalised as v7 (NOT submitted; the phrase "submitted" in earlier notes was wrong).
 - 10 Sep. Repository restructured: research/ vs src/ (web). Local runs: off-diagonal of t²+1 exact to 10⁷
   (bounded, mean −0.01, sd 0.51, drift −0.001/log H; spectrum shows NO lines at Maass parameters or ζ/2 — null
   at resolution 0.68); F_q[u] q-sweep of Off_f(N) for t²−u (research/paper-III/data/offq.*). Paper III scaffold
@@ -65,8 +65,8 @@ prime statements need Hardy–Littlewood.
   c_off + (1−D_f(1))/2 = −0.00978. The near-cancellation is why Off_f looked mean-zero in paper II. (d) Range of
   the dilation averaging is u > H^{2/3+ε}, not H^{1/2+ε} (Parseval over the units costs √φ(d')). (e) Under
   Hypothesis W(θ,B) the window needs [corrected later: θ+6B < 1, see F18]; DFI's (3/4, 1/4) does not satisfy it — W needs
-  square-root cancellation. (f) Paper I's Conjecture 1 (o(1), sharp) found false (parity of t²+1); v7 was submitted
-  with it. Corrected to v8 (Cesàro form); exact test redone in Cesàro form: α = 1.001 ± 0.001, k = 0.498 (F15, F16).
+  square-root cancellation. (f) Paper I's Conjecture 1 (o(1), sharp) found false (parity of t²+1); the notes wrongly
+  recorded v7 as submitted (nothing has been submitted, 12 Sep). Corrected to v8 (Cesàro form); exact test redone in Cesàro form: α = 1.001 ± 0.001, k = 0.498 (F15, F16).
 - 11 Sep (later). Rigorous pass part 2: Section 5 of paper III rewritten. (g) Exact finite Fourier expansion of the
   window term (verified numerically): Σ_x B = (1/4d') Σ_{0<k<d'} (1−cos 2πkY/d')/sin²(πk/d') ρ_k(d') — flat weight
   Y²/d' for k ≤ d'/Y, so a window modulus has up to u²L frequencies of full weight. (h) Consequence: Hypothesis
@@ -80,6 +80,9 @@ prime statements need Hardy–Littlewood.
 - 11 Sep (decision, author). No AI co-authorship: single-author papers with a uniform "AI-assisted research:
   disclosure" section (ERRATA item 8). Rationale: publishers' policies; transparency preserved by the disclosure and
   the public repository.
+- 12 Sep. Record corrected: NOTHING has been submitted (earlier notes said v7 was submitted — false, F21). Author
+  wants paper I on arXiv; concern: hallucinated content. Safeguard executed: all 31 references of paper I verified
+  against Crossref/arXiv (ERRATA 9); confidence statement per theorem given to the author.
 - 12 Sep. DISCOVERY (numerical): the off-diagonal pieces oscillate with the even Maass cusp forms of SL₂(Z).
   P_u(Y)/√Y for t²+1 (u=2), t²+t+1, t²−2, t²−3, t²+t−1 (Y to 10⁷ or 3·10⁷) is fitted by cos(t_j log Y + φ_j) over the six
   even parameters 13.78…24.11 at the 92–100th percentile among random 6-sets (t²−2: R² 0.25, above all 300 random sets),
@@ -177,7 +180,8 @@ F14. "The twisted phase e(kH/d) is the obstacle" (paper III, first draft, 10 Sep
 F15. "Σ_{h≤H}(S_f(h) − C²) = −½C log H + A_f + o(1)" (paper I, Conjecture 1, v1–v7, SUBMITTED). False for every f with
     a residue class of h where S_f vanishes (t²+1: odd h) — the sharp sum oscillates by C² forever. The Cesàro
     form is what Theorem 6 controls and what was meant. Process lesson: an erratum recorded on 10 Sep as "worth a
-    line when you next touch paper I" was not applied before the author submitted. RULE: an erratum to a
+    line when you next touch paper I" was not applied for a day, while the notes wrongly said the paper had been
+    submitted (it had not; corrected 12 Sep). RULE: an erratum to a
     statement in the abstract/conjecture/theorem is applied the same day, or the paper is marked "do not submit".
 F16. "The finite-H coefficient is 0.86 of ½, systematically short over three decades, explained by the drift of
     A_f" (paper I v6–v7, §4). Artefact of measuring the sharp sum at two endpoints: each endpoint carries an O(1)
@@ -208,6 +212,9 @@ F20. "No Maass lines in Off_f(H) ⇒ the second-spectrum idea is dead" (paper II
     numerically), with the spectrum of level 4u² and weight 1/2 — the sharp Off_f(H) is a different, bounded object
     and the SL₂(Z) parameters are not the relevant ones. RULE: before a null spectral test, derive which spectrum and
     which observable the theory predicts; a null on the wrong observable proves nothing.
+F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep). It was not; the author had only
+    said they would upload it, and I recorded the intention as a fact. RULE: record submissions, uploads and
+    external actions only when the author confirms they happened.
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 

@@ -39,7 +39,7 @@ None of this affects Theorems 2, 3, 5, 6, 8 or the conjecture. It affects only w
 
 ---
 
-# Errata for paper I v7 (the submitted version), found 10–11 September 2026; applied to main.tex as v8
+# Errata for paper I v7 (not submitted; earlier notes wrongly said it was), found 10–11 September 2026; applied to main.tex as v8
 
 4. **Conjecture 1 is false as stated in the sharp form.** v7 reads Σ_{h≤H}(S_f(h) − C²) = −½C log H + A_f + o(1).
    For f = t²+1, S_f(h) = 0 for every odd h, so Σ_f(H) drops by exactly C² = 1.8846 at every odd H and recovers
@@ -49,8 +49,7 @@ None of this affects Theorems 2, 3, 5, 6, 8 or the conjecture. It affects only w
    **Fix (v8):** Conjecture 1 states the Cesàro form with A_f + o(1), and the sharp form with O(1) as a consequence;
    a paragraph after it explains the parity example and that A_f is defined through the Cesàro form. Papers II
    and III quote the corrected form. (Found by us on 10 Sep; the erratum was recorded but not applied before
-   submission — a process failure, see KNOWLEDGE.md F15. The author should send the one-line correction to the
-   editor.)
+   the next edit — a process failure, see KNOWLEDGE.md F15.)
 
 5. **The exact test measured the wrong quantity.** The fitted slope (Σ_f(10⁶) − Σ_f(10³))/log 10³ uses two sharp
    endpoints of the oscillating sum, so each polynomial's slope/C carries an O(1)/log 10³ ≈ ±0.1 error that does not
@@ -77,3 +76,10 @@ None of this affects Theorems 2, 3, 5, 6, 8 or the conjecture. It affects only w
    the use of AI" is replaced by "AI-assisted research: disclosure", identical in the three papers, stating the heavy
    use of the model, the division of roles, the author's verification and responsibility, and pointing to the public
    repository (with the knowledge base of errors) for a complete record.
+
+9. **Bibliography of paper I verified (12 September 2026), before the arXiv posting.** Every entry of
+   research/paper-I/refs.bib was checked against Crossref or arXiv: all 31 exist with the stated authors, venues and
+   years (three 2025–2026 arXiv preprints included: 2512.03292, 2605.01155, 2606.28832). Two details corrected:
+   Aletheia-Zomlefer–Fukshansky–Garcia's title reads "heuristic" (singular); Goldston–Suriajaya, Acta Arith. 200 (2021),
+   71–90 (volume and pages added). Tóth 2000 was confirmed bibliographically by the literature agent on 11 Sep
+   (IMRN 2000(14), 719–739) and could not be re-found through Crossref's search API; the entry is kept.

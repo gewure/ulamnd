@@ -3,7 +3,7 @@
 ## v8 (11 Sep): Conjecture 1 corrected, exact test in Cesàro form, paths
 - Conjecture 1 now states the Cesàro form (−½C log H + A_f + o(1)) and the sharp form with O(1); the v7 sharp
   form with o(1) is false (t²+1: Σ_f drops by C² at every odd H). See research/paper-II/ERRATA.md items 4–7.
-  ACTION FOR THE AUTHOR: send this one-line correction to the editor (v7 is the submitted version).
+  (Earlier versions of this file said v7 had been submitted; it had not. Nothing has been submitted; arXiv planned 12 Sep.)
 - Exact test recomputed in Cesàro form (research/experiments/exact.ts, `fitCes`): α = 1.001 ± 0.001, k = 0.498,
   slope/C = −0.498 ± 0.003, per decade −0.496/−0.499/−0.500. Headline numbers of the abstract, §4, Fig. 2,
   Table 3 and the discussion replaced; the sharp-sum fit (α = 0.92 ± 0.08 / 1.19 ± 0.11, "0.86 of ½") is kept
