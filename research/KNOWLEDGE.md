@@ -77,6 +77,14 @@ prime statements need Hardy–Littlewood.
   (j) Theorem A′ (unconditional): Off* = c_off H + Σ_{u≤H^{2/3+ε}} w(u) W_u(H/u; log H) + O(H (log H)^{1−c});
   Cesàro (E) ⟺ windows = o(H log H). Theorem A (conditional on W with the exponent conditions): Off* = c_off H
   + O(H^{1−δ}), A_f = A_f^diag + C² c_off. Paper III: 22 pp.
+- 11 Sep (night). Paper III closed as a complete draft (23 pp; c_off confirmed for t²+t+41, t²+t+17, 2t²+1 too).
+  Paper IV scaffolded (research/paper-IV: README with the window statement, BRAINSTORM with 11 routes rated, LITERATURE
+  round 1). CALIBRATION: exact pieces P_u(Y) for t²+1 are O(√Y) (|P_u|/√Y ≤ 0.4 to Y = 10⁷), and the sharp pieces
+  S_u(t) = Σ_{h≤t}(F_u(Q'(h)) − E F_u) are bounded (max 1.26 to 10⁷): square-root cancellation, far beyond what (W) needs.
+  Literature round 1 (verified): best unconditional exponent for Weyl sums of quadratic roots with fixed D is θ = 2/3+ε
+  (Bykovskiĭ 1984); only DFI 2012 and Grimmelt–Merikoski 2025 have discriminant uniformity, neither covers a = u²;
+  Kloosterman-fraction route structurally blocked (numerator depends on the modulus through the root). Hence Hypothesis W
+  is not the plan for paper IV; the plan is the divisor-problem / Dirichlet-series view of the pieces (route 11).
 
 ## 2. What is proved, conjectured, refuted (status board)
 PROVED (paper I): exact identity; ζ_K(s+1)E_f(s) with residue 1/C; E_f = H_f/L(2s+2,Sym²V) with H_f abs. conv.
