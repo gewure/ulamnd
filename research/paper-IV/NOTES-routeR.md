@@ -271,3 +271,16 @@ NOTE on amplitudes: this derivation also predicts a factor beta^{-1/2} ~ |D|^{1/
 Tested: that fits WORSE than |D|^{-1/2} Per/|Gamma_z| (spread 0.63-5.66 vs 0.39-2.71). So the amplitude's D-dependence
 is still not pinned down -- do not claim it. The PHASE is the robust prediction.
 REMAINING for a theorem: convergence of the sum over j (which Riesz order), and the Eisenstein/cusp treatment.
+
+## 1k. DECOMPOSITION COMPLETED (12 Sep night) -- what is left is one uniform Bessel estimate
+(a) Conventions reconciled: bijection of root sets for odd d coprime to 2D, frequency k <-> m = 2k. Verified.
+(b) L^2: Heegner points have Im z <= sqrt|D|/2, so TRUNCATE the seed there -- free, and it makes the automorphised
+    seed bounded on the quotient, hence L^2. Vanishing x-mean of the seed (psi has mean 0 over two periods) kills the
+    Eisenstein constant terms, so the continuous spectrum is o(sqrt Y) by Riemann-Lebesgue.
+(c) Riesz order: |A_j| = t_j^{-1/2+o(1)}; Riesz order m gives t_j^{-m-1}; Weyl law => converges for m >= 1 with
+    Iwaniec-Sarnak, m >= 2 trivially. The CESARO mean suffices, matching the numerics.
+LAST STEP: (Ksmall) K_{i tau}(x) = (1/2)[Gamma(-i tau)(x/2)^{i tau} + c.c.] + O(x^2) is an asymptotic for FIXED tau;
+the constant in O(x^2) depends on tau, and K_{i tau}(x) changes regime at x ~ tau. We apply it at x = sqrt|D| w / t.
+Needed: a version uniform in tau with a power saving. This is standard uniform Bessel analysis (uniform asymptotics
+for K_{i tau}(x) across the transition, Balogh / Olver type) and it is the only thing between the derivation and the
+theorem.

@@ -38,8 +38,10 @@ of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues t
 $\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. The same law, and the same parameter-free
 prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
 congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
-cancellation with an explicit spectral expansion. We give the derivation in the form we believe it takes, resolve
-its convergence obstruction, state precisely what remains, discuss the uniformity in $u$ that the Ces\`aro
+cancellation with an explicit spectral expansion. We carry the derivation through: the root pairs are Heegner points, the
+piece is a sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are
+resolved by a truncation and by the symmetry of the orbit, the continuous spectrum is $o(\sqrt Y)$, and the discrete
+sum converges already at Ces\`aro order. One uniform Bessel estimate remains, and we say exactly what it is; discuss the uniformity in $u$ that the Ces\`aro
 conjecture of part~I would need, and report the numerical evidence, including phase predictions with no free
 parameter that agree to a median of $0.012$ radians.
 \end{abstract}
@@ -558,21 +560,104 @@ that single fact makes the linear term of the sawtooth identity vanish (Lemma~\r
 of Hurwitz's formula (Proposition~\ref{prop:mellin}), annihilates the periods of the odd Maass forms
 (Proposition~\ref{prop:parity}), and now renders the Poincar\'e series convergent.
 
-\paragraph{What is missing.} Steps 1, 3 and 5 are structurally complete, and Step 2 is an identity. Two things stand
-between the above and a proof.
+\subsection{Completing the decomposition}\label{sec:complete}
+
+Three things were left open above: the two conventions for the modulus, the sense in which the spectral
+decomposition of Step~3 is legitimate, and the order of Riesz mean at which the sum over the spectrum converges. We
+settle all three.
+
+\begin{lemma}[the two conventions agree]\label{lem:conventions}
+Let $d$ be odd and coprime to $2D$. Reduction modulo $d$ is a bijection
+\[
+\{b'\bmod2d:\ b'^2\equiv D\ (4d)\}\ \longrightarrow\ \{b\bmod d:\ b^2\equiv D\ (d)\},
+\]
+and under it $\e\bigl(2k\,b'/(2d)\bigr)=\e(kb/d)$ for every $k$. Hence the frequency $k$ of the sawtooth expansion of
+\S\ref{sec:walfisz} corresponds to the frequency $m=2k$ of~\eqref{eq:poincare}, and the two parametrisations describe
+the same sums.
+\end{lemma}
+\begin{proof}
+Since $(d,2)=1$, the Chinese remainder theorem splits the condition $b'^2\equiv D\ (4d)$ into $b'^2\equiv D\ (d)$ and
+$b'^2\equiv D\ (4)$. The latter is solvable because $D\equiv0$ or $1\pmod4$, and it determines $b'$ modulo $2$;
+combined with $b'$ modulo $d$ this determines $b'$ modulo $2d$. So each $b$ has exactly one lift, and the map is a
+bijection. The phases agree because $b'\equiv b\pmod d$. \todo{Verified for $D\in\{-11,-8,-7,-4,-3,5,8,12\}$ and all
+odd $d\le200$ coprime to $2D$, and $k\le3$.}
+\end{proof}
+
+\begin{lemma}[truncation, and why the decomposition is legitimate]\label{lem:trunc}
+Every Heegner point of discriminant $D$ satisfies $\Im z=\sqrt{|D|}/(2d)\le\sqrt{|D|}/2$. Consequently, replacing
+$\Phi^+_t$ by its truncation $\Phi^\flat_t=\Phi^+_t\cdot\mathbf 1_{\{\Im z\le\sqrt{|D|}/2\}}$ changes neither side
+of~\eqref{eq:orbit}. The truncated seed satisfies
 \begin{enumerate}
-\item \emph{Smoothness.} $\psi$ has a jump, so $\Phi_t$ is not smooth and the spectral expansion does not converge
-pointwise. The Riesz mean of order $m\ge1$ is what repairs this, and the order needed depends on the growth of
-$\langle\Phi_t,u_j\rangle$ in $t_j$, which is governed by~\eqref{eq:mellinK} and the exponential decay
-$|\Gamma(\tfrac{\sigma\pm it_j}2)|\asymp e^{-\pi t_j/4}$.
-\item \emph{The error term.} Bounding the tail of the spectral sum and the Eisenstein contribution is what produces
-$\delta$, and it is where the standard bounds for $\sum_j|\mathrm{Per}_D(u_j)|^2$ and the Weyl law enter. The
-Eisenstein part is not a nuisance here: by Lemma~\ref{lem:seed} the seed is a multiple of $y^2$ plus a small
-remainder, so its Eisenstein contribution is governed by $E(w,2)$ and produces the main term $c_DY$
-of Hypothesis~K rather than an error.
+\item[(i)] $|\Phi^\flat_t(z)|\le\sqrt{|D|}/4$, and $\Phi^\flat_t(z)=0$ for $\Im z>\sqrt{|D|}/2$;
+\item[(ii)] $\Phi^\flat_t(z)\ll t\,(\Im z)^2$ as $\Im z\to0$, in the sense of Lemma~\ref{lem:seed};
+\item[(iii)] $\int_0^1\Phi^\flat_t(x+iy)\,dx=0$ for every $y$.
 \end{enumerate}
-We have not carried these out. What we claim in this paper is the identification of the mechanism, the parity rule
-(Proposition~\ref{prop:parity}), the reduction of Steps 1--3, and the numerical evidence of \S\ref{sec:numerics}.
+Hence $P[\Phi^\flat_t]$ is bounded on $\Gamma\backslash\mathbb H$, lies in $L^2$, and its spectral decomposition is
+valid.
+\end{lemma}
+\begin{proof}
+(i) and (ii) are Lemma~\ref{lem:seed} and the truncation. (iii) holds because $\psi$ has mean zero and $x\mapsto2x$
+covers two full periods, so $\int_0^1[\psi(a+2x)+\psi(a-2x)]dx=0$ for every $y$; the truncation does not depend on
+$x$ and so preserves this. For the last statement, if $\Im w>\sqrt{|D|}/2$ then the identity coset contributes
+nothing, and only the finitely many $\gamma$ with $\Im\gamma w\le\sqrt{|D|}/2$ remain; on the rest of a fundamental
+domain the sum is dominated by $t\sum_\gamma(\Im\gamma w)^2=tE(w,2)$, which is bounded there. So $P[\Phi^\flat_t]$ is
+bounded, hence square-integrable on the finite-volume quotient.
+\end{proof}
+
+\begin{remark}[the continuous spectrum]\label{rem:eisenstein}
+Property (iii) also disposes of the Eisenstein contribution. Unfolding gives
+$\langle P[\Phi^\flat_t],E(\cdot,\tfrac12+ir)\rangle=\int_{\mathbb H}\Phi^\flat_tE(\cdot,\tfrac12+ir)\,d\mu$, and the
+two terms $y^{s}$ and $\varphi(s)y^{1-s}$ of the Fourier expansion of $E$ do not depend on $x$, so by (iii) they
+contribute nothing. Only the non-constant modes of $E$ remain, and against those the computation of Step~4 is the
+same one with $it_j$ replaced by $ir$. The continuous spectrum therefore contributes
+$\sqrt Y\int c(r)Y^{ir}\,dr$ to the Riesz mean, which is $o(\sqrt Y)$ by the Riemann--Lebesgue lemma as soon as
+$c\in L^1$. This is why the discrete lines are what one sees.
+\end{remark}
+
+\begin{proposition}[which Riesz order]\label{prop:riesz}
+Normalise $u_j$ in $L^2(\Gamma\backslash\mathbb H)$ and write $a_j(n)=\rho_j(1)\lambda_j(n)$ with $\lambda_j$ the
+Hecke eigenvalues. Then in~\eqref{eq:asymp}
+\begin{equation}\label{eq:Ajsize}
+|A_j(D)|\ \asymp_D\ t_j^{-1/2+o(1)} ,
+\end{equation}
+and the Riesz mean of order $m$ multiplies the $j$-th term by a factor $\asymp t_j^{-m-1}$. Consequently the
+spectral sum in Hypothesis~K converges absolutely as soon as
+\[
+m\ \ge\ 1\quad\text{(using }\|u_j\|_\infty\ll t_j^{5/12+\varepsilon}\text{ on compact sets, Iwaniec--Sarnak)},
+\qquad\text{or}\qquad m\ \ge\ 2\quad\text{(using only }\|u_j\|_\infty\ll t_j^{1/2+\varepsilon}\text{)} .
+\]
+In particular the Ces\`aro mean, $m=1$, suffices, which is the mean at which the numerics of \S\ref{sec:numerics}
+were computed.
+\end{proposition}
+\begin{proof}
+For~\eqref{eq:Ajsize}: the $k$-sum $\sum_ka_j(2k)k^{-3/2}=\rho_j(1)\sum_k\lambda_j(2k)k^{-3/2}$ converges absolutely
+and is $\rho_j(1)t_j^{o(1)}$, since $\lambda_j(n)\ll n^{7/64+\varepsilon}$ and $\tfrac32-\tfrac7{64}>1$. The
+$\Gamma$-factors of~\eqref{eq:asymp} have modulus
+\[
+|\Gamma(-it_j)|\,\bigl|\Gamma(\tfrac12+it_j)\bigr|\,\bigl|\sin\tfrac{\pi(\frac12+it_j)}2\bigr|
+\asymp\sqrt{\frac{2\pi}{t_j}}e^{-\pi t_j/2}\cdot\sqrt{2\pi}e^{-\pi t_j/2}\cdot\frac{e^{\pi t_j/2}}2
+\asymp\frac{1}{\sqrt{t_j}}\,e^{-\pi t_j/2},
+\]
+while $|\rho_j(1)|^2\asymp\cosh(\pi t_j)/L(1,\mathrm{sym}^2u_j)$ gives $|\rho_j(1)|\asymp e^{\pi t_j/2}t_j^{o(1)}$.
+The two exponentials cancel and~\eqref{eq:Ajsize} follows. For the Riesz factor,
+$\frac1{m!}\int_0^Y(Y-t)^mt^{-1/2-it_j}dt=\frac{Y^{m+1/2-it_j}}{m!}B(m+1,\tfrac12-it_j)$ and
+$B(m+1,\sigma)=\Gamma(m+1)\Gamma(\sigma)/\Gamma(m+1+\sigma)\asymp|\sigma|^{-m-1}$. Finally
+$|\mathrm{Per}_D(u_j)|\le h(D)\|u_j\|_\infty$, so the $j$-th amplitude is
+$\ll t_j^{5/12+\varepsilon}\cdot t_j^{-1/2+o(1)}\cdot t_j^{-m-1}$, and by the Weyl law
+$\#\{j:t_j\le T\}\sim T^2/12$ the sum over $j$ is dominated by $\int^\infty t^{5/12-1/2-m-1}\,t\,dt=\int^\infty t^{-m-1/12}\,dt$,
+which converges for $m>\tfrac{11}{12}$. With the trivial sup-norm bound the exponent is $\int^\infty t^{-m}dt$ instead.
+\end{proof}
+
+\paragraph{What now remains.} With Lemmas~\ref{lem:conventions}, \ref{lem:seed} and~\ref{lem:trunc},
+Remark~\ref{rem:eisenstein} and Proposition~\ref{prop:riesz}, the decomposition is complete as a structure: the
+orbit sum is legitimate, the automorphised seed is in $L^2$, the continuous spectrum is $o(\sqrt Y)$, and the
+discrete sum converges at Ces\`aro order. One analytic point stands between this and Theorem~\ref{thm:spectral}, and
+we state it plainly rather than hide it in an estimate. The expansion~\eqref{eq:Ksmall} is an asymptotic as
+$x\to0$ \emph{for fixed order}; its error term $O(x^2)$ carries a constant depending on $t_j$, and the transition
+between the oscillatory and the exponentially decaying regimes of $K_{it}(x)$ occurs at $x\asymp t$. Since we apply
+it at $x=\sqrt{|D|}w/t$ with $w$ ranging over the support of the sine integral, what is needed is a form
+of~\eqref{eq:asymp} uniform in $t_j$, with an error saving a power of $t$ uniformly. That is a standard but genuine
+piece of uniform Bessel analysis; it is the last step, and we have not carried it out.
 
 \section{Numerical evidence}\label{sec:numerics}
 

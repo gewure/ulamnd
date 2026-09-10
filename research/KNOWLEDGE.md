@@ -88,6 +88,20 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep (night, later). RIGOROUS DECOMPOSITION COMPLETED as a structure (paper IV Section 5.1, 17 pp). Three items
+  closed: (a) CONVENTIONS -- for odd d coprime to 2D, reduction mod d is a bijection {b' mod 2d: b'^2 = D (4d)} ->
+  {b mod d: b^2 = D (d)} and e(2k b'/(2d)) = e(k b/d), so sawtooth frequency k <-> Poincare frequency m = 2k
+  (verified, 8 discriminants, d <= 200). (b) L^2 / CUSP -- every Heegner point has Im z = sqrt|D|/(2d) <= sqrt|D|/2,
+  so the seed may be TRUNCATED at that height with no effect on the orbit sum; the truncated seed is bounded, is
+  O(t y^2) at 0, and has vanishing x-mean, hence its automorphisation is bounded on the quotient and lies in L^2.
+  The vanishing x-mean also kills the pairing with the constant terms of the Eisenstein series, so the continuous
+  spectrum contributes sqrt(Y) * integral c(r) Y^{ir} dr = o(sqrt Y) by Riemann-Lebesgue -- which is why the discrete
+  lines are what one sees. (c) RIESZ ORDER -- |A_j| = t_j^{-1/2+o(1)} (the e^{pi t_j/2} of rho_j(1) cancels the
+  e^{-pi t_j/2} of the Gamma-factors), the Riesz mean of order m contributes t_j^{-m-1}, |Per| <= h(D)||u_j||_inf,
+  so by the Weyl law the sum converges for m > 11/12 with Iwaniec-Sarnak (t^{5/12}) and for m > 1 with the trivial
+  bound. CESARO ORDER m = 1 SUFFICES -- exactly the mean at which the numerics were computed.
+  ONE step remains: (Ksmall) is an asymptotic for FIXED order, its O(x^2) constant depends on t_j, and the regimes of
+  K_{it}(x) change at x ~ t; a form of (asymp) UNIFORM in t_j is needed. Standard but genuine Bessel analysis.
 - 12 Sep (night). Step 4 of paper IV REDONE ELEMENTARILY, and it needs no continuation theorem at all: expand psi in
   Fourier, pair against the Whittaker expansion of u_j (the x-integral forces n = 2k, so only even-index coefficients
   survive), substitute y = w/beta, and use two standard facts -- the small-argument expansion
