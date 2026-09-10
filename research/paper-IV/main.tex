@@ -491,6 +491,38 @@ and~\eqref{eq:poincare} places its poles at $s=\tfrac12\pm it_j$ in that same va
 $t_j$. The Kloosterman-zeta route reaches the same coefficients through the modulus, in a variable normalised as
 $c^{-2\sigma}$; the translation between the two normalisations is what we had wrong before the data corrected us.
 
+There is one consequence of~\eqref{eq:poincare} that does not have to wait for the missing steps, because it needs
+only the continuation of $P_m$ and not the identification of the residues.
+
+\begin{proposition}[square-root cancellation in Hooley's sum, Riesz form]\label{prop:hooley}
+Let $D$ be a discriminant, $k\ge1$, and let $T_k(X)$ be as in \S\ref{sec:hooley}. Then for every $\varepsilon>0$
+\[
+\frac1X\sum_{d\le X}\Bigl(1-\frac dX\Bigr)\ \sum_{b\bmod d,\ b^2\equiv D}\e\Bigl(\frac{kb}d\Bigr)\ \ll_{D,k,\varepsilon}\ X^{-1/2+\varepsilon}.
+\]
+\end{proposition}
+\begin{proof}[Proof, modulo the classical input]
+By~\eqref{eq:poincare} the Dirichlet series of the inner sums is, up to the elementary factor
+$(\sqrt{|D|}/2)^{s}$ and a finite M\"obius sieve for the conditions at the primes dividing $2D$, a finite
+combination of Selberg's Poincar\'e series $P_m(z_Q,s)$ over the $h(D)$ classes. In $\Re s>\tfrac12$ these continue
+meromorphically with poles only at the points $s_j\in(\tfrac12,1)$ coming from eigenvalues $\lambda_j<\tfrac14$, and
+with growth polynomial in $|\Im s|$ on vertical lines \cite{GoldfeldSarnak1983}. For $\Gamma=\mathrm{PSL}_2(\Z)$
+there are no such eigenvalues: the smallest Laplace eigenvalue of a cusp form is
+$\tfrac14+(9.5337)^2=91.14$, and the residual spectrum consists of the constants alone. So the continuation is
+holomorphic throughout $\Re s>\tfrac12$, and the Riesz kernel $X^{s+1}/(s(s+1))$ decays fast enough in $|\Im s|$ to
+move the Perron contour to $\Re s=\tfrac12+\varepsilon$, which gives the bound.
+\end{proof}
+
+This is the Riesz-mean form of square-root cancellation for the sums Hooley bounded by $X^{3/4+\varepsilon}$
+\cite{Hooley1963} and Bykovski\u\i\ by $X^{2/3+\varepsilon}$ \cite{Bykovskii1984}. It agrees with what we see:
+$T_1(X)/\sqrt X$ stays below $0.56$, $0.53$ and $0.86$ in absolute value for $D=-4,-3,-8$ over $X\le10^6$.
+\todo{The proof above rests on a classical statement, the continuation of $P_m(z,s)$ to $\Re s>\tfrac12$ with poles
+only at exceptional eigenvalues and polynomial growth, which we have taken from a secondary description of
+\cite{GoldfeldSarnak1983} and \emph{not} verified in the original. Given that a first attempt to route this argument
+through the Kloosterman zeta function produced a false prediction (Remark~\ref{rem:achieved}), the statement must be
+checked against the printed theorem, in particular the normalisation of the variable and the passage from $Z_{m,n}$
+to $P_m$, before this proposition is asserted. The conventions $b^2\equiv D\ (4d)$ of~\eqref{eq:gauss} and
+$b^2\equiv D\ (d)$ of \S\ref{sec:walfisz} must also be reconciled.}
+
 \begin{theorem}[target]\label{thm:spectral}
 Hypothesis~K holds: for $u=1$ and the model object~\eqref{eq:model} there are $\delta>0$ and coefficients
 $\alpha_j(D)$, proportional to $\mathrm{Per}_D(u_j)$ and supported on the even Maass cusp forms of
