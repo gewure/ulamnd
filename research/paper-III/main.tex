@@ -34,13 +34,14 @@ Ces\`aro form any unbounded saving over the trivial bound suffices. This paper t
 prove an exact decomposition of the Ces\`aro off-diagonal into pieces indexed by the part $u$ of the modulus on
 which the two roots agree: piece $u$ is the same problem with length $H/u$ and with the roots of
 $x^2\equiv D$ replaced by the roots of $u^2x^2\equiv D$, a dilation by $u^{-1}$, and all pieces carry equal
-weight per unit of $\log u$. Three parts are unconditional: the piece $u=1$, by the theorem of Duke, Friedlander and
-Iwaniec on Weyl sums for quadratic roots converted from smooth to sharp cut-offs; the moduli below the length in
-every piece, by Koksma's inequality and a weighted form of the Chinese-remainder equidistribution of Kowalski and
-Soundararajan, whose local input is the same for every dilation; and the pieces with $u>H^{2/3}$, where the
-dilations average out along $u$. They do not average to zero: the Ces\`aro off-diagonal has a main term
-$c_{\mathrm{off}}(f)H$ with an explicit negative constant, $-\log p/(p-1)$ per split prime modulus, which for
-$t^2+1$ predicts the mean of the sharp off-diagonal to three digits against exact data to $10^7$. What remains is
+weight per unit of $\log u$. The main result is that the off-diagonal is not small: the pieces with $u>H^{2/3}$,
+where the dilations average out along $u$, leave a main term $c_{\mathrm{off}}(f)H$ with an explicit negative
+constant, $-\log p/(p-1)$ per split prime modulus, and this constant predicts the mean of the sharp off-diagonal
+to three digits against exact data to $10^7$ for four quadratics. Two further parts are unconditional: the piece
+$u=1$, by the theorem of Duke, Friedlander and Iwaniec on Weyl sums for quadratic roots converted from smooth to
+sharp cut-offs; and the moduli below the length in every piece, by Koksma's inequality and a weighted form of the
+Chinese-remainder equidistribution of Kowalski and Soundararajan, whose local input is the same for every
+dilation. What remains is
 one window in each piece with $1<u\le H^{2/3}$, the moduli between the length and $u^2$ times the length, where
 an interval covers less than a period and a logarithmic saving is not enough. We give its exact Fourier form,
 show that a Weyl-sum hypothesis (Hypothesis~W) closes it only if its exponents satisfy $5\theta+6B<3$, which
@@ -80,7 +81,10 @@ that case every $d$ in the support of $W_f$ is even, $W_f(d)=\prod_{p\mid d}p(p-
 statements below hold verbatim with the weight $w(u)=u\omega(u)W_f(u)$ (which is then supported on even $u$), the only
 property used being $W_f(ud')=W_f(u)\lambda(d')/d'$ for $d'$ split and coprime to $u$. In every case $w=c_f\,g$ with
 $c_f>0$ and $g$ multiplicative on squarefree integers, $g(p)=\lambda(p)\omega(p)$ for odd $p$, $g(2)\in\{0,1\}$; we write
-$\lambda\omega$ for $g$ when the distinction is immaterial. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
+$\lambda\omega$ for $g$ when the distinction is immaterial. One sign deserves notice: $\lambda(3)=-3$ and $P_3=-3$ when
+$\omega(3)=2$ (as for $t^2+2$ or $2t^2+1$), so the weights are not always positive. All upper bounds below are
+bounds for absolute values and use $|\lambda|$, $|w|$; Proposition~\ref{prop:KSw} is applied to $|w|$; and the mean
+value $m$ of $g$ in~\eqref{eq:md} is nonzero but may be negative. Nothing else depends on the sign. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
 the roots of $f$ being $s=(r-b)/2$. Write $\rep xd\in[1,d]$ for the representative of $x\bmod d$, and, for a length
 $Y>0$ and a residue $m$,
 \begin{equation}\label{eq:B}
@@ -166,7 +170,7 @@ For every $H\ge1$,
 \Off^\ast_f(H)=\sum_{u}w(u)\,\mathcal P_u(H/u),\qquad w(u)=u\,\omega(u)\,W_f(u),
 \]
 the sum over squarefree $u\ge1$ with $\omega(u)\ge1$, every series converging absolutely. Moreover
-$\mathcal P_u(Y)\ll_fY$ uniformly in $u$, $\sum_{u\le t}w(u)\ll t$, and $\sum_{u\le H}w(u)/u\asymp\log H$.
+$\mathcal P_u(Y)\ll_fY$ uniformly in $u$, $\sum_{u\le t}|w(u)|\ll t$, and $\sum_{u\le H}|w(u)|/u\asymp\log H$.
 \end{proposition}
 \begin{proof}
 Fix $d=ud'$ as above. For $m=u\mu$ with $\mu\in[1,d']$ we have, writing $h=uh'$,
@@ -194,7 +198,7 @@ contributes $\sum_{x\le Y}(Y-x)\sum_{d'>Y,\ d'\mid Q_u(x)}\lambda(d')/d'$; since
 and on average over $x\le Y$, $\sum_{e<n/Y,\ e\mid Q_u(x)}e\le\sum_{e<u^2Y}e\,\rho_u(e)\,\mathbf 1_{e\mid Q_u(x)}$ has
 mean $\ll\sum_{e<u^2Y}\rho_u(e)\ll u^2Y$ ($\rho_u(e)\le\omega(e)$ the number of roots of $Q_u$ modulo $e$, of mean value
 $\ll1$), while $Q_u(x)\gg u^2x^2$, the first term is $\ll\sum_{x\le Y}(Y-x)\,Y/x^2\cdot\mathbf 1_{Q_u(x)>Y}+\sum_{x\le\sqrt Y/u}Y\ll Y$.
-Finally $\sum_{u\le t}w(u)\ll t$ and $\sum_{u\le H}w(u)/u\asymp\log H$ because $g=w/c_f$ has mean value $\asymp1$ on squarefree
+Finally $\sum_{u\le t}|w(u)|\ll t$ and $\sum_{u\le H}|w(u)|/u\asymp\log H$ because $|g|$ has a positive mean value on squarefree
 integers (its Dirichlet series is $\zeta(s)L(s,\chi_D)\times$ an absolutely convergent product near $s=1$).
 \end{proof}
 
@@ -425,7 +429,8 @@ $u>H^{2/3+\varepsilon}$ are treated in full in Theorem~\ref{thm:typeII}).
 \begin{proof}
 By~\eqref{eq:koksma}, $|\mathcal P^\le_u(Y)|\le\tfrac32\sum_{d'\le Y}\lambda(d')\omega(d')\,\mathrm{disc}(\Delta^{(u)}_{d'})$, the sum over
 squarefree split $d'$ coprime to $u$. Apply Proposition~\ref{prop:KSw} to the family $A_p=R^{(u)}_p$ (of size $2$ at
-split $p\nmid 2Du$, empty otherwise) and to $w=\lambda\omega\cdot\mathbf 1_{(\cdot,2Du)=1}$; by Remark~\ref{rem:KSwconst} the
+split $p\nmid 2Du$, empty otherwise) and to $w=|\lambda\omega|\cdot\mathbf 1_{(\cdot,2Du)=1}$ (which is non-negative, multiplicative,
+and bounded by $10$ at every prime, $|\lambda\omega(3)|=6$); by Remark~\ref{rem:KSwconst} the
 hypotheses hold with constants depending only on $f$ provided $Y\ge\exp((\log\log u)^3)$ and $u\ge u_1$, and for the
 finitely many $u<u_1$ they hold with $t_0=t_0(f)$. Since $Q$ is then exactly the set of admissible $d'$ and
 $\rho(d')=\omega(d')$, the bound is $\ll Y(\log Y)^{-c}$ with $c=c(f)$. For the consequence, the weight
@@ -765,6 +770,25 @@ $-0.1344\pm0.0007$ against $-0.13439$. Since the prediction uses only the pieces
 agreement is numerical evidence that the pieces with small $u$, the window included, are $o(H)$ for $t^2+1$,
 as Theorem~\ref{thm:A} asserts under Hypothesis~W. The near-cancellation of $c_{\mathrm{off}}$ against
 $(1-D_f(1))/2$ is what made $\Off_f$ look mean-zero in the numerics of part~II.
+
+The same test for three further quadratics (\texttt{research/paper-III/scripts/off-general.ts}, exact $\Off_f(t)$ for all
+$t\le10^7$; here $P(1)\ne0$ and $D_f(1)$ includes the term $d=1$):
+\begin{center}\small
+\begin{tabular}{lrrrrl}
+\toprule
+$f$ & $C(f)$ & $c_{\mathrm{off}}(f)$ & $\tfrac12(1-D_f(1))$ & predicted mean & measured mean (dyadic blocks $2^{20}$--$2^{23}$)\\
+\midrule
+$t^2+t+41$ & $6.640$ & $-0.002247$ & $0.003553$ & $0.00131$ & $0.00144$ ($0.00118$ to $0.00150$)\\
+$t^2+t+17$ & $4.175$ & $-0.011305$ & $0.014713$ & $0.00341$ & $0.00362$ ($0.00342$ to $0.00367$)\\
+$2t^2+1$ & $1.426$ & $-0.428619$ & $0.976896$ & $0.54828$ & $0.54820$ ($0.5463$ to $0.5501$)\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $2t^2+1$ the weights have both signs ($\omega(3)=2$, $\lambda(3)=-3$, $P(1)=-2.727$) and the constants are large; the
+agreement to three digits shows that the identity behind Corollary~\ref{cor:coff} and the main term of
+Theorem~\ref{thm:typeII} do not depend on positivity. In all four cases the mean of the sharp off-diagonal is a
+small difference of two computable constants, and the data leave no room for a contribution of size $\gg10^{-3}$
+from the pieces with $u\le H^{2/3}$.
 
 \section{The window, Hypothesis W and Theorem A}\label{sec:W}
 

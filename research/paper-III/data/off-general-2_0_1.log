@@ -1,0 +1,18 @@
+2t^2+1: C = 1.426126208489128, D = -8, special primes 2 (6 s)
+P(1) = -2.7270498470622466   D_f(1) = 1.7732569906572655   kappa_f/2 = (1 - P(1) - D_f(1))/2 = 0.976896  (D_f(1) here = sum over d >= 2)
+a_f, A_f built (7 s)
+H=1e+3  mean Off = 0.54471   Off(H) = 0.208
+H=1e+4  mean Off = 0.55097   Off(H) = 0.361
+H=1e+5  mean Off = 0.54315   Off(H) = 0.484
+H=1e+6  mean Off = 0.54761   Off(H) = 0.370
+H=1e+7  mean Off = 0.54820   Off(H) = -0.348
+dyadic block means (end, mean Off):
+65536 0.53907
+131072 0.55148
+262144 0.55015
+524288 0.54809
+1048576 0.54632
+2097152 0.55014
+4194304 0.54766
+8388608 0.54850
+m = -0.257128   c_off(f) predicted = -0.428619   predicted mean of Off_f = c_off + kappa/2 = 0.54828   measured 0.54820 (8 s)
