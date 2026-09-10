@@ -301,37 +301,53 @@ $D\in\{-4,-3,5,8,12\}$ and $h\in\{1,2,3,5\}$, and~\eqref{eq:multiplicative} for 
 Sali\'e's evaluation should be pinned to a precise statement of the normalisation.}
 \end{proof}
 
-\begin{remark}[what has been achieved]\label{rem:achieved}
-Combining Lemmas~\ref{lem:bridge} and~\ref{lem:salie}, for even $k$ and admissible $d$ the coefficient of
-$W_k(s)$ is, up to the elementary factor $\varepsilon_d^{-1}d^{-1/2}$, a Kloosterman sum of half-integral weight with
-the two arguments $D$ and $(k\bar u/2)^2$. The first argument is fixed by the polynomial; the second is a square, and
-it is where the frequency and the dilation sit. This is the shape to which the Kuznetsov formula of weight one half
-applies, and it explains the two features of the numerical law of \S\ref{sec:numerics}: the \emph{eigenvalues} that
-appear are those of the automorphic spectrum of weight one half, hence, through the Shimura correspondence, those of
-the Maass forms of $\mathrm{SL}_2(\Z)$; and the \emph{amplitudes} are products of two Fourier coefficients, one at
-$D$ and one at a square, the first being the Katok--Sarnak period of \S\ref{sec:ks} and the second, by Shimura's
-relation for coefficients at squares, a Hecke eigenvalue of the lift.
+\begin{remark}[what Lemma~\ref{lem:salie} does and does not give]\label{rem:achieved}
+Combining Lemmas~\ref{lem:bridge} and~\ref{lem:salie}, for even $k$ and admissible $d$ the coefficient of $W_k(s)$
+is, up to the elementary factor $\varepsilon_d^{-1}d^{-1/2}$, a Kloosterman sum of half-integral weight with the two
+arguments $D$ and $(k\bar u/2)^2$: the first fixed by the polynomial, the second carrying the frequency and the
+dilation. This is the shape to which the Kuznetsov formula of weight one half applies, and it is the machinery behind
+every known estimate for these Weyl sums \emph{on average over the modulus} \cite{Hooley1963,DFI1995,DFI2012}.
+
+It is, however, \emph{not} the route to the oscillations observed in \S\ref{sec:numerics}, and it is worth saying
+why, because the distinction is easy to miss. Selberg's Kloosterman zeta function is normalised as
+$Z_{m,n}(\sigma)=\sum_cS(m,n;c)c^{-2\sigma}$, with poles at $\sigma=s_j$, $\lambda_j=s_j(1-s_j)$
+\cite[Theorem~1]{GoldfeldSarnak1983}, and their Remark~3 covers exactly our case, weight $\tfrac12$ on
+$\Gamma_0(4N)$. Tracing that normalisation through Lemma~\ref{lem:salie} and Proposition~\ref{prop:mellin} places the
+singularities of $A_u$ at $s=-\tfrac12+2it_j$ and predicts an oscillation of $\mathcal P^{(1)}_u(Y)/\sqrt Y$ at
+frequency $2t_j$. That prediction is false: fitted at the frequencies $2t_j$ the even set explains between $2.1\%$
+and $2.2\%$ of the variance and sits at the $43$rd to $69$th percentile of random frequency sets drawn from the same
+band, against the $99.7$th to $100$th percentile at the frequencies $t_j$ (\S\ref{sec:numerics};
+\texttt{scripts/piece-freq.ts}). The reason for the mismatch is that $Z_{m,n}$ sums over the \emph{modulus}, whereas
+$\mathcal P_u$ sums over the \emph{argument} $h$. The two are different analytic problems, and only the second
+produces the observed law.
 \end{remark}
 
-\paragraph{The continuation of $W_k$.} What is needed is the following, which we do not prove here.
+\paragraph{The argument-side expansion.} The route that does fit is Bykovski\u\i's \cite{Bykovskii1984}: write the
+sum over $h\le Y$ as a finite combination of Poincar\'e series for $\mathrm{SL}_2(\Z)$ and apply the spectral
+decomposition in weight $0$ and level $1$. There the parametrisation $\lambda_j=s_j(1-s_j)$, $s_j=\tfrac12+it_j$,
+produces terms $Y^{s_j}=\sqrt Y\,Y^{it_j}$ directly, exactly as the error term in the hyperbolic lattice-point
+problem does. This accounts at once for all four features of the data: the frequencies are the $t_j$ themselves, the
+scale is $\sqrt Y$, the spectrum is that of level $1$ and weight $0$, and the forms that can appear are those pairing
+non-trivially with the Heegner points or the closed geodesics of discriminant $D$, which by
+Proposition~\ref{prop:parity} are the even ones. What is needed is the following.
 
 \begin{hypothesis}[K]\label{hyp:K}
-For each $k\ge1$ and each admissible class of moduli, $W_k(s)$ continues meromorphically to $\Re s>\tfrac12$, with at
-most simple poles at $s=\tfrac12\pm it_j$, $\tfrac14+t_j^2$ running over the Laplace eigenvalues of the weight-$\tfrac12$
-spectrum of level $4u^2$, with residues
+Let $u=1$ and let $\mathcal G$ be the model object~\eqref{eq:model}. There are $\delta>0$ and coefficients
+$\alpha_j(D)$ such that
 \[
-\operatorname*{Res}_{s=\frac12+it_j}W_k(s)=\gamma(t_j)\,\overline{\rho_j(|D|)}\,\rho_j\bigl((k/2)^2\bigr)\,(1+o(1))
+\mathcal G(Y)=c_DY+\sqrt Y\sum_{j}\bigl(\alpha_j(D)Y^{it_j}+\overline{\alpha_j(D)}Y^{-it_j}\bigr)+O\bigl(Y^{1/2-\delta}\bigr),
 \]
-in the normalisation of \cite{DFI2012}, and with polynomial growth in $|\Im s|$ on vertical lines in $\Re s>\tfrac12+\delta$.
+the sum over the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ with $\lambda_j=\tfrac14+t_j^2$, converging by the decay
+of $\alpha_j$ in $t_j$, and with $\alpha_j(D)$ proportional to the Katok--Sarnak period $\mathrm{Per}_D(u_j)$.
 \end{hypothesis}
 
-For $u=1$ and $k$ fixed this is in substance the content of Bykovski\u\i's spectral treatment of Hooley's sums
-\cite{Bykovskii1984} and of \cite[\S\S2--4]{DFI2012}; the two features that are not in the literature are the
-uniformity in $k$, needed because~\eqref{eq:rieszweyl} sums over $k$ with weight $1/k$, and the uniformity in the
-level $4u^2$, needed because the Ces\`aro conjecture sums over $u$ (\S\ref{sec:uniformity}). \todo{Section to be
-completed: the precise form of the Kuznetsov formula for the theta multiplier (Proskurin), the admissibility sieve on
-the moduli (M\"obius over $\ell^2$ and the split condition, as in part~III, Lemma~2.1), and the twist by
-$\lambda=1*\kappa$.}
+For fixed $D$ this is in substance the content of Bykovski\u\i's spectral treatment of the divisor sums
+$\sum_{|n|\le P}\sigma_{-s}(n^2+D)$ \cite{Bykovskii1984}, which is where an asymptotic of this shape was first
+obtained; what we require beyond it is the identification of the oscillating terms, their amplitudes and the error
+exponent. \todo{Section to be completed: the Poincar\'e series decomposition of the sum over $h$, the spectral
+expansion in weight $0$ and level $1$, the identification of $\alpha_j$ through Katok--Sarnak, and the passage from
+the model object to the squarefree and $\lambda$-weighted pieces. Lemmas~\ref{lem:bridge} and~\ref{lem:salie} are
+retained because they are what any estimate of the remainder will use.}
 
 \section{Katok--Sarnak and the parity rule}\label{sec:ks}
 
