@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,array,caption,placeins,microtype,xcolor}
+\usepackage{pgfplots}\pgfplotsset{compat=1.18}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\C}{\mathbb C}
+\newcommand{\e}{\mathrm e}\newcommand{\Off}{\mathrm{Off}}\newcommand{\rep}[2]{\langle #1\rangle_{#2}}
+\newcommand{\todo}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
+
+\title{The pair singular series of a polynomial IV:\\ the second spectrum}
+\author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
+carried out with heavy use of a large language model; see the disclosure at the end.}}
+\date{Working draft of \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Part~III reduced the Ces\`aro form of the off-diagonal of the pair singular series of an irreducible quadratic $f$
+to ``pieces'' $\mathcal P_u(Y)$, one for each way the two roots of $f$ can agree on a part $u$ of the modulus, and
+showed that everything except the pieces' ``windows'' is understood. This paper is about what the pieces actually
+are. Numerically each piece is $O(\sqrt Y)$, and $\mathcal P_u(Y)/\sqrt Y$ oscillates in $\log Y$ at the Laplace
+eigenvalues of the \emph{even} Maass cusp forms of $\mathrm{SL}_2(\Z)$, with amplitudes governed by the values of
+the forms at the Heegner points, or their integrals over the closed geodesics, of discriminant $D$: a second
+spectrum, next to the zeros of $\zeta_K$ that govern the diagonal (part~II). We explain this by an explicit
+formula: the piece is a twisted Walfisz sum whose Dirichlet series is a sum over frequencies of Dirichlet series
+of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues to the half-line with poles at
+$\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. We
+prove the formula for a single piece in Riesz-mean form [\todo{target}], discuss the uniformity in $u$ that the
+Ces\`aro conjecture of part~I needs, and report the numerical evidence.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+\paragraph{In plain terms.} Parts~I and~II showed that the main part of the fluctuation of prime values of a
+polynomial is governed by the zeros of a Dedekind zeta function. The remaining part, the ``off-diagonal'' of
+part~III, turns out to be governed by a second, entirely different spectrum: the Laplace eigenvalues of the
+modular surface, the same numbers that govern the distribution of the roots of $x^2\equiv D\pmod d$ (Hooley,
+Bykovski\u\i, Duke--Friedlander--Iwaniec). Only half of them appear, those of the even forms, and the size of each
+contribution is the value of the corresponding eigenfunction at a special point, or its integral along a special
+closed curve, determined by the discriminant of the polynomial. We found this in the data before we had the
+theory; the theory, once written down, predicts exactly the pattern of presence and absence that the data show.
+
+\paragraph{Set-up.} Notation as in part~III: $f=t^2+bt+c$, $D=b^2-4c$, $\lambda(p)=p/(p-2\omega(p))$; for squarefree
+$u$ with $\omega(u)\ge1$ and $Q_u(x)=u^2x^2-D$,
+\[
+\mathcal P_u(Y)=\sum_{h\le Y}(Y-h)\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)-\tfrac12(\mathbb EF_u-1)Y,\qquad
+F_u(n)=\sum_{\substack{d\mid n\\ d\ \mathrm{admissible}}}\frac{\lambda(d)}d,\qquad \mathbb EF_u=\sum_{d\ \mathrm{adm}}\frac{\lambda(d)\omega(d)}{d^2},
+\]
+admissible meaning squarefree, all primes split, coprime to $2Du$. Part~III, Theorem~A$'$:
+$\Off^\ast_f(H)=c_{\mathrm{off}}(f)H+\sum_{u\le H^{2/3+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)+O(H(\log H)^{1-c})$, and the
+Ces\`aro form of Conjecture~1 of part~I is equivalent to the windows being $o(H\log H)$.
+
+\paragraph{Results.}
+\begin{itemize}
+\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:spectral}, \todo{to be proved}): for fixed $f$ and $u$,
+and Riesz means of order $m\ge m_0$,
+\[
+\mathcal P^{(m)}_u(Y)=c_{u}Y+Y^{1/2}\sum_{j}\bigl(\alpha_j(u,f)Y^{it_j}+\overline{\alpha_j(u,f)}Y^{-it_j}\bigr)\,\gamma_m(t_j)+O(Y^{1/2-\delta}),
+\]
+the sum over the even Maass cusp forms $u_j$ of $\mathrm{SL}_2(\Z)$ with Laplace eigenvalue $\tfrac14+t_j^2$ (and, for
+$u>1$, the newforms of the levels dividing $u^2$), with $\alpha_j(u,f)$ an explicit multiple of the Katok--Sarnak period
+of $u_j$ at discriminant $D$, and $\gamma_m(t)\ll|t|^{-m-1}$.
+\item \emph{Numerical confirmation} (\S\ref{sec:numerics}): for five quadratics the even parameters explain the
+variance of $\mathcal P_u(Y)/\sqrt Y$ at the $92$nd--$100$th percentile among random frequency sets, the odd ones at the
+$12$th--$66$th; the dominant line $t_1=13.7798$ has stable amplitude and phase over two decades of $\log Y$; the two
+polynomials with exponentially small periods ($D=-8,-163$) show nothing.
+\item \emph{What the Ces\`aro conjecture needs} (\S\ref{sec:uniformity}): the sum of the pieces over $u\le H^{2/3}$
+converges to $c_{\mathrm{off}}H+o(H)$ provided the spectral formula holds with an error $O((H/u)^{1/2+\varepsilon}u^{A})$,
+$A<\tfrac14$; the level dependence of the Kuznetsov formula is therefore the whole remaining problem.
+\end{itemize}
+
+\section{The piece as a twisted Walfisz sum}\label{sec:walfisz}
+\todo{Sawtooth identity $S_u(t)=\sum_d(\lambda(d)/d)\sum_{x\in R^{(u)}_d}(\tfrac12-\{(t-x)/d\})$; Fourier form;
+Dirichlet series $\sum_kk^{s-2}\Gamma$-factor$\cdot W_k(s)$, $W_k(s)=\sum_d\lambda(d)\rho_k(d)d^{-s}$; comparison with
+the classical $\sum_{n\le x}\frac1n(\tfrac12-\{x/n\})=O((\log x)^{2/3})$ (Walfisz) and with the diagonal of part~I.}
+
+\section{Sali\'e sums and the Kuznetsov formula of weight one half}\label{sec:salie}
+\todo{Weyl sums of quadratic roots as Sali\'e sums (DFI 1995 \S2); the dilation as a fractional frequency; Kuznetsov
+for the theta multiplier on $\Gamma_0(4)$ (Proskurin) and its use by Bykovski\u\i\ 1984 and DFI 2012; continuation of
+$W_k(s)$ to $\Re s>\tfrac12$; the admissibility sieve; the twist $\lambda=1*\kappa$.}
+
+\section{Katok--Sarnak and the parity rule}\label{sec:ks}
+\todo{Statement of the Katok--Sarnak correspondence; residues as periods; vanishing for odd forms at $i$, $\rho$, over
+conjugate pairs of Heegner points and reflection-symmetric geodesics; the level $4u^2$ and oldforms.}
+
+\section{The spectral formula for a piece}\label{sec:formula}
+\begin{theorem}[\todo{target}]\label{thm:spectral}
+\todo{statement as in the introduction, with the precise hypotheses on $u$ and $m_0$.}
+\end{theorem}
+
+\section{Numerical evidence}\label{sec:numerics}
+\todo{Table of NOTES-routeR.md \S1; figure of $\mathcal P_1(Y)/\sqrt Y$ for $t^2-2$ against the fitted even lines;
+stability of amplitudes and phases; scripts.}
+
+\section{Uniformity in $u$ and the Ces\`aro conjecture}\label{sec:uniformity}
+\todo{The condition $A<\tfrac14$; what the spectral large sieve gives; the windows of part~III in spectral terms.}
+
+\section*{AI-assisted research: disclosure}
+This work was carried out with heavy use of a large language model, the Anthropic model Claude Fable 5.1, used
+interactively by the author in September 2026 as a research assistant. The author posed the questions, set the
+direction and the scope, and made every decision about what to pursue, claim and submit. The model was used to draft
+mathematical arguments, to write and run the software behind every number in the paper, to search the literature,
+and to draft the text; all of this was done in dialogue with the author, who verified the code and the numerical
+results, reviewed the proofs, and takes full responsibility for the content. The model is not an author. The
+complete record of the work is in the public repository \url{https://github.com/gewure/ulamnd} (directory \texttt{research/}).
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}
