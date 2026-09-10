@@ -83,7 +83,7 @@ D_f(s)=\sum_da_f(d)d^{-s}=\zeta_K(s+1)E_f(s),\qquad K=\Q[t]/(f),\qquad\Res_{s=0}
 \]
 and it conjectured (Conjecture~1 there)
 \begin{equation}\label{eq:conj}
-\Sigma_f(H)=-\tfrac12\,C(f)\log H+A_f+o(1),
+\Sigma^\ast_f(H):=\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+A_f+o(1),
 \end{equation}
 a theorem for linear $f$ (Friedlander--Goldston, Vaughan, Montgomery--Soundararajan) and equivalent, in
 Ces\`aro form, to the statement that the off-diagonal contributes no logarithm (``Hypothesis~(E)''). This
@@ -309,7 +309,7 @@ Galois group of $f$, at a predictable place.
 $M_{f,K}$ is \emph{not} $1+O(p^{-2})$ at the level of individual primes: the mixed term $2\omega^2uv/(1+\omega v)$
 is of size $p^{-1-\Re w}$. In the numerical work these terms are extracted as well
 ($[\zeta(w+1)L(w+1,\chi_D)]^4$, $[\zeta(2w+1)L(2w+1,\chi_D)]^{-8}$, \dots\ for quadratics) so that the
-remaining product converges like $\sum p^{-2}$; see \texttt{explicit-diag.py}.
+remaining product converges like $\sum p^{-2}$; see \texttt{research/paper-II/scripts/explicit-diag.py}.
 \end{remark}
 
 \subsection{Quadratics: the exponents in closed form}
@@ -600,7 +600,7 @@ $D_f(1)=\wpDfone$, $C(f)=\wpC$ (from $L(1,\chi_{-4})=\pi/4$ and $M_{f,K}(0)$; pa
 $1.3728134628\dots$), $c_{f,2}=-0.454974899864$, $c_{f,3}=-0.333569719058$, and the coefficients
 $Q_{m,\rho}$ for the zeros with $\gamma\le100$ are computed as Taylor coefficients of
 $(s-\rho/2+1)^{\mathrm{ord}}G_m(s)$ by trapezoidal Cauchy integrals on circles of radius $0.015$
-(\texttt{explicit-diag.py}; $M_{f,K}$ with $K=15$ and primes up to $4\cdot10^6$, with the tails of the
+(\texttt{scripts/explicit-diag.py}; $M_{f,K}$ with $K=15$ and primes up to $4\cdot10^6$, with the tails of the
 mixed terms handled by the prime number theorem). The table of the first
 coefficients is item~(C1) of Appendix~\ref{app:comp}.
 
@@ -970,8 +970,8 @@ Riemann hypothesis for $\zeta_{\Q(\sqrt D)}$?
 \appendix
 \section{Computational programme}\label{app:comp}
 
-Every number in this paper comes from \texttt{followup/scripts/riesz-raw.ts} (exact Riesz means; seconds)
-and \texttt{followup/scripts/explicit-diag.py} (exponents, constants, residues by Cauchy integrals,
+Every number in this paper comes from \texttt{research/paper-II/scripts/riesz-raw.ts} (exact Riesz means; seconds)
+and \texttt{research/paper-II/scripts/explicit-diag.py} (exponents, constants, residues by Cauchy integrals,
 comparison; about $25$ minutes with primes to $4\cdot10^6$ and ordinates to $100$; residues cached). The
 following items are specified for execution elsewhere; none is needed for the theorems.
 \begin{itemize}
@@ -989,14 +989,14 @@ $\omega_f(p)$. A day of programming, hours of computing per polynomial.
 Extend to $10^9$ (memory-bound: two doubles per $h$; segment the sieve) to gain $4.6$ units of $\log H$ and a
 resolution of $0.45$, and repeat for $t^2+t+41$ and $t^2-2$; then decide about the second spectrum.
 \item[(C5)] The function-field explicit formula for $f=t^2-D$ over $\F_q[u]$, $q=3,5,7$: $L$-polynomials,
-exponents (Table~\ref{tab:exponents}), residues on circles, comparison with \texttt{thesis/ff.ts}. A day.
+exponents (Table~\ref{tab:exponents}), residues on circles, comparison with \texttt{research/experiments/ff.ts}. A day.
 \item[(C6)] Raw Riesz means to $x=10^9$ by a segmented sieve of $A_f(n)$, extending the $\log x$ range from
 $8.3$ to $11.5$ and separating the ordinates $12.99$ and $14.13$. Hours, $\ge16$ GB or a segmented rewrite.
 \end{itemize}
 
 \section*{Data and code}
-\texttt{followup/scripts/riesz-raw.ts}, \texttt{followup/scripts/explicit-diag.py},
-\texttt{followup/scripts/gen-wp0.py}; results in \texttt{followup/data/}. Part~I's code is in \texttt{thesis/}.
+\texttt{research/paper-II/scripts/riesz-raw.ts}, \texttt{research/paper-II/scripts/explicit-diag.py},
+\texttt{research/paper-II/scripts/gen-wp0.py}; results in \texttt{research/paper-II/data/}. Part~I's code is in \texttt{research/experiments/}.
 
 \section*{Statement on authorship and the use of AI}
 The questions, the direction of the research and the decisions about scope were the first author's; the

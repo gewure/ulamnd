@@ -11,9 +11,13 @@ Two things live in this repository, deliberately separated:
   d-dimensional Ulam spiral. It imports the math library from `research/lib`; nothing in the papers depends on it.
 
 Commands (from the repository root): `npm run dev` (workbench), `npm run test` (library tests),
-`npm run thesis` (paper I's experiment suite), `npx tsx research/paper-I/gen-macros.ts` (regenerate paper I's
-numbers), `cd research/paper-II && ~/.local/bin/tectonic main.tex` (compile a paper). Python scripts use
-`~/.venvs/ulamnd/bin/python` (mpmath, numpy).
+`npm run thesis` (paper I's experiment suite), `npx tsx research/experiments/<script>.ts` (one experiment; each
+script's header states its runtime), `npx tsx research/paper-I/gen-macros.ts` (regenerate paper I's numbers from the
+JSON results). The papers compile with any TeX Live 2023+ or with [tectonic](https://tectonic-typesetting.github.io):
+`cd research/paper-II && tectonic main.tex` (pgfplots, booktabs, hyperref; no shell escape). The Python scripts in
+`research/paper-II/scripts` and `research/paper-III/scripts` need Python 3.11+ with `mpmath` and `numpy`
+(`python -m venv .venv && .venv/bin/pip install mpmath numpy`). Every number, table and figure in the papers is
+generated from files in this repository; `research/experiments/REPORT-full.md` and the `data/` directories hold the raw results.
 
 ---
 

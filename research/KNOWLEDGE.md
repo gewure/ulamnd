@@ -8,12 +8,16 @@ For an irreducible polynomial f, the pair singular series S_f(h) is the explicit
 Hardy–Littlewood) governs simultaneous primality of f(t), f(t+h). Paper I (v7, submitted by the author)
 proves an exact identity for Σ_{h≤H}(S_f(h) − C(f)²), splits it into a diagonal (equal roots mod d) with
 Dirichlet series ζ_K(s+1)E_f(s) of residue 1/C(f), and an off-diagonal (distinct roots), and conjectures
-Σ = −½C(f) log H + A_f + o(1) ("Conjecture 1"; linear-in-C). Paper II (draft, 19 pp) determines E_f completely
+Σ*_f(H) = Σ_{h≤H}(1−h/H)(S_f−C²) = −½C(f) log H + A_f + o(1) ("Conjecture 1"; linear-in-C; the sharp sum only
+to O(1) — v7 said o(1) for the sharp sum, which is false, corrected in v8 on 11 Sep, F15). Paper II (draft, 19 pp) determines E_f completely
 (infinite product of Artin L-functions of virtual characters Ψ_N; Ψ_2 = −Sym²V; natural boundary Re s = −1),
 proves the RH-conditional explicit formula for the diagonal with zeros of ζ_K and pair-field zetas, an
 unconditional Ω_±(x^{m−3/4}), verifies it numerically for t²+1, and reformulates the off-diagonal (Hypothesis
 (E)) as the holomorphy of one Dirichlet series O_f. Paper III (planned) proves Hypothesis (E) in Cesàro form
-for quadratics. Nothing here proves anything about primes; all prime statements need Hardy–Littlewood.
+for quadratics; as of 11 Sep it has, unconditionally: the far moduli (trivial), the small moduli (weighted
+Kowalski–Soundararajan), and the pieces u > H^{2/3+ε}, which carry a MAIN TERM c_off(f)·H with an explicit
+constant (−0.1344 for t²+1, confirmed numerically to 3 digits). Nothing here proves anything about primes; all
+prime statements need Hardy–Littlewood.
 
 ## 1. Timeline (all 2026)
 - 8 Sep. Ulam-nD workbench built to test the author's thesis (higher-dimensional Ulam spirals, Fibonacci
@@ -52,6 +56,17 @@ for quadratics. Nothing here proves anything about primes; all prime statements 
   Theorem A conditional on W; Theorem B (F_q[u]) unconditional.
 - 10 Sep. Second opinion (Claude Opus 5.1, via the author) assessed below; Alberts's survey checked:
   Kurokawa–Moroz criterion covers Frobenian coefficients only, not our 1/p dependence.
+- 11 Sep. Rigorous pass on paper III, part 1. (a) Prop KSw proved in full (Shiu + Dickman-type Rankin lemma).
+  (b) The far moduli d' > u²Y of piece u are O(Y/u²) by a trivial argument — no equidistribution needed. (c) The
+  Type II theorem as drafted ("≪ H^{1−δ}") was FALSE: the pieces with u ≍ H do not cancel; the dilation average
+  of the Cesàro weight is −log p/(p−1) for a prime modulus and 0 for composite (Lemma Gbar), giving
+  Σ_{u>H^{2/3+ε}} w(u)P_u(H/u) = c_off(f) H + O(H^{1−δ}), c_off = −Σ_p λ(p)M_p log p/(p(p−1)) over split p. For
+  t²+1: c_off = −0.134390; measured mean of Off_f(t) to 10⁷ is −0.0098 ± 0.0007 against predicted
+  c_off + (1−D_f(1))/2 = −0.00978. The near-cancellation is why Off_f looked mean-zero in paper II. (d) Range of
+  the dilation averaging is u > H^{2/3+ε}, not H^{1/2+ε} (Parseval over the units costs √φ(d')). (e) Under
+  Hypothesis W(θ,B) the window needs 4B < 1−θ, not B < 1−θ; DFI's (3/4, 1/4) does not satisfy it — W needs
+  square-root cancellation. (f) Paper I's Conjecture 1 (o(1), sharp) found false (parity of t²+1); v7 was submitted
+  with it. Corrected to v8 (Cesàro form); exact test redone in Cesàro form: α = 1.001 ± 0.001, k = 0.498 (F15, F16).
 
 ## 2. What is proved, conjectured, refuted (status board)
 PROVED (paper I): exact identity; ζ_K(s+1)E_f(s) with residue 1/C; E_f = H_f/L(2s+2,Sym²V) with H_f abs. conv.
@@ -106,13 +121,29 @@ F14. "The twisted phase e(kH/d) is the obstacle" (paper III, first draft, 10 Sep
     every dilation; Shiu instead of the sieve for the weights) makes the small moduli of every piece
     unconditional. The real core is the WINDOW d' ∈ (Y, u²Y] (interval shorter than the period), self-dual
     under Hooley's reflection, empty for u = 1, where a log-saving loses a factor log u. (Paper III §3.2, §5.1.)
+F15. "Σ_{h≤H}(S_f(h) − C²) = −½C log H + A_f + o(1)" (paper I, Conjecture 1, v1–v7, SUBMITTED). False for every f with
+    a residue class of h where S_f vanishes (t²+1: odd h) — the sharp sum oscillates by C² forever. The Cesàro
+    form is what Theorem 6 controls and what was meant. Process lesson: an erratum recorded on 10 Sep as "worth a
+    line when you next touch paper I" was not applied before the author submitted. RULE: an erratum to a
+    statement in the abstract/conjecture/theorem is applied the same day, or the paper is marked "do not submit".
+F16. "The finite-H coefficient is 0.86 of ½, systematically short over three decades, explained by the drift of
+    A_f" (paper I v6–v7, §4). Artefact of measuring the sharp sum at two endpoints: each endpoint carries an O(1)
+    oscillation, ±0.1 in slope/C after dividing by log 10³. In Cesàro form the coefficient is 0.498 ± 0.003 in
+    every decade. RULE: measure the quantity the theorem controls (here the Cesàro sum), never a sharp cut-off of
+    an oscillating sum.
+F17. "Σ_{u>H^{1/2+ε}} w(u)P_u(H/u) ≪ H^{1−δ}" and "Off* ≪ H^{1−δ} under W" (paper III first draft, 10 Sep). The
+    pieces with bounded length Y = H/u do not cancel: the Cesàro weight sees the gap between the discrete count of
+    roots (integers ≥ 1) and the continuous expectation Y²/(2d'). Main term c_off(f)·H with an explicit constant;
+    the correct conjecture is Off*_f(H) = c_off H + o(H), and the Cesàro constant A_f contains C²c_off. Also the
+    averaging range is u > H^{2/3+ε}. RULE (again F12): compute the main term before claiming cancellation; the
+    F_q[u] result (−1/q main term) was already telling us the off-diagonal has one.
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
 ## 4. Paths and their ratings (10 Sep 2026)
 | # | path | rating | comment |
 |---|------|--------|---------|
-| P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (structure done 10 Sep) | Written: pieces, u=1, Type II, reflection; open = Hypothesis W for 1 < u ≤ √H. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
+| P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (rigorous pass 11 Sep: KSw, far moduli, Type II with c_off proved) | Unconditional: small moduli (log-saving), far moduli (trivial), u > H^{2/3+ε} (main term c_off H). Open = the window (Y, u²Y] for 1 < u ≤ H^{2/3}; Hypothesis W needs 4B < 1−θ, i.e. square-root cancellation in dilated Weyl sums — NOT a uniformity extension of DFI. Honest framing: W is a hard open problem. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
 | P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep; Thm B proved for N ≤ 2, D = u) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
 | P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
 | P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★☆☆☆ (was ★★★, 10 Sep) | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |

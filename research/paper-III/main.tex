@@ -28,7 +28,7 @@
 
 \begin{abstract}
 For an irreducible quadratic $f$ with pair singular series $S_f(h)$ and Bateman--Horn constant $C(f)$,
-parts~I and~II reduced the conjecture $\sum_{h\le H}(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+A_f+o(1)$ to a statement
+parts~I and~II reduced the conjecture $\sum_{h\le H}(1-h/H)(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+A_f+o(1)$ to a statement
 about the pairs of distinct roots of $f$ modulo squarefree $d$ (``Hypothesis~(E)''), and showed that in
 Ces\`aro form any unbounded saving over the trivial bound suffices. This paper takes Hypothesis~(E) apart. We
 prove an exact decomposition of the Ces\`aro off-diagonal into pieces indexed by the part $u$ of the modulus on
@@ -742,9 +742,9 @@ that $S_f$ has mean value $C(f)^2$ (part~I, Theorem~2), and $\sum_dW_f(d)\omega(
 
 \paragraph{Numerical check for $f=t^2+1$.} Here $w(2u')=4A_0\lambda(u')\omega(u')$ with $A_0=\prod_{p\equiv1(4)}P_p=0.51747684\ldots$
 ($w$ vanishes on odd $u$, see the set-up), $D_f(1)=0.75079081\ldots$ (part~II), and~\eqref{eq:coff} evaluates to
-$c_{\mathrm{off}}(t^2+1)=-0.134390$ (\texttt{scripts/coff.py}: $m=0.728431$, prime sum $0.184492$ over $p\equiv1\ (4)$, $p\le2\cdot10^6$).
+$c_{\mathrm{off}}(t^2+1)=-0.134390$ (\texttt{research/paper-III/scripts/coff.py}: $m=0.728431$, prime sum $0.184492$ over $p\equiv1\ (4)$, $p\le2\cdot10^6$).
 The corollary then predicts the mean of $\Off_f(t)$ to be $-0.134390+0.124605=-0.00978$. The exact values of
-$\Off_f(t)$ for all $t\le10^7$ (\texttt{scripts/offstar-mean.ts}, from the identity of part~I with the constants of part~II)
+$\Off_f(t)$ for all $t\le10^7$ (\texttt{research/paper-III/scripts/offstar-mean.ts}, from the identity of part~I with the constants of part~II)
 have the following means over consecutive dyadic blocks ending at $2^{17},\dots,2^{23}$:
 \[
 -0.0106,\quad-0.0101,\quad-0.0096,\quad-0.0115,\quad-0.0088,\quad-0.0099,\quad-0.0096,
@@ -947,7 +947,7 @@ with $c_N(D)$ as in Remark~\ref{rem:config}; in particular $\Off_f(N)=-1/q+O(q^{
 $N\le2$ unless $\deg D\le N$, where it is $-2/q+O(q^{-3/2})$.
 \end{conjecture}
 
-Table~\ref{tab:offq} and Figure~\ref{fig:offq} give the exact values for $D=u$, $u^2+1$, $u^3+u$ (\texttt{scripts/offq.ts}).
+Table~\ref{tab:offq} and Figure~\ref{fig:offq} give the exact values for $D=u$, $u^2+1$, $u^3+u$ (\texttt{research/paper-III/scripts/offq.ts}).
 They agree with the conjecture in every case: $q\,\Off_f(N)$ is near $-2$ for $(N,\deg D)=(1,1),(2,1),(2,2)$ and
 near $-1$ for $(1,2),(1,3),(2,3)$; for $(3,1)$ with all moduli only $q\le7$ is available and the values $-4.9,-2.5,-2.0$
 are still descending. Since the main term comes from the moduli of degree $N+1$ alone (the others contribute
@@ -986,7 +986,7 @@ $u^3+u$ & 2 & 17, 19, 23 & $-0.79$, $-1.31$, $-1.26$ & $1.68$, $2.16$, $2.13$ & 
 \legend{$N=1$ ($=-qT_{\exp}$),$N=2$,$N=3$,$-2$}
 \end{axis}
 \end{tikzpicture}
-\caption{Exact values of $q\,\Off_f(N)$ for $f=t^2-u$ (\texttt{scripts/offq.ts}; $N=3$ needs all squarefree moduli
+\caption{Exact values of $q\,\Off_f(N)$ for $f=t^2-u$ (\texttt{research/paper-III/scripts/offq.ts}; $N=3$ needs all squarefree moduli
 of degree $\le6$ and was computed for $q\le7$). Theorem~\ref{thm:B} gives the limit $-2$ for $N=1,2$;
 Conjecture~\ref{conj:kappa} predicts $-1$ for $N=3$. The $N=1$ values approach $-2$ from below like $-2-5/q$.}
 \label{fig:offq}
@@ -1023,11 +1023,11 @@ several orbit types and a saving over the trivial bound is not enough (part~I, R
 
 \appendix
 \section{Computations}
-\texttt{scripts/offq.ts} computes $T_{\mathrm{act}}(N)$ and $T_{\exp}(N)$ exactly from the roots modulo every squarefree
+\texttt{research/paper-III/scripts/offq.ts} computes $T_{\mathrm{act}}(N)$ and $T_{\exp}(N)$ exactly from the roots modulo every squarefree
 $d$ of degree in $(N,M(N)]$ (the finite-support lemma of part~I), for $f=t^2-D$ with $D$ given by the environment
 variable \texttt{D}; the data for $D=u$ ($N\le2$ for the primes $q\le43$, $N\le3$ for $q\le7$) are in
-\texttt{data/offq*.dat}. The runs for $D=u^2+1$ ($q\le43$) and $D=u^3+u$ ($q\le23$) are in
-\texttt{data/offq-D2.log}, \texttt{data/offq-D3.log} and the tables \texttt{data/offq-D*-table.dat}. Over $\Z$ the exact off-diagonal of $t^2+1$ to $10^7$ is in part~II,
+\texttt{research/paper-III/data/offq*.dat}. The runs for $D=u^2+1$ ($q\le43$) and $D=u^3+u$ ($q\le23$) are in
+\texttt{research/paper-III/data/offq-D2.log}, \texttt{research/paper-III/data/offq-D3.log} and the tables \texttt{research/paper-III/data/offq-D*-table.dat}. Over $\Z$ the exact off-diagonal of $t^2+1$ to $10^7$ is in part~II,
 Section~5.3.
 
 \bibliographystyle{plain}

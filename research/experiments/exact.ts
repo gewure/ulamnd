@@ -4,11 +4,12 @@
  * truncated object is the absolutely convergent product P(1) = ∏ P_p (terms 1 + O(1/p²)), and C(f) is
  * computed through L(1,χ_{D₀}) (digamma formula) times an absolutely convergent correction.
  *
- * For each quadratic we compute Σ_f(H) = Σ_{h≤H}(S_f(h) − C²) at H = 10³,…,10⁶ and fit
- * slope := (Σ(10⁶) − Σ(10³))/log 10³ = −k·C^α across polynomials with C spanning more than a decade.
+ * For each quadratic we compute Σ_f(H) = Σ_{h≤H}(S_f(h) − C²) and its Cesàro form Σ*_f(H) = Σ_{h≤H}(1 − h/H)(S_f(h) − C²)
+ * at H = 10³,…,10⁶ and fit slope := (Σ(10⁶) − Σ(10³))/log 10³ = −k·C^α across polynomials with C spanning more
+ * than a decade (both forms; the Cesàro form is the headline, because the sharp sum oscillates by O(1) in H).
  * Conjecture 1 predicts α = 1 (and k → ½ slowly); the "C² law" predicts α = 2.
  *
- *   npx tsx thesis/exact.ts            (~ 2 min)
+ *   npx tsx research/experiments/exact.ts            (~ 2 min)
  */
 import { writeFileSync } from "node:fs";
 import { batemanHorn, pairSingularSeries, type IntPoly } from "../lib/poly";
@@ -241,21 +242,28 @@ function run(q: Quad) {
   }
   for (let h = 1; h <= H; h++) if (rem[h] > 1) mult[h] *= l34(rem[h]); // remaining cofactor > bound ≥ √Q is a prime
   // assemble Σ_f(H)
-  const sums: number[] = [];
-  let acc = 0,
-    ci = 0;
+  // Σ_f(H) = Σ_{h≤H}(S_f(h) − C²) (sharp) and the Cesàro form Σ*_f(H) = Σ_{h≤H}(1 − h/H)(S_f(h) − C²) = Σ_f(H) − (1/H) Σ_{h≤H} h (S_f(h) − C²).
+  // The sharp sum oscillates by O(1) between consecutive H (for t²+1 it drops by C² at every odd H, since S_f(h) = 0
+  // for odd h), so its value at a single endpoint is not a clean measurement; the Cesàro form is the quantity of
+  // Theorem 6, for which the conjecture has the form −½C log H + A_f + o(1).
+  const sums: number[] = [], sumsCes: number[] = [];
+  let acc = 0, accH = 0, ci = 0;
   const C2 = C * C;
   for (let h = 1; h <= H; h++) {
     let s = C2 * mult[h];
     for (const { p, tab } of specTab) s *= tab[h % p];
     if (s < -1e-9) throw new Error(`negative S_f(${h})`);
     acc += s - C2;
+    accH += h * (s - C2);
     if (h === CHECK[ci]) {
       sums.push(acc);
+      sumsCes.push(acc - accH / h);
       ci++;
     }
   }
-  return { name: name(q), a: q.a, b: q.b, c: q.c, D, C, Pgen, sums, slope: (sums[3] - sums[0]) / Math.log(1000), slopes: sums.slice(1).map((s, i) => (s - sums[i]) / Math.log(10)) };
+  const slopeOf = (v: number[]) => (v[3] - v[0]) / Math.log(1000);
+  const decades = (v: number[]) => v.slice(1).map((s, i) => (s - v[i]) / Math.log(10));
+  return { name: name(q), a: q.a, b: q.b, c: q.c, D, C, Pgen, sums, sumsCes, slope: slopeOf(sums), slopes: decades(sums), slopeCes: slopeOf(sumsCes), slopesCes: decades(sumsCes) };
 }
 
 // ---------------------------------------------------------------- validation against the definition (truncated product, P = 20000)
@@ -376,105 +384,67 @@ for (const q of chosen) {
   console.log(`${r.name.padEnd(14)} C=${f3(r.C, 4)} Σ(1e3..1e6)=${r.sums.map((s) => f3(s, 2)).join(" ")} slope/C=${f3(r.slope / r.C)} per-decade/C=${r.slopes.map((s) => f3(s / r.C, 2)).join(",")} (${((performance.now() - t0) / 1000).toFixed(1)}s)`);
 }
 recs.sort((x, y) => x.C - y.C);
-const Cs_ = recs.map((r) => r.C);
-// fit log(−slope) = log k + α log C
-const xs = recs.map((r) => Math.log(r.C)),
-  ys = recs.map((r) => Math.log(-r.slope));
-const n = xs.length,
-  mx = xs.reduce((a, b) => a + b) / n,
-  my = ys.reduce((a, b) => a + b) / n;
-let sxx = 0,
-  sxy = 0;
-for (let i = 0; i < n; i++) {
-  sxx += (xs[i] - mx) ** 2;
-  sxy += (xs[i] - mx) * (ys[i] - my);
-}
-const alphaLog = sxy / sxx,
-  logk = my - alphaLog * mx;
-let rss = 0;
-for (let i = 0; i < n; i++) rss += (ys[i] - logk - alphaLog * xs[i]) ** 2;
-const seAlphaLog = Math.sqrt(rss / (n - 2) / sxx);
-const kLog = Math.exp(logk);
-// direct nonlinear least squares slope_i = −k C_i^α (robust to a positive slope, which the log fit cannot take):
-// for each α the optimal k is closed-form; scan α, then standard errors from the Jacobian.
-const slopes = recs.map((r) => r.slope);
-let best = { alpha: 0, k: 0, rss: Infinity };
-for (let a = 0; a <= 3; a += 0.0005) {
-  const ca = Cs_.map((c) => c ** a);
-  const kk = -ca.reduce((acc, v, i) => acc + v * slopes[i], 0) / ca.reduce((acc, v) => acc + v * v, 0);
-  const r2 = slopes.reduce((acc, sl, i) => acc + (sl + kk * ca[i]) ** 2, 0);
-  if (r2 < best.rss) best = { alpha: a, k: kk, rss: r2 };
-}
-const alpha = best.alpha,
-  k = best.k;
-let seAlpha = 0,
-  seK = 0;
-{
-  // covariance σ² (JᵀJ)⁻¹, J_i = (∂/∂k, ∂/∂α) of −k C^α
-  let jkk = 0,
-    jka = 0,
-    jaa = 0;
-  for (let i = 0; i < n; i++) {
-    const ca = Cs_[i] ** alpha,
-      dk = -ca,
-      da = -k * ca * Math.log(Cs_[i]);
-    jkk += dk * dk;
-    jka += dk * da;
-    jaa += da * da;
-  }
-  const s2 = best.rss / (n - 2);
-  const det = jkk * jaa - jka * jka;
-  seAlpha = Math.sqrt((s2 * jkk) / det);
-  seK = Math.sqrt((s2 * jaa) / det);
-}
-const corr = (u: number[], w: number[]) => {
-  const mu = u.reduce((a, b) => a + b) / u.length,
-    mw = w.reduce((a, b) => a + b) / w.length;
-  let suw = 0,
-    suu = 0,
-    sww = 0;
-  for (let i = 0; i < u.length; i++) {
-    suw += (u[i] - mu) * (w[i] - mw);
-    suu += (u[i] - mu) ** 2;
-    sww += (w[i] - mw) ** 2;
-  }
-  return suw / Math.sqrt(suu * sww);
-};
 const Cs = recs.map((r) => r.C);
-const sC = recs.map((r) => r.slope / r.C),
-  sC2 = recs.map((r) => r.slope / r.C ** 2);
 const mean = (u: number[]) => u.reduce((a, b) => a + b) / u.length;
 const sd = (u: number[]) => Math.sqrt(mean(u.map((x) => (x - mean(u)) ** 2)));
-const fit = {
-  n,
-  seK,
-  alphaLog,
-  seAlphaLog,
-  kLog,
-  Cmin: Cs[0],
-  Cmax: Cs[n - 1],
-  alpha,
-  seAlpha,
-  k,
-  sigmaFrom1: (alpha - 1) / seAlpha,
-  sigmaFrom2: (alpha - 2) / seAlpha,
-  corrC: corr(sC, Cs),
-  corrC2: corr(sC2, Cs),
-  meanSlopeC: mean(sC),
-  sdSlopeC: sd(sC),
-  meanSlopeC2: mean(sC2),
-  sdSlopeC2: sd(sC2),
-  decade: [0, 1, 2].map((i) => ({ mean: mean(recs.map((r) => r.slopes[i] / r.C)), sd: sd(recs.map((r) => r.slopes[i] / r.C)) })),
+const corr = (u: number[], w: number[]) => {
+  const mu = mean(u), mw = mean(w);
+  let suw = 0, suu = 0, sww = 0;
+  for (let i = 0; i < u.length; i++) { suw += (u[i] - mu) * (w[i] - mw); suu += (u[i] - mu) ** 2; sww += (w[i] - mw) ** 2; }
+  return suw / Math.sqrt(suu * sww);
 };
-console.log(`\nfit slope = −k C^α over ${n} quadratics, C ∈ [${f3(Cs[0], 2)}, ${f3(Cs[n - 1], 2)}]:`);
-console.log(`  α = ${f3(alpha)} ± ${f3(seAlpha)}   k = ${f3(k)} ± ${f3(seK)}   (α=1: ${f3(fit.sigmaFrom1, 1)} se;  α=2: ${f3(fit.sigmaFrom2, 1)} se)`);
-console.log(`  [log-fit for comparison: α = ${f3(fit.alphaLog)} ± ${f3(seAlphaLog)}, k = ${f3(kLog)}]`);
-console.log(`  corr(slope/C, C) = ${f3(fit.corrC, 2)}   corr(slope/C², C) = ${f3(fit.corrC2, 2)}`);
-console.log(`  slope/C = ${f3(fit.meanSlopeC)} ± ${f3(fit.sdSlopeC)}   slope/C² = ${f3(fit.meanSlopeC2)} ± ${f3(fit.sdSlopeC2)}`);
-console.log(`  per-decade slope/C: ${fit.decade.map((d) => `${f3(d.mean)}±${f3(d.sd)}`).join("  ")}`);
-writeFileSync(OUT, JSON.stringify({ H, CHECK, PGEN, NOTAIL, PGEN_TAIL, validation: [v1, v2, v3, v4], fit, recs }, null, 1));
-if (OUT === "research/experiments/exact.json") writeFileSync("research/paper-I/data/exact.dat", "C slope slopeC slopeC2\n" + recs.map((r) => `${r.C} ${r.slope} ${r.slope / r.C} ${r.slope / r.C ** 2}`).join("\n") + "\n");
+/** Fit slope_i = −k C_i^α: logarithmic least squares and direct nonlinear least squares, plus the /C and /C² summaries. */
+function doFit(slopes: number[], perDecade: number[][]) {
+  const n = Cs.length;
+  // fit log(−slope) = log k + α log C
+  const xs = Cs.map((c) => Math.log(c)), ys = slopes.map((sl) => Math.log(-sl));
+  const mx = mean(xs), my = mean(ys);
+  let sxx = 0, sxy = 0;
+  for (let i = 0; i < n; i++) { sxx += (xs[i] - mx) ** 2; sxy += (xs[i] - mx) * (ys[i] - my); }
+  const alphaLog = sxy / sxx, logk = my - alphaLog * mx;
+  let rss = 0;
+  for (let i = 0; i < n; i++) rss += (ys[i] - logk - alphaLog * xs[i]) ** 2;
+  const seAlphaLog = Math.sqrt(rss / (n - 2) / sxx), kLog = Math.exp(logk);
+  // direct nonlinear least squares slope_i = −k C_i^α (robust to a positive slope, which the log fit cannot take):
+  // for each α the optimal k is closed-form; scan α, then standard errors from the Jacobian.
+  let best = { alpha: 0, k: 0, rss: Infinity };
+  for (let a = 0; a <= 3; a += 0.0005) {
+    const ca = Cs.map((c) => c ** a);
+    const kk = -ca.reduce((acc, v, i) => acc + v * slopes[i], 0) / ca.reduce((acc, v) => acc + v * v, 0);
+    const r2 = slopes.reduce((acc, sl, i) => acc + (sl + kk * ca[i]) ** 2, 0);
+    if (r2 < best.rss) best = { alpha: a, k: kk, rss: r2 };
+  }
+  const alpha = best.alpha, k = best.k;
+  let jkk = 0, jka = 0, jaa = 0;
+  for (let i = 0; i < n; i++) {
+    const ca = Cs[i] ** alpha, dk = -ca, da = -k * ca * Math.log(Cs[i]);
+    jkk += dk * dk; jka += dk * da; jaa += da * da;
+  }
+  const s2 = best.rss / (n - 2), det = jkk * jaa - jka * jka;
+  const seAlpha = Math.sqrt((s2 * jkk) / det), seK = Math.sqrt((s2 * jaa) / det);
+  const sC = slopes.map((sl, i) => sl / Cs[i]), sC2 = slopes.map((sl, i) => sl / Cs[i] ** 2);
+  return {
+    n, seK, alphaLog, seAlphaLog, kLog, Cmin: Cs[0], Cmax: Cs[n - 1], alpha, seAlpha, k,
+    sigmaFrom1: (alpha - 1) / seAlpha, sigmaFrom2: (alpha - 2) / seAlpha,
+    corrC: corr(sC, Cs), corrC2: corr(sC2, Cs),
+    meanSlopeC: mean(sC), sdSlopeC: sd(sC), meanSlopeC2: mean(sC2), sdSlopeC2: sd(sC2),
+    decade: [0, 1, 2].map((i) => ({ mean: mean(perDecade.map((d, j) => d[i] / Cs[j])), sd: sd(perDecade.map((d, j) => d[i] / Cs[j])) })),
+  };
+}
+const fit = doFit(recs.map((r) => r.slope), recs.map((r) => r.slopes));
+const fitCes = doFit(recs.map((r) => r.slopeCes), recs.map((r) => r.slopesCes));
+const n = fit.n;
+for (const [label, F] of [["sharp Σ_f", fit], ["Cesàro Σ*_f", fitCes]] as const) {
+console.log(`\n[${label}] fit slope = −k C^α over ${n} quadratics, C ∈ [${f3(Cs[0], 2)}, ${f3(Cs[n - 1], 2)}]:`);
+console.log(`  α = ${f3(F.alpha)} ± ${f3(F.seAlpha)}   k = ${f3(F.k)} ± ${f3(F.seK)}   (α=1: ${f3(F.sigmaFrom1, 1)} se;  α=2: ${f3(F.sigmaFrom2, 1)} se)`);
+console.log(`  [log-fit for comparison: α = ${f3(F.alphaLog)} ± ${f3(F.seAlphaLog)}, k = ${f3(F.kLog)}]`);
+console.log(`  corr(slope/C, C) = ${f3(F.corrC, 2)}   corr(slope/C², C) = ${f3(F.corrC2, 2)}`);
+console.log(`  slope/C = ${f3(F.meanSlopeC)} ± ${f3(F.sdSlopeC)}   slope/C² = ${f3(F.meanSlopeC2)} ± ${f3(F.sdSlopeC2)}`);
+console.log(`  per-decade slope/C: ${F.decade.map((d) => `${f3(d.mean)}±${f3(d.sd)}`).join("  ")}`);
+}
+writeFileSync(OUT, JSON.stringify({ H, CHECK, PGEN, NOTAIL, PGEN_TAIL, validation: [v1, v2, v3, v4], fit, fitCes, recs }, null, 1));
+if (OUT === "research/experiments/exact.json") writeFileSync("research/paper-I/data/exact.dat", "C slope slopeC slopeC2 slopeCes slopeCesC\n" + recs.map((r) => `${r.C} ${r.slope} ${r.slope / r.C} ${r.slope / r.C ** 2} ${r.slopeCes} ${r.slopeCes / r.C}`).join("\n") + "\n");
 if (OUT === "research/experiments/exact.json") writeFileSync(
   "research/paper-I/data/exact-rows.tex",
-  recs.map((r) => `$${r.name.replace(/\^2/g, "^{2}")}$ & ${r.D} & ${f3(r.C)} & ${f3(r.sums[0], 2)} & ${f3(r.sums[3], 2)} & ${f3(r.slope / r.C)} & ${f3(r.slope / r.C ** 2)} \\\\`).join("\n") + "\n\\bottomrule\n",
+  recs.map((r) => `$${r.name.replace(/\^2/g, "^{2}")}$ & ${r.D} & ${f3(r.C)} & ${f3(r.sumsCes[0], 2)} & ${f3(r.sumsCes[3], 2)} & ${f3(r.slopeCes / r.C)} & ${f3(r.slope / r.C)} & ${f3(r.slopeCes / r.C ** 2)} \\\\`).join("\n") + "\n\\bottomrule\n",
 );

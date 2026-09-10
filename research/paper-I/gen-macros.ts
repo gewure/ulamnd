@@ -334,7 +334,7 @@ if (existsSync("research/experiments/galois.json")) {
   mac("galTwoMean", f(mean(two))); mac("galTwoSd", f(sdv(two))); mac("galTwoN", String(two.length));
   mac("galNonMean", f(mean(non))); mac("galNonSd", f(sdv(non))); mac("galNonN", String(non.length));
 }
-// ---- exact C-versus-C² test for quadratics via the closed formula (thesis/exact.json)
+// ---- exact C-versus-C² test for quadratics via the closed formula (research/experiments/exact.json)
 if (existsSync("research/experiments/exact.json")) {
   const X = JSON.parse(readFileSync("research/experiments/exact.json", "utf8")) as {
     H: number;
@@ -376,6 +376,31 @@ if (existsSync("research/experiments/exact.json")) {
   mac("exFracHalf", f(-F.meanSlopeC / 0.5, 2));
   mac("exKone", f(-F.meanSlopeC));
   mac("exKtwo", f(-F.meanSlopeC2));
+  // Cesàro form Σ*_f(H) = Σ_{h≤H}(1 − h/H)(S_f(h) − C²): the quantity of Theorem 6, free of the O(1) oscillation of the sharp sum
+  const G = (X as unknown as { fitCes?: typeof F }).fitCes;
+  if (G) {
+    mac("exCesAlpha", f(G.alphaLog));
+    mac("exCesAlphaSe", f(G.seAlphaLog));
+    mac("exCesK", f(G.kLog));
+    mac("exCesAlphaLin", f(G.alpha));
+    mac("exCesAlphaLinSe", f(G.seAlpha));
+    mac("exCesKLin", f(G.k));
+    mac("exCesKLinSe", f(G.seK));
+    mac("exCesSigmaTwoMin", f(Math.min(Math.abs(G.sigmaFrom2), Math.abs(G.alphaLog - 2) / G.seAlphaLog), 0));
+    mac("exCesCorrC", f(G.corrC));
+    mac("exCesCorrCC", f(G.corrC2));
+    mac("exCesSlopeC", f(G.meanSlopeC));
+    mac("exCesSlopeCsd", f(G.sdSlopeC));
+    mac("exCesSlopeCC", f(G.meanSlopeC2));
+    mac("exCesSlopeCCsd", f(G.sdSlopeC2));
+    mac("exCesDecA", f(G.decade[0].mean));
+    mac("exCesDecB", f(G.decade[1].mean));
+    mac("exCesDecC", f(G.decade[2].mean));
+    mac("exCesDecAsd", f(G.decade[0].sd));
+    mac("exCesDecBsd", f(G.decade[1].sd));
+    mac("exCesDecCsd", f(G.decade[2].sd));
+    console.log(`exact (Cesàro): alpha = ${f(G.alpha)} ± ${f(G.seAlpha)}, slope/C = ${f(G.meanSlopeC)} ± ${f(G.sdSlopeC)}`);
+  }
   console.log(`exact: ${F.n} quadratics, alpha = ${f(F.alpha)} ± ${f(F.seAlpha)}`);
 }
 // ---- function-field computation (thesis/ff.json): identity with full weights and the off-diagonal remainder Off_f(N)

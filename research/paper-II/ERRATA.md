@@ -36,3 +36,37 @@
    description of E(s) as "~ 1/L(2s+2, π_f) · (abs. conv.)" should be read with the caveat above.
 
 None of this affects Theorems 2, 3, 5, 6, 8 or the conjecture. It affects only what the sequel is about.
+
+---
+
+# Errata for paper I v7 (the submitted version), found 10–11 September 2026; applied to main.tex as v8
+
+4. **Conjecture 1 is false as stated in the sharp form.** v7 reads Σ_{h≤H}(S_f(h) − C²) = −½C log H + A_f + o(1).
+   For f = t²+1, S_f(h) = 0 for every odd h, so Σ_f(H) drops by exactly C² = 1.8846 at every odd H and recovers
+   at the next even H, for all H; the sharp sum has no limit after subtracting −½C log H. The paper's own Theorem 6
+   controls the Cesàro sum Σ*_f(H) = Σ_{h≤H}(1 − h/H)(S_f(h) − C²), and the text elsewhere speaks of "the bounded
+   oscillation of Off_f", so the Cesàro form was always the intended one.
+   **Fix (v8):** Conjecture 1 states the Cesàro form with A_f + o(1), and the sharp form with O(1) as a consequence;
+   a paragraph after it explains the parity example and that A_f is defined through the Cesàro form. Papers II
+   and III quote the corrected form. (Found by us on 10 Sep; the erratum was recorded but not applied before
+   submission — a process failure, see KNOWLEDGE.md F15. The author should send the one-line correction to the
+   editor.)
+
+5. **The exact test measured the wrong quantity.** The fitted slope (Σ_f(10⁶) − Σ_f(10³))/log 10³ uses two sharp
+   endpoints of the oscillating sum, so each polynomial's slope/C carries an O(1)/log 10³ ≈ ±0.1 error that does not
+   average out. This produced the v7 statements "α = 0.92 ± 0.08 (log) / 1.19 ± 0.11 (unweighted)" and "the
+   coefficient is 0.86 of the asymptotic ½, systematically short over three decades", the latter explained by a
+   "drift of A_f". **Fix (v8):** research/experiments/exact.ts now also computes the Cesàro sum. Result over the same
+   25 quadratics: α = 1.001 ± 0.001 (log), 1.005 ± 0.002 (unweighted), k = 0.498 / 0.496 ± 0.002, mean slope/C =
+   −0.498 ± 0.003, per decade −0.496 ± 0.008, −0.499 ± 0.004, −0.500 ± 0.002. The Cesàro sum follows −½C log H to
+   three decimals for every polynomial in every decade; the "shortfall" was an artefact of the sharp cut-off.
+   Paper I §4 (exact test), Figure 2, Table 3, abstract and discussion rewritten accordingly; the sharp-sum fit
+   is kept as a secondary line with the explanation.
+
+6. **Stale code paths.** The papers cited `thesis/…`, `followup/…`, `paper/gen-macros.ts`; the repository was
+   restructured on 10 Sep into `research/experiments`, `research/paper-II/scripts`, `research/paper-I/gen-macros.ts`.
+   All references in the three papers, README and STATUS files updated; machine-specific paths (`~/.local/bin/tectonic`,
+   `~/.venvs/...`) removed from the READMEs; the repository URL is given in paper I's "Data and code".
+
+7. **Table 2 ("A_f/C")** estimates the constant from the sharp sum at H = 10⁵; the caption now says so and
+   points to the Cesàro test.

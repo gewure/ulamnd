@@ -61,7 +61,7 @@ Ces\`aro form of
 holds unconditionally for linear $f$ and, for general $f$, exactly when the sum over pairs of distinct
 roots is $o(H\log H)$. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
 rather than the second that a naive rescaling predicts; $\exN$ quadratics computed exactly to $H=10^6$
-give the exponent $\exAlpha\pm\exAlphaSe$. In plain terms: primes along any polynomial sequence fluctuate
+give the exponent $\exCesAlpha\pm\exCesAlphaSe$ and the coefficient $\exCesK$ against the predicted $\tfrac12$. In plain terms: primes along any polynomial sequence fluctuate
 less than independent coin flips would, by the mechanism that Montgomery and Soundararajan found for
 primes in short intervals, and the size of the effect is set by an $L$-function attached to the
 polynomial. Assuming the Hardy--Littlewood pair conjecture, the law $\Var/\E\to1-\log T/\log X$ therefore
@@ -100,10 +100,21 @@ the second-order term. Our main proposal is:
 \begin{conjecture}\label{conj}
 For every irreducible, integer-valued $f$ without fixed prime divisor,
 \begin{equation}\label{eq:conj}
-\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+A_f+o(1)\qquad(H\to\infty),
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+A_f+o(1)\qquad(H\to\infty),
 \end{equation}
-with a constant $A_f$ depending on $f$.
+with a constant $A_f$ depending on $f$, and consequently
+\begin{equation}\label{eq:conjsharp}
+\Sigma_f(H):=\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1).
+\end{equation}
 \end{conjecture}
+
+The Ces\`aro weight $1-h/H$ in~\eqref{eq:conj} is not a technicality. The sharp sum $\Sigma_f(H)$ oscillates by
+a bounded amount as $H$ varies and has no limit after subtracting $-\tfrac12C\log H$: for $f=t^2+1$, $S_f(h)=0$ for
+every odd $h$, so $\Sigma_f(H)$ drops by exactly $C(f)^2$ at every odd $H$ and recovers at the next even one, for
+all $H$. Only the Ces\`aro mean, which is the average of $\Sigma_f(H')$ over $H'<H$, can converge, and it is the Ces\`aro
+mean that the exact identity of Section~\ref{sec:sum} controls (Theorem~\ref{thm:smoothed}). The constant $A_f$ is
+defined by~\eqref{eq:conj}; in the sharp form only $O(1)$ can be claimed, and the numerical constants ``$A_f/C$'' of
+Section~\ref{sec:sum} are Ces\`aro constants.
 
 For $f(t)=t$ this is a theorem: $\sum_{h\le H}\Sig(h)=H-\tfrac12\log H+O((\log H)^{2/3})$, due to
 Friedlander and Goldston~\cite{FriedlanderGoldston1995} and Vaughan~\cite{Vaughan2001} after
@@ -539,14 +550,16 @@ ray polynomials of the spiral of Section~\ref{sec:spiral}, rational coefficients
 dividing $d!$, leading coefficient $2^d$); sixteen random integer polynomials each of degree $2,3,4$
 (coefficients in $[-60,60]$, leading coefficient in $[1,8]$); and six named polynomials including
 Euler's $t^2+t+41$, $t^2+1$ and $t^3+2$. Polynomials with a fixed divisor or a square discriminant were
-excluded. The script \texttt{thesis/sumS.ts} reproduces everything; no primes are used.
+excluded. The script \texttt{research/experiments/sumS.ts} reproduces everything; no primes are used.
 
 \begin{table}[htbp]
 \centering\footnotesize\setlength{\tabcolsep}{4.5pt}
 \caption{Growth of $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C^2)$. Slopes are increments per unit of
 $\log H$ over the indicated decade, divided by $C$ or by $C^2$ (mean $\pm$ s.d.\ over the polynomials of
-the group). $A_f/C$ is the constant term of~\eqref{eq:conj} estimated at $H=10^5$. Conjecture~\ref{conj}
-predicts $-0.50$ in the ``$/C$'' columns for every group.}\label{tab:sums}
+the group). $A_f/C$ is $(\Sigma_f(10^5)+\tfrac12C\log10^5)/C$, the constant term of the sharp form~\eqref{eq:conjsharp}
+at $H=10^5$, which differs from the Ces\`aro constant of~\eqref{eq:conj} by the bounded oscillation of the sharp
+sum. Conjecture~\ref{conj} predicts $-0.50$ in the ``$/C$'' columns for every group; the scatter here is that
+of the sharp sum, see the exact test below.}\label{tab:sums}
 \begin{tabular}{lrrrrrrr}
 \toprule
 group & $d$ & $n$ & mean $C$ & slope$/C$, $10^3$--$10^4$ & slope$/C$, $10^4$--$10^5$ & slope$/C^2$, $10^4$--$10^5$ & $A_f/C$\\
@@ -580,36 +593,41 @@ $C$ (no roots modulo any $p<41$) makes $S_f(h)/C^2$ vary most strongly with $h$.
 \centering
 \begin{tikzpicture}
 \begin{axis}[width=0.62\textwidth,height=0.42\textwidth,xmode=log,ymode=log,xlabel={$C(f)$},
-ylabel={$-\bigl(\Sigma_f(10^6)-\Sigma_f(10^3)\bigr)/\log10^3$},grid=major,grid style={gray!20},
+ylabel={$-\bigl(\Sigma^\ast_f(10^6)-\Sigma^\ast_f(10^3)\bigr)/\log10^3$},grid=major,grid style={gray!20},
 legend style={font=\scriptsize,at={(0.02,0.98)},anchor=north west},xmin=0.3,xmax=8,
 log ticks with fixed point,xtick={0.5,1,2,4,8},ytick={0.1,0.2,0.5,1,2,5}]
 \addplot[domain=0.3:8,samples=2,black,dashed] {0.5*x};
 \addlegendentry{$\tfrac12C$ (Conjecture~\ref{conj}, asymptotic)}
 \addplot[domain=0.3:8,samples=2,red!70!black,dotted,thick] {\exKtwo*x^2};
-\addlegendentry{$\exKtwo\,C^2$ (best $C^2$ law)}
-\addplot[domain=0.3:8,samples=2,blue!60!black] {\exK*x^\exAlpha};
-\addlegendentry{fit $\exK\,C^{\exAlpha}$}
-\addplot+[only marks,mark=*,mark size=1.6pt,blue!60!black] table[x=C,y expr=-\thisrow{slope}]{data/exact.dat};
+\addlegendentry{$\exKtwo\,C^2$ (best $C^2$ law, sharp)}
+\addplot[domain=0.3:8,samples=2,blue!60!black] {\exCesK*x^\exCesAlpha};
+\addlegendentry{fit $\exCesK\,C^{\exCesAlpha}$ (Ces\`aro)}
+\addplot+[only marks,mark=*,mark size=1.6pt,blue!60!black] table[x=C,y expr=-\thisrow{slopeCes}]{data/exact.dat};
+\addlegendentry{Ces\`aro $\Sigma^\ast_f$}
+\addplot+[only marks,mark=o,mark size=1.4pt,gray] table[x=C,y expr=-\thisrow{slope}]{data/exact.dat};
+\addlegendentry{sharp $\Sigma_f$}
 \end{axis}
 \end{tikzpicture}
-\caption{The exact test. For $\exN$ quadratics the slope of $\Sigma_f(H)$ per unit of $\log H$ over
-$10^3\le H\le10^6$, computed from the closed formula of Theorem~\ref{thm:quadratic} with no
-truncation of the $h$-dependent part, against $C(f)$ on logarithmic axes. A law $-kC^\alpha$ is a straight line of
-slope $\alpha$; the logarithmic fit gives $\alpha=\exAlpha\pm\exAlphaSe$ (unweighted: $\exAlphaLin\pm\exAlphaLinSe$). The dashed line is the conjectured
-asymptotic $\tfrac12C$; the finite-$H$ points lie below it by the drift of the constant term
-(Table~\ref{tab:exact}).}\label{fig:exact}
+\caption{The exact test. For $\exN$ quadratics the slope per unit of $\log H$ over $10^3\le H\le10^6$ of the
+Ces\`aro sum $\Sigma^\ast_f(H)=\sum_{h\le H}(1-h/H)(S_f(h)-C^2)$ (filled) and of the sharp sum $\Sigma_f(H)$ (open),
+computed from the closed formula of Theorem~\ref{thm:quadratic} with no truncation of the $h$-dependent part,
+against $C(f)$ on logarithmic axes. A law $-kC^\alpha$ is a straight line of slope $\alpha$; for the Ces\`aro sum
+the logarithmic fit gives $\alpha=\exCesAlpha\pm\exCesAlphaSe$, $k=\exCesK$, indistinguishable from the dashed line
+$\tfrac12C$ of Conjecture~\ref{conj}. The sharp points scatter around the same line by the bounded oscillation
+of $\Sigma_f(H)$ in $H$ (Table~\ref{tab:exact}).}\label{fig:exact}
 \end{figure}
 
 \begin{table}[htbp]
 \centering\footnotesize\setlength{\tabcolsep}{5pt}
-\caption{The exact test for $\exN$ quadratics ($H\le10^6$; \texttt{thesis/exact.ts}). $\Sigma_f(H)$ is
-computed from Theorem~\ref{thm:quadratic} by sieving $h$ and $Q(h)=a^2h^2-D$; $C(f)$ from
-$L(1,\chi_{D_0})$ and an absolutely convergent correction. Slope is the increment per unit of $\log H$
-between $H=10^3$ and $10^6$. Conjecture~\ref{conj} predicts $-0.50$ asymptotically in the ``$/C$'' column
-for every $f$; a $C^2$ law would put a constant in the ``$/C^2$'' column.}\label{tab:exact}
-\begin{tabular}{lrrrrrr}
+\caption{The exact test for $\exN$ quadratics ($H\le10^6$; \texttt{research/experiments/exact.ts}). The Ces\`aro
+sum $\Sigma^\ast_f(H)=\sum_{h\le H}(1-h/H)(S_f(h)-C^2)$ is computed from Theorem~\ref{thm:quadratic} by sieving $h$ and
+$Q(h)=a^2h^2-D$; $C(f)$ from $L(1,\chi_{D_0})$ and an absolutely convergent correction. Slope is the increment per
+unit of $\log H$ between $H=10^3$ and $10^6$, for the Ces\`aro sum and (``sharp'') for $\Sigma_f(H)$ itself.
+Conjecture~\ref{conj} predicts $-0.50$ in the ``$/C$'' column for every $f$; a $C^2$ law would put a constant in
+the ``$/C^2$'' column.}\label{tab:exact}
+\begin{tabular}{lrrrrrrr}
 \toprule
-$f$ & $D$ & $C(f)$ & $\Sigma_f(10^3)$ & $\Sigma_f(10^6)$ & slope$/C$ & slope$/C^2$\\
+$f$ & $D$ & $C(f)$ & $\Sigma^\ast_f(10^3)$ & $\Sigma^\ast_f(10^6)$ & slope$/C$ & sharp$/C$ & slope$/C^2$\\
 \midrule
 \input{data/exact-rows.tex}
 \end{tabular}
@@ -640,43 +658,44 @@ We checked the implementation against the definition~\eqref{eq:S} for four quadr
 truncating both at the same set of primes: the two agree to $\exRatioSpread$ in relative terms, i.e.\ to
 rounding, including the vanishing values. The tail correction matters: a relative error $\delta$ in
 $\prod_pP_p$ enters $\Sigma_f(H)$ as a drift $\delta C^2H$, i.e.\ $0.07C^2$ at $H=10^6$ for $P=2\cdot10^6$
-without it, which biases the fitted exponent towards $2$. Without the correction the logarithmic fit
-below gives $\alpha=0.81$, $0.87$ and $0.91$ at $P=10^6$, $2\cdot10^6$ and $10^7$ (and no meaningful fit at
-$P=10^5$, where the drift dominates the last decade); with it, $\alpha=\exAlpha$ at $P=2\cdot10^6$, in
-agreement with the $P=10^7$ value. We then chose $\exN$ irreducible quadratics without fixed
-divisor, $a\le7$, with $C(f)$ spread uniformly in $\log C$ over $[\exCmin,\exCmax]$, a lever arm of more
-than a decade in $C$, and fitted
+without it, which biases the fitted exponent towards $2$ (without the correction the sharp-sum fit below
+gives $\alpha=0.81$, $0.87$ and $0.91$ at $P=10^6$, $2\cdot10^6$ and $10^7$; with it, the $P=2\cdot10^6$ and $P=10^7$
+values agree). We then chose $\exN$ irreducible quadratics without fixed divisor, $a\le7$, with $C(f)$ spread
+uniformly in $\log C$ over $[\exCmin,\exCmax]$, a lever arm of more than a decade in $C$, and fitted
 \[
-\frac{\Sigma_f(10^6)-\Sigma_f(10^3)}{\log10^3}=-k\,C(f)^\alpha
+\frac{\Sigma^\ast_f(10^6)-\Sigma^\ast_f(10^3)}{\log10^3}=-k\,C(f)^\alpha,\qquad
+\Sigma^\ast_f(H)=\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr),
 \]
 in two ways (Table~\ref{tab:exact}, Figure~\ref{fig:exact}): by least squares on
 $\log(-\text{slope})$ against $\log C$, which weights every polynomial equally in relative terms, and by
 unweighted least squares on the slopes themselves, which weights the large-$C$ polynomials more. The
 results are
 \[
-\alpha=\exAlpha\pm\exAlphaSe,\ k=\exK\quad\text{(logarithmic)};\qquad
-\alpha=\exAlphaLin\pm\exAlphaLinSe,\ k=\exKLin\pm\exKLinSe\quad\text{(unweighted)},
+\alpha=\exCesAlpha\pm\exCesAlphaSe,\ k=\exCesK\quad\text{(logarithmic)};\qquad
+\alpha=\exCesAlphaLin\pm\exCesAlphaLinSe,\ k=\exCesKLin\pm\exCesKLinSe\quad\text{(unweighted)},
 \]
-respectively $\exSigmaOne$ and $\exSigmaOneLin$ standard errors from $\alpha=1$, and $\exSigmaTwo$ and
-$\exSigmaTwoLin$ from $\alpha=2$; the correlation of slope$/C$ with $C$ is $\exCorrC$, that of
-slope$/C^2$ with $C$ is $\exCorrCC$. The two fits bracket $\alpha=1$ and both exclude $\alpha=2$: the
-first power of $C$ is the law. The mean slope$/C$ is $\exSlopeC\pm\exSlopeCsd$
-(standard error $\exSlopeCse$), i.e.\ $k$ is about $\exFracHalf$ of the asymptotic $\tfrac12$; by decades
-the mean slope$/C$ is $\exDecA$, $\exDecB$, $\exDecC$ over $10^3$--$10^4$, $10^4$--$10^5$,
-$10^5$--$10^6$. The finite-$H$ slope is thus systematically short of $\tfrac12$ over three decades. This
-is what the exact identity predicts: the diagonal $-C^2\sum_da_f(d)\{H/d\}$ approaches
-$\frac1{2C}\log H$ only as the mean of $\{H/d\}$ against $a_f(d)$ settles to $\tfrac12$, and the drift of
-that mean over $d\le H$, together with the bounded oscillation of $\mathrm{Off}_f$, is the slowly varying
-$A_f$ of~\eqref{eq:conj}. The individual slopes scatter by $\pm\exSlopeCsd$ around the mean; this
-scatter, not the standard error of the fit, is the honest uncertainty of the coefficient at $H=10^6$,
-and the value $\tfrac12$ is a prediction of Theorem~\ref{thm:dirichlet}, not a measurement.
+against the prediction $\alpha=1$, $k=\tfrac12$ of Conjecture~\ref{conj}, and more than $\exCesSigmaTwoMin$ standard
+errors from $\alpha=2$; the correlation of slope$/C$ with $C$ is $\exCesCorrC$, that of slope$/C^2$ with $C$ is
+$\exCesCorrCC$. The mean slope$/C$ is $\exCesSlopeC\pm\exCesSlopeCsd$ over the $\exN$ polynomials, and by decades
+$\exCesDecA\pm\exCesDecAsd$, $\exCesDecB\pm\exCesDecBsd$, $\exCesDecC\pm\exCesDecCsd$ over $10^3$--$10^4$, $10^4$--$10^5$,
+$10^5$--$10^6$: the Ces\`aro sum follows $-\tfrac12C\log H$ to three decimal places, for every polynomial and in every
+decade, exactly as Theorem~\ref{thm:smoothed} predicts for the diagonal once $\mathrm{Off}^\ast_f(H)/H$ is bounded.
+
+The same fit for the sharp sum $\Sigma_f(H)$ gives $\alpha=\exAlpha\pm\exAlphaSe$ (logarithmic) and
+$\exAlphaLin\pm\exAlphaLinSe$ (unweighted), mean slope$/C$ $\exSlopeC\pm\exSlopeCsd$, and by decades $\exDecA$, $\exDecB$,
+$\exDecC$ with scatter $\pm\exDecAsd$, $\pm\exDecBsd$, $\pm\exDecCsd$; the $C^2$ law is excluded there too, but the scatter is
+forty times larger. The difference is entirely the bounded oscillation of $\Sigma_f(H)$ in $H$: the sharp sum evaluated
+at the two endpoints $10^3$ and $10^6$ carries an $O(1)$ term that does not average out, which is why the sharp
+form of Conjecture~\ref{conj} can only be stated with $O(1)$, and it is what an earlier version of this paper misread
+as a coefficient ``systematically short of $\tfrac12$''. The Ces\`aro sum is the quantity the exact identity
+controls, and it should be the quantity one measures.
 
 \paragraph{The off-diagonal remainder is bounded (Hypothesis~(E) for quadratics).} For $\offN$
 quadratics (the named ones and random ones with coefficients in $[-60,60]$) we computed both sides
 of~\eqref{eq:split}: the left side from the pair series ($p\le\sumsP$), the diagonal sum
 $\sum_da_f(d)\{H/d\}$ exactly over squarefree $d\le\offDmax$ with $\omega_f(p)$ from Legendre symbols
 (the tail is about $H/(C\cdot\offDmax)$), and $\mathrm{Off}_f(H)$ as the difference
-(Table~\ref{tab:off}; script \texttt{thesis/offdiag.ts}). Between $H=10^3$ and $H=10^5$ the two sides grow
+(Table~\ref{tab:off}; script \texttt{research/experiments/offdiag.ts}). Between $H=10^3$ and $H=10^5$ the two sides grow
 by $\offSumGrowth$ and $\offDiagGrowth$ times $\frac1{2C}\log H$ respectively (averages over the
 $\offN$ polynomials), while $\mathrm{Off}_f(H)$ stays bounded: mean $\offMeanHigh$, standard deviation
 $\offSdHigh$, largest absolute value $\offMaxAbsHigh$ at $H=10^5$, and its change over the two decades is
@@ -815,10 +834,10 @@ beyond the linear case, and Lemma~\ref{lem:support} says exactly which finite fa
 requires.
 
 \paragraph{Exact computation.} Theorem~\ref{thm:ff} and Lemma~\ref{lem:support} can be checked exactly,
-and we did so in two independent ways. First (\texttt{thesis/ff.ts}), for each nonzero $h$ of degree $<N$,
+and we did so in two independent ways. First (\texttt{research/experiments/ff.ts}), for each nonzero $h$ of degree $<N$,
 $S_f(h)/(C^2P(1))$ is a finite product over the primes dividing $h(h^2-4D)$; the two diagonal sums are
 computed from the local data (the series through $A_f(1)$), and $\mathrm{Off}_f(N)$ follows from the
-identity by subtraction. Second (\texttt{thesis/ff-tail.ts}), $\mathrm{Off}_f(N)$ is computed from
+identity by subtraction. Second (\texttt{research/experiments/ff-tail.ts}), $\mathrm{Off}_f(N)$ is computed from
 Lemma~\ref{lem:support}: the finite sum from the roots of $f$ modulo every squarefree $d$ of degree
 $\le M(N)$ with all prime factors split or ramified, assembled by the Chinese remainder theorem, and the
 series from the two identities; for the $\fftailBruteN$ smallest cases the finite sum was recomputed by
@@ -834,7 +853,7 @@ $\ffOffSwing$, with no sign of growth.
 \begin{table}[htbp]
 \centering\footnotesize\setlength{\tabcolsep}{4pt}
 \caption{The function-field identity of Theorem~\ref{thm:ff} for $f=t^2-D$ over $\F_q[u]$
-(\texttt{thesis/ff.ts}): the left side (LHS), $\sum_{1\le\deg d\le N}a_f(d)$ and its increment from $N-1$
+(\texttt{research/experiments/ff.ts}): the left side (LHS), $\sum_{1\le\deg d\le N}a_f(d)$ and its increment from $N-1$
 to $N$ (limit $1/C(f)$), the diagonal tail $q^N\sum_{\deg d>N}a_f(d)/|d|$ (limit $1/(C(f)(q-1))$), and
 the off-diagonal remainder $\mathrm{Off}_f(N)$, conjectured $O(1)$.}\label{tab:ff}
 \begin{tabular}{rlrrrrrrrrr}
@@ -847,7 +866,7 @@ $q$ & $D$ & $C(f)$ & $1-P(1)$ & $N$ & $\#h$ & LHS & $\sum a_f$ & incr. & diag.\ 
 
 \begin{table}[htbp]
 \centering\footnotesize\setlength{\tabcolsep}{5pt}
-\caption{Lemma~\ref{lem:support} checked (\texttt{thesis/ff-tail.ts}): the finite sum
+\caption{Lemma~\ref{lem:support} checked (\texttt{research/experiments/ff-tail.ts}): the finite sum
 $\sum_{N<\deg d\le M(N)}W_f(d)A_N(d)$ over the $\#d$ squarefree moduli with all prime factors split or
 ramified, the series $q^N\sum_{\deg d>N}W_f(d)(\omega_f(d)^2-\omega_f(d))/|d|$, their difference, and
 $\mathrm{Off}_f(N)$ obtained independently from the $S_f(h)$ through Theorem~\ref{thm:ff}
@@ -931,7 +950,7 @@ part $\beta>\tfrac12$ would produce a term of size $x^{m-1+\beta/2}$.
 
 The proposition invites a test: compute the Riesz means, remove the main terms, and look in the residual for
 oscillations $\cos(\tfrac{\gamma}{2}\log x)$. We did this for $f=t^2+1$ in two versions
-(\texttt{thesis/riesz.ts}, \texttt{thesis/riesz-diag.ts}, \texttt{thesis/riesz-fit.ts}).
+(\texttt{research/experiments/riesz.ts}, \texttt{riesz-analysis.ts}, \texttt{riesz-diag.ts}, \texttt{riesz-fit.ts}).
 
 \emph{Full sum.} By Theorem~\ref{thm:quadratic}, $S_f(h)$ is computable exactly by sieving $h$ and
 $h^2+4$; we did so for all $h\le\rieszX$, formed $R_m(x)=\sum_{h\le x}(x-h)^mS_f(h)$ at $4096$ points
@@ -992,7 +1011,7 @@ distinct roots modulo $d$ could therefore add a logarithm to $\Sigma_f(H)$ and b
 of $-\tfrac12$. We tested this on $\galNonN$ polynomials with non-$2$-transitive groups (Shanks' simplest
 cubics $t^3-at^2-(a+3)t-1$, $t^4-c$, and $C_4$, $V_4$ quartics; the group was verified from the
 distribution of $\omega_f(p)$) against $\galTwoN$ with $S_3$ or $S_4$ (Table~\ref{tab:galois};
-\texttt{thesis/galois.ts}). The slope of $\Sigma_f(H)/C$ over $10^3\le H\le10^5$ averages
+\texttt{research/experiments/galois.ts}). The slope of $\Sigma_f(H)/C$ over $10^3\le H\le10^5$ averages
 $\galNonMean\pm\galNonSd$ for the non-$2$-transitive groups and $\galTwoMean\pm\galTwoSd$ for the
 $2$-transitive ones. The means agree with each other and with the finite-$H$ value expected from
 Section~\ref{sec:sumnum}; the scatter between individual polynomials is $3$--$5$ times larger when the
@@ -1041,7 +1060,7 @@ below $3.3\cdot10^{23}$). The Euler products for $C$ and $S_f$ are truncated at 
 ($d\le2$), $8000$ ($d=3$), $3000$ otherwise. Standard errors are bootstrap over the polynomials of a
 cell. As a control, for every polynomial and $T$ the same number of integers is drawn uniformly at random
 from $[f(t_0),f(t_0+T)]$ and passed through the identical primality and weighting code; its dispersion
-$\Phi_{\mathrm{rand}}$ must be $1$. Everything is generated by \texttt{thesis/variance.ts} from a fixed
+$\Phi_{\mathrm{rand}}$ must be $1$. Everything is generated by \texttt{research/experiments/variance.ts} from a fixed
 seed.
 
 \begin{table}[htbp]
@@ -1121,7 +1140,7 @@ the same degree sit at visibly different $\Phi$ for the same $\rho$ in Figure~\r
 $p\le5000$; the predicted variances at $T\ge1600$ then came out negative for many polynomials. With
 $p\le20000$ they are positive and correct. $\Sigma_f(H)$ inherits the conditional convergence of the
 Euler product, and for five test quadratics moving the truncation from $5000$ to $60000$ still changes
-$\Sigma_f(3200)$ by $5$--$20\%$ (\texttt{thesis/trunc.ts}); numerical work on second moments of prime
+$\Sigma_f(3200)$ by $5$--$20\%$ (\texttt{research/experiments/trunc.ts}); numerical work on second moments of prime
 values of polynomials must control this (see~\cite{Volfson2026} for tail estimates).
 
 \FloatBarrier
@@ -1165,7 +1184,7 @@ by exact finite differences at $t\ge2\max|b_i|+2$ and was checked on $\tOneRays$
 dimensions $2$--$7$. The spiral was the starting point of this work: the first author asked whether its
 ``pseudo-patterns'' become polynomial in higher dimensions, whether the Fibonacci dimensions are special,
 and whether the patterns might be quasiperiodic. Theorem~\ref{thm:poly} answers the first question; the
-other two have negative answers, documented in the repository (\texttt{thesis/REPORT-full.md}): along
+other two have negative answers, documented in the repository (\texttt{research/experiments/REPORT-full.md}): along
 random rays the number of primes agrees with Bateman--Horn within one standard error in every dimension,
 the line-to-line dispersion of prime counts inside a box is reproduced by the spread of the constants
 $C(f)$ alone, the Fibonacci dimensions are indistinguishable from their neighbours, and the diffraction
@@ -1189,10 +1208,10 @@ Conjecture~\ref{conj} for linear $f$ and its reduction for general $f$ to $\math
 (Hypothesis~(E) for the constant term), and the vanishing of the small-modulus off-diagonal over
 $\F_q[u]$ together with the finite support of what remains (Lemma~\ref{lem:support}). Proposition~\ref{thm:explicit} rests on transplanting the proof of Goldston and Suriajaya,
 which we have sketched but not written out. What is numerical is the rest: for $\exN$ quadratics computed
-exactly to $H=10^6$ with $C$ spanning more than a decade the slope of $\Sigma_f$ scales as
-$C^{\alpha}$ with $\alpha=\exAlpha\pm\exAlphaSe$ ($\exAlphaLin\pm\exAlphaLinSe$ unweighted), excluding
-the $C^2$ law; the coefficient is about $\exFracHalf$ of the
-asymptotic $\tfrac12$ at these $H$, as the drift of $A_f$ predicts; the off-diagonal remainder of
+exactly to $H=10^6$ with $C$ spanning more than a decade the slope of the Ces\`aro sum $\Sigma^\ast_f$ scales as
+$C^{\alpha}$ with $\alpha=\exCesAlpha\pm\exCesAlphaSe$ and coefficient $\exCesK$ against the predicted $\tfrac12$,
+excluding the $C^2$ law (the sharp sum gives $\alpha=\exAlpha\pm\exAlphaSe$ with a scatter set by its bounded
+oscillation in $H$); the off-diagonal remainder of
 quadratics is bounded to $10^5$ and the function-field tail to $N=\ffNmax$; and the prime counts along
 polynomial sequences have the variance that~\eqref{eq:varHL2} predicts, with the finite-$T$ excess of the
 deficit accounted for by the constant terms $A_f$.
@@ -1228,13 +1247,15 @@ higher moments should be computable by the same means.
 \section*{Data and code}
 
 All code (TypeScript), the raw results and the scripts that generate every number, table and figure of
-this paper from them are in the repository accompanying the manuscript: \texttt{thesis/sumS.ts},
-\texttt{thesis/exact.ts}, \texttt{thesis/offdiag.ts}, \texttt{thesis/ff.ts}, \texttt{thesis/ff-tail.ts}
+this paper from them are in the repository accompanying the manuscript
+(\url{https://github.com/gewure/ulamnd}, directory \texttt{research/}; the experiment scripts run from the repository
+root with \texttt{npx tsx <path>}, and \texttt{research/experiments/REPORT-full.md} lists them): \texttt{research/experiments/sumS.ts},
+\texttt{research/experiments/exact.ts}, \texttt{research/experiments/offdiag.ts}, \texttt{research/experiments/ff.ts}, \texttt{research/experiments/ff-tail.ts}
 (Section~\ref{sec:sum}),
-the \texttt{riesz} scripts and \texttt{thesis/galois.ts} (Section~\ref{sec:riesz}),
-\texttt{thesis/variance.ts} (Section~\ref{sec:primes}),
-\texttt{thesis/run.ts} (Section~\ref{sec:spiral} and the negative results),
-\texttt{paper/gen-macros.ts} (tables). Random seeds are fixed.
+the \texttt{riesz} scripts and \texttt{research/experiments/galois.ts} (Section~\ref{sec:riesz}),
+\texttt{research/experiments/variance.ts} (Section~\ref{sec:primes}),
+\texttt{research/experiments/run.ts} (Section~\ref{sec:spiral} and the negative results),
+\texttt{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
 
 \section*{Statement on authorship and the use of AI}
 
