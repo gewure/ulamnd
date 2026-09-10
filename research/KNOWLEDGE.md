@@ -88,6 +88,15 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep (night). Step 4 of paper IV REDONE ELEMENTARILY, and it needs no continuation theorem at all: expand psi in
+  Fourier, pair against the Whittaker expansion of u_j (the x-integral forces n = 2k, so only even-index coefficients
+  survive), substitute y = w/beta, and use two standard facts -- the small-argument expansion
+  K_{i tau}(x) = (1/2)[Gamma(-i tau)(x/2)^{i tau} + c.c.] + O(x^2) and int_0^inf w^{sigma-1} sin w dw =
+  Gamma(sigma) sin(pi sigma/2). Both verified numerically. This yields <Phi^+_t, u_j> = t^{-1/2}(A_j t^{-i t_j} + c.c.),
+  hence Y^{1/2 +- i t_j} after the Riesz mean. It EXPLAINS both tested facts: the frequencies are t_j (because the
+  Bessel expansion gives x^{+- i t_j}, not x^{+- 2 i t_j}) and the phase carries (sqrt|D|/2)^{i t_j}, i.e. exactly the
+  (t_j/2) log|D| shift confirmed to a median of 0.012 rad. The Proposition claiming square-root cancellation was
+  WITHDRAWN: its proof used Goldfeld-Sarnak's P_m, a different series (F25).
 - 12 Sep. HOOLEY'S SUM: the prediction tested on the barest object, T_k(X) = sum_{d<=X} sum_{b^2=D(d)} e(kb/d),
   which Hooley 1963 bounds by X^{3/4+eps}. Found: T_1(X)/sqrt(X) BOUNDED (square-root cancellation); even spectrum at
   96-100th percentile for six discriminants, 2t_j rejected at 12.7th; and the parameter-free phase prediction agrees
@@ -290,6 +299,12 @@ F20. "No Maass lines in Off_f(H) ⇒ the second-spectrum idea is dead" (paper II
     numerically), with the spectrum of level 4u² and weight 1/2 — the sharp Off_f(H) is a different, bounded object
     and the SL₂(Z) parameters are not the relevant ones. RULE: before a null spectral test, derive which spectrum and
     which observable the theory predicts; a null on the wrong observable proves nothing.
+F25. "Goldfeld-Sarnak's continuation of the Poincare series P_m(z,s) applies to our orbit sum, so Hooley's sum has
+    square-root cancellation" (paper IV, Proposition of 12 Sep, WITHDRAWN the same day). Their P_m carries e(m*gamma z)
+    -- whose imaginary part gives an exponential decay e^{-2 pi m Im(gamma z)}, putting it in L^2 -- while our series
+    carries only e(m Re gamma z) and is NOT in L^2. Different object; the citation does not apply. Caught by reading
+    the original PDF, which was on disk from the literature round. RULE: read the definition in the source before
+    citing a theorem about it, especially after a first mis-citation in the same argument.
 F24. "The spectral poles come from the Kloosterman zeta function of the MODULUS (Goldfeld-Sarnak), so the piece
     oscillates at 2 t_j" (paper IV Section 3, Hypothesis K as first written, 12 Sep). The bookkeeping is right for
     that route -- GS normalise Z(s) = sum_c S c^{-2s}, poles at s_j, giving 2 t_j after the Hurwitz/Mellin step -- but

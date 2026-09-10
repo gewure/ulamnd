@@ -249,3 +249,25 @@ the one used in 1g, and a barer one. This is the strongest evidence in the proje
 Note the standalone interest: "the partial sums of the Weyl sums of a quadratic congruence exhibit square-root
 cancellation with an explicit spectral expansion over the even Maass forms of SL_2(Z), with amplitudes the
 Katok-Sarnak periods" is a statement about Hooley's classical sum, independent of the singular-series programme.
+
+## 1j. STEP 4 DONE ELEMENTARILY (12 Sep night) -- and a second mis-citation caught
+Reading the Goldfeld-Sarnak PDF (on disk from the literature round) showed their Poincare series is
+P_m(z,s) = sum (Im gamma z)^s e(m * gamma z) -- note e of gamma z, whose imaginary part contributes
+e^{-2 pi m Im(gamma z)}, an exponential DECAY which is why they can say P_m is in L^2. Our series carries only
+e(m Re gamma z). Different object; the citation does not apply, and the square-root-cancellation Proposition built on
+it is withdrawn (F25).
+It turns out none of it was needed. Step 4 is elementary:
+  Phi^+_t(z) = (y/pi) sum_k k^{-1} sin(2 pi k a) cos(4 pi k x),  a = 2 t y / sqrt|D|
+  <Phi^+_t, u_j> = sum_k (a_j(2k)/(pi k)) I_k,  I_k = int_0^inf y^{-1/2} sin(beta_k y) K_{i t_j}(alpha_k y) dy
+                   with alpha_k = 4 pi k, beta_k = 4 pi k t / sqrt|D|   [x-integral forces n = 2k]
+  y = w/beta_k, then K_{i tau}(x) = (1/2)[Gamma(-i tau)(x/2)^{i tau} + c.c.] + O(x^2)  (verified, rel err 1e-6 at x<=0.1)
+  and int_0^inf w^{sigma-1} sin w dw = Gamma(sigma) sin(pi sigma / 2)  (verified)
+  => I_k = beta_k^{-1/2} [ C_j (sqrt|D|/(2t))^{i t_j} + c.c. ] + O((sqrt|D|/t)^2)
+  => <Phi^+_t, u_j> = t^{-1/2}(A_j(D) t^{-i t_j} + c.c.),  and Riesz => Y^{1/2 +- i t_j}.
+EXPLAINS BOTH TESTED FACTS: frequency t_j (the Bessel expansion gives x^{+- i t_j}); and the phase factor
+(sqrt|D|/2)^{i t_j}, i.e. the (t_j/2) log|D| shift confirmed to a median of 0.012 rad. The derivation is now
+self-contained apart from the spectral decomposition itself.
+NOTE on amplitudes: this derivation also predicts a factor beta^{-1/2} ~ |D|^{1/4}, i.e. amplitude ~ |D|^{-1/4} Per/|Gamma_z|.
+Tested: that fits WORSE than |D|^{-1/2} Per/|Gamma_z| (spread 0.63-5.66 vs 0.39-2.71). So the amplitude's D-dependence
+is still not pinned down -- do not claim it. The PHASE is the robust prediction.
+REMAINING for a theorem: convergence of the sum over j (which Riesz order), and the Eisenstein/cusp treatment.

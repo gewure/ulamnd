@@ -458,70 +458,64 @@ in which the geometric factor is precisely the Katok--Sarnak period $\mathrm{Per
 Proposition~\ref{prop:parity} it vanishes for every odd $u_j$: the parity rule is now visible as the statement that
 the Heegner orbit is symmetric about the imaginary axis while an odd form is antisymmetric.
 
-\paragraph{Step 4: the Weyl series is a Poincar\'e series, and where the frequencies come from.} The Fourier
-expansion of $\psi$ and a Mellin transform in the length reduce~\eqref{eq:orbit} to a single classical object. For
-$m\in\Z$ and $\Re s>1$ let
+\paragraph{Step 4: where the frequencies come from.} No continuation theorem is needed here. Expand $\psi$ in
+Fourier series; since $\psi$ is odd,
 \[
-P_m(w,s)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^{s}\,\e\bigl(m\,\Re\gamma w\bigr)
+\psi(a+2x)+\psi(a-2x)=\frac2\pi\sum_{k\ge1}\frac{\sin(2\pi ka)\cos(4\pi kx)}{k},
+\qquad a=\frac{2t\,\Im z}{\sqrt{|D|}},
 \]
-be Selberg's Poincar\'e series. Then, directly from the coordinates~\eqref{eq:coords},
-\begin{equation}\label{eq:poincare}
-\sum_{z\ \mathrm{Heegner}}(\Im z)^{s}\,\e(m\,\Re z)
-=\Bigl(\frac{\sqrt{|D|}}2\Bigr)^{s}\sum_{d\ge1}\frac1{d^{s}}\sum_{b^2\equiv D\,(4d)}\e\Bigl(\frac{-mb}{2d}\Bigr),
+so that $\Phi^+_t(z)=\frac y\pi\sum_k k^{-1}\sin(2\pi ka)\cos(4\pi kx)$. Pair this against the expansion of an even
+Maass form, $u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$. The $x$-integral is
+$\int_0^1\cos(4\pi kx)\cos(2\pi nx)\,dx=\tfrac12\delta_{n,2k}$, so only the coefficients at even indices survive and
+\begin{equation}\label{eq:innerprod}
+\langle\Phi^+_t,u_j\rangle=\sum_{k\ge1}\frac{a_j(2k)}{\pi k}\,I_k,\qquad
+I_k=\int_0^\infty y^{-1/2}\sin(\beta_ky)\,K_{it_j}(\alpha_ky)\,dy,\quad \alpha_k=4\pi k,\ \beta_k=\frac{4\pi kt}{\sqrt{|D|}} .
 \end{equation}
-both sides converging absolutely for $\Re s>1$. In words: \emph{the Dirichlet series of the Weyl sums of a quadratic
-congruence is Selberg's Poincar\'e series evaluated at the Heegner points of that discriminant.} This is the identity
-that organises the whole paper, and it is what makes the spectrum enter. \todo{Verified numerically for $D=-4$,
-$s=1.6$, $m=1$ to $10^{-16}$; the $4d$ versus $d$ convention of \S\ref{sec:walfisz} must be reconciled.}
-
-The spectral expansion of $P_m(\cdot,s)$ is classical: unfolding gives
-$\langle P_m(\cdot,s),u_j\rangle=\rho_j(m)\int_0^\infty y^{s+1/2}K_{it_j}(2\pi|m|y)\frac{dy}{y^2}$, and by
-\begin{equation}\label{eq:mellinK}
-\int_0^\infty K_{it_j}(y)\,y^{\sigma-1}\,dy=2^{\sigma-2}\,\Gamma\Bigl(\frac{\sigma+it_j}2\Bigr)\Gamma\Bigl(\frac{\sigma-it_j}2\Bigr)
+Substituting $y=w/\beta_k$ gives $I_k=\beta_k^{-1/2}\int_0^\infty w^{-1/2}\sin(w)K_{it_j}(\alpha_kw/\beta_k)\,dw$,
+in which $\alpha_k/\beta_k=\sqrt{|D|}/t$ is small. Two standard facts finish the computation: the small-argument
+expansion
+\begin{equation}\label{eq:Ksmall}
+K_{i\tau}(x)=\tfrac12\Bigl[\Gamma(-i\tau)\bigl(\tfrac x2\bigr)^{i\tau}+\Gamma(i\tau)\bigl(\tfrac x2\bigr)^{-i\tau}\Bigr]+O(x^2),
 \end{equation}
-this is meromorphic with its rightmost poles at $s=\tfrac12\pm it_j$, that is at the spectral points $s_j$ and
-$1-s_j$. Evaluating at the Heegner points and summing over the orbit replaces $u_j$ by $\mathrm{Per}_D(u_j)$, so the
-residue of~\eqref{eq:poincare} at $s=s_j$ is a multiple of $\rho_j(m)\,\mathrm{Per}_D(u_j)$. Mellin inversion in the
-length then converts a pole at $s_j=\tfrac12+it_j$ into a term $Y^{1/2+it_j}$ of the Riesz mean, i.e.\ $\sqrt Y$
-times $\cos(t_j\log Y+\varphi_j)$: exactly the observed law, with the amplitude proportional to the period, as
-Table~\ref{tab:phases} confirms.
+and $\int_0^\infty w^{\sigma-1}\sin w\,dw=\Gamma(\sigma)\sin(\pi\sigma/2)$ for $0<\Re\sigma<1$, applied at
+$\sigma=\tfrac12\pm it_j$. Hence
+\begin{equation}\label{eq:asymp}
+I_k=\beta_k^{-1/2}\Bigl[\Gamma(-it_j)\Gamma\bigl(\tfrac12+it_j\bigr)\sin\tfrac{\pi(\frac12+it_j)}2\Bigl(\frac{\sqrt{|D|}}{2t}\Bigr)^{it_j}\cdot\tfrac12+\overline{(\ \cdot\ )}\Bigr]+O\bigl((\sqrt{|D|}/t)^{2}\bigr).
+\end{equation}
+Every $t$-dependence is now explicit: $\beta_k^{-1/2}\propto t^{-1/2}$ and the bracket carries $t^{\mp it_j}$. So
+$\langle\Phi^+_t,u_j\rangle=t^{-1/2}\bigl(A_j(D)\,t^{-it_j}+\overline{A_j(D)}\,t^{it_j}\bigr)+O(t^{-5/2})$, and
+by~\eqref{eq:spectral} the same holds for $S(t)$ with $A_j$ multiplied by $\mathrm{Per}_D(u_j)$. Summing over
+$t<Y$ turns $t^{-1/2\mp it_j}$ into $Y^{1/2\mp it_j}$, which is the observed law.
 
-This also settles the factor-two question of Remark~\ref{rem:achieved}. The Weyl series is $\sum_dd^{-s}(\cdots)$,
-and~\eqref{eq:poincare} places its poles at $s=\tfrac12\pm it_j$ in that same variable, so the frequencies are the
-$t_j$. The Kloosterman-zeta route reaches the same coefficients through the modulus, in a variable normalised as
-$c^{-2\sigma}$; the translation between the two normalisations is what we had wrong before the data corrected us.
+Two features of the data are read off~\eqref{eq:asymp} directly. The frequencies are the $t_j$ themselves, not
+$2t_j$, because~\eqref{eq:Ksmall} produces $x^{\pm it_j}$ and not $x^{\pm2it_j}$. And the phase carries the factor
+$(\sqrt{|D|}/2)^{it_j}$, so that changing the discriminant shifts the phase by exactly
+$\tfrac{t_j}2\log|D|$ plus the sign of $\mathrm{Per}_D(u_j)$: this is precisely the prediction~\eqref{eq:phasepred}
+tested in Tables~\ref{tab:phases} and~\ref{tab:weylphase}, and it is what those tables confirm to a median of
+$0.012$ radians. \todo{Both standard facts were checked numerically; \eqref{eq:Ksmall} to a relative $10^{-6}$ at
+$x\le0.1$ for $t=13.78,17.74$.}
 
-There is one consequence of~\eqref{eq:poincare} that does not have to wait for the missing steps, because it needs
-only the continuation of $P_m$ and not the identification of the residues.
+\begin{remark}[what this route does \emph{not} need]\label{rem:notneeded}
+The derivation above uses no continuation theorem for any zeta or Poincar\'e series: only the Fourier expansions of
+$\psi$ and of $u_j$, the small-argument behaviour of the Bessel function, and one elementary integral. This matters,
+because our two earlier attempts to route the argument through such a theorem both failed. The first, through
+Selberg's Kloosterman zeta function, predicted the frequencies $2t_j$ and was refuted by the data
+(Remark~\ref{rem:achieved}). The second, through the meromorphic continuation of the Poincar\'e series of
+\cite{GoldfeldSarnak1983}, does not apply: their $P_m(z,s)$ carries the factor $\e(m\gamma z)$, whose imaginary part
+contributes an exponential decay $e^{-2\pi m\Im\gamma z}$ and puts the series in $L^2$, whereas the series arising
+in~\eqref{eq:poincare} carries only $\e(m\,\Re\gamma z)$ and is not the same object. The identity
+\eqref{eq:poincare} remains true and remains the reason the spectrum enters; what is not available is a citable
+continuation of the particular series it produces.
+\end{remark}
 
-\begin{proposition}[square-root cancellation in Hooley's sum, Riesz form]\label{prop:hooley}
-Let $D$ be a discriminant, $k\ge1$, and let $T_k(X)$ be as in \S\ref{sec:hooley}. Then for every $\varepsilon>0$
-\[
-\frac1X\sum_{d\le X}\Bigl(1-\frac dX\Bigr)\ \sum_{b\bmod d,\ b^2\equiv D}\e\Bigl(\frac{kb}d\Bigr)\ \ll_{D,k,\varepsilon}\ X^{-1/2+\varepsilon}.
-\]
-\end{proposition}
-\begin{proof}[Proof, modulo the classical input]
-By~\eqref{eq:poincare} the Dirichlet series of the inner sums is, up to the elementary factor
-$(\sqrt{|D|}/2)^{s}$ and a finite M\"obius sieve for the conditions at the primes dividing $2D$, a finite
-combination of Selberg's Poincar\'e series $P_m(z_Q,s)$ over the $h(D)$ classes. In $\Re s>\tfrac12$ these continue
-meromorphically with poles only at the points $s_j\in(\tfrac12,1)$ coming from eigenvalues $\lambda_j<\tfrac14$, and
-with growth polynomial in $|\Im s|$ on vertical lines \cite{GoldfeldSarnak1983}. For $\Gamma=\mathrm{PSL}_2(\Z)$
-there are no such eigenvalues: the smallest Laplace eigenvalue of a cusp form is
-$\tfrac14+(9.5337)^2=91.14$, and the residual spectrum consists of the constants alone. So the continuation is
-holomorphic throughout $\Re s>\tfrac12$, and the Riesz kernel $X^{s+1}/(s(s+1))$ decays fast enough in $|\Im s|$ to
-move the Perron contour to $\Re s=\tfrac12+\varepsilon$, which gives the bound.
-\end{proof}
-
-This is the Riesz-mean form of square-root cancellation for the sums Hooley bounded by $X^{3/4+\varepsilon}$
-\cite{Hooley1963} and Bykovski\u\i\ by $X^{2/3+\varepsilon}$ \cite{Bykovskii1984}. It agrees with what we see:
-$T_1(X)/\sqrt X$ stays below $0.56$, $0.53$ and $0.86$ in absolute value for $D=-4,-3,-8$ over $X\le10^6$.
-\todo{The proof above rests on a classical statement, the continuation of $P_m(z,s)$ to $\Re s>\tfrac12$ with poles
-only at exceptional eigenvalues and polynomial growth, which we have taken from a secondary description of
-\cite{GoldfeldSarnak1983} and \emph{not} verified in the original. Given that a first attempt to route this argument
-through the Kloosterman zeta function produced a false prediction (Remark~\ref{rem:achieved}), the statement must be
-checked against the printed theorem, in particular the normalisation of the variable and the passage from $Z_{m,n}$
-to $P_m$, before this proposition is asserted. The conventions $b^2\equiv D\ (4d)$ of~\eqref{eq:gauss} and
-$b^2\equiv D\ (d)$ of \S\ref{sec:walfisz} must also be reconciled.}
+The same computation bears on the size of these sums. Formally,~\eqref{eq:asymp} makes every spectral term of $S(t)$
+of size $t^{-1/2}$, so the Riesz mean is $O(Y^{1/2+\varepsilon})$ as soon as the sum over $j$ converges: square-root
+cancellation, against the $X^{3/4+\varepsilon}$ of Hooley~\cite{Hooley1963} and the $X^{2/3+\varepsilon}$ of
+Bykovski\u\i~\cite{Bykovskii1984} for the sharp sums. That is exactly what \S\ref{sec:hooley} observes, with
+$T_1(X)/\sqrt X$ below $0.56$, $0.53$ and $0.86$ for $D=-4,-3,-8$ over $X\le10^6$. We do not state it as a
+proposition, because the convergence of the sum over $j$ is the unfinished step below and there is no shortcut round
+it: an earlier version of this paper deduced it instead from a continuation theorem that, on inspection, applies to a
+different series (Remark~\ref{rem:notneeded}).
 
 \begin{theorem}[target]\label{thm:spectral}
 Hypothesis~K holds: for $u=1$ and the model object~\eqref{eq:model} there are $\delta>0$ and coefficients
