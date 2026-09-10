@@ -42,6 +42,9 @@ for quadratics. Nothing here proves anything about primes; all prime statements 
   c_N(D) = min(N, max(2N−2, deg D) − 1), so the GENERIC constant is −1/q (= the weight of the excluded
   diagonal pairs at degree N+1); −2/q only for (N, deg D) ∈ {(1,1),(2,1),(2,2)}. Confirmed by D = u²+1
   (−1, −2) and D = u³+u (−1, −1). The first "κ = 2 for all N" guess was wrong (F12).
+- 10 Sep (later). Leading-term tests confirm c_N(D) in all six cases incl. the decisive (N,deg D) = (3,1):
+  q·T_act(deg 4) → 3, q·Off → −1. Unconditional small-moduli theorem added to paper III (Koksma + weighted
+  KS); the remaining core identified as the window (Y, u²Y] per piece (F14).
 - 10 Sep. Paper III written (11 pp): exact decomposition into pieces indexed by the agreeing part u (dilated
   roots of u²x² ≡ D, equal weight per unit log u); u = 1 unconditional via DFI + sharp-cutoff lemma (Δ²
   normalisation trick); u > H^{1/2} via averaging the dilations (Type II, divisor-type functions in APs);
@@ -97,6 +100,12 @@ F12. "κ = 2 for all N" (10 Sep, morning). Based on N ≤ 2 for D = u only; the 
 F13. "DFI covers the pieces u > 1" (implicit in the 9 Sep roadmap). The pieces need Weyl sums of roots of
     u²x² ≡ D, i.e. roots of x² ≡ D dilated by u^{-1} modulo d'; DFI's theorem is for a fixed fundamental
     discriminant. Only u = 1 is covered. (Paper III §2, §5.)
+F14. "The twisted phase e(kH/d) is the obstacle" (paper III, first draft, 10 Sep). It is an artefact of the
+    exact Fourier expansion. Koksma's inequality with the symmetrised test function (variation ≤ 3) removes the
+    length entirely for moduli d' ≤ Y, and a weighted Kowalski–Soundararajan bound (same local mean square for
+    every dilation; Shiu instead of the sieve for the weights) makes the small moduli of every piece
+    unconditional. The real core is the WINDOW d' ∈ (Y, u²Y] (interval shorter than the period), self-dual
+    under Hooley's reflection, empty for u = 1, where a log-saving loses a factor log u. (Paper III §3.2, §5.1.)
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 

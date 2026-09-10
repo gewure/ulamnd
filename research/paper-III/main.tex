@@ -33,12 +33,14 @@ Ces\`aro form any unbounded saving over the trivial bound suffices. This paper t
 prove an exact decomposition of the Ces\`aro off-diagonal into pieces indexed by the part $u$ of the modulus on
 which the two roots agree: piece $u$ is the same problem with length $H/u$ and with the roots of
 $x^2\equiv D$ replaced by the roots of $u^2x^2\equiv D$, a dilation by $u^{-1}$, and all pieces carry equal
-weight per unit of $\log u$. For $u=1$ the required equidistribution is the theorem of Duke, Friedlander and
-Iwaniec on Weyl sums for quadratic roots, which we convert from smooth to sharp cut-offs; for $u>H^{1/2}$ the
-dilations average out along $u$ and only the distribution of a divisor-type function in arithmetic
-progressions is needed; for $1<u\le H^{1/2}$ the dilated Weyl sums are the open input, stated as
-Hypothesis~W with the exponent it must have. Under Hypothesis~W the Ces\`aro form of Hypothesis~(E) holds
-for every quadratic. Over $\F_q[u]$ we prove that the off-diagonal is not merely bounded but has a main term:
+weight per unit of $\log u$. Three parts are unconditional: the piece $u=1$ entirely, by the theorem of Duke, Friedlander and Iwaniec
+on Weyl sums for quadratic roots converted from smooth to sharp cut-offs; the moduli below the length in
+every piece, by Koksma's inequality and a weighted form of the Chinese-remainder equidistribution of
+Kowalski and Soundararajan, whose local input is the same for every dilation; and the pieces with
+$u>H^{1/2}$, where the dilations average out along $u$. What remains is one window in each piece with
+$1<u\le H^{1/2}$, the moduli between the length and $u^2$ times the length, where an interval covers less than
+a period; it is self-dual under Hooley's reflection and it is where a power saving (Hypothesis~W) is needed.
+Under Hypothesis~W the Ces\`aro form of Hypothesis~(E) holds for every quadratic. Over $\F_q[u]$ we prove that the off-diagonal is not merely bounded but has a main term:
 for $f=t^2-u$ and the two smallest lengths, $\Off_f(N)=-2/q+O(q^{-3/2})$; a configuration count predicts, and
 exact computations for three discriminants and $q\le43$ confirm, that the generic value is $-1/q$, the weight of
 the excluded diagonal pairs at the first degree above the cut-off, the value $-2/q$ being a small-length effect.
@@ -51,10 +53,12 @@ turned the size of that correlation into an exact identity whose main part, comi
 modulo $d$, is understood, and whose remaining part, coming from pairs of distinct roots, is a question about
 how the square roots of the discriminant modulo composite numbers are distributed. This paper shows that
 the remaining part is a sum of copies of one problem, one copy for each way the two roots can agree on a part
-of the modulus, that the copies are of equal importance, that the first copy is a theorem of Duke, Friedlander
-and Iwaniec, that the copies with a large agreeing part average out, and that the copies in between require
-one estimate that we state precisely but do not prove. Over polynomial rings the same object has an
-explicit main term, which we compute.
+of the modulus; that the copies are of equal importance; that the first copy is a theorem of Duke, Friedlander
+and Iwaniec; that in every copy the moduli shorter than the length are handled by a general mixing property
+of the Chinese remainder theorem; that the copies with a large agreeing part average out; and that what is
+left is, in each copy, the moduli just above the length, where an interval covers less than one period, and
+where a genuinely stronger estimate is needed. Over polynomial rings the same object has an explicit main
+term, which we compute.
 
 \paragraph{Set-up.} Let $f=t^2+bt+c\in\Z[t]$ be irreducible, without fixed prime divisor, with discriminant
 $D=b^2-4c$ (not a square). For a prime $p$ let $\omega(p)=\omega_f(p)$ be the number of roots of $f$ modulo $p$:
@@ -92,10 +96,15 @@ bound (Lemma~\ref{lem:sharp}).
 \item \emph{Large agreeing part} (Theorem~\ref{thm:typeII}): $\sum_{u>H^{1/2+\varepsilon}}\lambda(u)\omega(u)\mathcal P_u(H/u)\ll H^{1-\delta}$,
 by averaging the dilations along $u$; the input is the distribution of $\lambda\omega$ in arithmetic
 progressions.
-\item \emph{The remaining pieces} need Hypothesis~W (\S\ref{sec:W}): the Weyl sums of the dilated roots
-$R^{(u)}_{d'}$, with sharp cut-off in $d'$, save a power of the range with a loss at most $u^{B}$,
-$B<1-\theta$. Theorem~\ref{thm:A}: under Hypothesis~W, $\Off^\ast_f(H)\ll H^{1-\delta}$ for every quadratic $f$
-with $D$ as above, hence Conjecture~1 of part~I in Ces\`aro form with a power-saving error.
+\item \emph{Small moduli of every piece} (Theorem~\ref{thm:small}): the part of $\mathcal P_u(Y)$ from
+moduli $d'\le Y$ is $\ll Y(\log Y)^{-c}$ uniformly in $u$, by Koksma's inequality and a weighted version of
+the Chinese-remainder equidistribution theorem of Kowalski and Soundararajan~\cite{KowalskiSoundararajan2021}
+(Proposition~\ref{prop:KSw}). Hence the small-moduli part of $\Off^\ast_f$ is $o(H\log H)$ unconditionally.
+\item \emph{The window} (\S\ref{sec:W}): for $1<u\le H^{1/2}$ the moduli $d'\in(Y,u^2Y]$ of piece $u$, where the
+interval $[1,Y]$ is shorter than the period, carry as much mass as the small moduli, are self-dual under
+Hooley's reflection, and are the core of Hypothesis~(E); a logarithmic saving there is not enough, and
+Hypothesis~W is the power-saving statement that closes them. Theorem~\ref{thm:A}: under Hypothesis~W,
+$\Off^\ast_f(H)\ll H^{1-\delta}$ for every quadratic $f$ with $D$ as above.
 \item \emph{Function field} (Theorem~\ref{thm:B}): for $f=t^2-u$ over $\F_q[u]$ and $N\in\{1,2\}$,
 $\Off_f(N)=-2/q+O(q^{-3/2})$; Conjecture~\ref{conj:kappa}: $\Off_f(N)=-1/q+O(q^{-3/2})$ whenever
 $\max(2N-2,\deg D)\ge N+1$, i.e.\ for all $N\ge3$ and for $N\le2$ when $\deg D>N$, and $-2/q$ otherwise.
@@ -216,6 +225,83 @@ Summing over the dyadic $V\in[Y_0,Y]$ gives the claim.
 it against a partial sum with a power saving is a factor $kY/d'$; the small moduli, where that factor is large,
 are handled trivially, and the balance point $Y_0=(kY)^{1/(2-\theta)}$ leaves a power saving. Nothing more than a
 sharp-cut-off Weyl bound with polynomial dependence on the frequency is used.
+
+\subsection{Small moduli without the phase: Koksma and the mixing of the Chinese remainder theorem}\label{sec:koksma}
+
+The Fourier route makes the phase $\cos(2\pi kY/d')$ appear; the discrepancy route does not. For $d'\le Y$ and
+the symmetric set $R'_{d'}$, the identity before~\eqref{eq:fourier} reads
+\[
+\sum_{x\in R'_{d'}}B^{(Y)}_{d'}(\rep x{d'})=\frac{d'}2\sum_{x\in R'_{d'}}\Psi_{Y/d'}\Bigl(\Bigl\{\frac x{d'}\Bigr\}\Bigr),\qquad
+\Psi_\eta(\theta)=-\theta(1-\theta)+\tfrac12\bigl(\phi(\{\eta-\theta\})+\phi(\{\eta+\theta\})\bigr),
+\]
+and $\Psi_\eta$ has mean $0$ on $[0,1)$ and total variation $\le3$, uniformly in $\eta$. Koksma's inequality
+therefore gives
+\begin{equation}\label{eq:koksma}
+\Bigl|\sum_{x\in R'_{d'}}B^{(Y)}_{d'}(\rep x{d'})\Bigr|\le\tfrac32\,d'\,\omega(d')\,\mathrm{disc}(\Delta^{(u)}_{d'}),
+\end{equation}
+where $\Delta^{(u)}_{d'}$ is the probability measure $\omega(d')^{-1}\sum_{x\in R'_{d'}}\delta_{\{x/d'\}}$ and $\mathrm{disc}$ its
+discrepancy, $\sup_I|\Delta(I)-|I||$ over intervals $I\subset\R/\Z$. The point is that~\eqref{eq:koksma} does not
+see the length $Y$ at all.
+
+\begin{proposition}[weighted Kowalski--Soundararajan]\label{prop:KSw}
+Let $(A_p)$ be a family of subsets $A_p\subset\Z/p$ indexed by the primes, $|A_p|=\rho(p)$, and let $A_q=\prod_{p\mid q}A_p$
+(Chinese remainder theorem) for squarefree $q$ composed of primes with $\rho(p)\ge1$. Let $w$ be a non-negative
+multiplicative function on squarefree integers with $w(p)\le C_0$. Suppose $\sum_{p\le x,\ \rho(p)\ge1}\log p\ge\alpha x$
+for $x\ge x_0$. Then for $x\ge x_0$,
+\[
+\sum_{q\le x}w(q)\,\mathrm{disc}(\Delta_q)\ \ll_{\alpha,C_0}\ \Bigl(\sum_{q\le x}w(q)\rho(q)^{0}\Bigr)\cdot\exp\Bigl(-c\sum_{\substack{p\le x\\ \rho(p)\ge2}}\frac1p\Bigr)\cdot(\log x)^{O(1)}\ \text{\todo{exponent bookkeeping}},
+\]
+more precisely, with $S_w(x)=\sum_{q\le x,\ q\in Q}w(q)$,
+\[
+\sum_{\substack{q\le x\\ q\in Q}}w(q)\,\mathrm{disc}(\Delta_q)\ll S_w(x)\Bigl(\frac1{L}+(\log L)\exp\Bigl(-c\sum_{\substack{p\le x^{1/3}\\ \rho(p)\ge2}}\frac{1}{p}\Bigr)\Bigr)\qquad(L\ge2),
+\]
+with $c>0$ depending only on $C_0$ and $\max\rho$, uniformly in the family $(A_p)$: the implied constants depend
+on the sizes $\rho(p)$ and on $\alpha,x_0,C_0$, not on the sets themselves.
+\end{proposition}
+\begin{proof}[Proof (following \cite{KowalskiSoundararajan2021}, with two changes)]
+The argument of \cite[\S3--4]{KowalskiSoundararajan2021} is: write $q=rs$ with $s$ the $z$-smooth part and $r$
+the $z$-rough part, $z=x^{1/3}$... more precisely restrict to $s\le x^{1/3}$; by the twisted multiplicativity
+$W(h;rs)=W(\bar rh;s)W(\bar sh;r)$ of the normalised Weyl sums (their Lemma~3.5(1)), bound $|W(\bar sh;r)|\le1$,
+apply the Erd\H os--Tur\'an inequality with $L$ frequencies, split $r$ into residue classes $a$ modulo $s$ (which
+fixes $W(\bar rh;s)=W(ah;s)$), count the rough $r\le x/s$ in each class by a sieve upper bound, and use the mean
+square $\frac1s\sum_{a\bmod s}|W(ah;s)|^2\le\lambda(\{h,s\})/\rho(\{h,s\})$ (their Lemma~3.5(2), where in one dimension
+$\lambda=1$), which for a modulus $s$ with $k$ prime factors of $\rho\ge2$ gives a factor $2^{-k/2}$ after
+Cauchy--Schwarz; summing over $s$ produces the exponential saving. Two changes. (i) The local sets enter only
+through $\rho(p)$ and through the mean square, which depends only on $\rho(p)$ and $\lambda(p)$: any family with
+the same sizes, in particular the dilated families $A^{(u)}_p=\bar u_p A_p$ for all $u$ at once, obeys the same
+bound with the same constants. (ii) The weight: $w(rs)=w(r)w(s)$; the sieve count of the rough $r$ in a class
+$a\bmod s$ is replaced by Shiu's theorem~\cite{Shiu1980} for the non-negative multiplicative function $w$ on
+the progression $r\equiv a\ (s)$, $r\le x/s$, $p\mid r\Rightarrow p>z$, valid uniformly for $s\le(x/s)^{1-\varepsilon}$ and
+giving $\ll\frac{x/s}{\varphi(s)\log z}\exp\bigl(\sum_{z<p\le x}w(p)/p\bigr)$; the smooth part carries $w(s)$ into the
+sum over $s$, where the same factor appears in the normalisation $S_w(x)$, and the ratio of the two Euler
+products over $p\le z$, $\prod_p(1+w(p)2^{-1/2}/p)/(1+w(p)/p)$ at primes with $\rho(p)\ge2$, is the exponential saving with
+$c=(1-2^{-1/2})\min_p w(p)$... \todo{replace by the exact constant from their \S4; $c$ depends on $\inf w(p)$ over
+the primes with $\rho(p)\ge2$, which for $w=\lambda\omega$ is $\ge2$.}
+\end{proof}
+
+\begin{theorem}[small moduli, unconditional]\label{thm:small}
+For every irreducible quadratic $f$, uniformly in $u$ with $\omega(u)\ge1$ and $Y\ge(\log u)^{C}$,
+\[
+\mathcal P^{\le}_u(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_fY(\log Y)^{-c},
+\]
+with $c>0$ depending only on $f$. Consequently $\sum_u\lambda(u)\omega(u)\,\mathcal P^{\le}_u(H/u)\ll H(\log H)^{1-c}$: the
+small-moduli part of $\Off^\ast_f(H)$ is $o(H\log H)$ unconditionally.
+\end{theorem}
+\begin{proof}
+By~\eqref{eq:koksma}, $|\mathcal P^\le_u(Y)|\le\tfrac32\sum_{d'\le Y}\lambda(d')\omega(d')\mathrm{disc}(\Delta^{(u)}_{d'})$. Apply
+Proposition~\ref{prop:KSw} to the family $A_p=R^{(u)}_p$ for split $p\nmid u$ (empty at inert primes and at the
+primes of $u$, which are finitely many and removed from $Q$; the density hypothesis holds with $\alpha=\tfrac12-o(1)$
+once $x\ge(\log u)^{C}$, since $\sum_{p\mid u}\log p=\log u$) and $w=\lambda\omega$ ($w(p)\le2p/(p-4)\le10$ on split $p\ge5$),
+with $S_w(Y)\ll Y$: the bound is $\ll Y(1/L+\log L\cdot(\log Y)^{-c'})$, and $L=\log Y$ gives the claim. Summing
+$\lambda\omega(u)(H/u)(\log(H/u))^{-c}$ over $u\le H$ with the pieces $u>H/(\log H)^{2/c}$... over $u\le H^{1/2}$ gives
+$\ll H(\log H)^{1-c}$, and the pieces with $u>H^{1/2}$ are Theorem~\ref{thm:typeII}.
+\end{proof}
+
+\emph{In words.} For moduli shorter than the length there is no short-interval problem, only the question
+whether the dilated roots are spread out modulo $d'$; and spreading out is a consequence of the Chinese
+remainder theorem alone, as Kowalski and Soundararajan showed, at a rate that does not see which two-point
+sets sit at the primes. So this half of every piece is unconditional, and the loss against the trivial bound
+is a power of $\log$, which is exactly what the Ces\`aro form can afford.
 
 \subsection{Large moduli: reflection}
 
@@ -382,7 +468,30 @@ $d'$: averaged over all dilations the root set is uniform, and the off-diagonal 
 error in distributing a divisor-type function in progressions. The dilation, which is the obstacle for small
 $u$, is the mechanism of cancellation for large $u$.
 
-\section{The remaining pieces: Hypothesis W and Theorem A}\label{sec:W}
+\section{The window, Hypothesis W and Theorem A}\label{sec:W}
+
+\subsection{Where the difficulty sits}
+
+Collecting Sections~\ref{sec:koksma}--\ref{sec:unconditional}: in the piece $u$, the moduli $d'\le Y$ are
+unconditional (Theorem~\ref{thm:small}); the moduli $d'>u^2Y$ are handled by the reflection of
+Lemma~\ref{lem:reflect}, because the complementary divisors $e=Q_u(x)/d'<x^2/Y\le Y$ are then below the length
+and the counts $\#\{x\le Y:\ e\mid Q_u(x)\}$ involve full periods, so that~\eqref{eq:koksma} and
+Proposition~\ref{prop:KSw} apply to them as well; for $u>H^{1/2}$ everything is handled by the averaging of
+Theorem~\ref{thm:typeII}. What is left, for $1<u\le H^{1/2}$, is the \emph{window}
+\[
+\mathcal W_u(Y)=\sum_{Y<d'\le u^2Y}\frac{\lambda(d')}{d'}\Bigl[\sum_{x\in R^{(u)}_{d'},\ \rep x{d'}\le Y}\bigl(Y-\rep x{d'}\bigr)-\frac{\omega(d')Y^2}{2d'}\Bigr],
+\]
+in which the interval $[1,Y]$ covers a fraction $Y/d'\in[u^{-2},1)$ of a period. It is self-dual under the
+reflection ($e=Q_u(x)/d'$ lies in the same window), its trivial size is $\asymp Y$, the same as that of the
+small moduli, and it is empty for $u=1$. Koksma's inequality with the function $(Y-\theta d')^+$, of variation
+$Y$, gives $|\mathcal W_u(Y)|\ll Y\sum_{Y<d'\le u^2Y}\lambda(d')\omega(d')\mathrm{disc}(\Delta^{(u)}_{d'})/d'\ll Y\,(\log u^2)(\log Y)^{-c}$
+by Proposition~\ref{prop:KSw} applied dyadically, and the factor $\log u$ is fatal: summed against
+$\lambda\omega(u)/u$ it produces $H(\log H)^{2-c}$, which exceeds $H\log H$ since $c<1$. The window therefore needs a
+saving that is a power of $u$, or a power of $Y$, not a power of $\log$; this is the content of Hypothesis~W
+below, and it is the precise form of the ``short-interval'' problem for the roots of a quadratic congruence
+that the off-diagonal contains. In the original variables the window consists of the moduli
+$d=ud'\in(H,u^2H]$ with agreeing part $u$, and the count is that of the roots $X\le H$ of $X^2\equiv D\pmod{d'}$
+that are divisible by $u$.
 
 \begin{hypothesis}[W$(\theta,B)$]\label{hyp:W}
 There are $\theta<1$ and $B<1-\theta$ such that for all squarefree $u$ with $(u,2D)=1$... more precisely with
@@ -430,8 +539,9 @@ $O(H^{1-\delta})$. The consequence follows from~\eqref{eq:cesaro}, the $O_f(1)$ 
 \end{proof}
 
 \emph{In words.} Everything except one estimate is in place: the exact decomposition, the treatment of the
-first piece, the averaging of the large pieces, the reflection of the large moduli, and the frequency
-bookkeeping. The one estimate is a Weyl-sum bound for the roots of $u^2x^2\equiv D$ with a loss in $u$ below the
+first piece, the small moduli of every piece, the averaging of the large pieces, the reflection of the far
+moduli, and the frequency bookkeeping. The one estimate is a power-saving equidistribution of the roots of
+$u^2x^2\equiv D$ modulo $d'$ in intervals covering a fraction $\ge u^{-2}$ of the period, with a loss in $u$ below the
 saving in the modulus. It is a statement in the family of Hooley~\cite{Hooley1963,Hooley1964}, Iwaniec
 \cite{Iwaniec1978} and Duke--Friedlander--Iwaniec~\cite{DFI1995,DFI2012}, and we expect it to be true; we have
 not proved it. Kowalski and Soundararajan~\cite{KowalskiSoundararajan2021} give, for each fixed $u$, an
