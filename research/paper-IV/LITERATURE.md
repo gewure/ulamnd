@@ -106,3 +106,68 @@ CONSEQUENCE FOR PAPER IV: the Fourier/Weyl-sum route (Hypothesis W) needs freque
 it is not the plan. The plan must exploit what the
 Weyl-sum formulation throws away: the sum over ALL d' (or all u) at once, the composite structure of the moduli, or the
 self-duality — see BRAINSTORM.md, routes 1, 2', 7 and the calibration in §0.
+
+# Round 2 (11 September 2026, night): mean values along quadratic values, divisors in intervals, delta method, dispersion, Hurwitz side
+(Agent report; bibliographic data verified via Crossref/arXiv/zbMATH; theorem statements verified where marked.)
+
+## 1. Multiplicative functions along quadratic values
+- **Hooley 1963** (as above): Σ_{n≤x} d(n²+a) with power-saving error (8/9 quoted by Gafurov, not read verbatim).
+- **Gafurov 1983**, Mat. Zametki, Zbl 0533.10039 (zbMATH-verified): Σ_{n≤x} σ_{−α}(n²+a) = A(α)x + O(x^{c₀(α)}(log x)^{c(α)}),
+  c₀(α) = max{1−2α, 8/9−α, 4(1−α)/5}; via Hooley's sums with an extra e(2πihM/d) twist. → the closest published analogue
+  of our F_u (bounded divisor weight d^{−α} along n²+a, power saving); ours has λ(d)/d on split d and the ū-dilation.
+- **McKee 1995/1999** (MPCPS): Σ τ(n²+bn+c) = λX log X + O(X), λ a Hurwitz class number; **Ye 2020** (Monatsh., Arch.
+  Math.): uniform for all quadratics via Zagier's weight-3/2 Eisenstein series; **Lapkova 2016/2017**: explicit. No power
+  saving in these.
+- **Bykovskiĭ 1981/1982** (LOMI 112; Dokl.): strengthen Hooley's error (exponents unverified); **Bykovskiĭ–Rebrova 2025**,
+  Chebyshevskii Sb., Zbl 1582.11106: current front on the averaged trigonometric sums over roots of quadratic congruences.
+- **Nair 1992** (Acta Arith. 62), **Nair–Tenenbaum 1998** (Acta Math. 180), **Henriot 2012** (MPCPS 152, uniform in the
+  discriminant): upper bounds only; useful to bound exceptional u, never a saving.
+- **Lapkova–Zhou 2019, Zhou 2016/2017**: circle method for Σ τ_k(F(x)), F a quadratic FORM in ≥ 3 variables.
+
+## 2. Divisors of quadratic polynomials in an interval; level of distribution
+- **de la Bretèche–Drappeau**, "Niveau de répartition des polynômes quadratiques et crible majorant pour les entiers
+  friables", JEMS, arXiv 1703.03197 (verified from full text). Thm 1.1: for WELL-FACTORABLE λ and Q ≤ x^{1+25/178−η},
+  Σ_{q≤Q} λ(q)(Σ_{q | n²−D} V(n/x) − x V̂(0)ρ(q)/q) ≪_{η,V,D} x^{1−η/3}. Thm 1.2: P⁺(n²−D) ≥ n^{1.2182} i.o. (θ = 7/64).
+  → THE closest result to our window: moduli up to x^{1.14} with a power saving; blockers: λ must be well-factorable
+  (our admissible-modulus indicator is not — the rough moduli p·m are the majority, F19), constants depend on D, no
+  u-uniformity (our dilation makes D → 4u²D, or equivalently a progression n ≡ 0 (u) with length H = uY).
+- **Grimmelt–Merikoski 2025** (as above): P⁺(n²+h) ≥ n^{1.312}; uniformity in the shift h, leading coefficient X^{o(1)}.
+- **Hooley 1958** (Math. Z. 69, sum of a square and a product); **Bykovskiĭ–Ustinov 2019**, Dokl. Math. 99, 195–200:
+  #{(m,λ,μ): 4λμ + m² = X} with an UNCONDITIONAL POWER-SAVING error (exponent unverified; used by Technau arXiv 2304.08143).
+  → literally the ternary equation de = u²x² − D (u = 1) counted with all variables free: the u = 1 window count IS a
+  theorem with power saving (consistent with our Theorem u1).
+- **Ford 2008**, Annals 168 (verified): H(x,y,z)/x ≍ u^δ(log(2/u))^{−3/2}, δ = 0.086071…; Erdős–Hooley Δ (Hooley 1979 PLMS;
+  Maier–Tenenbaum 1984; Hall–Tenenbaum 1988). → describes the SPARSITY of moduli with a root below Y (most window
+  moduli have none); gives no cancellation of the signed sum. Not a route.
+- **Hooley 1967** (Acta Math. 117), **Deshouillers–Iwaniec 1982** (Ann. Inst. Fourier 32): P⁺(n²+1) via divisors in a range
+  and Kloosterman sums.
+
+## 3. Delta method / ternary forms (verified: no uniformity worth having)
+- **Heath-Brown 1996** Cor. 2 (ternary): N = cB + O(B exp(−c√log B)), non-uniform in Q. **Sofos** (Acta Arith., arXiv
+  1305.0374): uniform but loses ⟨Q⟩⁵ = u^{10}. **Browning–Heath-Brown 2018** (Discrete Analysis): coefficient-uniform
+  UPPER bounds for quadric surfaces. → route 3 dead (as concluded independently).
+
+## 4. Dispersion / Kloosterman fractions / large sieve for roots
+- **Fouvry–Iwaniec 1983**; **BFI 1986/1987/1989** (well-factorable weights, moduli to x^{4/7}); **Maynard 2025** (Mem. AMS,
+  triply well-factorable, x^{3/5}); **Drappeau 2017** (PLMS 114, quintilinear Kloosterman sums with congruence conditions,
+  moduli to x^{1/2}); **DFI 1997**, **DFI 1994** (quadratic divisor problem).
+- **Fouvry–Iwaniec 1997** "Gaussian primes" (Acta Arith. 79): large sieve inequality for roots of quadratic congruences
+  (spacing of ν/m, m ~ M); cubic analogue in **Welsh arXiv 1809.05211**: Σ_{m~M}Σ_{ν³≡2(m)}|Σ_{k,l}a_{k,l}e((kν+lν²)/m)|²
+  ≪ (M+K)(M+L)Σ|a|². → a large sieve over the ROOTS could replace Parseval-over-units in the Type II step; worth a look
+  for route T (the dual form sums over dilations).
+
+## 5. Roots of quadratic congruences, Hurwitz side
+- DFI 1995 / 2012, Tóth, Ngo (as in round 1); **Marklof–Welsh 2023** (D > 0); **Welsh 2022** (parametrisation);
+  **Hooley 1964, 1990**. **Zagier 1977** (LNM 627): class-number Eisenstein series behind E F_u; **Duke–Imamoḡlu–Tóth
+  2011** (Annals 173, cycle integrals). The Dirichlet series Σ_d λ(d)d^{−s}Σ_{x²≡D(d)} ζ(s,x/d) appears NOWHERE as such —
+  only implicitly as the Mellin transform of Hooley's/Bykovskiĭ's R(h,N). → route R is unexplored territory.
+
+## Assessment (round 2, endorsed with one change)
+1. de la Bretèche–Drappeau proves our statement for u = 1 in the smooth-modulus/well-factorable setting up to level
+   Y^{1.14}; Bykovskiĭ–Ustinov proves the u = 1 ternary count with power saving. So u = 1 is "known" by three routes.
+2. For u > 1 everything hinges on uniformity in the leading coefficient u² (equivalently: the progression n ≡ 0 (u)
+   inside the length H = uY, or the fractional frequency k/(uq)); no published result has it beyond X^{o(1)}.
+3. The average over u is the natural escape (DFI 1997, Drappeau, Fouvry–Iwaniec large sieve for roots), blocked by the
+   modulus size d' ≫ u (below the Pólya–Vinogradov range) — route T.
+4. Ford/Δ give sparsity, not cancellation (the agent's "realistic target" is not a saving of the signed sum). Struck.
+5. Route R (Dirichlet series of the Weyl sums + Riesz means) has no literature: the object itself is new.

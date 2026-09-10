@@ -253,6 +253,18 @@ V = V(H) → ∞ (Ford), or ω(u) ~ log log u, or u has a prime factor in [u^{1/
 - Route 6 (higher Riesz means): promoted from "supporting trick" to the FRAMEWORK of route R.
 - Routes 3, 5, 8, 10: ★ (dead or no leverage) — 5 (dispersion) could reappear inside route T.
 
+## Literature round 2 consequences (see LITERATURE.md, round 2)
+- For u = 1 the window is a theorem three times over (Theorem u1 via DFI 2012; de la Bretèche–Drappeau 2017 with
+  well-factorable weights to level Y^{1.14}; Bykovskiĭ–Ustinov 2019 for the ternary count). Nothing for u > 1.
+- Reformulation worth keeping: piece u = #{n ≤ H : n ≡ 0 (u), q | n² − D} − expectation, i.e. the ORIGINAL polynomial
+  n² − D (fixed D) over the progression n ≡ 0 (u) in the full length H, moduli q up to u²Y log H = uH log H. In this
+  form the u-dependence is a congruence condition on n, not a change of discriminant; the Fourier-detection of n ≡ 0 (u)
+  produces the fractional frequencies (k + aq)/(uq), a mod u — the same object as the dilation, now visibly "roots of
+  n² − D in intervals of length q/u", i.e. DFI 2012's problem at scale 1/u of the period. This is the cleanest statement
+  of what is needed: DFI 2012 with frequencies up to u² and no loss in the frequency (θ+6B<1).
+- Fouvry–Iwaniec's large sieve for roots of quadratic congruences (Gaussian primes, 1997) may replace Parseval over the
+  units in the Type II step; check whether it improves the range 2/3 (route T′, ★★★).
+
 ## Order of work (revised)
 1. Route R test (a): derive the Kuznetsov expression for W_k(s) at D = −4, level 4·stuff; get the pole set and the
    level/frequency dependence. If the continuation to Re s > 1/2 with polynomial growth and k-dependence k^{B'},
