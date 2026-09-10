@@ -12,6 +12,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{corollary}[theorem]{Corollary}
 \theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
 \newcommand{\Z}{\mathbb{Z}}\newcommand{\Q}{\mathbb{Q}}\newcommand{\F}{\mathbb{F}}\newcommand{\R}{\mathbb{R}}
 \newcommand{\Off}{\mathrm{Off}}\newcommand{\e}{\mathrm{e}}
@@ -66,10 +67,15 @@ $\omega(p)=2$ if $p\nmid2D$ and $D$ is a square modulo $p$ (\emph{split}), $0$ i
 and $\le1$ if $p\mid2D$ (\emph{special}). All moduli below are squarefree. Put
 \[
 \lambda(p)=\frac p{p-2\omega(p)},\qquad P_p=1-\frac{\omega(p)^2}{(p-\omega(p))^2},\qquad P(1)=\prod_pP_p,\qquad
-W_f(d)=\frac{P(1)\lambda(d)}d,
+W_f(d)=\frac{P(1)\lambda(d)}d,\qquad w(u)=u\,\omega(u)\,W_f(u)=P(1)\lambda(u)\omega(u),
 \]
 $\lambda$ multiplicative; this is the weight of part~I, $W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ with $b(p)=(p-\omega(p))^{-2}$,
-since $p\,b(p)/P_p=1/(p-2\omega(p))$. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
+since $p\,b(p)/P_p=1/(p-2\omega(p))$. If $\omega(2)=1$ (as for $t^2+1$) then $P_2=0$ and $\lambda(2)$ is undefined; in
+that case every $d$ in the support of $W_f$ is even, $W_f(d)=\prod_{p\mid d}p(p-\omega(p))^{-2}\prod_{p\nmid d}P_p$, and all
+statements below hold verbatim with the weight $w(u)=u\omega(u)W_f(u)$ (which is then supported on even $u$), the only
+property used being $W_f(ud')=W_f(u)\lambda(d')/d'$ for $d'$ split and coprime to $u$. In every case $w=c_f\,g$ with
+$c_f>0$ and $g$ multiplicative on squarefree integers, $g(p)=\lambda(p)\omega(p)$ for odd $p$, $g(2)\in\{0,1\}$; we write
+$\lambda\omega$ for $g$ when the distinction is immaterial. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
 the roots of $f$ being $s=(r-b)/2$. Write $\rep xd\in[1,d]$ for the representative of $x\bmod d$, and, for a length
 $Y>0$ and a residue $m$,
 \begin{equation}\label{eq:B}
@@ -141,10 +147,10 @@ $R_{d'}\to R^{(u)}_{d'}$ when $(u,d')=1$), and the \emph{piece}
 \begin{proposition}[pieces]\label{prop:pieces}
 For every $H\ge1$,
 \[
-\Off^\ast_f(H)=P(1)\sum_{u}\lambda(u)\,\omega(u)\,\mathcal P_u(H/u),
+\Off^\ast_f(H)=\sum_{u}w(u)\,\mathcal P_u(H/u),\qquad w(u)=u\,\omega(u)\,W_f(u),
 \]
 the sum over squarefree $u\ge1$ with $\omega(u)\ge1$, every series converging absolutely. Moreover
-$\mathcal P_u(Y)\ll_fY$ uniformly in $u$, and $\sum_{u\le H}\lambda(u)\omega(u)/u\asymp\log H$.
+$\mathcal P_u(Y)\ll_fY$ uniformly in $u$, $\sum_{u\le t}w(u)\ll t$, and $\sum_{u\le H}w(u)/u\asymp\log H$.
 \end{proposition}
 \begin{proof}
 Fix $d=ud'$ as above. For $m=u\mu$ with $\mu\in[1,d']$ we have, writing $h=uh'$,
@@ -159,7 +165,12 @@ as $s$ runs over the $\omega(u)\omega(d')$ roots, $r$ runs $\omega(u)$ times ove
 \]
 and with $W_f(ud')=P(1)\lambda(u)\lambda(d')/(ud')$ the claimed formula follows by summing over $d$; absolute
 convergence is inherited from~\eqref{eq:cesaro}, all terms being regrouped without change of absolute value.
-For the bound on $\mathcal P_u(Y)$: if $d'\le Y$ then $|B^{(Y)}_{d'}(m)|\le d'$ (part~I, proof of Theorem~6), giving
+For the bound on $\mathcal P_u(Y)$: if $d'\le Y$ then, by the formula
+$B^{(Y)}_{d'}(m)=-Ym/d'+m^2/(2d')+Y/2-m/2+(d'/2)\phi(\{(Y-m)/d'\})$ of part~I (proof of Theorem~6; $\phi(\theta)=\theta-\theta^2$),
+valid for $1\le m\le d'\le Y$, the terms linear in $m$ cancel between $m$ and $d'-m$, and
+$B^{(Y)}_{d'}(m)+B^{(Y)}_{d'}(d'-m)=-m(d'-m)/d'+\tfrac{d'}2\bigl(\phi(\{\tfrac{Y-m}{d'}\})+\phi(\{\tfrac{Y+m}{d'}\})\bigr)\in[-d'/4,d'/4]$;
+since $R^{(u)}_{d'}$ is symmetric, $|\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})|\le\omega(d')d'/8$ (individual values
+$B^{(Y)}_{d'}(m)$ can be as large as $Y/2$; the symmetry of the root set is used throughout). This gives
 $\sum_{d'\le Y}\lambda(d')\omega(d')\ll Y$ by Shiu's theorem, since $\lambda\omega$ is multiplicative with $\lambda\omega(p)\le2p/(p-4)$
 on split primes and $0$ on inert ones, of mean value $\asymp1$. If $d'>Y$ then $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$
 for $m\in[1,d']$; the second term contributes $\ll Y^2\sum_{d'>Y}\lambda(d')\omega(d')/d'^2\ll Y$, and the first
@@ -167,12 +178,12 @@ contributes $\sum_{x\le Y}(Y-x)\sum_{d'>Y,\ d'\mid Q_u(x)}\lambda(d')/d'$; since
 and on average over $x\le Y$, $\sum_{e<n/Y,\ e\mid Q_u(x)}e\le\sum_{e<u^2Y}e\,\rho_u(e)\,\mathbf 1_{e\mid Q_u(x)}$ has
 mean $\ll\sum_{e<u^2Y}\rho_u(e)\ll u^2Y$ ($\rho_u(e)\le\omega(e)$ the number of roots of $Q_u$ modulo $e$, of mean value
 $\ll1$), while $Q_u(x)\gg u^2x^2$, the first term is $\ll\sum_{x\le Y}(Y-x)\,Y/x^2\cdot\mathbf 1_{Q_u(x)>Y}+\sum_{x\le\sqrt Y/u}Y\ll Y$.
-Finally $\sum_{u\le H}\lambda(u)\omega(u)/u\asymp\log H$ because $\lambda\omega$ has mean value $\asymp1$ on squarefree
+Finally $\sum_{u\le t}w(u)\ll t$ and $\sum_{u\le H}w(u)/u\asymp\log H$ because $g=w/c_f$ has mean value $\asymp1$ on squarefree
 integers (its Dirichlet series is $\zeta(s)L(s,\chi_D)\times$ an absolutely convergent product near $s=1$).
 \end{proof}
 
 \emph{In words.} The off-diagonal is a sum over $u$ of the same object, evaluated at length $H/u$, for the
-roots of $u^2x^2\equiv D$ instead of $x^2\equiv D$; since $\sum_u\lambda\omega(u)/u$ grows like $\log H$ while each piece
+roots of $u^2x^2\equiv D$ instead of $x^2\equiv D$; since $\sum_uw(u)/u$ grows like $\log H$ while each piece
 is $O(H/u)$, the pieces are equally important on a logarithmic scale, and no range of $u$ can be discarded.
 The dilation by $\bar u$ is the whole difficulty: for $u=1$ the roots are those of a fixed fundamental
 quadratic; for $u>1$ they are those of a quadratic whose discriminant $4u^2D$ grows with $u$, and existing
@@ -243,58 +254,167 @@ where $\Delta^{(u)}_{d'}$ is the probability measure $\omega(d')^{-1}\sum_{x\in 
 discrepancy, $\sup_I|\Delta(I)-|I||$ over intervals $I\subset\R/\Z$. The point is that~\eqref{eq:koksma} does not
 see the length $Y$ at all.
 
-\begin{proposition}[weighted Kowalski--Soundararajan]\label{prop:KSw}
-Let $(A_p)$ be a family of subsets $A_p\subset\Z/p$ indexed by the primes, $|A_p|=\rho(p)$, and let $A_q=\prod_{p\mid q}A_p$
-(Chinese remainder theorem) for squarefree $q$ composed of primes with $\rho(p)\ge1$. Let $w$ be a non-negative
-multiplicative function on squarefree integers with $w(p)\le C_0$. Suppose $\sum_{p\le x,\ \rho(p)\ge1}\log p\ge\alpha x$
-for $x\ge x_0$. Then for $x\ge x_0$,
+We shall need a weighted form of Rankin's bound for smooth numbers, with Dickman-type decay.
+
+\begin{lemma}[weighted smooth numbers]\label{lem:rankin}
+Let $w\ge0$ be multiplicative, supported on squarefree integers, with $w(p)\le C_0$ for all primes $p$, where
+$C_0\ge1$. There are an absolute constant $z_0$ and $u_0=16eC_0^2$ such that for $z\ge z_0$, $X\ge1$ and
+$u:=\log X/\log z\in[u_0,\log z]$,
 \[
-\sum_{q\le x}w(q)\,\mathrm{disc}(\Delta_q)\ \ll_{\alpha,C_0}\ \Bigl(\sum_{q\le x}w(q)\rho(q)^{0}\Bigr)\cdot\exp\Bigl(-c\sum_{\substack{p\le x\\ \rho(p)\ge2}}\frac1p\Bigr)\cdot(\log x)^{O(1)}\ \text{\todo{exponent bookkeeping}},
+\sum_{\substack{s>X\\ P^+(s)\le z}}\frac{w(s)}{s}\ \le\ \exp\Bigl(-\frac{u\log u}2\Bigr)\prod_{p\le z}\Bigl(1+\frac{w(p)}p\Bigr).
 \]
-more precisely, with $S_w(x)=\sum_{q\le x,\ q\in Q}w(q)$,
+\end{lemma}
+\begin{proof}
+For $\delta>0$ (Rankin), the sum is at most
+$X^{-\delta}\sum_{P^+(s)\le z}w(s)s^{\delta-1}=X^{-\delta}\prod_{p\le z}(1+w(p)p^{\delta-1})$, and
+$1+ap^\delta\le(1+a)\exp(a(p^\delta-1))$ for $a\ge0$ gives
 \[
-\sum_{\substack{q\le x\\ q\in Q}}w(q)\,\mathrm{disc}(\Delta_q)\ll S_w(x)\Bigl(\frac1{L}+(\log L)\exp\Bigl(-c\sum_{\substack{p\le x^{1/3}\\ \rho(p)\ge2}}\frac{1}{p}\Bigr)\Bigr)\qquad(L\ge2),
+\prod_{p\le z}\Bigl(1+\frac{w(p)}{p^{1-\delta}}\Bigr)\le\prod_{p\le z}\Bigl(1+\frac{w(p)}p\Bigr)\exp\bigl(C_0E\bigr),\qquad
+E=\sum_{p\le z}\frac{p^\delta-1}{p}.
 \]
-with $c>0$ depending only on $C_0$ and $\max\rho$, uniformly in the family $(A_p)$: the implied constants depend
-on the sizes $\rho(p)$ and on $\alpha,x_0,C_0$, not on the sets themselves.
-\end{proposition}
-\begin{proof}[Proof (following \cite{KowalskiSoundararajan2021}, with two changes)]
-The argument of \cite[\S3--4]{KowalskiSoundararajan2021} is: write $q=rs$ with $s$ the $z$-smooth part and $r$
-the $z$-rough part, $z=x^{1/3}$... more precisely restrict to $s\le x^{1/3}$; by the twisted multiplicativity
-$W(h;rs)=W(\bar rh;s)W(\bar sh;r)$ of the normalised Weyl sums (their Lemma~3.5(1)), bound $|W(\bar sh;r)|\le1$,
-apply the Erd\H os--Tur\'an inequality with $L$ frequencies, split $r$ into residue classes $a$ modulo $s$ (which
-fixes $W(\bar rh;s)=W(ah;s)$), count the rough $r\le x/s$ in each class by a sieve upper bound, and use the mean
-square $\frac1s\sum_{a\bmod s}|W(ah;s)|^2\le\lambda(\{h,s\})/\rho(\{h,s\})$ (their Lemma~3.5(2), where in one dimension
-$\lambda=1$), which for a modulus $s$ with $k$ prime factors of $\rho\ge2$ gives a factor $2^{-k/2}$ after
-Cauchy--Schwarz; summing over $s$ produces the exponential saving. Two changes. (i) The local sets enter only
-through $\rho(p)$ and through the mean square, which depends only on $\rho(p)$ and $\lambda(p)$: any family with
-the same sizes, in particular the dilated families $A^{(u)}_p=\bar u_p A_p$ for all $u$ at once, obeys the same
-bound with the same constants. (ii) The weight: $w(rs)=w(r)w(s)$; the sieve count of the rough $r$ in a class
-$a\bmod s$ is replaced by Shiu's theorem~\cite{Shiu1980} for the non-negative multiplicative function $w$ on
-the progression $r\equiv a\ (s)$, $r\le x/s$, $p\mid r\Rightarrow p>z$, valid uniformly for $s\le(x/s)^{1-\varepsilon}$ and
-giving $\ll\frac{x/s}{\varphi(s)\log z}\exp\bigl(\sum_{z<p\le x}w(p)/p\bigr)$; the smooth part carries $w(s)$ into the
-sum over $s$, where the same factor appears in the normalisation $S_w(x)$, and the ratio of the two Euler
-products over $p\le z$, $\prod_p(1+w(p)2^{-1/2}/p)/(1+w(p)/p)$ at primes with $\rho(p)\ge2$, is the exponential saving with
-$c=(1-2^{-1/2})\min_p w(p)$... \todo{replace by the exact constant from their \S4; $c$ depends on $\inf w(p)$ over
-the primes with $\rho(p)\ge2$, which for $w=\lambda\omega$ is $\ge2$.}
+Put $\lambda=\delta\log z$ and $g(v)=(e^{\delta v}-1)/v$, an increasing function of $v>0$, so that $(p^\delta-1)/p=g(\log p)\log p/p$.
+With $S(t)=\sum_{p\le t}\log p/p=\log t+R(t)$, $|R(t)|\le R_0$ for $t\ge2$ (Mertens), Stieltjes integration gives
+\[
+E=\int_{2^-}^{z}g(\log t)\,dS(t)=\int_{\log2}^{\log z}g(v)\,dv+\int_{2^-}^{z}g(\log t)\,dR(t)
+\le\int_0^{\lambda}\frac{e^{s}-1}{s}\,ds+3R_0\,g(\log z)+g(\log2)\log2,
+\]
+where we used that $g$ is increasing to bound $\int R\,dg$. Since $(e^s-1)/s\le e^s$, the integral is $\le e^\lambda$; the
+second term is $\le3R_0e^\lambda/\log z$; and $g(\log2)\log2=2^\delta-1\le1$ as $\delta\le1$ (because $\lambda\le\log u\le\log\log z$).
+Hence $E\le2e^\lambda$ once $\log z\ge6R_0$ and $e^\lambda\ge2$. Now choose $\lambda=\log u-\log(4C_0)$, which is $\ge\log4$ for
+$u\ge16C_0$ and is $\le\log u\le\log z$ as required: then $e^\lambda=u/(4C_0)$, so $C_0E\le u/2$, while
+$\delta\log X=\lambda u=u\log u-u\log(4C_0)$. The exponent is therefore at most
+$-u\log u+u\log(4C_0)+u/2\le-\tfrac12u\log u$ as soon as $\tfrac12\log u\ge\log(4C_0)+\tfrac12$, i.e.\ $u\ge16eC_0^2$.
 \end{proof}
 
-\begin{theorem}[small moduli, unconditional]\label{thm:small}
-For every irreducible quadratic $f$, uniformly in $u$ with $\omega(u)\ge1$ and $Y\ge(\log u)^{C}$,
+\begin{proposition}[weighted Kowalski--Soundararajan]\label{prop:KSw}
+Let $(A_p)_p$ be a family of subsets $A_p\subset\Z/p$, $\rho(p)=|A_p|$, let $Q$ be the set of squarefree $q$ all
+of whose prime factors have $\rho(p)\ge1$, and for $q\in Q$ let $A_q\subset\Z/q$ be the set of classes reducing into
+$A_p$ for every $p\mid q$, $\Delta_q=\rho(q)^{-1}\sum_{a\in A_q}\delta_{\{a/q\}}$, $\rho(q)=\prod_{p\mid q}\rho(p)$. Let $w\ge0$ be a
+multiplicative function supported on squarefree integers with $w(p)\le C_0$ ($C_0\ge1$) and $w(p)=0$ unless
+$\rho(p)\ge1$, and suppose that for some $\beta,\gamma>0$ and $t_0\ge3$
+\begin{equation}\label{eq:dens}
+\sum_{\substack{p\le t\\ \rho(p)\ge2}}\frac{w(p)}{p}\ \ge\ \beta\log\log t\quad(t\ge t_0),\qquad\qquad
+\sum_{p\le t}\frac{w(p)}{p}\ \le\ \log\log t+\gamma\quad(t\ge3).
+\end{equation}
+Then there are $c=c(\beta)>0$ and $x_1=x_1(\beta,\gamma,C_0,t_0)$ such that for $x\ge x_1$
 \[
-\mathcal P^{\le}_u(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_fY(\log Y)^{-c},
+\sum_{\substack{q\le x\\ q\in Q}}w(q)\,\mathrm{disc}(\Delta_q)\ \le\ x\,(\log x)^{-c}.
 \]
-with $c>0$ depending only on $f$. Consequently $\sum_u\lambda(u)\omega(u)\,\mathcal P^{\le}_u(H/u)\ll H(\log H)^{1-c}$: the
-small-moduli part of $\Off^\ast_f(H)$ is $o(H\log H)$ unconditionally.
+One can take $c=\beta(1-2^{-1/2})/4$. The constants do not depend on the sets $A_p$, only on their sizes
+through~\eqref{eq:dens}. (By the second condition, $S_w(x)=\sum_{q\le x,\,q\in Q}w(q)\ll_{\gamma,C_0}x$, so the bound
+is a saving of $(\log x)^{-c}$ over the trivial one whenever $w$ has positive mean value.)
+\end{proposition}
+
+\begin{proof}
+We follow \cite[\S\S3--4]{KowalskiSoundararajan2021} and indicate the changes. Write
+$W(h;q)=\rho(q)^{-1}\sum_{a\in A_q}\e(ha/q)$ for the normalised Weyl sums. Two facts from
+\cite[Lemma~3.5, Lemma~3.7]{KowalskiSoundararajan2021} hold for every family $(A_p)$, with no hypothesis on
+the sets beyond their sizes: (a) for coprime $q_1,q_2$, $W(h;q_1q_2)=W(\bar q_1h;q_2)W(\bar q_2h;q_1)$ with
+$q_1\bar q_1\equiv1\ (q_2)$, $q_2\bar q_2\equiv1\ (q_1)$; (b) for $q\in Q$ and $L\ge2$,
+\begin{equation}\label{eq:L37}
+\frac1q\sum_{a\bmod q}\ \sum_{0<|h|\le L}\frac{|W(ah;q)|}{|h|}\ \ll\ (\log L)\prod_{p\mid q}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr),
+\end{equation}
+which is their Lemma~3.7 in dimension one, where the hyperplane constant $\lambda(p)$ equals $1$ (a point).
+Also, by the Erd\H os--Tur\'an inequality, $\mathrm{disc}(\Delta_q)\ll L^{-1}+\sum_{0<|h|\le L}|W(h;q)|/|h|$.
+
+Throughout, $\prod_{p\le t}(1+w(p)/p)\le\exp(\sum_{p\le t}w(p)/p)\le e^{\gamma}\log t$ by~\eqref{eq:dens}, and
+$\sum_{t_1<p\le t_2}w(p)/p\le C_0\sum_{t_1<p\le t_2}1/p\le C_0\log(\log t_2/\log t_1)+O(C_0)$ by Mertens.
+
+Let $P=\sum_{p\le x,\ \rho(p)\ge2}w(p)(1-\rho(p)^{-1/2})/p$, so that $\beta(1-2^{-1/2})\log\log x\le P\le\log\log x+\gamma$
+by~\eqref{eq:dens}, and put $z=x^{1/P}$, so that $\log z=\log x/P\ge\log x/(2\log\log x)$ for $x\ge x_1$. Factor
+$q=rs$ with $s$ the $z$-smooth and $r$ the $z$-rough part; $w(q)=w(r)w(s)$.
+
+\emph{Case $s\le x^{1/3}$.} Fix $s$ and $L$. By (a) and the Erd\H os--Tur\'an inequality, for $r$ coprime to $s$,
+$\mathrm{disc}(\Delta_{rs})\ll L^{-1}+\sum_{0<|h|\le L}|W(\bar rh;s)|/|h|$, where we bounded $|W(\bar sh;r)|\le1$. Group the $r$
+by the class $a\equiv\bar r\pmod s$: then
+\[
+\sum_{\substack{r\le x/s,\ rs\in Q\\ p\mid r\Rightarrow p>z}}w(r)\,\mathrm{disc}(\Delta_{rs})\ \ll\ \sum_{\substack{a\bmod s\\ (a,s)=1}}\Bigl(\frac1L+\sum_{0<|h|\le L}\frac{|W(ah;s)|}{|h|}\Bigr)\ \sum_{\substack{r\le x/s,\ r\equiv\bar a\ (s)\\ p\mid r\Rightarrow p>z}}w(r).
+\]
+This is where the first change occurs. The inner sum is a sum of the non-negative multiplicative function
+$w\cdot\mathbf 1_{\text{$z$-rough}}$ (which is $\le C_0^{\omega(n)}\ll_\varepsilon n^\varepsilon$) over a progression to the modulus
+$s\le x^{1/3}\le(x/s)^{1/2}$; by Shiu's theorem~\cite{Shiu1980}, uniformly in $a$,
+\[
+\sum_{\substack{r\le x/s,\ r\equiv\bar a\ (s)\\ p\mid r\Rightarrow p>z}}w(r)\ \ll\ \frac{x/s}{\varphi(s)\log(x/s)}\exp\Bigl(\sum_{z<p\le x}\frac{w(p)}p\Bigr)\ \ll\ \frac{x}{s\,\varphi(s)\log x}\,P^{C_0},
+\]
+since $\sum_{z<p\le x}w(p)/p\le C_0\log P+O(C_0)$. Inserting~\eqref{eq:L37},
+\[
+\sum_{\substack{r\le x/s\\ rs\in Q,\ r\ \mathrm{rough}}}w(r)\,\mathrm{disc}(\Delta_{rs})\ \ll\ \frac{xP^{C_0}}{\varphi(s)\log x}\Bigl(\frac1L+(\log L)\prod_{p\mid s}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)\Bigr).
+\]
+Now multiply by $w(s)$ and sum over $z$-smooth $s\le x^{1/3}$, $s\in Q$. Since $w(s)/\varphi(s)=\prod_{p\mid s}w(p)/(p-1)$,
+\[
+\sum_{s}\frac{w(s)}{\varphi(s)}\prod_{p\mid s}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)\le\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}{p-1}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)\Bigr)
+\ll\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}{p}\Bigr)\exp\Bigl(-\sum_{\substack{p\le z\\ \rho(p)\ge2}}\frac{w(p)}p\Bigl(1-\frac1{\sqrt{\rho(p)}}\Bigr)\Bigr),
+\]
+because $(1+w(1/\sqrt\rho+p^{-1/2})/(p-1))/(1+w/p)\le\exp(-w(1-1/\sqrt\rho)/p+O(C_0p^{-3/2}))$ and the primes with
+$\rho(p)=1$ contribute $O(1)$; the exponential is $\exp(-P_z)$ with $P_z$ the sum defining $P$ cut at $z$, and
+$P-P_z=\sum_{z<p\le x}(\dots)\le C_0\log P+O(C_0)$, so $\exp(-P_z)\ll P^{C_0}e^{-P}$. Similarly
+$\sum_s w(s)/\varphi(s)\ll\prod_{p\le z,\ p\in Q}(1+w(p)/p)$. With $L=e^{P}$ the case contributes
+\[
+\ll\frac{x}{\log x}\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}p\Bigr)\cdot P^{2C_0+1}e^{-P}\ \ll\ x\,P^{2C_0+1}e^{-P},
+\]
+using $\prod_{p\le z}(1+w(p)/p)\le e^\gamma\log z\le e^\gamma\log x$.
+
+\emph{Case $s>x^{1/3}$.} Here we use $\mathrm{disc}\le1$ and bound the weighted number of $q\le x$ in $Q$ whose
+$z$-smooth part exceeds $x^{1/3}$. For $X\ge1$ let $\mathcal R(X)=\sum_{r\le X,\ p\mid r\Rightarrow p>z}w(r)$. If $X<z$ then
+$\mathcal R(X)=1$. If $X\ge z$, the upper bound of Halberstam and Richert for non-negative multiplicative
+functions~\cite[Theorem~III.3.5]{Tenenbaum2015} gives
+$\mathcal R(X)\ll_{C_0}(X/\log X)\prod_{z<p\le X}(1+w(p)/p)\ll(X/\log z)P^{C_0}=XP^{C_0+1}/\log x$. In both cases
+$\mathcal R(X)\le1+O(XP^{C_0+1}/\log x)$, and for $X=x/s\ge1$ this is $\le2x/s$ once $x\ge x_1$. Hence
+\[
+\sum_{\substack{q\le x,\ q\in Q\\ s>x^{1/3}}}w(q)\ \le\ \sum_{\substack{x^{1/3}<s\le x\\ P^+(s)\le z}}w(s)\,\mathcal R(x/s)\ \le\ 2x\sum_{\substack{s>x^{1/3}\\ P^+(s)\le z}}\frac{w(s)}{s}.
+\]
+Apply Lemma~\ref{lem:rankin} with $X=x^{1/3}$, so $u=\log X/\log z=P/3$; the conditions $z\ge z_0$ and
+$u_0\le u\le\log z$ hold for $x\ge x_1(\beta,\gamma,C_0,t_0)$, because $P\to\infty$ and $P/3\le\log\log x\le\log z$. The sum is
+therefore $\le e^{\gamma}\log z\cdot\exp(-\tfrac16P\log(P/3))$, and since $\log z\le\log x=e^{\log\log x}\le e^{P/(\beta(1-2^{-1/2}))}$,
+\[
+\sum_{\substack{q\le x,\ q\in Q\\ s>x^{1/3}}}w(q)\ \ll_\gamma\ x\exp\Bigl(\frac{P}{\beta(1-2^{-1/2})}-\frac{P\log(P/3)}6\Bigr)\ \le\ x\,e^{-P}
+\]
+as soon as $\log(P/3)\ge6(1+1/(\beta(1-2^{-1/2})))$, which again holds for $x\ge x_1$. This is the second change: the
+Dickman-type decay of Lemma~\ref{lem:rankin}, with $u\asymp\log\log x$, beats every fixed power of $\log x$, so no
+analogue of the counting argument of \cite[Lemma~3.2]{KowalskiSoundararajan2021} is needed.
+
+\emph{Conclusion.} Adding the two cases, $\sum_{q\le x,\ q\in Q}w(q)\mathrm{disc}(\Delta_q)\ll_{\gamma,C_0}x\,P^{2C_0+1}e^{-P}$, and
+since $P\ge\beta(1-2^{-1/2})\log\log x$, this is $\le x(\log x)^{-c}$ with $c=\beta(1-2^{-1/2})/4$ for $x\ge x_1$.
+\end{proof}
+
+\emph{In words.} Kowalski and Soundararajan's theorem says that a set defined prime by prime through the
+Chinese remainder theorem is equidistributed modulo most $q$, at a rate governed only by how many primes carry
+at least two residues; the proof averages the rough part of the modulus over residue classes modulo the smooth
+part, and the local sets enter only through their sizes. Multiplicative weights of bounded mean ride along:
+Shiu's theorem replaces the sieve count, Rankin's trick with Dickman decay disposes of the moduli with a large
+smooth part, and the rest is bookkeeping in Euler products.
+
+\begin{remark}\label{rem:KSwconst}
+For $w=\lambda\omega$ and the split primes of a quadratic $f$: $w(p)=2p/(p-4)\in[2,10]$ for split $p\ge5$, $w(p)=0$ at inert
+primes and at the finitely many primes dividing $2D$, $\rho(p)=2$ at split primes, and~\eqref{eq:dens} holds with
+$\beta=1-o(1)$ and some $\gamma=\gamma(f)$ by the prime number theorem for the character $\chi_D$
+($\sum_{p\le t\ \mathrm{split}}1/p=\tfrac12\log\log t+O_D(1)$). Removing in addition the primes dividing a squarefree $u$
+(where $R^{(u)}_p=\emptyset$) lowers the first sum in~\eqref{eq:dens} by at most
+$C_0\sum_{p\mid u}1/p\le C_0(\log\log\log u+O(1))$ and can only lower the second; so~\eqref{eq:dens} holds with
+$\beta=\tfrac12$, the same $\gamma$, and $t_0=\exp((\log\log u)^{A})$ for an absolute $A=A(C_0)$: in particular
+uniformly for $t\ge u\ge u_1$. The resulting exponent is $c=(1-2^{-1/2})/8\approx0.037$; no attempt has been made to
+optimise it, and none is needed for the Ces\`aro form.
+\end{remark}
+
+\begin{theorem}[small moduli, unconditional]\label{thm:small}
+For every irreducible quadratic $f$ there is $c=c(f)>0$ such that, uniformly for squarefree $u$ with $\omega(u)\ge1$
+and $Y\ge\max(u,Y_1(f))$,
+\[
+\mathcal P^{\le}_u(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_fY(\log Y)^{-c}.
+\]
+Consequently $\sum_{u\le H^{1/2}}\lambda(u)\omega(u)\,\mathcal P^{\le}_u(H/u)\ll_fH(\log H)^{1-c}$: the
+small-moduli part of the pieces with $u\le H^{1/2}$ is $o(H\log H)$ unconditionally (the pieces with
+$u>H^{1/2}$ are treated in Theorem~\ref{thm:typeII}).
 \end{theorem}
 \begin{proof}
-By~\eqref{eq:koksma}, $|\mathcal P^\le_u(Y)|\le\tfrac32\sum_{d'\le Y}\lambda(d')\omega(d')\mathrm{disc}(\Delta^{(u)}_{d'})$. Apply
-Proposition~\ref{prop:KSw} to the family $A_p=R^{(u)}_p$ for split $p\nmid u$ (empty at inert primes and at the
-primes of $u$, which are finitely many and removed from $Q$; the density hypothesis holds with $\alpha=\tfrac12-o(1)$
-once $x\ge(\log u)^{C}$, since $\sum_{p\mid u}\log p=\log u$) and $w=\lambda\omega$ ($w(p)\le2p/(p-4)\le10$ on split $p\ge5$),
-with $S_w(Y)\ll Y$: the bound is $\ll Y(1/L+\log L\cdot(\log Y)^{-c'})$, and $L=\log Y$ gives the claim. Summing
-$\lambda\omega(u)(H/u)(\log(H/u))^{-c}$ over $u\le H$ with the pieces $u>H/(\log H)^{2/c}$... over $u\le H^{1/2}$ gives
-$\ll H(\log H)^{1-c}$, and the pieces with $u>H^{1/2}$ are Theorem~\ref{thm:typeII}.
+By~\eqref{eq:koksma}, $|\mathcal P^\le_u(Y)|\le\tfrac32\sum_{d'\le Y}\lambda(d')\omega(d')\,\mathrm{disc}(\Delta^{(u)}_{d'})$, the sum over
+squarefree split $d'$ coprime to $u$. Apply Proposition~\ref{prop:KSw} to the family $A_p=R^{(u)}_p$ (of size $2$ at
+split $p\nmid 2Du$, empty otherwise) and to $w=\lambda\omega\cdot\mathbf 1_{(\cdot,2Du)=1}$; by Remark~\ref{rem:KSwconst} the
+hypotheses hold with constants depending only on $f$ provided $Y\ge u\ge u_1$, and for the finitely many
+$u<u_1$ they hold with $t_0=t_0(f)$. Since $Q$ is then exactly the set of admissible $d'$ and
+$\rho(d')=\omega(d')$, the bound is $\ll Y(\log Y)^{-c}$ with $c=c(f)$. For the consequence, the weight
+$\lambda\omega(u)$ has $\sum_{u\le U}\lambda\omega(u)/u\ll\log U$, and for $u\le H^{1/2}$ we have $Y=H/u\ge H^{1/2}\ge u$, so
+$\sum_{u\le H^{1/2}}\lambda\omega(u)\,(H/u)(\log(H/u))^{-c}\ll H(\log H)^{-c}\sum_{u\le H^{1/2}}\lambda\omega(u)/u\ll H(\log H)^{1-c}$.
 \end{proof}
 
 \emph{In words.} For moduli shorter than the length there is no short-interval problem, only the question
@@ -303,55 +423,70 @@ remainder theorem alone, as Kowalski and Soundararajan showed, at a rate that do
 sets sit at the primes. So this half of every piece is unconditional, and the loss against the trivial bound
 is a power of $\log$, which is exactly what the Ces\`aro form can afford.
 
-\subsection{Large moduli: reflection}
+\subsection{Large moduli: the far moduli are trivial}\label{sec:far}
 
-For $d'>Y$, $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$, so
+For $d'>Y$ and $m\in[1,d']$ at most one $h\le Y$ lies in the class of $m$, so $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$ and
 \begin{equation}\label{eq:Pgt}
-\mathcal P^>_u(Y)=\sum_{x\le Y}(Y-x)\sum_{\substack{d'>Y\\ d'\mid Q_u(x)}}\frac{\lambda(d')}{d'}\;-\;\frac{Y^2}2\sum_{d'>Y}\frac{\lambda(d')\rho(d')}{d'^2}=:\mathcal A-\mathcal E,
+\sum_{d'>Z}\frac{\lambda(d')}{d'}\sum_{x\in R'_{d'}}B^{(Y)}_{d'}(\rep x{d'})=\sum_{x\le Y}(Y-x)\sum_{\substack{d'>Z\\ d'\mid Q_u(x)}}\frac{\lambda(d')}{d'}\;-\;\frac{Y^2}2\sum_{d'>Z}\frac{\lambda(d')\rho(d')}{d'^2}=:\mathcal A_Z-\mathcal E_Z\qquad(Z\ge Y),
 \end{equation}
-where $d'$ ranges over squarefree split moduli coprime to $u$, and $d'\mid Q_u(x)$ with $x\le Y<d'$ means exactly
-that $x$ is the representative of an element of $R'_{d'}$ with $\rep x{d'}\le Y$. Both terms are $\asymp Y$, and
-Hypothesis~(E) says they agree to $o(Y)$.
+where $d'$ ranges over squarefree split moduli coprime to $u$, and we used that an integer $x\in[1,Y]$ is the
+representative of an element of $R'_{d'}$ exactly when $d'\mid Q_u(x)$. Both terms are of the same size, and
+the question is how well they cancel. The next lemma says that for $Z=u^2Y$ there is nothing to cancel: both
+terms are already small.
 
-\begin{lemma}[reflection]\label{lem:reflect}
-Write $\lambda=1*\kappa$ with $\kappa$ multiplicative, $\kappa(p)=\lambda(p)-1=2\omega(p)/(p-2\omega(p))$, so $0\le\kappa(e)\ll e^{-1+\varepsilon}$
-on squarefree $e$. Then
+\begin{lemma}[far moduli]\label{lem:far}
+Let $u$ be squarefree with $\omega(u)\ge1$ and $Y\ge4|D|+4$. Then
 \[
-\mathcal A=\sum_{g}\kappa(g)\sum_{e}\ \sum_{\substack{x\le Y,\ ge\mid Q_u(x)\\ Q_u(x)>eY}}(Y-x)\frac{e}{Q_u(x)}
-\qquad(\text{$e$, $g$ squarefree, coprime, split, coprime to $u$, } e<u^2Y+|D|/Y),
+\mathcal P^{\mathrm{far}}_u(Y):=\sum_{d'>u^2Y}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ \ll_f\ \frac Y{u^2},
 \]
-and, for $\Lambda\ge1$, the inner count $N_{ge}(x_1,x_2)=\#\{x\in(x_1,x_2]:\ ge\mid Q_u(x)\}$ equals
-$\rho(ge)(x_2-x_1)/(ge)+\Delta_{ge}(x_1,x_2)$ with
-\[
-|\Delta_{ge}(x_1,x_2)|\le\frac{\rho(ge)}{\Lambda}+\sum_{1\le j\le\Lambda}\frac{1}{j}\Bigl|\sum_{y\in R'_{ge}}\e\Bigl(\frac{jy}{ge}\Bigr)\Bigr|\cdot\Bigl|\e\Bigl(\frac{-jx_2}{ge}\Bigr)-\e\Bigl(\frac{-jx_1}{ge}\Bigr)\Bigr|
-\]
-(Erd\H os--Tur\'an). Consequently, if~\eqref{eq:W} holds for the moduli $ge$ (with $g$ fixed and polynomial dependence
-on $g$), then $\mathcal A-\mathcal E\ll_\varepsilon(uY)^{1-\delta}$ for some $\delta=\delta(\theta,B)>0$ when $B<1-\theta$.
+uniformly in $u$. Consequently $\sum_{u>u_1}w(u)\,|\mathcal P^{\mathrm{far}}_u(H/u)|\ll_fH/u_1$ for every $u_1\ge1$.
 \end{lemma}
-\begin{proof}[Proof (sketch)]
-Put $d'=Q_u(x)/e$; the conditions $d'>Y$, $d'$ squarefree split coprime to $u$ become conditions on the
-cofactor, and $1/d'=e/Q_u(x)$. Expanding $\lambda(Q_u(x)/e)=\sum_{g\mid Q_u(x)/e}\kappa(g)$ gives the double sum, in
-which the summation condition on $x$ for fixed $(g,e)$ is $ge\mid Q_u(x)$ together with the smooth condition
-$x>x_0(e):=\sqrt{(eY+D)/u^2}$ and the squarefreeness of $Q_u(x)/(ge)$ (which we impose by M\"obius inversion over
-squares, at the cost of moduli $ge\ell^2$ and a convergent sum over $\ell$; we suppress it). For fixed $(g,e)$,
-partial summation in $x$ against the smooth weight $(Y-x)e/Q_u(x)$, which is $\ll e/(u^2x)$ and monotone on the
-range, converts $\sum_x$ into an integral of $N_{ge}(x_0,x)$; the main terms $\rho(ge)(x-x_0)/(ge)$ reassemble,
-after the sum over $e$ and $g$, into $\mathcal E+O(Y^{1-\delta})$ by the identities of part~I (the diagonal of the
-identity $\sum_dW_f(d)\omega_f(d)^2/d=1$ restricted to $d'>Y$). The remainders are the discrepancies
-$\Delta_{ge}(x_0(e),x)$, whose Erd\H os--Tur\'an bound involves the Weyl sums $\rho_j(ge)$ multiplied by the phases
-$\e(-jx/(ge))$, $\e(-jx_0(e)/(ge))$: the first is the phase of Lemma~\ref{lem:partial} in the variable $e$ (with
-$x\le Y$ in place of $Y$), the second, $\e(-j\sqrt{(eY+D)}/(uge))\approx\e(-j\sqrt{Y/e}/(ug))$, is smooth in $e$
-with derivative $\ll j\sqrt Y\,e^{-3/2}/(ug)$, and both are handled by partial summation against the sharp sums
-$\sum_{e\le t}\lambda(\cdot)\rho_j(ge)$ exactly as in Lemma~\ref{lem:partial}. The weights $e/Q_u(x)\ll e/(u^2Y^2)$ on
-$x\asymp Y$ make the moduli $e\asymp u^2Y$ dominant, and the saving $t^{\theta-1}$ there, with $t\asymp u^2Y$ and
-loss $(uj)^B$, gives $(uY)^{1-\delta}$ once $B<1-\theta$ and $\Lambda=Y^{\delta'}$.
+\begin{proof}
+Put $Z=u^2Y$. Since $\lambda\rho$ has mean value $\ll1$ (Proposition~\ref{prop:pieces}), $\sum_{d'>Z}\lambda\rho(d')/d'^2\ll1/Z$
+and $\mathcal E_Z\ll Y^2/Z=Y/u^2$.
+
+For $\mathcal A_Z$ write $\lambda=1*\kappa$ with $\kappa$ multiplicative, supported on squarefree split integers,
+$\kappa(p)=\lambda(p)-1=4/(p-4)\ge0$. Dropping the conditions on the moduli (all terms are non-negative) and
+substituting $d'=ge$... more precisely writing $d'=g\,d''$ with $g\mid d'$ carrying $\kappa$, and $d''=n/(ge)$ with
+$n=Q_u(x)$, so that $1/d''=ge/n$ and $d''>Z/g$ becomes $e<n/(gZ)$,
+\[
+\sum_{\substack{d'>Z\\ d'\mid n}}\frac{\lambda(d')}{d'}\le\sum_{g\mid n}\kappa(g)\sum_{\substack{e\mid n/g\\ e<n/(gZ)}}\frac{e}{n},
+\qquad\text{hence}\qquad
+\mathcal A_Z\le\sum_g\kappa(g)\sum_e e\sum_{\substack{x\le Y,\ ge\mid Q_u(x)\\ Q_u(x)>geZ}}\frac{Y-x}{Q_u(x)}.
+\]
+In the inner sum $Q_u(x)>geu^2Y$ and $Q_u(x)\le u^2Y^2+|D|\le2u^2Y^2$, so $ge<2Y$; moreover
+$u^2x^2=Q_u(x)+D>geu^2Y-|D|\ge geu^2Y/2$ because $Y\ge2|D|$, so $x>x_0:=\sqrt{geY/2}$, and then
+$u^2x^2\ge2|D|$ gives $Q_u(x)\ge u^2x^2/2$. Therefore
+\[
+\frac{Y-x}{Q_u(x)}\le\min\Bigl(\frac1{geu^2},\ \frac{2Y}{u^2x^2}\Bigr).
+\]
+The $x$ with $ge\mid Q_u(x)$ lie in $\rho_u(ge)$ residue classes modulo $ge$, where $\rho_u(m)$ denotes the number of
+roots of $Q_u$ modulo $m$ (for all $m$, not only squarefree split ones). In one class, the first term beyond $x_0$
+contributes at most $2Y/(u^2x_0^2)=4/(geu^2)$ and the others at most $(ge)^{-1}\int_{x_0}^\infty2Y\,dx/(u^2x^2)=2\sqrt{2}\,\sqrt{Y/(ge)}/(geu^2)$;
+so
+\[
+\mathcal A_Z\le\frac1{u^2}\sum_g\frac{\kappa(g)}g\sum_{e<2Y/g}\rho_u(ge)\Bigl(4+3\sqrt{\frac Y{ge}}\Bigr).
+\]
+Now $\rho_u$ is multiplicative; $\rho_u(p^k)=1+\chi_D(p)\le2$ for $p\nmid2Du$; $\rho_u(p^k)=0$ for $p\mid u$, $p\nmid D$; and
+for the finitely many $p\mid2D$, $\rho_u(p^k)\le4p^{v_p(D)+2}$ uniformly in $k$ and in squarefree $u$ (if $k>v_p(D)+2$ a
+solution forces $v_p(u^2x^2)=v_p(D)$, which fixes $v_p(x)$ and leaves a congruence $x'^2\equiv D'\ (p^{k-v_p(D)})$ with
+$D'$ a unit, having at most $4$ solutions, each lifting to $p^{v_p(D)/2+1}$ classes). Hence $\rho_u(ge)\le\rho_u(g)\rho_u(e)$
+for squarefree split $g$, and $\sum_{e\le t}\rho_u(e)\ll_ft$ uniformly in $u$ (the Dirichlet series of $\rho_u$ is
+$\zeta(s)L(s,\chi_D)$ times a product absolutely convergent for $\Re s>\tfrac12$ with constants depending only on $f$),
+whence $\sum_{e\le t}\rho_u(e)e^{-1/2}\ll_ft^{1/2}$ by partial summation. The inner sum is therefore $\ll\rho_u(g)Y/g$, and
+$\mathcal A_Z\ll(Y/u^2)\sum_g\kappa(g)\rho_u(g)/g^2\ll Y/u^2$.
+
+For the consequence, $\sum_{u\le t}w(u)\ll t$ (Proposition~\ref{prop:pieces}), so $\sum_{u>u_1}w(u)u^{-3}\ll u_1^{-2}$... more precisely
+$\sum_{u>u_1}w(u)(H/u)u^{-2}=H\sum_{u>u_1}w(u)u^{-3}\ll H/u_1^{2}\le H/u_1$.
 \end{proof}
 
-\emph{In words.} For moduli larger than the length, at most one integer in each residue class is counted, and
-the question becomes how many square roots of $D$ modulo $d'$ fall below $Y$; reflecting $d'$ to the complementary
-divisor $e=Q_u(x)/d'$ turns this into the divisor-type sums of Hooley, in which the moduli are again below
-the length and the same Weyl sums appear, now with a second phase that varies slowly. This is the part of
-the argument where the companion note to part~I stopped; it is not the hard part.
+\emph{In words.} When the modulus exceeds $u^2$ times the length, each root that falls below the length has
+a complementary divisor $e=Q_u(x)/d'$ below the length, and the weights $1/d'=e/Q_u(x)$ decay like $1/x^2$;
+counting crudely, the whole far range weighs only $Y/u^2$, which is summable over $u$. So the far moduli of
+the pieces with large agreeing part are negligible for trivial reasons, and only for bounded $u$, where
+$Y/u^2$ is not small compared with $Y$, is an actual cancellation needed; that case is Hooley's reflection and is
+treated in Proposition~\ref{prop:farrefl}. The trivial bound also fixes the scale of everything else: the small
+moduli $d'\le Y$ and the window $Y<d'\le u^2Y$ each have trivial size $\asymp Y$, the far moduli $Y/u^2$.
 
 \section{The first piece and the large pieces}\label{sec:unconditional}
 
@@ -385,88 +520,242 @@ inversion (over $\ell^2\mid d$ and over the inert and special primes, which carr
 are removed by inclusion--exclusion at the cost of the divisor bound).
 \end{proof}
 
-\begin{theorem}[the first piece]\label{thm:u1}
-For $D$ as in Lemma~\ref{lem:sharp}, $\mathcal P_1(Y)\ll_{D,\varepsilon}Y^{12/13+\varepsilon}$.
+\begin{theorem}[the first piece: small moduli]\label{thm:u1}
+For $D$ as in Lemma~\ref{lem:sharp}, $\mathcal P^{\le}_1(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_{D,\varepsilon}Y^{12/13+\varepsilon}$.
+Together with Proposition~\ref{prop:farrefl} (the far moduli, $u=1$) this gives $\mathcal P_1(Y)=o(Y)$ unconditionally;
+the window is empty for $u=1$.
 \end{theorem}
 \begin{proof}
 Lemma~\ref{lem:sharp} gives~\eqref{eq:W} for $u=1$ with $\theta=\tfrac{11}{12}+\varepsilon$, $B=\tfrac14$. By
 Lemma~\ref{lem:partial}, $T_k(Y)\ll k^{1/4}(kY)^{12/13+\varepsilon}$, and inserting into~\eqref{eq:Ple}:
 $\sum_{k\le K}k^{-2}T_k\ll Y^{12/13+\varepsilon}\sum_{k\le K}k^{-2+1/4+12/13}\ll Y^{12/13+\varepsilon}K^{0.18}$, while
-$\sum_{k>K}k^{-2}|T_k|\ll Y/K$; with $K=Y^{1/20}$ both are $\ll Y^{12/13+\varepsilon}$. The large moduli are
-Lemma~\ref{lem:reflect} with $u=1$, where the moduli $ge$ are again covered by Lemma~\ref{lem:sharp} (the divisor
-$g$ playing the role of $q$), with $B=\tfrac14<1-\theta$ replaced by the actual bookkeeping of that lemma.
+$\sum_{k>K}k^{-2}|T_k|\ll Y/K$; with $K=Y^{1/20}$ both are $\ll Y^{12/13+\varepsilon}$.
 \end{proof}
 
-\subsection{Large $u$: averaging the dilations}
+\begin{remark}
+A power saving for the far moduli of the first piece is within reach of the same input: after the reflection of
+Proposition~\ref{prop:farrefl} the moduli are again below the length, and Lemma~\ref{lem:sharp} applies to the
+sharp sums $\sum_{e\le t}\rho_j(ge)$ (the divisor $g$ playing the role of $q$), with the two phases of the reflected
+sum handled by partial summation as in Lemma~\ref{lem:partial}. We have not carried this out, because the first
+piece is a single term of size $O(H)$ in a sum whose target is $o(H\log H)$, and because the identification of the
+reflected main term (Proposition~\ref{prop:farrefl}, Step~4) is the same in both versions.
+\end{remark}
 
-\begin{lemma}[$\lambda\omega$ in progressions]\label{lem:AP}
-Let $\chi=\chi_D$ be the Kronecker symbol of the discriminant $D$, so that $\omega(n)=\sum_{m\mid n}\chi(m)$ on squarefree
-$n$ coprime to $2D$. For $U\ge2$, $d\ge1$ coprime to $2D$ and every residue $b$ coprime to $d$,
-\[
-\sum_{\substack{n\le U\\ n\equiv b\ (d)}}\lambda(n)\omega(n)=\frac{1}{\varphi(d)}\sum_{\substack{n\le U\\ (n,d)=1}}\lambda(n)\omega(n)+O_{D,\varepsilon}\bigl(U^{1/2+\varepsilon}d^{1/2}\bigr),
-\]
-the sums over squarefree $n$.
+\subsection{Large $u$: averaging the dilations}\label{sec:typeII}
+
+Throughout this subsection $g=w/c_f$ is the multiplicative function of the set-up ($g(p)=\lambda(p)\omega(p)$ for odd
+$p\nmid D$, $g$ supported on squarefree integers coprime to $D$), $\chi=\chi_D$ is the Kronecker symbol, and $m$, $m_d$
+are the constants
+\begin{equation}\label{eq:md}
+m=L(1,\chi)\prod_p\Bigl(1-\frac1p\Bigr)\Bigl(1-\frac{\chi(p)}p\Bigr)\Bigl(1+\frac{g(p)}p\Bigr),\qquad
+m_d=m\prod_{p\mid d}\Bigl(1+\frac{g(p)}p\Bigr)^{-1},\qquad M_d=c_fm_d,
+\end{equation}
+the product converging absolutely since $g(p)-1-\chi(p)=(1+\chi(p))\kappa(p)\ll1/p$ for $p\nmid2D$.
+
+\begin{lemma}[$\lambda\omega$ in progressions and against characters]\label{lem:AP}
+For $U\ge2$ and $d\ge1$ coprime to $2D$:
+\begin{enumerate}
+\item[(i)] $\displaystyle\sum_{\substack{n\le U\\ (n,d)=1}}g(n)=m_dU+O_{D,\varepsilon}\bigl(U^{1/2+\varepsilon}d^{\varepsilon}\bigr)$;
+\item[(ii)] for every non-principal character $\psi$ modulo $d$, $\displaystyle\sum_{n\le U}g(n)\psi(n)\ll_{D,\varepsilon}U^{1/2+\varepsilon}d^{1/2}$;
+\item[(iii)] for every $b$ coprime to $d$, $\displaystyle\sum_{\substack{n\le U\\ n\equiv b\ (d)}}g(n)=\frac{1}{\varphi(d)}\sum_{\substack{n\le U\\ (n,d)=1}}g(n)+O_{D,\varepsilon}\bigl(U^{1/2+\varepsilon}d^{1/2}\bigr)$.
+\end{enumerate}
 \end{lemma}
 \begin{proof}
-First without $\lambda$ and without the squarefree condition. Writing $n=mk$, $\omega(n)=\sum_{mk=n}\chi(k)$, and splitting
-at $\sqrt U$ (Dirichlet's hyperbola),
+(ii) The Dirichlet series of $g\psi$ is $\prod_{p\nmid2D}(1+g(p)\psi(p)p^{-s})=L(s,\psi)L(s,\chi\psi)G_\psi(s)$ with
+$G_\psi(s)=\prod_p(1+g(p)\psi(p)p^{-s})(1-\psi(p)p^{-s})(1-\chi\psi(p)p^{-s})$, an Euler product of the form
+$\prod_p(1+O(p^{-s-1})+O(p^{-2s}))$, absolutely convergent for $\Re s>\tfrac12$ uniformly in $\psi$; write $\gamma_\psi$ for
+its coefficients, so that $\sum_n|\gamma_\psi(n)|n^{-1/2-\varepsilon}\ll_\varepsilon1$. Then
+$g\psi=\psi*\chi\psi*\gamma_\psi$ and
 \[
-\sum_{\substack{n\le U\\ n\equiv b\ (d)}}\omega(n)=\sum_{\substack{m\le\sqrt U\\ (m,d)=1}}\ \sum_{\substack{k\le U/m\\ k\equiv b\bar m\ (d)}}\chi(k)
-+\sum_{\substack{k\le\sqrt U\\ (k,d)=1}}\chi(k)\#\Bigl\{m\le\frac Uk:\ m\equiv b\bar k\ (d)\Bigr\}-\sum_{\substack{m,k\le\sqrt U\\ mk\equiv b\ (d)}}\chi(k).
+\sum_{n\le U}g(n)\psi(n)=\sum_{n_3}\gamma_\psi(n_3)\sum_{n_1n_2\le U/n_3}\psi(n_1)\,\chi\psi(n_2).
 \]
-In the first sum, $\sum_{k\le x,\ k\equiv c\ (d)}\chi(k)=\varphi(d)^{-1}\sum_{\psi\bmod d}\bar\psi(c)\sum_{k\le x}\chi\psi(k)$, and every
-$\chi\psi$ is a non-principal character modulo $dD$ (as $\chi$ is primitive of conductor $|D|$ coprime to $d$),
-so P\'olya--Vinogradov gives $\ll(d|D|)^{1/2}\log(d|D|)$ for each inner sum; the first sum is $\ll U^{1/2}d^{1/2}\log(dD)$.
-In the second, $\#\{m\le U/k:\ m\equiv c\ (d)\}=U/(kd)+O(1)$, giving $\frac Ud\sum_{k\le\sqrt U,\ (k,d)=1}\chi(k)/k+O(\sqrt U)$. The
-third is $\ll\sqrt U\,(d^{1/2}\log dD)$ by the same character-sum bound applied to the inner sum over $k\le\sqrt U$ in the
-class $b\bar m$. Doing the same computation for the sum over all $n\le U$ coprime to $d$ (i.e.\ summing over $b$) and
-dividing by $\varphi(d)$ shows that the main terms agree, and the difference is $\ll U^{1/2}d^{1/2}\log(dD)$. The
-squarefree condition is imposed by M\"obius inversion over $\ell^2\mid n$, which replaces $(U,b,d)$ by
-$(U/\ell^2,\,b\bar\ell^2,\,d)$ for $(\ell,d)=1$ and contributes $O(1)$ for $\ell\mid d$... more precisely the classes with
-$(\ell,d)>1$ are empty; the error terms sum to $\ll U^{1/2}d^{1/2}\log(dD)\sum_\ell\ell^{-1}\ll U^{1/2+\varepsilon}d^{1/2}$.
-Finally $\lambda=1*\kappa$ with $\kappa(g)\ll g^{-1+\varepsilon}$ supported on squarefree $g$: $\sum_{n\equiv b}\lambda\omega(n)=\sum_g\kappa(g)\omega(g)\sum_{n'\le U/g,\ n'\equiv b\bar g\ (d),\ (n',g)=1}\omega(n')$
-(multiplicativity of $\omega$ on coprime factors), and the previous bound applied to each $g$, with the extra coprimality
-removed by a further M\"obius inversion over the divisors of $g$, gives the claim.
+Both $\psi$ and $\chi\psi$ are non-principal characters (to the moduli $d$ and $d|D|$; $\chi\psi$ is non-principal
+because $\chi$ is primitive of conductor $|D|$ coprime to $d$), so by the P\'olya--Vinogradov inequality their partial
+sums are $\ll(d|D|)^{1/2}\log(d|D|)$, and Dirichlet's hyperbola method gives
+$\sum_{n_1n_2\le X}\psi(n_1)\chi\psi(n_2)\ll X^{1/2}d^{1/2}\log(d|D|)$. Summing over $n_3$ with the weights
+$|\gamma_\psi(n_3)|(U/n_3)^{1/2}$ gives (ii).
+
+(i) Likewise $\sum_{(n,d)=1}g(n)n^{-s}=\zeta(s)L(s,\chi)G_d(s)$ with $G_d(s)=\prod_p(1+g(p)\mathbf 1_{p\nmid d}p^{-s})(1-p^{-s})(1-\chi(p)p^{-s})$,
+whose coefficients $\gamma_d$ satisfy $\sum_n|\gamma_d(n)|n^{-1/2-\varepsilon}\ll d^{\varepsilon}$ (the factors at $p\mid d$ are
+$(1-p^{-s})(1-\chi(p)p^{-s})$). Since $\sum_{n_1n_2\le X}\chi(n_2)=L(1,\chi)X+O(X^{1/2})$ by the hyperbola method,
+$\sum_{n\le U,(n,d)=1}g(n)=\sum_{n_3}\gamma_d(n_3)\bigl(L(1,\chi)U/n_3+O((U/n_3)^{1/2})\bigr)=L(1,\chi)G_d(1)U+O(U^{1/2+\varepsilon}d^\varepsilon)$,
+and $L(1,\chi)G_d(1)=m_d$. (iii) follows from (i) and (ii) by orthogonality of characters.
 \end{proof}
 
 \emph{In words.} The number of roots of $f$ modulo $n$ is a divisor-type function twisted by a character, and
 such functions are equidistributed in progressions to moduli well below $U$; the proof is Dirichlet's hyperbola
 method with the P\'olya--Vinogradov inequality. No deep input is used.
 
-\begin{theorem}[Type II range]\label{thm:typeII}
-For every $\varepsilon>0$ there is $\delta>0$ with
+\paragraph{The dilation average.} For squarefree split $d'>1$, a unit $a$ modulo $d'$ and $Y>0$ put
+\begin{equation}\label{eq:G}
+G_{d'}(a,Y)=\sum_{r\in R_{d'}}B^{(Y)}_{d'}(\rep{ar}{d'}),\qquad
+\bar G_{d'}(Y)=\frac1{\varphi(d')}\sum_{a\in(\Z/d')^\times}G_{d'}(a,Y),
+\end{equation}
+so that the inner sum in the piece~\eqref{eq:piece} is $G_{d'}(\bar u,Y)$ (by~\eqref{eq:m} and the symmetry of $R_{d'}$).
+
+\begin{lemma}[the dilation average]\label{lem:Gbar}
+With $\phi(\theta)=\theta-\theta^2$,
+\begin{equation}\label{eq:Gbar}
+\bar G_{d'}(Y)=\frac{\omega(d')}{2\varphi(d')}\sum_{e\mid d'}\mu(e)\,e\,\phi\Bigl(\Bigl\{\frac Ye\Bigr\}\Bigr).
+\end{equation}
+Consequently: (a) $|\bar G_{d'}(Y)|\le\omega(d')\sigma(d')/(8\varphi(d'))$ and $|\bar G_{d'}(Y)|\le\omega(d')\tau(d')Y/(2\varphi(d'))$ for all $Y>0$;
+(b) $\bar G_{d'}(Y)=-\omega(d')Y^2/(2d')=G_{d'}(a,Y)$ for $0<Y<1$ and every $a$;
+(c) $Y\mapsto G_{d'}(a,Y)$ and $Y\mapsto\bar G_{d'}(Y)$ are continuous, piecewise linear, with $|\partial_Y|\le\omega(d')$;
+(d) $|G_{d'}(a,Y)|\le\omega(d')\min(d',Y)$ for all $a$, $Y$;
+(e) $\displaystyle\int_0^\infty\bar G_{d'}(Y)\frac{dY}{Y^2}=\begin{cases}-\dfrac{\omega(p)\log p}{2\varphi(p)}=-\dfrac{\log p}{p-1}&\text{if }d'=p\text{ is prime},\\[2ex] 0&\text{if $d'$ has at least two prime factors,}\end{cases}$
+the integral converging absolutely.
+\end{lemma}
+\begin{proof}
+Every $r\in R_{d'}$ is a unit ($r^2\equiv D$, $(D,d')=1$), so $a\mapsto ar$ permutes the units and
+$\sum_aG_{d'}(a,Y)=\omega(d')\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(x)$. By M\"obius inversion and the elementary identity
+$\sum_{h'\le X}(X-h')=X^2/2-X/2+\phi(\{X\})/2$ ($X\ge0$),
 \[
-\sum_{H^{1/2+\varepsilon}<u\le H}\lambda(u)\omega(u)\,\mathcal P_u(H/u)\ll_{f,\varepsilon}H^{1-\delta}.
+\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(x)=\sum_{e\mid d'}\mu(e)\,e\sum_{h'\le Y/e}\Bigl(\frac Ye-h'\Bigr)-\frac{\varphi(d')Y^2}{2d'}
+=\frac{Y^2}2\sum_{e\mid d'}\frac{\mu(e)}e-\frac Y2\sum_{e\mid d'}\mu(e)+\frac12\sum_{e\mid d'}\mu(e)e\,\phi\Bigl(\Bigl\{\frac Ye\Bigr\}\Bigr)-\frac{\varphi(d')Y^2}{2d'},
 \]
-\end{theorem}
-\begin{proof}[Proof (sketch)]
-Group the $u$ in dyadic ranges $u\asymp U$, $U>H^{1/2+\varepsilon}$, so that $Y=H/u\le H/U<U^{1-2\varepsilon}$. For a modulus $d'$
-(coprime to $u$) the inner sum in~\eqref{eq:piece} is $G_{d'}(\bar u,Y)=\sum_{r\in R_{d'}}B^{(Y)}_{d'}(\rep{-\bar ur}{d'})$, a
-function of the class $a=\bar u\in(\Z/d')^\times$ and of $Y$. For fixed $d'$,
-\[
-\sum_{u\asymp U,\ (u,d')=1}\lambda\omega(u)\,G_{d'}\Bigl(\bar u,\frac Hu\Bigr)=\sum_{a\in(\Z/d')^\times}\ \sum_{\substack{u\asymp U\\ u\equiv\bar a\ (d')}}\lambda\omega(u)\,G_{d'}\Bigl(a,\frac Hu\Bigr).
-\]
-The function $u\mapsto G_{d'}(a,H/u)$ is, for $H/u\ge d'$, piecewise smooth in $u$ with $O(\omega(d'))$ pieces on a dyadic
-range and derivative $\ll\omega(d')d'\cdot(H/u^2)/d'\cdot$..., so partial summation reduces the inner sum to sums
-$\sum_{u\le U',\ u\equiv b\ (d')}\lambda\omega(u)$ with $U'\asymp U$, to which Lemma~\ref{lem:AP} applies with error
-$O(U^{1/2+\varepsilon}d'^{1/2})=O(U^{1-\varepsilon/2})$ since $d'\le Y<U^{1-2\varepsilon}$. The main term is independent of
-$a$, and $\sum_{a\in(\Z/d')^\times}G_{d'}(a,Y)=\omega(d')\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(\rep x{d'})$ because $a\mapsto ar$
-permutes the units for each $r\in R_{d'}$ ($(r,d')=1$); by inclusion--exclusion over the primes of $d'$ and
-$\sum_{x\bmod e}B^{(Y)}_e(x)=-Y/2$, this is $\omega(d')\sum_{e\mid d'}\mu(e)\,B^{(Y)}_{e}(0)\cdot(\text{sign})$, and
-$|B^{(Y)}_e(0)|\le e$, so $\bigl|\sum_aG_{d'}(a,Y)\bigr|\le\omega(d')\sigma(d')\ll\omega(d')d'\log\log d'$. Hence the main terms
-contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\cdot\frac{\omega(d')d'\log\log d'}{\varphi(d')}\cdot U\log U\ll UY^{\varepsilon}$
-against the trivial $UY$, and the error terms contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\omega(d')\,d'\,U^{1/2+\varepsilon}d'^{1/2}\ll Y^{3/2+\varepsilon}U^{1/2+\varepsilon}$,
-which is $\ll(UY)^{1-\varepsilon}=H^{1-\varepsilon}$ because $Y^{1/2+2\varepsilon}<U^{1/2-2\varepsilon}$ when $Y<U^{1-8\varepsilon}$; the range $H^{1/2+\varepsilon}<u$
-gives $Y=H/u<u^{(1/2-\varepsilon)/(1/2+\varepsilon)}<u^{1-3\varepsilon}$, which is what is needed after renaming $\varepsilon$. The moduli $d'>Y$ in the piece are treated in the same way
-from~\eqref{eq:Pgt}: the count $\#\{x\le Y:\ x\in R'_{d'}\}$ becomes, after averaging over $a$, $\omega(d')\#\{x\le Y:(x,d')=1\}/\varphi(d')$
-up to the same error, which matches $\mathcal E$. Summing over the $O(\log H)$ dyadic $U$ gives the theorem.
+and the first, second and last terms cancel ($d'>1$). This is~\eqref{eq:Gbar}. (a): $0\le e\phi(\{Y/e\})\le e/4$
+gives the first bound; for $e\le Y$ also $e\phi\le Y/4$, and for $e>Y$, $e\phi(Y/e)=Y-Y^2/e\in[0,Y]$, giving the
+second. (b): for $Y<1$ all $e>Y$, so the sum is $Y\sum\mu(e)-Y^2\sum\mu(e)/e=-Y^2\varphi(d')/d'$; and no root has
+representative $\le Y<1$, so $G_{d'}(a,Y)=-\omega(d')Y^2/(2d')$ directly. (c): $\partial_YB^{(Y)}_{d'}(m)=\#\{h\le Y:h\equiv m\}-Y/d'\in(-1,1)$
+away from the integers. (d): from the proof of Proposition~\ref{prop:pieces} for $d'\le Y$ (symmetric pairs
+contribute $\le d'/4$ each); for $d'>Y$, $B^{(Y)}_{d'}(m)+B^{(Y)}_{d'}(d'-m)=(Y-m)^++(Y-d'+m)^+-Y^2/d'\in[-Y,Y]$.
+(e): put $K(\tau)=\int_\tau^\infty\phi(\{v\})v^{-2}dv$, so that for $0<T<1$,
+$\int_T^\infty\bar G_{d'}(Y)Y^{-2}dY=\frac{\omega}{2\varphi}\sum_{e\mid d'}\mu(e)K(T/e)$, and for $\tau<1$,
+$K(\tau)=\int_\tau^1(v^{-1}-1)\,dv+K(1)=-\log\tau-1+\tau+K(1)$. Hence
+$\sum_{e\mid d'}\mu(e)K(T/e)=\sum_{e\mid d'}\mu(e)\log e+T\varphi(d')/d'$, because $\sum_{e\mid d'}\mu(e)=0$; letting $T\to0$
+(absolute convergence at $0$ follows from (b)) gives $\frac{\omega}{2\varphi}\sum_{e\mid d'}\mu(e)\log e$, and for
+$d'=p_1\cdots p_k$, $\sum_{e\mid d'}\mu(e)\log e=-\sum_i\log p_i\sum_{e'\mid d'/p_i}\mu(e')$ is $-\log d'$ if $k=1$ and $0$ if $k\ge2$.
 \end{proof}
 
-\emph{In words.} When the agreeing part $u$ is larger than $\sqrt H$, the moduli $d'$ in the piece are shorter
-than $u$, and as $u$ runs through a range longer than $d'$ the dilation $\bar u$ runs through all units modulo
-$d'$: averaged over all dilations the root set is uniform, and the off-diagonal cancels to the level of the
-error in distributing a divisor-type function in progressions. The dilation, which is the obstacle for small
-$u$, is the mechanism of cancellation for large $u$.
+\begin{theorem}[Type II range]\label{thm:typeII}
+For every $\varepsilon\in(0,\tfrac1{10})$ there is $\delta=\delta(\varepsilon)>0$ such that
+\[
+\sum_{u>H^{2/3+\varepsilon}}w(u)\,\mathcal P_u(H/u)=c_{\mathrm{off}}(f)\,H+O_{f,\varepsilon}\bigl(H^{1-\delta}\bigr),
+\]
+the sum over all squarefree $u>H^{2/3+\varepsilon}$ with $\omega(u)\ge1$, including $u>H$, where
+\begin{equation}\label{eq:coff}
+c_{\mathrm{off}}(f)=\sum_{d'}\frac{\lambda(d')M_{d'}}{d'}\int_0^\infty\bar G_{d'}(Y)\frac{dY}{Y^2}
+=-\sum_{\substack{p\ \mathrm{split}\\ p\nmid2D}}\frac{\lambda(p)\,M_p\,\log p}{p\,(p-1)}\ <\ 0,
+\end{equation}
+with $M_p=c_fm_p$ as in~\eqref{eq:md}; both series converge absolutely.
+\end{theorem}
+\begin{proof}
+Write $U_0=H^{2/3+\varepsilon}$, $Y_0=H/U_0=H^{1/3-\varepsilon}$, $\eta=\varepsilon/2$, and let $\varepsilon'=\varepsilon/12$ be the
+exponent in Lemma~\ref{lem:AP}. All implied constants depend on $f$ and $\varepsilon$.
+
+\emph{Step 1: $u>H$.} Here $Y=H/u<1$ and $\mathcal P_u(Y)=\sum_{(d',u)=1}(\lambda(d')/d')\bar G_{d'}(Y)$ exactly, by
+Lemma~\ref{lem:Gbar}(b).
+
+\emph{Step 2: dyadic blocks.} For $U\in[U_0,H)$ of the form $U_02^j$ consider the $u\in(U,2U]$, $u\le H$, and put
+$Y_U=H/U\in(1,Y_0]$ and $Z_U=Y_UH^{\eta}$; for $u$ in the block, $H/u\in[Y_U/2,Y_U)$.
+
+\emph{Step 3: moduli $d'>Z_U$ in a block.} For $d'>Z_U\ge Y$, $G_{d'}(\bar u,Y)=\sum_{x\le Y,\ d'\mid Q_u(x)}(Y-x)-\omega(d')Y^2/(2d')$
+as in~\eqref{eq:Pgt}. Since $\lambda(d')\ll d'^{\varepsilon'}$ and $\tau(n)\ll n^{\varepsilon'}$, for $n=Q_u(x)\le2H^2$ we have
+$\sum_{d'>Z,\ d'\mid n}\lambda(d')/d'\ll H^{3\varepsilon'}/Z$, so that
+$\sum_{d'>Z_U}(\lambda(d')/d')|G_{d'}(\bar u,H/u)|\ll Y_U^2H^{3\varepsilon'}/Z_U$; and by Lemma~\ref{lem:Gbar}(a),
+$\sum_{d'>Z_U}(\lambda(d')/d')|\bar G_{d'}(H/u)|\ll Y_U\sum_{d'>Z_U}\lambda\omega\tau(d')/(d'\varphi(d'))\ll Y_UZ_U^{-1+\varepsilon'}$.
+Summing either bound over the block with $\sum_{u\le2U}w(u)\ll U$ gives $\ll UY_U^2H^{3\varepsilon'}/Z_U=H^{1-\eta+3\varepsilon'}$.
+
+\emph{Step 4: moduli $d'\le Z_U$ in a block: the averaging.} Fix such a $d'$ and put $G^\circ(a,Y)=G_{d'}(a,Y)-\bar G_{d'}(Y)$,
+a function on $(\Z/d')^\times$ with mean zero, so that $G^\circ(a,Y)=\sum_{\psi\ne\psi_0}\hat G(\psi,Y)\psi(a)$ with
+$\hat G(\psi,Y)=\varphi(d')^{-1}\sum_aG^\circ(a,Y)\bar\psi(a)$, the sum over non-principal characters modulo $d'$. Since
+$\psi(\bar u)=\bar\psi(u)$,
+\[
+\mathcal E_{d'}(U):=\sum_{\substack{U<u\le2U\\ (u,d')=1}}w(u)\,G^\circ\Bigl(\bar u,\frac Hu\Bigr)=\sum_{\psi\ne\psi_0}\ \sum_{U<u\le2U}w(u)\bar\psi(u)\,\hat G\Bigl(\psi,\frac Hu\Bigr).
+\]
+For fixed $\psi$, partial summation against $S_\psi(t)=\sum_{U<u\le t}w(u)\bar\psi(u)\ll U^{1/2+\varepsilon'}d'^{1/2}$
+(Lemma~\ref{lem:AP}(ii)) gives
+$|\sum_uw(u)\bar\psi(u)\hat G(\psi,H/u)|\le\sup_t|S_\psi(t)|\bigl(\sup_u|\hat G(\psi,H/u)|+\mathrm{Var}_{u\in(U,2U]}\hat G(\psi,H/u)\bigr)$.
+Now sum over $\psi$ using Cauchy--Schwarz and Parseval on $(\Z/d')^\times$:
+\[
+\sum_\psi|\hat G(\psi,Y)|\le\varphi(d')^{1/2}\Bigl(\sum_\psi|\hat G(\psi,Y)|^2\Bigr)^{1/2}=\Bigl(\sum_a|G^\circ(a,Y)|^2\Bigr)^{1/2}\le\varphi(d')^{1/2}\max_a|G^\circ(a,Y)|\le2\varphi(d')^{1/2}\omega(d')\min(d',Y)
+\]
+by Lemma~\ref{lem:Gbar}(d), and in the same way, using (c) and $\partial_u=-(H/u^2)\partial_Y$,
+$\sum_\psi\mathrm{Var}_u\hat G(\psi,H/u)\le\int_U^{2U}\varphi(d')^{1/2}\max_a|\partial_uG^\circ(a,H/u)|\,du\le2\varphi(d')^{1/2}\omega(d')\,Y_U$.
+Hence $|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}d'^{1/2}\varphi(d')^{1/2}\omega(d')Y_U$, and
+\[
+\sum_{d'\le Z_U}\frac{\lambda(d')}{d'}|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}Y_UZ_U^{1+\varepsilon'}\ll H^{1/2+\varepsilon'}Y_U^{3/2}H^{\eta+2\varepsilon'}\le H^{1/2+\eta+3\varepsilon'+(3/2)(1/3-\varepsilon)}=H^{1-\varepsilon/4},
+\]
+using $U=H/Y_U$, $Y_U\le Y_0=H^{1/3-\varepsilon}$, $\eta=\varepsilon/2$ and $\varepsilon'=\varepsilon/12$. Together with Step~3
+(where $\eta-3\varepsilon'=\varepsilon/4$) and the $O(\log H)$ blocks,
+\begin{equation}\label{eq:MH}
+\sum_{u>U_0}w(u)\mathcal P_u(H/u)=\mathcal M(H)+O(H^{1-\varepsilon/4}\log H),\qquad
+\mathcal M(H):=\sum_{d'}\frac{\lambda(d')}{d'}\sum_{\substack{u>U_0\\ (u,d')=1}}w(u)\,\bar G_{d'}\Bigl(\frac Hu\Bigr),
+\end{equation}
+where the double series converges absolutely: for $u\le H$, Lemma~\ref{lem:Gbar}(a) gives
+$\sum_{d'}(\lambda/d')|\bar G_{d'}(Y)|\ll\sum_{d'\le Y}\lambda\omega\sigma/(d'\varphi)+Y\sum_{d'>Y}\lambda\omega\tau/(d'\varphi)\ll Y^{\varepsilon'}$, for $u>H$
+it gives $\ll Y^2$, and $\sum_{U_0<u\le H}w(u)(H/u)^{\varepsilon'}+\sum_{u>H}w(u)(H/u)^2<\infty$.
+
+\emph{Step 5: the main term.} For each $d'$ let $A_{d'}(t)=\sum_{u\le t,\ (u,d')=1}w(u)=M_{d'}t+E_{d'}(t)$, so that
+$E_{d'}(t)\ll t^{1/2+\varepsilon'}d'^{\varepsilon'}$ by Lemma~\ref{lem:AP}(i). Stieltjes integration and the substitution $t=H/Y$ give
+\[
+\sum_{\substack{u>U_0\\ (u,d')=1}}w(u)\bar G_{d'}(H/u)=\int_{U_0}^\infty\bar G_{d'}(H/t)\,dA_{d'}(t)
+=M_{d'}H\int_0^{Y_0}\bar G_{d'}(Y)\frac{dY}{Y^2}+R_{d'},\qquad
+R_{d'}=-\bar G_{d'}(Y_0)E_{d'}(U_0)-\int_{U_0}^\infty E_{d'}(t)\,\partial_t\bigl[\bar G_{d'}(H/t)\bigr]dt,
+\]
+the boundary term at infinity vanishing because $|\bar G_{d'}(H/t)|\le\omega H^2/(2d't^2)$ for $t>H$. By
+Lemma~\ref{lem:Gbar}(a),(b),(c), $\int_{U_0}^H|\partial_t\bar G_{d'}(H/t)|dt=\int_1^{Y_0}|\partial_Y\bar G_{d'}|dY\le\omega(d')Y_0$ and
+$\int_H^\infty t^{1/2+\varepsilon'}\omega H^2/(d't^3)\,dt\ll\omega H^{1/2+\varepsilon'}/d'$, so
+$R_{d'}\ll\omega(d')d'^{\varepsilon'}\bigl(\sigma(d')/\varphi(d')+Y_0\bigr)H^{1/2+\varepsilon'}$ and
+$\sum_{d'\le H^{1/3}}(\lambda(d')/d')|R_{d'}|\ll H^{1/2+1/3+3\varepsilon'}$. For $d'>H^{1/3}$ we bound the two sides separately:
+for $U_0<u\le H$ we have $H/u\le Y_0<d'$, so by (a) and (b)
+$\sum_{u>U_0}w(u)|\bar G_{d'}(H/u)|\ll(\omega\tau/\varphi)\bigl(\sum_{U_0<u\le H}w(u)H/u+\sum_{u>H}w(u)H^2/u^2\bigr)\ll(\omega\tau(d')/\varphi(d'))H\log H$,
+and $M_{d'}H\int_0^{Y_0}|\bar G_{d'}|Y^{-2}dY\ll(\omega\tau/\varphi)H\log H$ as well; summing $(\lambda/d')\cdot$ these over
+$d'>H^{1/3}$ gives $\ll H^{2/3+\varepsilon'}\log H$. Finally the tails of the integrals: by (a), for $d'\le Y_0$,
+$\int_{Y_0}^\infty|\bar G_{d'}|Y^{-2}dY\le\sigma/(8Y_0)$, and for $d'>Y_0$ it is
+$\le\int_{Y_0}^{d'}\frac{\tau\,dY}{2Y}+\int_{d'}^\infty\frac{\sigma\,dY}{8Y^2}\ll\tau(d')\bigl(1+\log(d'/Y_0)\bigr)$, whence
+$\sum_{d'}(\lambda M_{d'}/d')\int_{Y_0}^\infty|\bar G_{d'}|Y^{-2}dY\ll Y_0^{-1}\log Y_0+Y_0^{-1+\varepsilon'}$. The same bounds
+with $Y_0$ replaced by $1$, together with (b) below $1$, show that the series defining $c_{\mathrm{off}}$ in~\eqref{eq:coff}
+converges absolutely. Altogether $\mathcal M(H)=c_{\mathrm{off}}(f)H+O(H^{5/6+3\varepsilon'}+H^{2/3+2\varepsilon'}\log H)$, and
+with~\eqref{eq:MH} the theorem follows with $\delta=\varepsilon/5$. The second expression for $c_{\mathrm{off}}$ is
+Lemma~\ref{lem:Gbar}(e), and it is negative since every term is.
+\end{proof}
+
+\emph{In words.} When the agreeing part $u$ is much larger than the length $Y=H/u$, the dilation $\bar u$ runs
+through all units modulo $d'$ as $u$ runs through a dyadic range, so the root set may be replaced by its average
+over all dilations; this costs the error of Lemma~\ref{lem:AP}, and Parseval on the group of units keeps that cost
+to $\sqrt{\varphi(d')}$ rather than $\varphi(d')$ times the error per class, which is what fixes the range
+$u>H^{2/3+\varepsilon}$. The average over dilations is not zero: a root is an integer $\ge1$, and the Ces\`aro weight
+$Y-x$ sees the gap between the discrete count and the continuous expectation $Y^2/(2d')$. Integrated over the
+length this gap has a remarkably simple value, $-\log p/(p-1)$ for a prime modulus and exactly $0$ for a composite
+one, which is where the closed formula~\eqref{eq:coff} comes from. The dilation, which is the obstacle for
+small $u$, is the mechanism for large $u$; but it leaves a main term.
+
+\begin{corollary}[the constant, and the mean of the sharp off-diagonal]\label{cor:coff}
+Let $\Off_f(t)=\sum_dW_f(d)\sum_{s\ne s'}\psi_d(s'-s,t)$ be the sharp off-diagonal of part~I, $\psi_d(m,t)=\#\{h\le t:h\equiv m\ (d)\}-t/d$. Then
+\begin{equation}\label{eq:sharpcesaro}
+\Off^\ast_f(H)=\sum_{t<H}\Off_f(t)-\frac{\kappa_f}2H,\qquad\kappa_f=\sum_dW_f(d)\frac{\omega(d)(\omega(d)-1)}d=1-D_f(1),
+\end{equation}
+where $D_f(1)=\sum_da_f(d)/d$ is the value at $1$ of the diagonal Dirichlet series of part~I. Consequently, if the
+pieces with $u\le H^{2/3+\varepsilon}$ contribute $o(H)$ to $\Off^\ast_f(H)$ (Theorem~\ref{thm:A} below gives this under
+Hypothesis~W), then $\Off^\ast_f(H)\sim c_{\mathrm{off}}(f)H$, the Ces\`aro constant of Conjecture~1 of part~I is the
+diagonal constant plus $C(f)^2c_{\mathrm{off}}(f)$, and the sharp off-diagonal $\Off_f(t)$ has mean value
+\[
+\lim_{H\to\infty}\frac1H\sum_{t\le H}\Off_f(t)=c_{\mathrm{off}}(f)+\frac{1-D_f(1)}2 .
+\]
+\end{corollary}
+\begin{proof}
+For integer $H$, $B^{(H)}_d(m)=\sum_{t<H}\#\{h\le t:h\equiv m\}-H^2/(2d)=\sum_{t<H}\psi_d(m,t)+H(H-1)/(2d)-H^2/(2d)$, and the
+number of ordered pairs $s\ne s'$ is $\omega(d)(\omega(d)-1)$; the identity $\sum_dW_f(d)\omega(d)^2/d=1$ is the statement
+that $S_f$ has mean value $C(f)^2$ (part~I, Theorem~2), and $\sum_dW_f(d)\omega(d)/d=\sum_da_f(d)/d=D_f(1)$.
+\end{proof}
+
+\paragraph{Numerical check for $f=t^2+1$.} Here $w(2u')=4A_0\lambda(u')\omega(u')$ with $A_0=\prod_{p\equiv1(4)}P_p=0.51747684\ldots$
+($w$ vanishes on odd $u$, see the set-up), $D_f(1)=0.75079081\ldots$ (part~II), and~\eqref{eq:coff} evaluates to
+$c_{\mathrm{off}}(t^2+1)=-0.134390$ (\texttt{scripts/coff.py}: $m=0.728431$, prime sum $0.184492$ over $p\equiv1\ (4)$, $p\le2\cdot10^6$).
+The corollary then predicts the mean of $\Off_f(t)$ to be $-0.134390+0.124605=-0.00978$. The exact values of
+$\Off_f(t)$ for all $t\le10^7$ (\texttt{scripts/offstar-mean.ts}, from the identity of part~I with the constants of part~II)
+have the following means over consecutive dyadic blocks ending at $2^{17},\dots,2^{23}$:
+\[
+-0.0106,\quad-0.0101,\quad-0.0096,\quad-0.0115,\quad-0.0088,\quad-0.0099,\quad-0.0096,
+\]
+and cumulative mean $-0.00945$ at $t=10^7$ ($-0.0102$ at $10^6$); the standard deviation of $\Off_f(t)$ is $0.50$,
+so a block of $2^{16}$ values has statistical scatter about $0.002$ even before arithmetic correlations. The
+measured mean, $-0.0098\pm0.0007$, agrees with the prediction to within the scatter: in terms of $c_{\mathrm{off}}$,
+$-0.1344\pm0.0007$ against $-0.13439$. Since the prediction uses only the pieces with $u>H^{2/3+\varepsilon}$, the
+agreement is numerical evidence that the pieces with small $u$, the window included, are $o(H)$ for $t^2+1$,
+as Theorem~\ref{thm:A} asserts under Hypothesis~W. The near-cancellation of $c_{\mathrm{off}}$ against
+$(1-D_f(1))/2$ is what made $\Off_f$ look mean-zero in the numerics of part~II.
 
 \section{The window, Hypothesis W and Theorem A}\label{sec:W}
 
