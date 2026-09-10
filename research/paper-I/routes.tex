@@ -24,11 +24,22 @@
 
 \title{Two routes to the variance conjecture for prime values of polynomials:\\
 the off-diagonal over $\Z$ and over $\F_q[u]$}
-\author{Jasper Reichardt \and Claude Fable 5.1}
-\date{Working document, \today}
+\author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
+carried out with heavy use of large language models; see the disclosure at the end.}}
+\date{Working document, 9 September 2026}
 
 \begin{document}
 \maketitle
+
+\begin{center}\fbox{\parbox{0.92\textwidth}{\small
+\textbf{Superseded working document.} This note was written on 9 September 2026 to compare two possible routes to the
+off-diagonal estimate. Both routes were subsequently carried out, in a much more precise form, in part~III of the
+series (\emph{The pair singular series of a polynomial III: the off-diagonal in Ces\`aro form}). Several statements
+below have since been corrected there: in particular the off-diagonal is \emph{not} $o(H)$ but has an explicit main
+term $c_{\mathrm{off}}(f)H$; the range of the averaging argument is $u>H^{2/3+\varepsilon}$, not $H^{1/2+\varepsilon}$;
+and the exponent condition on the Weyl-sum hypothesis is $\theta+6B<1$. This document is kept only as a record of how
+the problem was approached, and should not be cited for any statement; see part~III instead.}}\end{center}
+\medskip
 
 \begin{abstract}
 Companion to \emph{The variance of the number of prime values of a polynomial}. That paper reduces the
@@ -292,6 +303,15 @@ that exists in the literature in the large-$q$ regime. Route A is the harder and
 since it concerns the integers; it is a transcription of Hooley's 1963 method with multiplicative weights,
 and we have identified exactly where the two estimates (Propositions~\ref{prop:A2} and~\ref{prop:A3})
 enter. Neither is done here.
+
+\section*{AI-assisted research: disclosure}
+This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and
+Claude Opus~5, used interactively by the author in September 2026 as research assistants. The author posed the
+questions, set the direction and the scope, and made every decision about what to pursue and claim. The models were
+used to draft mathematical arguments, to write and run the software, to search the literature, and to draft the text;
+all of this was done in dialogue with the author, who verified the code and the numerical results, reviewed the
+proofs, and takes full responsibility for the content. The models are not authors. The complete record of the work is
+in the public repository \url{https://github.com/gewure/ulamnd} (directory \texttt{research/}).
 
 \bibliographystyle{plain}
 \bibliography{refs}
