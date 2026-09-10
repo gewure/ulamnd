@@ -550,8 +550,12 @@ $N\le2$ unless $\deg D\le N$, where it is $-2/q+O(q^{-3/2})$.
 
 Table~\ref{tab:offq} and Figure~\ref{fig:offq} give the exact values for $D=u$, $u^2+1$, $u^3+u$ (\texttt{scripts/offq.ts}).
 They agree with the conjecture in every case: $q\,\Off_f(N)$ is near $-2$ for $(N,\deg D)=(1,1),(2,1),(2,2)$ and
-near $-1$ for $(1,2),(1,3),(2,3)$; for $(3,1)$ only $q\le7$ is available and the values $-4.9,-2.5,-2.0$ are still
-descending, as the $N=1$ values do before settling at $-2$. The fluctuations grow with $\deg D$, as they should:
+near $-1$ for $(1,2),(1,3),(2,3)$; for $(3,1)$ with all moduli only $q\le7$ is available and the values $-4.9,-2.5,-2.0$
+are still descending. Since the main term comes from the moduli of degree $N+1$ alone (the others contribute
+$O(q^{-2})$), the leading constant can be tested at larger $q$ by restricting $T_{\mathrm{act}}$ to that degree: for
+$D=u^2+1$, $N=3$ (degree $4$), $q\,T_{\mathrm{act}}$ is $2.5,2.4,2.9$ and $q\,\Off_f$ is $-1.06,-1.08,-1.20$ at $q=13,17,19$,
+against the predicted $c_3=3$ and $-1$; for $D=u$, $N=4$ (degree $5$), $q\,T_{\mathrm{act}}=3.9$, $q\,T_{\exp}=5.6$,
+$q\,\Off_f=-1.6$ at $q=11$, against $c_4=4$, $5$ and $-1$ (with the same slow $1/q$ approach as at $N=1$). The fluctuations grow with $\deg D$, as they should:
 the prime counts carry Weil terms $O(q^{k/2})$ from an $L$-function of degree $\deg D-1$, which is trivial for
 $D=u$.
 
