@@ -158,3 +158,25 @@ squarefreeness so they apply verbatim. The part-III piece is this perturbed twic
 VALIDATION: the script's E F for the squarefree model agrees with a 22-digit computation to 12 digits (1.110144363168
 vs 1.110144363167292941489); the residual induces a smooth drift of about 0.011 in P/sqrt(Y) across the range, an
 order of magnitude below the signal. For publication-grade runs pass E F via the env var.
+
+## 1f. FACTOR-2 TEST (12 Sep): the frequencies are t_j, and that rules out the route I had sketched
+The Kloosterman-zeta route of Section 3 (Goldfeld-Sarnak, Z(s) = sum_c S(m,n;c) c^{-2s}, poles at s = s_j) sums over
+the MODULUS c. Tracing it through the Hurwitz/Mellin step gives poles of A(s) at s = -1/2 + 2 i t_j and therefore an
+oscillation of P(Y)/sqrt(Y) at frequency 2 t_j, not t_j. Tested directly (scripts/piece-freq.ts, MULT = 1 vs 2, with
+the random control band widened to cover both):
+
+  object    MULT=1 (t_j):  R^2 even (pct)      MULT=2 (2 t_j): R^2 even (pct)   R^2 odd at 2t_j (pct)
+  A-Dm4      0.3614 (99.7)                      0.0221 (59.7)                    0.0325 (76.3)
+  A-D8       0.4197 (100)                       0.0210 (43.0)                    0.0832 (92.0)
+  A-Dm3      0.2078 (100)                       0.0218 (53.7)                    0.0948 (99.0)
+  A-Dm11     0.1667 (100)                       0.0193 (69.0)                    0.0244 (77.7)
+
+DECISIVE: the signal is at t_j. The 2 t_j prediction is refuted (43-69th percentile, i.e. nothing).
+CONSEQUENCE: the Kloosterman-zeta-in-the-modulus route is NOT the mechanism. The right route is Bykovskii's: expand
+the sum over the ARGUMENT h as a finite sum of SL_2(Z) Poincare series and apply the spectral decomposition in
+WEIGHT 0, LEVEL 1. There the eigenvalue parametrisation lambda_j = s_j(1-s_j), s_j = 1/2 + i t_j, produces terms
+Y^{s_j} = Y^{1/2} Y^{i t_j} directly -- the same shape as the error term in the hyperbolic lattice-point problem.
+That matches all four observations at once: frequency t_j, scale sqrt(Y), even forms only (the Heegner/geodesic cycle
+of discriminant D pairs trivially with odd forms), and the visibility threshold |D| < (t_j/pi)^2.
+The Salie material of Section 3 remains TRUE (the Weyl sums are Salie sums, verified) but it is not the road to the
+observed frequencies; it is the internal machinery of the modulus-side estimates, not of the argument-side expansion.

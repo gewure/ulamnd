@@ -88,6 +88,15 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. FACTOR-2 TEST caught a wrong mechanism (F24). The Kloosterman-zeta-of-the-modulus route predicts frequency
+  2 t_j; the data give t_j decisively (99.7-100th pct vs 43-69th). The mechanism is Bykovskii's argument-side spectral
+  expansion (Poincare series, weight 0, level 1), which yields Y^{1/2} Y^{i t_j} and matches all four observations:
+  frequency, scale, even-only parity, and the threshold |D| < (t_j/pi)^2. Literature round 3 (agent) established:
+  Goldfeld-Sarnak Inv. Math. 71 (1983) Thm 1 + Remark 3 covers weight 1/2 on Gamma_0(4N) and is citable; its residue
+  constants (3.2) are WRONG and are corrected in Ahlgren-Andersen, Adv. Math. 289 (2016), Prop. 7; nobody has written
+  down or continued the Dirichlet series of Weyl sums over roots of a quadratic congruence; the bridge is
+  DFI 2012 Lemma 6.2 (after Duke-Imamoglu-Toth, Annals 173 (2011), Prop. 1); for Katok-Sarnak cite Andersen
+  arXiv:2203.00704 Prop. 3.3 or DIT Annals 184 (2016) Prop. 6 rather than KS at second hand.
 - 12 Sep (later still). CLEANEST OBJECT IDENTIFIED for the u = 1 theorem: drop BOTH the weight lambda and the
   squarefree condition. G(Y) = sum_{h<=Y}(Y-h)(sigma*_{-1}(h^2-D) - mean), sigma*_{-1}(n) = sum_{d|n,(d,2D)=1} 1/d --
   a Riesz mean of the Hooley/Gafurov divisor sums. R^2 for the even set: 0.116-0.420, 100th percentile for all six
@@ -261,6 +270,14 @@ F20. "No Maass lines in Off_f(H) ⇒ the second-spectrum idea is dead" (paper II
     numerically), with the spectrum of level 4u² and weight 1/2 — the sharp Off_f(H) is a different, bounded object
     and the SL₂(Z) parameters are not the relevant ones. RULE: before a null spectral test, derive which spectrum and
     which observable the theory predicts; a null on the wrong observable proves nothing.
+F24. "The spectral poles come from the Kloosterman zeta function of the MODULUS (Goldfeld-Sarnak), so the piece
+    oscillates at 2 t_j" (paper IV Section 3, Hypothesis K as first written, 12 Sep). The bookkeeping is right for
+    that route -- GS normalise Z(s) = sum_c S c^{-2s}, poles at s_j, giving 2 t_j after the Hurwitz/Mellin step -- but
+    the route is the wrong one: it sums over the modulus, and our object sums over the ARGUMENT h. Tested and refuted
+    directly: at 2 t_j the even set sits at the 43rd-69th percentile (nothing), at t_j at the 99.7-100th. The correct
+    route is Bykovskii's argument-side expansion in SL_2(Z) Poincare series, weight 0 level 1, where s_j = 1/2 + i t_j
+    gives Y^{1/2} Y^{i t_j} directly, as in the hyperbolic lattice-point problem. RULE: a sketched mechanism must have
+    a numerically testable consequence, and it must be tested before it is written up as the explanation.
 F23. "There is a selection rule at p = 3: the spectral signal is present exactly when 3 does not split" (12 Sep,
     recorded with Fisher p ~ 5e-4 on 14 polynomials). TRUE as a description of the lambda-weighted pieces, FALSE as a
     statement about the arithmetic: with lambda == 1 (the model piece) all six discriminants tested, D = -8 and -11
