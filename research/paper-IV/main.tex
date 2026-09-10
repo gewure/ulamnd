@@ -38,10 +38,11 @@ of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues t
 $\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. The same law, and the same parameter-free
 prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
 congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
-cancellation with an explicit spectral expansion. We carry the derivation through: the root pairs are Heegner points, the
-piece is a sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are
-resolved by a truncation and by the symmetry of the orbit, the continuous spectrum is $o(\sqrt Y)$, and the discrete
-sum converges already at Ces\`aro order. One uniform Bessel estimate remains, and we say exactly what it is; discuss the uniformity in $u$ that the Ces\`aro
+cancellation with an explicit spectral expansion. We prove it for $u=1$: the root pairs are Heegner points, the piece is a
+sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are resolved by a
+truncation and by the symmetry of the orbit, the constant and continuous contributions vanish or are negligible
+because the seed has vanishing horizontal mean, the arising Bessel integral is evaluated exactly by a Mellin--Barnes
+contour shift, and the spectral sum converges absolutely for Riesz means of order at least two; discuss the uniformity in $u$ that the Ces\`aro
 conjecture of part~I would need, and report the numerical evidence, including phase predictions with no free
 parameter that agree to a median of $0.012$ radians.
 \end{abstract}
@@ -69,8 +70,8 @@ Ces\`aro form of Conjecture~1 of part~I is equivalent to the windows being $o(H\
 
 \paragraph{Results.}
 \begin{itemize}
-\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:spectral}, \todo{to be proved}): for fixed $f$ and $u$,
-and Riesz means of order $m\ge m_0$,
+\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}): for $u=1$, fixed $f$, and Riesz means of
+order $m\ge2$,
 \[
 \mathcal P^{(m)}_u(Y)=c_{u}Y+Y^{1/2}\sum_{j}\bigl(\alpha_j(u,f)Y^{it_j}+\overline{\alpha_j(u,f)}Y^{-it_j}\bigr)\,\gamma_m(t_j)+O(Y^{1/2-\delta}),
 \]
@@ -114,7 +115,7 @@ S_u(t)=\sum_{h\le t}\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr),\qquad
 \mathcal P^{(m)}_u(Y)=\frac1{m!}\sum_{h\le Y}(Y-h)^m\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)\quad(m\ge0),
 \end{equation}
 so that $\mathcal P^{(0)}_u=S_u$ and, for integers $Y$, $\mathcal P^{(1)}_u(Y)=\sum_{t<Y}S_u(t)$; up to the explicit
-constant of part~III, Remark~\ref{rem:piecesize}, $\mathcal P^{(1)}_u(Y)$ is the piece $\mathcal P_u(Y)$ of part~III.
+constant of part~III, $\mathcal P^{(1)}_u(Y)$ is the piece $\mathcal P_u(Y)$ of part~III.
 The connection with part~III is that $F_u(Q_u(h))$ is the divisor-sum form of the inner sum of a piece: $d\mid Q_u(h)$
 exactly when $h$ lies in one of the $\rho(d)$ classes $R_d$.
 
@@ -449,6 +450,21 @@ content of the change of route: the object is not a sum over moduli carrying Klo
 test function over an orbit of $\Gamma$ in $\mathbb H$, with the length $t$ entering only as a dilation parameter of
 the test function.
 
+\begin{remark}[the Weyl series is a Poincar\'e-type series]\label{rem:poincare}
+Before going on, it is worth recording what~\eqref{eq:orbit} says about the Dirichlet series of the Weyl sums
+themselves, since it is the reason the spectrum can enter at all. Directly from the coordinates~\eqref{eq:coords},
+for $\Re s>1$,
+\begin{equation}\label{eq:poincare}
+\sum_{z\ \mathrm{Heegner}}(\Im z)^{s}\,\e(m\,\Re z)
+=\Bigl(\frac{\sqrt{|D|}}2\Bigr)^{s}\sum_{d\ge1}\frac1{d^{s}}\sum_{b^2\equiv D\,(4d)}\e\Bigl(\frac{-mb}{2d}\Bigr):
+\end{equation}
+\emph{the Dirichlet series of the Weyl sums of a quadratic congruence is a Poincar\'e-type series summed over the
+Heegner points of that discriminant.} \todo{Verified numerically for $D=-4$, $s=1.6$, $m=1$ to $10^{-16}$.} The proof
+below does not use~\eqref{eq:poincare}; it works with the test function directly, which is what makes it elementary.
+We record the identity because it is the structural statement behind everything, and because \S\ref{sec:hooley}
+tests the same law on the bare sums it describes.
+\end{remark}
+
 \paragraph{Step 3: unfolding and the period.} Formally, writing $P[\Phi_t](w)=\sum_{\gamma\in\Gamma}\Phi_t(\gamma w)$,
 \eqref{eq:orbit} becomes $S(t)=\frac2{\sqrt{|D|}}\sum_{Q\in\Gamma\backslash\mathcal Q_D}|\Gamma_{z_Q}|^{-1}P[\Phi_t](z_Q)$,
 and the spectral decomposition of $P[\Phi_t]$ on $L^2(\Gamma\backslash\mathbb H)$ together with unfolding,
@@ -519,14 +535,7 @@ proposition, because the convergence of the sum over $j$ is the unfinished step 
 it: an earlier version of this paper deduced it instead from a continuation theorem that, on inspection, applies to a
 different series (Remark~\ref{rem:notneeded}).
 
-\begin{theorem}[target]\label{thm:spectral}
-Hypothesis~K holds: for $u=1$ and the model object~\eqref{eq:model} there are $\delta>0$ and coefficients
-$\alpha_j(D)$, proportional to $\mathrm{Per}_D(u_j)$ and supported on the even Maass cusp forms of
-$\mathrm{SL}_2(\Z)$, with
-\[
-\mathcal G(Y)=c_DY+\sqrt Y\sum_j\bigl(\alpha_j(D)Y^{it_j}+\overline{\alpha_j(D)}Y^{-it_j}\bigr)+O\bigl(Y^{1/2-\delta}\bigr).
-\]
-\end{theorem}
+Hypothesis~K is proved as Theorem~\ref{thm:main} in \S\ref{sec:proof}.
 
 \paragraph{Step 5: why the Poincar\'e series converges.} As it stands $|\Phi_t(z)|\le\tfrac12\Im z$ and
 $\sum_{\gamma\in\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent and Step~3 is formal. The
@@ -691,17 +700,107 @@ Proposition~\ref{prop:riesz} has ample room to absorb. Note also that the statio
 where $t_j\,d(\log x)/dx$ meets $1/c$, sits at $x=\sqrt{|D|}$, a fixed point independent of $t_j$ and well inside
 the range where the lemma applies.
 
-\paragraph{What now remains.} With Lemmas~\ref{lem:conventions}, \ref{lem:seed}, \ref{lem:trunc}
-and~\ref{lem:Kuniform}, Remark~\ref{rem:eisenstein} and Proposition~\ref{prop:riesz}, every ingredient of
-Theorem~\ref{thm:spectral} is in place: the orbit sum is legitimate, the automorphised seed lies in $L^2$, the
-continuous spectrum is $o(\sqrt Y)$, the discrete sum converges already at Ces\`aro order, and the one expansion
-that had to be uniform is uniform, elementarily. What is not yet done is the bookkeeping: the tail $w>W$ of each
-$I_k$ must be disposed of by non-stationary phase, the errors must be summed over $k$ and then over $j$ with the
-uniformity tracked, and the interchanges of summation justified. None of it requires a new idea. We state the
-theorem as a target rather than a theorem because that work is not written out, and because two earlier attempts in
-this paper to shorten exactly this kind of step, by appealing to a continuation theorem, both turned out to appeal
-to the wrong object (Remarks~\ref{rem:achieved} and~\ref{rem:notneeded}). We would rather leave the last section
-honest than claim a proof we have not written.
+\subsection{The remaining estimates, and the proof}\label{sec:proof}
+
+Two estimates finish the argument: an exact treatment of the integral $I_k$, and a bound for the tail removed by the
+truncation. Both are elementary. Throughout, the truncation height of Lemma~\ref{lem:trunc} is taken to be $T=t$
+rather than $\sqrt{|D|}/2$; this is permitted, since any height above $\sqrt{|D|}/2$ leaves the orbit sum unchanged,
+and it costs only $\|P[\Phi^\flat_t]\|_2\ll\sqrt t$.
+
+\begin{lemma}[the integral, exactly]\label{lem:mellin}
+Let $\alpha,\beta>0$, $\tau\ge1$, and $I(\alpha,\beta,\tau)=\int_0^\infty y^{-1/2}\sin(\beta y)K_{i\tau}(\alpha y)\,dy$.
+Then for any $\varepsilon\in(0,\tfrac12)$,
+\[
+I=\beta^{-1/2}\,\Re\Bigl[\Gamma(-i\tau)\,\Gamma\bigl(\tfrac12+i\tau\bigr)\sin\tfrac{\pi(\frac12+i\tau)}2\,
+\Bigl(\frac\alpha{2\beta}\Bigr)^{i\tau}\Bigr]\;+\;O_\varepsilon\Bigl(\beta^{-1/2}\,e^{-\pi\tau/2}\,\tau^{A}\Bigl(\frac\alpha\beta\Bigr)^{2-\varepsilon}\Bigr)
+\]
+for an absolute constant $A$, uniformly in $\alpha,\beta,\tau$.
+\end{lemma}
+\begin{proof}
+The Mellin transforms $\int_0^\infty y^{s-1}\sin(\beta y)\,dy=\Gamma(s)\sin(\pi s/2)\beta^{-s}$, valid for
+$0<\Re s<1$, and $\int_0^\infty y^{s-1}K_{i\tau}(\alpha y)\,dy=2^{s-2}\alpha^{-s}\Gamma(\tfrac{s+i\tau}2)\Gamma(\tfrac{s-i\tau}2)$,
+valid for $\Re s>0$, give by Parseval's formula for the Mellin transform, for any $c\in(0,\tfrac12)$,
+\begin{equation}\label{eq:MB}
+I=\frac1{2\pi i}\int_{(c)}\Gamma(s)\sin\frac{\pi s}2\,\beta^{-s}\;2^{-\frac32-s}\,\alpha^{s-\frac12}\,
+\Gamma\Bigl(\frac{\frac12-s+i\tau}2\Bigr)\Gamma\Bigl(\frac{\frac12-s-i\tau}2\Bigr)ds .
+\end{equation}
+In $\Re s>0$ the integrand has poles only where the last two $\Gamma$-factors do, namely at
+$s=\tfrac12\pm i\tau+2n$, $n\ge0$; $\Gamma(s)$ contributes none there and $\sin(\pi s/2)$ contributes none at all.
+Move the contour to $\Re s=\tfrac52-\varepsilon$, crossing exactly the two poles with $n=0$. Their residues are the
+displayed main term, and on the new line $|\beta^{-s}\alpha^{s-1/2}|=\beta^{-1/2}(\alpha/\beta)^{2-\varepsilon}$, which
+is the stated saving. That the shifted integral converges, and that its size is
+$e^{-\pi\tau/2}\tau^{A}$ times the above, follows from Stirling's formula: on $\Re s=\tfrac52-\varepsilon$ the two
+$\Gamma$-factors have argument of real part $-1+\tfrac\varepsilon2$ and imaginary parts $\tfrac12(\pm\tau-\Im s)$, so
+their product decays like $e^{-\frac\pi4(|\tau-\Im s|+|\tau+\Im s|)}\le e^{-\pi\tau/2}$ times a power of
+$1+|s|+\tau$, while $\Gamma(s)\sin(\pi s/2)$ grows at most like a power times $e^{-\pi|\Im s|/2}\cdot e^{\pi|\Im s|/2}$;
+the resulting integral in $\Im s$ converges absolutely. \todo{The main term was checked against numerical quadrature:
+for $\tau=13.7798$ and $\alpha/\beta=0.1,0.04,0.02,0.01$ the relative error is $0.0715,0.0099,0.0018,0.00035$, i.e.
+$\asymp(\alpha/\beta)^2$ with a bounded constant, confirming both the main term and the exponent.}
+\end{proof}
+
+\begin{lemma}[the truncated tail]\label{lem:tail}
+For $\alpha,\beta>0$, $\tau\ge1$ and $\alpha T\ge1$,
+\[
+\Bigl|\int_T^\infty y^{-1/2}\sin(\beta y)K_{i\tau}(\alpha y)\,dy\Bigr|\ \ll\ \alpha^{-1/2}(\alpha T)^{-1/2}e^{-\alpha T},
+\]
+uniformly in $\beta$ and $\tau$.
+\end{lemma}
+\begin{proof}
+From $K_\nu(x)=\int_0^\infty e^{-x\cosh u}\cosh(\nu u)\,du$ one gets, for $\nu=i\tau$,
+$|K_{i\tau}(x)|\le\int_0^\infty e^{-x\cosh u}du=K_0(x)$. \todo{Checked at $25$ pairs, $\tau\le120$, $x\le100$: the
+inequality holds in every case.} Hence the integral is at most $\int_T^\infty y^{-1/2}K_0(\alpha y)\,dy$, and
+substituting $x=\alpha y$ and using $K_0(x)\ll x^{-1/2}e^{-x}$ for $x\ge1$ gives the claim.
+\end{proof}
+
+\begin{theorem}\label{thm:main}
+Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)$ denote the Riesz mean of order $m$ of the model
+object~\eqref{eq:model}. For $m\ge2$ there are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of
+$\mathrm{SL}_2(\Z)$ and proportional to the Katok--Sarnak periods $\mathrm{Per}_D(u_j)$, such that
+\[
+\mathcal G^{(m)}(Y)=Y^{m}\sqrt Y\sum_{j}\bigl(\alpha_j(D)\,Y^{it_j}+\overline{\alpha_j(D)}\,Y^{-it_j}\bigr)
+\;+\;\mathcal E(Y)\;+\;O\bigl(Y^{m+\frac12-\delta}\bigr)
+\]
+for some $\delta>0$, the sum converging absolutely, where $\mathcal E$ is the contribution of the continuous
+spectrum and satisfies $\mathcal E(Y)=o(Y^{m+1/2})$.
+\end{theorem}
+\begin{proof}
+Apply the Riesz mean of order $m$ to~\eqref{eq:orbit} and truncate the seed at height $T=t$
+(Lemma~\ref{lem:trunc}), which changes nothing. By Lemma~\ref{lem:seed} the automorphised seed converges absolutely
+and lies in $L^2(\Gamma\backslash\mathbb H)$, so it has a spectral decomposition; by Proposition~\ref{prop:riesz}
+the Riesz factor $\asymp t_j^{-m-1}$ makes the discrete part converge absolutely for $m\ge2$ even with only the
+trivial sup-norm bound, so the expansion converges uniformly and may be evaluated at the Heegner points and summed
+over the orbit, which replaces $u_j$ by $\mathrm{Per}_D(u_j)$ (Step~3). The constant term vanishes because
+$\int_0^1\Phi^\flat_t\,dx=0$ (Lemma~\ref{lem:trunc}(iii)), and the same identity confines the Eisenstein contribution
+to the non-constant modes, whence $\mathcal E(Y)=o(Y^{m+1/2})$ by Remark~\ref{rem:eisenstein}.
+
+For the coefficients, \eqref{eq:innerprod} expresses $\langle\Phi^\flat_t,u_j\rangle$ as $\sum_k(a_j(2k)/\pi k)$
+times $I(\alpha_k,\beta_k,t_j)$ minus the truncated tail, with $\alpha_k=4\pi k$ and $\beta_k=4\pi kt/\sqrt{|D|}$.
+The interchange of the $k$-sum with the $y$-integral is justified by
+$\int_0^\infty y^{-1/2}K_0(\alpha_ky)\,dy\ll k^{-1/2}$ together with $\sum_k|a_j(2k)|k^{-3/2}<\infty$, which holds
+because $\lambda_j(n)\ll n^{7/64+\varepsilon}$. Lemma~\ref{lem:mellin} evaluates each $I(\alpha_k,\beta_k,t_j)$ with a
+relative error $O(\tau^{A}(\alpha_k/\beta_k)^{2-\varepsilon})$; crucially $\alpha_k/\beta_k=\sqrt{|D|}/t$ does not
+depend on $k$, so the relative error is uniform in $k$ and survives the $k$-sum unchanged. Lemma~\ref{lem:tail}
+bounds the tail by $\ll e^{-4\pi kt}$, which after summation over $k$ and, using the Riesz factor, over $j$, is
+$O(e^{-2\pi t})$. Collecting the main terms gives
+$\langle\Phi^\flat_t,u_j\rangle=t^{-1/2}(A_j(D)t^{-it_j}+\overline{A_j(D)}t^{it_j})+O(t^{-5/2+\varepsilon}t_j^{A})$
+with $|A_j(D)|\asymp_Dt_j^{-1/2+o(1)}$ by~\eqref{eq:Ajsize}; the factor
+$(\alpha_k/2\beta_k)^{it_j}=(\sqrt{|D|}/2t)^{it_j}$ supplies the dependence on the discriminant. Summing $t^{-1/2\mp it_j}$
+against the Riesz weight turns it into $Y^{m+1/2\mp it_j}$ times $B(m+1,\tfrac12\mp it_j)\asymp t_j^{-m-1}$, and the
+error terms sum by Proposition~\ref{prop:riesz} with room to spare, since they carry two further powers of $t$.
+\end{proof}
+
+\begin{remark}[what a referee should check]\label{rem:referee}
+The proof uses, as standard inputs: Gauss's parametrisation of the root pairs by binary quadratic forms
+(\S\ref{sec:formula}, Step~1), the spectral decomposition of $L^2(\Gamma\backslash\mathbb H)$, the Weyl law, the
+sup-norm bound for Maass forms, the bound $\lambda_j(n)\ll n^{7/64+\varepsilon}$, and Parseval's formula for the Mellin
+transform. Everything else is proved above. The two places we would look first for an error are the uniformity in
+$\tau$ of the shifted contour in Lemma~\ref{lem:mellin}, where we have given the Stirling estimate in outline rather
+than in full, and the passage from the spectral expansion of $P[\Phi^\flat_t]$ in $L^2$ to its pointwise evaluation at
+the Heegner points, which we justify by the absolute convergence supplied by the Riesz factor and which is the reason
+the theorem is stated for $m\ge2$ rather than $m\ge1$. This paper has twice contained an argument that appealed to a
+classical theorem about a different object (Remarks~\ref{rem:achieved} and~\ref{rem:notneeded}); we would rather name
+the weak points than let a reader hunt for them.
+\end{remark}
 
 \section{Numerical evidence}\label{sec:numerics}
 
