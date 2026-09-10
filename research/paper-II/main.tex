@@ -722,6 +722,10 @@ there, then for some $\delta'>0$
 $\kappa^\ast_f$ the explicit constant produced by the diagonal. In particular Conjecture~\eqref{eq:conj} holds
 in Ces\`aro form and Hypothesis~(E) in Ces\`aro form, $\Off^\ast_f(H)=O(H)$, holds.
 \end{proposition}
+Part~III shows unconditionally that $\Off^\ast_f(H)=c_{\mathrm{off}}(f)H+\mathcal W(H)+O(H(\log H)^{1-c})$ with an explicit
+constant $c_{\mathrm{off}}(f)<0$ and a remainder $\mathcal W(H)$ (the ``windows'') of trivial size $H\log H$; under the
+hypothesis of (ii), $\Off^\ast_f(H)/H\to O_f(0)$, so that $O_f(0)=c_{\mathrm{off}}(f)$ exactly when $\mathcal W(H)=o(H)$, which
+the numerics of part~III support for $t^2+1$.
 \begin{proof}
 (i) By part~I, Theorem~2, $S_f(h)/C^2=\sum_qb(q)c^f_q(h)$ absolutely, and the sum over $h$ in a residue class
 regroups, for each squarefree $d$, into pairs of roots modulo $d$, the subtraction of the mean per pair being
@@ -928,7 +932,7 @@ the constant $A_f$,
 \]
 with $c_\rho(f,T)$ bounded and oscillating in $\log T$. Three remarks. (i) The first three terms are the
 polynomial Montgomery--Soundararajan law of part~I; $A_f$ consists of an explicit diagonal part and
-$C^2O_f(0)$ (Proposition~\ref{prop:Of}). (ii) The zero-induced terms have relative size $T^{-3/4}$, below the
+$C^2O_f(0)$ (Proposition~\ref{prop:Of}), the latter identified in part~III as $C^2c_{\mathrm{off}}(f)$ up to the windows. (ii) The zero-induced terms have relative size $T^{-3/4}$, below the
 $T^{-1/2+\varepsilon}$ that the hypothesis tolerates: nothing about primes and zeros follows, and we do not
 claim it. (iii) Under GRH the variance side is related to pair correlation of zeros by the
 Goldston--Montgomery theorem; for $\zeta_K=\zeta L(\chi_D)$ the Selberg-class version~\cite{BuiKeatingSmith2016}

@@ -497,7 +497,8 @@ term is $O(H)$. In the second, $0\le\phi\le\tfrac14$ and $\sum_{d\le H}d\,|a_f(d
 theorem~\cite{Shiu1980} for the non-negative multiplicative function $d\,|a_f(d)|$, whose value at $p$
 is $\omega_f(p)(1+O(1/p))$ and satisfies $\sum_{p\le x}(\omega_f(p)-1)/p=O(1)$. Dividing by $H$
 gives~\eqref{eq:smoothed}. Absolute convergence of $\mathrm{Off}^\ast_f$ and the bound in~(ii) follow
-from $|B_d(m)|\ll d+H^2/d$ for $d>H$, $\ll d$ for $d\le H$, together with
+from the bounds $|B_d(m)+B_d(d-m)|\le d/4$ for $d\le H$ (the terms linear in $m$ cancel in the bracket;
+individual values $B_d(m)$ can be of size $H$) and $\ll d+H^2/d$ for $d>H$, together with
 $\sum_{d\le x}|W_f(d)|\,\omega_f(d)^2\,d\ll x(\log x)^{r_f-1}$ (Shiu's theorem again, since the mean
 value of $\omega_f(p)^2$ over primes is $r_f$ by Chebotarev) and the finiteness of
 $\sum_d W_f(d)\sum_{h\le H}\nu_f(d,h)(H-h)$. If $\omega_f(p)\le1$ for all $p$ there are no pairs of
@@ -524,20 +525,26 @@ $(\pm\sqrt D)$ and the differences $\pm2\sqrt D\bmod d$; the equidistribution of
 $x^2\equiv D\pmod d$ on average over $d$, with a power saving, is Hooley's theorem~\cite{Hooley1963},
 and the analogous statements for prime moduli are those of Duke, Friedlander and
 Iwaniec~\cite{DFI1995} and T\'oth~\cite{Toth2000}. What is not in the literature is the average with
-the multiplicative weights $W_f(d)$ and the fractional-part test function; we set out the transcription
-in a companion note and do not claim it here. For $r_f\ge3$ the trivial bound has an extra power of
+the multiplicative weights $W_f(d)$ and the fractional-part test function; part~III of this series takes
+this apart and proves what can be proved unconditionally, and we do not claim it here. For $r_f\ge3$ the trivial bound has an extra power of
 $\log H$ and a genuine cancellation among the orbits is required (Section~\ref{sec:galois}).
 \end{remark}
 
 The full conjecture~\eqref{eq:conj}, with a constant term, needs more than the leading term:
 
-\medskip\noindent\textbf{Hypothesis (E).} $\mathrm{Off}_f(H)=O(1)$, equivalently $\mathrm{Off}^\ast_f(H)=O(H)$:
-the fractional parts $\{(H\pm m)/d\}$, $m$ ranging over the differences of distinct roots of $f$
-modulo $d$, have mean $\tfrac12$ against the weights $W_f(d)$.
+\medskip\noindent\textbf{Hypothesis (E).} $\mathrm{Off}^\ast_f(H)=O(H)$; in sharp form, $\mathrm{Off}_f(H)=O(1)$,
+which implies the Ces\`aro form since $\mathrm{Off}^\ast_f(H)=\sum_{t<H}\mathrm{Off}_f(t)-\tfrac12(1-D_f(1))H$
+with $D_f(1)=\sum_{d\ge1}a_f(d)/d$ (part~III, Corollary~13). In words: the fractional parts $\{(H\pm m)/d\}$, $m$ ranging
+over the differences of distinct roots of $f$ modulo $d$, have a mean against the weights $W_f(d)$ that differs from
+$\tfrac12$ by $O(1/H)$ on average.
 
 \medskip\noindent
 This is the equidistribution statement of Remark~\ref{rem:two} with a bounded, rather than merely
-$o(H\log H)$, error; we have not proved it. We test it directly for quadratics, where $\omega_f(p)=1+\bigl(\frac{\mathrm{disc}f}{p}\bigr)$
+$o(H\log H)$, error; we have not proved it. Part~III shows that $\mathrm{Off}^\ast_f(H)$ is not $o(H)$: the moduli
+$d$ with a large agreeing part of the two roots contribute an explicit main term $c_{\mathrm{off}}(f)H$ with
+$c_{\mathrm{off}}(f)<0$, so that the constant $A_f$ of~\eqref{eq:conj} is the diagonal constant plus $C(f)^2c_{\mathrm{off}}(f)$;
+for $t^2+1$, $c_{\mathrm{off}}=-0.1344$, and the mean of $\mathrm{Off}_f(t)$ is predicted to be $-0.0098$, in agreement with
+Table~\ref{tab:off} and with exact data to $10^7$. We test it directly for quadratics, where $\omega_f(p)=1+\bigl(\frac{\mathrm{disc}f}{p}\bigr)$
 allows the diagonal sum $\sum_d a_f(d)\{H/d\}$ to be computed exactly to $d\le\offDmax$, so that
 $\mathrm{Off}_f(H)$ is obtained from~\eqref{eq:split} by subtraction (Section~\ref{sec:sumnum}).
 
