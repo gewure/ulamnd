@@ -44,9 +44,10 @@ Chinese-remainder equidistribution of Kowalski and Soundararajan, whose local in
 dilation. What remains is
 one window in each piece with $1<u\le H^{2/3}$, the moduli between the length and $u^2$ times the length, where
 an interval covers less than a period and a logarithmic saving is not enough. We give its exact Fourier form,
-show that a Weyl-sum hypothesis (Hypothesis~W) closes it only if its exponents satisfy $5\theta+6B<3$, which
-demands square-root cancellation with almost no loss in the dilation, and prove the Ces\`aro form of
-Conjecture~1, constant included, under that hypothesis. Over $\F_q[u]$ we prove that the off-diagonal has a main term:
+show that a Weyl-sum hypothesis (Hypothesis~W, a bound $(uk)^Bt^{\theta}$ for the Weyl sums of the dilated roots at
+frequency $k$ over moduli up to $t$) closes it exactly when $\theta+6B<1$, so that any power saving in the modulus
+suffices but the loss in the frequency and the dilation must be almost nil, and prove the Ces\`aro form of Conjecture~1,
+constant included, under that hypothesis. Over $\F_q[u]$ we prove that the off-diagonal has a main term:
 for $f=t^2-u$ and the two smallest lengths, $\Off_f(N)=-2/q+O(q^{-3/2})$; a configuration count predicts, and
 exact computations for three discriminants and $q\le43$ confirm, that the generic value is $-1/q$, the weight of
 the excluded diagonal pairs at the first degree above the cut-off, the value $-2/q$ being a small-length effect.
@@ -79,9 +80,14 @@ $\lambda$ multiplicative; this is the weight of part~I, $W_f(d)=d\,b(d)\prod_{p\
 since $p\,b(p)/P_p=1/(p-2\omega(p))$. If $\omega(2)=1$ (as for $t^2+1$) then $P_2=0$ and $\lambda(2)$ is undefined; in
 that case every $d$ in the support of $W_f$ is even, $W_f(d)=\prod_{p\mid d}p(p-\omega(p))^{-2}\prod_{p\nmid d}P_p$, and all
 statements below hold verbatim with the weight $w(u)=u\omega(u)W_f(u)$ (which is then supported on even $u$), the only
-property used being $W_f(ud')=W_f(u)\lambda(d')/d'$ for $d'$ split and coprime to $u$. In every case $w=c_f\,g$ with
-$c_f>0$ and $g$ multiplicative on squarefree integers, $g(p)=\lambda(p)\omega(p)$ for odd $p$, $g(2)\in\{0,1\}$; we write
-$\lambda\omega$ for $g$ when the distinction is immaterial. One sign deserves notice: $\lambda(3)=-3$ and $P_3=-3$ when
+property used being $W_f(ud')=W_f(u)\lambda(d')/d'$ for $d'$ split and coprime to $u$. In every case $w$ is a constant
+multiple of a multiplicative function on squarefree integers, up to a shift by $2$: with $g$ multiplicative,
+$g(p)=\lambda(p)\omega(p)$ for odd $p$ (so $g(p)=p/(p-2)$ at a special odd prime with $\omega(p)=1$, and $g(p)=0$ where $\omega(p)=0$),
+we have $w(u)=c_fg(u)$ for all $u$ if $\omega(2)\ne1$ (with $g(2)=\lambda(2)\omega(2)$), and $w(2u')=c_fg(u')$ for odd $u'$,
+$w(u)=0$ for odd $u$, if $\omega(2)=1$. We write $\lambda\omega$ for $g$ when the distinction is immaterial. Every sum over $u$
+below is either a sum of $g$ or, in the second case, the same sum over $u'=u/2$; since the moduli $d'$ are odd, the
+two cases differ only by the constant $c_f$ and the normalisation of the mean value, and we treat the first case in the
+proofs. One sign deserves notice: $\lambda(3)=-3$ and $P_3=-3$ when
 $\omega(3)=2$ (as for $t^2+2$ or $2t^2+1$), so the weights are not always positive. All upper bounds below are
 bounds for absolute values and use $|\lambda|$, $|w|$; Proposition~\ref{prop:KSw} is applied to $|w|$; and the mean
 value $m$ of $g$ in~\eqref{eq:md} is nonzero but may be negative. Nothing else depends on the sign. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
@@ -127,8 +133,8 @@ than the period. The window is the core of Hypothesis~(E): a logarithmic saving 
 exact finite Fourier expansion (Lemma~\ref{lem:finfourier}), which has $u^2\log H$ frequencies of full weight per
 modulus, and prove (Theorem~\ref{thm:A}) that Hypothesis~W$(\theta,B)$, a Weyl-sum bound $\ll(uk)^Bt^{\theta}$ for the
 dilated roots, gives $\Off^\ast_f(H)=c_{\mathrm{off}}H+O(H^{1-\delta})$, hence the Ces\`aro form of Conjecture~1 with
-$A_f=A^{\mathrm{diag}}_f+C(f)^2c_{\mathrm{off}}(f)$, provided $5\theta+6B<3$ and $2B(2-\theta)<1-\theta$. These conditions
-exclude the exponents of \cite{DFI2012} and demand square-root cancellation with a loss below $(uk)^{1/12}$
+$A_f=A^{\mathrm{diag}}_f+C(f)^2c_{\mathrm{off}}(f)$, provided $\theta+6B<1$. Any $\theta<1$ is admissible with $B=0$; the
+exponents $(\tfrac34,\tfrac14)$ of \cite{DFI2012} are excluded by their frequency dependence, not by the modulus exponent
 (Remark~\ref{rem:exponents}).
 \item \emph{Function field} (Theorem~\ref{thm:B}): for $f=t^2-u$ over $\F_q[u]$ and $N\in\{1,2\}$,
 $\Off_f(N)=-2/q+O(q^{-3/2})$; Conjecture~\ref{conj:kappa}: $\Off_f(N)=-1/q+O(q^{-3/2})$ whenever
@@ -489,12 +495,14 @@ so
 \mathcal A_Z\le\frac1{u^2}\sum_g\frac{\kappa(g)}g\sum_{e<2Y/(gL)}\rho_u(ge)\Bigl(\frac4L+3\sqrt{\frac Y{geL}}\Bigr).
 \]
 Now $\rho_u$ is multiplicative; $\rho_u(p^k)=1+\chi_D(p)\le2$ for $p\nmid2Du$; $\rho_u(p^k)=0$ for $p\mid u$, $p\nmid D$; and
-for the finitely many $p\mid2D$, $\rho_u(p^k)\le4p^{v_p(D)+2}$ uniformly in $k$ and in squarefree $u$ (if $k>v_p(D)+2$ a
-solution forces $v_p(u^2x^2)=v_p(D)$, which fixes $v_p(x)$ and leaves a congruence $x'^2\equiv D'\ (p^{k-v_p(D)})$ with
-$D'$ a unit, having at most $4$ solutions, each lifting to $p^{v_p(D)/2+1}$ classes). Hence $\rho_u(ge)\le\rho_u(g)\rho_u(e)$
-for squarefree split $g$, and $\sum_{e\le t}\rho_u(e)\ll_ft$ uniformly in $u$ (the Dirichlet series of $\rho_u$ is
-$\zeta(s)L(s,\chi_D)$ times a product absolutely convergent for $\Re s>\tfrac12$ with constants depending only on $f$),
-whence $\sum_{e\le t}\rho_u(e)e^{-1/2}\ll_ft^{1/2}$ by partial summation. With $t=2Y/(gL)$ the inner sum is therefore
+for the finitely many $p\mid2D$, $\rho_u(p^k)\le4p^{v_p(D)}$ uniformly in $k$ and in squarefree $u$: if $k\le v_p(D)$ this
+is trivial, and if $k>v_p(D)=:v$ a solution forces $v_p(u^2x^2)=v$, so $x=p^ax'$ with $a=v/2-v_p(u)$ fixed and $x'$ a
+unit with $x'^2\equiv D/(p^vu'^2)\pmod{p^{k-v}}$ ($u=p^{v_p(u)}u'$), a congruence with at most $4$ solutions modulo
+$p^{k-v}$, each giving $p^{v-a}\le p^v$ classes of $x$ modulo $p^k$. Hence $\rho_u\le\rho^\ast$ pointwise, where $\rho^\ast$
+is the multiplicative function with $\rho^\ast(p^k)=1+\chi_D(p)$ for $p\nmid2D$ and $4p^{v_p(D)}$ for $p\mid2D$, which does
+not depend on $u$; $\rho_u(ge)\le\rho_u(g)\rho_u(e)$ for squarefree split $g$ (at a prime $p\mid g$, $\rho_u(p^{1+j})=2\le2\rho_u(p^j)$);
+and $\sum_{e\le t}\rho^\ast(e)\ll_ft$ (the Dirichlet series of $\rho^\ast$ is $\zeta(s)L(s,\chi_D)$ times a product absolutely
+convergent for $\Re s>\tfrac12$), whence $\sum_{e\le t}\rho_u(e)e^{-1/2}\ll_ft^{1/2}$ by partial summation. With $t=2Y/(gL)$ the inner sum is therefore
 $\ll\rho_u(g)\bigl(Y/(gL^2)+Y/(gL)\bigr)\ll\rho_u(g)Y/(gL)$, and $\mathcal A_Z\ll(Y/(u^2L))\sum_g\kappa(g)\rho_u(g)/g^2\ll Y/(u^2L)$.
 
 For the consequence, $\sum_{u\ge1}w(u)(H/u)u^{-2}L^{-1}=HL^{-1}\sum_uw(u)u^{-3}\ll H/L$, as $\sum_{u\le t}w(u)\ll t$.
@@ -557,17 +565,19 @@ $\sum_{k>K}k^{-2}|T_k|\ll Y/K$; with $K=Y^{1/20}$ both are $\ll Y^{12/13+\vareps
 
 \subsection{Large $u$: averaging the dilations}\label{sec:typeII}
 
-Throughout this subsection $g=w/c_f$ is the multiplicative function of the set-up ($g(p)=\lambda(p)\omega(p)$ for odd
-$p\nmid D$, $g$ supported on squarefree integers coprime to $D$), $\chi=\chi_D$ is the Kronecker symbol, and $m$, $m_d$
+Throughout this subsection $g$ is the multiplicative function of the set-up ($g(p)=\lambda(p)\omega(p)$ for odd $p$,
+supported on squarefree integers; $g(p)\le10$ at every prime), $\chi=\chi_D$ is the Kronecker symbol, and $m$, $m_d$
 are the constants
 \begin{equation}\label{eq:md}
 m=L(1,\chi)\prod_p\Bigl(1-\frac1p\Bigr)\Bigl(1-\frac{\chi(p)}p\Bigr)\Bigl(1+\frac{g(p)}p\Bigr),\qquad
-m_d=m\prod_{p\mid d}\Bigl(1+\frac{g(p)}p\Bigr)^{-1},\qquad M_d=c_fm_d,
+m_d=m\prod_{p\mid d}\Bigl(1+\frac{g(p)}p\Bigr)^{-1},\qquad M_d=\begin{cases}c_fm_d&(\omega(2)\ne1),\\ c_fm_d/2&(\omega(2)=1),\end{cases}
 \end{equation}
-the product converging absolutely since $g(p)-1-\chi(p)=(1+\chi(p))\kappa(p)\ll1/p$ for $p\nmid2D$.
+the product converging absolutely since $g(p)-1-\chi(p)=(1+\chi(p))\kappa(p)\ll1/p$ for $p\nmid2D$ (at the finitely
+many $p\mid2D$ the factor is merely bounded); in the case $\omega(2)=1$ the product is taken with $g(2)=0$, and the factor
+$\tfrac12$ accounts for the shift $u=2u'$. $M_d$ is the mean value of $w$ on the integers coprime to $d$ ($d$ odd).
 
 \begin{lemma}[$\lambda\omega$ in progressions and against characters]\label{lem:AP}
-For $U\ge2$ and $d\ge1$ coprime to $2D$:
+For $U\ge2$ and $d\ge1$ coprime to $2D$ (the sums over squarefree $n$):
 \begin{enumerate}
 \item[(i)] $\displaystyle\sum_{\substack{n\le U\\ (n,d)=1}}g(n)=m_dU+O_{D,\varepsilon}\bigl(U^{1/2+\varepsilon}d^{\varepsilon}\bigr)$;
 \item[(ii)] for every non-principal character $\psi$ modulo $d$, $\displaystyle\sum_{n\le U}g(n)\psi(n)\ll_{D,\varepsilon}U^{1/2+\varepsilon}d^{1/2}$;
@@ -575,9 +585,10 @@ For $U\ge2$ and $d\ge1$ coprime to $2D$:
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(ii) The Dirichlet series of $g\psi$ is $\prod_{p\nmid2D}(1+g(p)\psi(p)p^{-s})=L(s,\psi)L(s,\chi\psi)G_\psi(s)$ with
+(ii) The Dirichlet series of $g\psi$ is $\prod_{p}(1+g(p)\psi(p)p^{-s})=L(s,\psi)L(s,\chi\psi)G_\psi(s)$ with
 $G_\psi(s)=\prod_p(1+g(p)\psi(p)p^{-s})(1-\psi(p)p^{-s})(1-\chi\psi(p)p^{-s})$, an Euler product of the form
-$\prod_p(1+O(p^{-s-1})+O(p^{-2s}))$, absolutely convergent for $\Re s>\tfrac12$ uniformly in $\psi$; write $\gamma_\psi$ for
+$\prod_{p\nmid2D}(1+O(p^{-s-1})+O(p^{-2s}))$ times finitely many bounded factors, absolutely convergent for
+$\Re s>\tfrac12$ uniformly in $\psi$; write $\gamma_\psi$ for
 its coefficients, so that $\sum_n|\gamma_\psi(n)|n^{-1/2-\varepsilon}\ll_\varepsilon1$. Then
 $g\psi=\psi*\chi\psi*\gamma_\psi$ and
 \[
@@ -688,7 +699,7 @@ by Lemma~\ref{lem:Gbar}(d), and in the same way, using (c) and $\partial_u=-(H/u
 $\sum_\psi\mathrm{Var}_u\hat G(\psi,H/u)\le\int_U^{2U}\varphi(d')^{1/2}\max_a|\partial_uG^\circ(a,H/u)|\,du\le2\varphi(d')^{1/2}\omega(d')\,Y_U$.
 Hence $|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}d'^{1/2}\varphi(d')^{1/2}\omega(d')Y_U$, and
 \[
-\sum_{d'\le Z_U}\frac{\lambda(d')}{d'}|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}Y_UZ_U^{1+\varepsilon'}\ll H^{1/2+\varepsilon'}Y_U^{3/2}H^{\eta+2\varepsilon'}\le H^{1/2+\eta+3\varepsilon'+(3/2)(1/3-\varepsilon)}=H^{1-\varepsilon/4},
+\sum_{d'\le Z_U}\frac{\lambda(d')}{d'}|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}Y_UZ_U^{1+\varepsilon'}\ll H^{1/2+\varepsilon'}Y_U^{3/2}H^{\eta+2\varepsilon'}\le H^{1/2+\eta+3\varepsilon'+(3/2)(1/3-\varepsilon)}=H^{1-3\varepsilon/4}\le H^{1-\varepsilon/4},
 \]
 using $U=H/Y_U$, $Y_U\le Y_0=H^{1/3-\varepsilon}$, $\eta=\varepsilon/2$ and $\varepsilon'=\varepsilon/12$. Together with Step~3
 (where $\eta-3\varepsilon'=\varepsilon/4$) and the $O(\log H)$ blocks,
@@ -740,7 +751,8 @@ Let $\Off_f(t)=\sum_dW_f(d)\sum_{s\ne s'}\psi_d(s'-s,t)$ be the sharp off-diagon
 \begin{equation}\label{eq:sharpcesaro}
 \Off^\ast_f(H)=\sum_{t<H}\Off_f(t)-\frac{\kappa_f}2H,\qquad\kappa_f=\sum_dW_f(d)\frac{\omega(d)(\omega(d)-1)}d=1-D_f(1),
 \end{equation}
-where $D_f(1)=\sum_da_f(d)/d$ is the value at $1$ of the diagonal Dirichlet series of part~I. Consequently, if the
+where $D_f(1)=\sum_{d\ge1}a_f(d)/d$ is the value at $1$ of the diagonal Dirichlet series of part~I, the term $d=1$
+(equal to $P(1)$) included. Consequently, if the
 pieces with $u\le H^{2/3+\varepsilon}$ contribute $o(H)$ to $\Off^\ast_f(H)$ (Theorem~\ref{thm:A} below gives this under
 Hypothesis~W), then $\Off^\ast_f(H)\sim c_{\mathrm{off}}(f)H$, the Ces\`aro constant of Conjecture~1 of part~I is the
 diagonal constant plus $C(f)^2c_{\mathrm{off}}(f)$, and the sharp off-diagonal $\Off_f(t)$ has mean value
@@ -872,9 +884,9 @@ S_k(t)=\sum_{\substack{d'\le t\\ (d',u)=1,\ d'\ \mathrm{split}}}\lambda(d')\sum_
 \end{hypothesis}
 
 \begin{proposition}[the window from Weyl sums]\label{prop:windowW}
-Assume Hypothesis~W$(\theta,B)$. Then for squarefree $u$ with $\omega(u)\ge1$, $Y\ge2$, $L\ge1$ and $\varepsilon>0$,
+Assume Hypothesis~W$(\theta,B)$ with $\theta+B<1$. Then for squarefree $u$ with $\omega(u)\ge1$, $Y\ge2$, $L\ge1$ and $\varepsilon>0$,
 \[
-\mathcal W_u(Y;L)\ll_{f,\varepsilon}u^{3B+2\theta}L^{B+\theta}\,Y^{\theta+2\varepsilon}+Y^{1-\varepsilon}.
+\mathcal W_u(Y;L)\ll_{f,\varepsilon}\bigl(u^{3B}L^{B}+u^{B}Y^{B}\bigr)Y^{\theta+2\varepsilon}+Y^{1-\varepsilon}.
 \]
 \end{proposition}
 \begin{proof}
@@ -884,24 +896,35 @@ By Lemma~\ref{lem:finfourier} (all $d'$ are odd, $R^{(u)}_{d'}$ is symmetric and
 g_k(d')=\frac{1-\cos(2\pi kY/d')}{d'^2\sin^2(\pi k/d')},
 \]
 the interchange being legitimate since all sums are finite. Let $K=u^2LY^{\varepsilon}$. For $k>K$ we use
-$0\le g_k(d')\le1/(2k^2)$ (from $\sin(\pi k/d')\ge2k/d'$) and $|\rho_k|\le\omega(d')$: the contribution is
-$\le\sum_{d'\le u^2YL}\lambda\omega(d')\sum_{k>K}k^{-2}\ll u^2YL/K=Y^{1-\varepsilon}$. For $k\le K$ we sum by parts in $d'$ over
-the interval $I_k=(\max(Y,2k),u^2YL]$. On $I_k$ the factor $a(d')=1-\cos(2\pi kY/d')$ lies in $[0,2]$ and, since
-$2\pi kY/d'$ decreases monotonically from at most $2\pi k$ to a positive value, has total variation $\le4k$; the
-factor $b(d')=(d'\sin(\pi k/d'))^{-2}$ is decreasing (as $t\mapsto t\sin(\pi k/t)$ increases for $t>k$) and lies in
-$(0,1/(4k^2)]$. Hence $\sup_{I_k}g_k\le1/(2k^2)$ and $\mathrm{Var}_{I_k}(g_k)\le2\cdot\frac1{4k^2}+\frac1{4k^2}\cdot4k\le\frac2k$.
-Partial summation against $S_k$ (Hypothesis~W, with $\sup_{t\le u^2YL}|S_k(t)|\ll(uk)^B(u^2YL)^{\theta+\varepsilon}$) gives
+$0\le g_k(d')\le1/(2k^2)$ (from $\sin(\pi k/d')\ge2k/d'$ for $d'\ge2k$) and $|\rho_k|\le\omega(d')$: the contribution is
+$\le\sum_{d'\le u^2YL}\lambda\omega(d')\sum_{k>K}k^{-2}\ll u^2YL/K=Y^{1-\varepsilon}$.
+
+For $k\le K$ we sum by parts in $d'$ over dyadic blocks $V<d'\le2V$ covering $(\max(Y,2k),u^2YL]$, so $V\ge Y/2$ and
+$V\ge k$. On a block write $g_k=ab$ with $a(d')=1-\cos(2\pi kY/d')$ and $b(d')=(d'\sin(\pi k/d'))^{-2}$. Since
+$t\mapsto t\sin(\pi k/t)$ increases for $t>k$ and equals at least $2k$ for $t\ge2k$, $b$ is decreasing on the block with
+$b\le1/(4k^2)$, so $\mathrm{Var}\,b\le\sup b\le1/(4k^2)$. The phase $2\pi kY/d'$ decreases over the block through an
+interval of length $\pi kY/V$, so $a$ has $\sup a\le\min(2,2\pi^2k^2Y^2/V^2)$ and $\mathrm{Var}\,a\le2\sup a\cdot(kY/V+1)$. Hence on the block
 \[
-\Bigl|\sum_{d'\in I_k}\lambda\rho_k\,g_k\Bigr|\le2\sup_{t}|S_k(t)|\bigl(\sup g_k+\mathrm{Var}\,g_k\bigr)\ll(uk)^B(u^2YL)^{\theta+\varepsilon}\,k^{-1},
+\sup g_k+\mathrm{Var}\,g_k\ \le\ 2\sup a\sup b+\sup a\,\mathrm{Var}\,b+\sup b\,\mathrm{Var}\,a\ \ll\ \frac{\min(1,k^2Y^2/V^2)}{k^2}\Bigl(1+\frac{kY}V\Bigr)
+\ \ll\ \begin{cases}k^{-2}+Y/(kV)&(V\le kY),\\ Y^2/V^2&(V>kY).\end{cases}
 \]
-and summing over $k\le K$: $\ll u^{B+2\theta+2\varepsilon}(YL)^{\theta+\varepsilon}K^{B}\log K\ll u^{3B+2\theta+O(\varepsilon)}L^{B+\theta+O(\varepsilon)}Y^{\theta+B\varepsilon+2\varepsilon}$.
-Renaming $\varepsilon$ gives the claim.
+Partial summation against $S_k$ (Hypothesis~W: $\sup_{t\le2V}|S_k(t)|\ll(uk)^B(2V)^{\theta+\varepsilon}$) gives for the block
+$\bigl|\sum_{V<d'\le2V}\lambda\rho_kg_k\bigr|\le2\sup_{t\le2V}|S_k(t)|\,(\sup g_k+\mathrm{Var}\,g_k)$, and summing over the
+dyadic $V$: the terms $V^{\theta}k^{-2}$ ($V\le kY$) and $V^{\theta}Y^2/V^2$ ($V>kY$) are largest at $V=kY$, giving
+$\ll(uk)^B(kY)^{\theta+\varepsilon}k^{-2}$; the term $V^{\theta-1}Y/k$ is largest at the smallest block, $V\asymp\max(Y,k)$, giving
+$\ll(uk)^BY^{\theta+\varepsilon}k^{-1}$ if $2k\le Y$ and $\ll(uk)^BYk^{\theta-2+\varepsilon}$ if $2k>Y$. As $\theta<1$, in all
+\[
+\Bigl|\sum_{d'>\max(Y,2k)}\lambda\rho_kg_k\Bigr|\ \ll\ u^BY^{\theta+\varepsilon}k^{B-1}\qquad(2k\le Y),\qquad\qquad
+\ll\ u^BY^{1+\varepsilon}k^{B+\theta-2}\qquad(2k>Y).
+\]
+Summing over $k\le\min(K,Y/2)$ gives $\ll u^BY^{\theta+\varepsilon}(K^B\log K)\ll u^{3B}L^BY^{\theta+2\varepsilon}$, and over
+$Y/2<k\le K$ (using $B+\theta<1$) $\ll u^BY^{1+\varepsilon}Y^{B+\theta-1}=u^BY^{B+\theta+\varepsilon}$.
 \end{proof}
 
 \begin{theorem}[A]\label{thm:A}
 Let $f$ be an irreducible quadratic and assume Hypothesis~W$(\theta,B)$ with
 \begin{equation}\label{eq:expcond}
-5\theta+6B<3\qquad\text{and}\qquad2B(2-\theta)<1-\theta .
+\theta+6B<1 .
 \end{equation}
 Then there is $\delta=\delta(\theta,B)>0$ with $\Off^\ast_f(H)=c_{\mathrm{off}}(f)\,H+O_f(H^{1-\delta})$, and consequently
 \[
@@ -917,36 +940,44 @@ part~II, Proposition~7).
 \begin{proof}
 Let $\varepsilon>0$ be small, $U_0=H^{2/3+\varepsilon}$, $L=H^{\varepsilon}$. By Theorem~\ref{thm:typeII} the pieces $u>U_0$ give
 $c_{\mathrm{off}}H+O(H^{1-\delta_0})$. For $u\le U_0$ write $Y=H/u\ge H^{1/3-\varepsilon}$ and split
-$\mathcal P_u(Y)=\mathcal P^\le_u(Y)+\mathcal W_u(Y;L)+\mathcal P^{\mathrm{far}}_u(Y;L)$.
+$\mathcal P_u(Y)=\mathcal P^\le_u(Y)+\mathcal W_u(Y;L)+\mathcal P^{\mathrm{far}}_u(Y;L)$. All sums over $u$ below are
+against $|w(u)|$, and we use $\sum_{u\le U}|w(u)|u^{a}\ll U^{1+a}$ for $a>-1$ (Proposition~\ref{prop:pieces}).
 
-\emph{Far moduli.} Lemma~\ref{lem:far}: $\sum_{u\le U_0}w(u)\,H/(u^3L)\ll H^{1-\varepsilon}$.
+\emph{Far moduli.} Lemma~\ref{lem:far}: $\sum_{u\le U_0}|w(u)|\,H/(u^3L)\ll H^{1-\varepsilon}$.
 
 \emph{Small moduli.} Hypothesis~W is~\eqref{eq:W}, so Lemma~\ref{lem:partial} gives
 $T_k(Y)\ll(uk)^B(kY)^{1/(2-\theta)+\varepsilon}$, and in~\eqref{eq:Ple}
 $\sum_{k\le K'}k^{-2}|T_k|\ll u^BY^{1/(2-\theta)+\varepsilon}\sum_{k\le K'}k^{-2+B+1/(2-\theta)+\varepsilon}\ll u^BY^{1/(2-\theta)+\varepsilon}$,
-the exponent of $k$ being $<-1$ because $B+1/(2-\theta)<1$ follows from the second condition in~\eqref{eq:expcond}
-(it is equivalent to $B(2-\theta)<1-\theta$); the tail $k>K'$ is $\ll Y/K'$ trivially, and $K'=Y$ suffices. Hence
-$\sum_{u\le U_0}w(u)\mathcal P^\le_u(H/u)\ll H^{1/(2-\theta)+\varepsilon}\sum_{u\le U_0}w(u)u^{B-1/(2-\theta)}\ll H^{1/(2-\theta)+(2/3)(1+B-1/(2-\theta))+O(\varepsilon)}$,
-and the exponent is $<1$ exactly when $2B(2-\theta)<1-\theta$.
+the exponent of $k$ being $<-1$ because $B<(1-\theta)/6<(1-\theta)/(2-\theta)$; the tail $k>K'$ is $\ll Y/K'$ trivially, and
+$K'=Y$ suffices. Hence
+$\sum_{u\le U_0}|w(u)|\mathcal P^\le_u(H/u)\ll H^{1/(2-\theta)+\varepsilon}\sum_{u\le U_0}|w(u)|u^{B-1/(2-\theta)}\ll H^{1/(2-\theta)+(2/3)(1+B-1/(2-\theta))+O(\varepsilon)}$,
+and the exponent is $<1$ exactly when $2B(2-\theta)<1-\theta$, which follows from~\eqref{eq:expcond} since
+$(1-\theta)/6<(1-\theta)/(2(2-\theta))$.
 
-\emph{Window.} Proposition~\ref{prop:windowW}:
-$\sum_{u\le U_0}w(u)\mathcal W_u(H/u;L)\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}w(u)u^{3B+\theta}+\sum_{u\le U_0}w(u)(H/u)^{1-\varepsilon}
-\ll H^{\theta+(2/3)(1+3B+\theta)-1+O(\varepsilon)}\cdot H+H^{1-\varepsilon/3}$, and $\theta+\tfrac23(3B+\theta)<1$ is the first
-condition in~\eqref{eq:expcond}. Choosing $\varepsilon$ small gives $\Off^\ast_f(H)=c_{\mathrm{off}}H+O(H^{1-\delta})$; the
-consequence is~\eqref{eq:cesaro}.
+\emph{Window.} Proposition~\ref{prop:windowW} with $Y=H/u$:
+\[
+\sum_{u\le U_0}|w(u)|\,\mathcal W_u\Bigl(\frac Hu;L\Bigr)\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{3B-\theta}+H^{\theta+B+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{-\theta-B}+\sum_{u\le U_0}|w(u)|\Bigl(\frac Hu\Bigr)^{1-\varepsilon}
+\]
+$\ll H^{\theta+(2/3)(1+3B-\theta)+O(\varepsilon)}+H^{\theta+B+(2/3)(1-\theta-B)+O(\varepsilon)}+H^{1-\varepsilon/3}$. The first exponent is
+$\tfrac23+\tfrac13\theta+2B<1$ exactly when $\theta+6B<1$; the second is $\tfrac23+\tfrac13(\theta+B)<1$, which is weaker.
+Choosing $\varepsilon$ small gives $\Off^\ast_f(H)=c_{\mathrm{off}}H+O(H^{1-\delta})$; the consequence is~\eqref{eq:cesaro}.
 \end{proof}
 
 \begin{remark}[what the exponents say]\label{rem:exponents}
-The conditions~\eqref{eq:expcond} are satisfied by $(\theta,B)=(\tfrac12,B)$ with $B<\tfrac1{12}$, and by
-$(\theta,0)$ with $\theta<\tfrac35$; they are not satisfied by the exponents $(\tfrac34,\tfrac14)$ of
-\cite{DFI2012} for $u=1$, nor by any $\theta\ge\tfrac35$. So Hypothesis~W, to be useful here, must assert
-square-root cancellation in the dilated Weyl sums on average over the modulus, with a loss in $u$ and $k$ below
-$(uk)^{1/12}$; it is not a uniformity extension of the known theorems but a stronger statement, of the strength
-one would obtain from the Kuznetsov formula only with square-root cancellation in the resulting Kloosterman-type
-sums and no loss in the level. The bottleneck is the flat spectrum of the window: $u^2L$ frequencies of full
-weight at every modulus, so that the saving $t^{1-\theta}$ in the modulus must pay for a factor $u^{3B+2\theta}$. The
-range $2/3$ of Theorem~\ref{thm:typeII} enters through the factor $\tfrac23$ in the proof; an averaging argument
-valid for $u>H^{1/2+\varepsilon}$ would relax the first condition to $3\theta+3B<2$.
+The condition $\theta+6B<1$ is satisfied by every $\theta<1$ when $B=0$: any power saving in the modulus closes the
+window, provided the loss in the dilation $u$ and the frequency $k$ is below $(uk)^{(1-\theta)/6}$. It is not satisfied by
+the exponents $(\theta,B)=(\tfrac34,\tfrac14)$ of \cite{DFI2012} (their $h^{1/4}$ is our $k^{B}$), nor by
+$(\tfrac{11}{12},\tfrac14)$ of Lemma~\ref{lem:sharp}, because of $B$, not $\theta$. So the bottleneck is the dependence on the
+frequency and on the dilation, not the exponent in the modulus. The reason is the flat spectrum of the window
+(Lemma~\ref{lem:finfourier}): at a modulus $d'\in(Y,u^2YL]$ the frequencies $k\le d'/Y$ carry equal weight, so the
+Weyl sums must be summed over $k$ up to $u^2L$ with the loss $k^B$, and $\sum_{k\le u^2L}k^{B-1}\asymp(u^2L)^B$ is then
+multiplied by the trivial-in-$u$ factor $u^B$; the total loss $u^{3B}$ against a gain $Y^{-(1-\theta)}=(H/u)^{-(1-\theta)}$
+is affordable up to $u\le H^{2/3}$ exactly when $\theta+6B<1$. The range $2/3$ of Theorem~\ref{thm:typeII} enters through
+the factor $\tfrac23$; with an averaging argument valid for $u>H^{1/2+\varepsilon}$ the condition would be $\theta+3B<1$.
+A Weyl-sum bound with $B=0$, i.e.\ uniform in the frequency and the dilation, is a strong statement: for $u=1$ and
+$k$ large it is the assertion that the roots of $x^2\equiv D\pmod{d'}$, averaged over $d'\le t$, are equidistributed at
+scales $1/k$ down to $t^{-(1-\theta)}$ with no loss, which is beyond \cite{DFI2012} but is what the numerics of
+Remark~\ref{rem:piecesize} suggest is true.
 \end{remark}
 
 \begin{remark}[the size of the pieces]\label{rem:piecesize}
@@ -1140,13 +1171,14 @@ $u\asymp H$); over $\F_q[u]$ it sits at degree $N+1$.
 
 \begin{enumerate}
 \item The window $\mathcal W_u(Y;L)$ for $1<u\le H^{2/3}$ (Theorem~\ref{thm:Aprime}). Through Hypothesis~W this asks
-for square-root cancellation in the Weyl sums of the dilated roots $u^2x^2\equiv D$ on average over the modulus,
-with a loss below $(uk)^{1/12}$ (Remark~\ref{rem:exponents}); the route is Hooley's parametrisation with the
-discriminant $4u^2D$, or the half-integral-weight Kuznetsov formula for $\Gamma_0(4u^2)$ as in \cite{DFI2012},
-and in either case the level dependence is the whole question. A different route would avoid Weyl sums: an
-averaging over $u$ in short ranges, combining the mechanisms of Theorems~\ref{thm:small} and~\ref{thm:typeII},
-which would also extend the range $2/3$ of Theorem~\ref{thm:typeII} towards $1/2$ and relax the exponent
-condition to $3\theta+3B<2$.
+for a power saving in the Weyl sums of the dilated roots $u^2x^2\equiv D$ on average over the modulus with a loss
+below $(uk)^{(1-\theta)/6}$ in the frequency $k\le u^2\log H$ and the dilation $u$ (Remark~\ref{rem:exponents}); the route
+is Hooley's parametrisation with the discriminant $4u^2D$, or the half-integral-weight Kuznetsov formula for
+$\Gamma_0(4u^2)$ as in \cite{DFI2012}, and in either case the dependence on the frequency and the level is the whole
+question. A different route would avoid Weyl sums altogether: the pieces are divisor-type sums
+$\sum_{h\le Y}(Y-h)(F_u(Q_u(h))-\mathbb EF_u)$ (Remark~\ref{rem:piecesize}), and an averaging over $u$ in short ranges,
+combining the mechanisms of Theorems~\ref{thm:small} and~\ref{thm:typeII}, would also extend the range $2/3$ of
+Theorem~\ref{thm:typeII} towards $1/2$ and relax the condition to $\theta+3B<1$.
 \item The constant: Theorem~\ref{thm:Aprime} identifies $c_{\mathrm{off}}$ only up to the logarithmic loss of the small
 moduli. A power saving in Theorem~\ref{thm:small}, i.e.\ in Proposition~\ref{prop:KSw}, is not available (the
 Kowalski--Soundararajan method saves a power of $\log$ only); so ``$\Off^\ast_f(H)=c_{\mathrm{off}}H+o(H)$''

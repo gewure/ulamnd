@@ -35,7 +35,7 @@ has no pole at s = 1 with suitable growth — paper II's O_f(s) formulation, pie
 "unlikely" but the natural analytic home of the numerics: the question is the boundary behaviour of Σ_{d'} λ(d') d'^{−1−s}
 Σ_x ζ(s, x/d') on Re s = 1, i.e. of the "Hurwitz zeta of the roots" averaged over moduli. (Upgraded to ★★★★☆.)
 Consequence for the routes below: any method that treats the frequencies k ≤ u²L one at a time (Weyl sums, Hypothesis W)
-is fighting the wrong battle — the literature round confirms θ ≥ 2/3 is the state of the art for fixed D. Methods that
+must not lose a power of k — the corrected condition is θ+6B < 1, and every known Weyl bound loses k^{1/4} or worse. Methods that
 keep the sum over d' or over h intact (routes 1, 7, 11; the divisor-problem view S_u(t) = Σ_{h≤t}(F(Q'(h)) − E F)) are
 the ones with a chance.
 

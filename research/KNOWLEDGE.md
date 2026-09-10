@@ -77,6 +77,12 @@ prime statements need Hardy–Littlewood.
   (j) Theorem A′ (unconditional): Off* = c_off H + Σ_{u≤H^{2/3+ε}} w(u) W_u(H/u; log H) + O(H (log H)^{1−c});
   Cesàro (E) ⟺ windows = o(H log H). Theorem A (conditional on W with the exponent conditions): Off* = c_off H
   + O(H^{1−δ}), A_f = A_f^diag + C² c_off. Paper III: 22 pp.
+- 11 Sep (night, self-review of paper III after the referee agents died on credits). Verified numerically: Lemma Gbar(e)
+  (−log p/(p−1) for p = 5, 13; 0 for 65), the finite Fourier identity, c_off for 4 polynomials. Found and fixed: the
+  exponent condition (F18, now θ+6B < 1); Step 4 arithmetic (1−3ε/4, harmless); Lemma AP had "g supported on integers
+  coprime to D" although u may contain special primes (fixed: bounded local factors); the set-up's description of w
+  for ω(2)=1 as "g(2) ∈ {0,1}" was wrong (w is supported on even u; it is g shifted by 2; mean value halves — fixed
+  in eq. md); Lemma far's majorant for ρ_u made explicitly u-independent; Corollary: D_f(1) includes d = 1.
 - 11 Sep (night). Paper III closed as a complete draft (23 pp; c_off confirmed for t²+t+41, t²+t+17, 2t²+1 too).
   Paper IV scaffolded (research/paper-IV: README with the window statement, BRAINSTORM with 11 routes rated, LITERATURE
   round 1). CALIBRATION: exact pieces P_u(Y) for t²+1 are O(√Y) (|P_u|/√Y ≤ 0.4 to Y = 10⁷), and the sharp pieces
@@ -164,11 +170,14 @@ F17. "Σ_{u>H^{1/2+ε}} w(u)P_u(H/u) ≪ H^{1−δ}" and "Off* ≪ H^{1−δ} un
     the correct conjecture is Off*_f(H) = c_off H + o(H), and the Cesàro constant A_f contains C²c_off. Also the
     averaging range is u > H^{2/3+ε}. RULE (again F12): compute the main term before claiming cancellation; the
     F_q[u] result (−1/q main term) was already telling us the off-diagonal has one.
-F18. "Hypothesis W with B < 1−θ closes the window" (paper III drafts of 10–11 Sep; also the intermediate "4B < 1−θ").
-    The window's Fourier spectrum is flat up to k ≈ d'/Y ≤ u²L, so the Weyl-sum route must sum over u²L frequencies
-    with loss (uk)^B against a saving (u²YL)^{θ}: the condition is 5θ+6B < 3 with the Type II range 2/3 (3θ+3B < 2
-    with range 1/2). RULE: derive the exponent condition from the exact Fourier expansion of the actual test
-    function, not from the small-moduli formula, which has k^{-2} decay from k = 1 only when d' ≤ Y.
+F18. "Hypothesis W with B < 1−θ closes the window" (drafts 10–11 Sep), then "5θ+6B < 3" (11 Sep afternoon, F18 as
+    first recorded): BOTH wrong. The second dropped the "1+" in Σ_{u≤U} w(u)u^a ≪ U^{1+a} and used sup_{t≤u²YL}|S_k(t)|
+    instead of dyadic blocks. Correct (11 Sep night, self-review): with dyadic partial summation the window costs
+    u^{3B}(log H)^B Y^θ per piece, and the condition is θ + 6B < 1 (range 2/3) or θ + 3B < 1 (range 1/2): ANY power
+    saving in the modulus suffices; the loss in frequency k ≤ u² log H and in u must be below (uk)^{(1−θ)/6}. DFI's
+    h^{1/4} fails by the frequency exponent, not θ. RULE: when an exponent condition changes twice in a day, recompute
+    it from scratch on paper with the sums over u written out, and check both directions (does B=0, θ→1 give the
+    expected "any saving suffices"?).
 F19. "The window moduli d' ≤ u²Y almost all have a divisor in [u², Y], so the rough ones are negligible" (paper IV
     brainstorm, first pass, 11 Sep). Wrong at every practical scale: admissible moduli (all primes split) have density
     1/√log while primes have 1/log, so d' = p·m with p > Y, m < u² make up a fraction ~ log(u²)/√log Y of the window —

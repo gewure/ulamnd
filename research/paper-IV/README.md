@@ -21,7 +21,7 @@ Exact Fourier form (paper III, Lemma finfourier): the bracket equals (1/(2d')) �
 ρ_k(d') = Σ_{x ∈ R^{(u)}_{d'}} e(kx/d'): flat weight ≍ Y²/d' for k ≤ d'/Y (up to u²L frequencies), then k^{-2} decay.
 
 What is known: u = 1 (DFI 2012 + sharp cut-off lemma) gives a power saving; u > H^{2/3+ε} is handled by averaging the
-dilations (paper III, Thm Type II); a Weyl-sum hypothesis W(θ,B) closes (W) iff 5θ + 6B < 3 (3θ + 3B < 2 if the Type II
-range were u > H^{1/2+ε}). The open range is roughly H^{1/10} < u < H^{2/3}, and for the constant all u > 1.
+dilations (paper III, Thm Type II); a Weyl-sum hypothesis W(θ,B) closes (W) iff θ + 6B < 1 (θ + 3B < 1 if the Type II
+range were u > H^{1/2+ε}): any power saving in the modulus, but almost no loss in frequency k ≤ u² log H or in u. The open range is roughly H^{1/10} < u < H^{2/3}, and for the constant all u > 1.
 
 Files: BRAINSTORM.md (routes, ratings, tests), LITERATURE.md (verified references, to be filled from the research round).

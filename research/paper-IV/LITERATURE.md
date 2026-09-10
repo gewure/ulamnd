@@ -89,9 +89,11 @@ or reference lists, content quoted from a citing paper. Notation: ρ_h(n) = Σ_{
   over moduli F.
 
 ## Assessment (agent's, endorsed)
-1. 5θ+6B < 3 forces θ < 3/5 even with B = 0. Every unconditional bound for a FIXED discriminant has θ ≥ 2/3+ε
-   (Bykovskiĭ/Hejhal; Hooley 3/4; DFI 2012 3/4 with D^{1/8}). So the Weyl-sum route to the window is out of reach of
-   current technology independently of u-uniformity; θ = 1/2+ε would need a Linnik–Selberg-type conjecture.
+1. [Corrected 11 Sep night: the condition is θ+6B < 1, not 5θ+6B < 3.] Any θ < 1 is fine; the barrier is B, the
+   loss in the frequency k (up to u² log H) and the dilation u: it must be below (uk)^{(1−θ)/6}. Every known bound
+   (Hooley A(h); DFI 2012 h^{1/4}; DFI 1995 gcd(h,N)^{1/20}) loses a power of the frequency — DFI 2012's (3/4, 1/4)
+   fails by B, and even θ = 2/3+ε (Bykovskiĭ) would need B < 1/18. So the Weyl-sum route needs uniformity in the
+   FREQUENCY first; nobody has that, and the dilation uniformity comes on top.
 2. Only DFI 2012 (D^{−1/1331} saving, Y ≳ D^{1/2}, fundamental D) and Grimmelt–Merikoski 2025 (a ≤ X^{o(1)}) have
    explicit discriminant uniformity; neither covers a = u² up to H^{4/3} or the dilated interval.
 3. Kloosterman fractions fail structurally (numerator depends on denominator through the root).
@@ -100,6 +102,7 @@ or reference lists, content quoted from a citing paper. Notation: ρ_h(n) = Σ_{
    < 3/5 in t, composite squarefree moduli. Nobody has combined Kuznetsov at level 4u² with Waibel-type level-explicit
    spectral input and an exceptional-spectrum treatment; even then the t-exponent barrier ≥ 2/3 remains.
 
-CONSEQUENCE FOR PAPER IV: the Fourier/Weyl-sum route (Hypothesis W) cannot be the plan. The plan must exploit what the
+CONSEQUENCE FOR PAPER IV: the Fourier/Weyl-sum route (Hypothesis W) needs frequency-uniform bounds that do not exist;
+it is not the plan. The plan must exploit what the
 Weyl-sum formulation throws away: the sum over ALL d' (or all u) at once, the composite structure of the moduli, or the
 self-duality — see BRAINSTORM.md, routes 1, 2', 7 and the calibration in §0.
