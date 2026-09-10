@@ -20,13 +20,12 @@
 \newcommand{\Sig}{\mathfrak S}\newcommand{\Off}{\mathrm{Off}}\newcommand{\Frob}{\operatorname{Frob}}
 \providecommand{\Var}{\operatorname{Var}}\providecommand{\E}{\mathbb{E}}
 \newcommand{\Sym}{\operatorname{Sym}}\newcommand{\Res}{\operatorname*{Res}}
-% status tags for the draft; remove before submission
 \newcommand{\status}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
 
 \title{The pair singular series of a polynomial II:\\ zeros of Dedekind zeta functions in the second
 moment of prime values}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com.}}
-\date{Draft of \today}
+\date{12 September 2026}
 
 \begin{document}
 \maketitle
@@ -856,15 +855,22 @@ $\sum_jc_j(D)\hat h_H(t_j)+(\text{Eisenstein})$, the Eisenstein term reintroduci
 dichotomy ``diagonal governed by zeros of $\zeta$, off-diagonal by the discrete spectrum'' is the one of the
 additive divisor problem and of Motohashi's formula for the fourth moment~\cite{Motohashi1993}. Whether the
 discrete spectrum really contributes to $\Off_f$, or decouples as in the non-dihedral cases of Templier and
-Tsimerman, is testable: for $f=t^2+1$ the Fourier transform of $\Off_f(e^u)$ in $u$ should, or should not, show
-lines at the Laplace parameters $t_j=9.5337, 12.1730, 13.7798,\dots$ of $\mathrm{SL}_2(\Z)$ beside the lines
-$\gamma/2$ of the zeros of $\zeta$ (item~(C4) of Appendix~\ref{app:comp}).
+Tsimerman, is testable, and part~IV of this series~\cite{ReichardtIV} settles it. Two corrections to the test as we
+first posed it are worth recording. The observable is not $\Off_f(H)$, which is bounded, but the Ces\`aro
+\emph{pieces} $\mathcal P_u(Y)$ of part~III at the scale $\sqrt Y$; and only the \emph{even} Laplace parameters
+occur, the odd ones being annihilated because the Heegner points of a given discriminant are symmetric about the
+imaginary axis while an odd Maass form is antisymmetric. With those two corrections the lines are there: part~IV
+proves the expansion for $u=1$, with amplitudes the Katok--Sarnak periods, and confirms it numerically, the phases
+being predicted with no free parameter and agreeing to a median of $0.012$ radians. The guess recorded in this remark,
+that $\Off_f$ is a Poincar\'e series with a $y$-dependent sawtooth test function whose natural expansion is
+$\sum_jc_j(D)\hat h(t_j)$ plus an Eisenstein term, is exactly what that proof carries out.
 \end{remark}
 
 \emph{In words.} For quadratics the off-diagonal is a question about square roots modulo composite numbers:
 do the square roots of $D$ modulo $d$, weighted by a divisor-like function of $d$, spread out evenly? Hooley
 proved this without weights, Duke, Friedlander and Iwaniec much more for prime moduli; the weights and the
-fractional-part test function are the new features, and part~III will prove (E1) and (E2). For Galois
+fractional-part test function are the new features; part~III takes the off-diagonal apart and part~IV identifies
+what the remaining pieces are. For Galois
 groups with three or more orbits on pairs of roots, the analogue of~\eqref{eq:Osalie} has several independent
 families of Weyl sums, and a bias between them could produce a pole of $O_f$ at $s=0$; we do not know
 whether this happens.

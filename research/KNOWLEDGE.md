@@ -88,6 +88,33 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep (final). THEOREM PROVED (paper IV, Thm 5.x, u = 1, model object, Riesz order m >= 2):
+    G^(m)(Y) = Y^m sqrt(Y) sum_j (alpha_j(D) Y^{i t_j} + c.c.) + E(Y) + O(Y^{m+1/2-delta}),
+  sum over the EVEN Maass cusp forms of SL_2(Z), alpha_j proportional to the Katok-Sarnak period Per_D(u_j),
+  E = continuous spectrum = o(Y^{m+1/2}).
+  The two estimates that closed it, both elementary:
+   (i) MELLIN-BARNES for I = int_0^inf y^{-1/2} sin(beta y) K_{i tau}(alpha y) dy. Mellin-Parseval gives an EXACT
+       contour integral; in Re s > 0 the only poles are at s = 1/2 +- i tau + 2n; shifting to Re s = 5/2 - eps crosses
+       just n = 0, giving the main term and a relative error O((alpha/beta)^{2-eps}) with uniformity in tau from
+       Stirling. Verified: relative error / (alpha/beta)^2 stays in [3.5, 7.2] as alpha/beta runs 0.1 -> 0.01.
+       This route AVOIDS the Bessel transition region entirely -- the earlier plan (uniform asymptotics across
+       x ~ tau) was not needed and would have been much harder.
+   (ii) TRUNCATED TAIL via |K_{i tau}(x)| <= K_0(x), from K_nu(x) = int_0^inf e^{-x cosh u} cosh(nu u) du. Verified at
+       25 pairs. With truncation height T = t the tail is O(e^{-4 pi k t}), killed after summing over k and j.
+  Key structural luck: alpha_k/beta_k = sqrt|D|/t is INDEPENDENT of k, so the relative error is uniform in k and
+  survives the k-sum unchanged. Interchange of k-sum and y-integral justified by int y^{-1/2} K_0(alpha_k y) dy << k^{-1/2}
+  and lambda_j(n) << n^{7/64+eps}.
+  Standard inputs used (listed in the paper's "what a referee should check"): Gauss parametrisation; spectral
+  decomposition of L^2(Gamma\H); Weyl law; Maass sup-norm bound; Kim-Sarnak; Mellin-Parseval. Named weak points:
+  the Stirling uniformity in the shifted contour (given in outline), and the L^2 -> pointwise passage (which is why
+  m >= 2 rather than m >= 1).
+- 12 Sep (final). ALL FOUR PAPERS FINISHED: I 27 pp (v8, awaiting arXiv endorsement), II 21 pp, III 24 pp, IV 19 pp.
+  Zero todo markers and zero unresolved references in II, III, IV. Paper II's "second spectrum" remark updated to
+  record that part IV settled it AND that the test as first posed used the wrong observable (Off_f, bounded, instead
+  of the Cesaro pieces at scale sqrt Y) and the wrong parity set. Paper III's piece-size remark now points at the
+  proved theorem. Paper IV section 7 states the uniformity-in-u problem as the same wall part III meets from the
+  other side: there no Weyl bound is uniform enough in the FREQUENCY, here no spectral bound is uniform enough in the
+  LEVEL 4u^2.
 - 12 Sep (night, last). UNIFORM BESSEL LEMMA PROVED, elementarily, closing the last named gap in structure:
   for tau >= 1 and all x > 0,  K_{i tau}(x) = (1/2)[Gamma(-i tau)(x/2)^{i tau} + Gamma(i tau)(x/2)^{-i tau}] + E
   with |E| <= |Gamma(i tau)| (exp(x^2/(4 tau)) - 1). Proof: the convergent series for K_nu via I_{-nu} - I_nu; the
