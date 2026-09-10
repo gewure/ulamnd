@@ -243,6 +243,7 @@ function run(q: Quad) {
  * u must be squarefree with omega(u) >= 1 (checked).
  */
 import { mkdirSync, writeFileSync } from "node:fs";
+const ALLDIV = process.env.ALLDIV === "1"; // sum over ALL d | Q_u(h) coprime to 2Du, not only squarefree ones
 const NOLAM = process.env.NOLAMBDA === "1"; // lambda == 1: the unweighted "model piece" (sigma_{-1} along Q_u)
 const [qa, qb, qc] = (process.env.Q ?? "1,1,41").split(",").map(Number);
 const q: Quad = { a: qa, b: qb, c: qc }; const u = Number(process.env.U ?? 1);
@@ -259,15 +260,20 @@ for (const p of primes) {
   if (p > Pmax) break;
   if (isSpecialU(p)) { for (let h = 1; h <= H; h++) while (Qv[h] % p === 0) Qv[h] /= p; continue; }
   if (legendre(D, p) !== 1) continue;
-  EF *= NOLAM ? 1 + 2 / (p * p) : 1 + 2 / (p * (p - 4));
+  // E F = sum_d rho(d)/d^2 over admissible d: rho(p^j)=2 for split p, so all-divisors gives 1 + 2 sum_{j>=1} p^{-2j} = 1 + 2/(p^2-1)
+  EF *= ALLDIV ? (NOLAM ? 1 + 2 / (p * p - 1) : 1 + 2 * p / ((p * p - 1) * (p - 4)) * p) : (NOLAM ? 1 + 2 / (p * p) : 1 + 2 / (p * (p - 4)));
   const r = mulmod(sqrtmod(((D % p) + p) % p, p), modinv(u % p, p), p); const fac = NOLAM ? 1 + 1 / p : 1 + 1 / (p - 4);
-  for (const r0 of r === 0 ? [0] : [r, p - r]) for (let h = r0 === 0 ? p : r0; h <= H; h += p) { let x = Qv[h]; while (x % p === 0) x /= p; Qv[h] = x; F[h] *= fac; }
+  for (const r0 of r === 0 ? [0] : [r, p - r]) for (let h = r0 === 0 ? p : r0; h <= H; h += p) {
+    let x = Qv[h], v = 0; while (x % p === 0) { x /= p; v++; } Qv[h] = x;
+    // local factor: squarefree -> 1 + w/p ; all divisors -> sum_{j<=v} w_j/p^j with w_j = 1 (NOLAM) or the lambda-analogue
+    F[h] *= ALLDIV ? (NOLAM ? (1 - Math.pow(p, -(v + 1))) / (1 - 1 / p) : 1 + (1 - Math.pow(p, -v)) / (1 - 1 / p) / (p - 4) * p) : fac;
+  }
 }
 // tail of E F beyond Pmax: split primes have density 1/2, log(1+2/p^2) ~ 2/p^2 -> E_1(log Pmax)
-{ const xx = Math.log(Pmax); EF *= Math.exp(Math.exp(-xx) / xx * (1 - 1 / xx + 2 / xx ** 2 - 6 / xx ** 3 + 24 / xx ** 4)); } // tail: log(1+2/p^2) ~ 2/p^2 either way
+{ const xx = Math.log(Pmax); EF *= Math.exp(Math.exp(-xx) / xx * (1 - 1 / xx + 2 / xx ** 2 - 6 / xx ** 3 + 24 / xx ** 4)); } // tail: log(1+2/p^2) ~ 2/p^2, split primes have density 1/2
 if (process.env.EF) EF = Number(process.env.EF);
 let big = 0;
-for (let h = 1; h <= H; h++) if (Qv[h] > 1) { const p = Qv[h]; if (!isSpecialU(p) && p % 2 === 1) F[h] *= NOLAM ? 1 + 1 / p : 1 + 1 / (p - 4); big++; } // leftover prime > Pmax: it divides Q_u(h) so D is a square mod p -> split
+for (let h = 1; h <= H; h++) if (Qv[h] > 1) { const p = Qv[h]; if (!isSpecialU(p) && p % 2 === 1) F[h] *= NOLAM ? 1 + 1 / p : 1 + 1 / (p - 4); big++; } // leftover cofactor is a prime > Pmax, exponent 1; it divides Q_u(h) so D is a square mod p -> split
 console.log(`${name(q)} u=${u}: D=${D}, special ${special.join(",")}, E F_u = ${EF.toFixed(12)}, ${big} large cofactors (${el()})`);
 const Mg = 4096, lo = Math.log(1e3), hi = Math.log(H);
 const gridY = Array.from({ length: Mg }, (_, j) => Math.floor(Math.exp(lo + ((hi - lo) * j) / (Mg - 1)))); const gridP: number[] = []; let gj = 0;

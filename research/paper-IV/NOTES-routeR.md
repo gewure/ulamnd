@@ -137,3 +137,24 @@ the lambda weight show a clean signal without it. CONCLUSIONS:
     lambda = 1 * kappa, kappa(p) = 4/(p-4) = O(1/p).
 (c) The phenomenon is STRONGER without the weight (R^2 up to 0.32 against 0.22), so the model piece is also the better
     object to measure.
+
+## 1e. The cleanest object (12 Sep): drop the squarefree condition too
+Same test with lambda == 1 AND all divisors (not only squarefree), u = 1, Y = 10^7:
+
+  D     weighted sqfree   lambda=1 sqfree   lambda=1 ALL divisors   (all percentiles 100 in the last column)
+   8      0.217 (100)       0.319 (100)        0.420
+  -4      0.152 (100)       0.237 (100)        0.361
+  -3      0.139 (100)       0.139 (100)        0.208
+  -8      0.031 ( 47)       0.109 (100)        0.162
+ -11      0.009 ( 44)       0.078 (100)        0.167
+  17      0.078 (99.3)      0.098 (99.3)       0.116
+
+MONOTONE in all six rows: the more arithmetic weight removed, the more variance the even spectrum explains. Odd sets
+4.7-28.7 percentile throughout. So the target object for the u = 1 theorem is
+  G(Y) = sum_{h<=Y} (Y-h) (sigma*_{-1}(h^2 - D) - mean),  sigma*_{-1}(n) = sum_{d|n, (d,2D)=1} 1/d,
+a Riesz mean of the Hooley/Gafurov divisor sums, whose Dirichlet series is Z_k(s) = sum_{(d,2D)=1} W_k(D;d) d^{-s} --
+a Salie zeta function with a coprimality condition and NOTHING else. Lemmas 2.1 and 2.2 never used lambda or
+squarefreeness so they apply verbatim. The part-III piece is this perturbed twice (Mobius over l^2; lambda = 1*kappa).
+VALIDATION: the script's E F for the squarefree model agrees with a 22-digit computation to 12 digits (1.110144363168
+vs 1.110144363167292941489); the residual induces a smooth drift of about 0.011 in P/sqrt(Y) across the range, an
+order of magnitude below the signal. For publication-grade runs pass E F via the env var.

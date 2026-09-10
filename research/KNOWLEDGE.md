@@ -88,6 +88,12 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep (later still). CLEANEST OBJECT IDENTIFIED for the u = 1 theorem: drop BOTH the weight lambda and the
+  squarefree condition. G(Y) = sum_{h<=Y}(Y-h)(sigma*_{-1}(h^2-D) - mean), sigma*_{-1}(n) = sum_{d|n,(d,2D)=1} 1/d --
+  a Riesz mean of the Hooley/Gafurov divisor sums. R^2 for the even set: 0.116-0.420, 100th percentile for all six
+  discriminants tested; monotone improvement across (weighted sqfree) -> (lambda=1 sqfree) -> (lambda=1 all divisors)
+  in every row. Its Dirichlet series is a Salie zeta function with only a coprimality condition. Lemmas 2.1/2.2 of
+  paper IV never used lambda or squarefreeness, so they carry over verbatim.
 - 12 Sep (later). THE MODEL PIECE. With lambda == 1 (F(n) = restricted sigma_{-1} along Q_u) the even-Maass signal is
   present for ALL six discriminants tested at the 99.3-100th percentile (odd sets at 7-17th), including D = -8 and -11
   which were absent with the lambda weight. So (i) the p = 3 rule is an artefact of the weight (F23), (ii) the right

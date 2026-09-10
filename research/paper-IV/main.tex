@@ -481,30 +481,46 @@ $\mathcal P^{(1)}$ is a Riesz mean of $\sigma_{-1}$ along $Q_u$. Repeating the r
 
 \begin{table}[htbp]
 \centering\small
-\caption{The model piece ($\lambda\equiv1$) at $Y\le10^7$, $u=1$: fit to the even and odd spectral parameters, with the
-weighted piece for comparison.}\label{tab:model}
-\begin{tabular}{lrrrrr}
+\caption{Removing the arithmetic weight, at $Y\le10^7$, $u=1$. Fit of $\mathcal P^{(1)}/\sqrt Y$ to the six even
+spectral parameters, for the weighted piece of part~III, for the same sum with $\lambda\equiv1$, and for the sum over
+all divisors rather than the squarefree ones. The odd sets, omitted, run from the $4.7$th to the $28.7$th percentile
+throughout.}\label{tab:model}
+\begin{tabular}{lrrrrrr}
 \toprule
-$D$ & $R^2$ even & percentile & $R^2$ odd & percentile & weighted piece\\
+& \multicolumn{2}{c}{weighted, squarefree} & \multicolumn{2}{c}{$\lambda\equiv1$, squarefree} & \multicolumn{2}{c}{$\lambda\equiv1$, all divisors}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+$D$ & $R^2$ even & pct & $R^2$ even & pct & $R^2$ even & pct\\
 \midrule
-$8$   & $0.319$ & $100$  & $0.036$ & $14$ & $0.217$ ($100$)\\
-$-4$  & $0.237$ & $100$  & $0.027$ & $13$ & $0.152$ ($100$)\\
-$-3$  & $0.139$ & $100$  & $0.019$ & $13$ & $0.139$ ($100$)\\
-$-8$  & $0.109$ & $100$  & $0.029$ & $17$ & $0.031$ ($47$)\\
-$17$  & $0.098$ & $99.3$ & $0.017$ & $7$  & $0.078$ ($99.3$)\\
-$-11$ & $0.078$ & $100$  & $0.015$ & $11$ & $0.009$ ($44$)\\
+$8$   & $0.217$ & $100$  & $0.319$ & $100$  & $0.420$ & $100$\\
+$-4$  & $0.152$ & $100$  & $0.237$ & $100$  & $0.361$ & $100$\\
+$-3$  & $0.139$ & $100$  & $0.139$ & $100$  & $0.208$ & $100$\\
+$-8$  & $0.031$ & $47$   & $0.109$ & $100$  & $0.162$ & $100$\\
+$-11$ & $0.009$ & $44$   & $0.078$ & $100$  & $0.167$ & $100$\\
+$17$  & $0.078$ & $99.3$ & $0.098$ & $99.3$ & $0.116$ & $100$\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-All six are significant, every odd set falls below the $17$th percentile, and the two discriminants that showed
-nothing under the weight show a clean signal without it. So the apparent rule at $p=3$ is an artefact of $\lambda$;
-nothing arithmetic is hidden there. Two consequences matter for what follows. The phenomenon is \emph{stronger}
-without the weight, so the model piece is the better object to measure; and its Dirichlet series is
-$\sum_dd^{-s}\mathcal W_k(D;d)$ with no multiplicative weight at all, a Sali\'e zeta function carrying only a
-squarefree and a coprimality condition. That is the object we can hope to continue, and \S\ref{sec:formula} is stated
-for it; the weighted piece, which is the one the off-diagonal of part~III requires, is the model piece perturbed by
-$\lambda=1*\kappa$ with $\kappa(p)=4/(p-4)=O(1/p)$.
+Every entry of the last four columns is at the $99.3$rd percentile or above, every odd set falls below the $29$th, and
+the two discriminants that showed nothing under the weight show a clean signal without it. So the apparent rule at
+$p=3$ is an artefact of $\lambda$; nothing arithmetic is hidden there. Note also that the fit improves monotonically
+along the three columns, for every one of the six discriminants: the more of the arithmetic weight one removes, the
+more of the variance the even spectrum explains. That is itself evidence that the spectral term is real and that the
+weight is what obscures it.
+
+The last column is the cleanest object of all. Dropping both the weight and the squarefree condition leaves
+\begin{equation}\label{eq:model}
+\mathcal G(Y)=\sum_{h\le Y}(Y-h)\bigl(\sigma^{*}_{-1}(h^2-D)-\mathbb E\sigma^{*}_{-1}\bigr),\qquad
+\sigma^{*}_{-1}(n)=\sum_{\substack{d\mid n\\ (d,2D)=1}}\frac1d,
+\end{equation}
+a Riesz mean of the divisor-type sums of Hooley and Gafurov. Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used
+$\lambda$ or squarefreeness, so they apply verbatim, and the Dirichlet series attached to~\eqref{eq:model} is
+\[
+Z_k(s)=\sum_{(d,2D)=1}\mathcal W_k(D;d)\,d^{-s},
+\]
+a Sali\'e zeta function carrying a coprimality condition and nothing else. This is the object of
+\S\ref{sec:formula}. The piece the off-diagonal of part~III actually requires is~\eqref{eq:model} perturbed twice:
+by the squarefree condition, through M\"obius over $\ell^2$, and by $\lambda=1*\kappa$ with $\kappa(p)=4/(p-4)=O(1/p)$.
 
 \paragraph{The limits of the present computations, and what is planned.} Every number reported above comes from a
 sieve of $Q_u(h)$ for $h\le10^7$, which runs in seconds to minutes on a laptop; the scripts are in the repository and
