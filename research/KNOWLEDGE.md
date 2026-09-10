@@ -169,6 +169,11 @@ F18. "Hypothesis W with B < 1−θ closes the window" (paper III drafts of 10–
     with loss (uk)^B against a saving (u²YL)^{θ}: the condition is 5θ+6B < 3 with the Type II range 2/3 (3θ+3B < 2
     with range 1/2). RULE: derive the exponent condition from the exact Fourier expansion of the actual test
     function, not from the small-moduli formula, which has k^{-2} decay from k = 1 only when d' ≤ Y.
+F19. "The window moduli d' ≤ u²Y almost all have a divisor in [u², Y], so the rough ones are negligible" (paper IV
+    brainstorm, first pass, 11 Sep). Wrong at every practical scale: admissible moduli (all primes split) have density
+    1/√log while primes have 1/log, so d' = p·m with p > Y, m < u² make up a fraction ~ log(u²)/√log Y of the window —
+    the MAJORITY for u ≥ 10 at Y ≤ 10⁵ (data/window-split.log). RULE: in a sparse set of moduli, "most integers are
+    composite" heuristics must be re-derived with the set's own density.
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
