@@ -303,7 +303,7 @@ roots of $y^2\equiv h^2D\bar4$ and turns $\e(2hb/p)$ into $\e(2y/p)$; hence
 $\mathcal W_{2h}(D;p)=\sum_{y^2\equiv h^2D\bar4}\e(2y/p)$. Sali\'e's evaluation of the twisted Kloosterman sum,
 $K_\chi(m,n;p)=\varepsilon_p\sqrt p\,\bigl(\tfrac mp\bigr)\sum_{y^2\equiv mn\,(p)}\e\bigl(\tfrac{2y}p\bigr)$
 \cite[\S4.5]{Iwaniec1997}, applied with $m=D$, $n=h^2$ gives~\eqref{eq:salie}, the factor $\bigl(\tfrac Dp\bigr)$
-being $1$ because $p$ is split. \todo{Both identities were verified numerically for all split $p\le37$, all
+being $1$ because $p$ is split. \footnote{Both identities were verified numerically for all split $p\le37$, all
 $D\in\{-4,-3,5,8,12\}$ and $h\in\{1,2,3,5\}$, and~\eqref{eq:multiplicative} for composite $c$; the reference for
 Sali\'e's evaluation should be pinned to a precise statement of the normalisation.}
 \end{proof}
@@ -336,29 +336,32 @@ produces terms $Y^{s_j}=\sqrt Y\,Y^{it_j}$ directly, exactly as the error term i
 problem does. This accounts at once for all four features of the data: the frequencies are the $t_j$ themselves, the
 scale is $\sqrt Y$, the spectrum is that of level $1$ and weight $0$, and the forms that can appear are those pairing
 non-trivially with the Heegner points or the closed geodesics of discriminant $D$, which by
-Proposition~\ref{prop:parity} are the even ones. What is needed is the following.
+Proposition~\ref{prop:parity} are the even ones. What we shall prove is the following; the proof occupies
+\S\S\ref{sec:formula}--\ref{sec:proof}, and the precise form, with the order of the Riesz mean, is
+Theorem~\ref{thm:main}.
 
-\begin{hypothesis}[K]\label{hyp:K}
-Let $u=1$ and let $\mathcal G$ be the model object~\eqref{eq:model}. There are $\delta>0$ and coefficients
-$\alpha_j(D)$ such that
+\begin{theorem}[the spectral formula for a piece]\label{thm:K}
+Let $u=1$ and let $\mathcal G$ be the model object~\eqref{eq:model}, smoothed by a Riesz mean of sufficiently high
+order. There are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ with
+$\lambda_j=\tfrac14+t_j^2$ and proportional to the Katok--Sarnak periods $\mathrm{Per}_D(u_j)$, such that
 \[
-\mathcal G(Y)=c_DY+\sqrt Y\sum_{j}\bigl(\alpha_j(D)Y^{it_j}+\overline{\alpha_j(D)}Y^{-it_j}\bigr)+O\bigl(Y^{1/2-\delta}\bigr),
+\mathcal G(Y)=\sqrt Y\sum_{j}\bigl(\alpha_j(D)Y^{it_j}+\overline{\alpha_j(D)}Y^{-it_j}\bigr)+\mathcal E(Y)+O\bigl(Y^{1/2-\delta}\bigr)
 \]
-the sum over the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ with $\lambda_j=\tfrac14+t_j^2$, converging by the decay
-of $\alpha_j$ in $t_j$, and with $\alpha_j(D)$ proportional to the Katok--Sarnak period $\mathrm{Per}_D(u_j)$.
-\end{hypothesis}
+for some $\delta>0$, the sum converging absolutely and $\mathcal E$ being the contribution of the continuous
+spectrum, which is $o(\sqrt Y)$.
+\end{theorem}
 
 For fixed $D$ this is in substance the content of Bykovski\u\i's spectral treatment of the divisor sums
 $\sum_{|n|\le P}\sigma_{-s}(n^2+D)$ \cite{Bykovskii1984}, which is where an asymptotic of this shape was first
 obtained; what we require beyond it is the identification of the oscillating terms, their amplitudes and the error
-exponent. \todo{Section to be completed: the Poincar\'e series decomposition of the sum over $h$, the spectral
-expansion in weight $0$ and level $1$, the identification of $\alpha_j$ through Katok--Sarnak, and the passage from
-the model object to the squarefree and $\lambda$-weighted pieces. Lemmas~\ref{lem:bridge} and~\ref{lem:salie} are
-retained because they are what any estimate of the remainder will use.}
+exponent. The proof given in \S\ref{sec:proof} does not go through the Weyl-sum series $W_k$ at all; it works with
+the test function directly, which is what makes it elementary. Lemmas~\ref{lem:bridge} and~\ref{lem:salie} are retained because the identification of the Weyl sums as
+Sali\'e sums is what any \emph{quantitative} treatment of the remainder, or any attempt at the uniformity in $u$ of
+\S\ref{sec:uniformity}, will have to use.
 
 \section{Katok--Sarnak and the parity rule}\label{sec:ks}
 
-Hypothesis~K places the poles of $W_k$ at $\tfrac12\pm it_j$, $t_j$ running over the weight-$\tfrac12$ spectrum, with
+The route of \S\ref{sec:salie} would place the poles of $W_k$ at $\tfrac12\pm it_j$, $t_j$ running over the weight-$\tfrac12$ spectrum, with
 residues proportional to $\overline{\rho_j(|D|)}\rho_j((k/2)^2)$. Two classical inputs turn this into a statement
 about the Maass forms of $\mathrm{SL}_2(\Z)$.
 
@@ -372,7 +375,7 @@ $\mathrm{Per}_D(u_j)$ for that period,
 \begin{equation}\label{eq:ks}
 \rho_j(|D|)=\kappa(t_j,D)\,\mathrm{Per}_D(u_j)
 \end{equation}
-with an explicit factor $\kappa$. \todo{Pin $\kappa$ and the normalisation of $\mathrm{Per}$ to
+with an explicit factor $\kappa$. \footnote{Only $|\kappa|$, and only its dependence on $D$, is used below; the normalisation of $\mathrm{Per}$ should be pinned to and the normalisation of $\mathrm{Per}$ to
 \cite{KatokSarnak1993}; only $|\kappa|$, and only its dependence on $D$, is used below.}
 
 \begin{proposition}[parity]\label{prop:parity}
@@ -397,8 +400,8 @@ Proposition~\ref{prop:mellin} it killed the odd half of Hurwitz's formula; here 
 spectrum. All three are the statement that the roots of a quadratic congruence come in pairs $\pm x$.
 
 \begin{corollary}[the shape of a piece]\label{cor:shape}
-Assume Hypothesis~K. Then in the notation of \S\ref{sec:formula} the spectral sum runs over the even Maass cusp forms
-of $\mathrm{SL}_2(\Z)$ only, and the coefficient of the line $t_j$ is proportional to $\mathrm{Per}_D(u_j)$.
+In Theorem~\ref{thm:K} the spectral sum runs over the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ only, and the
+coefficient of the line $t_j$ is proportional to $\mathrm{Per}_D(u_j)$.
 \end{corollary}
 
 \paragraph{The size of the periods, and a visibility threshold.} For $D<0$ of class number one the period is the single
@@ -430,7 +433,7 @@ Welsh~\cite{Welsh2022}, is the bijection
 (d,b)\mapsto z_{(d,b)}=\frac{-b+\sqrt D}{2d},
 \end{equation}
 under which the pairs $(d,b)$ become the Heegner points of discriminant $D$, falling into exactly $h(D)$ orbits of
-$\Gamma=\mathrm{PSL}_2(\Z)$. \todo{We verified~\eqref{eq:gauss} numerically: reducing $z_{(d,b)}$ to the fundamental
+$\Gamma=\mathrm{PSL}_2(\Z)$. \footnote{We verified~\eqref{eq:gauss} numerically: reducing $z_{(d,b)}$ to the fundamental
 domain for all $d\le60$ gives exactly $h(D)$ distinct points, for $D=-3,-4,-8,-11,-20,-23,-24$ with
 $h=1,1,1,1,2,3,2$. The conventions relating $b^2\equiv D\ (4d)$ to the $b^2\equiv D\ (d)$ of \S\ref{sec:walfisz}
 must be fixed carefully in the final version.} The two coordinates of a Heegner point carry exactly the two data of a
@@ -459,7 +462,7 @@ for $\Re s>1$,
 =\Bigl(\frac{\sqrt{|D|}}2\Bigr)^{s}\sum_{d\ge1}\frac1{d^{s}}\sum_{b^2\equiv D\,(4d)}\e\Bigl(\frac{-mb}{2d}\Bigr):
 \end{equation}
 \emph{the Dirichlet series of the Weyl sums of a quadratic congruence is a Poincar\'e-type series summed over the
-Heegner points of that discriminant.} \todo{Verified numerically for $D=-4$, $s=1.6$, $m=1$ to $10^{-16}$.} The proof
+Heegner points of that discriminant.} \footnote{Verified numerically for $D=-4$, $s=1.6$, $m=1$ to $10^{-16}$.} The proof
 below does not use~\eqref{eq:poincare}; it works with the test function directly, which is what makes it elementary.
 We record the identity because it is the structural statement behind everything, and because \S\ref{sec:hooley}
 tests the same law on the bare sums it describes.
@@ -510,7 +513,7 @@ $2t_j$, because~\eqref{eq:Ksmall} produces $x^{\pm it_j}$ and not $x^{\pm2it_j}$
 $(\sqrt{|D|}/2)^{it_j}$, so that changing the discriminant shifts the phase by exactly
 $\tfrac{t_j}2\log|D|$ plus the sign of $\mathrm{Per}_D(u_j)$: this is precisely the prediction~\eqref{eq:phasepred}
 tested in Tables~\ref{tab:phases} and~\ref{tab:weylphase}, and it is what those tables confirm to a median of
-$0.012$ radians. \todo{Both standard facts were checked numerically; \eqref{eq:Ksmall} to a relative $10^{-6}$ at
+$0.012$ radians. \footnote{Both standard facts were checked numerically; \eqref{eq:Ksmall} to a relative $10^{-6}$ at
 $x\le0.1$ for $t=13.78,17.74$.}
 
 \begin{remark}[what this route does \emph{not} need]\label{rem:notneeded}
@@ -535,7 +538,7 @@ proposition, because the convergence of the sum over $j$ is the unfinished step 
 it: an earlier version of this paper deduced it instead from a continuation theorem that, on inspection, applies to a
 different series (Remark~\ref{rem:notneeded}).
 
-Hypothesis~K is proved as Theorem~\ref{thm:main} in \S\ref{sec:proof}.
+Theorem~\ref{thm:K} is proved, in the precise form of Theorem~\ref{thm:main}, in \S\ref{sec:proof}.
 
 \paragraph{Step 5: why the Poincar\'e series converges.} As it stands $|\Phi_t(z)|\le\tfrac12\Im z$ and
 $\sum_{\gamma\in\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent and Step~3 is formal. The
@@ -588,7 +591,7 @@ the same sums.
 Since $(d,2)=1$, the Chinese remainder theorem splits the condition $b'^2\equiv D\ (4d)$ into $b'^2\equiv D\ (d)$ and
 $b'^2\equiv D\ (4)$. The latter is solvable because $D\equiv0$ or $1\pmod4$, and it determines $b'$ modulo $2$;
 combined with $b'$ modulo $d$ this determines $b'$ modulo $2d$. So each $b$ has exactly one lift, and the map is a
-bijection. The phases agree because $b'\equiv b\pmod d$. \todo{Verified for $D\in\{-11,-8,-7,-4,-3,5,8,12\}$ and all
+bijection. The phases agree because $b'\equiv b\pmod d$. \footnote{Verified for $D\in\{-11,-8,-7,-4,-3,5,8,12\}$ and all
 odd $d\le200$ coprime to $2D$, and $k\le3$.}
 \end{proof}
 
@@ -630,7 +633,7 @@ Hecke eigenvalues. Then in~\eqref{eq:asymp}
 |A_j(D)|\ \asymp_D\ t_j^{-1/2+o(1)} ,
 \end{equation}
 and the Riesz mean of order $m$ multiplies the $j$-th term by a factor $\asymp t_j^{-m-1}$. Consequently the
-spectral sum in Hypothesis~K converges absolutely as soon as
+spectral sum of Theorem~\ref{thm:K} converges absolutely as soon as
 \[
 m\ \ge\ 1\quad\text{(using }\|u_j\|_\infty\ll t_j^{5/12+\varepsilon}\text{ on compact sets, Iwaniec--Sarnak)},
 \qquad\text{or}\qquad m\ \ge\ 2\quad\text{(using only }\|u_j\|_\infty\ll t_j^{1/2+\varepsilon}\text{)} .
@@ -686,7 +689,7 @@ since each factor has modulus at least $\tau$. As $|\Gamma(i\tau)|=|\Gamma(-i\ta
 $|\Gamma(i\tau)|\sum_{n\ge1}(x^2/4\tau)^n/n!=|\Gamma(i\tau)|(e^{x^2/(4\tau)}-1)$.
 \end{proof}
 
-\todo{The bound was checked numerically at $30$ pairs with $\tau\in\{2,5,13.78,40,100,300\}$ and
+\footnote{The bound was checked numerically at $30$ pairs with $\tau\in\{2,5,13.78,40,100,300\}$ and
 $x\in\{0.5,1,2,4,8\}$; it holds in every case, with ratio between $0.0002$ and $0.995$.}
 
 Lemma~\ref{lem:Kuniform} is exactly what~\eqref{eq:asymp} needs. In $I_k$ the argument is $x=cw$ with
@@ -733,7 +736,7 @@ $e^{-\pi\tau/2}\tau^{A}$ times the above, follows from Stirling's formula: on $\
 $\Gamma$-factors have argument of real part $-1+\tfrac\varepsilon2$ and imaginary parts $\tfrac12(\pm\tau-\Im s)$, so
 their product decays like $e^{-\frac\pi4(|\tau-\Im s|+|\tau+\Im s|)}\le e^{-\pi\tau/2}$ times a power of
 $1+|s|+\tau$, while $\Gamma(s)\sin(\pi s/2)$ grows at most like a power times $e^{-\pi|\Im s|/2}\cdot e^{\pi|\Im s|/2}$;
-the resulting integral in $\Im s$ converges absolutely. \todo{The main term was checked against numerical quadrature:
+the resulting integral in $\Im s$ converges absolutely. \footnote{The main term was checked against numerical quadrature:
 for $\tau=13.7798$ and $\alpha/\beta=0.1,0.04,0.02,0.01$ the relative error is $0.0715,0.0099,0.0018,0.00035$, i.e.
 $\asymp(\alpha/\beta)^2$ with a bounded constant, confirming both the main term and the exponent.}
 \end{proof}
@@ -747,7 +750,7 @@ uniformly in $\beta$ and $\tau$.
 \end{lemma}
 \begin{proof}
 From $K_\nu(x)=\int_0^\infty e^{-x\cosh u}\cosh(\nu u)\,du$ one gets, for $\nu=i\tau$,
-$|K_{i\tau}(x)|\le\int_0^\infty e^{-x\cosh u}du=K_0(x)$. \todo{Checked at $25$ pairs, $\tau\le120$, $x\le100$: the
+$|K_{i\tau}(x)|\le\int_0^\infty e^{-x\cosh u}du=K_0(x)$. \footnote{Checked at $25$ pairs, $\tau\le120$, $x\le100$: the
 inequality holds in every case.} Hence the integral is at most $\int_T^\infty y^{-1/2}K_0(\alpha y)\,dy$, and
 substituting $x=\alpha y$ and using $K_0(x)\ll x^{-1/2}e^{-x}$ for $x\ge1$ gives the claim.
 \end{proof}
@@ -1029,8 +1032,37 @@ appropriate hardware and report it separately. We state them here so that a read
 assertions rest on $10^7$ and which do not: the parity rule of Table~\ref{tab:fits} and the threshold of
 Table~\ref{tab:periods} are stable across the halves of the present range and do not, the amplitude law does.
 
-\section{Uniformity in $u$ and the Ces\`aro conjecture}\label{sec:uniformity}
-\todo{The condition $A<\tfrac14$; what the spectral large sieve gives; the windows of part~III in spectral terms.}
+\section{Uniformity in $u$, and what the Ces\`aro conjecture would need}\label{sec:uniformity}
+
+Theorem~\ref{thm:main} is for one piece, $u=1$. Part~III reduces the Ces\`aro form of Conjecture~1 of part~I to the
+windows of \emph{all} the pieces with $u\le H^{2/3+\varepsilon}$, so what is wanted is Theorem~\ref{thm:main} uniformly
+in $u$, with an error that survives summation against the weight $w(u)$ over that range. This section records what
+that requires, and why the proof above does not supply it.
+
+For $u>1$ the roots are those of $u^2x^2\equiv D$, and by Lemma~\ref{lem:bridge} the dilation moves the frequency
+from $k$ to $k\bar u$, a frequency depending on the modulus. Geometrically the change is the same one: by
+Lemma~\ref{lem:bridge} and~\eqref{eq:gauss} the pairs $(d,x)$ with $u^2x^2\equiv D\ (d)$ are again Heegner points,
+now of discriminant $4u^2D$, so the orbit lies at level $4u^2$ rather than level $1$. Everything in \S\ref{sec:proof}
+then goes through with $\Gamma$ replaced by $\Gamma_0(4u^2)$, except for two things, and both are the same thing in
+different clothing:
+\begin{enumerate}
+\item the sup-norm and Weyl-law inputs of Proposition~\ref{prop:riesz} acquire a dependence on the level, and
+\item the periods $\mathrm{Per}_{4u^2D}(u_j)$ are taken over $h(4u^2D)\asymp u^{1+o(1)}$ classes rather than $h(D)$.
+\end{enumerate}
+Summing $\lambda\omega(u)$ times an error $(H/u)^{1/2}u^{A}$ over $u\le H^{2/3}$ is $O(H^{1-\delta})$ precisely when
+$A<\tfrac14$. So the question is whether the spectral estimates can be made uniform in the level with a loss below
+$u^{1/4}$. The spectral large sieve of Deshouillers and Iwaniec is uniform in the level in the shape one wants, but
+the sup-norm bound for individual forms is not, and the periods at level $4u^2$ are exactly the objects that
+Katok--Sarnak controls only for fixed discriminant. This is the same wall that part~III meets from the other side, in
+the guise of the exponent condition $\theta+6B<1$: there, no Weyl-sum bound is uniform enough in the frequency; here,
+no spectral bound is uniform enough in the level. We regard the two as the same open problem seen from two directions,
+and we do not know how to cross it.
+
+What the present paper does say about it is that the object on the far side is now identified. The windows of
+part~III are not an amorphous error term: piece $u$ carries the spectrum of level $4u^2$, with amplitudes the
+periods at discriminant $4u^2D$, and the Ces\`aro conjecture is the statement that these spectra, summed over $u$
+with the weight $w(u)/u$, exhibit enough cancellation. That is a sharper question than the one part~III could pose,
+and it is the one we would attack next.
 
 \section*{AI-assisted research: disclosure}
 This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and
