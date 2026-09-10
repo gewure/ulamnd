@@ -513,8 +513,7 @@ a complementary divisor $e=Q_u(x)/d'$ below the length, and the weights $1/d'=e/
 counting crudely, the whole range beyond $u^2YL$ weighs only $Y/(u^2L)$, which is summable over $u$ and small
 for $L\to\infty$. So the far moduli are negligible for trivial reasons, at the price of extending the window to
 $u^2YL$; no reflection argument is needed. The trivial bound also fixes the scale of everything else: the small
-moduli $d'\le Y$ have trivial size $\asymp Y$, the window $Y<d'\le u^2YL$ has $\asymp Y\log(u^2L)$, the far moduli
-$Y/(u^2L)$.
+moduli $d'\le Y$ and the window $Y<d'\le u^2YL$ each have trivial size $O(Y)$, the far moduli $Y/(u^2L)$.
 
 \section{The first piece and the large pieces}\label{sec:unconditional}
 
@@ -815,7 +814,8 @@ main term included. What is left, for $1<u\le H^{2/3+\varepsilon}$, is the \emph
 =\sum_{Y<d'\le u^2YL}\frac{\lambda(d')}{d'}\Bigl[\sum_{\substack{x\in R^{(u)}_{d'}\\ \rep x{d'}\le Y}}\bigl(Y-\rep x{d'}\bigr)-\frac{\omega(d')Y^2}{2d'}\Bigr],
 \end{equation}
 in which the interval $[1,Y]$ covers a fraction $Y/d'\in[(u^2L)^{-1},1)$ of a period. It is empty for $u=1$,
-$L=1$, and its trivial size is $\asymp Y\log(u^2L)$. Summarising:
+$L=1$, and its trivial size is $O(Y)$ (Proposition~\ref{prop:pieces}, whose bound for $d'>Y$ applies to any range of
+moduli above $Y$). Summarising:
 
 \begin{theorem}[A$'$: unconditional reduction]\label{thm:Aprime}
 For every irreducible quadratic $f$ and every $\varepsilon>0$ there is $c=c(f)>0$ such that
@@ -832,11 +832,23 @@ with Theorem~\ref{thm:small} (applicable since $Y\ge\exp((\log\log u)^3)$) and L
 $\sum_{u\le H^{2/3+\varepsilon}}w(u)\bigl[(H/u)(\log H)^{-c}+H/(u^3\log H)\bigr]\ll H(\log H)^{1-c}$.
 \end{proof}
 
-The window is where the two mechanisms of this paper both fail. Koksma's inequality with the function
-$(Y-\theta d')^+$, of variation $Y$, gives $|\mathcal W_u(Y;L)|\ll Y\sum_{Y<d'\le u^2YL}\lambda\omega(d')\,\mathrm{disc}(\Delta^{(u)}_{d'})/d'\ll Y\log(u^2L)\,(\log Y)^{-c}$
-by Proposition~\ref{prop:KSw} applied dyadically, and the factor $\log u$ is fatal: summed against $w(u)/u$ it
-produces $H(\log H)^{2-c}$, which exceeds $H\log H$ since $c<1$. The averaging of Theorem~\ref{thm:typeII} needs
-$Y<u^{1/2}$. In the original variables the window consists of the moduli $d=ud'\in(H,u^2HL]$ with agreeing part
+The window is where the two mechanisms of this paper both fail, except at the two ends of the range of $u$.
+Koksma's inequality with the function $(Y-\theta d')^+$, of variation $Y$, gives
+$|\mathcal W_u(Y;L)|\ll Y\sum_{Y<d'\le u^2YL}|\lambda|\omega(d')\,\mathrm{disc}(\Delta^{(u)}_{d'})/d'\ll Y\,(1+\log(u^2L))\,(\log Y)^{-c}$
+by Proposition~\ref{prop:KSw} and partial summation, which is a saving only while $\log u\ll(\log Y)^{c}$: summed
+against $w(u)/u$ over all $u\le H^{2/3}$ it produces $H(\log H)^{2-c}$, which exceeds $H\log H$ since $c<1$. The
+averaging of Theorem~\ref{thm:typeII} needs $Y<u^{1/2}$.
+
+\begin{corollary}[small agreeing part]\label{cor:smallu}
+With $c=c(f)$ as in Theorem~\ref{thm:small} and $U_1=\exp((\log H)^{c/3})$,
+$\sum_{u\le U_1}w(u)\,\mathcal W_u(H/u;\log H)\ll_fH(\log H)^{-c/3}$. Hence in Theorem~\ref{thm:Aprime} the sum over $u$
+may be restricted to $U_1<u\le H^{2/3+\varepsilon}$: the windows of the pieces with $u\le\exp((\log H)^{c/3})$ contribute
+$o(H)$ unconditionally.
+\end{corollary}
+\begin{proof}
+For $u\le U_1$, $Y=H/u\ge H^{1/2}$ and $\log(u^2\log H)\ll(\log H)^{c/3}$, so the bound above gives
+$\mathcal W_u(H/u;\log H)\ll(H/u)(\log H)^{c/3-c}$, and $\sum_{u\le U_1}|w(u)|/u\ll\log U_1=(\log H)^{c/3}$.
+\end{proof} In the original variables the window consists of the moduli $d=ud'\in(H,u^2HL]$ with agreeing part
 $u$, and the count is that of the roots $X\le H$ of $X^2\equiv D\pmod{d'}$ divisible by $u$: a short-interval
 problem for the roots of a quadratic congruence, at the scale $Y/d'\ge(u^2L)^{-1}$ of the period.
 

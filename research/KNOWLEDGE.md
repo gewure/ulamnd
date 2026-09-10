@@ -77,6 +77,13 @@ prime statements need Hardy–Littlewood.
   (j) Theorem A′ (unconditional): Off* = c_off H + Σ_{u≤H^{2/3+ε}} w(u) W_u(H/u; log H) + O(H (log H)^{1−c});
   Cesàro (E) ⟺ windows = o(H log H). Theorem A (conditional on W with the exponent conditions): Off* = c_off H
   + O(H^{1−δ}), A_f = A_f^diag + C² c_off. Paper III: 22 pp.
+- 11 Sep (late night). Self-review of papers I/II for consistency with III: Hypothesis (E) restated (Cesàro primary);
+  Theorem 6 proof bound corrected to the symmetrised bracket; forward references. Paper III: the window's trivial
+  size is O(Y), not Y log u² (Koksma is what loses the log); Corollary "small agreeing part": windows with
+  u ≤ exp((log H)^{c/3}) are o(H) unconditionally. Spectral test of P_u(Y)/√Y (u = 2, 10): null at SL₂(Z)/ζ lines,
+  inconclusive (wrong spectrum tested: route R predicts level 4u², weight 1/2). Brainstorm second pass: route R
+  (Riesz means + Salié–Kuznetsov Dirichlet series of the Weyl sums; level uniformity A < 1/4 is the crux) rated
+  ★★★★★; route T (sum-product Type II) ★★★; delta method / Kloosterman fractions / additive combinatorics dead.
 - 11 Sep (night, self-review of paper III after the referee agents died on credits). Verified numerically: Lemma Gbar(e)
   (−log p/(p−1) for p = 5, 13; 0 for 65), the finite Fourier identity, c_off for 4 polynomials. Found and fixed: the
   exponent condition (F18, now θ+6B < 1); Step 4 arithmetic (1−3ε/4, harmless); Lemma AP had "g supported on integers
@@ -183,6 +190,11 @@ F19. "The window moduli d' ≤ u²Y almost all have a divisor in [u², Y], so th
     1/√log while primes have 1/log, so d' = p·m with p > Y, m < u² make up a fraction ~ log(u²)/√log Y of the window —
     the MAJORITY for u ≥ 10 at Y ≤ 10⁵ (data/window-split.log). RULE: in a sparse set of moduli, "most integers are
     composite" heuristics must be re-derived with the set's own density.
+F20. "No Maass lines in Off_f(H) ⇒ the second-spectrum idea is dead" (paper II job C4, 10 Sep; P4 downgraded). The
+    spectral oscillations predicted by the Kuznetsov route live in the Cesàro pieces at scale √Y (P_u(Y) = O(√Y)
+    numerically), with the spectrum of level 4u² and weight 1/2 — the sharp Off_f(H) is a different, bounded object
+    and the SL₂(Z) parameters are not the relevant ones. RULE: before a null spectral test, derive which spectrum and
+    which observable the theory predicts; a null on the wrong observable proves nothing.
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
@@ -192,7 +204,7 @@ F10. Programming: `pkill -f <script>` kills the harness's own shell when the com
 | P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (rigorous pass 11 Sep: KSw, far moduli, Type II with c_off proved) | Unconditional: small moduli (log-saving), far moduli (trivial), u > H^{2/3+ε} (main term c_off H). Open = the window (Y, u²Y] for 1 < u ≤ H^{2/3}; Hypothesis W needs θ+6B < 1: any modulus saving, but loss below (uk)^{(1−θ)/6} in frequency and dilation — no known Weyl bound is frequency-uniform. Honest framing: W is a hard open problem; paper IV goes via the divisor-sum form of the pieces instead. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
 | P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep; Thm B proved for N ≤ 2, D = u) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
 | P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
-| P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★☆☆☆ (was ★★★, 10 Sep) | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |
+| P4 | Maass-spectral explicit formula for the off-diagonal ("second spectrum") | ★★★★★ (11 Sep night, as route R of paper IV) | The right object is the Cesàro/Riesz PIECE P_u(Y) at scale √Y (numerically O(√Y)), not the sharp Off_f(H) (bounded; the C4 null result tested the wrong quantity — lesson recorded). Route: Dirichlet series of the Weyl sums W_k(s) = Σ_d λρ_k d^{−s}, Bykovskiĭ/Kuznetsov for weight 1/2, poles at 1/2 ± it_j of level 4u²; Riesz mean of order m gives a power saving per piece; the crux is level uniformity A < 1/4. See research/paper-IV/BRAINSTORM.md. |
 | P5 | Job (C4): spectrum of Off_f(e^u) for t²+1 | done to 10⁷ (10 Sep) | Null: no Maass or ζ lines at resolution 0.68; Off bounded, no drift. Extend to 10⁹ externally (segmented sieve) before closing the question. |
 | P6 | General two-variable Frobenian Dahlquist/Kurokawa–Moroz theorem | ★★☆☆☆ | Opus's argument adopted: a remark in paper II, not a section; a referee is more likely to say "known, see X" than to demand it. Possible short note later, after reading Kurokawa I and Moroz. |
 | P7 | Non-abelian example (t³−2, S₃): Ψ_N, pair field = K, zeros of ζ_K | ★★★☆☆ | Theory item (compute Ψ_N for S₃, list poles) + numerics (C3). Good for the general-f theorem's credibility. |

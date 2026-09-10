@@ -1,0 +1,17 @@
+u=10: P/sqrtY mean 0.0035 sd 0.0595 drift/unit logY 0.00368  (M=4096, logY in [6.91, 16.12])
+resolution 0.68; top peaks:
+  omega=2.76 power=2.21e-4 |Maass| 6.77 |zeta/2| 4.31
+  omega=1.40 power=5.00e-5 |Maass| 8.13 |zeta/2| 5.67
+  omega=4.88 power=2.64e-5 |Maass| 4.65 |zeta/2| 2.19
+  omega=8.12 power=1.28e-5 |Maass| 1.41 |zeta/2| 1.05
+  omega=10.34 power=5.68e-6 |Maass| 0.81 |zeta/2| 0.17
+  omega=11.72 power=3.71e-6 |Maass| 0.45 |zeta/2| 0.79
+  omega=16.98 power=1.65e-6 |Maass| 0.34 |zeta/2| 0.51
+  omega=6.56 power=1.47e-6 |Maass| 2.97 |zeta/2| 0.51
+  omega=28.82 power=1.41e-6 |Maass| 9.34 |zeta/2| 3.86
+  omega=24.68 power=9.88e-7 |Maass| 5.20 |zeta/2| 0.28
+  omega=15.02 power=9.36e-7 |Maass| 0.66 |zeta/2| 0.19
+  omega=20.98 power=8.42e-7 |Maass| 1.50 |zeta/2| 0.52
+mean z at Maass lines -0.18; at zeta/2 lines 0.23; random 0.29 +- 0.83
+  per Maass line: 0.9 0.8 -0.0 -0.2 0.2 0.4 0.3 0.1 -2.1 -2.1
+  per zeta/2 line: 0.6 1.1 0.6 0.1 0.4 -0.7 -0.0 -0.1

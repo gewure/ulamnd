@@ -160,3 +160,103 @@ continuity of the boundary values in L¹ sense) into (W). Elegant, unlikely to b
    Bykovskiĭ/DFI methods are strongest. Promising and unexplored.
 3. Route 1 (factorisation of d') test: rough vs smooth moduli split of the window numerically (scripts/window.ts can do it).
 4. Route 7 (function field) as the theorem track if 2 stalls.
+
+# Second pass (11 September 2026, night): after the self-review, the calibration and literature round 1
+
+## New facts that change the picture
+- The window's trivial size is O(Y) per piece (paper III, Prop. pieces), not Y log(u²L); Koksma's route loses the
+  log(u²L). Consequence (now Corollary "small agreeing part" in paper III): the windows with u ≤ exp((log H)^{c/3})
+  are o(H) UNCONDITIONALLY. Together with Theorem Type II, the open range is exp((log H)^{c/3}) < u ≤ H^{2/3}.
+- The corrected exponent condition θ+6B < 1 says: the modulus exponent is irrelevant, the loss in the frequency k
+  (up to u² log H) and in u is everything. Every known Weyl-sum bound loses k^{1/4} (Hooley/DFI) — a Weil-type
+  artefact of bounding Salié/Kloosterman sums individually; on average over the spectrum the k-dependence is a
+  Fourier coefficient, which DECAYS. This points to the spectral route in Dirichlet-series form (route R below).
+- Route 2 (Kloosterman fractions) is structurally dead (LITERATURE §2). Route 3 (delta method) is dead for the
+  window: the whole window count (∼ Y log L unweighted) is smaller than any delta-method error term for a box
+  Y × u²Y × u²Y. Route 10 dead. Downgraded to ★.
+- Spectral test (scripts/piece-spectrum.ts, data/piece-u{2,10}-spectrum.log): the log-spectrum of P_u(Y)/√Y for
+  t²+1, u = 2, 10, Y ≤ 10⁷, shows no significant power at the SL₂(Z) Maass parameters or at half the ζ ordinates
+  (mean z-scores 0.30 / −0.18 vs random 0.45 ± 0.7); the power sits at ω ≲ 3 (slow modulation, amplitude ~0.1√Y).
+  Inconclusive: the spectrum predicted by route R is that of level 4u² (weight 1/2 for the Salié sums), whose
+  small eigenvalues are not in our list, and the resolution 0.68 is coarse. TO DO: get the Γ₀(16)/weight-1/2 spectrum
+  (LMFDB) and repeat; extend Y to 10⁹ externally.
+
+## Route R (new, ★★★★★): Riesz means and the Salié–Kuznetsov Dirichlet series
+Idea. The sharp piece is a twisted Walfisz sum: S_u(t) = Σ_d (λ(d)/d) Σ_{x∈R_d} (½ − {(t−x)/d}) = Σ_{k≥1} (πk)^{−1}
+Σ_d λ(d)ρ_k(d) d^{−1} sin(2πkt/d). (For the diagonal of paper I the analogous sum Σ_d a_f(d)(½ − {H/d}) is handled by
+ζ(s)D_f(s); for the classical Σ_{n≤x}(1/n)(½ − {x/n}) the answer is O((log x)^{2/3}) by Walfisz, via ζ's zero-free
+region.) Mellin in t: the Dirichlet series of the piece is Σ_k k^{s−2}·Γ-factor·W_k(s), W_k(s) = Σ_d λ(d)ρ_k(d)d^{−s}
+(admissible d), the DIRICHLET SERIES OF THE WEYL SUMS. Bykovskiĭ (1984) continues Σ_c ρ_h(c)c^{−s} to Re s > 1/2 by
+the Kuznetsov formula for the Salié sums (half-integral weight, level 4·(disc stuff)); poles at s = 1/2 ± it_j,
+residues ∝ Fourier coefficients of Maass forms of weight 1/2 at D and at k; the continuous spectrum gives
+Re s = 1/2. Then a Riesz mean of order m in t (weight (1 − h/Y)^m) is a Perron integral that can be shifted to
+Re s = 1/2 + ε once the growth in |Im s| is ≤ |t|^{m−1}: P^{(m)}_u(Y) = c·Y + Y^{1/2}·Σ_j (spectral terms) + O(Y^{1/2+ε}).
+The k-sum: |k^{s−2}W_k(s)| on Re s = 1/2+ε with W_k ≪ k^{B'}: needs B' < 1/2 — and the SPECTRAL side gives B' ≤ 1/4
+(individual coefficient bounds, DFI 2012's (mn)^{1/4}) or better on average: fine.
+What it gives: Hypothesis (E) in RIESZ form of order m (still carries the −c_m C log H term of Conjecture 1: the
+Riesz form of the conjecture is meaningful) with a POWER saving per piece, and an explicit "second spectrum" — the
+Maass forms of level 4u² — in the off-diagonal. The programme P4 of the knowledge base, at the right object.
+Obstacles. (1) Level uniformity: u ≤ H^{2/3} means level 4u² up to H^{4/3}; the sum over u needs the per-piece bound
+(H/u)^{1/2+ε}u^{A} with A < 1/4 (from Σ_u w(u)(H/u)^{1/2}u^A ≪ H^{1/2}U^{1/2+A} < H at U = H^{2/3}). Kuznetsov's formula
+and the spectral large sieve (Deshouillers–Iwaniec) have explicit level dependence; the spectral sums Σ_j|ρ_j(n)|²h(t_j)
+are N^{ε}-uniform in the Petersson normalisation, so A = 0 + ε is plausible but has to be proved for weight 1/2 with
+the theta multiplier, with n = D and k not coprime to the level. (2) The admissibility sieve (squarefree, all primes
+split, coprime to u) on the moduli: Möbius over ℓ² | c and the character (1+χ)/2 — handled by the c ≡ 0 (q)
+version of Kuznetsov (DFI 2012 Thm 1.1 is uniform in q). (3) The multiplicative twist λ = 1*κ: κ small, convolution
+fine. (4) Riesz order m vs Cesàro (m=1): the user's target is Cesàro; Riesz of order m is a weaker theorem but still
+"the conjecture in a smoothed form", and m can be reduced afterwards by the usual de-smoothing if a power saving is
+available (it is, per piece). (5) The exceptional spectrum for weight 1/2 (θ-multiplier) — handled in DFI 2012 (their
+1/1331 saving comes from it); with Riesz means one may not need to beat it.
+TESTS. (a) Theory (two days): write W_k(s) via Kuznetsov (Proskurin/Bykovskiĭ for weight 1/2) for the moduli c ≡ 0 (4)
+and D = −4, and read off the continuation, the pole set, and the k- and level-dependence from the formula. (b)
+Numerics (one hour after (a)): the predicted oscillation Y^{1/2}Σ_j c_j cos(t_j log Y) — compare with data/piece-u2-grid.dat
+using the weight-1/2 / level-16 spectrum from LMFDB. (c) Literature check: Bykovskiĭ's paper, DFI 2012 §§ on the
+Kloosterman sums of half-integral weight, Sarnak's "Class numbers of indefinite binary quadratic forms II" for the
+Dirichlet series of Salié sums; Waibel 2017 for level dependence.
+
+## Route T (new, ★★★☆☆): Type II via sum-product bounds for the dilations
+Idea. The averaging over the dilation ū (paper III, Thm Type II) used the full residue average (Pólya–Vinogradov +
+Parseval), valid for u ~ U > d'^{...}, giving the range u > H^{2/3}. In additive-character form the same average is
+Σ_{u~U} w(u) e(c ū/d') — incomplete Kloosterman sums with a multiplicative weight — and Bourgain–Garaev (2014b, general
+modulus m) give a (log m)^{−1/2} saving for U > m^{c₀}, Bourgain's sum-product bounds a power saving for PRIME modulus
+and U > p^{ε}. With w = λ·(1*χ) the sum is bilinear (hyperbola method), which is the natural setting for these bounds.
+Obstacle (serious): with only a (log)^{−1/2} saving per modulus, the sum over the window moduli Σ λω/d' ≈ log(u²L)
+eats it (needs saving ≥ (log d')^{−1}); a POWER saving is needed, which is known only for prime moduli (Bourgain),
+while the window moduli are composite with a large prime factor p > Y for the majority (F19) and a cofactor m ≤ u²L
+that is NOT small compared with U. So: for d' = pm one needs bilinear Kloosterman-type bounds modulo pm with p prime
+large and m composite — unknown. Rated ★★★ because the tools are at the frontier and a partial result (range
+u > H^{1/2+ε}, say) would already relax θ+6B < 1 to θ+3B < 1 and matter for route R's level condition (A < 1/2 instead
+of 1/4). TEST: look up Bourgain–Garaev 2014b Thm 3 (bilinear, general m) exactly; check whether the (log)^{−1/2} can be
+improved for moduli with a prime factor > m^{1/2}.
+
+## Tool (new, ★★): exceptional sets of u of logarithmic density zero are free
+(W) needs o(H log H) for Σ_u w(u)W_u; the trivial bound per piece is O(Y) = O(H/u); so any set of u with
+Σ_{u∈E, u≤H} w(u)/u = o(log H) can be discarded. E.g. one may assume u has a divisor in any window (V,2V] with
+V = V(H) → ∞ (Ford), or ω(u) ~ log log u, or u has a prime factor in [u^{1/3}, u^{2/3}], etc. Useful in route T
+(choose a convenient factorisation of u) and in a Hooley-type parametrisation (choose u with a large prime factor).
+
+## Reassessed routes (from the first pass)
+- Route 1 (factorise d'): the rough moduli d' = p·m (p > Y, m ≤ u²L) are the majority (F19). For them the window
+  count is a PRIME-modulus root-counting problem in an interval of length Y ≥ p/(u²L), CRT-glued with m: for m
+  bounded this is DFI 1995 (equidistribution to prime moduli, saving (N²/x)^{1/20} → power saving) — so for BOUNDED u
+  the rough part is a theorem, consistent with Corollary "small agreeing part" (which does it for u up to
+  exp((log H)^{c/3}) by the softer KS route). Extending to m up to u²L is the Type II problem in disguise (the classes
+  mod m must be averaged). ★★★ — a hybrid "rough part by DFI 1995 with the m-classes averaged by Type II, smooth part
+  by factorisation" is the elementary counterpart of route R and might reach u ≤ H^{δ}. Worth one day.
+- Route 7 (function field, q → ∞): the exact analogue statement is: for fixed degrees (n = deg-length, m = deg u,
+  window degrees), the piece is a character sum over the variety {(x,d',e): u²x² − d'e = D} weighted by e(kx/d') for
+  deg k < deg d' − n; Deligne gives square-root cancellation in q if the relevant sheaf has no invariants. This is a
+  THEOREM track (Lang–Weil/Katz), matching the calibration (pieces are O(√Y) over Z). ★★★★ — the natural theorem for
+  paper IV alongside route R, and the two inform each other (the q → ∞ spectrum is the geometric monodromy; the
+  Maass spectrum is its archimedean counterpart).
+- Route 11 (Dirichlet series) = route R. Merged.
+- Route 6 (higher Riesz means): promoted from "supporting trick" to the FRAMEWORK of route R.
+- Routes 3, 5, 8, 10: ★ (dead or no leverage) — 5 (dispersion) could reappear inside route T.
+
+## Order of work (revised)
+1. Route R test (a): derive the Kuznetsov expression for W_k(s) at D = −4, level 4·stuff; get the pole set and the
+   level/frequency dependence. If the continuation to Re s > 1/2 with polynomial growth and k-dependence k^{B'},
+   B' < 1/2, is confirmed for FIXED u, then Hypothesis (E) in Riesz form for each fixed piece follows — already a
+   theorem worth having (it is the piece-by-piece "square-root cancellation" seen numerically).
+2. Then the level dependence (the real problem) — first for u prime.
+3. Route 7 in parallel as the theorem track; route 1/T hybrid as the elementary fallback.

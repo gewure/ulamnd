@@ -36,6 +36,10 @@ let big = 0;
 for (let h = 1; h <= Y; h++) { let q = Q[h]; while (q % 2 === 0) q /= 2; if (q > 1) { if (u % q !== 0) F[h] *= 1 + 1 / (q - 4); big++; } }
 console.log(`u=${u}: ${np} primes = 1 (4) <= ${Pmax}, E F_u = ${EF.toFixed(12)}, ${big} large prime cofactors (${el()})`);
 let S = 0, cS = 0, Sh = 0, cSh = 0, sumS = 0, sumS2 = 0, maxS = 0;
+// log grid of P_u(Y) for the spectral test (paper IV route R): M points in [1e3, Y]
+const M = 4096, uMin = Math.log(1e3), uMax = Math.log(Y);
+const gridY = Array.from({ length: M }, (_, j) => Math.floor(Math.exp(uMin + ((uMax - uMin) * j) / (M - 1))));
+const gridP: number[] = []; let gj = 0;
 const marks = new Set([1e3, 1e4, 1e5, 1e6, 1e7].filter((m) => m <= Y));
 // P_u(Y) (paper III, d' >= 2) = Σ_{h<=Y}(Y-h)(F - E F) - (E F - 1) Y/2   [the d'=1 term and the Y(Y-1)/2 vs Y²/2 convention]
 console.log("Y | P_u(Y) | P_u(Y)/Y^(1/2) | S_u(Y) | rms S_u(t), t<=Y | max|S_u| | mean S_u  (E F precision limits P_u to about ±" + (5e-14 * Y * Y / 2).toExponential(0) + " at the largest Y)");
@@ -44,6 +48,10 @@ for (let h = 1; h <= Y; h++) {
   let y = v - cS; let t = S + y; cS = t - S - y; S = t;            // S_u(h) = Σ_{h'<=h} v
   y = h * v - cSh; t = Sh + y; cSh = t - Sh - y; Sh = t;            // Σ h' v
   sumS += S; sumS2 += S * S; if (Math.abs(S) > maxS) maxS = Math.abs(S);
+  while (gj < M && gridY[gj] === h) { gridP.push(h * S - Sh - (EF - 1) * h / 2); gj++; }
   if (marks.has(h)) { const P = h * S - Sh - (EF - 1) * h / 2; console.log(`${h.toExponential(0)} | ${P.toFixed(3)} | ${(P / Math.sqrt(h)).toFixed(3)} | ${S.toFixed(4)} | ${Math.sqrt(sumS2 / h).toFixed(4)} | ${maxS.toFixed(3)} | ${(sumS / h).toExponential(2)}`); }
 }
+import { mkdirSync, writeFileSync } from "node:fs";
+mkdirSync("research/paper-IV/data", { recursive: true });
+writeFileSync(`research/paper-IV/data/piece-u${u}-grid.dat`, "logY Y P PoverSqrtY\n" + gridY.map((y, j) => `${Math.log(y).toFixed(5)} ${y} ${gridP[j].toFixed(4)} ${(gridP[j] / Math.sqrt(y)).toFixed(6)}`).join("\n") + "\n");
 console.log(`done (${el()})`);
