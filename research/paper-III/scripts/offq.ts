@@ -69,7 +69,8 @@ function run(q: number, Dcoeffs: number[], Nmax: number, degPrimes: number) {
   }
   // ---- T_act(N): squarefree d with all prime factors split or ramified, N < deg d ≤ M(N)
   const usable = loc.filter((L) => L.omega > 0);
-  const Mof = (N: number) => N - 1 + Math.max(2 * N - 2, deg(D));
+  const MAXDEG = Number(process.env.MAXDEG ?? 0);   // if set, restrict T_act to moduli of degree <= MAXDEG (leading-term test)
+  const Mof = (N: number) => MAXDEG ? Math.min(MAXDEG, N - 1 + Math.max(2 * N - 2, deg(D))) : N - 1 + Math.max(2 * N - 2, deg(D));
   const Mmax = Mof(Nmax);
   if (Mmax > degPrimes) throw new Error(`need primes to degree ${Mmax}`);
   const rows: { N: number; M: number; nD: number; Tact: number; Texp: number; off: number }[] = []; // placeholdermber; TactBrute: number; Texp: number; offDirect: number }[] = [];
@@ -135,14 +136,16 @@ function run(q: number, Dcoeffs: number[], Nmax: number, degPrimes: number) {
 }
 
 const out: { q: number; D: string; P1: number; A1: number; rows: { N: number; M: number; nD: number; Tact: number; Texp: number; off: number }[] }[] = [];
+const MAXDEG_G = Number(process.env.MAXDEG ?? 0);
 const Dc = (process.env.D ?? "0,1").split(",").map(Number);   // coefficients of D, low degree first
 const TAG = process.env.TAG ?? "";
 const qs2 = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43];
-const qs3 = process.env.N3 === "0" ? [] : [3, 5, 7];   // N = 3 needs all squarefree d of degree <= 6 (q^6 enumeration): too slow beyond q = 7 locally
-for (const q of qs2) {
+const qs3 = process.env.N3 === "0" ? [] : process.env.N3 === "all" ? [3, 5, 7, 11, 13, 17, 19, 23] : [3, 5, 7];   // N = 3 needs all squarefree d of degree <= 6 (q^6 enumeration): too slow beyond q = 7 locally
+const QLIST = process.env.QLIST ? process.env.QLIST.split(",").map(Number) : qs2;
+for (const q of QLIST) {
   const t0 = performance.now();
-  const Nmax = qs3.includes(q) ? 3 : 2;
-  const degP = Nmax === 3 ? 6 : 4;   // M(2) = 3, M(3) = 6; one extra degree for the Euler products when cheap
+  const Nmax = process.env.NMAX ? Number(process.env.NMAX) : qs3.includes(q) ? 3 : 2;
+  const degP = process.env.DEGP ? Number(process.env.DEGP) : Nmax === 3 ? (MAXDEG_G ? Math.max(MAXDEG_G, 4) : 6) : 4;   // M(2) = 3, M(3) = 6; one extra degree for the Euler products when cheap
   const r = run(q, Dc, Nmax, degP);
   out.push(r);
   console.log(`q=${q}: ` + r.rows.map((row) => `N=${row.N} Off=${f3(row.off)} (Tact ${f3(row.Tact)} Texp ${f3(row.Texp)}, #d=${row.nD})`).join("  ") + `  (${((performance.now() - t0) / 1000).toFixed(1)} s)`);

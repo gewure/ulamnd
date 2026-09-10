@@ -313,6 +313,40 @@ $g$ playing the role of $q$), with $B=\tfrac14<1-\theta$ replaced by the actual 
 
 \subsection{Large $u$: averaging the dilations}
 
+\begin{lemma}[$\lambda\omega$ in progressions]\label{lem:AP}
+Let $\chi=\chi_D$ be the Kronecker symbol of the discriminant $D$, so that $\omega(n)=\sum_{m\mid n}\chi(m)$ on squarefree
+$n$ coprime to $2D$. For $U\ge2$, $d\ge1$ coprime to $2D$ and every residue $b$ coprime to $d$,
+\[
+\sum_{\substack{n\le U\\ n\equiv b\ (d)}}\lambda(n)\omega(n)=\frac{1}{\varphi(d)}\sum_{\substack{n\le U\\ (n,d)=1}}\lambda(n)\omega(n)+O_{D,\varepsilon}\bigl(U^{1/2+\varepsilon}d^{1/2}\bigr),
+\]
+the sums over squarefree $n$.
+\end{lemma}
+\begin{proof}
+First without $\lambda$ and without the squarefree condition. Writing $n=mk$, $\omega(n)=\sum_{mk=n}\chi(k)$, and splitting
+at $\sqrt U$ (Dirichlet's hyperbola),
+\[
+\sum_{\substack{n\le U\\ n\equiv b\ (d)}}\omega(n)=\sum_{\substack{m\le\sqrt U\\ (m,d)=1}}\ \sum_{\substack{k\le U/m\\ k\equiv b\bar m\ (d)}}\chi(k)
++\sum_{\substack{k\le\sqrt U\\ (k,d)=1}}\chi(k)\#\Bigl\{m\le\frac Uk:\ m\equiv b\bar k\ (d)\Bigr\}-\sum_{\substack{m,k\le\sqrt U\\ mk\equiv b\ (d)}}\chi(k).
+\]
+In the first sum, $\sum_{k\le x,\ k\equiv c\ (d)}\chi(k)=\varphi(d)^{-1}\sum_{\psi\bmod d}\bar\psi(c)\sum_{k\le x}\chi\psi(k)$, and every
+$\chi\psi$ is a non-principal character modulo $dD$ (as $\chi$ is primitive of conductor $|D|$ coprime to $d$),
+so P\'olya--Vinogradov gives $\ll(d|D|)^{1/2}\log(d|D|)$ for each inner sum; the first sum is $\ll U^{1/2}d^{1/2}\log(dD)$.
+In the second, $\#\{m\le U/k:\ m\equiv c\ (d)\}=U/(kd)+O(1)$, giving $\frac Ud\sum_{k\le\sqrt U,\ (k,d)=1}\chi(k)/k+O(\sqrt U)$. The
+third is $\ll\sqrt U\,(d^{1/2}\log dD)$ by the same character-sum bound applied to the inner sum over $k\le\sqrt U$ in the
+class $b\bar m$. Doing the same computation for the sum over all $n\le U$ coprime to $d$ (i.e.\ summing over $b$) and
+dividing by $\varphi(d)$ shows that the main terms agree, and the difference is $\ll U^{1/2}d^{1/2}\log(dD)$. The
+squarefree condition is imposed by M\"obius inversion over $\ell^2\mid n$, which replaces $(U,b,d)$ by
+$(U/\ell^2,\,b\bar\ell^2,\,d)$ for $(\ell,d)=1$ and contributes $O(1)$ for $\ell\mid d$... more precisely the classes with
+$(\ell,d)>1$ are empty; the error terms sum to $\ll U^{1/2}d^{1/2}\log(dD)\sum_\ell\ell^{-1}\ll U^{1/2+\varepsilon}d^{1/2}$.
+Finally $\lambda=1*\kappa$ with $\kappa(g)\ll g^{-1+\varepsilon}$ supported on squarefree $g$: $\sum_{n\equiv b}\lambda\omega(n)=\sum_g\kappa(g)\omega(g)\sum_{n'\le U/g,\ n'\equiv b\bar g\ (d),\ (n',g)=1}\omega(n')$
+(multiplicativity of $\omega$ on coprime factors), and the previous bound applied to each $g$, with the extra coprimality
+removed by a further M\"obius inversion over the divisors of $g$, gives the claim.
+\end{proof}
+
+\emph{In words.} The number of roots of $f$ modulo $n$ is a divisor-type function twisted by a character, and
+such functions are equidistributed in progressions to moduli well below $U$; the proof is Dirichlet's hyperbola
+method with the P\'olya--Vinogradov inequality. No deep input is used.
+
 \begin{theorem}[Type II range]\label{thm:typeII}
 For every $\varepsilon>0$ there is $\delta>0$ with
 \[
@@ -328,22 +362,16 @@ function of the class $a=\bar u\in(\Z/d')^\times$ and of $Y$. For fixed $d'$,
 \]
 The function $u\mapsto G_{d'}(a,H/u)$ is, for $H/u\ge d'$, piecewise smooth in $u$ with $O(\omega(d'))$ pieces on a dyadic
 range and derivative $\ll\omega(d')d'\cdot(H/u^2)/d'\cdot$..., so partial summation reduces the inner sum to sums
-$\sum_{u\le U',\ u\equiv b\ (d')}\lambda\omega(u)$ with $U'\asymp U$. For the multiplicative function $\lambda\omega=(1*\chi_D)\cdot\lambda$
-on squarefree integers one has, for $d'\le U^{1-2\varepsilon}$,
-\[
-\sum_{\substack{u\le U\\ u\equiv b\ (d')}}\lambda\omega(u)=\frac1{\varphi(d')}\sum_{\substack{u\le U\\ (u,d')=1}}\lambda\omega(u)+O\bigl(U^{1-\eta}\bigr)
-\]
-for some $\eta=\eta(\varepsilon)>0$ (the divisor problem for $1*\chi_D$ in arithmetic progressions: write $u=mn$, sum
-over the smaller variable, apply P\'olya--Vinogradov to the character sum over the larger one, and remove $\lambda$
-by the convolution $\lambda=1*\kappa$; the modulus range $d'\le U^{2/3-\varepsilon}$ is classical and $U^{1-2\varepsilon}$ is within the
-range of the large sieve on average over $b$, which is all that is used here). The main term is independent of
+$\sum_{u\le U',\ u\equiv b\ (d')}\lambda\omega(u)$ with $U'\asymp U$, to which Lemma~\ref{lem:AP} applies with error
+$O(U^{1/2+\varepsilon}d'^{1/2})=O(U^{1-\varepsilon/2})$ since $d'\le Y<U^{1-2\varepsilon}$. The main term is independent of
 $a$, and $\sum_{a\in(\Z/d')^\times}G_{d'}(a,Y)=\omega(d')\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(\rep x{d'})$ because $a\mapsto ar$
 permutes the units for each $r\in R_{d'}$ ($(r,d')=1$); by inclusion--exclusion over the primes of $d'$ and
 $\sum_{x\bmod e}B^{(Y)}_e(x)=-Y/2$, this is $\omega(d')\sum_{e\mid d'}\mu(e)\,B^{(Y)}_{e}(0)\cdot(\text{sign})$, and
 $|B^{(Y)}_e(0)|\le e$, so $\bigl|\sum_aG_{d'}(a,Y)\bigr|\le\omega(d')\sigma(d')\ll\omega(d')d'\log\log d'$. Hence the main terms
 contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\cdot\frac{\omega(d')d'\log\log d'}{\varphi(d')}\cdot U\log U\ll UY^{\varepsilon}$
-against the trivial $UY$, and the error terms contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\omega(d')\,d'\,U^{1-\eta}\ll Y\,U^{1-\eta}$,
-which is $\ll(UY)^{1-\eta/2}=H^{1-\eta/2}$ since $Y<U$. The moduli $d'>Y$ in the piece are treated in the same way
+against the trivial $UY$, and the error terms contribute $\ll\sum_{d'\le Y}\frac{\lambda(d')}{d'}\omega(d')\,d'\,U^{1/2+\varepsilon}d'^{1/2}\ll Y^{3/2+\varepsilon}U^{1/2+\varepsilon}$,
+which is $\ll(UY)^{1-\varepsilon}=H^{1-\varepsilon}$ because $Y^{1/2+2\varepsilon}<U^{1/2-2\varepsilon}$ when $Y<U^{1-8\varepsilon}$; the range $H^{1/2+\varepsilon}<u$
+gives $Y=H/u<u^{(1/2-\varepsilon)/(1/2+\varepsilon)}<u^{1-3\varepsilon}$, which is what is needed after renaming $\varepsilon$. The moduli $d'>Y$ in the piece are treated in the same way
 from~\eqref{eq:Pgt}: the count $\#\{x\le Y:\ x\in R'_{d'}\}$ becomes, after averaging over $a$, $\omega(d')\#\{x\le Y:(x,d')=1\}/\varphi(d')$
 up to the same error, which matches $\mathcal E$. Summing over the $O(\log H)$ dyadic $U$ gives the theorem.
 \end{proof}
