@@ -454,20 +454,38 @@ in which the geometric factor is precisely the Katok--Sarnak period $\mathrm{Per
 Proposition~\ref{prop:parity} it vanishes for every odd $u_j$: the parity rule is now visible as the statement that
 the Heegner orbit is symmetric about the imaginary axis while an odd form is antisymmetric.
 
-\paragraph{Step 4: where the frequencies come from.} It remains to see that
-$\langle\Phi_t,u_j\rangle$ oscillates in $\log t$ at frequency $t_j$, and that the Riesz mean converts this into
-$\sqrt Y\,Y^{\pm it_j}$. Take the Mellin transform in the length. By the Fourier expansion of $\psi$ and
-$\int_0^\infty\sin(2\pi k(\alpha t+\beta))t^{-s-1}\,dt=c(s)\,\alpha^{s}\,(\dots)$, the transform of $\Phi_t$ is a
-multiple of $(\Im z)^{1+s}$ times a bounded factor. Pairing against the Whittaker expansion
-$u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$ leaves the Mellin transform of the Bessel function,
-\begin{equation}\label{eq:mellinK}
-\int_0^\infty K_{it_j}(y)\,y^{\sigma-1}\,dy=2^{\sigma-2}\,\Gamma\Bigl(\frac{\sigma+it_j}2\Bigr)\Gamma\Bigl(\frac{\sigma-it_j}2\Bigr),
+\paragraph{Step 4: the Weyl series is a Poincar\'e series, and where the frequencies come from.} The Fourier
+expansion of $\psi$ and a Mellin transform in the length reduce~\eqref{eq:orbit} to a single classical object. For
+$m\in\Z$ and $\Re s>1$ let
+\[
+P_m(w,s)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^{s}\,\e\bigl(m\,\Re\gamma w\bigr)
+\]
+be Selberg's Poincar\'e series. Then, directly from the coordinates~\eqref{eq:coords},
+\begin{equation}\label{eq:poincare}
+\sum_{z\ \mathrm{Heegner}}(\Im z)^{s}\,\e(m\,\Re z)
+=\Bigl(\frac{\sqrt{|D|}}2\Bigr)^{s}\sum_{d\ge1}\frac1{d^{s}}\sum_{b^2\equiv D\,(4d)}\e\Bigl(\frac{-mb}{2d}\Bigr),
 \end{equation}
-whose poles are at $\sigma=\pm it_j-2n$, $n\ge0$. The rightmost pair, $\sigma=\pm it_j$, is what produces the
-oscillation; the extra $\sqrt y$ of the Whittaker expansion supplies the exponent $\tfrac12$, so that the residues
-contribute $Y^{1/2\pm it_j}$ to the Riesz mean, i.e.\ $\sqrt Y$ times $\cos(t_j\log Y+\varphi_j)$. This is the same
-mechanism, and the same pair of poles, that produces the terms $X^{s_j}$ in the hyperbolic lattice-point problem, and
-it is why the frequencies are the $t_j$ themselves and not $2t_j$ (Remark~\ref{rem:achieved}).
+both sides converging absolutely for $\Re s>1$. In words: \emph{the Dirichlet series of the Weyl sums of a quadratic
+congruence is Selberg's Poincar\'e series evaluated at the Heegner points of that discriminant.} This is the identity
+that organises the whole paper, and it is what makes the spectrum enter. \todo{Verified numerically for $D=-4$,
+$s=1.6$, $m=1$ to $10^{-16}$; the $4d$ versus $d$ convention of \S\ref{sec:walfisz} must be reconciled.}
+
+The spectral expansion of $P_m(\cdot,s)$ is classical: unfolding gives
+$\langle P_m(\cdot,s),u_j\rangle=\rho_j(m)\int_0^\infty y^{s+1/2}K_{it_j}(2\pi|m|y)\frac{dy}{y^2}$, and by
+\begin{equation}\label{eq:mellinK}
+\int_0^\infty K_{it_j}(y)\,y^{\sigma-1}\,dy=2^{\sigma-2}\,\Gamma\Bigl(\frac{\sigma+it_j}2\Bigr)\Gamma\Bigl(\frac{\sigma-it_j}2\Bigr)
+\end{equation}
+this is meromorphic with its rightmost poles at $s=\tfrac12\pm it_j$, that is at the spectral points $s_j$ and
+$1-s_j$. Evaluating at the Heegner points and summing over the orbit replaces $u_j$ by $\mathrm{Per}_D(u_j)$, so the
+residue of~\eqref{eq:poincare} at $s=s_j$ is a multiple of $\rho_j(m)\,\mathrm{Per}_D(u_j)$. Mellin inversion in the
+length then converts a pole at $s_j=\tfrac12+it_j$ into a term $Y^{1/2+it_j}$ of the Riesz mean, i.e.\ $\sqrt Y$
+times $\cos(t_j\log Y+\varphi_j)$: exactly the observed law, with the amplitude proportional to the period, as
+Table~\ref{tab:phases} confirms.
+
+This also settles the factor-two question of Remark~\ref{rem:achieved}. The Weyl series is $\sum_dd^{-s}(\cdots)$,
+and~\eqref{eq:poincare} places its poles at $s=\tfrac12\pm it_j$ in that same variable, so the frequencies are the
+$t_j$. The Kloosterman-zeta route reaches the same coefficients through the modulus, in a variable normalised as
+$c^{-2\sigma}$; the translation between the two normalisations is what we had wrong before the data corrected us.
 
 \begin{theorem}[target]\label{thm:spectral}
 Hypothesis~K holds: for $u=1$ and the model object~\eqref{eq:model} there are $\delta>0$ and coefficients

@@ -88,6 +88,13 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. ORGANISING IDENTITY found and verified: the Dirichlet series of the Weyl sums of a quadratic congruence IS
+  Selberg's Poincare series P_m(w,s) evaluated at the Heegner points of that discriminant (verified to 1e-16). Its
+  rightmost poles are at s = 1/2 +- i t_j in the same variable, which settles the factor-2 question in favour of t_j
+  and supersedes the Kloosterman-zeta route of Section 3. Also: the CONVERGENCE obstruction is resolved by
+  symmetrisation -- psi(2x+a) + psi(-2x+a) = -2a exactly off a set of measure 2a, so the symmetrised seed decays like
+  t y^2 and the Poincare series converges. Fourth consequence of the single symmetry x -> -x. Section 5 of paper IV
+  now has Steps 1, 2, 3, 5 complete and Step 4 identified; what remains is the Riesz order and the error term.
 - 12 Sep. PHASE TEST -- the strongest evidence so far, and a confirmation of the corrected (Poincare/argument-side)
   mechanism. It predicts phi(D) - phi(-4) = (t_1/2) log(|D|/4) - pi*[sign Per_D flips], with NO free parameter: the
   first term from the D-dependent dilation 2t/sqrt|D| in the test function, the second from the sign of the

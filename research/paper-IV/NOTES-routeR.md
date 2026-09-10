@@ -203,3 +203,25 @@ convinces me the argument-side Poincare route is right.
 AMPLITUDES: fitted amplitude divided by |Per_D|/|Gamma_{z_D}| gives (x 10^7) 2.68, 2.22, 0.39, 1.90, 2.71, 2.71 for
 D = -3, -4, -7, -8, -11, -19: five of six within 40% with no extra factor; the outlier D = -7 is also the least stable
 fit (0.0028 vs 0.0048 across the halves, a factor 1.7). So amplitude ~ period/|Gamma_z| is supported but not sharp.
+
+## 1h. THE ORGANISING IDENTITY (12 Sep) and the convergence lemma
+(a) sum over Heegner points of (Im z)^s e(m Re z) = (sqrt|D|/2)^s sum_d d^{-s} sum_{b^2 = D (4d)} e(-mb/(2d)).
+    Verified numerically for D=-4, s=1.6, m=1 to 1e-16. In words: THE DIRICHLET SERIES OF THE WEYL SUMS OF A QUADRATIC
+    CONGRUENCE IS SELBERG'S POINCARE SERIES EVALUATED AT THE HEEGNER POINTS OF THAT DISCRIMINANT. This is the identity
+    that organises the whole paper: the spectral expansion of P_m(.,s) has rightmost poles at s = 1/2 +- i t_j (from
+    the Mellin transform of K_{it_j}), the orbit sum replaces u_j by the Katok-Sarnak period, and Mellin inversion
+    turns a pole at s_j into Y^{1/2 + i t_j}. It ALSO settles the factor-2 question: the poles sit at 1/2 +- i t_j in
+    the SAME variable d^{-s} in which the Weyl series is written, so the frequencies are t_j. The Kloosterman-zeta
+    route reaches the same coefficients through the modulus in a c^{-2 sigma} normalisation; translating between the
+    two is what I got wrong (F24).
+(b) CONVERGENCE (missing piece 1 of Section 5, now resolved). The seed Phi_t(z) = y psi(2ty/sqrt|D| + 2x) has
+    |Phi| <= y/2 and sum_gamma Im(gamma w) diverges. Symmetrising, Phi^+ = (Phi(z) + Phi(-zbar))/2, and using that psi
+    is odd and piecewise linear with slope -1: for ||2x|| > a = 2ty/sqrt|D| one has EXACTLY
+    psi(2x+a) + psi(-2x+a) = -2a, so Phi^+ = -a y = -2t y^2/sqrt|D|. Verified: the identity holds off a set of
+    x-measure exactly 2a. So the seed is O(t y^2) off a set of measure O(ty) where it is O(y); both are dominated by
+    t E(w,2), which converges. The Heegner orbit is stable under z -> -zbar ((d,b) -> (d,-b)), so symmetrising is free.
+    This is the FOURTH consequence of the single symmetry x -> -x of the root set: vanishing linear term in the
+    sawtooth identity; vanishing odd half of Hurwitz; vanishing periods of odd Maass forms; convergence of the
+    Poincare series.
+REMAINING in Section 5: smoothness (which Riesz order m makes the spectral sum converge absolutely -- governed by the
+Gamma-factor decay e^{-pi t_j/4} in (mellinK) against the Weyl law) and the error term.
