@@ -180,3 +180,26 @@ That matches all four observations at once: frequency t_j, scale sqrt(Y), even f
 of discriminant D pairs trivially with odd forms), and the visibility threshold |D| < (t_j/pi)^2.
 The Salie material of Section 3 remains TRUE (the Weyl sums are Salie sums, verified) but it is not the road to the
 observed frequencies; it is the internal machinery of the modulus-side estimates, not of the argument-side expansion.
+
+## 1g. THE PHASE TEST (12 Sep) -- the strongest evidence in the project
+The mechanism of Section 5 predicts the PHASE of the t_1 = 13.7798 oscillation with NO free parameter once one
+discriminant is fixed, because (i) the length enters the test function only through 2t/sqrt|D|, contributing a factor
+(2/sqrt|D|)^{i t_1}, and (ii) the amplitude is proportional to the Katok-Sarnak period, a real number whose SIGN
+shifts the phase by pi. With D_0 = -4 as reference (scripts/phase-test.py, periods from LMFDB coefficients):
+
+   D    sign Per   predicted phi   observed phi   difference
+  -3       +          +1.158         +1.050        +0.108
+  -4       +          +3.140         +3.140        (reference)
+  -7       +          +0.712         +0.500        +0.212
+  -8       -          -1.509         -1.430        -0.079
+ -11       -          +0.685         +0.530        +0.155
+ -19       -          -1.833         -1.870        +0.037
+
+FIVE predictions, all within 0.212 rad = 3.4% of a full period. Probability by chance: (2*0.212/2pi)^5 = 1.4e-6.
+The test exercises both halves of the mechanism simultaneously: the (2/sqrt|D|)^{i t_1} factor (which is what makes
+the predicted phases differ at all) and the sign of the period (which puts D = -8, -11, -19 on the opposite side,
+computed independently of any arithmetic data). This is much stronger than any of the variance fits, and it is what
+convinces me the argument-side Poincare route is right.
+AMPLITUDES: fitted amplitude divided by |Per_D|/|Gamma_{z_D}| gives (x 10^7) 2.68, 2.22, 0.39, 1.90, 2.71, 2.71 for
+D = -3, -4, -7, -8, -11, -19: five of six within 40% with no extra factor; the outlier D = -7 is also the least stable
+fit (0.0028 vs 0.0048 across the halves, a factor 1.7). So amplitude ~ period/|Gamma_z| is supported but not sharp.

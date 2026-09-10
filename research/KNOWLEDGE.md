@@ -88,6 +88,13 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. PHASE TEST -- the strongest evidence so far, and a confirmation of the corrected (Poincare/argument-side)
+  mechanism. It predicts phi(D) - phi(-4) = (t_1/2) log(|D|/4) - pi*[sign Per_D flips], with NO free parameter: the
+  first term from the D-dependent dilation 2t/sqrt|D| in the test function, the second from the sign of the
+  Katok-Sarnak period computed from LMFDB coefficients. Five predictions (D = -3, -7, -8, -11, -19), all correct to
+  within 0.212 rad = 3.4% of a period; chance probability 1.4e-6. Amplitude ~ |Per_D|/|Gamma_z| holds to 40% for five
+  of six (outlier D = -7, the least stable fit). Also verified: the Gauss parametrisation, i.e. the root pairs (d,b)
+  form exactly h(D) SL_2(Z)-orbits of Heegner points (D = -3,-4,-8,-11,-20,-23,-24 with h = 1,1,1,1,2,3,2).
 - 12 Sep. FACTOR-2 TEST caught a wrong mechanism (F24). The Kloosterman-zeta-of-the-modulus route predicts frequency
   2 t_j; the data give t_j decisively (99.7-100th pct vs 43-69th). The mechanism is Bykovskii's argument-side spectral
   expansion (Poincare series, weight 0, level 1), which yields Y^{1/2} Y^{i t_j} and matches all four observations:
@@ -188,7 +195,7 @@ under GRH for constituents of Ψ_1, Ψ_2, Ψ_3.
 NUMERICAL: t²+1 explicit formula β ≈ 1 (X = 4·10⁷, γ ≤ 100); Cesàro exact test k = 0.498 ± 0.003 (C not C²); c_off
 confirmed for 4 quadratics; pieces O(√Y) with oscillations at the EVEN Maass parameters of SL₂(Z) (5 quadratics, 12 Sep);
 F_q[u] identities two ways.
-CONJECTURED (with numerical support): the second spectrum: P_u(Y) = c_u Y + √Y Σ_j c_j cos(t_j log Y + φ_j) + …, t_j even
+CONJECTURED (with strong numerical support incl. a parameter-free phase test at p ~ 1.4e-6): the second spectrum: P_u(Y) = c_u Y + √Y Σ_j c_j cos(t_j log Y + φ_j) + …, t_j even
 Maass parameters (route R; paper IV target theorem for fixed u).
 CONJECTURED: Conjecture 1 in Cesàro form (⇔ Hypothesis (E) in Cesàro form ⇔ windows o(H log H));
 Off*_f(H) = c_off(f) H + o(H) (constant identified; numerically confirmed for t²+1); Hypothesis W; no-bias.

@@ -409,9 +409,93 @@ $|D|\ge43$, while the higher lines, having larger $t_j$, should persist further.
 what is observed.
 
 \section{The spectral formula for a piece}\label{sec:formula}
-\begin{theorem}[\todo{target}]\label{thm:spectral}
-\todo{statement as in the introduction, with the precise hypotheses on $u$ and $m_0$.}
+
+We now describe the argument-side route in the form we believe it takes, for $u=1$ and the model
+object~\eqref{eq:model}, and say precisely which steps are established and which are not. Throughout $D<0$; for
+$D>0$ every occurrence of a Heegner point is replaced by a closed geodesic and the argument is parallel.
+
+\paragraph{Step 1: the root pairs are Heegner points.} Let $\mathcal Q_D$ be the set of integral binary quadratic
+forms of discriminant $D$ and, for $Q=[a,b,c]\in\mathcal Q_D$ with $a>0$, let $z_Q=(-b+\sqrt D)/(2a)\in\mathbb H$.
+Gauss's parametrisation, in the form used by Hooley~\cite[\S3]{Hooley1963} and studied in general by
+Welsh~\cite{Welsh2022}, is the bijection
+\begin{equation}\label{eq:gauss}
+\{(d,b):\ d\ge1,\ b\bmod2d,\ b^2\equiv D\ (4d)\}\ \longleftrightarrow\ \{Q=[d,b,\ast]\in\mathcal Q_D\},\qquad
+(d,b)\mapsto z_{(d,b)}=\frac{-b+\sqrt D}{2d},
+\end{equation}
+under which the pairs $(d,b)$ become the Heegner points of discriminant $D$, falling into exactly $h(D)$ orbits of
+$\Gamma=\mathrm{PSL}_2(\Z)$. \todo{We verified~\eqref{eq:gauss} numerically: reducing $z_{(d,b)}$ to the fundamental
+domain for all $d\le60$ gives exactly $h(D)$ distinct points, for $D=-3,-4,-8,-11,-20,-23,-24$ with
+$h=1,1,1,1,2,3,2$. The conventions relating $b^2\equiv D\ (4d)$ to the $b^2\equiv D\ (d)$ of \S\ref{sec:walfisz}
+must be fixed carefully in the final version.} The two coordinates of a Heegner point carry exactly the two data of a
+root pair:
+\begin{equation}\label{eq:coords}
+\Im z_{(d,b)}=\frac{\sqrt{|D|}}{2d},\qquad \Re z_{(d,b)}=-\frac b{2d}.
+\end{equation}
+
+\paragraph{Step 2: the piece is a sum over a Heegner orbit.} Substituting~\eqref{eq:coords} into the sawtooth form of
+Lemma~\ref{lem:sawtooth} turns the sum over root pairs into a sum over Heegner points:
+\begin{equation}\label{eq:orbit}
+S(t)=\frac{2}{\sqrt{|D|}}\sum_{z}\Phi_t(z),\qquad
+\Phi_t(z)=\Im z\cdot\psi\Bigl(\frac{2t\,\Im z}{\sqrt{|D|}}+2\Re z\Bigr),
+\end{equation}
+the sum over all Heegner points of discriminant $D$, i.e.\ over the $h(D)$ orbits $\Gamma z_Q$. This is the whole
+content of the change of route: the object is not a sum over moduli carrying Kloosterman sums, but a sum of a fixed
+test function over an orbit of $\Gamma$ in $\mathbb H$, with the length $t$ entering only as a dilation parameter of
+the test function.
+
+\paragraph{Step 3: unfolding and the period.} Formally, writing $P[\Phi_t](w)=\sum_{\gamma\in\Gamma}\Phi_t(\gamma w)$,
+\eqref{eq:orbit} becomes $S(t)=\frac2{\sqrt{|D|}}\sum_{Q\in\Gamma\backslash\mathcal Q_D}|\Gamma_{z_Q}|^{-1}P[\Phi_t](z_Q)$,
+and the spectral decomposition of $P[\Phi_t]$ on $L^2(\Gamma\backslash\mathbb H)$ together with unfolding,
+$\langle P[\Phi_t],u_j\rangle=\langle\Phi_t,u_j\rangle$, gives
+\begin{equation}\label{eq:spectral}
+S(t)=\frac2{\sqrt{|D|}}\Bigl[(\text{constant and Eisenstein terms})+\sum_j\langle\Phi_t,u_j\rangle\sum_{Q\in\Gamma\backslash\mathcal Q_D}\frac{u_j(z_Q)}{|\Gamma_{z_Q}|}\Bigr],
+\end{equation}
+in which the geometric factor is precisely the Katok--Sarnak period $\mathrm{Per}_D(u_j)$ of \S\ref{sec:ks}. By
+Proposition~\ref{prop:parity} it vanishes for every odd $u_j$: the parity rule is now visible as the statement that
+the Heegner orbit is symmetric about the imaginary axis while an odd form is antisymmetric.
+
+\paragraph{Step 4: where the frequencies come from.} It remains to see that
+$\langle\Phi_t,u_j\rangle$ oscillates in $\log t$ at frequency $t_j$, and that the Riesz mean converts this into
+$\sqrt Y\,Y^{\pm it_j}$. Take the Mellin transform in the length. By the Fourier expansion of $\psi$ and
+$\int_0^\infty\sin(2\pi k(\alpha t+\beta))t^{-s-1}\,dt=c(s)\,\alpha^{s}\,(\dots)$, the transform of $\Phi_t$ is a
+multiple of $(\Im z)^{1+s}$ times a bounded factor. Pairing against the Whittaker expansion
+$u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$ leaves the Mellin transform of the Bessel function,
+\begin{equation}\label{eq:mellinK}
+\int_0^\infty K_{it_j}(y)\,y^{\sigma-1}\,dy=2^{\sigma-2}\,\Gamma\Bigl(\frac{\sigma+it_j}2\Bigr)\Gamma\Bigl(\frac{\sigma-it_j}2\Bigr),
+\end{equation}
+whose poles are at $\sigma=\pm it_j-2n$, $n\ge0$. The rightmost pair, $\sigma=\pm it_j$, is what produces the
+oscillation; the extra $\sqrt y$ of the Whittaker expansion supplies the exponent $\tfrac12$, so that the residues
+contribute $Y^{1/2\pm it_j}$ to the Riesz mean, i.e.\ $\sqrt Y$ times $\cos(t_j\log Y+\varphi_j)$. This is the same
+mechanism, and the same pair of poles, that produces the terms $X^{s_j}$ in the hyperbolic lattice-point problem, and
+it is why the frequencies are the $t_j$ themselves and not $2t_j$ (Remark~\ref{rem:achieved}).
+
+\begin{theorem}[target]\label{thm:spectral}
+Hypothesis~K holds: for $u=1$ and the model object~\eqref{eq:model} there are $\delta>0$ and coefficients
+$\alpha_j(D)$, proportional to $\mathrm{Per}_D(u_j)$ and supported on the even Maass cusp forms of
+$\mathrm{SL}_2(\Z)$, with
+\[
+\mathcal G(Y)=c_DY+\sqrt Y\sum_j\bigl(\alpha_j(D)Y^{it_j}+\overline{\alpha_j(D)}Y^{-it_j}\bigr)+O\bigl(Y^{1/2-\delta}\bigr).
+\]
 \end{theorem}
+
+\paragraph{What is missing.} Steps 1 and 3 are structurally complete, and Step 2 is an identity. Three things stand
+between the above and a proof.
+\begin{enumerate}
+\item \emph{Convergence.} $|\Phi_t(z)|\le\tfrac12\Im z$ and $\sum_{\gamma\in\Gamma}\Im(\gamma w)$ diverges, so
+$P[\Phi_t]$ is not absolutely convergent and the unfolding of Step 3 is formal as written. The divergence is exactly
+that of the Eisenstein series at $s=1$, and it must be removed either by subtracting the mean, which is what
+$\mathbb E\sigma^{*}_{-1}$ does on the arithmetic side, or by regularising in an auxiliary variable and continuing.
+This is the technical heart of the matter and it is what Bykovski\u\i\ \cite{Bykovskii1984} carries out for the
+closely related sums $\sum_{|n|\le P}\sigma_{-s}(n^2+D)$.
+\item \emph{Smoothness.} $\psi$ has a jump, so $\Phi_t$ is not smooth and the spectral expansion does not converge
+pointwise. The Riesz mean of order $m\ge1$ is what repairs this, and the order needed depends on the growth of
+$\langle\Phi_t,u_j\rangle$ in $t_j$, which is governed by~\eqref{eq:mellinK} and the exponential decay
+$|\Gamma(\tfrac{\sigma\pm it_j}2)|\asymp e^{-\pi t_j/4}$.
+\item \emph{The error term.} Bounding the tail of the spectral sum and the Eisenstein contribution is what produces
+$\delta$, and it is where the standard bounds for $\sum_j|\mathrm{Per}_D(u_j)|^2$ and the Weyl law enter.
+\end{enumerate}
+We have not carried these out. What we claim in this paper is the identification of the mechanism, the parity rule
+(Proposition~\ref{prop:parity}), the reduction of Steps 1--3, and the numerical evidence of \S\ref{sec:numerics}.
 
 \section{Numerical evidence}\label{sec:numerics}
 
@@ -537,6 +621,50 @@ Z_k(s)=\sum_{(d,2D)=1}\mathcal W_k(D;d)\,d^{-s},
 a Sali\'e zeta function carrying a coprimality condition and nothing else. This is the object of
 \S\ref{sec:formula}. The piece the off-diagonal of part~III actually requires is~\eqref{eq:model} perturbed twice:
 by the squarefree condition, through M\"obius over $\ell^2$, and by $\lambda=1*\kappa$ with $\kappa(p)=4/(p-4)=O(1/p)$.
+
+\paragraph{The phases: a test with no free parameter.} The sharpest check available to us is not the size of the
+oscillation but its phase. In~\eqref{eq:orbit} the length enters the test function only through the combination
+$2t/\sqrt{|D|}$, so the spectral term carries the factor $(2/\sqrt{|D|})^{it_j}$; and by Step~3 the amplitude is
+proportional to $\mathrm{Per}_D(u_j)$, a real number whose \emph{sign} therefore shifts the phase by $\pi$. Writing
+the fitted oscillation as $A_D\cos(t_1\log Y-\varphi_D)$, the mechanism predicts, once one discriminant is fixed as a
+reference and with nothing else at our disposal,
+\begin{equation}\label{eq:phasepred}
+\varphi_D-\varphi_{D_0}=\frac{t_1}2\log\frac{|D|}{|D_0|}-\pi\cdot\bigl[\operatorname{sign}\mathrm{Per}_D\ne\operatorname{sign}\mathrm{Per}_{D_0}\bigr]\pmod{2\pi}.
+\end{equation}
+The signs of the periods are computed from the Fourier coefficients of the first even form, independently of the
+arithmetic data. Taking $D_0=-4$ (\texttt{scripts/phase-test.py}):
+
+\begin{table}[htbp]
+\centering\small
+\caption{The phase of the $t_1=13.7798$ oscillation of the model object, predicted by~\eqref{eq:phasepred} with no
+free parameter, against the phase fitted to the data ($Y\le10^7$, $u=1$). The reference $D_0=-4$ is fitted, the other
+five are predictions.}\label{tab:phases}
+\begin{tabular}{lrrrr}
+\toprule
+$D$ & $\operatorname{sign}\mathrm{Per}_D$ & predicted $\varphi_D$ & observed $\varphi_D$ & difference\\
+\midrule
+$-3$  & $+$ & $+1.158$ & $+1.050$ & $+0.108$\\
+$-4$  & $+$ & $+3.140$ & $+3.140$ & (reference)\\
+$-7$  & $+$ & $+0.712$ & $+0.500$ & $+0.212$\\
+$-8$  & $-$ & $-1.509$ & $-1.430$ & $-0.079$\\
+$-11$ & $-$ & $+0.685$ & $+0.530$ & $+0.155$\\
+$-19$ & $-$ & $-1.833$ & $-1.870$ & $+0.037$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Every one of the five predictions is correct to within $0.212$ radians, that is to $3.4\%$ of a full period. Five
+independent phases falling that close to prediction by chance has probability about $1.4\cdot10^{-6}$. The test uses
+both halves of the mechanism at once: the factor $(2/\sqrt{|D|})^{it_1}$, which is what makes the predicted phases
+differ from one another at all, and the sign of the Katok--Sarnak period, which is what puts $D=-8,-11,-19$ on the
+opposite side. We regard this, rather than any of the variance fits, as the evidence that the mechanism of
+\S\ref{sec:formula} is the right one.
+
+For the amplitudes the agreement is weaker but not absent. Dividing the fitted amplitude by
+$|\mathrm{Per}_D(u_1)|/|\Gamma_{z_D}|$ gives, in units of $10^7$, the values $2.68$, $2.22$, $0.39$, $1.90$, $2.71$,
+$2.71$ for $D=-3,-4,-7,-8,-11,-19$: five of the six agree to within $40\%$ with no further factor, and the outlier is
+$D=-7$, which is also the case whose fitted amplitude is least stable, moving by a factor $1.7$ between the two halves
+of the range.
 
 \paragraph{The limits of the present computations, and what is planned.} Every number reported above comes from a
 sieve of $Q_u(h)$ for $h\le10^7$, which runs in seconds to minutes on a laptop; the scripts are in the repository and

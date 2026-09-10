@@ -30,6 +30,22 @@ for D,name,amp in cases:
     r = amp/abs(v) if amp is not None and abs(v)>0 else None
     print(f"{D:4d} {name:11s} {float(x0):+5.2f} {float(y0):6.3f} {float(2*pi*y0):7.2f} {float(v):+13.4e}"
           + (f"   {float(amp):8.4f}   {float(r):11.4e}" if r is not None else "   (no signal / not fitted)"))
+# PREDICTED AMPLITUDE (Section 5, eq. orbit): amp ∝ (2/sqrt|D|) * sum_Q u_1(z_Q)/|Gamma_{z_Q}|, h(D)=1 here,
+# with |Gamma_z| = 2 at z = i (D=-4), 3 at z = rho (D=-3), 1 otherwise.
+print("\nPREDICTED vs OBSERVED amplitude (model object, all divisors, lambda == 1), relative to D = -4:")
+print("  D    2/sqrt|D|  |Gamma_z|   predicted (rel)   observed (rel)   obs/pred")
+obs = {-3: mpf('0.0093'), -4: mpf('0.0178'), -7: mpf('0.0034'), -8: mpf('0.0097'), -11: mpf('0.0131'), -19: mpf('0.0193')}
+def pred(D):
+    b = 1 if D%4 else 0
+    v = u1(mpf(-b)/2, sqrt(-D)/2)
+    g = 2 if D == -4 else (3 if D == -3 else 1)
+    return 2/sqrt(-D) * v / g
+p4 = pred(-4)
+for D in [-3,-4,-7,-8,-11,-19]:
+    g = 2 if D == -4 else (3 if D == -3 else 1)
+    pr = pred(D)/p4; ob = obs[D]/obs[-4]
+    print(f" {D:4d}   {float(2/sqrt(-D)):8.4f}   {g:6d}    {float(pr):+13.4f}    {float(ob):+12.4f}    {float(ob/pr) if pr!=0 else 0:+9.3f}")
+
 # ratios relative to D = -4
 v4 = u1(mpf(0), sqrt(4)/2)
 print("\nratios relative to D = -4 (a common factor exp(-pi R/2) cancels):")
