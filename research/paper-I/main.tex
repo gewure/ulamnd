@@ -50,16 +50,16 @@ simultaneous primality of $f(t)$ and $f(t+h)$; all our theorems concern $S_f$ an
 prove an exact identity for $\sum_{h\le H}(S_f(h)-C(f)^2)$ in terms of the roots of $f$ modulo squarefree
 $d$; that its diagonal part has Dirichlet series $\zeta_K(s+1)E_f(s)$, $K=\Q[t]/(f)$, with residue exactly
 $1/C(f)$ and $1/E_f$ essentially the Artin $L$-function of the symmetric square of the permutation
-representation on the roots, so that the Dedekind zeta function of the field cut out by $f$ governs the
-second moment of its prime values; a closed formula for $S_f(h)$ when $f$ is quadratic; and that the
-Ces\`aro form of
+representation on the roots, so that, under the Hardy--Littlewood conjecture, the Dedekind zeta function of the
+field cut out by $f$ governs the second moment of its prime values; a closed formula for $S_f(h)$ when $f$ is quadratic; and that the
+asymptotic
 \[
-\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)
 \]
 holds unconditionally for linear $f$ and, for general $f$, exactly when the sum over pairs of distinct
 roots is $o(H\log H)$. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
 rather than the second that a naive rescaling predicts; $\exN$ quadratics computed exactly to $H=10^6$
-give the exponent $\exCesAlpha\pm\exCesAlphaSe$ and the coefficient $\exCesK$ against the predicted $\tfrac12$. In plain terms: primes along any polynomial sequence fluctuate
+give the exponent $\exCesAlpha\pm\exCesAlphaSe$ and the coefficient $\exCesK$ against the predicted $\tfrac12$. In plain terms, and conjecturally: primes along any polynomial sequence fluctuate
 less than independent coin flips would, by the mechanism that Montgomery and Soundararajan found for
 primes in short intervals, and the size of the effect is set by an $L$-function attached to the
 polynomial. Assuming the Hardy--Littlewood pair conjecture, the law $\Var/\E\to1-\log T/\log X$ therefore
@@ -406,7 +406,7 @@ $a\ge1$, converge absolutely for $\Re s>-1$. In the region $\Re s>-1+1/(K+1)$ th
 product vanishes exactly where a local factor $F_p(s)=P_p+p\,b(p)\omega_f(p)p^{-s}$ does, i.e.\ at
 $p^{-s}=-P_p/(p\,b(p)\omega_f(p))$; these zeros have real part $\to-1$ and imaginary parts
 $(2j+1)\pi/\log p$, dense as $p\to\infty$, which gives the natural boundary. The exponents and the
-convergence claims are checked to high precision in the code accompanying the sequel.
+convergence claims are checked to high precision in the code accompanying~\cite{ReichardtII}.
 \end{proof}
 
 The poles of $1/L(2s+2,\operatorname{Sym}^2V_f)$ lie at $s=\rho/2-1$ for the zeros $\rho$ of the symmetric-square
@@ -523,8 +523,8 @@ $(\pm\sqrt D)$ and the differences $\pm2\sqrt D\bmod d$; the equidistribution of
 $x^2\equiv D\pmod d$ on average over $d$, with a power saving, is Hooley's theorem~\cite{Hooley1963},
 and the analogous statements for prime moduli are those of Duke, Friedlander and
 Iwaniec~\cite{DFI1995} and T\'oth~\cite{Toth2000}. What is not in the literature is the average with
-the multiplicative weights $W_f(d)$ and the fractional-part test function; part~III of this series takes
-this apart and proves what can be proved unconditionally, and we do not claim it here. For $r_f\ge3$ the trivial bound has an extra power of
+the multiplicative weights $W_f(d)$ and the fractional-part test function; part~III of this
+series~\cite{ReichardtIII} takes this apart and proves what can be proved unconditionally, and we do not claim it here. For $r_f\ge3$ the trivial bound has an extra power of
 $\log H$ and a genuine cancellation among the orbits is required (Section~\ref{sec:galois}).
 \end{remark}
 
@@ -532,13 +532,13 @@ The full conjecture~\eqref{eq:conj}, with a constant term, needs more than the l
 
 \medskip\noindent\textbf{Hypothesis (E).} $\mathrm{Off}^\ast_f(H)=O(H)$; in sharp form, $\mathrm{Off}_f(H)=O(1)$,
 which implies the Ces\`aro form since $\mathrm{Off}^\ast_f(H)=\sum_{t<H}\mathrm{Off}_f(t)-\tfrac12(1-D_f(1))H$
-with $D_f(1)=\sum_{d\ge1}a_f(d)/d$ (part~III, Corollary~13). In words: the fractional parts $\{(H\pm m)/d\}$, $m$ ranging
+with $D_f(1)=\sum_{d\ge1}a_f(d)/d$~\cite{ReichardtIII}. In words: the fractional parts $\{(H\pm m)/d\}$, $m$ ranging
 over the differences of distinct roots of $f$ modulo $d$, have a mean against the weights $W_f(d)$ that differs from
 $\tfrac12$ by $O(1/H)$ on average.
 
 \medskip\noindent
 This is the equidistribution statement of Remark~\ref{rem:two} with a bounded, rather than merely
-$o(H\log H)$, error; we have not proved it. Part~III shows that $\mathrm{Off}^\ast_f(H)$ is not $o(H)$: the moduli
+$o(H\log H)$, error; we have not proved it. Part~III~\cite{ReichardtIII} shows that $\mathrm{Off}^\ast_f(H)$ is not $o(H)$: the moduli
 $d$ with a large agreeing part of the two roots contribute an explicit main term $c_{\mathrm{off}}(f)H$ with
 $c_{\mathrm{off}}(f)<0$, so that the constant $A_f$ of~\eqref{eq:conj} is the diagonal constant plus $C(f)^2c_{\mathrm{off}}(f)$;
 for $t^2+1$, $c_{\mathrm{off}}=-0.1344$, and the mean of $\mathrm{Off}_f(t)$ is predicted to be $-0.0098$, in agreement with
@@ -998,12 +998,12 @@ predicted frequency $\gamma/2$. Resolution $\rdRes$; the predicted frequencies h
 So the zeros are not detected at $x\le2\cdot10^7$ by this method, and the reason is instructive. The
 fitted smooth basis did not contain the term $c_fx^{m-2/3}$ of Proposition~\ref{thm:explicit}, which is
 larger than the zero terms $|a_m(\rho)|x^{m-3/4}$, and the $\gamma/2$-spacing set by the length of the
-$\log x$ range is comparable to the spacing of the predicted frequencies. In the sequel we compute the
+$\log x$ range is comparable to the spacing of the predicted frequencies. In~\cite{ReichardtII} we compute the
 main terms, $c_f$ and the coefficients $a_m(\rho)$ exactly and subtract them; the residual then agrees
 with the predicted sum over the zeros of $\zeta$ and $L(s,\chi_{-4})$ in amplitude and phase (regression
 coefficient $1.01$ for $m=2$, with the two families separately at $1.006$ and $1.020$). Without the exact coefficients one would need a range
 $x\ge10^{10}$, beyond a direct sieve of $A_f(n)$. We record the negative result of the fitting method
-here; the exact computation is the first step of the sequel.
+here; the exact computation is the first step of~\cite{ReichardtII}.
 
 \subsection{The Galois group}\label{sec:galois}
 
@@ -1263,8 +1263,8 @@ the \texttt{riesz} scripts and \texttt{research/experiments/galois.ts} (Section~
 \texttt{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
 
 \section*{AI-assisted research: disclosure}
-This work was carried out with heavy use of a large language model, the Anthropic model Claude Fable 5.1, used
-interactively by the author in September 2026 as a research assistant. The author posed the questions, set the
+This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and
+Claude Opus~5, used interactively by the author in September 2026 as research assistants. The author posed the questions, set the
 direction and the scope, and made every decision about what to pursue, claim and submit. The model was used to draft
 mathematical arguments, to write and run the software behind every number in the paper, to search the literature,
 and to draft the text; all of this was done in dialogue with the author, who verified the code and the numerical

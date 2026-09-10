@@ -83,3 +83,13 @@ None of this affects Theorems 2, 3, 5, 6, 8 or the conjecture. It affects only w
    Aletheia-Zomlefer–Fukshansky–Garcia's title reads "heuristic" (singular); Goldston–Suriajaya, Acta Arith. 200 (2021),
    71–90 (volume and pages added). Tóth 2000 was confirmed bibliographically by the literature agent on 11 Sep
    (IMRN 2000(14), 719–739) and could not be re-found through Crossref's search API; the entry is kept.
+
+10. **Pre-arXiv pass on paper I (12 September 2026, second reviewer).** Independent brute-force re-verification of
+    Theorem 2 from the statement alone (four quadratics, six shifts): both sides agree to the truncation error, and the
+    vanishing cases vanish. Fixed: (a) the abstract claimed the Dedekind zeta function governs "the second moment of its
+    prime values" without the Hardy–Littlewood conditional, although no theorem of the paper concerns primes — now
+    conditioned; (b) the abstract displayed the sharp sum while calling it the Cesàro form — now displays the Cesàro
+    sum; (c) "In plain terms:" introduced an unconditional-sounding statement about primes — now "In plain terms, and
+    conjecturally:"; (d) the Cesàro fit macros printed "1.00 ± 0.00" — now three decimals (1.001 ± 0.001, k = 0.498);
+    (e) forward references "part III, Corollary 13" to an unpublished paper replaced by \cite entries marked "in
+    preparation"; (f) the AI disclosure named only one model although two were used — now names both.

@@ -379,26 +379,26 @@ if (existsSync("research/experiments/exact.json")) {
   // Cesàro form Σ*_f(H) = Σ_{h≤H}(1 − h/H)(S_f(h) − C²): the quantity of Theorem 6, free of the O(1) oscillation of the sharp sum
   const G = (X as unknown as { fitCes?: typeof F }).fitCes;
   if (G) {
-    mac("exCesAlpha", f(G.alphaLog));
-    mac("exCesAlphaSe", f(G.seAlphaLog));
-    mac("exCesK", f(G.kLog));
-    mac("exCesAlphaLin", f(G.alpha));
-    mac("exCesAlphaLinSe", f(G.seAlpha));
-    mac("exCesKLin", f(G.k));
-    mac("exCesKLinSe", f(G.seK));
+    mac("exCesAlpha", f(G.alphaLog, 3));
+    mac("exCesAlphaSe", f(G.seAlphaLog, 3));
+    mac("exCesK", f(G.kLog, 3));
+    mac("exCesAlphaLin", f(G.alpha, 3));
+    mac("exCesAlphaLinSe", f(G.seAlpha, 3));
+    mac("exCesKLin", f(G.k, 3));
+    mac("exCesKLinSe", f(G.seK, 3));
     mac("exCesSigmaTwoMin", f(Math.min(Math.abs(G.sigmaFrom2), Math.abs(G.alphaLog - 2) / G.seAlphaLog), 0));
     mac("exCesCorrC", f(G.corrC));
     mac("exCesCorrCC", f(G.corrC2));
-    mac("exCesSlopeC", f(G.meanSlopeC));
-    mac("exCesSlopeCsd", f(G.sdSlopeC));
+    mac("exCesSlopeC", f(G.meanSlopeC, 3));
+    mac("exCesSlopeCsd", f(G.sdSlopeC, 3));
     mac("exCesSlopeCC", f(G.meanSlopeC2));
     mac("exCesSlopeCCsd", f(G.sdSlopeC2));
-    mac("exCesDecA", f(G.decade[0].mean));
-    mac("exCesDecB", f(G.decade[1].mean));
-    mac("exCesDecC", f(G.decade[2].mean));
-    mac("exCesDecAsd", f(G.decade[0].sd));
-    mac("exCesDecBsd", f(G.decade[1].sd));
-    mac("exCesDecCsd", f(G.decade[2].sd));
+    mac("exCesDecA", f(G.decade[0].mean, 3));
+    mac("exCesDecB", f(G.decade[1].mean, 3));
+    mac("exCesDecC", f(G.decade[2].mean, 3));
+    mac("exCesDecAsd", f(G.decade[0].sd, 3));
+    mac("exCesDecBsd", f(G.decade[1].sd, 3));
+    mac("exCesDecCsd", f(G.decade[2].sd, 3));
     console.log(`exact (Cesàro): alpha = ${f(G.alpha)} ± ${f(G.seAlpha)}, slope/C = ${f(G.meanSlopeC)} ± ${f(G.sdSlopeC)}`);
   }
   console.log(`exact: ${F.n} quadratics, alpha = ${f(F.alpha)} ± ${f(F.seAlpha)}`);
