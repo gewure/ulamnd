@@ -112,3 +112,28 @@ natural guesses are (i) the local factor at 3 shifts the abscissa so the spectra
 singularity, or (ii) an oldform/newform effect at level divisible by 3. Neither is checked.
 This is the sharpest open question in the project and it is cheap to attack: test more discriminants, and test whether
 the signal returns when the p = 3 Euler factor is divided out of the piece.
+
+## 1d. THE WEIGHT IS THE CULPRIT (12 Sep): the model piece with lambda == 1
+Replacing lambda(p) = p/(p-4) by lambda == 1 -- i.e. F(n) = sum_{d|n, sqfree, (d,2Du)=1} 1/d, the restricted
+sigma_{-1} along Q_u(h) -- and repeating the regression at Y = 10^7, u = 1:
+
+  D      R^2 even   pct    R^2 odd   pct        with lambda (for comparison)
+  -4      0.237     100     0.027    13         0.152 (100th)
+  -3      0.139     100     0.019    13         0.139 (100th)
+   8      0.319     100     0.036    14         0.217 (100th)
+  17      0.098    99.3     0.017     7         0.078 (99.3rd)
+  -8      0.109     100     0.029    17         0.031 ( 47th)  <-- was ABSENT
+ -11      0.078     100     0.015    11         0.009 ( 44th)  <-- was ABSENT
+
+SIX of six significant, every odd set below the 17th percentile, and the two discriminants that showed nothing with
+the lambda weight show a clean signal without it. CONCLUSIONS:
+(a) The p = 3 selection rule of 1c is an ARTEFACT OF THE WEIGHT, not a fact about the roots of the congruence.
+    lambda(3) = 3/(3-4) = -3 is the unique negative value of lambda and the largest in modulus; at the smallest split
+    prime it swamps the spectral term. Nothing arithmetic is hiding at 3. (Fallacy F23.)
+(b) The right object for a theorem is the MODEL PIECE (lambda == 1). Its sawtooth/Weyl-sum reduction is identical
+    (Lemmas 2.1, 2.2 do not use lambda) but its Dirichlet series is sum_d d^{-s} W_k(D;d) with NO multiplicative
+    weight -- a Salie zeta function with a squarefree and a coprimality condition, and nothing else. The lambda-weighted
+    piece, which is the one the off-diagonal of part III actually needs, is then this plus a perturbation
+    lambda = 1 * kappa, kappa(p) = 4/(p-4) = O(1/p).
+(c) The phenomenon is STRONGER without the weight (R^2 up to 0.32 against 0.22), so the model piece is also the better
+    object to measure.

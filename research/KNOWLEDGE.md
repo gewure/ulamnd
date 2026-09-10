@@ -88,6 +88,13 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep (later). THE MODEL PIECE. With lambda == 1 (F(n) = restricted sigma_{-1} along Q_u) the even-Maass signal is
+  present for ALL six discriminants tested at the 99.3-100th percentile (odd sets at 7-17th), including D = -8 and -11
+  which were absent with the lambda weight. So (i) the p = 3 rule is an artefact of the weight (F23), (ii) the right
+  object for the u = 1 theorem is the model piece, whose Dirichlet series is a Salie zeta function with a squarefree
+  and coprimality condition and NO multiplicative weight, and (iii) the phenomenon is stronger without lambda
+  (R^2 to 0.32 vs 0.22). Also verified: the "all primes split" condition on the moduli is AUTOMATIC (p | u^2h^2 - D,
+  p not dividing 2Du, forces D a square mod p) -- 51374 occurrences, 0 exceptions.
 - 12 Sep. SELECTION RULE AT p = 3 found (unexplained). The spectral signal in the pieces is present exactly when the
   prime 3 does NOT split in Q(sqrt D): 0 of 5 split cases (D = -8, -11, 13, -23, 28) show it, 8 of 9 non-split cases do
   (D = -4, -3, -7, 5, 8, 12, 17, -19, 20). Fisher exact ~5e-4. Not a size effect (sd of P/sqrt Y does not separate the
@@ -248,6 +255,13 @@ F20. "No Maass lines in Off_f(H) ⇒ the second-spectrum idea is dead" (paper II
     numerically), with the spectrum of level 4u² and weight 1/2 — the sharp Off_f(H) is a different, bounded object
     and the SL₂(Z) parameters are not the relevant ones. RULE: before a null spectral test, derive which spectrum and
     which observable the theory predicts; a null on the wrong observable proves nothing.
+F23. "There is a selection rule at p = 3: the spectral signal is present exactly when 3 does not split" (12 Sep,
+    recorded with Fisher p ~ 5e-4 on 14 polynomials). TRUE as a description of the lambda-weighted pieces, FALSE as a
+    statement about the arithmetic: with lambda == 1 (the model piece) all six discriminants tested, D = -8 and -11
+    included, show the even spectrum at the 100th percentile. lambda(3) = -3 is the unique negative value of lambda
+    and swamps the spectral term at the smallest split prime. RULE: when an effect is indexed by a small prime, test
+    it with the arithmetic weight removed before calling it arithmetic. (Same day as F22 -- both came from reading a
+    pattern before removing the obvious confounder.)
 F22. "The polynomials with no Maass signal are those with exponentially small Katok–Sarnak periods" (NOTES-routeR,
     12 Sep). Only true for D = −163 (period 2e−10 relative to D = −4). For D = −8 the period is 0.32, comparable to
     D = −4's, yet the signal is absent (47th percentile). The reason: K_{iR}(x) is exponentially small in the ORDER,

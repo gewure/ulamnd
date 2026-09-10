@@ -83,8 +83,10 @@ $A<\tfrac14$; the level dependence of the Kuznetsov formula is therefore the who
 \section{The piece as a twisted Walfisz sum}\label{sec:walfisz}
 
 Throughout, $f$ is an irreducible quadratic of discriminant $D$ and $u$ is squarefree with $\omega(u)\ge1$. Call a
-modulus $d$ \emph{admissible} (for $u$) if it is squarefree, coprime to $2Du$, and every prime dividing it is split,
-i.e.\ $\omega(p)=2$. For admissible $d$ put
+modulus $d$ \emph{admissible} (for $u$) if it is squarefree and coprime to $2Du$. Only such $d$ occur: if
+$p\mid Q_u(h)=u^2h^2-D$ and $p\nmid2Du$ then $D\equiv(uh)^2\pmod p$, so $\bigl(\tfrac Dp\bigr)=1$ and $p$ is split.
+The condition ``every prime dividing $d$ is split'', which appears in part~III, is therefore automatic here, and we do
+not impose it. For admissible $d$ put
 \[
 R_d=R^{(u)}_d=\{x\bmod d:\ u^2x^2\equiv D\},\qquad \rho(d)=|R_d|=\omega(d)=2^{\nu(d)},\qquad
 \rho_k(d)=\sum_{x\in R_d}\e\Bigl(\frac{kx}d\Bigr),
@@ -467,23 +469,60 @@ that size, the local factors, since $\mathbb EF_u$ ranges over $[0.35,1.60]$ acr
 multiplicatively, and the uncertainty of the fitted amplitudes themselves, which for $D=-7$ is a factor $2$ between
 the two halves of the range. We record the amplitude law as a prediction to be tested, not as a confirmed fact.
 
-\paragraph{A selection rule at $p=3$.} The absences at $D=-8$ and $D=-11$, whose periods are of ordinary size, are not
-explained by anything above, and they are not isolated. Splitting all fourteen polynomials we have tested according to
-the behaviour of the prime $3$:
-\[
-\begin{array}{llr}
-\text{$3$ split} & D=-8,\,-11,\,13,\,-23,\,28 & \text{$0$ of $5$ show a signal}\\
-\text{$3$ inert or ramified} & D=-4,\,-3,\,-7,\,5,\,8,\,12,\,17,\,-19,\,20 & \text{$8$ of $9$ show a signal}
-\end{array}
-\]
-(percentiles $19$--$67$ in the first group, $74$--$100$ in the second). This is not an effect of the size of the piece:
-the standard deviation of $\mathcal P^{(1)}_u(Y)/\sqrt Y$ is $0.056$ both for $D=-3$, which shows a signal, and for
-$D=-8$, which does not. What distinguishes $3$ is that $\lambda(3)=3/(3-4)=-3$ is the only negative value taken by
-$\lambda$, and $|\lambda(3)\rho(3)/3|=2>1$, so at $\Re s=\tfrac12$ the local factor at $3$ of the Euler product for
-$W_k$ has modulus up to $3\cdot2\cdot3^{-1/2}=3.46$: it is the one local factor that can dominate the spectral term.
-Whether it displaces the abscissa, or whether the effect is an oldform phenomenon at level divisible by $3$, we do not
-know. We record it as the sharpest open question raised by these computations. \todo{Test: divide the $p=3$ Euler
-factor out of the piece and see whether the signal returns.}
+\paragraph{The weight, and a model piece.} The absences at $D=-8$ and $D=-11$, whose periods are of ordinary size,
+are not explained by anything above, and they are not isolated: among the fourteen polynomials we tested, the six
+showing no signal are exactly those for which the prime $3$ splits in $\Q(\sqrt D)$. That is a statement about the
+weight, not about the roots. Indeed $\lambda(3)=3/(3-4)=-3$ is the only negative value taken by $\lambda$ and the
+largest in modulus, and $|\lambda(3)\rho(3)/3|=2>1$, so at $\Re s=\tfrac12$ the local factor at $3$ of the Euler
+product for $W_k$ has modulus up to $3\cdot2\cdot3^{-1/2}=3.46$: it is the one local factor that can dominate the
+spectral term. Removing the weight confirms this. Define the \emph{model piece} by replacing $\lambda$ by $1$ in
+\eqref{eq:FE}, so that $F$ becomes the restricted divisor function $\sum_{d\mid n,\ d\ \mathrm{adm}}1/d$ and
+$\mathcal P^{(1)}$ is a Riesz mean of $\sigma_{-1}$ along $Q_u$. Repeating the regression:
+
+\begin{table}[htbp]
+\centering\small
+\caption{The model piece ($\lambda\equiv1$) at $Y\le10^7$, $u=1$: fit to the even and odd spectral parameters, with the
+weighted piece for comparison.}\label{tab:model}
+\begin{tabular}{lrrrrr}
+\toprule
+$D$ & $R^2$ even & percentile & $R^2$ odd & percentile & weighted piece\\
+\midrule
+$8$   & $0.319$ & $100$  & $0.036$ & $14$ & $0.217$ ($100$)\\
+$-4$  & $0.237$ & $100$  & $0.027$ & $13$ & $0.152$ ($100$)\\
+$-3$  & $0.139$ & $100$  & $0.019$ & $13$ & $0.139$ ($100$)\\
+$-8$  & $0.109$ & $100$  & $0.029$ & $17$ & $0.031$ ($47$)\\
+$17$  & $0.098$ & $99.3$ & $0.017$ & $7$  & $0.078$ ($99.3$)\\
+$-11$ & $0.078$ & $100$  & $0.015$ & $11$ & $0.009$ ($44$)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All six are significant, every odd set falls below the $17$th percentile, and the two discriminants that showed
+nothing under the weight show a clean signal without it. So the apparent rule at $p=3$ is an artefact of $\lambda$;
+nothing arithmetic is hidden there. Two consequences matter for what follows. The phenomenon is \emph{stronger}
+without the weight, so the model piece is the better object to measure; and its Dirichlet series is
+$\sum_dd^{-s}\mathcal W_k(D;d)$ with no multiplicative weight at all, a Sali\'e zeta function carrying only a
+squarefree and a coprimality condition. That is the object we can hope to continue, and \S\ref{sec:formula} is stated
+for it; the weighted piece, which is the one the off-diagonal of part~III requires, is the model piece perturbed by
+$\lambda=1*\kappa$ with $\kappa(p)=4/(p-4)=O(1/p)$.
+
+\paragraph{The limits of the present computations, and what is planned.} Every number reported above comes from a
+sieve of $Q_u(h)$ for $h\le10^7$, which runs in seconds to minutes on a laptop; the scripts are in the repository and
+each states its cost in its header. Three of the questions raised here are limited by that range rather than by
+anything conceptual, and are settled by longer runs of exactly the same code:
+\begin{enumerate}
+\item the amplitude law of Table~\ref{tab:periods}, whose comparison is currently blunted by an uncertainty of up to a
+factor $2$ in the fitted amplitudes; the uncertainty falls like $Y^{-1/2}$ in the length of the $\log Y$ range, so
+$Y=10^9$ would roughly halve it and $Y=10^{12}$ would settle the discrepancy at $D=-7$;
+\item the resolution in the frequency, which is $2\pi/\log(Y_{\max}/Y_{\min})\approx0.68$ at present and therefore
+cannot separate the lines $19.42$ and $19.48$, the first even and the first odd parameter of that size; this is the
+single measurement that would test the parity rule against an adjacent pair rather than against a whole set;
+\item the selection rule at $p=3$, where the sample is fourteen polynomials and should be a few hundred.
+\end{enumerate}
+None of the three needs a new method, only more arithmetic, and we intend to carry the computation out on
+appropriate hardware and report it separately. We state them here so that a reader can see exactly which of our
+assertions rest on $10^7$ and which do not: the parity rule of Table~\ref{tab:fits} and the threshold of
+Table~\ref{tab:periods} are stable across the halves of the present range and do not, the amplitude law does.
 
 \section{Uniformity in $u$ and the Ces\`aro conjecture}\label{sec:uniformity}
 \todo{The condition $A<\tfrac14$; what the spectral large sieve gives; the windows of part~III in spectral terms.}

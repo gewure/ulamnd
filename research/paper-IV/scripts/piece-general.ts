@@ -243,6 +243,7 @@ function run(q: Quad) {
  * u must be squarefree with omega(u) >= 1 (checked).
  */
 import { mkdirSync, writeFileSync } from "node:fs";
+const NOLAM = process.env.NOLAMBDA === "1"; // lambda == 1: the unweighted "model piece" (sigma_{-1} along Q_u)
 const [qa, qb, qc] = (process.env.Q ?? "1,1,41").split(",").map(Number);
 const q: Quad = { a: qa, b: qb, c: qc }; const u = Number(process.env.U ?? 1);
 const t0 = performance.now(); const el = () => ((performance.now() - t0) / 1000).toFixed(0) + " s";
@@ -258,15 +259,15 @@ for (const p of primes) {
   if (p > Pmax) break;
   if (isSpecialU(p)) { for (let h = 1; h <= H; h++) while (Qv[h] % p === 0) Qv[h] /= p; continue; }
   if (legendre(D, p) !== 1) continue;
-  EF *= 1 + 2 / (p * (p - 4));
-  const r = mulmod(sqrtmod(((D % p) + p) % p, p), modinv(u % p, p), p); const fac = 1 + 1 / (p - 4);
+  EF *= NOLAM ? 1 + 2 / (p * p) : 1 + 2 / (p * (p - 4));
+  const r = mulmod(sqrtmod(((D % p) + p) % p, p), modinv(u % p, p), p); const fac = NOLAM ? 1 + 1 / p : 1 + 1 / (p - 4);
   for (const r0 of r === 0 ? [0] : [r, p - r]) for (let h = r0 === 0 ? p : r0; h <= H; h += p) { let x = Qv[h]; while (x % p === 0) x /= p; Qv[h] = x; F[h] *= fac; }
 }
 // tail of E F beyond Pmax: split primes have density 1/2, log(1+2/p^2) ~ 2/p^2 -> E_1(log Pmax)
-{ const xx = Math.log(Pmax); EF *= Math.exp(Math.exp(-xx) / xx * (1 - 1 / xx + 2 / xx ** 2 - 6 / xx ** 3 + 24 / xx ** 4)); }
+{ const xx = Math.log(Pmax); EF *= Math.exp(Math.exp(-xx) / xx * (1 - 1 / xx + 2 / xx ** 2 - 6 / xx ** 3 + 24 / xx ** 4)); } // tail: log(1+2/p^2) ~ 2/p^2 either way
 if (process.env.EF) EF = Number(process.env.EF);
 let big = 0;
-for (let h = 1; h <= H; h++) if (Qv[h] > 1) { const p = Qv[h]; if (!isSpecialU(p) && p % 2 === 1) F[h] *= 1 + 1 / (p - 4); big++; } // leftover prime > Pmax: it divides Q_u(h) so D is a square mod p -> split
+for (let h = 1; h <= H; h++) if (Qv[h] > 1) { const p = Qv[h]; if (!isSpecialU(p) && p % 2 === 1) F[h] *= NOLAM ? 1 + 1 / p : 1 + 1 / (p - 4); big++; } // leftover prime > Pmax: it divides Q_u(h) so D is a square mod p -> split
 console.log(`${name(q)} u=${u}: D=${D}, special ${special.join(",")}, E F_u = ${EF.toFixed(12)}, ${big} large cofactors (${el()})`);
 const Mg = 4096, lo = Math.log(1e3), hi = Math.log(H);
 const gridY = Array.from({ length: Mg }, (_, j) => Math.floor(Math.exp(lo + ((hi - lo) * j) / (Mg - 1)))); const gridP: number[] = []; let gj = 0;
