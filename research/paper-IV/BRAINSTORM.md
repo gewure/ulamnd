@@ -272,3 +272,12 @@ V = V(H) → ∞ (Ford), or ω(u) ~ log log u, or u has a prime factor in [u^{1/
    theorem worth having (it is the piece-by-piece "square-root cancellation" seen numerically).
 2. Then the level dependence (the real problem) — first for u prime.
 3. Route 7 in parallel as the theorem track; route 1/T hybrid as the elementary fallback.
+
+
+# Third pass (12 September 2026): route R is supported by the data — see NOTES-routeR.md
+The pieces P_u(Y)/√Y of five quadratics (t²+1 u=2, t²+t+1, t²−2, t²−3, t²+t−1) oscillate at the EVEN Maass parameters
+of SL₂(Z) (percentiles 92–100 among random frequency sets; odd parameters at 12–66 %); amplitudes and phases of the
+dominant line 13.78 are stable across halves of log Y; two polynomials show nothing, exactly those (D = −8, −163) whose
+Katok–Sarnak periods are exponentially small. This is the "second spectrum" (P4), found where the theory of route R
+says it lives. Paper IV = route R: (1) the explicit spectral formula for a single piece (Bykovskiĭ/DFI + Katok–Sarnak),
+(2) the level uniformity in u, (3) the amplitude check against Fourier coefficients of the first even form.

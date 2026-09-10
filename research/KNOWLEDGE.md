@@ -80,6 +80,13 @@ prime statements need Hardy–Littlewood.
 - 11 Sep (decision, author). No AI co-authorship: single-author papers with a uniform "AI-assisted research:
   disclosure" section (ERRATA item 8). Rationale: publishers' policies; transparency preserved by the disclosure and
   the public repository.
+- 12 Sep. DISCOVERY (numerical): the off-diagonal pieces oscillate with the even Maass cusp forms of SL₂(Z).
+  P_u(Y)/√Y for t²+1 (u=2), t²+t+1, t²−2, t²−3, t²+t−1 (Y to 10⁷ or 3·10⁷) is fitted by cos(t_j log Y + φ_j) over the six
+  even parameters 13.78…24.11 at the 92–100th percentile among random 6-sets (t²−2: R² 0.25, above all 300 random sets),
+  odd parameters at 12–66 %; the 13.78 line has stable amplitude and phase across halves of log Y. Absent for D = −8
+  and D = −163, whose Heegner points sit high in the cusp (Katok–Sarnak periods e^{−2π Im z}). Route R (Riesz means +
+  Salié–Kuznetsov + Katok–Sarnak) predicts exactly this, parity rule included. research/paper-IV/NOTES-routeR.md.
+  Paper IV = route R. Also: the earlier "no Maass lines" (job C4, F20) was the wrong observable and mixed parities.
 - 11 Sep (late night). Self-review of papers I/II for consistency with III: Hypothesis (E) restated (Cesàro primary);
   Theorem 6 proof bound corrected to the symmetrised bracket; forward references. Paper III: the window's trivial
   size is O(Y), not Y log u² (Koksma is what loses the log); Corollary "small agreeing part": windows with
@@ -117,8 +124,11 @@ natural boundary (all f, incl. f = t); Ω_±(x^{m−3/4}) unconditional; Prop. O
 conjecture); F_q[u] structure theorem.
 PROVED UNDER RH: explicit formula for quadratics (m ≥ 2, full proof incl. horizontal-segment lemma); general f
 under GRH for constituents of Ψ_1, Ψ_2, Ψ_3.
-NUMERICAL: t²+1 explicit formula β ≈ 1 (X = 4·10⁷, γ ≤ 100); α = 0.92 ± 0.08 (C not C²); Off_f bounded to 10⁵;
+NUMERICAL: t²+1 explicit formula β ≈ 1 (X = 4·10⁷, γ ≤ 100); Cesàro exact test k = 0.498 ± 0.003 (C not C²); c_off
+confirmed for 4 quadratics; pieces O(√Y) with oscillations at the EVEN Maass parameters of SL₂(Z) (5 quadratics, 12 Sep);
 F_q[u] identities two ways.
+CONJECTURED (with numerical support): the second spectrum: P_u(Y) = c_u Y + √Y Σ_j c_j cos(t_j log Y + φ_j) + …, t_j even
+Maass parameters (route R; paper IV target theorem for fixed u).
 CONJECTURED: Conjecture 1 in Cesàro form (⇔ Hypothesis (E) in Cesàro form ⇔ windows o(H log H));
 Off*_f(H) = c_off(f) H + o(H) (constant identified; numerically confirmed for t²+1); Hypothesis W; no-bias.
 REFUTED (11 Sep): Maass lines in Off_f (null to 10⁷); "Off* ≪ H^{1−δ}" (main term exists); Conjecture 1 in sharp form

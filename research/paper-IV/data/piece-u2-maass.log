@@ -1,0 +1,5 @@
+u=2: R^2 even set (6 lines) = 0.0891  [percentile among random 6-sets: 99.3%]
+      R^2 odd set (6 lines)  = 0.0172  [percentile: 26.3%]
+      random 6-sets: median 0.0237, 95% 0.0832, max 0.0952
+      even lines, single-frequency R^2 and percentile: 13.78:6.55e-2(98%) 17.74:7.26e-3(78%) 19.42:2.10e-3(47%) 21.32:1.04e-2(86%) 22.79:1.94e-3(45%) 24.11:5.76e-4(20%)
+      odd lines: 9.53:4.45e-4(15%) 12.17:5.90e-3(73%) 14.36:8.75e-4(29%) 16.14:3.45e-3(59%) 16.64:1.81e-3(44%) 18.18:2.65e-3(54%)

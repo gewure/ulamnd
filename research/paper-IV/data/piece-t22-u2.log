@@ -1,0 +1,4 @@
+Y=1e+5  P_u(Y)=49.406  P/sqrtY=0.1562  max|S_u|=0.952
+Y=1e+6  P_u(Y)=-36.893  P/sqrtY=-0.0369  max|S_u|=0.967
+Y=1e+7  P_u(Y)=163.463  P/sqrtY=0.0517  max|S_u|=0.996
+done (5 s)

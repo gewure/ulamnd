@@ -1,0 +1,3 @@
+u=t2m2-u1: R^2 even set (6 lines) = 0.2171  [percentile among random 6-sets: 100.0%]
+      R^2 odd set (6 lines)  = 0.0361  [percentile: 33.7%]
+      random 6-sets: median 0.0599, 95% 0.1618, max 0.2120

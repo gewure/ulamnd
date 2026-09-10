@@ -1,0 +1,8 @@
+t^2-2 u=1: D=8, special 2, E F_u = 1.119129733567, 20413104 large cofactors (10 s)
+Y=1e+3  P_u(Y)=0.375  P/sqrtY=0.0119  max|S_u|=0.384
+Y=1e+4  P_u(Y)=0.679  P/sqrtY=0.0068  max|S_u|=0.430
+Y=1e+5  P_u(Y)=25.022  P/sqrtY=0.0791  max|S_u|=0.446
+Y=1e+6  P_u(Y)=43.310  P/sqrtY=0.0433  max|S_u|=0.488
+Y=1e+7  P_u(Y)=158.741  P/sqrtY=0.0502  max|S_u|=0.488
+Y=3e+7  P_u(Y)=57.977  P/sqrtY=0.0106  max|S_u|=0.495
+done (11 s)
