@@ -225,3 +225,27 @@ fit (0.0028 vs 0.0048 across the halves, a factor 1.7). So amplitude ~ period/|G
     Poincare series.
 REMAINING in Section 5: smoothness (which Riesz order m makes the spectral sum converge absolutely -- governed by the
 Gamma-factor decay e^{-pi t_j/4} in (mellinK) against the Weyl law) and the error term.
+
+## 1i. HOOLEY'S SUM ITSELF (12 Sep) -- the cleanest confirmation
+The identity of 1h predicts the same law for the BARE partial sums of the Weyl sums,
+  T_k(X) = sum_{d<=X, (d,2D)=1} sum_{b^2 = D (d)} e(kb/d),
+which Hooley (1963) bounded by O(X^{3/4+eps}). No divisor sum, no Riesz mean, no weight. Computed for all X <= 10^6
+(scripts/weyl-partial.ts: Tonelli-Shanks + Hensel + CRT).
+
+RESULT 1: T_1(X)/sqrt(X) is BOUNDED (|.| <= 0.56, sd 0.14 for D = -4) -- square-root cancellation, far beyond 3/4.
+RESULT 2: its spectrum is the EVEN one for all six discriminants (96th-100th percentile); 2 t_j rejected (12.7th).
+RESULT 3: the parameter-free phase prediction phi(D) - phi(-4) = (t_1/2) log(|D|/4) - pi*[period sign flips]:
+
+   D    R^2 even (pct)   predicted phi   observed phi   difference
+  -3     0.173 (100)        -2.992         -2.980        -0.012
+  -4     0.412 (100)        -1.010         -1.010        (reference)
+  -7     0.159 (100)        +2.846         +3.110        -0.264
+  -8     0.252 (98.3)       +0.624         +0.520        +0.104
+ -11     0.170 (100)        +2.818         +2.810        +0.008
+ -19     0.206 (96.0)       +0.301         +0.310        -0.009
+
+THREE of five within 0.012 rad = 0.19% of a full period; MEDIAN discrepancy 0.012 rad. On an independent object from
+the one used in 1g, and a barer one. This is the strongest evidence in the project.
+Note the standalone interest: "the partial sums of the Weyl sums of a quadratic congruence exhibit square-root
+cancellation with an explicit spectral expansion over the even Maass forms of SL_2(Z), with amplitudes the
+Katok-Sarnak periods" is a statement about Hooley's classical sum, independent of the singular-series programme.

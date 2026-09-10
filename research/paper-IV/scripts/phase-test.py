@@ -38,4 +38,21 @@ for D in [-3, -4, -7, -8, -11, -19]:
     diff = wrap(pred - obs[D])
     worst = max(worst, abs(diff))
     print(f" {D:4d}      {'+' if pD>0 else '-'}       {float(pred):+13.3f}    {float(obs[D]):+13.3f}    {float(diff):+13.3f}")
+
+# Second, independent object: the raw Weyl partial sums T_k(X) = sum_{d<=X} sum_{b^2=D (d)} e(kb/d), k=1, X=1e6
+# (scripts/weyl-partial.ts).  No divisor sum, no Riesz mean.  Same prediction.
+obsW = {-3: mpf('-2.98'), -4: mpf('-1.01'), -7: mpf('3.11'), -8: mpf('0.52'), -11: mpf('2.81'), -19: mpf('0.31')}
+print("\nSame test on the RAW WEYL PARTIAL SUMS (independent object):")
+print("  D    sign Per   predicted phase   observed phase   difference (rad)")
+phi0W = obsW[D0]; worstW = mpf(0)
+for D in [-3, -4, -7, -8, -11, -19]:
+    pD = period(D)
+    flip = pi if (pD > 0) != (p0 > 0) else mpf(0)
+    pred = wrap(phi0W + (R/2)*log(mpf(-D)/mpf(-D0)) - flip)
+    diff = wrap(pred - obsW[D])
+    if D != D0: worstW = max(worstW, abs(diff))
+    print(f" {D:4d}      {'+' if pD>0 else '-'}       {float(pred):+13.3f}    {float(obsW[D]):+13.3f}    {float(diff):+13.3f}")
+print(f"  largest discrepancy on the Weyl sums: {float(worstW):.3f} rad = {float(worstW/(2*pi)*100):.1f}% of a period")
+med = sorted(abs(wrap(wrap(phi0W + (R/2)*log(mpf(-D)/mpf(-D0)) - (pi if (period(D)>0)!=(p0>0) else mpf(0))) - obsW[D])) for D in [-3,-7,-8,-11,-19])[2]
+print(f"  median discrepancy: {float(med):.3f} rad")
 print(f"\nlargest discrepancy: {float(worst):.3f} rad = {float(worst/(2*pi)*100):.1f}% of a full period, over 5 predictions with no free parameter")

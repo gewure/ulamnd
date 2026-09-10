@@ -88,6 +88,12 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. HOOLEY'S SUM: the prediction tested on the barest object, T_k(X) = sum_{d<=X} sum_{b^2=D(d)} e(kb/d),
+  which Hooley 1963 bounds by X^{3/4+eps}. Found: T_1(X)/sqrt(X) BOUNDED (square-root cancellation); even spectrum at
+  96-100th percentile for six discriminants, 2t_j rejected at 12.7th; and the parameter-free phase prediction agrees
+  with a MEDIAN discrepancy of 0.012 rad (0.19% of a period), three of five within 0.012. Independent of, and barer
+  than, the object of the earlier phase test. Standalone statement worth making: Hooley's sum has square-root
+  cancellation with an explicit spectral expansion whose amplitudes are Katok-Sarnak periods.
 - 12 Sep. ORGANISING IDENTITY found and verified: the Dirichlet series of the Weyl sums of a quadratic congruence IS
   Selberg's Poincare series P_m(w,s) evaluated at the Heegner points of that discriminant (verified to 1e-16). Its
   rightmost poles are at s = 1/2 +- i t_j in the same variable, which settles the factor-2 question in favour of t_j

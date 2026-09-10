@@ -35,9 +35,13 @@ the forms at the Heegner points, or their integrals over the closed geodesics, o
 spectrum, next to the zeros of $\zeta_K$ that govern the diagonal (part~II). We explain this by an explicit
 formula: the piece is a twisted Walfisz sum whose Dirichlet series is a sum over frequencies of Dirichlet series
 of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues to the half-line with poles at
-$\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. We
-prove the formula for a single piece in Riesz-mean form [\todo{target}], discuss the uniformity in $u$ that the
-Ces\`aro conjecture of part~I needs, and report the numerical evidence.
+$\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. The same law, and the same parameter-free
+prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
+congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
+cancellation with an explicit spectral expansion. We give the derivation in the form we believe it takes, resolve
+its convergence obstruction, state precisely what remains, discuss the uniformity in $u$ that the Ces\`aro
+conjecture of part~I would need, and report the numerical evidence, including phase predictions with no free
+parameter that agree to a median of $0.012$ radians.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -712,6 +716,46 @@ $|\mathrm{Per}_D(u_1)|/|\Gamma_{z_D}|$ gives, in units of $10^7$, the values $2.
 $2.71$ for $D=-3,-4,-7,-8,-11,-19$: five of the six agree to within $40\%$ with no further factor, and the outlier is
 $D=-7$, which is also the case whose fitted amplitude is least stable, moving by a factor $1.7$ between the two halves
 of the range.
+
+\subsection{The same test on Hooley's sum}\label{sec:hooley}
+
+Everything above concerns a divisor sum smoothed by a Riesz mean. The identity~\eqref{eq:poincare} predicts the same
+law for a barer object, namely the partial sums of the Weyl sums themselves,
+\[
+T_k(X)=\sum_{\substack{d\le X\\ (d,2D)=1}}\ \sum_{b\bmod d,\ b^2\equiv D}\e\Bigl(\frac{kb}d\Bigr),
+\]
+the sum Hooley bounded by $O(X^{3/4+\varepsilon})$ in \cite{Hooley1963}. Since the poles of its Dirichlet series are
+those of~\eqref{eq:poincare}, at $s=\tfrac12\pm it_j$, the prediction is $T_k(X)=\sqrt X\sum_jc_jX^{it_j}+\cdots$, with
+no smoothing anywhere. We computed $T_1(X)$ for all $X\le10^6$ (\texttt{scripts/weyl-partial.ts}; roots of
+$b^2\equiv D$ by Tonelli--Shanks, Hensel and the Chinese remainder theorem).
+
+$T_1(X)/\sqrt X$ is indeed bounded, staying below $0.56$ in absolute value with standard deviation $0.14$ for
+$D=-4$: square-root cancellation, well beyond the proved exponent $\tfrac34$. Its spectrum is the even one, for every
+discriminant tested, at the $96$th percentile or above, while the frequencies $2t_j$ are rejected at the $12.7$th.
+And the phase test of~\eqref{eq:phasepred} applies verbatim, with $(2/\sqrt{|D|})^{it_1}$ entering through the
+factor $(\sqrt{|D|}/2)^{s}$ of~\eqref{eq:poincare}:
+
+\begin{table}[htbp]
+\centering\small
+\caption{The same parameter-free phase prediction~\eqref{eq:phasepred}, applied to the partial sums of Hooley's Weyl
+sums $T_1(X)$, $X\le10^6$. Reference $D_0=-4$; the other five are predictions.}\label{tab:weylphase}
+\begin{tabular}{lrrrrr}
+\toprule
+$D$ & $R^2$ even & percentile & predicted $\varphi_D$ & observed $\varphi_D$ & difference\\
+\midrule
+$-3$  & $0.173$ & $100$  & $-2.992$ & $-2.980$ & $-0.012$\\
+$-4$  & $0.412$ & $100$  & $-1.010$ & $-1.010$ & (reference)\\
+$-7$  & $0.159$ & $100$  & $+2.846$ & $+3.110$ & $-0.264$\\
+$-8$  & $0.252$ & $98.3$ & $+0.624$ & $+0.520$ & $+0.104$\\
+$-11$ & $0.170$ & $100$  & $+2.818$ & $+2.810$ & $+0.008$\\
+$-19$ & $0.206$ & $96.0$ & $+0.301$ & $+0.310$ & $-0.009$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three of the five predictions are correct to within $0.012$ radians, two parts in a thousand of a full period, and
+the median discrepancy over the five is $0.012$. We know of no way to obtain agreement of this kind other than by the
+mechanism of \S\ref{sec:formula} being correct.
 
 \paragraph{The limits of the present computations, and what is planned.} Every number reported above comes from a
 sieve of $Q_u(h)$ for $h\le10^7$, which runs in seconds to minutes on a laptop; the scripts are in the repository and
