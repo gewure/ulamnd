@@ -67,11 +67,27 @@ prime statements need Hardy–Littlewood.
   Hypothesis W(θ,B) the window needs 4B < 1−θ, not B < 1−θ; DFI's (3/4, 1/4) does not satisfy it — W needs
   square-root cancellation. (f) Paper I's Conjecture 1 (o(1), sharp) found false (parity of t²+1); v7 was submitted
   with it. Corrected to v8 (Cesàro form); exact test redone in Cesàro form: α = 1.001 ± 0.001, k = 0.498 (F15, F16).
+- 11 Sep (later). Rigorous pass part 2: Section 5 of paper III rewritten. (g) Exact finite Fourier expansion of the
+  window term (verified numerically): Σ_x B = (1/4d') Σ_{0<k<d'} (1−cos 2πkY/d')/sin²(πk/d') ρ_k(d') — flat weight
+  Y²/d' for k ≤ d'/Y, so a window modulus has up to u²L frequencies of full weight. (h) Consequence: Hypothesis
+  W(θ,B) closes the window only if 5θ+6B < 3 (and small moduli need 2B(2−θ) < 1−θ); the earlier "B < 1−θ" and
+  "4B < 1−θ" were both wrong bookkeeping (F18). Square-root cancellation with loss < (uk)^{1/12} is required;
+  DFI's (3/4,1/4) is far off. (i) Far moduli generalised: d' > u²YL contribute O(Y/(u²L)) trivially, so with
+  L = log H no reflection argument is needed anywhere — the "Hooley reflection" step is gone from the paper.
+  (j) Theorem A′ (unconditional): Off* = c_off H + Σ_{u≤H^{2/3+ε}} w(u) W_u(H/u; log H) + O(H (log H)^{1−c});
+  Cesàro (E) ⟺ windows = o(H log H). Theorem A (conditional on W with the exponent conditions): Off* = c_off H
+  + O(H^{1−δ}), A_f = A_f^diag + C² c_off. Paper III: 22 pp.
 
 ## 2. What is proved, conjectured, refuted (status board)
 PROVED (paper I): exact identity; ζ_K(s+1)E_f(s) with residue 1/C; E_f = H_f/L(2s+2,Sym²V) with H_f abs. conv.
 for Re s > −2/3 (H̃_f only for Re s > −3/4 — corrected); quadratic closed formula; Cesàro theorem for linear f;
 reduction to Off* = o(H log H); F_q[u] identity + finite support; spiral rays are degree-d polynomials.
+PROVED (paper III, 11 Sep): exact decomposition into pieces; weighted Kowalski–Soundararajan (Prop KSw, full proof);
+small moduli of every piece ≪ Y (log Y)^{−c}; far moduli d' > u²YL ≪ Y/(u²L) (trivial); Type II range u > H^{2/3+ε}
+with main term c_off(f) H, explicit constant (Lemma Gbar: dilation average −log p/(p−1) prime, 0 composite);
+Corollary: mean of sharp Off_f = c_off + (1−D_f(1))/2 (t²+1: −0.00978 predicted, −0.0098 ± 0.0007 measured);
+finite Fourier expansion of the window; Theorem A′ (unconditional reduction to the windows); Theorem A under
+W(θ,B) with 5θ+6B < 3, 2B(2−θ) < 1−θ; F_q[u]: Theorem B (N ≤ 2, D = u).
 PROVED (paper II): pair fields; Ψ_N virtual characters; structure theorem; quadratic exponents (necklace);
 natural boundary (all f, incl. f = t); Ω_±(x^{m−3/4}) unconditional; Prop. O_f (holomorphy ⇒ Cesàro
 conjecture); F_q[u] structure theorem.
@@ -79,7 +95,10 @@ PROVED UNDER RH: explicit formula for quadratics (m ≥ 2, full proof incl. hori
 under GRH for constituents of Ψ_1, Ψ_2, Ψ_3.
 NUMERICAL: t²+1 explicit formula β ≈ 1 (X = 4·10⁷, γ ≤ 100); α = 0.92 ± 0.08 (C not C²); Off_f bounded to 10⁵;
 F_q[u] identities two ways.
-CONJECTURED: Conjecture 1 (⇔ Hypothesis (E)); no-bias; Maass lines in Off_f.
+CONJECTURED: Conjecture 1 in Cesàro form (⇔ Hypothesis (E) in Cesàro form ⇔ windows o(H log H));
+Off*_f(H) = c_off(f) H + o(H) (constant identified; numerically confirmed for t²+1); Hypothesis W; no-bias.
+REFUTED (11 Sep): Maass lines in Off_f (null to 10⁷); "Off* ≪ H^{1−δ}" (main term exists); Conjecture 1 in sharp form
+with o(1).
 REFUTED / DEAD: Fibonacci dimensions special; quasicrystal patterns; spiral patterns beyond Bateman–Horn;
 "primes correlate with zeta zeros" as an unconditional statement; exact rational function-field formula.
 
@@ -137,6 +156,11 @@ F17. "Σ_{u>H^{1/2+ε}} w(u)P_u(H/u) ≪ H^{1−δ}" and "Off* ≪ H^{1−δ} un
     the correct conjecture is Off*_f(H) = c_off H + o(H), and the Cesàro constant A_f contains C²c_off. Also the
     averaging range is u > H^{2/3+ε}. RULE (again F12): compute the main term before claiming cancellation; the
     F_q[u] result (−1/q main term) was already telling us the off-diagonal has one.
+F18. "Hypothesis W with B < 1−θ closes the window" (paper III drafts of 10–11 Sep; also the intermediate "4B < 1−θ").
+    The window's Fourier spectrum is flat up to k ≈ d'/Y ≤ u²L, so the Weyl-sum route must sum over u²L frequencies
+    with loss (uk)^B against a saving (u²YL)^{θ}: the condition is 5θ+6B < 3 with the Type II range 2/3 (3θ+3B < 2
+    with range 1/2). RULE: derive the exponent condition from the exact Fourier expansion of the actual test
+    function, not from the small-moduli formula, which has k^{-2} decay from k = 1 only when d' ≤ Y.
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
