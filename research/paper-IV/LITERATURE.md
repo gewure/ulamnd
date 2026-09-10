@@ -19,7 +19,7 @@ or reference lists, content quoted from a citing paper. Notation: ρ_h(n) = Σ_{
   fundamental, f smooth on [Y,2Y], |f| ≤ 1, y²|f''| ≤ 1: Σ_{c≡0(q)} f(c) W_h(D;c) ≪ h^{1/4}(Y+√(hD))^{3/4} D^{1/8−1/1331},
   absolute constant. Nontrivial iff Y > D^{1/2−1/1332}. Via half-integral-weight Kloosterman sums (Thm 1.2). §16: negative D.
   Intro: "extensions to non-fundamental discriminants are also possible" (not done). → the ONLY result with explicit
-  discriminant uniformity; θ = 3/4 with D^{1/8}: far above 5θ+6B < 3.
+  discriminant uniformity; θ = 3/4 with D^{1/8} and h^{1/4}: fails θ+6B < 1 through the h-dependence.
 - **Marklof–Welsh 2023**, Duke Math. J. 172(12), 2303–2364, arXiv 2105.02854 (verified). D > 0 squarefree, D ≢ 1 (4):
   pair correlation and limit point process of roots μ/m ordered by m; N_I(x,N) ≪ log N roots in an interval of length ~1/N;
   also with m ≡ 0 (n). No power saving; fixed D. → the only "short interval" statement, and it is a counting bound.

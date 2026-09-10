@@ -266,6 +266,6 @@ mixed-term tails via E₁).
 Paper III (22 pp) now has: exact decomposition into pieces; weighted Kowalski–Soundararajan (full proof); far moduli
 trivial; Type II range u > H^{2/3+ε} with the MAIN TERM c_off(f) H (explicit constant, confirmed numerically for
 t²+1); finite Fourier expansion of the window; Theorem A′ (unconditional reduction of Cesàro (E) to the windows);
-Theorem A under Hypothesis W(θ,B) with 5θ+6B < 3, 2B(2−θ) < 1−θ. The Cesàro constant is
+Theorem A under Hypothesis W(θ,B) with θ+6B < 1. The Cesàro constant is
 A_f = A_f^diag + C² c_off. Paper I corrected to v8 (Conjecture 1 in Cesàro form; exact test in Cesàro form gives
 k = 0.498 ± 0.003). See research/KNOWLEDGE.md (timeline 11 Sep, F15–F18) for details and the open window problem.

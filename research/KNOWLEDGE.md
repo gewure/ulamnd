@@ -64,13 +64,13 @@ prime statements need Hardy–Littlewood.
   t²+1: c_off = −0.134390; measured mean of Off_f(t) to 10⁷ is −0.0098 ± 0.0007 against predicted
   c_off + (1−D_f(1))/2 = −0.00978. The near-cancellation is why Off_f looked mean-zero in paper II. (d) Range of
   the dilation averaging is u > H^{2/3+ε}, not H^{1/2+ε} (Parseval over the units costs √φ(d')). (e) Under
-  Hypothesis W(θ,B) the window needs 4B < 1−θ, not B < 1−θ; DFI's (3/4, 1/4) does not satisfy it — W needs
+  Hypothesis W(θ,B) the window needs [corrected later: θ+6B < 1, see F18]; DFI's (3/4, 1/4) does not satisfy it — W needs
   square-root cancellation. (f) Paper I's Conjecture 1 (o(1), sharp) found false (parity of t²+1); v7 was submitted
   with it. Corrected to v8 (Cesàro form); exact test redone in Cesàro form: α = 1.001 ± 0.001, k = 0.498 (F15, F16).
 - 11 Sep (later). Rigorous pass part 2: Section 5 of paper III rewritten. (g) Exact finite Fourier expansion of the
   window term (verified numerically): Σ_x B = (1/4d') Σ_{0<k<d'} (1−cos 2πkY/d')/sin²(πk/d') ρ_k(d') — flat weight
   Y²/d' for k ≤ d'/Y, so a window modulus has up to u²L frequencies of full weight. (h) Consequence: Hypothesis
-  W(θ,B) closes the window only if 5θ+6B < 3 (and small moduli need 2B(2−θ) < 1−θ); the earlier "B < 1−θ" and
+  W(θ,B) closes the window only if [5θ+6B < 3 — itself wrong; corrected to θ+6B < 1 the same night, F18]; the earlier "B < 1−θ" and
   "4B < 1−θ" were both wrong bookkeeping (F18). Square-root cancellation with loss < (uk)^{1/12} is required;
   DFI's (3/4,1/4) is far off. (i) Far moduli generalised: d' > u²YL contribute O(Y/(u²L)) trivially, so with
   L = log H no reflection argument is needed anywhere — the "Hooley reflection" step is gone from the paper.
@@ -101,7 +101,7 @@ small moduli of every piece ≪ Y (log Y)^{−c}; far moduli d' > u²YL ≪ Y/(u
 with main term c_off(f) H, explicit constant (Lemma Gbar: dilation average −log p/(p−1) prime, 0 composite);
 Corollary: mean of sharp Off_f = c_off + (1−D_f(1))/2 (t²+1: −0.00978 predicted, −0.0098 ± 0.0007 measured);
 finite Fourier expansion of the window; Theorem A′ (unconditional reduction to the windows); Theorem A under
-W(θ,B) with 5θ+6B < 3, 2B(2−θ) < 1−θ; F_q[u]: Theorem B (N ≤ 2, D = u).
+W(θ,B) with θ+6B < 1; F_q[u]: Theorem B (N ≤ 2, D = u).
 PROVED (paper II): pair fields; Ψ_N virtual characters; structure theorem; quadratic exponents (necklace);
 natural boundary (all f, incl. f = t); Ω_±(x^{m−3/4}) unconditional; Prop. O_f (holomorphy ⇒ Cesàro
 conjecture); F_q[u] structure theorem.
@@ -189,7 +189,7 @@ F10. Programming: `pkill -f <script>` kills the harness's own shell when the com
 ## 4. Paths and their ratings (10 Sep 2026)
 | # | path | rating | comment |
 |---|------|--------|---------|
-| P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (rigorous pass 11 Sep: KSw, far moduli, Type II with c_off proved) | Unconditional: small moduli (log-saving), far moduli (trivial), u > H^{2/3+ε} (main term c_off H). Open = the window (Y, u²Y] for 1 < u ≤ H^{2/3}; Hypothesis W needs 4B < 1−θ, i.e. square-root cancellation in dilated Weyl sums — NOT a uniformity extension of DFI. Honest framing: W is a hard open problem. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
+| P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (rigorous pass 11 Sep: KSw, far moduli, Type II with c_off proved) | Unconditional: small moduli (log-saving), far moduli (trivial), u > H^{2/3+ε} (main term c_off H). Open = the window (Y, u²Y] for 1 < u ≤ H^{2/3}; Hypothesis W needs θ+6B < 1: any modulus saving, but loss below (uk)^{(1−θ)/6} in frequency and dilation — no known Weyl bound is frequency-uniform. Honest framing: W is a hard open problem; paper IV goes via the divisor-sum form of the pieces instead. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
 | P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep; Thm B proved for N ≤ 2, D = u) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
 | P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
 | P4 | Maass-spectral explicit formula for Off_f ("second spectrum") | ★★☆☆☆ (was ★★★, 10 Sep) | Beautiful, hard; precedent Bykovskiĭ/Soundararajan–Young for prime geodesics. Do NOT start before job (C4) shows whether Maass lines exist. If they do, this is the headline of paper III or IV. |

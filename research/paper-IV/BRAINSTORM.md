@@ -99,7 +99,7 @@ translate; the level becomes 4u². The spectral large sieve (Deshouillers–Iwan
 Why: this is the only method known to give genuinely short intervals (DFI 1995: x ≤ q^{1/2+...}? for prime q).
 Obstruction: level 4u² with u up to H^{2/3}: the level dependence must be < u^{1/12} in our normalisation; spectral
 bounds usually lose the level polynomially with exponent ≥ 1/2 without an extra averaging. Might work for u ≤ Y^{ε}.
-TEST: find the level dependence in DFI 1995 Thm 1 / Deshouillers–Iwaniec large sieve and compare with 5θ+6B<3.
+TEST: find the level dependence in DFI 1995 Thm 1 / Deshouillers–Iwaniec large sieve and compare with θ+6B<1.
 
 ## 5. Dispersion method for the u-average — ★★★☆☆
 Idea: Σ_u |Σ_{d'} λ(d') g(d') ρ_k(d')(u)|² expanded: pairs (d'₁, d'₂) and the correlation of dilated root sets mod d'₁d'₂;
