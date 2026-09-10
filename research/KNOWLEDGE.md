@@ -88,6 +88,11 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep. SELECTION RULE AT p = 3 found (unexplained). The spectral signal in the pieces is present exactly when the
+  prime 3 does NOT split in Q(sqrt D): 0 of 5 split cases (D = -8, -11, 13, -23, 28) show it, 8 of 9 non-split cases do
+  (D = -4, -3, -7, 5, 8, 12, 17, -19, 20). Fisher exact ~5e-4. Not a size effect (sd of P/sqrt Y does not separate the
+  groups). lambda(3) = -3 is the unique negative lambda and the only local factor that can dominate the spectral term
+  at Re s = 1/2. Sharpest open question; cheap to attack (more discriminants; divide out the p=3 Euler factor).
 - 12 Sep. Katok–Sarnak periods COMPUTED (LMFDB coefficients of the first even Maass form, R=13.7798, via
   scripts/maass-period.py). Presence/absence of the spectral signal is explained at the order-of-magnitude level:
   the periods are all within a factor 3 for |D| <= 19 (all six such discriminants show a signal) and collapse by

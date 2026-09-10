@@ -92,3 +92,23 @@ expansion u(z) = √y Σ_n a(n) K_{it}(2π|n|y) cos(2πnx) and compare |u_1(ρ)|
   (a theorem within reach by Bykovskiĭ/DFI/Katok–Sarnak), then the level uniformity for the sum over u.
 - The parity selection rule is a clean prediction that the data confirm on five polynomials and refute on none
   (two absences are explained by exponentially small periods).
+
+## 1c. A selection rule at p = 3 (12 Sep) — new, unexplained, and sharp
+Splitting the nine-plus-five tested polynomials by the behaviour of the prime 3 in Q(sqrt D):
+
+  3 SPLIT (lambda(3) = 3/(3-4) = -3, a large negative weight at the smallest split prime):
+    D = -8 (47th pct), -11 (44th), 13 (67th), -23 (19th), 28 (23rd)      -> 0 of 5 show a signal
+  3 INERT or SPECIAL (no lambda(3) factor):
+    D = -4 (100th), -3 (100th, special), -7 (100th), 5 (92nd), 8 (100th), 12 (99th, special),
+    17 (99.3rd), -19 (92nd), 20 (74.7th)                                  -> 8 of 9 show a signal
+
+Under no association this split is unlikely (Fisher exact, roughly p = 5e-4). It is NOT a signal-to-noise effect:
+sd(P/sqrt Y) is 0.056 for both D = -3 (signal) and D = -8 (none), and 0.235 for D = -11 (none) against 0.098 for
+D = -4 (signal), so the groups are not separated by the size of the piece.
+Status: UNEXPLAINED. What is special about 3 splitting is that lambda(3) = -3 is the only negative value of lambda,
+and |lambda(3) rho(3)/3| = 2 > 1, so the local factor at 3 of the Euler product for W_k(s) has modulus up to
+3 * 2 * 3^{-1/2} = 3.46 at Re s = 1/2 -- the one place where a single local factor dominates the spectral term. The
+natural guesses are (i) the local factor at 3 shifts the abscissa so the spectral poles are no longer the nearest
+singularity, or (ii) an oldform/newform effect at level divisible by 3. Neither is checked.
+This is the sharpest open question in the project and it is cheap to attack: test more discriminants, and test whether
+the signal returns when the p = 3 Euler factor is divided out of the piece.
