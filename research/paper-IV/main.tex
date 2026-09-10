@@ -332,8 +332,63 @@ the moduli (M\"obius over $\ell^2$ and the split condition, as in part~III, Lemm
 $\lambda=1*\kappa$.}
 
 \section{Katok--Sarnak and the parity rule}\label{sec:ks}
-\todo{Statement of the Katok--Sarnak correspondence; residues as periods; vanishing for odd forms at $i$, $\rho$, over
-conjugate pairs of Heegner points and reflection-symmetric geodesics; the level $4u^2$ and oldforms.}
+
+Hypothesis~K places the poles of $W_k$ at $\tfrac12\pm it_j$, $t_j$ running over the weight-$\tfrac12$ spectrum, with
+residues proportional to $\overline{\rho_j(|D|)}\rho_j((k/2)^2)$. Two classical inputs turn this into a statement
+about the Maass forms of $\mathrm{SL}_2(\Z)$.
+
+\paragraph{Shimura and Katok--Sarnak.} The Shimura correspondence sends the weight-$\tfrac12$ forms of level $4$ in
+Kohnen's plus space to weight-$0$ Maass forms of level $1$ with the same spectral parameter, and the image consists of
+the \emph{even} forms; the odd Maass forms correspond to weight $\tfrac32$. Katok and Sarnak
+\cite{KatokSarnak1993} identify the Fourier coefficients of the weight-$\tfrac12$ form at a fundamental discriminant
+$D$ with a period of the corresponding Maass form $u_j$: for $D<0$ the sum of $u_j$ over the Heegner points of
+discriminant $D$, and for $D>0$ the integral of $u_j$ over the closed geodesics of discriminant $D$. Writing
+$\mathrm{Per}_D(u_j)$ for that period,
+\begin{equation}\label{eq:ks}
+\rho_j(|D|)=\kappa(t_j,D)\,\mathrm{Per}_D(u_j)
+\end{equation}
+with an explicit factor $\kappa$. \todo{Pin $\kappa$ and the normalisation of $\mathrm{Per}$ to
+\cite{KatokSarnak1993}; only $|\kappa|$, and only its dependence on $D$, is used below.}
+
+\begin{proposition}[parity]\label{prop:parity}
+If $u_j$ is an odd Maass form then $\mathrm{Per}_D(u_j)=0$, for every discriminant $D$. Consequently only the even
+Maass forms of $\mathrm{SL}_2(\Z)$ can contribute to the pieces.
+\end{proposition}
+\begin{proof}
+Let $\iota(z)=-\bar z$, the reflection in the imaginary axis; $u_j$ is odd exactly when $u_j\circ\iota=-u_j$. For
+$D<0$ the Heegner points of discriminant $D$ are the roots $z_Q\in\mathbb H$ of the integral binary quadratic forms
+$Q=[a,b,c]$ of discriminant $D$, one for each class, and $\iota(z_{[a,b,c]})=z_{[a,-b,c]}$; since $[a,b,c]\mapsto[a,-b,c]$
+is the inversion of the class group, it permutes the classes, so $\iota$ permutes the set of Heegner points. Hence
+$\mathrm{Per}_D(u_j)=\sum_Qu_j(z_Q)=\sum_Qu_j(\iota z_Q)=-\mathrm{Per}_D(u_j)$, which forces
+$\mathrm{Per}_D(u_j)=0$. For $D>0$ the same involution permutes the closed geodesics $S_Q$ attached to the classes,
+and reverses none of the identifications used in defining the cycle integral, so the same computation applies to
+$\mathrm{Per}_D(u_j)=\sum_Q\int_{\Gamma_Q\backslash S_Q}u_j\,ds$.
+\end{proof}
+
+\emph{In words.} The Heegner points of a given discriminant, and likewise the closed geodesics, are symmetric about
+the imaginary axis; an odd Maass form is antisymmetric about it; so its period vanishes. This is the third appearance
+of one and the same symmetry. In \S\ref{sec:walfisz} it made the linear term of the sawtooth identity vanish; in
+Proposition~\ref{prop:mellin} it killed the odd half of Hurwitz's formula; here it removes the odd half of the
+spectrum. All three are the statement that the roots of a quadratic congruence come in pairs $\pm x$.
+
+\begin{corollary}[the shape of a piece]\label{cor:shape}
+Assume Hypothesis~K. Then in the notation of \S\ref{sec:formula} the spectral sum runs over the even Maass cusp forms
+of $\mathrm{SL}_2(\Z)$ only, and the coefficient of the line $t_j$ is proportional to $\mathrm{Per}_D(u_j)$.
+\end{corollary}
+
+\paragraph{The size of the periods, and a visibility threshold.} For $D<0$ of class number one the period is the single
+value $u_1(z_D)$ at $z_D=(-b+i\sqrt{|D|})/2$. Through the Fourier expansion
+$u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$ this is governed by $K_{it_j}(2\pi y)$ with
+$y=\sqrt{|D|}/2$. The Bessel function $K_{it}(x)$ of imaginary order is of size $e^{-\pi t/2}$ and oscillatory while
+$x<t$, and only begins to decay in $x$ once $x>t$. Hence the periods of a fixed form $u_j$ are all of comparable size
+for
+\begin{equation}\label{eq:threshold}
+|D|<\Bigl(\frac{t_j}\pi\Bigr)^2,
+\end{equation}
+and collapse exponentially beyond it. For the first even form, $t_1=13.7798$, the threshold is $|D|\approx19.2$. This
+is a falsifiable prediction: the first line should be visible for the small discriminants and invisible for
+$|D|\ge43$, while the higher lines, having larger $t_j$, should persist further. Section~\ref{sec:numerics} reports
+what is observed.
 
 \section{The spectral formula for a piece}\label{sec:formula}
 \begin{theorem}[\todo{target}]\label{thm:spectral}
@@ -341,8 +396,77 @@ conjugate pairs of Heegner points and reflection-symmetric geodesics; the level 
 \end{theorem}
 
 \section{Numerical evidence}\label{sec:numerics}
-\todo{Table of NOTES-routeR.md \S1; figure of $\mathcal P_1(Y)/\sqrt Y$ for $t^2-2$ against the fitted even lines;
-stability of amplitudes and phases; scripts.}
+
+All computations are exact rational or high-precision arithmetic; the scripts are in the repository
+(\texttt{research/paper-IV/scripts/}). For each $f$ and $u$ we compute $\mathcal P^{(1)}_u(Y)$ for all $Y\le10^7$
+(a sieve of $Q_u(h)$ for $h\le Y$, with $\mathbb EF_u$ evaluated to $22$ significant digits, since an error
+$\delta$ in $\mathbb EF_u$ enters as $\delta Y^2/2$), sample it on a logarithmic grid of $4096$ points in
+$\log Y\in[\log10^3,\log Y_{\max}]$, remove the mean and the linear trend in $\log Y$, and regress the result on
+\[
+\bigl\{\cos(t_j\log Y),\ \sin(t_j\log Y)\bigr\}_{j=1}^{6}
+\]
+for the six smallest even spectral parameters, for the six smallest odd ones, and for $300$ random sets of six
+frequencies drawn uniformly from $[12,25]$. Reported is the fraction of variance explained, $R^2$, and where it falls
+among the random sets.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Fit of $\mathcal P^{(1)}_u(Y)/\sqrt Y$ to the even and to the odd spectral parameters of $\mathrm{SL}_2(\Z)$,
+against $300$ random frequency sets of the same size ($Y\le10^7$; $u=1$ throughout except where shown).}\label{tab:fits}
+\begin{tabular}{llrrrrr}
+\toprule
+$f$ & $D$ & $R^2$ even & percentile & $R^2$ odd & percentile & verdict\\
+\midrule
+$t^2-2$      & $8$    & $0.217$ & $100$ & $0.036$ & $34$ & even\\
+$t^2+1$      & $-4$   & $0.152$ & $100$ & $0.028$ & $20$ & even\\
+$t^2+t+1$    & $-3$   & $0.139$ & $100$ & $0.037$ & $35$ & even\\
+$t^2+t+2$    & $-7$   & $0.089$ & $100$ & $0.051$ & $76$ & even\\
+$t^2-3$      & $12$   & $0.066$ & $99$  & $0.037$ & $66$ & even\\
+$t^2+t-1$    & $5$    & $0.062$ & $92$  & $0.036$ & $32$ & even\\
+$t^2+t+5$    & $-19$  & $0.047$ & $92$  & $0.044$ & $88$ & inconclusive\\
+$t^2+2$      & $-8$   & $0.031$ & $47$  & $0.054$ & $86$ & none\\
+$t^2+t+3$    & $-11$  & $0.009$ & $44$  & $0.023$ & $100$& none\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:fits} is the evidence for Proposition~\ref{prop:parity}. Six of the nine polynomials place the even set
+at the $92$nd percentile or above, four of them above every one of the $300$ random sets; the odd set never rises above
+the $88$th percentile except once, at the $100$th for $t^2+t+3$, where the even set is at the $44$th and the fit is
+at the level of the noise. For the dominant line $t_1=13.7798$ the fitted amplitude and phase are stable when the
+range of $\log Y$ is cut in half: for $t^2-2$, amplitudes $0.019$ and $0.018$ with phases $0.89$ and $0.61$; for
+$t^2+t+1$, $0.021$ and $0.017$ with phases $1.01$ and $1.03$; for $t^2+1$ at $u=2$, $0.042$ and $0.042$ with phases
+$-0.30$ and $0.07$. A spurious fit does not reproduce its phase on an independent range.
+
+\paragraph{The periods.} Using the Fourier coefficients of the first even form (LMFDB label \texttt{1.0.1.3.1},
+$t_1=13.7797513$) we evaluated $u_1$ at the Heegner points of the nine imaginary discriminants of class number one
+(\texttt{scripts/maass-period.py}).
+
+\begin{table}[htbp]
+\centering\small
+\caption{The Katok--Sarnak period of the first even Maass form at the Heegner point of discriminant $D<0$, class
+number one, relative to $D=-4$; and the fitted amplitude of the line $t_1$, relative to $D=-4$.}\label{tab:periods}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+$D$ & $-3$ & $-4$ & $-7$ & $-8$ & $-11$ & $-19$ & $-43$ & $-67$ & $-163$\\
+\midrule
+$|u_1(z_D)|/|u_1(i)|$ & $0.649$ & $1$ & $0.542$ & $0.318$ & $0.302$ & $0.444$ & $6.6\cdot10^{-3}$ & $1.0\cdot10^{-4}$ & $2.2\cdot10^{-10}$\\
+fitted amplitude ratio & $0.483$ & $1$ & $0.111$ & $0.281$ & $0.461$ & $1.358$ & --- & --- & ---\\
+signal present & yes & yes & yes & no & no & marginal & no & no & no\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:periods} confirms the mechanism at the level of orders of magnitude and no further. The threshold
+\eqref{eq:threshold} sits at $|D|\approx19.2$: below it every period lies within a factor $3$ of every other, and
+every one of the six discriminants with $|D|\le19$ has an amplitude within a factor $12$ of the others; above it the
+periods fall by two, four and ten orders of magnitude at $D=-43,-67,-163$, and no signal is seen at any of them. In
+particular the absence at $D=-163$, the polynomial $t^2+t+41$, is explained. What the table does \emph{not} confirm is
+the amplitude law itself: the two rows disagree by as much as a factor $5$ at $D=-7$. Two unmodelled effects are of
+that size, the local factors, since $\mathbb EF_u$ ranges over $[0.35,1.60]$ across these polynomials and enters
+multiplicatively, and the uncertainty of the fitted amplitudes themselves, which for $D=-7$ is a factor $2$ between
+the two halves of the range. We record the amplitude law as a prediction to be tested, not as a confirmed fact, and we
+note that the absences at $D=-8$ and $D=-11$, whose periods are of ordinary size, are not explained by anything above.
 
 \section{Uniformity in $u$ and the Ces\`aro conjecture}\label{sec:uniformity}
 \todo{The condition $A<\tfrac14$; what the spectral large sieve gives; the windows of part~III in spectral terms.}
