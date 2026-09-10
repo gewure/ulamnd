@@ -1188,7 +1188,7 @@ $d!$.
 Before $t_0$ a ray runs through a lower-degree transient inside one shell and possibly through other
 degree-$d$ regimes; only the eventual regime governs the far part of the line. Our detector locates it
 by exact finite differences at $t\ge2\max|b_i|+2$ and was checked on $\tOneRays$ random rays in
-dimensions $2$--$7$. The spiral was the starting point of this work: the first author asked whether its
+dimensions $2$--$7$. The spiral was the starting point of this work: the author asked whether its
 ``pseudo-patterns'' become polynomial in higher dimensions, whether the Fibonacci dimensions are special,
 and whether the patterns might be quasiperiodic. Theorem~\ref{thm:poly} answers the first question; the
 other two have negative answers, documented in the repository (\texttt{research/experiments/REPORT-full.md}): along
@@ -1264,14 +1264,17 @@ the \texttt{riesz} scripts and \texttt{research/experiments/galois.ts} (Section~
 \texttt{research/experiments/run.ts} (Section~\ref{sec:spiral} and the negative results),
 \texttt{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
 
-\section*{Statement on authorship and the use of AI}
-
-The questions about the Ulam spiral that started this work, and the decision to pursue the variance
-phenomenon, were the first author's. The construction of Definition~\ref{def:spiral}, the proof of
-Theorem~\ref{thm:poly}, the heuristic of Section~\ref{sec:heur}, the software, the experiments and the
-text were produced by the Anthropic model Claude Fable 5.1 working interactively under the first
-author's direction in September 2026. The first author has verified the code and the results and takes
-responsibility for the content.
+\section*{AI-assisted research: disclosure}
+This work was carried out with heavy use of a large language model, the Anthropic model Claude Fable 5.1, used
+interactively by the author in September 2026 as a research assistant. The author posed the questions, set the
+direction and the scope, and made every decision about what to pursue, claim and submit. The model was used to draft
+mathematical arguments, to write and run the software behind every number in the paper, to search the literature,
+and to draft the text; all of this was done in dialogue with the author, who verified the code and the numerical
+results, reviewed the proofs, and takes full responsibility for the content. The model is not an author. The
+complete record of the work, including the code, the data, a chronological knowledge base listing the errors made
+and corrected along the way, and the review passes, is in the public repository
+\url{https://github.com/gewure/ulamnd} (directory \texttt{research/}), so that the extent and the nature of the
+assistance can be checked in detail.
 
 \bibliographystyle{plain}
 \bibliography{refs}

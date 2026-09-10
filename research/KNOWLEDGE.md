@@ -77,6 +77,9 @@ prime statements need Hardy–Littlewood.
   (j) Theorem A′ (unconditional): Off* = c_off H + Σ_{u≤H^{2/3+ε}} w(u) W_u(H/u; log H) + O(H (log H)^{1−c});
   Cesàro (E) ⟺ windows = o(H log H). Theorem A (conditional on W with the exponent conditions): Off* = c_off H
   + O(H^{1−δ}), A_f = A_f^diag + C² c_off. Paper III: 22 pp.
+- 11 Sep (decision, author). No AI co-authorship: single-author papers with a uniform "AI-assisted research:
+  disclosure" section (ERRATA item 8). Rationale: publishers' policies; transparency preserved by the disclosure and
+  the public repository.
 - 11 Sep (late night). Self-review of papers I/II for consistency with III: Hypothesis (E) restated (Cesàro primary);
   Theorem 6 proof bound corrected to the symmetrised bracket; forward references. Paper III: the window's trivial
   size is O(Y), not Y log u² (Koksma is what loses the log); Corollary "small agreeing part": windows with

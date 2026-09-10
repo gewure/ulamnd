@@ -70,3 +70,10 @@ None of this affects Theorems 2, 3, 5, 6, 8 or the conjecture. It affects only w
 
 7. **Table 2 ("A_f/C")** estimates the constant from the sharp sum at H = 10⁵; the caption now says so and
    points to the Cesàro test.
+
+8. **Authorship (all three papers, 11 September 2026, author's decision).** The model was listed as second author of
+   papers II and III (and paper I's statement said the venue could demote it to an acknowledgement). Most publishers do
+   not allow an AI system as an author. Now: single author on all three papers; the section "Statement on authorship and
+   the use of AI" is replaced by "AI-assisted research: disclosure", identical in the three papers, stating the heavy
+   use of the model, the division of roles, the author's verification and responsibility, and pointing to the public
+   repository (with the knowledge base of errors) for a complete record.
