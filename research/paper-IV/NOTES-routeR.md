@@ -284,3 +284,15 @@ the constant in O(x^2) depends on tau, and K_{i tau}(x) changes regime at x ~ ta
 Needed: a version uniform in tau with a power saving. This is standard uniform Bessel analysis (uniform asymptotics
 for K_{i tau}(x) across the transition, Balogh / Olver type) and it is the only thing between the derivation and the
 theorem.
+
+## 1l. THE LAST LEMMA (12 Sep night): uniform in the order, and elementary
+K_{i tau}(x) = (1/2)[Gamma(-i tau)(x/2)^{i tau} + Gamma(i tau)(x/2)^{-i tau}] + E,  |E| <= |Gamma(i tau)|(e^{x^2/(4tau)} - 1),
+for tau >= 1 and ALL x > 0. From the convergent series K_nu = (pi/2 sin nu pi)(I_{-nu} - I_nu): the n-th term carries
+Gamma(1 -+ i tau)/Gamma(n+1 -+ i tau) = 1/((1 -+ i tau)...(n -+ i tau)), each factor of modulus >= tau, so the tail is
+at most |Gamma(i tau)| sum_{n>=1}(x^2/4tau)^n/n!. Verified at 30 pairs (tau 2..300, x 0.5..8): holds every time.
+Applied with x = c w, c = sqrt|D|/t (same for every k), split at W = sqrt(t_j)/c: relative error t_j^{-3/4}, uniform.
+Stationary point of the combined phase at x = sqrt|D| -- fixed, inside the range. Prop. riesz has room to spare.
+WHAT IS STILL NOT DONE (and why the paper says "target", not "theorem"): the tail w > W by non-stationary phase; the
+summation of errors over k and then j with uniformity tracked; the interchanges. No new idea required -- but it is
+not written, and this paper has already had two shortcuts through the literature turn out to be about the wrong
+object (F24, F25). Do not upgrade the wording until the bookkeeping exists on paper.

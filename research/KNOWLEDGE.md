@@ -88,6 +88,18 @@ prime statements need Hardy–Littlewood.
   abstract claims conditioned; fit precision fixed; forward references made "in preparation" citations; disclosure
   names both models. Verdict: publishable as a preprint (ERRATA 10). No endorser yet; Zenodo/HAL noted as
   no-gatekeeping alternatives, journal submission needs no endorsement.
+- 12 Sep (night, last). UNIFORM BESSEL LEMMA PROVED, elementarily, closing the last named gap in structure:
+  for tau >= 1 and all x > 0,  K_{i tau}(x) = (1/2)[Gamma(-i tau)(x/2)^{i tau} + Gamma(i tau)(x/2)^{-i tau}] + E
+  with |E| <= |Gamma(i tau)| (exp(x^2/(4 tau)) - 1). Proof: the convergent series for K_nu via I_{-nu} - I_nu; the
+  n-th term carries 1/((1 -+ i tau)...(n -+ i tau)), each factor of modulus >= tau, so the tail is
+  |Gamma(i tau)| sum_{n>=1} (x^2/4tau)^n/n!. NO uniform-asymptotic machinery needed. Verified at 30 (tau, x) pairs,
+  tau in 2..300, x in 0.5..8: bound holds every time (ratios 0.0002-0.995).
+  Applied at x = c w, c = sqrt|D|/t (independent of k), splitting at W = sqrt(t_j)/c gives a relative error
+  t_j^{-3/4} uniform in j -- which Prop. riesz absorbs easily. The stationary point of the combined phase sits at
+  x = sqrt|D|, FIXED and well inside the lemma's range.
+  STILL NOT A THEOREM: the bookkeeping (tail w > W by non-stationary phase; summing errors over k then j with
+  uniformity; justifying interchanges) is not written out. No new idea is needed. Paper IV keeps "target" wording
+  deliberately -- two earlier shortcuts through continuation theorems both appealed to the wrong object (F24, F25).
 - 12 Sep (night, later). RIGOROUS DECOMPOSITION COMPLETED as a structure (paper IV Section 5.1, 17 pp). Three items
   closed: (a) CONVENTIONS -- for odd d coprime to 2D, reduction mod d is a bijection {b' mod 2d: b'^2 = D (4d)} ->
   {b mod d: b^2 = D (d)} and e(2k b'/(2d)) = e(k b/d), so sawtooth frequency k <-> Poincare frequency m = 2k

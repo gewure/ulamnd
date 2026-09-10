@@ -648,16 +648,60 @@ $\#\{j:t_j\le T\}\sim T^2/12$ the sum over $j$ is dominated by $\int^\infty t^{5
 which converges for $m>\tfrac{11}{12}$. With the trivial sup-norm bound the exponent is $\int^\infty t^{-m}dt$ instead.
 \end{proof}
 
-\paragraph{What now remains.} With Lemmas~\ref{lem:conventions}, \ref{lem:seed} and~\ref{lem:trunc},
-Remark~\ref{rem:eisenstein} and Proposition~\ref{prop:riesz}, the decomposition is complete as a structure: the
-orbit sum is legitimate, the automorphised seed is in $L^2$, the continuous spectrum is $o(\sqrt Y)$, and the
-discrete sum converges at Ces\`aro order. One analytic point stands between this and Theorem~\ref{thm:spectral}, and
-we state it plainly rather than hide it in an estimate. The expansion~\eqref{eq:Ksmall} is an asymptotic as
-$x\to0$ \emph{for fixed order}; its error term $O(x^2)$ carries a constant depending on $t_j$, and the transition
-between the oscillatory and the exponentially decaying regimes of $K_{it}(x)$ occurs at $x\asymp t$. Since we apply
-it at $x=\sqrt{|D|}w/t$ with $w$ ranging over the support of the sine integral, what is needed is a form
-of~\eqref{eq:asymp} uniform in $t_j$, with an error saving a power of $t$ uniformly. That is a standard but genuine
-piece of uniform Bessel analysis; it is the last step, and we have not carried it out.
+\paragraph{The expansion~\eqref{eq:Ksmall}, uniformly in the order.} One point remains: \eqref{eq:Ksmall} is an
+asymptotic as $x\to0$ \emph{for fixed order}, whereas we apply it at $x=\sqrt{|D|}\,w/t$ with $t_j$ ranging over the
+whole spectrum. What is needed is a version uniform in $t_j$. It is elementary, and follows from the convergent
+series for $K_\nu$ rather than from any uniform-asymptotic machinery.
+
+\begin{lemma}[uniform small-argument expansion]\label{lem:Kuniform}
+For $\tau\ge1$ and $x>0$,
+\[
+K_{i\tau}(x)=\tfrac12\Bigl[\Gamma(-i\tau)\bigl(\tfrac x2\bigr)^{i\tau}+\Gamma(i\tau)\bigl(\tfrac x2\bigr)^{-i\tau}\Bigr]+E(x,\tau),
+\qquad |E(x,\tau)|\ \le\ |\Gamma(i\tau)|\,\bigl(e^{x^2/(4\tau)}-1\bigr).
+\]
+In particular $|E(x,\tau)|\le|\Gamma(i\tau)|\,x^2/(2\tau)$ whenever $x^2\le2\tau$.
+\end{lemma}
+\begin{proof}
+From $K_\nu=\frac\pi{2\sin\nu\pi}(I_{-\nu}-I_\nu)$, the series
+$I_\nu(x)=\sum_{n\ge0}(x/2)^{2n+\nu}/(n!\,\Gamma(n+\nu+1))$ and $\Gamma(z)\Gamma(1-z)=\pi/\sin\pi z$,
+\[
+K_{i\tau}(x)=\tfrac12\Gamma(i\tau)\Gamma(1-i\tau)\sum_{n\ge0}\frac{(x/2)^{2n}}{n!}
+\Bigl[\frac{(x/2)^{-i\tau}}{\Gamma(n+1-i\tau)}-\frac{(x/2)^{i\tau}}{\Gamma(n+1+i\tau)}\Bigr],
+\]
+convergent for every $x$. The term $n=0$ is the stated main term, using $\Gamma(1-i\tau)=-i\tau\,\Gamma(-i\tau)$. For
+$n\ge1$,
+\[
+\Bigl|\frac{\Gamma(1\mp i\tau)}{\Gamma(n+1\mp i\tau)}\Bigr|=\frac1{|(1\mp i\tau)(2\mp i\tau)\cdots(n\mp i\tau)|}\le\tau^{-n},
+\]
+since each factor has modulus at least $\tau$. As $|\Gamma(i\tau)|=|\Gamma(-i\tau)|$, the tail is at most
+$|\Gamma(i\tau)|\sum_{n\ge1}(x^2/4\tau)^n/n!=|\Gamma(i\tau)|(e^{x^2/(4\tau)}-1)$.
+\end{proof}
+
+\todo{The bound was checked numerically at $30$ pairs with $\tau\in\{2,5,13.78,40,100,300\}$ and
+$x\in\{0.5,1,2,4,8\}$; it holds in every case, with ratio between $0.0002$ and $0.995$.}
+
+Lemma~\ref{lem:Kuniform} is exactly what~\eqref{eq:asymp} needs. In $I_k$ the argument is $x=cw$ with
+$c=\alpha_k/\beta_k=\sqrt{|D|}/t$, the same for every $k$; splitting the $w$-integral at $W=\sqrt{t_j}/c$ and applying
+the lemma below $W$ gives an error
+\[
+\ll|\Gamma(it_j)|\,\frac{c^2}{t_j}\int_0^Ww^{3/2}\,dw\ \asymp\ |\Gamma(it_j)|\,c^{-1/2}\,t_j^{-3/4},
+\]
+against a main term of size $\asymp|\Gamma(it_j)|c^{-1/2}$: a saving of $t_j^{-3/4}$, uniform in $j$, which
+Proposition~\ref{prop:riesz} has ample room to absorb. Note also that the stationary point of the combined phase,
+where $t_j\,d(\log x)/dx$ meets $1/c$, sits at $x=\sqrt{|D|}$, a fixed point independent of $t_j$ and well inside
+the range where the lemma applies.
+
+\paragraph{What now remains.} With Lemmas~\ref{lem:conventions}, \ref{lem:seed}, \ref{lem:trunc}
+and~\ref{lem:Kuniform}, Remark~\ref{rem:eisenstein} and Proposition~\ref{prop:riesz}, every ingredient of
+Theorem~\ref{thm:spectral} is in place: the orbit sum is legitimate, the automorphised seed lies in $L^2$, the
+continuous spectrum is $o(\sqrt Y)$, the discrete sum converges already at Ces\`aro order, and the one expansion
+that had to be uniform is uniform, elementarily. What is not yet done is the bookkeeping: the tail $w>W$ of each
+$I_k$ must be disposed of by non-stationary phase, the errors must be summed over $k$ and then over $j$ with the
+uniformity tracked, and the interchanges of summation justified. None of it requires a new idea. We state the
+theorem as a target rather than a theorem because that work is not written out, and because two earlier attempts in
+this paper to shorten exactly this kind of step, by appealing to a continuation theorem, both turned out to appeal
+to the wrong object (Remarks~\ref{rem:achieved} and~\ref{rem:notneeded}). We would rather leave the last section
+honest than claim a proof we have not written.
 
 \section{Numerical evidence}\label{sec:numerics}
 
