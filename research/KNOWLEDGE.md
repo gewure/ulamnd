@@ -385,6 +385,31 @@ F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep)
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
+## 3c. GENERAL u: THE GEOMETRY, AND A CORRECTION TO PAPER IV (12 Sep, later)
+CORRECTION MADE TO PAPER IV (real error, now fixed): the Poincare series of Step 3 must be summed over
+Gamma_infty \ Gamma, NOT over Gamma. Reason: the arithmetic parametrisation is by (d, b mod 2d), and b -> b+2d is
+z -> z-1, so the sum runs over Heegner points MODULO TRANSLATION. A full Gamma-orbit contains z+n for every n, all of
+the same height, and sum_{Gamma}(Im gamma w)^2 diverges, whereas sum_{Gamma_infty\Gamma}(Im gamma w)^2 = E(w,2)
+converges. The Step-4 computation was unaffected (it already used int_0^1 dx, the classical unfolding for a coset
+sum), but Lemma seed and Step 3 as written were wrong. Paper IV now says Gamma_infty\Gamma throughout.
+
+WHY THE SHIMURA SHORTCUT FAILED (3b). For general u the pairs are (d, x) with u^2 x^2 = D (d); the associated forms
+have discriminant 4u^2 D and the point is z = (-u^2 x + u sqrt D)/d, so Im z = u sqrt|D|/d and Re z = -u^2 x/d. With
+x mod d, Re z has period u^2, NOT 1. So the seed is invariant under translation by u^2, not by 1, and the relevant
+object is the Poincare series over Gamma_infty^{(u^2)} \ Gamma; the Fourier pairing then forces k = n u^2. The sum is
+therefore NOT the full Katok-Sarnak period over all Heegner points of discriminant 4u^2 D but a restricted
+sub-family, which is exactly why the naive Shimura amplitude prediction failed its check (0.639 predicted vs 1.017).
+This is the dilation problem of part III in geometric form.
+
+WHAT THE CORRECTED PICTURE PREDICTS, AND ONE CONFIRMATION. With k = n u^2 and a = t y/(u sqrt|D|), the Bessel and
+sine parameters become alpha = 2 pi n, beta = 2 pi n u t / sqrt|D|, so the expansion parameter is
+  alpha/beta = sqrt|D| / (u t)      [u = 1 recovers the earlier sqrt|D|/t]
+and the phase factor (alpha/2beta)^{i t_j} gives an EXTRA phase shift of -t_j log u relative to u = 1.
+TESTED: for t^2+1, phi(u=2) - phi(u=1) predicted -t_1 log 2 = -3.268 (mod 2pi), observed -3.31. Difference 0.042 rad.
+One clean data point; u = 5, 10 have unstable phases (amplitude near the noise floor, consistent with the predicted
+u^{-1/2} decay) and u = 13 blows up numerically (E F precision). Stabilising those is the next concrete step: it needs
+E F computed to ~1e-14 for general u, i.e. extending scripts/ef.py beyond the D = -4 squarefree case.
+
 ## 3b. THE OPEN PROBLEM AND A CANDIDATE ATTACK (12 Sep, not yet verified)
 Open: paper IV's theorem is for u = 1; the Cesaro conjecture needs all u <= H^{2/3+eps}. Paper IV Section 7 states the
 obstruction as "no spectral bound is uniform enough in the level 4u^2" -- the mirror of paper III's "no Weyl bound is

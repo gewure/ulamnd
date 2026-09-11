@@ -468,10 +468,21 @@ We record the identity because it is the structural statement behind everything,
 tests the same law on the bare sums it describes.
 \end{remark}
 
-\paragraph{Step 3: unfolding and the period.} Formally, writing $P[\Phi_t](w)=\sum_{\gamma\in\Gamma}\Phi_t(\gamma w)$,
-\eqref{eq:orbit} becomes $S(t)=\frac2{\sqrt{|D|}}\sum_{Q\in\Gamma\backslash\mathcal Q_D}|\Gamma_{z_Q}|^{-1}P[\Phi_t](z_Q)$,
-and the spectral decomposition of $P[\Phi_t]$ on $L^2(\Gamma\backslash\mathbb H)$ together with unfolding,
-$\langle P[\Phi_t],u_j\rangle=\langle\Phi_t,u_j\rangle$, gives
+\paragraph{Step 3: unfolding and the period.} One point of bookkeeping decides the shape of everything that follows.
+The arithmetic parametrisation of~\eqref{eq:gauss} is by pairs $(d,b)$ with $b$ taken \emph{modulo} $2d$, and
+$b\mapsto b+2d$ is $z\mapsto z-1$; so the sum in~\eqref{eq:orbit} runs over the Heegner points \emph{modulo
+translation}, that is over $\Gamma_\infty\backslash\Gamma z_Q$ and not over $\Gamma z_Q$. This is not a
+normalisation: a full $\Gamma$-orbit contains $z_Q+n$ for every $n\in\Z$, all of the same height, and
+$\sum_{\gamma\in\Gamma}(\Im\gamma w)^2$ diverges for that reason, whereas
+$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^2=E(w,2)$ converges. Accordingly we set
+\[
+P[\Phi_t](w)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}\Phi_t(\gamma w),
+\]
+a Poincar\'e series in the classical sense, so that
+$S(t)=\frac2{\sqrt{|D|}}\sum_{Q\in\Gamma\backslash\mathcal Q_D}|\Gamma_{z_Q}|^{-1}P[\Phi_t](z_Q)$. The spectral
+decomposition of $P[\Phi_t]$ on $L^2(\Gamma\backslash\mathbb H)$, together with the classical unfolding
+$\langle P[\Phi_t],u_j\rangle=\int_0^\infty\!\!\int_0^1\Phi_t(z)\overline{u_j(z)}\,\frac{dx\,dy}{y^2}$ --- the
+$x$-integral over a single period, which is exactly the integral computed in Step~4 --- gives
 \begin{equation}\label{eq:spectral}
 S(t)=\frac2{\sqrt{|D|}}\Bigl[(\text{constant and Eisenstein terms})+\sum_j\langle\Phi_t,u_j\rangle\sum_{Q\in\Gamma\backslash\mathcal Q_D}\frac{u_j(z_Q)}{|\Gamma_{z_Q}|}\Bigr],
 \end{equation}
@@ -541,8 +552,8 @@ different series (Remark~\ref{rem:notneeded}).
 Theorem~\ref{thm:K} is proved, in the precise form of Theorem~\ref{thm:main}, in \S\ref{sec:proof}.
 
 \paragraph{Step 5: why the Poincar\'e series converges.} As it stands $|\Phi_t(z)|\le\tfrac12\Im z$ and
-$\sum_{\gamma\in\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent and Step~3 is formal. The
-divergence is exactly that of the Eisenstein series at $s=1$. It is removed by the symmetry of the Heegner orbit,
+$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent as
+it stands. The divergence is exactly that of the Eisenstein series at $s=1$. It is removed by the symmetry of the Heegner orbit,
 which we may as well build into the seed.
 
 \begin{lemma}[the symmetrised seed decays quadratically]\label{lem:seed}
@@ -565,7 +576,8 @@ exceptional set. The last statement is $z_{(d,-b)}=-\overline{z_{(d,b)}}$ for $D
 \end{proof}
 
 So the seed is $O(t\,y^2)$ off a set of $x$-measure $O(ty)$, on which it is $O(y)$; both contributions to
-$\sum_\gamma|\Phi^+_t(\gamma w)|$ are then dominated by $t\sum_\gamma(\Im\gamma w)^2=tE(w,2)$, which converges. The
+$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}|\Phi^+_t(\gamma w)|$ are then dominated by
+$t\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^2=tE(w,2)$, which converges. The
 arithmetic form of this convergence is the tail estimate already proved in Lemma~\ref{lem:sawtooth}. This is the
 fourth and last appearance of one symmetry: the root set of a quadratic congruence is stable under $x\mapsto-x$, and
 that single fact makes the linear term of the sawtooth identity vanish (Lemma~\ref{lem:sawtooth}), kills the odd half
@@ -611,8 +623,8 @@ valid.
 (i) and (ii) are Lemma~\ref{lem:seed} and the truncation. (iii) holds because $\psi$ has mean zero and $x\mapsto2x$
 covers two full periods, so $\int_0^1[\psi(a+2x)+\psi(a-2x)]dx=0$ for every $y$; the truncation does not depend on
 $x$ and so preserves this. For the last statement, if $\Im w>\sqrt{|D|}/2$ then the identity coset contributes
-nothing, and only the finitely many $\gamma$ with $\Im\gamma w\le\sqrt{|D|}/2$ remain; on the rest of a fundamental
-domain the sum is dominated by $t\sum_\gamma(\Im\gamma w)^2=tE(w,2)$, which is bounded there. So $P[\Phi^\flat_t]$ is
+nothing, and only the finitely many cosets $\gamma\in\Gamma_\infty\backslash\Gamma$ with $\Im\gamma w\le\sqrt{|D|}/2$ remain; on the rest of a fundamental
+domain the sum is dominated by $tE(w,2)$, which is bounded there. So $P[\Phi^\flat_t]$ is
 bounded, hence square-integrable on the finite-volume quotient.
 \end{proof}
 
