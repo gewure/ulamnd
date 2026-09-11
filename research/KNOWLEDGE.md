@@ -385,6 +385,27 @@ F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep)
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
+## 3e. THE OBSTRUCTION, FINALLY IDENTIFIED EXACTLY (12 Sep, night) -- and it is NOT a tap-in
+Chasing the general-u case to the end gives the cleanest statement of what blocks the Cesaro conjecture.
+Write the general-u points as w = (-b' + sqrt D)/d with b' = u x. Because x runs mod d and (u,d) = 1, b' runs over
+ALL roots of b'^2 = D (mod d) -- but as an INTEGER in [0, ud) it is constrained by u | b'. So the sum is over the
+u = 1 Heegner set taken modulo translation by u, restricted to the sub-family u | b'. Detecting that condition by
+additive characters,
+      1_{u | b'} = (1/u) sum_{a mod u} e(a b'/u),   and   b' = -d * Re w,
+turns the geometric factor into (1/u) sum_{a mod u} [ sum over Heegner points of u_j(w) e(-a d Re w / u) ]:
+a TWISTED HEEGNER PERIOD, with a phase depending on the modulus d. That dependence on d is precisely the dilation
+obstruction of part III. The a = 0 term is the ordinary Katok-Sarnak period; the a != 0 terms are the problem.
+So the final statement of the open problem is: bound
+      sum_{Q} u_j(z_Q) e(a d_Q Re z_Q / u)        (a not 0 mod u)
+with a saving of u^{1/4+eps} over the trivial bound. This is a twisted equidistribution statement for Heegner points
+in the u-aspect. It is a genuine open problem of the same family as the ones part III ran into -- NOT a formality.
+HONEST NOTE (12 Sep): a first pass suggested the restriction could be removed by periodising the seed, which would
+have made the period u-independent and the problem easy. That is wrong: periodising mixes the sub-family with its
+translates, which is exactly what the additive characters above express. Also the amplitude data do not support the
+naive u^{-1/2} law (observed ratios amp(u=2)/amp(u=1) are 1.04, 0.99, 1.03, 1.25, 1.81 against a predicted 0.707),
+which is consistent with the twisted terms contributing at the same order. The PHASE law -t_j log u is confirmed
+(3d); the AMPLITUDE law is not, and the discrepancy is where the twisted terms live.
+
 ## 3d. GENERAL u CONFIRMED (12 Sep, night) -- the structure extends; one factor remains
 The corrected general-u derivation (3c) predicts, with NO free parameter, that the phase of the t_j-oscillation
 shifts by exactly -t_j log u relative to u = 1, because the expansion parameter of the Mellin-Barnes lemma becomes
