@@ -406,6 +406,31 @@ naive u^{-1/2} law (observed ratios amp(u=2)/amp(u=1) are 1.04, 0.99, 1.03, 1.25
 which is consistent with the twisted terms contributing at the same order. The PHASE law -t_j log u is confirmed
 (3d); the AMPLITUDE law is not, and the discrepancy is where the twisted terms live.
 
+## 3f. WHY THE REMAINING STEP IS HARD (for whoever picks this up)
+The obstruction of 3e is one sentence long but it is not shallow, and the reason is structural, not technical.
+1. EVERY tool used in paper IV requires Gamma-invariance. The spectral decomposition applies to functions on
+   Gamma \ H; unfolding requires the seed to be summed over a coset space; Katok-Sarnak evaluates a period of an
+   automorphic form. The twist e(a d_Q Re z_Q / u) depends on d_Q, the leading coefficient of the FORM, which is not
+   a class invariant: applying gamma in Gamma changes d. So the twisted sum is not a period of an automorphic form
+   at all. It leaves the category in which our machinery lives. That is the whole difficulty in one line.
+2. It is the SAME obstruction as part III's, not an analogue. There the Weyl sums carry the frequency k ubar, which
+   depends on the modulus; here the phase depends on d. Both say: the object is not invariant, so spectral methods
+   do not see it.
+3. Even the UNTWISTED statement is deep. sum_Q u_j(z_Q) -> 0 is Duke's theorem (1988), which rests on Iwaniec's
+   bounds for Fourier coefficients of half-integral weight forms, i.e. on subconvexity. The twisted version is
+   strictly harder than a theorem that itself took a breakthrough.
+4. WHAT WOULD ACTUALLY WORK, most likely: do not bound each u separately. Average over u as well, so that the
+   modulus-dependent phase becomes a bilinear form in (u, d) rather than a fixed twist. That is precisely what
+   part III's Type II argument does at the large-u end, and what a spectral treatment does at the small-u end; the
+   missing object is a hybrid, spectral in d and bilinear in u. Candidate tools: the Fouvry-Iwaniec large sieve for
+   roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)), the spectral large sieve of
+   Deshouillers-Iwaniec (level-uniform), and the Kloosterman-fraction bilinear bounds (DFI 1997, Bettin-Chandee 2018)
+   -- the last of which is structurally blocked in the form we needed it (LITERATURE round 1) but may not be in a
+   hybrid form.
+5. SCALE: this is a research programme, not an afternoon. Treat any claim to have closed it in one sitting with
+   suspicion, including from me: on 12 Sep alone, four shortcuts through this step looked clean and were wrong
+   (F24, F25, the Shimura idea of 3b, the periodisation idea of 3e).
+
 ## 3d. GENERAL u CONFIRMED (12 Sep, night) -- the structure extends; one factor remains
 The corrected general-u derivation (3c) predicts, with NO free parameter, that the phase of the t_j-oscillation
 shifts by exactly -t_j log u relative to u = 1, because the expansion parameter of the Mellin-Barnes lemma becomes
