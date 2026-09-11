@@ -385,6 +385,26 @@ F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep)
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
+## 3b. THE OPEN PROBLEM AND A CANDIDATE ATTACK (12 Sep, not yet verified)
+Open: paper IV's theorem is for u = 1; the Cesaro conjecture needs all u <= H^{2/3+eps}. Paper IV Section 7 states the
+obstruction as "no spectral bound is uniform enough in the level 4u^2" -- the mirror of paper III's "no Weyl bound is
+uniform enough in the frequency".
+CANDIDATE ATTACK (idea, NOT established): that framing may overstate the difficulty, because the discriminants that
+occur are not arbitrary -- they are D times a SQUARE, namely 4u^2 D = D(2u)^2. Two consequences if it works:
+ (a) the Heegner points of discriminant D f^2 are still SL_2(Z) orbits, so the spectral decomposition stays at
+     LEVEL 1 throughout and no level-uniform spectral theory is needed;
+ (b) Shimura's relation for half-integral-weight coefficients, c(|D| f^2) = c(|D|) sum_{d|f} mu(d) chi_D(d) d^{-1/2}
+     lambda(f/d), converts the period at D f^2 into HECKE EIGENVALUES times the period at D. The loss would then be
+     u^{7/64+eps} (Kim-Sarnak), not u^{1}, and no subconvexity for L(1/2, u_j x chi_D) would be needed.
+STATUS: NOT CONFIRMED. A quick test contradicts the naive form: predicted amp(u=2)/amp(u=1) for t^2+1 is
+2^{-1/2} lambda(4)/lambda(2) = 0.639, observed 1.017. So either the u-normalisation of the test function or the
+Shimura bookkeeping (or the identification of which discriminant occurs) is wrong. Work it out properly before
+claiming anything. The numerics are cheap: pieces at u = 1, 2 for t^2+1 exist (data/piece-U{1,2}-Dm4-grid.dat).
+SECOND HALF, independent of (a)-(b): even granting the above, the spectral asymptotic needs t >> u, i.e. u <= H^{1/2};
+paper III's averaging covers u > H^{2/3}. Closing the gap needs paper III's Type II range improved from 2/3 to 1/2 --
+which paper III already flags as plausible by replacing Parseval-over-units with the Fouvry-Iwaniec large sieve for
+roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
+
 ## 4. Paths and their ratings (10 Sep 2026)
 | # | path | rating | comment |
 |---|------|--------|---------|
