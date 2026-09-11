@@ -19,6 +19,32 @@ Kowalski–Soundararajan), and the pieces u > H^{2/3+ε}, which carry a MAIN TER
 constant (−0.1344 for t²+1, confirmed numerically to 3 digits). Nothing here proves anything about primes; all
 prime statements need Hardy–Littlewood.
 
+## 0b. WHERE THINGS STAND, AND WHAT TO DO NEXT (paused 12 September 2026)
+
+STATE. Four papers, all compiling, zero todo markers, zero unresolved references, 26/26 tests passing.
+  paper-I   27 pp  v8. READY TO POST. Awaiting an arXiv endorser (math.NT). Conjecture 1 is in Cesaro form.
+  paper-II  21 pp  finished.
+  paper-III 24 pp  finished.
+  paper-IV  20 pp  finished. Contains the one new theorem (spectral formula for a piece, u = 1) and the open problem.
+Everything is pushed to github.com/gewure/ulamnd.
+
+PAUSED FOR: professional feedback. Nothing is blocked on computation or on writing.
+
+WHEN PICKING UP AGAIN, IN ORDER:
+1. arXiv. Endorsement is the only blocker for paper I. Routes in the 12 Sep timeline entry: academic-email
+   auto-endorsement; asking Goldston or Suriajaya, whose theorem paper I extends; Zenodo/HAL for a DOI meanwhile.
+2. Read any referee feedback against section 3 of this file (the fallacy list) before acting on it -- several of the
+   obvious objections were already raised and answered internally.
+3. The open problem is stated exactly in 3e and its difficulty explained in 3f. The recommended attack is the hybrid
+   in 3f item 4 (spectral in the modulus, bilinear in u). Do NOT attack it by bounding each u separately.
+4. Cheap wins still available, none of them load-bearing: the phase test at the second even parameter t_2 = 17.74
+   (independent check, different predicted coefficient); extending the phase test from 6 to ~20 discriminants;
+   debugging the u = 13 blow-up in piece-general.ts (a genuine bug, not precision).
+
+DO NOT, WITHOUT NEW EVIDENCE: describe the u > 1 gap as a lack of rigour (it is an open problem, see 3f); claim a
+connection to physics or quantum chaos (we used the spectral theory, we did not add to it); upgrade paper IV's
+"target"-free wording further without the error bookkeeping being re-checked by someone external.
+
 ## 1. Timeline (all 2026)
 - 8 Sep. Ulam-nD workbench built to test the author's thesis (higher-dimensional Ulam spirals, Fibonacci
   dimensions, quasicrystals, RH). Thesis suite: patterns = Bateman–Horn constants (main term only); Fibonacci
