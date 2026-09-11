@@ -385,6 +385,32 @@ F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep)
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
 
+## 3d. GENERAL u CONFIRMED (12 Sep, night) -- the structure extends; one factor remains
+The corrected general-u derivation (3c) predicts, with NO free parameter, that the phase of the t_j-oscillation
+shifts by exactly -t_j log u relative to u = 1, because the expansion parameter of the Mellin-Barnes lemma becomes
+alpha/beta = sqrt|D|/(u t). TESTED at u = 2 for six discriminants, model object, Y <= 10^7, mean value to 22 digits
+(scripts/ef-general.py, written for this):
+
+   D    phi(u=1)   predicted phi(u=2)   observed   difference
+  -4     +3.13         -0.138            -0.14      +0.002
+   8     +0.78         -2.488            -2.37      -0.118
+  -8     -1.42         +1.595            +1.29      +0.305
+  -7     +0.53         -2.738            +0.54      +3.005   <-- differs by pi (sign), least stable fit of the six
+  12     +0.62         -2.648            -2.95      +0.302
+  (-3 has 2 inert, so u = 2 is not admissible there)
+
+FOUR of five within 0.31 rad, median 0.302; the fifth differs by pi, i.e. by a SIGN in the geometric factor. So the
+general-u structure is right: Poincare series over Gamma_infty^{(u^2)} \ Gamma, modes k = n u^2, expansion parameter
+sqrt|D|/(u t). Paper IV Section 7 rewritten around this.
+WHAT REMAINS, now sharply stated: bound the RESTRICTED geometric factor -- a sum of a Maass form over a specific
+sub-family of the Heegner points of discriminant 4u^2 D (those forms with middle coefficient divisible by 2u^2) -- by
+u^{1/4-eps}. That single bound would give the Cesaro conjecture for quadratics. It is no longer "an error term":
+it is a concrete period-type sum.
+NOTE: scripts/ef-general.py had two bugs, both caught by checking against the direct product: (i) primes where chi
+vanishes contribute a HALF-term to (P + P_chi)/2 and must be removed; (ii) the Moebius inversion for P_chi needs the
+L-function of chi^k, which is the PRINCIPAL character for even k, not chi. With both fixed it reproduces the direct
+product plus exactly the predicted tail (3.6e-8).
+
 ## 3c. GENERAL u: THE GEOMETRY, AND A CORRECTION TO PAPER IV (12 Sep, later)
 CORRECTION MADE TO PAPER IV (real error, now fixed): the Poincare series of Step 3 must be summed over
 Gamma_infty \ Gamma, NOT over Gamma. Reason: the arithmetic parametrisation is by (d, b mod 2d), and b -> b+2d is
