@@ -41,7 +41,9 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
                    amplitude and phase confirmed on TWO forms (t_1: ratio 0.99, 0.010 rad; t_2: 1.05, 0.11 rad over the
                    upper half of Y ≤ 1e7; ERRATA 19–21). One proved theorem in paper IV again, every constant tested;
                    READ adversarially 13 Sep (fresh reader, opus): core verified with the residue constant reproduced
-                   numerically by the reader; 8 expository points fixed (ERRATA 22); no fatal finding. 30 pp.
+                   numerically by the reader; 8 expository points fixed (ERRATA 22); no fatal finding. LEVEL-2 PART
+                   CONFIRMED on the restricted object (ERRATA 23): newform line 8.9229 at 1.02/0.05 rad, absent in the
+                   unrestricted object as predicted; t_1 reduced 0.060 -> 0.027 by the oldform term as predicted. 30 pp.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -174,6 +176,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (very last). Level-2 part of thm:smooth confirmed on the restricted object (ERRATA 23): Möbius sign, the
+  level-2 newform, the oldform Gram matrix — each visible in the data at its predicted size. Gotcha: LMFDB coefficient
+  files may start with "1 +- 0" without a decimal point; check Atkin–Lehner a(p) = -eps/sqrt p for p | level.
 - 13 Sep (last). thm:smooth read adversarially: core verified, 8 points fixed (ERRATA 22). Tally for the day: six
   adversarial passes (one external, five fresh agents), errors found in five, the sixth (thm:smooth) passed on substance.
 - 13 Sep (later). thm:smooth confirmed on two forms to Y = 1e7 (ERRATA 21); cubic log coefficient computed and found

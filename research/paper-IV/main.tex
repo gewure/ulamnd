@@ -1214,9 +1214,24 @@ jointly (\texttt{scripts/smooth-two-lines.py}) sharpens this to a ratio $0.99$ a
 for $t_1$ over the whole range ($0.998$ and $0.0001$ over its upper half), and gives for the second even form,
 $t_2=17.7386$, with its own coefficients from the LMFDB, a predicted amplitude $0.0085$ and phase $5.860$ against
 $0.0090$ and $5.753$ observed over the upper half of the range (the line is seven times weaker than the first and is
-not resolved over the lower half). Two independent forms, every constant. This is the first amplitude prediction of
-this paper that the data confirm; the amplitude law for the Riesz object in \S\ref{sec:numerics} remains unconfirmed,
-for the reason given in Remark~\ref{rem:gaps}.
+not resolved over the lower half). Two independent forms, every constant.
+
+The level structure was tested on the restricted object~\eqref{eq:model} itself, which is the difference of the terms
+$e=1$ and $e=2$ (\texttt{scripts/smooth-level2-test.py}). The sub-family $\mathcal H_2$ (forms of discriminant $-16$
+with even leading coefficient) consists of three $\Gamma_0(2)$-orbits, represented by $[2,0,2]$, $[4,0,1]$ and $[4,4,2]$ with
+stabilisers of orders $1$, $1$, $2$. (i)~The line of the first even newform of level $2$, $t=8.9229$ (LMFDB 2.0.1.4.1,
+Fricke eigenvalue $+1$), occurs only in the term $e=2$, with the sign $\mu(2)=-1$; its period over the three points, its
+coefficients and its norm on $\Gamma_0(2)\backslash\mathbb H$ (computed over the fundamental domain
+$F\cup S(F)\cup ST(F)$, the Fricke involution giving the values near the cusp $0$) predict amplitude $0.0398$ and
+phase $5.971$; observed, $0.0406$ and $6.020$. In the unrestricted object the theorem predicts the line absent, and the
+fit gives $0.0009$. (ii)~The line $t_1$ receives, in the restricted object, the $e=1$ residue \emph{minus} the
+contribution of the two-dimensional oldform space spanned by $u_1(z)$ and $u_1(2z)$, orthonormalised on
+$\Gamma_0(2)\backslash\mathbb H$ (Gram matrix computed numerically: $\langle u_1(2z),u_1\rangle/\|u_1\|^2=0.730$); predicted
+amplitude $0.0268$ against $0.0600$ for the unrestricted object, phase unchanged; observed $0.0271$ and $0.0597$, phases
+$4.033$ and $4.066$. So the M\"obius resolution of the coprimality condition, the level-two newforms and the oldform
+bookkeeping of the theorem are each seen in the data with their predicted sizes and signs. This is the first amplitude
+prediction of this paper that the data confirm; the amplitude law for the Riesz object in \S\ref{sec:numerics} remains
+unconfirmed, for the reason given in Remark~\ref{rem:gaps}.
 
 \begin{remark}[what the smooth theorem says and does not say]\label{rem:smoothmeaning}
 Since the seed is $O(Y^{-N})$ on the moduli $d\le Y^{1-\delta}$ (not on all of $d\le Y$: the moduli $d\asymp Y$ contribute, a

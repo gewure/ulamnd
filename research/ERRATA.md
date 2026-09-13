@@ -297,3 +297,13 @@ route before being applied (the checks are described in the items). We agree wit
     symmetry of E_𝔞, and the integrability of the r-derivatives of c, now stated; (8) the sign shift in the phase test
     is π·1[Per·L~₁ < 0] (L~₁ = 1.866 > 0, so unchanged). No fatal finding. First theorem of the series to pass an
     adversarial reading with its main computation independently reproduced.
+
+23. **Paper IV: the level-2 part of Theorem thm:smooth confirmed on the restricted object (13 Sep, last).** Coefficients of
+    the level-2 newforms 2.0.1.4.1 (t = 8.9229, Fricke +1) and 2.0.1.6.1 downloaded (a first parse dropped the entry "1 +- 0"
+    without decimal point and shifted the list by one — caught by the Atkin–Lehner relation a(2) = −1/√2 and a(4) = a(2)²;
+    fixed). H_2 = {disc −16, 2 | a} has three Γ₀(2)-orbits ([2,0,2], [4,0,1], [4,4,2]; stabilisers 1, 1, 2). Newform line
+    in the coprime object: predicted 0.0398 / 5.971, observed 0.0406 / 6.020 (ratio 1.02, 0.05 rad); predicted absent in
+    the unrestricted object, observed 0.0009. t₁ line in the coprime object: e=1 residue minus the oldform-space term
+    (basis u₁(z), u₁(2z) orthonormalised on Γ₀(2)\H, ⟨u₁(2z),u₁⟩/‖u₁‖² = 0.730): predicted 0.0268 vs 0.0600 (all), observed
+    0.0271 vs 0.0597. Three lines, two objects, all constants. smooth-level2-test.py; the "upper half" fits it prints with
+    14 frequencies on 200 points are overfitted and not used.
