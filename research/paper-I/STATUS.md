@@ -1,5 +1,12 @@
 # Status and hand-off (13 September 2026)
 
+## v10 (14 Sep): the asymptotic in Theorem thm:dirichlet re-proved without Selberg–Delange
+
+An outside reader found that the proof asserted ζ_K/ζ "non-vanishing in a standard zero-free region", which is not
+known (Siegel zeros). The claim was unnecessary; the proof now runs Perron directly on ζ_K(s)E_f(s−1), needs nothing
+about zeros, and gives Σ_{d≤x} a_f(d) = log x/C(f) + B_f + O(x^{−1/(6n)+ε}) with B_f the Laurent constant of D_f at 0.
+No statement elsewhere depends on the old error term. Remark rem:noselbergdelange, ERRATA 26. 31 pp.
+
 ## v9 (13 Sep): sharp-sum claims removed after the external assessment
 - The first external assessment of the repository (research/reviews/2026-09-12-assessment-a372a63.pdf) showed that
   the sharp form of Conjecture 1 in v8, Σ_f(H) = −½C log H + O_f(1), is false: differencing gives S_f(H) − C², and S_f

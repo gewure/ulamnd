@@ -372,8 +372,9 @@ with $E_f$ holomorphic in $\Re s>-\tfrac12$. In particular $D_f$ is meromorphic 
 simple pole at $s=0$, and
 \[
 \operatorname*{Res}_{s=0}D_f(s)=\prod_p\frac{1-1/p}{1-\omega_f(p)/p}=\frac1{C(f)},\qquad
-\sum_{d\le x}a_f(d)=\frac{\log x}{C(f)}+B_f+O\Bigl(\frac1{\log x}\Bigr).
+\sum_{d\le x}a_f(d)=\frac{\log x}{C(f)}+B_f+O\bigl(x^{-\delta}\bigr)\qquad(x\ge2)
 \]
+for some $\delta=\delta(f)>0$, where $B_f$ is the constant term of the Laurent expansion of $D_f$ at $s=0$.
 \end{theorem}
 
 \begin{proof}
@@ -390,11 +391,43 @@ $\operatorname*{Res}_{s=0}D_f=\lim_{s\to0^+}sD_f(s)=\lim_{s\to0^+}\prod_p(P_p+pb
 the logarithm of the product is $\sum_p(\omega_f(p)-1)p^{-1-s}+(\text{absolutely convergent})$, and
 $\sum_p(\omega_f(p)-1)p^{-1-s}$ converges at $s=0$ by the prime ideal theorem ($\sum_{p\le x}(\omega_f(p)-1)=o(x/\log x)$),
 hence uniformly for $s\ge0$, so the limit is the value at $s=0$, $\prod_p\frac{p}{p-\omega_f(p)}(1-\frac1p)=1/C(f)$.
-The asymptotic for $\sum_{d\le x}a_f(d)$ follows from the Selberg--Delange method~\cite[II.5]{Tenenbaum2015}
-applied to $\sum_d d\,a_f(d)\,d^{-s}=D_f(s-1)=\zeta(s)\cdot\frac{\zeta_K(s)}{\zeta(s)}E_f(s-1)$, whose second
-factor is holomorphic and non-vanishing in a neighbourhood of $s=1$ and in a standard zero-free region,
-followed by partial summation.
+For the asymptotic, put $A(x)=\sum_{d\le x}d\,a_f(d)$, with generating series
+$\sum_dd\,a_f(d)d^{-s}=D_f(s-1)=\zeta_K(s)E_f(s-1)$. Nothing about the zeros of $\zeta_K$, or of anything else, is
+used: $\zeta_K$ stands in the numerator. Since $|a_f(d)|\le d^{-1}\prod_{p\mid d}\omega_f(p)p^2/(p-\omega_f(p))^2\ll
+d^{-1+\varepsilon}$, the truncated Perron formula~\cite[II.2]{Tenenbaum2015} gives, for $x\ge2$, $T\ge2$
+and $c=1+1/\log x$,
+\[
+A(x)=\frac1{2\pi i}\int_{c-iT}^{c+iT}\zeta_K(s)E_f(s-1)\frac{x^s}s\,ds+O\Bigl(\frac{x^{1+\varepsilon}}T\Bigr).
+\]
+Put $n=\deg f=[K:\Q]$, $\eta=1/(3n)$, and move the segment to $\Re s=1-\eta$. The integrand is holomorphic in $\tfrac12<\Re s\le c$
+except for the simple pole at $s=1$, where the residue is $x\operatorname*{Res}_{s=1}\zeta_K\cdot E_f(0)=x/C(f)$ by
+the computation just made; $E_f(s-1)$ is bounded in $\Re s\ge1-\eta$ (absolutely convergent Euler product), and
+$\zeta_K(\sigma+it)\ll_K(1+|t|)^{n(1-\sigma)/2+\varepsilon}$ for $1-\eta\le\sigma\le c$ by the
+Phragm\'en--Lindel\"of convexity bound~\cite{Rademacher1959}. The two horizontal segments contribute
+$\ll x^{1+\varepsilon}/T+x^{1-\eta}T^{n\eta/2-1+\varepsilon}$ and the vertical one $\ll x^{1-\eta}T^{n\eta/2+\varepsilon}$.
+With $T=x^{1/n}$ every term is $\ll x^{1-\eta/2+\varepsilon}$, because $\eta/2<1/n$; so $A(x)=x/C(f)+R(x)$ with $R(x)\ll x^{1-1/(6n)+\varepsilon}$. Partial summation,
+$\sum_{d\le x}a_f(d)=A(x)/x+\int_1^xA(t)t^{-2}dt$, yields
+\[
+\sum_{d\le x}a_f(d)=\frac{\log x}{C(f)}+\Bigl(\frac1{C(f)}+\int_1^\infty\frac{R(t)}{t^2}dt\Bigr)
+-\int_x^\infty\frac{R(t)}{t^2}dt+\frac{R(x)}x
+=\frac{\log x}{C(f)}+B_f+O\bigl(x^{-1/(6n)+\varepsilon}\bigr),
+\]
+and the same contour argument applied to $\sum_{d\le x}a_f(d)=\frac1{2\pi i}\int D_f(s)x^s\,ds/s$ directly, whose
+integrand has the double pole $\bigl(\frac{1/C(f)}s+B_f'+\dots\bigr)\bigl(\frac1s+\log x+\dots\bigr)$ at $s=0$,
+identifies the constant as $B_f=B_f'$, the constant term of the Laurent expansion of $D_f$ at $0$; explicitly
+$B_f=\bigl(\gamma_KE_f(0)+\kappa_KE_f'(0)\bigr)$ with $\zeta_K(s+1)=\kappa_K/s+\gamma_K+O(s)$.
 \end{proof}
+
+\begin{remark}[what the asymptotic does not use]\label{rem:noselbergdelange}
+An earlier version derived the asymptotic from the Selberg--Delange method applied to
+$\zeta(s)\cdot\frac{\zeta_K(s)}{\zeta(s)}E_f(s-1)$ and asserted that the second factor is ``holomorphic and
+non-vanishing in a neighbourhood of $s=1$ and in a standard zero-free region''. Holomorphy there is true and cheap
+(the poles at $s=1$ cancel, and $\zeta\ne0$ in its own zero-free region), but the non-vanishing is neither known
+--- for quadratic $f$ it is the absence of a Siegel zero of $L(s,\chi_D)$ --- nor needed, since Selberg--Delange
+requires of the second factor only holomorphy and polynomial growth. The direct Perron argument above avoids the
+question altogether and gives a power saving in place of $O(1/\log x)$; only the identity
+$D_f=\zeta_K(s+1)E_f(s)$ and the entire continuation of $\zeta_K$ are used.
+\end{remark}
 
 Theorem~\ref{thm:dirichlet} is the rigorous content of the phrase ``the correlation carried by a prime
 $p$ dividing $h$ has weight $\omega_f(p)/(p-\omega_f(p))$'': the partial sums of that weight grow like

@@ -354,3 +354,18 @@ route before being applied (the checks are described in the items). We agree wit
     split p < 60, five values of h, composite c). Paper IV 31 pp, 0 overfull. With this item the internal phase defined in
     KNOWLEDGE 0b is finished.
 
+26. **Paper I, Theorem thm:dirichlet: the proof of the asymptotic Σ_{d≤x} a_f(d) = log x/C(f) + B_f + o(1) replaced (14 Sep).**
+    Found by the author's outside screening (a second hostile reader), the only finding of that pass. The old proof
+    invoked Selberg–Delange for ζ(s)·(ζ_K(s)/ζ(s))E_f(s−1) and asserted that the second factor is "holomorphic and
+    non-vanishing in a neighbourhood of s = 1 and in a standard zero-free region". Verdict: half right. Holomorphy is
+    true and cheap (the poles at s = 1 cancel; ζ ≠ 0 in its own zero-free region), so Dedekind's conjecture is NOT
+    needed, contrary to the reader's phrasing; but the asserted non-vanishing of ζ_K/ζ in that region is unknown (for
+    quadratic f it is the absence of a Siegel zero of L(s,χ_D)) — and it is also unnecessary, since Selberg–Delange needs
+    only holomorphy and polynomial growth of the second factor. So the statement was never false, but its printed proof
+    asserted an unproved claim. Repair: a direct truncated-Perron argument on ζ_K(s)E_f(s−1) with ζ_K in the numerator
+    (its zeros play no role), the convexity bound ζ_K(σ+it) ≪ (1+|t|)^{n(1−σ)/2+ε} (Rademacher 1959, bib entry added),
+    contour at Re s = 1 − 1/(3n), T = x^{1/n}, then partial summation. Result: the error term improves from O(1/log x) to
+    O(x^{−1/(6n)+ε}), unconditionally, and B_f is identified as the constant term of the Laurent expansion of D_f at 0,
+    B_f = γ_K E_f(0) + κ_K E_f'(0). New Remark rem:noselbergdelange records the episode. Downstream uses (the smoothed
+    diagonal, §Cesàro) needed only log H/C(f) + O(1), so nothing else changes. Paper I 31 pp, 0 overfull. Fallacy F37.
+

@@ -22,7 +22,7 @@ prime statements need Hardy–Littlewood.
 ## 0b. WHERE THINGS STAND, AND WHAT TO DO NEXT (updated 13 September 2026, after the first external assessment)
 
 STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passing.
-  paper-I   30 pp  v9 (13 Sep). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
+  paper-I   31 pp  v10 (14 Sep; Thm dirichlet proof repaired, ERRATA 26). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
                    rem:sharp; ERRATA 11, 14). Preprint ready; awaiting an arXiv endorser (math.NT).
   paper-II  24 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
   paper-III 27 pp  READ by a fresh adversarial reader (13 Sep evening, opus): core sound (decomposition, c_off to six
@@ -58,7 +58,8 @@ WHEN IS THE INTERNAL PHASE FINISHED (criterion set 13 Sep, at the author's reque
   (Sections 2–4 read, 7 fixes, ERRATA 24); paper IV yes (Section 5 read twice, thm:smooth read, Sections 2–4 read: 10
   findings, 9 fixed, 1 rejected with reason, ERRATA 25). THE INTERNAL PHASE IS FINISHED as of 14 Sep. What remains is
   RESEARCH (RESEARCH-USES.md §4b), to be started only by a decision of the author, and EXTERNAL review (the author is
-  reading outside; feedback so far, no issues found). Do not reopen polishing without a concrete finding.
+  reading outside; feedback so far: one concrete finding, paper I Thm dirichlet's proof, fixed 14 Sep, ERRATA 26).
+  Do not reopen polishing without a concrete finding; act on every concrete finding at once.
 
 WHEN PICKING UP AGAIN, IN ORDER:
 0. Paper IV: (a) DONE 13 Sep: Theorem thm:smooth written, phase-tested (0.035 rad) and amplitude-tested (0.95) by
@@ -186,6 +187,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (later). Outside screening (author's second hostile reader) found the unproved "non-vanishing in a zero-free
+  region" in the proof of paper I Thm dirichlet's asymptotic. Replaced by a Perron argument with ζ_K in the numerator;
+  error term now O(x^{−1/(6n)+ε}) unconditionally; B_f identified as the Laurent constant. ERRATA 26, F37. Paper I 31 pp.
 - 14 Sep. Last two internal readings applied: paper II Sections 2–4 (7 fixes, ERRATA 24) and paper IV Sections 2–4
   (10 findings: 9 fixed, the "Katok–Sarnak is squared" claim rejected; ERRATA 25). Substantive: S_u(t) and the Riesz
   pieces redefined for real t as integrals (the discrete eq:rieszweyl was off by a main term), admissible = all primes
@@ -643,6 +647,14 @@ F29. "The theorem is for the piece P_u" (paper IV results list). It was for the 
     squarefree condition dropped); the results list said "piece". Minor, but the same drift between headline and
     statement as F7 and F15. RULE: after every rewrite of a theorem, re-read the abstract and the results list against
     the statement.
+
+F37. "Holomorphic and non-vanishing in a zero-free region" for a quotient ζ_K/ζ (paper I, Thm dirichlet, old proof).
+Non-vanishing of ζ_K/ζ near σ = 1 is the no-Siegel-zero statement and is NOT known; it was asserted in passing because
+Selberg–Delange "usually" comes with G(1) ≠ 0. But the method needs only holomorphy and polynomial growth of G, and here
+the cleaner route puts ζ_K in the NUMERATOR (Perron on ζ_K(s)E_f(s−1)), where its zeros are irrelevant, and gives a
+power saving. Rule: when a factor sits in the numerator, never mention its zeros; when a proof "cites a method", list
+the method's hypotheses and check each one against the object. Caught by an outside reader (14 Sep), after two internal
+passes and one external assessment had read the same lines. (ERRATA 26)
 
 ## 3e. THE OBSTRUCTION, FINALLY IDENTIFIED EXACTLY (12 Sep, night) -- and it is NOT a tap-in
 Chasing the general-u case to the end gives the cleanest statement of what blocks the Cesaro conjecture.
