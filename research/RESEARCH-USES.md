@@ -207,9 +207,9 @@ reformulation may unblock a hybrid; no concrete step identified.
    about the actual u = 1 piece. Milder than the u-problem; unexplored.
 5. **Paper IV's remainder bound** (ERRATA 16–17, Remark rem:gaps): the smoothing route was carried out on 13 Sep and
    is NOT enough — the remainder contains Riesz-smoothed Hooley sums of the same order as the main term. Two honest
-   options: (a) write the smooth-window theorem (increments of S; provable by the same computation; shape confirmed
-   numerically) ★★★★★; (b) compute the Hooley part by the modulus-side spectral expansion and add it to the residues,
-   then retest the amplitude law ★★★ (a research task, Bykovskiĭ's territory).
+   options: (a) DONE 13 Sep night — Theorem thm:smooth, phase-tested to 0.035 rad; next: amplitude test (needs the
+   L²-normalisation of u_1) and an outside reading ★★★★★; (b) compute the Hooley part by the modulus-side spectral
+   expansion and add it to the residues, then retest the amplitude law ★★★ (a research task, Bykovskiĭ's territory).
 6. **Paper II's corrected general theorem, tested**: the cyclic cubic t³ − 3t − 1 must show a log x factor at
    x^{m−2/3}. Script riesz-cubic.ts (13 Sep) produces the Riesz means; the fit and the exact prediction of the
    coefficient are the next step (research/paper-II/scripts/). Status 13 Sep: constants to 40 digits (two routes),

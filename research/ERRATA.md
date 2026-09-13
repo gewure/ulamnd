@@ -244,3 +244,14 @@ route before being applied (the checks are described in the items). We agree wit
     "θ+3B<1" (both implied by θ+6B<1). FIXED. (7) Remark: A ≤ 3 → A ≤ 4 and exp((log log u)^3) → ^4 (three places); the
     constant "m = 0.728431" in the numerical check is M = c_f m/2. FIXED. Paper III 26 pp. No finding touches Theorem A′,
     the decomposition, or c_off.
+
+19. **Paper IV: the smooth-window theorem (positive result, 13 Sep, night).** The computation of item 17, applied to a
+    two-sided smooth window w ∈ C_c^∞((0,∞)) instead of the sharp cut-off, gives a complete theorem (thm:smooth): the
+    smooth-window sum equals Y^{−1/2}|D|^{−1/4} Σ_e μ(e) Σ_j Per_{D,e}(u_j) L~_j [Γ(−it_j) W_c(3/2+it_j) (π√|D|/Y)^{it_j} + c.c.]
+    + continuous part O(Y^{−1/2}(log Y)^{−A}) + O(Y^{−5/2+ε}), absolutely convergent, no Riesz order: the seed is Schwartz
+    on the small moduli (Poisson), its Mellin transform entire and rapidly decaying, the contour goes to Re s = 3−ε.
+    TESTED BEFORE WRITING (scripts/smooth-phase-test.py): the phase of the t_1 line for the unrestricted object at D = −4
+    is predicted with no free parameter (including the sign of the period u_1(2i) + u_1(i)/2 from LMFDB coefficients):
+    predicted 4.066, observed 4.032 rad — difference 0.035 (the other sign would give 3.1). The theorem is about the
+    window and far moduli of part III for u = 1 (small moduli drop out), i.e. the increments of S(t), which do not see
+    the Hooley part. Not yet read by anyone outside.

@@ -35,8 +35,10 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
                    remainder is NOT a technicality: it contains Riesz-smoothed Hooley sums (the sharp start at h=1 leaves
                    a Y^m B_2({x}) term), same order as the main term. So α_j = residue + Hooley part (uncomputed); the
                    theorem stands as exact expansion + proved leading terms, remainder OPEN and equivalent to the
-                   modulus-side (Kuznetsov/Bykovskiĭ) treatment of smoothed Hooley sums. PROVABLE instead: the
-                   smooth-window statement (increments of S over [Y/2,Y]), shape confirmed numerically; not yet written.
+                   modulus-side (Kuznetsov/Bykovskiĭ) treatment of smoothed Hooley sums. PROVED instead (13 Sep night):
+                   Theorem thm:smooth — the smooth-window spectral formula, absolutely convergent, explicit
+                   coefficients, phase of the first line predicted with no free parameter and observed to 0.035 rad
+                   (ERRATA 19). One proved theorem in paper IV again; unread by anyone outside. 29 pp.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -44,9 +46,10 @@ in a fix we had made ourselves and endorsed after a numerical check that could n
 density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
 
 WHEN PICKING UP AGAIN, IN ORDER:
-0. Paper IV: (a) write the smooth-window theorem out (Remark rem:gaps, last paragraph): Poisson, Schwartz seed,
-   contour to Re s = 5/2−ε, absolute convergence, m-free; verify its residue coefficients against the SMOOTH=1 data
-   (amplitudes AND phases) — this is a clean provable theorem. (b) For the Riesz/Cesàro object: the Hooley part. Either
+0. Paper IV: (a) DONE 13 Sep night: Theorem thm:smooth written and phase-tested (0.035 rad). Still to do: test the
+   AMPLITUDES (needs ρ_j(1), the L²-normalisation of u_1 — not in the LMFDB pages we used; compute ‖u_1‖ via the
+   Rankin–Selberg/Hoffstein–Lockhart formula |ρ(1)|² = cosh(πt)/(‖u‖² L(1,sym²u))·const, or from Strömberg's tables) and
+   the second line t_2 (needs its coefficients); then get the proof read. (b) For the Riesz/Cesàro object: the Hooley part. Either
    compute it with the modulus-side spectral expansion (Bykovskiĭ's method for Σ_{d≲Y}ρ_k(d) with the smooth cutoff J_m
    provides) and ADD it to the residues — then test the amplitude law (F22) with the corrected α_j — or state the theorem
    with α_j = residue + Hooley part and leave the bound open. Do NOT call the remainder bound a technicality again.
@@ -165,6 +168,7 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (later night). Theorem thm:smooth (smooth windows) proved and phase-tested to 0.035 rad (ERRATA 19); smooth-phase-test.py.
 - 13 Sep (night). Remainder route of paper IV carried out: exact coefficient formula (Prop. prop:exact), main terms as
   residues, and the discovery that the remainder contains Riesz-smoothed Hooley sums (ERRATA 17, F33); the
   smooth-window statement identified as the provable one and its shape confirmed numerically. Paper III read by a fresh

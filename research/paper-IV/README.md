@@ -17,8 +17,10 @@ every change. A second, fresh adversarial reading the same day passed the repair
 unproved** (the truncated-tail lemma loses e^{−πt_j/2}; non-oscillatory errors get no Riesz decay in j): the exact
 spectral expansion in L² and its main terms are proved for m ≥ 2 (Proposition `prop:exact` gives every coefficient
 exactly), the bound O(Y^{m+1/2−δ}) is open, and it is open for a reason: the remainder contains Riesz-smoothed Hooley
-sums of the same order as the main term (Remark `rem:gaps`; `research/ERRATA.md` items 16–17). The provable clean
-statement is the smooth-window version, whose shape is confirmed numerically (`piece-divset.ts` with `SMOOTH=1`). 27 pp.
+sums of the same order as the main term (Remark `rem:gaps`; `research/ERRATA.md` items 16–17). The clean statement
+is the smooth-window version, now **Theorem `thm:smooth`** (absolutely convergent spectral expansion with explicit
+coefficients; phase of the first line predicted with no free parameter and observed to 0.035 rad,
+`scripts/smooth-phase-test.py`; `research/ERRATA.md` item 19). Not yet read by anyone outside. 29 pp.
 
 | file | what |
 |---|---|

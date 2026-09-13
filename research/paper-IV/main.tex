@@ -42,7 +42,10 @@ $\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues
 prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
 congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
 cancellation with an explicit spectral expansion. For $u=1$ we derive it on a model object, proving the exact spectral
-structure and the main terms but not yet the bound on the remainder (Remark~\ref{rem:gaps}): the root pairs are Heegner points, the piece is a
+structure and the main terms but not yet the bound on the remainder (Remark~\ref{rem:gaps}); for smooth windows in
+place of the sharp cut-off the same computation gives a complete theorem (Theorem~\ref{thm:smooth}), with an
+absolutely convergent spectral expansion whose parameter-free phase prediction the data confirm to $0.035$ radians.
+The route: the root pairs are Heegner points, the piece is a
 sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are resolved by a
 truncation and by the symmetry of the orbit, the constant and continuous contributions vanish or are negligible
 because the seed has vanishing horizontal mean, the arising Bessel integral is evaluated exactly by a Mellin--Barnes
@@ -77,7 +80,9 @@ first was carried out the same evening (Proposition~\ref{prop:exact}): it gives 
 main terms, and it shows that the remainder is not a technicality --- it contains Riesz-smoothed Hooley sums of the same
 order as the main terms, so that the coefficients of the theorem are the residues of Proposition~\ref{prop:exact} plus a
 part not yet computed (Remark~\ref{rem:gaps}). Theorem~\ref{thm:main} stands as an exact expansion with proved leading
-terms; the bound on its remainder is open. Record: \texttt{research/ERRATA.md}, items~13, 16 and~17.}}
+terms; the bound on its remainder is open. What is proved in full is the smooth-window version,
+Theorem~\ref{thm:smooth} (added the same night, tested before it was written). Record: \texttt{research/ERRATA.md},
+items~13, 16, 17 and~19.}}
 
 \section{Introduction}\label{sec:intro}
 
@@ -116,6 +121,12 @@ the sum over the even Maass cusp forms $u_j$ of level one and the even newforms 
 with Laplace eigenvalue $\tfrac14+t_j^2$ (and, for $u>1$, the levels dividing $4u^2$), with $\alpha_j(u,f)$ an explicit
 signed combination of periods of $u_j$ over Heegner points of level $e$ and discriminant $4D$, the Katok--Sarnak
 periods for level one, and $\gamma_m(t)\ll|t|^{-m-1}$.
+\item \emph{The smooth-window theorem} (Theorem~\ref{thm:smooth}, proved): for $w\in C_c^\infty((0,\infty))$ the
+smooth-window sum $\sum_hw(h/Y)\bigl(\sigma^*_{-1}(h^2-D)-\mathbb E\sigma^*_{-1}\bigr)$ equals $Y^{-1/2}$ times an absolutely convergent
+spectral sum over the even Maass cusp forms of the levels $e\mid\operatorname{rad}(2D)$, with explicit coefficients
+(periods over the sub-families, Fourier coefficients, $\Gamma(-it_j)$, the Mellin transform of $w$), a continuous
+part $o(Y^{-1/2})$ and an error $O(Y^{-5/2+\varepsilon})$; the phase of the first line is predicted with no free parameter
+and observed to $0.035$ radians.
 \item \emph{Numerical confirmation} (\S\ref{sec:numerics}): for five quadratics the even parameters explain the
 variance of $\mathcal P_u(Y)/\sqrt Y$ at the $92$nd--$100$th percentile among random frequency sets, the odd ones at the
 $12$th--$66$th; the dominant line $t_1=13.7798$ has stable amplitude and phase over two decades of $\log Y$; the two
@@ -1081,7 +1092,116 @@ increments of $S(t)$ over $[Y/2,Y]$, not $S(t)$ itself, and so does not see the 
 before this paragraph was written (\texttt{scripts/piece-divset.ts}, \texttt{SMOOTH=1}): for $D=-4$, $Y\le2\cdot10^6$,
 $\sqrt Y$ times the smooth-window sum is explained by the six level-one even parameters at the $100$th percentile
 against random frequency sets (the odd set at the $13$th--$22$nd), and for the restricted object its largest line is
-at $8.95$, the first even newform of level $2$. We have not written that proof out and do not state it as a theorem.
+at $8.95$, the first even newform of level $2$. The proof is written out below, as Theorem~\ref{thm:smooth}.
+\end{remark}
+
+\subsection{The smooth-window theorem}\label{sec:smooth}
+
+\begin{theorem}[the spectral formula for smooth windows]\label{thm:smooth}
+Let $D<0$ be a discriminant, $w\in C_c^\infty((0,\infty))$ real, $W(\zeta)=\int_0^\infty w(u)u^{\zeta-1}du$ and
+$W_c(z)=(2\pi)^{-z}\Gamma(z)\cos(\pi z/2)\,W(1-z)$. For $e\mid\operatorname{rad}(2D)$ let $\{u_j\}$ be an orthonormal basis of
+the even Maass cusp forms of $\Gamma_0(e)$, $u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$, and put
+$\tilde L_j=\sum_{k\ge1}a_j(k)k^{-3/2}$ and $\mathrm{Per}_{D,e}(u_j)=\sum_{Q\in\Gamma_0(e)\backslash\mathcal H_e}u_j(z_Q)/|\Gamma_0(e)_{z_Q}|$
+as in~\eqref{eq:spectral}. Then for $Y\ge1$ and every $\varepsilon>0$,
+\[
+\begin{aligned}
+\sum_{h\ge1}w\Bigl(\frac hY\Bigr)\bigl(\sigma^*_{-1}(h^2-D)-\mathbb E\sigma^*_{-1}\bigr)
+&=\frac{1}{|D|^{1/4}\sqrt Y}\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\sum_j\mathrm{Per}_{D,e}(u_j)\,\tilde L_j\Bigl[\Gamma(-it_j)\,W_c\bigl(\tfrac32+it_j\bigr)\Bigl(\frac{\pi\sqrt{|D|}}Y\Bigr)^{it_j}+\text{c.c.}\Bigr]\\
+&\quad+\mathcal E^w(Y)+O_{w,D,\varepsilon}\bigl(Y^{-5/2+\varepsilon}\bigr),
+\end{aligned}
+\]
+the sum over $j$ converging absolutely, where $\mathcal E^w$ is the contribution of the continuous spectra and
+satisfies $\mathcal E^w(Y)\ll_{A}Y^{-1/2}(\log Y)^{-A}$ for every $A$.
+\end{theorem}
+
+\begin{proof}
+\emph{Poisson summation.} Write $E=\mathbb E\sigma^*_{-1}=\sum_{(d,2D)=1}\rho(d)/d^2$ and
+$\hat w(\xi)=\int w(u)\e(-\xi u)\,du$. Since $w$ has compact support in $(0,\infty)$,
+$\sum_{h\ge1}w(h/Y)=\sum_{h\in\Z}w(h/Y)=Y\sum_k\hat w(kY)=Y\hat w(0)+O(Y^{-N})$, and for each of the finitely many $h$
+in the support $\sigma^*_{-1}(h^2-D)=\sum_{(d,2D)=1}d^{-1}\mathbf 1_{d\mid h^2-D}$; so, with
+$\sum_{h\equiv x\,(d)}w(h/Y)=(Y/d)\sum_{k\in\Z}\hat w(kY/d)\e(kx/d)$ and the $k=0$ terms summing to $YE\hat w(0)$,
+\[
+\sum_hw(h/Y)\bigl(\sigma^*_{-1}(h^2-D)-E\bigr)=\sum_{(d,2D)=1}\frac Y{d^2}\sum_{k\ne0}\hat w\Bigl(\frac{kY}d\Bigr)\rho_k(d)+O(Y^{-N}),
+\]
+$\rho_k(d)=\sum_{x\in R_d}\e(kx/d)$, real. (The $d$-sum is finite for the terms with a lattice point in the support and
+absolutely convergent for the rest, since $\hat w$ is Schwartz.) In the coordinates~\eqref{eq:coords}, with
+$\kappa=Yy/\sqrt{|D|}$ so that $Y/d^2=Yy^2/|D|$, this is $\sum_e\mu(e)\sum_{z\in\mathcal H_e/\Z}\Psi^w_Y(z)$ with the seed
+\[
+\Psi^w_Y(z)=\frac{Yy^2}{|D|}\sum_{k\ne0}\hat w(k\kappa)\,\e(-kx)=\frac{y}{\sqrt{|D|}}\sum_{n\in\Z}w\Bigl(\frac{(n+x)\sqrt{|D|}}{Yy}\Bigr)-\frac{Yy^2}{|D|}\hat w(0),
+\]
+the second form again by Poisson. It has vanishing $x$-mean; for $\kappa\ge1$ (moduli $d\le Y$) it is
+$\ll_N(Yy^2/|D|)\kappa^{-N}$, so the small moduli contribute $O(Y^{-N})$; for $\kappa<1$ it is $-(Yy^2/|D|)\hat w(0)$ off
+the set $\{x:\ \exists n,\ (n+x)/\kappa\in\operatorname{supp}w\}$, of measure $\ll\kappa$, and $\ll y$ on it. This is the structure of
+Lemma~\ref{lem:seed} with $t$ replaced by $Y$, so the coset count in the proof of Lemma~\ref{lem:trunc} shows that
+$P_e[\Psi^w_Y]$ converges absolutely and uniformly on compacta, is bounded on $\Gamma_0(e)\backslash\mathbb H$, and lies in $L^2$;
+its spectral expansion has no constant term. It is also continuous, $\Psi^w_Y$ being continuous.
+
+\emph{The coefficients.} Unfolding as in Step~3 and pairing the Fourier series of $\Psi^w_Y$ with that of $u_j$,
+$\int_0^1\e(-kx)\cos(2\pi nx)\,dx=\tfrac12\delta_{|k|,n}$ gives
+\[
+\langle P_e[\Psi^w_Y],u_j\rangle=\frac{2Y}{|D|}\sum_{k\ge1}a_j(k)\int_0^\infty y^{1/2}\,\Re\hat w(\kappa_ky)\,K_{it_j}(2\pi ky)\,dy,\qquad
+\kappa_k=\frac{kY}{\sqrt{|D|}} .
+\]
+Since $\Re\hat w(v)=\int w(u)\cos(2\pi uv)\,du$ and $\int_0^\infty v^{z-1}\cos(2\pi uv)\,dv=(2\pi u)^{-z}\Gamma(z)\cos(\pi z/2)$
+for $0<\Re z<1$, the Mellin transform of $y\mapsto y^{1/2}\Re\hat w(\kappa y)$ is $\kappa^{-s-1/2}W_c(s+\tfrac12)$ for
+$-\tfrac12<\Re s<\tfrac12$; $W_c$ continues to an entire function on $\Re z>0$, and on vertical lines
+$|W_c(\sigma+i\tau')|\ll(1+|\tau'|)^{\sigma-1/2}|W(1-\sigma-i\tau')|\ll_N(1+|\tau'|)^{-N}$, because $w$ is smooth. With
+$\int_0^\infty y^{v-1}K_{it}(\alpha y)\,dy=2^{v-2}\alpha^{-v}\Gamma(\tfrac{v+it}2)\Gamma(\tfrac{v-it}2)$ ($\Re v>0$) and Mellin--Parseval
+on $\Re s=0$,
+\[
+\begin{aligned}
+\langle P_e[\Psi^w_Y],u_j\rangle&=\frac{2Y}{|D|}\,\tilde L_j\cdot\frac1{2\pi i}\int_{(0)}\mathcal K^w_{t_j}(s;Y)\,ds,\\
+\mathcal K^w_{\tau}(s;Y)&=\Bigl(\frac Y{\sqrt{|D|}}\Bigr)^{-s-1/2}W_c\bigl(s+\tfrac12\bigr)\,2^{-1-s}(2\pi)^{s-1}\,
+\Gamma\Bigl(\frac{1-s+i\tau}2\Bigr)\Gamma\Bigl(\frac{1-s-i\tau}2\Bigr),
+\end{aligned}
+\]
+the $k$-dependence $\kappa_k^{-s-1/2}(2\pi k)^{s-1}=k^{-3/2}(Y/\sqrt{|D|})^{-s-1/2}(2\pi)^{s-1}$ having factored out into
+$\tilde L_j$, which converges absolutely by Kim--Sarnak and justifies the interchanges. The integrand is entire in
+$\Re s>-\tfrac12$ except for the poles of the $\Gamma$-factors at $s=1\pm it_j+2n$, and decays faster than any power of
+$|\Im s|$ on vertical lines (the exponentials of the $\Gamma$-factors cancel by Stirling, $W_c$ supplies the decay). Move the
+contour to $\Re s=3-\varepsilon$: the residues at $s=1\pm it_j$ are, with $\Gamma(\tfrac{1-s\pm it_j}2)\sim-2/(s-1\mp it_j)$,
+\[
+\begin{aligned}
+&\frac{2Y}{|D|}\tilde L_j\Bigl(\frac Y{\sqrt{|D|}}\Bigr)^{-3/2}\Bigl[2\cdot2^{-2-it_j}(2\pi)^{it_j}\Bigl(\frac Y{\sqrt{|D|}}\Bigr)^{-it_j}W_c\bigl(\tfrac32+it_j\bigr)\Gamma(-it_j)+\text{c.c.}\Bigr]\\
+&\qquad=\frac{\tilde L_j}{|D|^{1/4}\sqrt Y}\Bigl[\Gamma(-it_j)W_c\bigl(\tfrac32+it_j\bigr)\Bigl(\frac{\pi\sqrt{|D|}}Y\Bigr)^{it_j}+\text{c.c.}\Bigr],
+\end{aligned}
+\]
+and on $\Re s=3-\varepsilon$ the integrand is $\ll Y^{-7/2+\varepsilon}e^{-\pi t_j/2}(1+t_j)^{-3+\varepsilon}(1+|\Im s|)^{-N}$, so the
+integral is $\ll Y^{-5/2+\varepsilon}e^{-\pi t_j/2}t_j^{-3+\varepsilon}|\tilde L_j|$ after the prefactor. Here
+$|\tilde L_j|\le|\rho_j(1)|\sum_k|\lambda_j(k)|k^{-3/2}\ll e^{\pi t_j/2}t_j^{\varepsilon}$ by Hoffstein--Lockhart and Kim--Sarnak
+(for oldforms, with the constants of the underlying newform), while
+$|\Gamma(-it_j)W_c(\tfrac32+it_j)|\ll t_j^{-1/2}e^{-\pi t_j/2}\cdot t_j\,|W(-\tfrac12-it_j)|\ll_Nt_j^{-N}e^{-\pi t_j/2}$.
+
+\emph{Summation and the continuous spectrum.} With $|\mathrm{Per}_{D,e}(u_j)|\ll_{D,e}\|u_j\|_\infty\ll t_j^{1/2}$ on the compact
+set containing the finitely many points, the main terms are $\ll t_j^{-N+1}$ and the remainders $\ll Y^{-5/2+\varepsilon}t_j^{-5/2+2\varepsilon}$,
+both summable against the Weyl law; so the spectral series converges absolutely and uniformly on compacta, and may be
+evaluated at the points $z_Q$. For each cusp $\mathfrak a$ of $\Gamma_0(e)$ the same computation with the Fourier
+coefficients $\varphi_{\mathfrak a\infty}(n,\tfrac12+ir)$ of $E_{\mathfrak a}$, which are $\ll n^{\varepsilon}e^{\pi r/2}(1+r)^{\varepsilon}$,
+gives $\mathcal E^w(Y)=Y^{-1/2}\int c(r)Y^{ir}\,dr+O(Y^{-5/2+\varepsilon})$ with $c$ smooth and rapidly decaying (it inherits the
+decay of $W_c(\tfrac32+ir)$ and the polynomial growth of $E_{\mathfrak a}(z_Q,\tfrac12+ir)$), whence $\mathcal E^w(Y)\ll_AY^{-1/2}(\log Y)^{-A}$
+by integrating by parts $A$ times in $r$. The odd forms are absent by Corollary~\ref{cor:parity-e}, and the sum over
+$e$ is finite.
+\end{proof}
+
+\paragraph{The test, done before the theorem was written.} The theorem predicts the phase of each line with no free
+parameter. For the unrestricted divisor sum at $D=-4$ (the case $e=1$ alone, $\mathcal H_1$ the two orbits of discriminant
+$-16$, points $2i$ and $i$ with stabilisers of order $1$ and $2$) and $w(u)=\exp(-1/(1-(4u-3)^2))$ on $(\tfrac12,1)$, the
+line $t_1=13.7798$ of $\sqrt Y\sum_hw(h/Y)(\sigma_{-1}(h^2+4)-E)$ should be $C\cos(t_1\log Y-\varphi)$ with
+$\varphi=t_1\log(\pi\sqrt{|D|})+\arg\bigl(\Gamma(-it_1)W_c(\tfrac32+it_1)\bigr)+\pi\,\mathbf 1[\mathrm{Per}<0]$, and
+$\mathrm{Per}\propto u_1(2i)+u_1(i)/2>0$ from the LMFDB coefficients of $u_1$. Predicted $\varphi=4.066$; observed, by
+least squares on $Y\le2\cdot10^6$, $\varphi=4.032$: a difference of $0.035$ radians, where the opposite sign of the period
+would give $3.1$ (\texttt{scripts/smooth-phase-test.py}). The amplitude is not tested, because the normalisation
+$\rho_j(1)$ of the $L^2$-normalised form is not available to us.
+
+\begin{remark}[what the smooth theorem says and does not say]\label{rem:smoothmeaning}
+Since the seed is $O(Y^{-N})$ on the moduli $d\le Y$, Theorem~\ref{thm:smooth} is a statement about the window and
+the far moduli of part~III, for $u=1$ and the model weights: they oscillate at the Maass parameters, at the scale
+$Y^{-1/2}$ appropriate to a sum over $h\in[Y/2,Y]$, with the explicit amplitudes. It is the increment of the sharp sum
+$S(t)$ over a window, and increments do not see the Hooley part of Remark~\ref{rem:gaps}, which is why the sharp start
+of $S(t)$ costs the remainder bound in Theorem~\ref{thm:main} and costs nothing here. For the pieces themselves (weight
+$\lambda$, squarefree moduli) the same theorem holds at each level $m\ell^2$ after the M\"obius expansions of
+\S\ref{sec:numerics}; the sum over $m$ and $\ell$ needs the levels to be uniform, a milder form of the problem of
+\S\ref{sec:uniformity}.
 \end{remark}
 
 \begin{remark}[what a referee should check]\label{rem:referee}
