@@ -23,7 +23,7 @@
 \title{The pair singular series of a polynomial IV:\\ the second spectrum}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
 carried out with heavy use of a large language model; see the disclosure at the end.}}
-\date{Working draft of 13 September 2026 (corrected)}
+\date{Working draft of 13 September 2026 (corrected twice; see the notice)}
 
 \begin{document}
 \maketitle
@@ -41,7 +41,8 @@ of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues t
 $\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. The same law, and the same parameter-free
 prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
 congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
-cancellation with an explicit spectral expansion. We prove it for $u=1$ on a model object: the root pairs are Heegner points, the piece is a
+cancellation with an explicit spectral expansion. For $u=1$ we derive it on a model object, proving the exact spectral
+structure and the main terms but not yet the bound on the remainder (Remark~\ref{rem:gaps}): the root pairs are Heegner points, the piece is a
 sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are resolved by a
 truncation and by the symmetry of the orbit, the constant and continuous contributions vanish or are negligible
 because the seed has vanishing horizontal mean, the arising Bessel integral is evaluated exactly by a Mellin--Barnes
@@ -65,8 +66,16 @@ repairs the argument by working at the levels $\Gamma_0(e)$, $e\mid\operatorname
 and Step~2 of \S\ref{sec:formula}), which also required moving the parametrisation from discriminant $D$ to
 discriminant $4D$ (Step~1); every analytic step is unchanged, the level being fixed by $D$. The repaired theorem predicts
 the even Maass newforms of the levels $e$ in the spectrum of the model object and their absence from the unrestricted
-divisor sum, and this was checked numerically before the repair was written (Remark~\ref{rem:coprime}). The repair has
-not been read by anyone outside; Remark~\ref{rem:referee} says what to check first. Record: \texttt{research/ERRATA.md}, item~13.}}
+divisor sum, and this was checked numerically before the repair was written (Remark~\ref{rem:coprime}). The repair was then
+read adversarially by a fresh reader (13 September, later): the repaired Steps~1--3 and Lemma~\ref{lem:subfamily} passed,
+but four defects were found in the \emph{analytic} bookkeeping of the original proof, which the assessment had not
+examined --- the truncated-tail bound discards a factor $e^{-\pi t_j/2}$ that the normalisation of the coefficients gives
+back, so it does not sum over $j$; the non-oscillatory error terms receive no Riesz decay in $j$; the boundedness of
+the Poincar\'e series was asserted from a measure statement; a paragraph claimed a saving where the arithmetic gives a
+loss. The third is repaired below (Lemma~\ref{lem:trunc}); the others are not. Consequently Theorem~\ref{thm:main}
+is proved as an exact spectral expansion with identified main terms, and the bound $O(Y^{m+1/2-\delta})$ on its
+remainder is \emph{not established}; Remark~\ref{rem:gaps} lists what is missing. Record: \texttt{research/ERRATA.md},
+items~13 and~16.}}
 
 \section{Introduction}\label{sec:intro}
 
@@ -93,8 +102,9 @@ Ces\`aro form of Conjecture~1 of part~I is equivalent to the windows being $o(H\
 
 \paragraph{Results.}
 \begin{itemize}
-\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}; repaired on 13 September 2026, see the correction
-notice): for $u=1$, fixed $f$, Riesz means of order $m\ge2$, and the model object~\eqref{eq:model}
+\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}; the exact expansion and its main terms are
+proved, the bound on the remainder is not --- see the correction notice and Remark~\ref{rem:gaps}): for $u=1$, fixed $f$,
+Riesz means of order $m\ge2$, and the model object~\eqref{eq:model}
 of \S\ref{sec:numerics} rather than the piece itself (the weight $\lambda$ and the squarefree condition are dropped
 there, the condition $(d,2D)=1$ is kept),
 \[
@@ -759,11 +769,18 @@ valid.
 \end{lemma}
 \begin{proof}
 (i) and (ii) are Lemma~\ref{lem:seed} and the truncation. (iii) holds because $\psi$ has mean zero over a period, so $\int_0^1[\psi(a+x)+\psi(a-x)]dx=0$ for every $y$; the
-truncation does not depend on $x$ and so preserves this. For the last statement, if $\Im w>\sqrt{|D|}$ then the
-identity coset contributes nothing and every other coset $\gamma\in\Gamma_\infty\backslash\Gamma_0(e)$ has
-$\Im\gamma w\le1/\Im w<1/\sqrt{|D|}$, so the sum is dominated by $t\,(E(w,2)-(\Im w)^2)$, which is bounded; on the
-rest of a fundamental domain the sum is dominated by $tE(w,2)$, bounded there. So $P_e[\Phi^\flat_t]$ is bounded,
-hence square-integrable on the finite-volume quotient $\Gamma_0(e)\backslash\mathbb H$.
+truncation does not depend on $x$ and so preserves this. For the last statement one needs a count, not only the measure statement of Lemma~\ref{lem:seed}(ii), since
+$P_e$ is a discrete sum (a second reading pointed this out, 13 September 2026). Let $w$ lie in a fundamental domain
+of $\Gamma$, so $\Im w\ge\sqrt3/2$, and consider the cosets $\gamma=\left(\begin{smallmatrix}\ast&\ast\\ c&d\end{smallmatrix}\right)\in\Gamma_\infty\backslash\Gamma$
+with $\Im\gamma w=\Im w/|cw+d|^2\in[y,2y]$, $y\le\sqrt{|D|}$. They have $c\ll(\Im w/y)^{1/2}=:C_y$ and, for each $c$,
+$\ll1+C_y$ values of $d$, so there are $\ll C_y^2\asymp1/y$ of them, and $\Re\gamma w=a/c+O(1/(c\,C_y))$ with $ad\equiv1\ (c)$.
+The exceptional ones, with $\|\Re\gamma w\|\le a_t(y)=ty/\sqrt{|D|}$, have $\|a/c\|\ll ty/\sqrt{|D|}+y^{1/2}$, and for
+each $c\le C_y$ the number of $a\bmod c$ with $\|a/c\|\le\eta$ is $\ll1+\eta c$; summing over $c$ gives
+$\ll C_y+\eta C_y^2\ll y^{-1/2}+t/\sqrt{|D|}$ exceptional cosets in the block, each contributing $\le y$ to the sum, while
+the $\ll1/y$ non-exceptional ones contribute $\ll ty^2$ each by Lemma~\ref{lem:seed}(i). The block therefore
+contributes $\ll y^{1/2}+ty$, and the sum over the dyadic blocks $y\le\sqrt{|D|}$ is $\ll_D1+t$. The cosets of
+$\Gamma_0(e)$ are among those of $\Gamma$, so $P_e[\Phi^\flat_t]$ is bounded (by $\ll_D1+t$) on the quotient, hence
+square-integrable on the finite-volume $\Gamma_0(e)\backslash\mathbb H$.
 \end{proof}
 
 \begin{remark}[the continuous spectrum]\label{rem:eisenstein}
@@ -855,16 +872,18 @@ $|\Gamma(i\tau)|\sum_{n\ge1}(x^2/4\tau)^n/n!=|\Gamma(i\tau)|(e^{x^2/(4\tau)}-1)$
 \footnote{The bound was checked numerically at $30$ pairs with $\tau\in\{2,5,13.78,40,100,300\}$ and
 $x\in\{0.5,1,2,4,8\}$; it holds in every case, with ratio between $0.0002$ and $0.995$.}
 
-Lemma~\ref{lem:Kuniform} is exactly what~\eqref{eq:asymp} needs. In $I_k$ the argument is $x=cw$ with
-$c=\alpha_k/\beta_k=\sqrt{|D|}/t$, the same for every $k$; splitting the $w$-integral at $W=\sqrt{t_j}/c$ and applying
-the lemma below $W$ gives an error
+Lemma~\ref{lem:Kuniform} is, however, \emph{not} enough for~\eqref{eq:asymp} uniformly in $j$. In $I_k$ the
+argument is $x=cw$ with $c=\alpha_k/\beta_k=\sqrt{|D|}/t$, the same for every $k$; splitting the $w$-integral at
+$W=\sqrt{t_j}/c$ and applying the lemma below $W$ gives an error
 \[
-\ll|\Gamma(it_j)|\,\frac{c^2}{t_j}\int_0^Ww^{3/2}\,dw\ \asymp\ |\Gamma(it_j)|\,c^{-1/2}\,t_j^{-3/4},
+\ll|\Gamma(it_j)|\,\frac{c^2}{t_j}\int_0^Ww^{3/2}\,dw\ \asymp\ |\Gamma(it_j)|\,c^{-1/2}\,t_j^{1/4},
 \]
-against a main term of size $\asymp|\Gamma(it_j)|c^{-1/2}$: a saving of $t_j^{-3/4}$, uniform in $j$, which
-Proposition~\ref{prop:riesz} has ample room to absorb. Note also that the stationary point of the combined phase,
-where $t_j\,d(\log x)/dx$ meets $1/c$, sits at $x=\sqrt{|D|}$, a fixed point independent of $t_j$ and well inside
-the range where the lemma applies.
+against a main term of size $\asymp|\Gamma(it_j)|c^{-1/2}$: a \emph{loss} of $t_j^{1/4}$, and the range $w>W$ is not
+covered at all. (The first version of this paragraph claimed a saving of $t_j^{-3/4}$; the arithmetic was wrong, as a
+second reading found on 13 September 2026.) The exact Mellin--Barnes evaluation of Lemma~\ref{lem:mellin} replaces
+this paragraph; what it does and does not give uniformly in $j$ is discussed in Remark~\ref{rem:gaps}. Note that the
+stationary point of the combined phase, where $t_j\,d(\log x)/dx$ meets $1/c$, sits at $x=\sqrt{|D|}$, independent of
+$t_j$.
 
 \subsection{The remaining estimates, and the proof}\label{sec:proof}
 
@@ -921,7 +940,16 @@ inequality holds in every case.} Hence the integral is at most $\int_T^\infty y^
 substituting $x=\alpha y$ and using $K_0(x)\ll x^{-1/2}e^{-x}$ for $x\ge1$ gives the claim.
 \end{proof}
 
-\begin{theorem}[the spectral formula for the model object]\label{thm:main}
+The bound is uniform in $\tau$ but wasteful in it: $|K_{i\tau}(x)|\le K_0(x)$ discards the factor $e^{-\pi\tau/2}$ that
+$K_{i\tau}$ carries for $x<\tau$, and that factor is exactly what the normalisation $|\rho_j(1)|\asymp e^{\pi t_j/2}$ of
+the Fourier coefficients gives back. So the tail of the $j$-th coefficient is bounded by $e^{\pi t_j/2}e^{-2\pi kt}$,
+which does not sum over $j$. Worse, for $t_j\gg kt^2/\sqrt{|D|}$ the phase $\beta y-t_j\log y$ of the integrand is
+stationary at $y^\ast=t_j\sqrt{|D|}/(2\pi kt)>t$, inside the discarded range, and there the tail is of the same order
+as the main term of Lemma~\ref{lem:mellin}. The truncation at height $t$ leaves the orbit sum unchanged, but the
+estimate of the coefficients with $t_j\gg t^2$ is not the one the proof below uses. This was found by a second reading
+on 13 September 2026; see Remark~\ref{rem:gaps}.
+
+\begin{theorem}[the spectral formula for the model object; the remainder bound is not established, Remark~\ref{rem:gaps}]\label{thm:main}
 Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)$ denote the Riesz mean of order $m$ of the model
 object~\eqref{eq:model}. For each $e\mid\operatorname{rad}(2D)$ let $\{u^{(e)}_j\}$ be an orthonormal basis of the even
 Maass cusp forms of $\Gamma_0(e)$, with Laplace eigenvalues $\tfrac14+t_{j,e}^2$. For $m\ge2$ there are coefficients
@@ -955,15 +983,43 @@ The interchange of the $k$-sum with the $y$-integral is justified by
 $\int_0^\infty y^{-1/2}K_0(\alpha_ky)\,dy\ll k^{-1/2}$ together with $\sum_k|a_j(k)|k^{-3/2}<\infty$, which holds
 because $\lambda_j(n)\ll n^{7/64+\varepsilon}$. Lemma~\ref{lem:mellin} evaluates each $I(\alpha_k,\beta_k,t_j)$ with a
 relative error $O(\tau^{A}(\alpha_k/\beta_k)^{2-\varepsilon})$; crucially $\alpha_k/\beta_k=\sqrt{|D|}/t$ does not
-depend on $k$, so the relative error is uniform in $k$ and survives the $k$-sum unchanged. Lemma~\ref{lem:tail}
-bounds the tail by $\ll e^{-2\pi kt}$, which after summation over $k$ and, using the Riesz factor, over $j$, is
-$O(e^{-2\pi t})$. Collecting the main terms gives
-$\langle\Phi^\flat_t,u_j\rangle=t^{-1/2}(A_j(D)t^{-it_j}+\overline{A_j(D)}t^{it_j})+O(t^{-5/2+\varepsilon}t_j^{A})$
+depend on $k$, so the relative error is uniform in $k$ and survives the $k$-sum unchanged. Collecting the main terms
+gives, for the untruncated integrals,
+$\sum_k(a_j(k)/\pi k)I(\alpha_k,\beta_k,t_j)=t^{-1/2}(A_j(D)t^{-it_j}+\overline{A_j(D)}t^{it_j})+O(t^{-5/2+\varepsilon}t_j^{A})$
 with $|A_j(D)|\asymp_Dt_j^{-1/2+o(1)}$ by~\eqref{eq:Ajsize}; the factor
 $(\alpha_k/2\beta_k)^{it_j}=(\sqrt{|D|}/2t)^{it_j}$ supplies the dependence on the discriminant. Summing $t^{-1/2\mp it_j}$
-against the Riesz weight turns it into $Y^{m+1/2\mp it_j}$ times $B(m+1,\tfrac12\mp it_j)\asymp t_j^{-m-1}$, and the
-error terms sum by Proposition~\ref{prop:riesz} with room to spare, since they carry two further powers of $t$.
+against the Riesz weight turns it into $Y^{m+1/2\mp it_j}$ times $B(m+1,\tfrac12\mp it_j)\asymp t_j^{-m-1}$, which is the
+main term of the statement, absolutely convergent over $j$ for $m\ge2$ by Proposition~\ref{prop:riesz}.
+
+What this argument does \emph{not} establish is the bound on the remainder. Three things are missing, found by a
+second reading on 13 September 2026 and listed in Remark~\ref{rem:gaps}: the error $O(t^{-5/2+\varepsilon}t_j^{A})$ is
+not oscillatory in $t$, so the Riesz mean gives it $Y^{m-3/2}t_j^A$ with no decay in $j$, and $\sum_jt_j^A|\mathrm{Per}(u_j)|$
+diverges by the Weyl law for every $A\ge0$; the truncated tail is not $O(e^{-2\pi t})$ after the sum over $j$ (see
+after Lemma~\ref{lem:tail}); and at fixed $t$ the spectral sum $\sum_j\langle\Phi^\flat_t,u_j\rangle u_j(z_Q)$ is not
+absolutely convergent, so the Riesz mean must be applied to the seed before the expansion, which the truncation at
+the $t$-dependent height $T=t$ does not respect as written. The first version of this proof claimed all three
+(``the error terms sum by Proposition~\ref{prop:riesz} with room to spare'').
 \end{proof}
+
+\begin{remark}[what is proved, what is not; added 13 September 2026]\label{rem:gaps}
+Proved: the exact identity $S(t)=\sum_e\mu(e)S_e(t)$ with each $S_e$ a sum over the finitely many
+$\Gamma_0(e)$-orbits of $\mathcal H_e$ (Steps~1--3, Lemma~\ref{lem:subfamily}); $P_e[\Phi^\flat_t]\in L^2$ and hence
+the spectral expansion in $L^2$ (Lemma~\ref{lem:trunc}, with the coset count added on 13 September); the vanishing of
+the constant terms (Lemma~\ref{lem:trunc}(iii)); the exact value of the untruncated coefficient integrals
+(Lemma~\ref{lem:mellin}) and hence the main terms $Y^{m+1/2\pm it_j}\alpha_{j,e}$, with $\sum_j|\alpha_{j,e}|<\infty$ for
+$m\ge2$ (Proposition~\ref{prop:riesz}). Not proved: that the remainder is $O(Y^{m+1/2-\delta})$, equivalently that
+the three sums --- over $j$ of the non-main parts of the coefficients, over $j$ of the truncated tails, and the
+continuous spectrum with a quantitative rate --- are $o(Y^{m+1/2})$. What is needed, in our present understanding:
+(i)~apply the Riesz mean of order $m$ to the seed \emph{first}, so that every coefficient, not only the main term,
+carries a factor decaying in $t_j$; (ii)~replace $|K_{i\tau}|\le K_0$ by a bound that keeps $e^{-\pi\tau/2}$ (uniform
+bounds of the form $K_{i\tau}(x)\ll e^{-\pi\tau/2}(|x^2-\tau^2|+\tau^{2/3})^{-1/4}$ are classical) and treat the
+transition region $x\asymp\tau$, which for $t_j\gg t^2$ lies in the truncated range; (iii)~make the exponent $A$ of
+Lemma~\ref{lem:mellin} explicit (Stirling gives $A=1$ for the relative error $\asymp t_j(\sqrt{|D|}/t)^2$) and let (i)
+absorb it; the order $m$ may have to increase. The numerical evidence of \S\ref{sec:numerics} concerns the main terms
+and is unaffected. We record this rather than remove the theorem: the statement is what the data show and what the
+exact expansion says; its remainder bound is an open technical problem, of the standard kind, and not the open problem
+of \S\ref{sec:uniformity}.
+\end{remark}
 
 \begin{remark}[what a referee should check]\label{rem:referee}
 The proof uses, as standard inputs: Gauss's parametrisation of the root pairs by binary quadratic forms of
@@ -971,10 +1027,11 @@ discriminant $4D$ (\S\ref{sec:formula}, Step~1), the spectral decomposition of $
 for the finitely many levels $e\mid\operatorname{rad}(2D)$ with its Eisenstein series at each cusp, the Weyl law and the
 sup-norm bound for Maass forms at fixed level, the Kim--Sarnak bound $\lambda_j(n)\ll n^{7/64+\varepsilon}$ and the
 Hoffstein--Lockhart normalisation of $\rho_j(1)$ for newforms of fixed level, and Parseval's formula for the Mellin
-transform. Everything else is proved above. The step that was wrong in the first version, the passage from the
+transform. The step that was wrong in the first version, the passage from the
 restricted sum to orbits (Remark~\ref{rem:coprime}), was found by an external reader; its replacement is
-Lemma~\ref{lem:subfamily} together with Step~2, and it is the first thing to check. The two further places we would
-look are the uniformity in
+Lemma~\ref{lem:subfamily} together with Step~2. A second reading then found the error bookkeeping of the remainder
+insufficient (Remark~\ref{rem:gaps}); that is now the open part of the proof. The two places we had named as the
+weak ones were the uniformity in
 $\tau$ of the shifted contour in Lemma~\ref{lem:mellin}, where we have given the Stirling estimate in outline rather
 than in full, and the passage from the spectral expansion of $P_e[\Phi^\flat_t]$ in $L^2$ to its pointwise evaluation at
 the Heegner points, which we justify by the absolute convergence supplied by the Riesz factor and which is the reason

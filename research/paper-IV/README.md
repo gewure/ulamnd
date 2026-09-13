@@ -13,7 +13,10 @@ parametrisation is now by forms of discriminant 4D). The repaired theorem predic
 the spectrum of the model object and none in the unrestricted sum; this was checked numerically before the rewrite
 (`scripts/piece-divset.ts`, `piece-level2.ts`; for D = −3 the largest line is the first even level-3 newform). The
 correction notice after the abstract and Remark `rem:coprime` record the error; `research/ERRATA.md` item 13 lists
-every change. Not yet read by anyone outside. 23 pp.
+every change. A second, fresh adversarial reading the same day passed the repair but found the **remainder bound
+unproved** (the truncated-tail lemma loses e^{−πt_j/2}; non-oscillatory errors get no Riesz decay in j): the exact
+spectral expansion in L² and its main terms are proved for m ≥ 2, the bound O(Y^{m+1/2−δ}) is open — Remark `rem:gaps`
+says what is missing and how to close it; `research/ERRATA.md` item 16. 26 pp.
 
 | file | what |
 |---|---|

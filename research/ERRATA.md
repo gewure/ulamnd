@@ -192,3 +192,24 @@ route before being applied (the checks are described in the items). We agree wit
     model object (weight λ and squarefree condition dropped) — now says so (F29). Housekeeping: this file moved to
     `research/`; the assessment archived in `research/reviews/`; paper IV's README (a scaffold from 11 Sep) rewritten
     as a status page; paper II's README and the root README brought up to date.
+
+16. **Paper IV, Theorem thm:main — the remainder bound (second adversarial reading, 13 Sep 2026, later; found by a
+    fresh reader launched by us, not by the external assessment).** The repaired Steps 1–3, Lemma subfamily, the Möbius
+    regrouping and the level-e unfolding PASSED. Four defects in the analytic bookkeeping of the ORIGINAL proof (the
+    part KNOWLEDGE's 12 Sep entry called "closed by two elementary estimates"): (a) Lemma tail uses |K_{iτ}(x)| ≤ K_0(x),
+    which discards e^{−πτ/2}; the coefficient normalisation |ρ_j(1)| ≍ e^{πt_j/2} gives it back, so the tail bound
+    e^{πt_j/2}e^{−2πkt} does not sum over j; moreover for t_j ≫ kt²/√|D| the phase βy − t_j log y is stationary at
+    y* = t_j√|D|/(2πkt) > t, inside the truncated range, where the tail is of the same order as the main term
+    (verified by us: stationary-phase size e^{−πτ/2}τ^{−1/2}t^{−1/2}, same as the main term). (b) The non-oscillatory error
+    O(t^{−5/2+ε}t_j^A) receives no Riesz decay in j (that decay comes from t^{∓it_j} in the main term only); Σ_j t_j^A|Per|
+    diverges by Weyl for every A ≥ 0; A was never specified (Stirling: A = 1). (c) Boundedness of P_e[Φ^♭] was asserted
+    from the x-measure statement of Lemma seed(ii); a discrete count was needed. (d) The paragraph after Lemma Kuniform
+    claimed a saving t_j^{−3/4}; the integral gives (2/5)t_j^{1/4}c^{−1/2}, a LOSS of t_j^{1/4} (verified). **Fixes (13 Sep):**
+    (c) repaired by a coset count (≪ y^{−1/2} + t/√|D| exceptional cosets per dyadic block, ≪ 1 + t total); (d) corrected in
+    the text; (a) and (b) NOT repaired: the theorem is now titled "the remainder bound is not established", the proof
+    ends with the list of what is missing, and Remark rem:gaps states precisely what is proved (exact expansion in L²,
+    main terms, absolute convergence for m ≥ 2) and what is not (the remainder O(Y^{m+1/2−δ})), with the route
+    (Riesz-smooth the seed first; uniform Bessel bounds keeping e^{−πτ/2}; explicit A). Abstract, notice, results list,
+    referee remark amended. KNOWLEDGE: F30–F32. The numerical evidence concerns the main terms and is unaffected.
+    **Paper III was to be read by a second fresh reader the same day; that reader died on the session's rate limit
+    before producing anything. Paper III remains unread by anyone.**

@@ -25,13 +25,14 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
   paper-I   28 pp  v9 (13 Sep). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
                    rem:sharp; ERRATA 11, 14). Preprint ready; awaiting an arXiv endorser (math.NT).
   paper-II  22 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
-  paper-III 24 pp  unchanged (one sentence about part IV softened).
-  paper-IV  23 pp  u = 1 theorem REPAIRED 13 Sep (repair (ii), author's decision): the argument now runs at the levels
-                   Gamma_0(e), e | rad(2D), after Möbius inversion of (d,2D) = 1 into the sub-families {e | d}; the
-                   parametrisation moved from discriminant D to 4D (Step 1). Every analytic step unchanged. Predicts
-                   level-e even newforms in the spectrum of the model object and their absence from the unrestricted
-                   sum — confirmed numerically BEFORE the rewrite (0c). NOT yet read by anyone outside; the correction
-                   notice says so. Remark rem:coprime records the error; ERRATA 13 the repair.
+  paper-III 26 pp  unchanged in content (one sentence about part IV softened; formatting). READ BY NOBODY: the fresh
+                   reader launched 13 Sep died on the rate limit. Relaunch it (prompt shape in 0c).
+  paper-IV  26 pp  u = 1: orbit error REPAIRED 13 Sep (levels Gamma_0(e), e | rad(2D); ERRATA 13). Then a fresh
+                   adversarial reading (13 Sep, later) PASSED the repair but found the REMAINDER BOUND unproved
+                   (ERRATA 16, F30–F32): |K_iτ| ≤ K_0 loses e^{−πτ/2}; non-oscillatory errors get no Riesz decay in j;
+                   truncation at height t is not harmless for t_j ≫ t². STATUS: exact spectral expansion in L² + main
+                   terms PROVED (m ≥ 2); remainder O(Y^{m+1/2−δ}) OPEN (a standard technical problem, not the
+                   u-problem). Remark rem:gaps has the route. Section 7: piece u lives at level u^2 (verified).
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -39,7 +40,12 @@ in a fix we had made ourselves and endorsed after a numerical check that could n
 density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
 
 WHEN PICKING UP AGAIN, IN ORDER:
-1. Paper IV: get the REPAIRED Section 5 read by someone outside (or a fresh, adversarial pass). What to check first:
+0. Paper IV: close the remainder bound (Remark rem:gaps): Riesz-smooth the seed BEFORE the spectral expansion; use
+   uniform K-Bessel bounds that keep e^{−πτ/2} (Balogh-type: K_iτ(x) ≪ e^{−πτ/2}(|x²−τ²|+τ^{2/3})^{−1/4}); make the
+   Stirling exponent A explicit; expect the Riesz order to rise. A day of careful work; verify each bound numerically.
+   Also relaunch the adversarial reading of paper III (died on credits) — prompt: decomposition identity, exponent
+   condition θ+6B<1 recomputed, c_off/Lemma Gbar and the Type II partial summation, weighted KS, Theorem A′ uniformity.
+1. Paper IV: get the REPAIRED Section 5 read by someone outside (a fresh adversarial pass of 13 Sep passed it). What to check first:
    Step 1 (pairs (d,x) <-> ALL forms of disc 4D, incl. imprimitive), Lemma subfamily (Gamma_0(e)-stability of {e | a}),
    Step 2 (Möbius regrouping of the paired sawtooth series; S_e is NOT sum_h(F_e - E_e), it is the psi-series), Step 3
    (unfolding at level e, width of the cusp infinity is 1), Remark eisenstein (constant terms of ALL cusps killed by the
@@ -52,7 +58,8 @@ WHEN PICKING UP AGAIN, IN ORDER:
 3. arXiv for paper I (endorsement is the only blocker; routes in the 12 Sep timeline entry).
 4. The open problem of 3e/3f is unchanged (hybrid attack, 3f item 4). Do not attack it before 1 is done.
 
-DO NOT, WITHOUT NEW EVIDENCE: call paper IV's u = 1 result externally verified (repaired 13 Sep, read by nobody yet); state ANY
+DO NOT, WITHOUT NEW EVIDENCE: call paper IV's u = 1 result a theorem with an error term (the remainder bound is open,
+ERRATA 16); call anything in paper III externally read; state ANY
 sharp-sum asymptotic with a bounded remainder (F26: differencing kills it whenever the summand is unbounded); write
 "the same proof works" for a generalisation without recomputing the multiplicities and pole orders (F27); pass from a
 restricted arithmetic sum to an orbit sum without checking that the restriction is invariant (F28); describe the u > 1
@@ -121,12 +128,32 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   are NOT in the LMFDB; LMFDB Maass forms exist for squarefree levels only, e.g. 2, 3, 5); a proper spectral estimate
   (multitaper / matched filter with the Riesz kernel) instead of single-frequency R^2; and Maass data at levels u^2
   (compute them: Hejhal's algorithm, or Strömberg's tables). Tools: piece-level2.ts (QUAD=1 cubic detrend, FMIN).
+  SECOND ADVERSARIAL READING (13 Sep, later; a fresh general-purpose agent with no session context, ~400 words,
+  paper IV Section 5 only): repair (ii) PASSED at every point it examined (Step 1 bijection incl. even d, imprimitive
+  forms; Lemma subfamily; Corollary parity-e; Möbius regrouping; Step 3 unfolding; final "no other parameters").
+  FOUND: remainder bookkeeping insufficient (F30–F32; ERRATA 16). Two cosmetic points (bijection is onto Q_{4D}/Z;
+  the orthonormal basis of oldforms is a Gram–Schmidt of u(e''z), not those functions). Verdict quoted: "the sum of
+  main terms converges absolutely for m ≥ 2, but the remainder O(Y^{m+1/2−δ}) is not established; Theorem main is
+  unproven as stated." We agree. The paper III reader died on the rate limit — paper III remains unread.
+  CUBIC TEST OF PAPER II's CORRECTION (13 Sep, in progress): riesz-cubic.ts (Riesz means of the diagonal of
+  t^3−3t−1 to 10^7), constants-cubic.py (A0, D_f(1), C(f) to 40 digits, two routes agree; C via L(1,χ)L(1,χ̄) with
+  the digamma formula — mpmath's dirichlet() is WRONG at s = 1, gave 8e4 instead of 0.377; and both first versions of
+  the C product skipped the inert primes, F9 again), fit-cubic.py. Result so far: with exact D_f(1) and 1/(2C) the
+  fit of c x^m + x^{m−2/3}(a log x + b) halves the rms residual relative to a = 0 (6.3 vs 11.9 at m=2; 4.8 vs 8.9 at m=3)
+  with a ≈ 21 (m=2), 15.7 (m=3) — but the predicted m-dependence of a is a_3/a_2 = 1.29 and the fit gives 0.74, and a
+  and b are nearly collinear over log x ∈ [11.5, 16.1]. INCONCLUSIVE. Needed: the exact a_pred (Laurent coefficient
+  at s = −2/3: m!ζ(−2/3)ζ_K(1/3)L(1,χ)²L(1,χ̄)²/9 × ∏_{N≠3}L(N/3,Ψ_N) × M_{f,K}(−2/3)/∏(s0+j)), and the zero terms of
+  ζ(s)L(s,χ)L(s,χ̄) subtracted (paper II did this for t^2+1 and got β = 1.008).
   DECISION (author, 13 Sep): (ii). Principle stated: correct or leave open, never patch with a weaker claim about a
   different object. REPAIR DONE the same day (ERRATA 13 has the list of changes). Verified before writing: the 4D
   parametrisation (orbit counts = sum_g h(4D/g^2), 9 discriminants), Gamma_0(e)-stability and finite orbit counts (15
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (evening). Second adversarial reading of paper IV Section 5 (fresh agent): repair passed, remainder bound found
+  unproved (F30–F32, ERRATA 16); theorem downgraded to "exact expansion + main terms proved, remainder open"; the
+  boundedness gap closed by a coset count. Paper III reader died on credits. RESEARCH-USES.md written (uses and hints,
+  rated). Cubic test of paper II's correction started (inconclusive so far). Formatting pass on all four papers.
 - 13 Sep (later). Paper IV REPAIRED by route (ii): Section 5 rewritten at level Gamma_0(e), e | rad(2D) (details in
   ERRATA 13); discriminant convention moved to 4D; abstract, notice, thm:K, cor:shape, referee remark, Section 6 phase
   paragraph updated; three bib entries added (Iwaniec 2002, Hoffstein–Lockhart 1994, Kim–Sarnak 2003). 23 pp, compiles.
@@ -524,6 +551,22 @@ F28. "The restricted sum is a sum over the Heegner orbit" (paper IV, Step 2 and 
     identified exactly this kind of non-invariance as THE obstruction for u > 1 (3f item 1) while committing it at
     u = 1. RULE: whenever an arithmetic sum is rewritten as an orbit sum, list every condition on the summation
     variables and check each for invariance under the group. Found by the external assessment (Finding 3).
+F30. "|K_{iτ}(x)| ≤ K_0(x), so the truncated tail is O(e^{−2πkt}) after summing over j" (paper IV, Lemma tail and the
+    proof of Theorem main, 12 Sep; celebrated in the 12 Sep KNOWLEDGE entry as one of the "two elementary estimates that
+    closed it"). The inequality is true and useless: K_iτ carries e^{−πτ/2} for x < τ, |ρ_j(1)| ≍ e^{πτ/2} gives it back,
+    and the bound does not sum over j. Worse, for t_j ≫ t² the truncated range contains the stationary point of the
+    phase βy − t_j log y and the discarded piece equals the main term in size. RULE: a bound "uniform in τ" that drops
+    an exponential in τ must be checked against the normalisation of whatever it multiplies; and "changes nothing in
+    the orbit sum" (true) is not "changes nothing in the estimate of the coefficients" (false). Found by a fresh
+    adversarial reading, 13 Sep.
+F31. "The error terms sum by Prop. riesz with room to spare, since they carry two further powers of t" (paper IV, proof of
+    Theorem main). Powers of t do nothing for the sum over j: the Riesz factor t_j^{−m−1} arises from integrating the
+    OSCILLATING main term t^{∓it_j}; a non-oscillatory error O(t^{−5/2}t_j^A) integrates to Y^{m−3/2}t_j^A, and Σ_j t_j^A |Per|
+    diverges by the Weyl law. RULE: in a spectral expansion, every term needs its own decay in j; smooth the seed first
+    so that all coefficients inherit it. Also: never leave an exponent unnamed ("τ^A").
+F32. "Saving of t_j^{−3/4}" from ∫_0^W w^{3/2}dw with W = √t_j/c (paper IV, paragraph after Lemma Kuniform). The integral
+    is (2/5)W^{5/2} = (2/5)t_j^{5/4}c^{−5/2}; times c²/t_j this is t_j^{+1/4}c^{−1/2}: a LOSS. Superseded by Lemma mellin,
+    but false as written for a day. RULE: do the one-line integral on paper before writing "saving".
 F29. "The theorem is for the piece P_u" (paper IV results list). It was for the model object (weight lambda and the
     squarefree condition dropped); the results list said "piece". Minor, but the same drift between headline and
     statement as F7 and F15. RULE: after every rewrite of a theorem, re-read the abstract and the results list against
