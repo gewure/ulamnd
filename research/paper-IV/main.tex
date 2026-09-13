@@ -1128,14 +1128,19 @@ $\rho_k(d)=\sum_{x\in R_d}\e(kx/d)$, real. (The $d$-sum is finite for the terms 
 absolutely convergent for the rest, since $\hat w$ is Schwartz.) In the coordinates~\eqref{eq:coords}, with
 $\kappa=Yy/\sqrt{|D|}$ so that $Y/d^2=Yy^2/|D|$, this is $\sum_e\mu(e)\sum_{z\in\mathcal H_e/\Z}\Psi^w_Y(z)$ with the seed
 \[
-\Psi^w_Y(z)=\frac{Yy^2}{|D|}\sum_{k\ne0}\hat w(k\kappa)\,\e(-kx)=\frac{y}{\sqrt{|D|}}\sum_{n\in\Z}w\Bigl(\frac{(n+x)\sqrt{|D|}}{Yy}\Bigr)-\frac{Yy^2}{|D|}\hat w(0),
+\Psi^w_Y(z)=\frac{Yy^2}{|D|}\sum_{k\ne0}\hat w(k\kappa)\,\e(-kx)=\frac{y}{\sqrt{|D|}}\sum_{n\in\Z}w\Bigl(\frac{(n-x)\sqrt{|D|}}{Yy}\Bigr)-\frac{Yy^2}{|D|}\hat w(0),
 \]
-the second form again by Poisson. It has vanishing $x$-mean; for $\kappa\ge1$ (moduli $d\le Y$) it is
-$\ll_N(Yy^2/|D|)\kappa^{-N}$, so the small moduli contribute $O(Y^{-N})$; for $\kappa<1$ it is $-(Yy^2/|D|)\hat w(0)$ off
-the set $\{x:\ \exists n,\ (n+x)/\kappa\in\operatorname{supp}w\}$, of measure $\ll\kappa$, and $\ll y$ on it. This is the structure of
-Lemma~\ref{lem:seed} with $t$ replaced by $Y$, so the coset count in the proof of Lemma~\ref{lem:trunc} shows that
-$P_e[\Psi^w_Y]$ converges absolutely and uniformly on compacta, is bounded on $\Gamma_0(e)\backslash\mathbb H$, and lies in $L^2$;
-its spectral expansion has no constant term. It is also continuous, $\Psi^w_Y$ being continuous.
+the second form again by Poisson. (The double sum over $(d,k)$ is not absolutely convergent --- it is
+$\asymp\sum_d\rho(d)/d$ in absolute value --- so the regrouping into the sub-families $\mathcal H_e$ and into orbits is
+carried out on the $k$-summed second form, where each term is bounded and the $d$-sum converges as explained.) The seed
+has vanishing $x$-mean. For $\kappa\ge1$ it is $\ll_N(Yy^2/|D|)\kappa^{-N}$: the moduli $d\le Y^{1-\delta}$, where
+$\kappa\ge Y^{\delta}$, contribute $O(Y^{-N})$ in total, while the moduli $d\asymp Y$ do contribute. For $\kappa<1$ it is
+$-(Yy^2/|D|)\hat w(0)$ off the set $\{x:\ \exists n,\ (n-x)/\kappa\in\operatorname{supp}w\}$, of measure $\ll\kappa$, and $\ll y$ on
+it. So for $\Im\gamma w$ in a dyadic block $[y_0,2y_0]$ with $Yy_0<\sqrt{|D|}$ the coset count in the proof of
+Lemma~\ref{lem:trunc}, with $Y$ in place of $t$, bounds the block by $\ll y_0^{1/2}+Yy_0$, and the blocks with
+$Yy_0\ge\sqrt{|D|}$ are bounded by the rapid decay; hence $P_e[\Psi^w_Y]$ converges absolutely and uniformly on compacta,
+is bounded on $\Gamma_0(e)\backslash\mathbb H$ (by $\ll_D1$, uniformly in $Y$), and lies in $L^2$; its spectral expansion
+has no constant term. It is also continuous, $\Psi^w_Y$ being continuous.
 
 \emph{The coefficients.} Unfolding as in Step~3 and pairing the Fourier series of $\Psi^w_Y$ with that of $u_j$,
 $\int_0^1\e(-kx)\cos(2\pi nx)\,dx=\tfrac12\delta_{|k|,n}$ gives
@@ -1160,17 +1165,24 @@ the $k$-dependence $\kappa_k^{-s-1/2}(2\pi k)^{s-1}=k^{-3/2}(Y/\sqrt{|D|})^{-s-1
 $\tilde L_j$, which converges absolutely by Kim--Sarnak and justifies the interchanges. The integrand is entire in
 $\Re s>-\tfrac12$ except for the poles of the $\Gamma$-factors at $s=1\pm it_j+2n$, and decays faster than any power of
 $|\Im s|$ on vertical lines (the exponentials of the $\Gamma$-factors cancel by Stirling, $W_c$ supplies the decay). Move the
-contour to $\Re s=3-\varepsilon$: the residues at $s=1\pm it_j$ are, with $\Gamma(\tfrac{1-s\pm it_j}2)\sim-2/(s-1\mp it_j)$,
+contour to $\Re s=3-\varepsilon$; the integral on $\Re s=0$ equals the integral on $\Re s=3-\varepsilon$ minus the residues
+at $s=1\pm it_j$, and with $\Gamma(\tfrac{1-s\pm it_j}2)\sim-2/(s-1\mp it_j)$ minus those residues is
 \[
 \begin{aligned}
 &\frac{2Y}{|D|}\tilde L_j\Bigl(\frac Y{\sqrt{|D|}}\Bigr)^{-3/2}\Bigl[2\cdot2^{-2-it_j}(2\pi)^{it_j}\Bigl(\frac Y{\sqrt{|D|}}\Bigr)^{-it_j}W_c\bigl(\tfrac32+it_j\bigr)\Gamma(-it_j)+\text{c.c.}\Bigr]\\
 &\qquad=\frac{\tilde L_j}{|D|^{1/4}\sqrt Y}\Bigl[\Gamma(-it_j)W_c\bigl(\tfrac32+it_j\bigr)\Bigl(\frac{\pi\sqrt{|D|}}Y\Bigr)^{it_j}+\text{c.c.}\Bigr],
 \end{aligned}
 \]
-and on $\Re s=3-\varepsilon$ the integrand is $\ll Y^{-7/2+\varepsilon}e^{-\pi t_j/2}(1+t_j)^{-3+\varepsilon}(1+|\Im s|)^{-N}$, so the
-integral is $\ll Y^{-5/2+\varepsilon}e^{-\pi t_j/2}t_j^{-3+\varepsilon}|\tilde L_j|$ after the prefactor. Here
+and on $\Re s=3-\varepsilon$ the integrand is $\ll Y^{-7/2+\varepsilon}e^{-\pi t_j/2}(1+t_j)^{-3+\varepsilon}(1+|\Im s|)^{-N}$ away
+from $|\Im s|\approx t_j$, and $\ll Y^{-7/2+\varepsilon}e^{-\pi t_j/2}t_j^{-3/2}(1+|\Im s|)^{-N}$ there (one $\Gamma$-factor is
+then $O(1)$), which with $N$ large is again $\ll e^{-\pi t_j/2}t_j^{-3}$ after integration; so the integral is
+$\ll Y^{-5/2+\varepsilon}e^{-\pi t_j/2}t_j^{-3+\varepsilon}|\tilde L_j|$ after the prefactor. Here
 $|\tilde L_j|\le|\rho_j(1)|\sum_k|\lambda_j(k)|k^{-3/2}\ll e^{\pi t_j/2}t_j^{\varepsilon}$ by Hoffstein--Lockhart and Kim--Sarnak
-(for oldforms, with the constants of the underlying newform), while
+for newforms; for the oldform space of a newform $f$ of level $e'\mid e$ we use the orthonormal basis obtained from
+$\{f(dz):\ d\mid e/e'\}$ by Gram--Schmidt, whose Fourier coefficients are finite combinations of $\rho_f(1)\lambda_f(k/d)$
+with coefficients bounded uniformly in $f$, because the Gram matrix of $\{f(dz)\}$ is a fixed-size matrix with entries
+polynomial in the $\lambda_f(p)$, $p\mid e$, and determinant bounded below by Kim--Sarnak ($|\lambda_f(p)|\le2p^{7/64}$);
+this is the treatment of oldforms in~\cite{IwaniecLuoSarnak2000}, for Maass forms verbatim. Meanwhile
 $|\Gamma(-it_j)W_c(\tfrac32+it_j)|\ll t_j^{-1/2}e^{-\pi t_j/2}\cdot t_j\,|W(-\tfrac12-it_j)|\ll_Nt_j^{-N}e^{-\pi t_j/2}$.
 
 \emph{Summation and the continuous spectrum.} With $|\mathrm{Per}_{D,e}(u_j)|\ll_{D,e}\|u_j\|_\infty\ll t_j^{1/2}$ on the compact
@@ -1178,9 +1190,12 @@ set containing the finitely many points, the main terms are $\ll t_j^{-N+1}$ and
 both summable against the Weyl law; so the spectral series converges absolutely and uniformly on compacta, and may be
 evaluated at the points $z_Q$. For each cusp $\mathfrak a$ of $\Gamma_0(e)$ the same computation with the Fourier
 coefficients $\varphi_{\mathfrak a\infty}(n,\tfrac12+ir)$ of $E_{\mathfrak a}$, which are $\ll n^{\varepsilon}e^{\pi r/2}(1+r)^{\varepsilon}$,
-gives $\mathcal E^w(Y)=Y^{-1/2}\int c(r)Y^{ir}\,dr+O(Y^{-5/2+\varepsilon})$ with $c$ smooth and rapidly decaying (it inherits the
-decay of $W_c(\tfrac32+ir)$ and the polynomial growth of $E_{\mathfrak a}(z_Q,\tfrac12+ir)$), whence $\mathcal E^w(Y)\ll_AY^{-1/2}(\log Y)^{-A}$
-by integrating by parts $A$ times in $r$. The odd forms are absent by Corollary~\ref{cor:parity-e}, and the sum over
+gives $\mathcal E^w(Y)=Y^{-1/2}\int c(r)Y^{ir}\,dr+O(Y^{-5/2+\varepsilon})$. Here the two residues at $s=1\pm ir$ combine,
+since $\overline{E_{\mathfrak a}(z,\tfrac12+ir)}=E_{\mathfrak a}(z,\tfrac12-ir)$, into a function of $r$ that is real-analytic
+also at $r=0$, where the poles of $\Gamma(\mp ir)$ cancel between the two terms; $c$ is therefore smooth, and it and all
+its $r$-derivatives are integrable, because they inherit the rapid decay of $W_c(\tfrac32+ir)$ and of its derivatives while
+$E_{\mathfrak a}(z_Q,\tfrac12+ir)$ and its $r$-derivatives grow at most polynomially in $|r|$ on compacta. Hence
+$\mathcal E^w(Y)\ll_AY^{-1/2}(\log Y)^{-A}$ by integrating by parts $A$ times in $r$. The odd forms are absent by Corollary~\ref{cor:parity-e}, and the sum over
 $e$ is finite.
 \end{proof}
 
@@ -1188,8 +1203,8 @@ $e$ is finite.
 parameter. For the unrestricted divisor sum at $D=-4$ (the case $e=1$ alone, $\mathcal H_1$ the two orbits of discriminant
 $-16$, points $2i$ and $i$ with stabilisers of order $1$ and $2$) and $w(u)=\exp(-1/(1-(4u-3)^2))$ on $(\tfrac12,1)$, the
 line $t_1=13.7798$ of $\sqrt Y\sum_hw(h/Y)(\sigma_{-1}(h^2+4)-E)$ should be $C\cos(t_1\log Y-\varphi)$ with
-$\varphi=t_1\log(\pi\sqrt{|D|})+\arg\bigl(\Gamma(-it_1)W_c(\tfrac32+it_1)\bigr)+\pi\,\mathbf 1[\mathrm{Per}<0]$, and
-$\mathrm{Per}\propto u_1(2i)+u_1(i)/2>0$ from the LMFDB coefficients of $u_1$. Predicted $\varphi=4.066$; observed, by
+$\varphi=t_1\log(\pi\sqrt{|D|})+\arg\bigl(\Gamma(-it_1)W_c(\tfrac32+it_1)\bigr)+\pi\,\mathbf 1[\mathrm{Per}\,\tilde L_1<0]$, where
+$\mathrm{Per}\propto u_1(2i)+u_1(i)/2>0$ and $\tilde L_1=1.866>0$ from the LMFDB coefficients of $u_1$. Predicted $\varphi=4.066$; observed, by
 least squares on $Y\le2\cdot10^6$, $\varphi=4.032$: a difference of $0.035$ radians, where the opposite sign of the period
 would give $3.1$ (\texttt{scripts/smooth-phase-test.py}). The amplitude was then tested as well: the $L^2$-norm of $u_1$ over the fundamental domain, computed from the same
 twenty coefficients (converged to twenty digits with twelve), gives the normalisation, and the predicted amplitude
@@ -1204,8 +1219,9 @@ this paper that the data confirm; the amplitude law for the Riesz object in \S\r
 for the reason given in Remark~\ref{rem:gaps}.
 
 \begin{remark}[what the smooth theorem says and does not say]\label{rem:smoothmeaning}
-Since the seed is $O(Y^{-N})$ on the moduli $d\le Y$, Theorem~\ref{thm:smooth} is a statement about the window and
-the far moduli of part~III, for $u=1$ and the model weights: they oscillate at the Maass parameters, at the scale
+Since the seed is $O(Y^{-N})$ on the moduli $d\le Y^{1-\delta}$ (not on all of $d\le Y$: the moduli $d\asymp Y$ contribute, a
+point a second reading made precise), Theorem~\ref{thm:smooth} is a statement about the moduli $d\ge Y^{1-\delta}$, essentially
+the window and the far moduli of part~III, for $u=1$ and the model weights: they oscillate at the Maass parameters, at the scale
 $Y^{-1/2}$ appropriate to a sum over $h\in[Y/2,Y]$, with the explicit amplitudes. It is the increment of the sharp sum
 $S(t)$ over a window, and increments do not see the Hooley part of Remark~\ref{rem:gaps}, which is why the sharp start
 of $S(t)$ costs the remainder bound in Theorem~\ref{thm:main} and costs nothing here. For the pieces themselves (weight

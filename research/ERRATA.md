@@ -282,3 +282,18 @@ route before being applied (the checks are described in the items). We agree wit
     a = −0.00234 (m = 2), −0.00300 (m = 3); b ≈ −0.005. The zero terms are ~20 in the same units up to x^{1/12}: the log
     term is undetectable at x ≤ 10⁷. The correction of Theorem general-f therefore rests on the algebra (pole order),
     not on data; paper II now says so. Tail of M(s₀) (~2.5%) not applied to a; noted.
+
+22. **Paper IV, Theorem thm:smooth read adversarially (fresh reader, opus, 13 Sep late): core verified, eight points fixed.**
+    The reader independently verified the Mellin pair, the contour shift and the residue constant (direct quadrature
+    7.58694e−14 vs residues + shifted line 7.58685e−14 at t = 13.7798, D = −4, Y = 20), the Poisson step, the reality of
+    ρ_k(d), parity, the μ(e) signs and the pointwise evaluation. Fixed: (1) "the small moduli d ≤ Y contribute O(Y^−N)"
+    is true only for d ≤ Y^{1−δ}; the moduli d ≍ Y contribute (Remark smoothmeaning corrected); (2) sign (n−x) in the
+    second form of the seed; (3) the appeal to Lemma trunc's coset count now says what it is used for (blocks Yy₀ < √|D|)
+    and the non-absolute convergence of the (d,k) double sum is stated, the regrouping being done on the k-summed form;
+    (4) the shifted-contour bound near Im s ≈ t_j written out; (5) "the residues are" → "minus the residues" (sign of
+    the final formula unchanged); (6) oldforms: the Gram–Schmidt basis of Iwaniec–Luo–Sarnak, with the uniform
+    non-degeneracy from Kim–Sarnak, replaces "with the constants of the underlying newform" (bib entry added);
+    (7) continuous spectrum: the cancellation of the Γ(∓ir) poles at r = 0 between the two residues via the conjugation
+    symmetry of E_𝔞, and the integrability of the r-derivatives of c, now stated; (8) the sign shift in the phase test
+    is π·1[Per·L~₁ < 0] (L~₁ = 1.866 > 0, so unchanged). No fatal finding. First theorem of the series to pass an
+    adversarial reading with its main computation independently reproduced.

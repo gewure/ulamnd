@@ -40,7 +40,8 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
                    coefficients, phase of the first line predicted with no free parameter and observed to 0.035 rad,
                    amplitude and phase confirmed on TWO forms (t_1: ratio 0.99, 0.010 rad; t_2: 1.05, 0.11 rad over the
                    upper half of Y ≤ 1e7; ERRATA 19–21). One proved theorem in paper IV again, every constant tested;
-                   an outside reading requested 13 Sep. 30 pp.
+                   READ adversarially 13 Sep (fresh reader, opus): core verified with the residue constant reproduced
+                   numerically by the reader; 8 expository points fixed (ERRATA 22); no fatal finding. 30 pp.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -173,6 +174,8 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (last). thm:smooth read adversarially: core verified, 8 points fixed (ERRATA 22). Tally for the day: six
+  adversarial passes (one external, five fresh agents), errors found in five, the sixth (thm:smooth) passed on substance.
 - 13 Sep (later). thm:smooth confirmed on two forms to Y = 1e7 (ERRATA 21); cubic log coefficient computed and found
   undetectable (ERRATA 21); second even Maass form's coefficients downloaded from the LMFDB (download_coefficients
   endpoint works; the API has no coefficients).
