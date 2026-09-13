@@ -1,4 +1,4 @@
-# Paper III — status (11 September 2026)
+# Paper III — status (13 September 2026)
 
 **Complete draft (22 pp).** The rigorous pass of 11 Sep is finished; every theorem in the paper has a full proof, and
 the one open problem (the window) is stated exactly, with the strength any Weyl-sum input must have (θ+6B < 1: any power saving in the modulus, loss below (uk)^{(1−θ)/6}).
@@ -14,3 +14,7 @@ Open (→ paper IV): the window W_u(Y; log H) for 1 < u ≤ H^{2/3}. Conjecture 
 Reproduce: `npx tsx research/paper-III/scripts/offstar-mean.ts 10000000` (t²+1),
 `Q=1,1,41 H=10000000 npx tsx research/paper-III/scripts/off-general.ts`, `python research/paper-III/scripts/coff.py`,
 `npx tsx research/paper-III/scripts/offq.ts` (F_q[u]); compile with `tectonic main.tex`.
+
+13 Sep 2026: the external assessment (research/reviews/) had no finding on paper III. One sentence changed: the
+remark pointing at part IV's u = 1 result now says it is a spectral argument with a known gap, not a theorem
+(research/ERRATA.md item 13). 24 pp.

@@ -8,8 +8,8 @@ For an irreducible polynomial f, the pair singular series S_f(h) is the explicit
 Hardy–Littlewood) governs simultaneous primality of f(t), f(t+h). Paper I (v8; not yet submitted anywhere — arXiv planned, 12 Sep)
 proves an exact identity for Σ_{h≤H}(S_f(h) − C(f)²), splits it into a diagonal (equal roots mod d) with
 Dirichlet series ζ_K(s+1)E_f(s) of residue 1/C(f), and an off-diagonal (distinct roots), and conjectures
-Σ*_f(H) = Σ_{h≤H}(1−h/H)(S_f−C²) = −½C(f) log H + A_f + o(1) ("Conjecture 1"; linear-in-C; the sharp sum only
-to O(1) — v7 said o(1) for the sharp sum, which is false, corrected in v8 on 11 Sep, F15). Paper II (draft, 19 pp) determines E_f completely
+Σ*_f(H) = Σ_{h≤H}(1−h/H)(S_f−C²) = −½C(f) log H + A_f + o(1) ("Conjecture 1"; linear-in-C; Cesàro form ONLY — the sharp sum has no bounded remainder at all: v7 said o(1),
+v8 said O(1), both false, v9 of 13 Sep claims nothing about the sharp sum; F15, F26). Paper II (draft, 19 pp) determines E_f completely
 (infinite product of Artin L-functions of virtual characters Ψ_N; Ψ_2 = −Sym²V; natural boundary Re s = −1),
 proves the RH-conditional explicit formula for the diagonal with zeros of ζ_K and pair-field zetas, an
 unconditional Ω_±(x^{m−3/4}), verifies it numerically for t²+1, and reformulates the off-diagonal (Hypothesis
@@ -19,33 +19,94 @@ Kowalski–Soundararajan), and the pieces u > H^{2/3+ε}, which carry a MAIN TER
 constant (−0.1344 for t²+1, confirmed numerically to 3 digits). Nothing here proves anything about primes; all
 prime statements need Hardy–Littlewood.
 
-## 0b. WHERE THINGS STAND, AND WHAT TO DO NEXT (paused 12 September 2026)
+## 0b. WHERE THINGS STAND, AND WHAT TO DO NEXT (updated 13 September 2026, after the first external assessment)
 
-STATE. Four papers, all compiling, zero todo markers, zero unresolved references, 26/26 tests passing.
-  paper-I   27 pp  v8. READY TO POST. Awaiting an arXiv endorser (math.NT). Conjecture 1 is in Cesaro form.
-  paper-II  21 pp  finished.
-  paper-III 24 pp  finished.
-  paper-IV  20 pp  finished. Contains the one new theorem (spectral formula for a piece, u = 1) and the open problem.
-Everything is pushed to github.com/gewure/ulamnd.
+STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passing.
+  paper-I   28 pp  v9 (13 Sep). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
+                   rem:sharp; ERRATA 11, 14). Preprint ready; awaiting an arXiv endorser (math.NT).
+  paper-II  22 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
+  paper-III 24 pp  unchanged (one sentence about part IV softened).
+  paper-IV  21 pp  THE u = 1 THEOREM IS NOT ESTABLISHED (ERRATA 13, F28): the proof drops the coprimality condition
+                   (d, 2D) = 1 of the model object when it passes to complete SL_2(Z)-orbits. Correction notice after
+                   the abstract; Remark rem:coprime has the counterexample and the two repairs. The numerics stand.
+Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
-PAUSED FOR: professional feedback. Nothing is blocked on computation or on writing.
+WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
+in a fix we had made ourselves and endorsed after a numerical check that could not have detected it (F26). The error
+density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
 
 WHEN PICKING UP AGAIN, IN ORDER:
-1. arXiv. Endorsement is the only blocker for paper I. Routes in the 12 Sep timeline entry: academic-email
-   auto-endorsement; asking Goldston or Suriajaya, whose theorem paper I extends; Zenodo/HAL for a DOI meanwhile.
-2. Read any referee feedback against section 3 of this file (the fallacy list) before acting on it -- several of the
-   obvious objections were already raised and answered internally.
-3. The open problem is stated exactly in 3e and its difficulty explained in 3f. The recommended attack is the hybrid
-   in 3f item 4 (spectral in the modulus, bilinear in u). Do NOT attack it by bounding each u separately.
-4. Cheap wins still available, none of them load-bearing: the phase test at the second even parameter t_2 = 17.74
-   (independent check, different predicted coefficient); extending the phase test from 6 to ~20 discriminants;
-   debugging the u = 13 blow-up in piece-general.ts (a genuine bug, not precision).
+1. Paper IV: decide and carry out the repair of ERRATA 13. (i) Drop the coprimality condition — theorem for the
+   unrestricted divisor sum (union of the Heegner points of discriminants 4D/g^2, a finite union of complete orbits);
+   redo Lemma sawtooth for the fixed points of x -> -x at p | 2D; object moves away from part III's pieces. (ii) Keep
+   it — Möbius over e | rad(2D), Gamma_0(e)-orbits, level-e spectral theory (multiple cusps, oldforms + newforms);
+   the right object for the pieces and the fixed-level shadow of the u-problem (3e). Test FIRST, as always: does the
+   excluded sub-family (2 | d for D = −4) oscillate at level-2 Maass parameters that the coprime object lacks?
+   Tools: scripts/piece-divset.ts + piece-periodogram.ts (13 Sep; see 0c for the first run).
+2. Only then: a second pass over the other ~20 places of the same three kinds (every "consequently", every
+   "identical to the proof of", every passage from an arithmetic sum to a group-theoretic one), by an outside reader.
+3. arXiv for paper I (endorsement is the only blocker; routes in the 12 Sep timeline entry).
+4. The open problem of 3e/3f is unchanged (hybrid attack, 3f item 4). Do not attack it before 1 is done.
 
-DO NOT, WITHOUT NEW EVIDENCE: describe the u > 1 gap as a lack of rigour (it is an open problem, see 3f); claim a
-connection to physics or quantum chaos (we used the spectral theory, we did not add to it); upgrade paper IV's
-"target"-free wording further without the error bookkeeping being re-checked by someone external.
+DO NOT, WITHOUT NEW EVIDENCE: call paper IV's u = 1 result a theorem (it is an argument with a known gap); state ANY
+sharp-sum asymptotic with a bounded remainder (F26: differencing kills it whenever the summand is unbounded); write
+"the same proof works" for a generalisation without recomputing the multiplicities and pole orders (F27); pass from a
+restricted arithmetic sum to an orbit sum without checking that the restriction is invariant (F28); describe the u > 1
+gap as a lack of rigour (it is an open problem, 3f); claim a connection to physics or quantum chaos.
+
+## 0c. THE EXTERNAL ASSESSMENT OF 12 SEPTEMBER 2026 (record)
+"Ulam-nD — Assessment of mathematical legitimacy", prepared with ChatGPT at the author's request, assessing revision
+a372a63; research/reviews/2026-09-12-assessment-a372a63.{pdf,txt}. Verdict: "a substantive exploratory mathematics
+project, but not a reliable collection of proved results in its current form". It says explicitly that it is NOT an
+allegation of fraud and that AI involvement is NOT the basis of the judgment; it credits the transparency of the
+repository and re-verified the finite-prime version of paper I's exact identity independently (24 cases, four
+polynomials, exact rational arithmetic). Its findings, each pinned to line numbers and each a concrete counterexample,
+were re-derived by us by independent routes before we acted (13 Sep):
+  1. Paper I: sharp form of Conjecture 1 with O(1) is impossible (S_t(H) unbounded at primorials). CONFIRMED; fixed (v9).
+  2. Paper II: the general explicit formula assumes a simple pole at s = −2/3; the C_3 cubic t^3−3t−1 has a double pole
+     (Psi_3 = (8,−1,−1)). CONFIRMED by two routes; multiplicities tabulated for 19 groups; fixed.
+  3. Paper IV: the proof passes from the restricted sum ((d,2D) = 1) to complete orbits; the restriction is not
+     orbit-invariant ([5,4,1] -> [2,2,1] under z -> z/(z+1), D = −4). CONFIRMED and strengthened (every class mixes both
+     kinds, 11 discriminants). NOT REPAIRED; theorem marked not established.
+Its self-declared limits: partial scope, no novelty audit, numerics not reproduced, and "finite-arithmetic agreement
+certifies nothing about analytic continuation or interchanges of infinite sums". Read it as: three for three where it
+looked; the rest is unexamined, not clean.
+Our own additional finding while applying it: the sharp form Off_f(H) = O(1) of Hypothesis (E) is false by the same
+differencing (ERRATA 14, F26); "bounded to 10^7" is what log log growth looks like.
+FIRST RUN OF THE DIVISOR-SET TEST (13 Sep, scripts/piece-divset.ts, piece-maass.ts, piece-level2.ts; Y = 10^7, model
+object = Riesz mean of order 1 of the divisor sum along h^2 − D, weight 1; three divisor sets: coprime = (d,2D) = 1 (the
+paper's object), all = every divisor (a finite union of complete SL_2(Z)-orbits), excluded = all − coprime). Prediction of
+repair (ii): coprime and excluded carry the even NEWFORMS of level e | rad(2D), "all" does not. Level-e parameters from
+LMFDB (level 2 even: 8.9229, 10.9204, 12.0930, ...; level 3 even: 5.0987, 8.0389, 8.7783, ...). After removing the six
+level-1 even lines, the residual regressed on the 8 smallest level-e even newforms vs 400 random 8-sets:
+     D    e   object     level-1 even R^2 (pct)   level-e EVEN newforms R^2 (pct)   level-e odd (pct)
+    -4    2   coprime        0.36 (100)               0.090 (98)                       (53)
+    -4    2   all            0.48 (100)               0.008 (16)                       (78)
+    -4    2   excluded       0.47 (100)               0.105 (95)                       (74)
+    -8    2   coprime        0.16 (100)               0.080 (90)                       (64)
+    -8    2   all            0.20 (99.7)              0.012 (28)                       (80)
+    -8    2   excluded       0.25 (99.7)              0.110 (99.3)                     (41)
+    -3    3   coprime        0.21 (100)               0.369 (99.8)                     (58)
+    -3    3   all            0.34 (100)               0.030 (78)                       (96.5)
+    -3    3   excluded       0.25 (100)               0.401 (100)                      (64)
+  The D = −3 case is the clean one: the single-frequency periodogram of the coprime AND the excluded object has its
+  LARGEST peak at 5.085 (R^2 0.23 / 0.25, above the level-1 line 13.78), and 5.0987 is the first EVEN Maass newform of
+  level 3 (LMFDB); in "all" that frequency has R^2 0.0098. So the restriction (d, 2D) = 1 injects the level-3 spectrum,
+  exactly as the Gamma_0(3)-orbit description says, and removing the restriction removes it. At D = −4, −8 the level-2
+  lines are present at the 90th–99th percentile in coprime/excluded and absent in "all". NOT seen: level-2 lines at
+  D = −3 (36th pct), although e = 2 also divides rad(2D) = 6; the amplitudes (periods of level-2 forms over the disc −12
+  sub-family) may simply be small — unexplained, recorded. Also all three objects have P/sqrt(Y) bounded (0.13–0.52):
+  square-root cancellation holds for the unrestricted sum too, as repair (i) predicts.
+  CONCLUSION FOR THE REPAIR DECISION: the data say the paper's object is a level-rad(2D) object, i.e. repair (ii) is the
+  true description; repair (i) (drop the condition) gives a correct level-1 theorem about a different object.
 
 ## 1. Timeline (all 2026)
+- 13 Sep. FIRST EXTERNAL ASSESSMENT applied (0c; ERRATA 11–15). Paper I v9 (all sharp-sum claims removed; sharp
+  form of Hypothesis (E) recorded as false); paper II general-f theorem corrected (log-polynomial at −2/3, table of
+  m_N for 19 groups: m_4 < 0 and m_5 > 0 in all of them, no proof); paper IV u = 1 theorem marked NOT ESTABLISHED with
+  a correction notice and Remark rem:coprime (counterexample, two repairs). New tools: paper-IV/scripts/piece-divset.ts
+  (model object for the coprime / all / excluded divisor sets), piece-periodogram.ts. ERRATA.md moved to research/;
+  assessment archived in research/reviews/; READMEs rewritten. Paper III unchanged (one sentence softened).
 - 8 Sep. Ulam-nD workbench built to test the author's thesis (higher-dimensional Ulam spirals, Fibonacci
   dimensions, quasicrystals, RH). Thesis suite: patterns = Bateman–Horn constants (main term only); Fibonacci
   effect absent; not quasicrystalline. One lead survives: sub-Poisson variance along polynomial rays.
@@ -292,12 +353,15 @@ PROVED (paper II): pair fields; Ψ_N virtual characters; structure theorem; quad
 natural boundary (all f, incl. f = t); Ω_±(x^{m−3/4}) unconditional; Prop. O_f (holomorphy ⇒ Cesàro
 conjecture); F_q[u] structure theorem.
 PROVED UNDER RH: explicit formula for quadratics (m ≥ 2, full proof incl. horizontal-segment lemma); general f
-under GRH for constituents of Ψ_1, Ψ_2, Ψ_3.
+under GRH for constituents of Ψ_1..Ψ_4 (corrected 13 Sep, ERRATA 12: at s = −2/3 a polynomial in log x of degree
+m_3 − 1, m_3 = ⟨Ψ_3,1⟩ = 2 for C_3, up to 16 for C_7; the proof also needs m_4 ≤ 0, true for all 19 tabulated groups,
+unproved in general).
 NUMERICAL: t²+1 explicit formula β ≈ 1 (X = 4·10⁷, γ ≤ 100); Cesàro exact test k = 0.498 ± 0.003 (C not C²); c_off
 confirmed for 4 quadratics; pieces O(√Y) with oscillations at the EVEN Maass parameters of SL₂(Z) (5 quadratics, 12 Sep);
 F_q[u] identities two ways.
 CONJECTURED (with strong numerical support incl. a parameter-free phase test at p ~ 1.4e-6): the second spectrum: P_u(Y) = c_u Y + √Y Σ_j c_j cos(t_j log Y + φ_j) + …, t_j even
-Maass parameters (route R; paper IV target theorem for fixed u).
+Maass parameters (route R). Paper IV's u = 1 proof for the model object has a known gap (ERRATA 13, F28), so this is
+CONJECTURED for the model object too, with the argument written out except at one step.
 CONJECTURED: Conjecture 1 in Cesàro form (⇔ Hypothesis (E) in Cesàro form ⇔ windows o(H log H));
 Off*_f(H) = c_off(f) H + o(H) (constant identified; numerically confirmed for t²+1); Hypothesis W; no-bias.
 REFUTED (11 Sep): Maass lines in Off_f (null to 10⁷); "Off* ≪ H^{1−δ}" (main term exists); Conjecture 1 in sharp form
@@ -410,6 +474,31 @@ F21. "Paper I v7 was submitted" (KNOWLEDGE, STATUS, ERRATA, memory, 10–12 Sep)
     external actions only when the author confirms they happened.
 F10. Programming: `pkill -f <script>` kills the harness's own shell when the command line contains the name;
     Python output buffering hides progress; savetxt header '#' breaks pgfplots. Trivial but cost time.
+F26. "The Cesàro asymptotic implies the sharp one with O(1)" (paper I v8, Conjecture 1 and Hypothesis (E); our own
+    fix of F15, endorsed after a numerical check to 10^7). False whenever the summand is unbounded: Σ(H) − Σ(H−1) IS
+    the summand, so a bounded remainder bounds the summand; S_f(h) grows like log log h (primorials for f = t; many
+    small split primes dividing h^2+4 for t^2+1 — there it is the OFF-diagonal part that grows, so the sharp
+    Off_f(H) = O(1) is false as well). log log 10^7 < 3, so "bounded to 10^7" is exactly what unbounded log log growth
+    looks like. RULE: before writing O(1) for a partial sum, difference it; no numerical check can distinguish O(1)
+    from O(log log H). Found by the external assessment (Finding 1); the Off_f consequence by us on applying it.
+F27. "Identical to the proof of the quadratic case" (paper II, Theorem general f). The quadratic case has a simple pole
+    at s = −2/3 because m_3 = 1 for S_2; in general the pole has order m_3 = ⟨Psi_3, 1⟩ — 2 for C_3, 5 for C_4, 16 for
+    C_7 — and the residue carries (log x)^{m_3−1}. The same proof also relied on L(4w, Psi_4) being pole-free at
+    Re 4w = 1, i.e. on m_4 ≤ 0: true in every example (19 groups), unproved. RULE: a "same proof" generalisation must
+    recompute every quantity whose value the special case fixed by accident (here the pole orders). Found by the
+    external assessment (Finding 2).
+F28. "The restricted sum is a sum over the Heegner orbit" (paper IV, Step 2 and Theorem main). The model keeps
+    (d, 2D) = 1; the leading coefficient of a form is not a class invariant (its values over the orbit are the numbers
+    the form represents), so the admitted forms are a proper subset of every orbit ([5,4,1] and [2,2,1] for D = −4).
+    What IS invariant: {e | d} under Gamma_0(e). So the restricted sum is a union of Gamma_0(e)-orbits, e | rad 2D — the
+    fixed-level shadow of the u-problem (3e), where the sub-family {2u^2 | b} is not Gamma-invariant either. We had
+    identified exactly this kind of non-invariance as THE obstruction for u > 1 (3f item 1) while committing it at
+    u = 1. RULE: whenever an arithmetic sum is rewritten as an orbit sum, list every condition on the summation
+    variables and check each for invariance under the group. Found by the external assessment (Finding 3).
+F29. "The theorem is for the piece P_u" (paper IV results list). It was for the model object (weight lambda and the
+    squarefree condition dropped); the results list said "piece". Minor, but the same drift between headline and
+    statement as F7 and F15. RULE: after every rewrite of a theorem, re-read the abstract and the results list against
+    the statement.
 
 ## 3e. THE OBSTRUCTION, FINALLY IDENTIFIED EXACTLY (12 Sep, night) -- and it is NOT a tap-in
 Chasing the general-u case to the end gives the cleanest statement of what blocks the Cesaro conjecture.
@@ -533,7 +622,7 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 |---|------|--------|---------|
 | P1 | Paper III, Route A, Cesàro form of (E) for quadratics | ★★★★★ (rigorous pass 11 Sep: KSw, far moduli, Type II with c_off proved) | Unconditional: small moduli (log-saving), far moduli (trivial), u > H^{2/3+ε} (main term c_off H). Open = the window (Y, u²Y] for 1 < u ≤ H^{2/3}; Hypothesis W needs θ+6B < 1: any modulus saving, but loss below (uk)^{(1−θ)/6} in frequency and dilation — no known Weyl bound is frequency-uniform. Honest framing: W is a hard open problem; paper IV goes via the divisor-sum form of the pieces instead. | Target theorem. Cesàro weight gives k^{−2} Fourier decay so DFI's k^{1/4} suffices; only unbounded saving needed (Remark 7). Real work: Lemma A for small moduli (Hooley's Lemma 5 with the phase). Hooley 1963 is the template. |
 | P2 | Route B, F_q[u], q → ∞ (Prop. B3) | ★★★★★ (10 Sep; Thm B proved for N ≤ 2, D = u) | Formulated via Lang–Weil on explicit varieties V_{k,N} (paper III §5). Local q-sweep for t²−u: q·Off_f(N) → ≈ −2.05 for N = 1, 2 (q ≤ 43): a 1/q LAW with an explicit constant, sharper than the q^{-1/2} target. First main term for the off-diagonal anywhere in the programme. Compute κ by hand for N = 1, 2. | Reinstated (Opus was right that it was dropped without a stated reason; the reason was scope). Small moduli vanish identically (Thm 8), remainder finite (Lemma 9), Katz/Deligne applies. Shortest path to an unconditional off-diagonal theorem; needs the monodromy of the Salié-type sheaf. Could be a section of paper III or a companion. |
-| P3 | Sharp O(1) form of (E) | ★★☆☆☆ | Needs decay in the frequency that no known Weyl bound gives; equivalent in spirit to the spectral formula P4. State as open. |
+| P3 | Sharp O(1) form of (E) | ☆☆☆☆☆ REFUTED 13 Sep (F26) | False: the increments of Off_f(H) are the off-diagonal part of S_f(H) − C², unbounded (log log growth along rare H). The sharp question that remains is the ORDER of the remainder, open even for f = t (Friedlander–Goldston (log H)^{2/3}). |
 | P4 | Maass-spectral explicit formula for the off-diagonal ("second spectrum") | ★★★★★ (11 Sep night, as route R of paper IV) | The right object is the Cesàro/Riesz PIECE P_u(Y) at scale √Y (numerically O(√Y)), not the sharp Off_f(H) (bounded; the C4 null result tested the wrong quantity — lesson recorded). Route: Dirichlet series of the Weyl sums W_k(s) = Σ_d λρ_k d^{−s}, Bykovskiĭ/Kuznetsov for weight 1/2, poles at 1/2 ± it_j of level 4u²; Riesz mean of order m gives a power saving per piece; the crux is level uniformity A < 1/4. See research/paper-IV/BRAINSTORM.md. |
 | P5 | Job (C4): spectrum of Off_f(e^u) for t²+1 | done to 10⁷ (10 Sep) | Null: no Maass or ζ lines at resolution 0.68; Off bounded, no drift. Extend to 10⁹ externally (segmented sieve) before closing the question. |
 | P6 | General two-variable Frobenian Dahlquist/Kurokawa–Moroz theorem | ★★☆☆☆ | Opus's argument adopted: a remark in paper II, not a section; a referee is more likely to say "known, see X" than to demand it. Possible short note later, after reading Kurokawa I and Moroz. |
@@ -569,4 +658,9 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 - Any truncated Euler product multiplying H or x^{m+1}: complete the tail analytically.
 - Any novelty claim: Kurokawa 1986, Moroz 1988, Alberts 2024 (Euler products); Hooley 1963/64, DFI 1995/2012,
   Marklof–Welsh 2023 (roots of congruences); Goldston–Suriajaya 2021, KRR 2022 (singular-series averages).
-- Files: paper/STATUS.md (paper I), research/paper-II/ROADMAP.md (plan), LITERATURE*.md (surveys), ERRATA.md.
+- Any partial-sum asymptotic with O(1): difference it first (F26). Any "same proof" generalisation: recompute every
+  pole order and multiplicity the special case fixed by accident (F27). Any rewrite of an arithmetic sum as an orbit
+  sum: list every condition on the summation variables and check its invariance under the group (F28).
+- Files: research/paper-I/STATUS.md, research/ERRATA.md (project-wide, incl. the external assessment items 11–15),
+  research/reviews/ (external assessments, archived with the revision assessed), research/paper-II/ROADMAP.md (plan,
+  historical), LITERATURE*.md (surveys).

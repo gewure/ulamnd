@@ -1,0 +1,302 @@
+ULAM-ND / MATHEMATICAL ASSESSMENT
+
+TECHNICAL REVIEW / EXECUTIVE ASSESSMENT
+
+
+
+
+Ulam-nD
+Assessment of mathematical legitimacy
+
+Repository: gewure/ulamnd · Assessed revision: a372a63 · 12 September 2026
+
+
+
+   Verdict: a substantive exploratory mathematics project, but not a reliable collection of proved results in
+   its current form. The present manuscripts contain a false unsmoothed claim, an incorrect general explicit
+   formula, and a significant defect in a spectral proof.
+
+This assessment concerns the revision linked in reference [1]. It is not an allegation of fraud, a judgment about the
+author’s motives, or a rejection of every result in the repository. It is a targeted assessment of whether the current
+mathematical claims can be relied on.
+
+What is credible
+The underlying mathematics is genuine: polynomial prime values, Bateman–Horn constants, pair singular series,
+Dedekind zeta functions, and modular spectral theory are established subjects. Goldston and Suriajaya’s cited
+work really does connect singular-series averages to zeta zeros. [9]
+There is also a checkable algebraic core. Independently written arithmetic checks verified the finite-prime version
+of paper I’s main exact identity in 24 cases across four polynomials, with exact rational equality. This supports
+that algebraic identity; it does not establish the later infinite-product or asymptotic conclusions.
+The repository discloses extensive AI assistance, records corrections, and rejects its original Fibonacci-dimension
+and quasicrystal suggestions rather than continuing to promote them. Those are positive signs of transparency.
+[7] [8]
+
+What prevents endorsement
+   • Paper I: the claimed bounded error for the unsmoothed sum is impossible even for the classical linear
+     polynomial. A short contradiction is given on page 2.
+   • Paper II: the general explicit formula assumes a pole is simple when it can be double. A cyclic cubic example
+     requires an additional logarithm; see page 3.
+   • Paper IV: the proof replaces a restricted arithmetic sum with a complete modular-orbit sum, dropping a
+     condition that matters; see page 4.
+The main nonlinear smoothed conjecture remains open, and statements about actual prime counts require Hardy–
+Littlewood-type assumptions. The project is not a proof of the Riemann Hypothesis or of Bateman–Horn. Its own
+notes report that professional feedback is still being sought. [2] [6] [7]
+Prepared by ChatGPT at the user’s request. This AI-generated technical assessment is not an external peer-review report. Scope, verifi­
+cation, and clickable references appear on page 5.
+
+
+
+
+Revision a372a63 · 12 September 2026                                                                                              1/5
+ULAM-ND / MATHEMATICAL ASSESSMENT
+
+FINDING 1 / DEFINITE FALSE CLAIM
+
+
+
+The unsmoothed error cannot stay bounded
+Source: paper I, Conjecture 1, specifically the formula labelled eq:conjsharp. [2]
+
+The claim
+The manuscript conjectures a Cesàro-smoothed asymptotic and then asserts, “consequently,” the unsmoothed
+estimate
+                                                          1
+                          Σ𝑓 (𝐻) ≔ ∑ (𝑆𝑓 (ℎ) − 𝐶(𝑓)2 ) = − 𝐶(𝑓) log 𝐻 + 𝑂𝑓 (1).
+                                  1≤ℎ≤𝐻
+                                                          2
+
+Here 𝑆𝑓 (ℎ) is the pair singular series and 𝐶(𝑓) is the Bateman–Horn constant. The issue is the bounded remainder
+𝑂𝑓 (1), not the mere presence of a logarithmic main term.
+
+A contradiction in the classical case
+Take 𝑓(𝑡) = 𝑡, which is included in the statement. Then 𝐶(𝑓) = 1, and 𝑆𝑓 is the classical prime-pair singular
+series. Define
+                                                                    1
+                                       𝑅(𝐻) = ∑ (𝑆𝑡 (ℎ) − 1) +        log 𝐻.
+                                              1≤ℎ≤𝐻
+                                                                    2
+
+The claimed estimate says 𝑅(𝐻) = 𝑂(1). For integers 𝐻 ≥ 2, subtraction gives
+                                                                   1       𝐻
+                               𝑆𝑡 (𝐻) − 1 = 𝑅(𝐻) − 𝑅(𝐻 − 1) −        log(      ).
+                                                                   2      𝐻 −1
+
+The right-hand side is bounded if 𝑅 is bounded. Thus the conjectured estimate would imply that the singular
+series itself is bounded.
+But for even 𝐻 its established formula is
+                                                 𝑝−1                  1
+                          𝑆𝑡 (𝐻) = 2𝐶2    ∏          , 𝐶2 = ∏ (1 −          ) > 0.
+                                         𝑝∣𝐻,𝑝>2
+                                                 𝑝−2        𝑝>2
+                                                                   (𝑝 − 1)2
+
+This formula appears both in paper I and in Goldston–Suriajaya. [2] [9] Set 𝐻 = ∏𝑝≤𝑦 𝑝, the product of all primes
+up to 𝑦. Then
+                                                                       1
+                              log 𝑆𝑡 (𝐻) − log(2𝐶2 ) = ∑ log(1 +          ) → ∞,
+                                                      2<𝑝≤𝑦
+                                                                      𝑝−2
+
+because the sum of reciprocals of primes diverges and the summands above are asymptotic to 𝑝1 . Hence 𝑆𝑡 (𝐻)
+is unbounded, contradicting the necessary consequence of the asserted estimate.
+
+What this does—and does not—show
+
+  Established: the unsmoothed 𝑂(1) assertion is false as stated. This is an analytic contradiction, not a
+  numerical objection or an appeal to authority.
+  Not established: that the Cesàro-smoothed conjecture is false. Smoothing can suppress large individual
+  jumps, so the same contradiction does not apply to it.
+
+The research notes describe replacing an earlier unsmoothed 𝑜(1) remainder with 𝑂(1). That correction does not
+resolve this obstruction. The repeated explanation that the sharp sum has only bounded fluctuations must also be
+revised. [7]
+
+
+Revision a372a63 · 12 September 2026                                                                         2/5
+ULAM-ND / MATHEMATICAL ASSESSMENT
+
+FINDING 2 / INCORRECT GENERALIZATION
+
+
+
+A higher-order pole changes the formula
+Source: paper II, the theorem headed “general 𝑓” and its proof, labelled thm:explicit-general. [3]
+
+The missing possibility
+The stated general explicit formula includes a contribution
+                                                               2
+                                                       ′
+                                                      𝑐𝑓,𝑚 𝑥𝑚− 3
+
+from the pole at 𝑠 = − 23 . That is the form of a simple-pole contribution. The manuscript’s own character
+construction allows the pole to have higher multiplicity; a double pole introduces a factor involving log 𝑥.
+
+A concrete polynomial
+Consider
+
+                                                𝑓(𝑡) = 𝑡3 − 3𝑡 − 1.
+
+A monic cubic with constant term −1 can have a rational root only at 1 or −1. Here 𝑓(1) = −3 and 𝑓(−1) =
+1, so the polynomial is irreducible. Its discriminant is
+
+                                           −4(−3)3 − 27(−1)2 = 81.
+
+An irreducible cubic with square discriminant has Galois group 𝐶3 . The polynomial also has no fixed prime
+divisor, since 𝑓(0) = −1. Thus it is a natural example within the claimed general setting.
+
+Apply the paper’s character formula
+Let 𝑉 be the permutation representation on the three roots. Its character has values 𝜒𝑉 = (3, 0, 0) on the three
+elements of 𝐶3 . Every group element satisfies 𝑔3 = 𝑒. The manuscript defines
+
+                                                      𝜒𝑉 (𝑔)3 − 𝜒𝑉 (𝑔3 )
+                                           Ψ3 (𝑔) =                      .
+                                                              3
+Therefore
+                                                                   8−1−1
+                                   Ψ3 = (8, −1, −1), ⟨Ψ3 , 𝟏⟩ =          = 2.
+                                                                     3
+The trivial character occurs twice. More explicitly, if 𝜒 and 𝜒 are the two nontrivial characters of 𝐶3 , then
+                                                Ψ3 = 2𝟏 + 3𝜒 + 3𝜒.
+
+Consequently 𝐿(3𝑠 + 3, Ψ3 ) contains 𝜁(3𝑠 + 3)2 , giving a double pole at 𝑠 = − 23 . Under the theorem’s intended
+Artin/RH hypotheses, the other relevant factors do not cancel it in this example.
+
+The required residue shape
+                                                     𝑎−2       𝑎−1
+If the Mellin integrand has Laurent expansion               + 𝑠−𝑠   + … at 𝑠0 = − 23 , then its product with 𝑥𝑠+𝑚
+                                                   (𝑠−𝑠0 )2       0
+
+has residue
+                                            2
+                                       𝑥𝑚− 3 (𝑎−2 log 𝑥 + 𝑎−1 ), 𝑎−2 ≠ 0.
+                             ′
+Thus a constant coefficient 𝑐𝑓,𝑚 is insufficient. The general theorem must allow the polynomial in log 𝑥 dictated
+by pole multiplicity.
+
+  Scope: this is a concrete defect in the general statement. It does not, by itself, refute the quadratic special
+  case, whose corresponding pole is simple.
+
+
+
+Revision a372a63 · 12 September 2026                                                                             3/5
+ULAM-ND / MATHEMATICAL ASSESSMENT
+
+FINDING 3 / SIGNIFICANT PROOF DEFECT
+
+
+
+A restriction disappears in the orbit argument
+Sources: paper IV’s model definition, the Heegner-orbit passage, and the final spectral theorem. [5] [4] [10]
+
+The arithmetic object actually defined
+The simplified model retains a coprimality condition:
+
+                                                ∗                           1
+                                               𝜎−1 (𝑛) =         ∑            ,
+                                                           𝑑∣𝑛, gcd(𝑑,2𝐷)=1
+                                                                            𝑑
+
+                                                           ∗
+                                       𝒢︀(𝑌 ) = ∑ (𝑌 − ℎ)(𝜎−1 (ℎ2 − 𝐷) − 𝔼𝜎−1
+                                                                           ∗
+                                                                              ).
+                                              ℎ≤𝑌
+
+The author drops the multiplicative weight and squarefree condition, but does not drop gcd(𝑑, 2𝐷) = 1. The
+manuscript explicitly distinguishes this model from the weighted pieces needed in paper III.
+
+Where the proof changes the sum
+In the Heegner parametrization, a quadratic form [𝑑, 𝑏, 𝑐] of discriminant 𝐷 corresponds to
+                                                  √
+                                            −𝑏 + 𝐷                √|𝐷|
+                                       𝑧=               , ℑ𝑧 =          .
+                                                2𝑑                  2𝑑
+The proof’s Step 2 then writes the sum over all Heegner points in complete level-one modular orbits. Step 3
+unfolds a full level-one Poincaré series. These steps do not retain the condition gcd(𝑑, 2𝐷) = 1.
+That omission is not merely a choice of notation: the admitted subset is not a complete modular orbit.
+
+An explicit orbit crossing
+For 𝐷 = −4, the form [5, 4, 1] gives 𝑧5 = −2+𝑖
+                                           5 , whose modulus is admitted since gcd(5, 8) = 1. The determi­
+nant-one modular transformation below sends it to an excluded modulus:
+
+                                        1 0                    𝑧5     −1 + 𝑖
+                                   𝛾 = ( ),         𝛾𝑧5 =           =        = 𝑧2 .
+                                        1 1                  𝑧5 + 1     2
+
+The latter corresponds to [2, 2, 1], again of discriminant −4, but gcd(2, 8) = 2. Its modulus is excluded. Thus a
+single modular orbit contains both admitted and excluded points. This example uses 𝑑 = 5 and 𝑑 = 2, so it does
+not depend on any convention about the constant divisor 𝑑 = 1.
+
+Consequence for the theorem
+
+  Established: the complete-orbit identity does not describe the restricted arithmetic sum as written. The
+  proof requires an explicit treatment of the coprimality restriction before the full-orbit spectral expansion can
+  be used.
+  Not established: that no corrected spectral theorem is possible. This finding invalidates a step of the
+  presented argument, not every potential repair.
+
+Separately, paper IV openly states that its 𝑢 = 1 result does not provide the uniform estimates over 𝑢 > 1 needed
+for the full conjecture. That acknowledged open problem is not being counted here as a false theorem. The
+restriction defect above already arises at 𝑢 = 1. [6]
+
+
+
+
+Revision a372a63 · 12 September 2026                                                                            4/5
+ULAM-ND / MATHEMATICAL ASSESSMENT
+
+EVIDENCE / LIMITATIONS / SOURCES
+
+
+
+How to use this assessment
+What was independently checked
+   • Exact identity: the finite-prime version of paper I’s identity was evaluated using rational arithmetic for 𝑓 =
+     𝑡, 𝑡2 + 1, 𝑡2 + 𝑡 + 41, and 𝑡3 − 3𝑡 − 1; primes 2, 3, 5, 7, 11; and 𝐻 = 1, 2, 5, 10, 25, 100. All 24 equalities
+     held exactly.
+   • Finding 1: the contradiction follows from the established singular-series formula and divergence of prime
+     reciprocals. Numerical evaluation of the primorial factors was supplementary, not the proof.
+   • Finding 2: the rational-root and discriminant calculations, character values, and trivial-character multiplicity
+     were recomputed independently.
+   • Finding 3: the modular transformation and coprimality conditions were checked directly; both associated
+     quadratic forms have discriminant −4.
+These checks were written independently rather than obtained by running the repository’s own test suite. Agree­
+ment in finite arithmetic does not certify analytic continuation, error estimates, or exchanges of infinite sums.
+
+Limits and recommendation
+This is a targeted review, not a full referee report or a complete literature/novelty audit. The full numerical studies
+were not reproduced, and software execution or supply-chain security was not audited. No conclusion about fraud,
+motives, or the value of every unpublished idea follows from these findings.
+Recommendation: treat the repository as exploratory research with potentially useful identities and numerical
+observations. Do not cite its new theorems as established or endorse the present manuscripts without substantial
+corrections and specialist review. AI involvement is not the basis for this judgment; the mathematical counterex­
+ample and proof defects are.
+
+Clickable sources
+All GitHub links below are pinned to revision a372a63c5be42d88905c6f6335582c8720bc8d80.
+[1] Repository revision. Commit inspected for this assessment.
+
+[2] Paper I, main.tex. Conjecture 1; classical singular series; exact identity; conditionality and AI disclosure.
+
+[3] Paper II, main.tex, lines 579–605. General explicit formula and character-multiplicity argument. The earlier character definition
+is in the same file.
+[4] Paper IV, main.tex, lines 427–493. Heegner parametrization, orbit identity, and spectral unfolding.
+
+[5] Paper IV, main.tex, lines 931–943. Model divisor sum retaining the condition (𝑑, 2𝐷) = 1.
+
+[6] Paper IV, main.tex, lines 1050–1097. Acknowledged lack of the required uniformity in 𝑢.
+
+[7] research/KNOWLEDGE.md. Submission status, research history, errors, and corrections. Historical status labels are not treated
+as proof.
+[8] research/experiments/CONCLUSIONS.md. Original experimental claims, negative findings, and stated numerical limitations.
+
+[9] D. A. Goldston and A. I. Suriajaya. “A singular series average and the zeros of the Riemann zeta-function,” arXiv:2007.16099;
+published in Acta Arithmetica 200 (2021), 71–90.
+[10] Paper IV, main.tex, lines 770–805. Final spectral theorem and proof for the simplified model.
+
+
+
+
+Revision a372a63 · 12 September 2026                                                                                            5/5
+

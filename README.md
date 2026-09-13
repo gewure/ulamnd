@@ -1,103 +1,62 @@
-# ulamnd
+# ulamnd — the second-moment programme for prime values of polynomials
 
-Two things live in this repository, deliberately separated:
+A research repository. It began on 8 September 2026 as a web workbench for looking at n-dimensional Ulam spirals; the
+spiral hypotheses were refuted on the first day (`research/experiments/CONCLUSIONS.md`), and what survived is a
+programme in analytic number theory about the pair singular series S_f(h) of an irreducible polynomial f and the
+second-order term of its mean. It is written up in four papers, every number of which is generated from code in this
+repository.
 
-- `research/` — the mathematics. `paper-I/` (v8, arXiv preprint in preparation: the pair singular series, its Dedekind zeta function,
-  the variance of prime values), `paper-II/` (draft: zeros of Dedekind zeta functions in the second moment),
-  `paper-III/` (working draft: the off-diagonal in Cesàro form), `experiments/` (the scripts and results behind
-  paper I), `lib/` (the shared TypeScript number-theory library), `tests/`. Start with `research/KNOWLEDGE.md`
-  (timeline, status board, known fallacies, rated paths), then `research/paper-II/ROADMAP.md`.
-- `src/` — the Ulam-nD web workbench (Next.js): a visual companion for exploring polynomial rays of the
-  d-dimensional Ulam spiral. It imports the math library from `research/lib`; nothing in the papers depends on it.
+## Where to start
+1. `research/KNOWLEDGE.md` — section 0b: the state, the ordered next steps and the do-not-claim list; section 0c: the
+   external assessment of 12 September 2026 and what it found; section 3: our own errors, F1–F29, each with the rule
+   that follows from it.
+2. `research/ERRATA.md` — every correction to the papers, by date and cause, including the three findings of the
+   external assessment (items 11–13) and one of our own found while applying them (item 14).
+3. The papers, in order.
 
-Commands (from the repository root): `npm run dev` (workbench), `npm run test` (library tests),
-`npm run thesis` (paper I's experiment suite), `npx tsx research/experiments/<script>.ts` (one experiment; each
-script's header states its runtime), `npx tsx research/paper-I/gen-macros.ts` (regenerate paper I's numbers from the
-JSON results). The papers compile with any TeX Live 2023+ or with [tectonic](https://tectonic-typesetting.github.io):
-`cd research/paper-II && tectonic main.tex` (pgfplots, booktabs, hyperref; no shell escape). The Python scripts in
-`research/paper-II/scripts` and `research/paper-III/scripts` need Python 3.11+ with `mpmath` and `numpy`
-(`python -m venv .venv && .venv/bin/pip install mpmath numpy`). Every number, table and figure in the papers is
-generated from files in this repository; `research/experiments/REPORT-full.md` and the `data/` directories hold the raw results.
+## The papers (`research/paper-*/main.tex`; `tectonic main.tex` compiles each)
+| | content | status (13 September 2026) |
+|---|---|---|
+| I | The pair singular series, its Dedekind zeta function and the variance of prime values: exact identity, diagonal Dirichlet series ζ_K(s+1)E_f(s), closed formula for quadratics, Cesàro theorem for linear f, Conjecture 1 (first power of C(f), Cesàro form), exact test on 25 quadratics | v9, 28 pp. Corrected 13 Sep: the sharp-sum claims were false and are gone. Preprint ready; awaiting an arXiv endorser |
+| II | Zeros of Dedekind zeta functions in the second moment: E_f as an infinite product of Artin L-functions of the plethystic exponents Ψ_N, natural boundary, RH-conditional explicit formula, Ω-theorem, every coefficient for t²+1 | 22 pp. Corrected 13 Sep: the general-f theorem now has the log-polynomial at s = −2/3 |
+| III | The off-diagonal in Cesàro form: decomposition into pieces, unconditional small and far moduli, the main term c_off(f)·H, the window as the single open input, a function-field theorem | 24 pp, complete draft |
+| IV | The second spectrum: the pieces oscillate at the even Maass parameters of SL₂(Z) with Katok–Sarnak amplitudes; a spectral argument for u = 1; uniformity in u as the open problem | 21 pp. **The u = 1 theorem is not established as stated**: a proof gap found by the external assessment; correction notice in the paper; repair pending |
 
----
-
-# Ulam-nD — prime spiral research workbench
-
-A local Next.js tool for exploring n-dimensional Ulam spirals and testing whether the
-"pseudo-patterns" of primes on them carry more information than the standard
-number-theoretic heuristics predict.
-
-```bash
-npm install
-npm run dev        # http://localhost:3000
-npx vitest run     # spiral bijection, polynomial detection, ζ zeros, sieve, analysis
-```
-
-Everything runs in the browser. Heavy work (sieve, spiral layout, line scans) runs in a
-Web Worker; the default box is 4 million numbers (about 20 MB). Boxes above 16 M numbers are
-warned about, above 48 M refused.
-
-## What is in it
-
-| Tab | What it does |
-|---|---|
-| 2D slice | Zoomable canvas of a 2D slice of the d-dimensional spiral (scroll = zoom, drag = pan, click = analyse). Colour by prime / twin / Ω(n) / μ(n) / residue class. Zoomed out, brightness = prime density. |
-| 3D cloud | WebGL point cloud of the primes in a 3D sub-box (d ≥ 3), with the current 2D slice layer highlighted. |
-| point analysis | For a clicked point: every lattice line through it, the exact polynomial of each ray (BigInt finite differences), its Hardy–Littlewood / Bateman–Horn constant C(f), observed vs expected primes in the box (z-score), and an extrapolation far beyond the box with Miller–Rabin. |
-| line scan | Scans every lattice line in the box: dispersion index Φ, size-normalised structure (Φ−1)/Ē, z-score histograms per direction class, empty-line excess, richest and poorest lines with their polynomials. |
-| diffraction | 2D FFT power spectrum and autocorrelation of the prime field (quasicrystal / Penrose test), with peak identification. |
-| Riemann | RH-equivalent error terms from the sieve (π−li, ψ−x, Mertens against Schoenfeld's bounds), ζ(½+it) and Hardy's Z(t) via Borwein's algorithm, zero finding, and the explicit formula rebuilding ψ(x) from the zeros. |
-| dimensions | Builds boxes in several dimensions with the same number of integers and compares the line statistics; Fibonacci dimensions are marked, the others serve as controls. |
-| theory | Definitions, the proof that every lattice line carries a degree-d polynomial, the conjectures involved, and an honest account of the relation to RH. |
-
-## Definition of the d-dimensional spiral
-
-d = 2 is the classic Ulam spiral. For d ≥ 3, shell k (Chebyshev norm k) holds the numbers
-(2k−1)^d+1 … (2k+1)^d: the (d−1)-dimensional ring of radius k is swept through the new axis
-in the order x_d = 0, +1, −1, +2, −2, …, then the two caps x_d = ±k are filled with the
-(d−1)-dimensional ball. See `lib/spiral.ts` and the theory tab.
+Nothing here proves anything about primes without the Hardy–Littlewood conjecture, and nothing here bears on the
+Riemann Hypothesis (`research/paper-II/LITERATURE.md`, §0, has the sentence we allow ourselves).
 
 ## Layout
+- `research/paper-I` … `paper-IV` — sources, `refs.bib`, a `STATUS.md` or `README.md`, `scripts/`, `data/`
+- `research/experiments/` — the scripts and results behind paper I (`REPORT-full.md`, `CONCLUSIONS.md`)
+- `research/lib/` — the shared TypeScript number-theory library (spiral, sieve, polynomials, F_q[u], ζ); `research/tests/`
+- `research/reviews/` — external assessments, archived with the revision they assessed
+- `src/` — the Ulam-nD web workbench (Next.js), a visual companion that imports the library from `research/lib`;
+  nothing in the papers depends on it
 
-- `lib/spiral.ts` – n ↔ coordinates in any dimension, shell enumeration, direction sets
-- `lib/sieve.ts` – Ω(n), squarefree and twin flags in one byte per integer
-- `lib/poly.ts` – exact polynomial detection, Bateman–Horn constants, reducibility tests, Miller–Rabin
-- `lib/analysis.ts` – box construction, slices, point analysis, whole-box line scan, RH series
-- `lib/riemann.ts` – li, R(x), ζ on the critical line, Z(t), zero finding, explicit formula
-- `lib/fft.ts` – 2D FFT, diffraction, autocorrelation
-- `lib/worker.ts` – worker entry; `lib/workerClient.ts` – promise wrapper
-- `components/` – the UI
-- `tests/` – vitest
-
-## Thesis test suite
-
-```bash
-npm run thesis            # ≈ 2 M numbers per dimension, ~2 min → thesis/REPORT.md
-npx tsx thesis/run.ts --full   # ≈ 8 M numbers per dimension → thesis/REPORT-full.md
+## Commands (from the repository root)
 ```
+npm install
+npm test                                            # library tests (vitest)
+npm run thesis                                      # paper I's experiment suite (about 2 minutes)
+npx tsx research/experiments/<script>.ts            # one experiment; each header states its runtime
+npx tsx research/paper-I/gen-macros.ts              # regenerate paper I's numbers from the JSON results
+Q=1,0,1 U=1 Y=10000000 npx tsx research/paper-IV/scripts/piece-general.ts   # a piece of paper IV
+cd research/paper-II && tectonic main.tex           # any paper; TeX Live 2023+ works too (pgfplots, booktabs, hyperref)
+npm run dev                                         # the workbench at http://localhost:3000
+```
+The Python scripts in `research/paper-{II,III,IV}/scripts/` need Python 3.11+ with `mpmath` and `numpy`
+(`python -m venv .venv && .venv/bin/pip install mpmath numpy`).
 
-`thesis/run.ts` runs nine falsifiable experiments (polynomial theorem, Bateman–Horn agreement with a
-random control, in-box pattern collapse, the C(f) distribution up to d = 10, Fibonacci dimensions against
-controls, scale invariance, diffraction, RH-equivalent bounds, nearest-neighbour texture) with a fixed
-random seed. `thesis/REPORT.md` is the evidence; `thesis/CONCLUSIONS.md` is the reading of it.
+## The workbench (`src/`)
+Zoomable 2D slices and a 3D point cloud of the d-dimensional Ulam spiral; per-point analysis (the exact polynomial of
+every lattice ray through a point, its Bateman–Horn constant, observed against expected primes); whole-box line scans
+(dispersion Φ, z-scores); diffraction; RH-equivalent error terms from the sieve; a comparison across dimensions; a
+theory tab. The spiral for d ≥ 3: shell k holds (2k−1)^d+1 … (2k+1)^d, the (d−1)-dimensional ring swept along the new
+axis (x_d = 0, +1, −1, …), then the caps x_d = ±k; every lattice ray then carries a polynomial of degree d
+(`research/lib/spiral.ts`, theory tab). The workbench has not changed since 10 September and is not being developed further.
 
-## Paper
-
-`paper/main.tex` is a peer-review draft built entirely from the data: `npx tsx thesis/variance.ts`
-(variance experiment, ~10 min), `npx tsx paper/gen-macros.ts` (tables and macros), then
-`tectonic main.tex` inside `paper/` (the [tectonic](https://tectonic-typesetting.github.io) engine
-compiles it without a TeX installation). `thesis/trunc.ts` reproduces the truncation table.
-
-`paper/NOTES-towards-7.md` records the research programme that follows from the exact identity of
-Section 3 of the paper (Dedekind zeta functions in the second moment of prime values of a polynomial).
-`thesis/sumS.ts` and `thesis/offdiag.ts` are the two arithmetic (prime-free) experiments behind it.
-`thesis/riesz.ts`, `thesis/riesz-diag.ts`, `thesis/riesz-fit.ts`, `thesis/riesz-analysis.ts` search for
-the zeros of L(s,χ₋₄) in the second moment of t²+1 (negative at 4·10⁷; see paper Section 6);
-`thesis/galois.ts` tests the constant −½ across Galois groups.
-`thesis/exact.ts` is the exact C-versus-C² test for quadratics (closed formula of Theorem 5, no Euler
-truncation, 25 quadratics to H = 10⁶). `thesis/ff.ts` computes the function-field (F_q[u]) analogue exactly
-for q = 3, 5, 7, and `thesis/ff-tail.ts` verifies the finite-support lemma for its off-diagonal remainder
-independently (roots modulo every squarefree d via CRT; `lib/ffpoly.ts` holds the F_q[u] arithmetic). `paper/routes.tex` is a companion note scaffolding the two routes to a proof
-(Hooley/DFI over ℤ; Katz/Deligne over F_q[u]).
-
-`paper/STATUS.md` is the hand-off document: what is proved, what is numerical, how to regenerate everything, and the next steps.
+## AI disclosure
+The mathematics, code and text were produced with heavy use of large language models (Anthropic's Claude), used
+interactively by the author; each paper carries a disclosure section, and the knowledge base records the errors this
+produced and how they were found. The external assessment archived in `research/reviews/` was likewise produced with
+an AI system (ChatGPT) at the author's request; its findings were re-derived independently before being applied.

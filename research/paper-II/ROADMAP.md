@@ -37,7 +37,7 @@ M_f absolutely convergent in Re s > −1 (mixed terms u^a v^b, a ≥ 1). For f =
     k: 2:(−2,−1)  3:(1,1)  4:(−1,−2)  5:(3,3)  6:(−6,−5)  7:(9,9)  8:(−14,−16)   (script, exact rationals).
 Consequences (all for t²+1, analogues for every f):
   (a) the Euler product H̃_f of paper I, Theorem 4, converges absolutely only for Re s > −3/4, not > −1
-      (the coefficient of v⁴ is −3 at split primes). **Erratum for paper I**, see ERRATA.md.
+      (the coefficient of v⁴ is −3 at split primes). **Erratum for paper I**, see ../ERRATA.md (project-wide since 13 Sep).
   (b) ζ(3s+3) in the numerator gives a REAL POLE at s = −2/3: the Riesz means contain a term
       x^{m−2/3}, larger than the zero terms x^{m−3/4}. Missing from Proposition 7 of paper I; it also
       explains part of the null result of paper I, Section 4.2 (the fitted smooth basis did not contain it).
@@ -145,7 +145,7 @@ huge coefficients (rms 13 and 92 in units of x^{m−3/4}) and the data reject it
 grows towards the natural boundary Re s = −1, so moving the contour past −3/4 creates large terms that
 cancel against the line integral. The correct theorem is the contour at Re s = −3/4 − ε: main terms + real
 poles with 1/k > 3/4 − ε... i.e. only k = 3 (x^{m−2/3}), plus the k = 2 zero family, plus
-O(x^{m−3/4−ε}) — and the numerics show the O-term is small in practice. The sentence in ERRATA.md item 2
+O(x^{m−3/4−ε}) — and the numerics show the O-term is small in practice. The sentence in ../ERRATA.md item 2
 ("O(x^{m−7/8+ε}) under GRH") must be weakened accordingly: the k = 4 family is not a usable correction.
 This is worth a remark in the paper: explicit formulas near a natural boundary are asymptotic, not convergent,
 in the contour position.
@@ -259,7 +259,7 @@ mixed-term tails via E₁).
   claiming novelty; the *appearance in a singular-series average* is new in any case.
 - The numerics cannot separate ordinates closer than ≈ 4π/(log-range) ≈ 1.5; the test is a
   matched-filter test, not a resolution test. Say so.
-- Paper I needs the erratum (ERRATA.md) before submission.
+- Paper I needs the erratum (../ERRATA.md) before submission.
 
 
 ## Status 11 September 2026 (after the rigorous pass on paper III)

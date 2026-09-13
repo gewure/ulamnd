@@ -1,8 +1,17 @@
-# Status and hand-off (11 September 2026)
+# Status and hand-off (13 September 2026)
+
+## v9 (13 Sep): sharp-sum claims removed after the external assessment
+- The first external assessment of the repository (research/reviews/2026-09-12-assessment-a372a63.pdf) showed that
+  the sharp form of Conjecture 1 in v8, Σ_f(H) = −½C log H + O_f(1), is false: differencing gives S_f(H) − C², and S_f
+  is unbounded (primorials for f = t; off-diagonal primes p | h²+4 for t²+1). Conjecture 1 is now the Cesàro statement
+  only; new Remark rem:sharp has the argument and both examples; "bounded oscillation" removed from Table 2, Figure 2,
+  the exact-test paragraph and the discussion. Hypothesis (E) likewise no longer offers the sharp form Off_f(H) = O(1),
+  which fails by the same argument. See research/ERRATA.md items 11 and 14. 28 pp. Still nothing submitted; arXiv
+  pending an endorser.
 
 ## v8 (11 Sep): Conjecture 1 corrected, exact test in Cesàro form, paths
 - Conjecture 1 now states the Cesàro form (−½C log H + A_f + o(1)) and the sharp form with O(1); the v7 sharp
-  form with o(1) is false (t²+1: Σ_f drops by C² at every odd H). See research/paper-II/ERRATA.md items 4–7.
+  form with o(1) is false (t²+1: Σ_f drops by C² at every odd H). See research/ERRATA.md items 4–7.
   (Earlier versions of this file said v7 had been submitted; it had not. Nothing has been submitted; arXiv planned 12 Sep.)
 - Exact test recomputed in Cesàro form (research/experiments/exact.ts, `fitCes`): α = 1.001 ± 0.001, k = 0.498,
   slope/C = −0.498 ± 0.003, per decade −0.496/−0.499/−0.500. Headline numbers of the abstract, §4, Fig. 2,

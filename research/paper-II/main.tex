@@ -25,7 +25,7 @@
 \title{The pair singular series of a polynomial II:\\ zeros of Dedekind zeta functions in the second
 moment of prime values}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com.}}
-\date{12 September 2026}
+\date{13 September 2026}
 
 \begin{document}
 \maketitle
@@ -42,7 +42,8 @@ the product of the Dedekind zeta functions of the field of a root and of the fie
 line $\Re s=-1$ is a natural boundary, for every $f$ including the twin-prime case. Consequently the Riesz
 means of the diagonal satisfy an explicit formula whose oscillating part is indexed by the zeros of these
 Dedekind zeta functions, with terms $x^{m-1+\rho/2}$, and whose smooth part contains an unexpected term
-$x^{m-2/3}$; the formula is proved for quadratics under the Riemann hypothesis for $\zeta$ and $L(s,\chi_D)$,
+$x^{m-2/3}$ (times a polynomial in $\log x$ whose degree is one less than the multiplicity of the trivial
+character in the third plethystic exponent: a constant for $S_n$, but $a\log x+b$ for cyclic cubics); the formula is proved for quadratics under the Riemann hypothesis for $\zeta$ and $L(s,\chi_D)$,
 and for general $f$ under the corresponding hypotheses; unconditionally the error term is
 $\Omega_\pm(x^{m-3/4})$. For $f=t^2+1$ every coefficient is computed and the formula is verified against the
 exact Riesz means to $x=4\cdot10^7$: the data reproduce the predicted sum over the zeros of $\zeta$ and
@@ -578,17 +579,24 @@ absolutely convergent for $m\ge2$. Numerically the coefficients decay like $|\ga
 
 \begin{theorem}[general $f$]\label{thm:explicit-general}
 Let $f$ be irreducible of degree $n\ge2$ and $m\ge2$. Assume that the Artin $L$-functions of the irreducible
-constituents of $\Psi_1=\chi_V$, $\Psi_2=-\chi_{\Sym^2V}$ and $\Psi_3=\tfrac13(\chi_V^3-\psi^3\chi_V)$ are entire
-(automatic when $G$ is an $M$-group, e.g.\ $S_3$, $S_4$, $A_4$, $D_n$) and satisfy the Riemann hypothesis. Then
+constituents of $\Psi_1=\chi_V$, $\Psi_2=-\chi_{\Sym^2V}$, $\Psi_3=\tfrac13(\chi_V^3-\psi^3\chi_V)$ and
+$\Psi_4=\tfrac14(\psi^2\chi_V^2-\chi_V^4)$ are entire
+(automatic when $G$ is an $M$-group, e.g.\ $S_3$, $S_4$, $A_4$, $D_n$) and satisfy the Riemann hypothesis. Let
+$m_N=\langle\Psi_N,\mathbf 1\rangle$ be the multiplicity of the trivial character in $\Psi_N$, so that
+$L(N(s+1),\Psi_N)$ has at $s=-1+1/N$ a pole of order $m_N$ if $m_N>0$ and a zero of order $-m_N$ if $m_N<0$. Then
 there is $\varepsilon_0>0$ such that, for $U\in[x^{16},2x^{16}]$ suitably chosen,
 \[
-R_m(x)=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+c'_{f,m}\,x^{m-2/3}
+R_m(x)=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+\sum_{N\in\{3,4\}}x^{m-1+1/N}\,P_{f,m,N}(\log x)
 +x^{m-1}\sum_{\substack{\rho\\|\gamma|\le2U}}Q_{m,\rho}(\log x)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
 \]
-where $\rho$ runs over the zeros of $L(s,\Sym^2V)=\zeta_K(s)\prod_O\zeta_{K_O}(s)$, and $c'_{f,m}=0$ unless the
-trivial character occurs in $\Psi_3$, in which case $c'_{f,m}x^{m-2/3}$ is the residue at $s=-\tfrac23$. For
-$G=S_n$ the trivial character occurs in $\Psi_3$ with multiplicity $1$, so the term $x^{m-2/3}$ is present for
-every $S_n$-polynomial.
+where $\rho$ runs over the zeros of $L(s,\Sym^2V)=\zeta_K(s)\prod_O\zeta_{K_O}(s)$, and $P_{f,m,N}$ is the polynomial
+(possibly zero) given by the residue at $s=-1+1/N$: if the integrand has there a pole of order $r_N\ge1$, then
+$P_{f,m,N}$ has degree exactly $r_N-1$, and $P_{f,m,N}=0$ if $r_N\le0$. Under the hypotheses $r_3=m_3$, since the
+other factors are finite and non-zero at $s=-\tfrac23$; $r_4=m_4+k$, where $k\ge0$ is the order of vanishing of
+$L(\tfrac12,\Sym^2V)$; and $s=-\tfrac12$ is never a pole, since $m_2=-\dim(\Sym^2V)^G\le-1$. For $G=S_n$ one has
+$m_3=1$ and $m_4=-2$ ($-1$ for $n=2$), so the smooth part beyond $x^m$ is a single term $c'_{f,m}x^{m-2/3}$, as for
+quadratics. For $G=C_3$ one has $m_3=2$, and the term is $x^{m-2/3}(a\log x+b)$ with $a\ne0$
+(Table~\ref{tab:mN}).
 \end{theorem}
 \begin{proof}
 Identical to the proof of Theorem~\ref{thm:explicit-quadratic}, with $\zeta(w)L(w,\chi_D)$ replaced by
@@ -601,11 +609,63 @@ character in $\Psi_3$ is $\tfrac13(\langle\chi_V^3,1\rangle-\langle\psi^3\chi_V,
 $\langle\chi_V^3,1\rangle=5$ (orbits of $S_n$ on maps $\{1,2,3\}\to\{1,\dots,n\}$) and $\langle\psi^3\chi_V,1\rangle$ is
 the mean number of fixed points of $g^3$, i.e.\ $\mathbb E[c_1+3c_3]=1+3\cdot\tfrac13=2$ with $c_k$ the number of
 $k$-cycles; for $n=2$ the values are $4$ and $1$.
+
+The residue at $s_0=-1+1/N$ is the one place where the general case differs from the quadratic one. If the integrand
+has the Laurent expansion $\sum_{k=1}^{r}a_{-k}(s-s_0)^{-k}+O(1)$ with $a_{-r}\ne0$, then the residue of its product
+with $x^{s+m}$ is
+\[
+x^{s_0+m}\sum_{k=1}^{r}\frac{a_{-k}}{(k-1)!}(\log x)^{k-1},
+\]
+a polynomial of degree exactly $r-1$ in $\log x$. At $s=-\tfrac23$ the factors $\zeta_K(w)$, $L(2w,\Psi_2)=1/L(\tfrac23,\Sym^2V)$,
+$L(Nw,\Psi_N)$ for $N\ge4$ (evaluated at $\Re(Nw)\ge\tfrac43$) and $M_{f,K}$ are finite and non-zero under the
+hypotheses, so $r_3=m_3$; at $s=-\tfrac34$ the factor $L(2w,\Psi_2)=1/L(\tfrac12,\Sym^2V)$ may have a pole, whence
+$r_4=m_4+k$. That the multiplicity $m_3$ can exceed $1$ was pointed out to us in an external assessment of this
+work (12 September 2026): for $f=t^3-3t-1$, irreducible with discriminant $81$ and Galois group $C_3$, one has
+$\chi_V=(3,0,0)$ on the three group elements, $\Psi_3=(8,-1,-1)$ and $m_3=2$, so $L(3w,\Psi_3)$ contains
+$\zeta(3w)^2$ and the pole at $s=-\tfrac23$ is double. An earlier version of this theorem wrote the term as
+$c'_{f,m}x^{m-2/3}$ with a constant for every $f$, which is wrong for this polynomial and for every group in
+Table~\ref{tab:mN} other than $S_n$, $A_n$ and $A_4$.
 \end{proof}
+
+\begin{table}[htbp]
+\centering\small
+\caption{The multiplicity $m_N=\langle\Psi_N,\mathbf 1\rangle$ of the trivial character in the plethystic exponents
+$\Psi_N$ of Lemma~\ref{lem:psi}, for the transitive permutation groups of degree $2$ to $5$ and three of degree $6$
+and $7$, computed by averaging $\Psi_N(g)$ over the group. A positive entry is the order of the pole of
+$L(N(s+1),\Psi_N)$ at $s=-1+1/N$, a negative one the order of its zero. In every case $m_2<0$ (a zero at
+$s=-\tfrac12$), $m_3\ge1$ (a pole at $s=-\tfrac23$, simple exactly for $S_n$, $A_n$ and $A_4$), $m_4<0$ (a zero at
+$s=-\tfrac34$) and $m_5>0$ (a pole at $s=-\tfrac45$, inside the error term). The regular representations have the
+largest multiplicities.}\label{tab:mN}
+\begin{tabular}{lrrrrrr}
+\toprule
+$G$ (degree) & $|G|$ & $m_2$ & $m_3$ & $m_4$ & $m_5$ & $m_6$\\
+\midrule
+$S_2$ (2) & 2 & $-2$ & 1 & $-1$ & 3 & $-6$\\
+$C_3$ (3) & 3 & $-2$ & 2 & $-6$ & 16 & $-40$\\
+$S_3$ (3) & 6 & $-2$ & 1 & $-2$ & 8 & $-22$\\
+$C_4$ (4) & 4 & $-3$ & 5 & $-14$ & 51 & $-175$\\
+$V_4$ (4) & 4 & $-4$ & 5 & $-12$ & 51 & $-180$\\
+$D_4$ (4) & 8 & $-3$ & 3 & $-6$ & 27 & $-95$\\
+$A_4$ (4) & 12 & $-2$ & 1 & $-4$ & 17 & $-58$\\
+$S_4$ (4) & 24 & $-2$ & 1 & $-2$ & 10 & $-34$\\
+$C_5$ (5) & 5 & $-3$ & 8 & $-30$ & 124 & $-524$\\
+$D_5$ (5) & 10 & $-3$ & 4 & $-12$ & 62 & $-272$\\
+$F_{20}$ (5) & 20 & $-2$ & 2 & $-6$ & 31 & $-136$\\
+$A_5$ (5) & 60 & $-2$ & 1 & $-2$ & 12 & $-51$\\
+$S_5$ (5) & 120 & $-2$ & 1 & $-2$ & 10 & $-37$\\
+$C_6$ (6) & 6 & $-4$ & 11 & $-51$ & 259 & $-1304$\\
+$D_6$ (6) & 12 & $-4$ & 6 & $-22$ & 131 & $-672$\\
+$A_6$ (6) & 360 & $-2$ & 1 & $-2$ & 10 & $-40$\\
+$C_7$ (7) & 7 & $-4$ & 16 & $-84$ & 480 & $-2808$\\
+$S_7$ (7) & 5040 & $-2$ & 1 & $-2$ & 10 & $-37$\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \emph{In words.} In any degree the same formula holds with the zeros of the Dedekind zeta functions of the
 root field and of the pair fields, under the corresponding Riemann hypotheses; the real term $x^{m-2/3}$
-is universal for the generic Galois group.
+is universal, with a constant coefficient for the generic Galois group and a polynomial in $\log x$ of degree
+$m_3-1$ otherwise, already of degree $1$ for cyclic cubics.
 
 \subsection{$f=t^2+1$: every coefficient}\label{sec:t2p1}
 
@@ -837,7 +897,10 @@ $Q(h)$ in place of $d$, and the level-of-distribution input for $\#\{h\le H:e\mi
 \end{itemize}
 Expanding the sawtooth to length $K$ (Vaaler) and using (A)--(C) gives $\Off_f(H)\ll K^{A}+(\log H)/K$, i.e.\
 $\Off_f(H)=o(\log H)$: this is Hypothesis~(E) in Ces\`aro form, hence Conjecture~\eqref{eq:conj} in Ces\`aro form
-for every quadratic, since $S_2$ is $2$-transitive on the two roots. The sharp form $\Off_f(H)=O(1)$ needs decay
+for every quadratic, since $S_2$ is $2$-transitive on the two roots. The sharp form $\Off_f(H)=O(1)$, which an
+earlier version treated as the stronger target, is false: $\Off_f(H)-\Off_f(H-1)$ is the off-diagonal part of
+$(S_f(H)-C^2)/C^2$, which is unbounded along $h$ with many small split primes dividing $h^2-D$ (part~I, Remark on the sharp
+sum, v9); the sharp question is the order of the remainder, which needs decay
 in the frequency $k$ that the $k^{1/4}$ of~\cite{DFI2012} does not provide; it is the spectral problem of the next
 remark.
 
@@ -855,15 +918,18 @@ $\sum_jc_j(D)\hat h_H(t_j)+(\text{Eisenstein})$, the Eisenstein term reintroduci
 dichotomy ``diagonal governed by zeros of $\zeta$, off-diagonal by the discrete spectrum'' is the one of the
 additive divisor problem and of Motohashi's formula for the fourth moment~\cite{Motohashi1993}. Whether the
 discrete spectrum really contributes to $\Off_f$, or decouples as in the non-dihedral cases of Templier and
-Tsimerman, is testable, and part~IV of this series~\cite{ReichardtIV} settles it. Two corrections to the test as we
+Tsimerman, is testable, and part~IV of this series~\cite{ReichardtIV} addresses it. Two corrections to the test as we
 first posed it are worth recording. The observable is not $\Off_f(H)$, which is bounded, but the Ces\`aro
 \emph{pieces} $\mathcal P_u(Y)$ of part~III at the scale $\sqrt Y$; and only the \emph{even} Laplace parameters
 occur, the odd ones being annihilated because the Heegner points of a given discriminant are symmetric about the
 imaginary axis while an odd Maass form is antisymmetric. With those two corrections the lines are there: part~IV
-proves the expansion for $u=1$, with amplitudes the Katok--Sarnak periods, and confirms it numerically, the phases
-being predicted with no free parameter and agreeing to a median of $0.012$ radians. The guess recorded in this remark,
+derives the expansion for $u=1$, with amplitudes the Katok--Sarnak periods, and confirms it numerically, the phases
+being predicted with no free parameter and agreeing to a median of $0.012$ radians. (The proof given there has a gap
+at the passage from the restricted divisor sum to complete modular orbits, found by an external reader on
+12 September 2026 and recorded in part~IV and in the repository's errata; the numerical evidence does not depend on
+it.) The guess recorded in this remark,
 that $\Off_f$ is a Poincar\'e series with a $y$-dependent sawtooth test function whose natural expansion is
-$\sum_jc_j(D)\hat h(t_j)$ plus an Eisenstein term, is exactly what that proof carries out.
+$\sum_jc_j(D)\hat h(t_j)$ plus an Eisenstein term, is exactly what that argument carries out.
 \end{remark}
 
 \emph{In words.} For quadratics the off-diagonal is a question about square roots modulo composite numbers:
@@ -895,7 +961,8 @@ and with spectral terms that are simply too small to resolve over $9.2$ units of
 for the second spectrum. Item~(C4) of Appendix~\ref{app:comp} extends the range. Part~III explains the value of the mean: the Ces\`aro off-diagonal has a main term $c_{\mathrm{off}}(f)H$ with an
 explicit constant ($c_{\mathrm{off}}(t^2+1)=-0.13439$), and the mean of the sharp $\Off_f(t)$ is predicted to be
 $c_{\mathrm{off}}+(1-D_f(1))/2=-0.00978$, in agreement with the exact data to $10^7$ ($-0.0098\pm0.0007$); so
-Hypothesis~(E) in the form $\Off_f(H)=O(1)$ is consistent with the data, but the off-diagonal is not mean-zero, and its
+the boundedness of $\Off_f(H)$ over this range is consistent with the data (though the sharp form $\Off_f(H)=O(1)$ is
+false in the limit, its increments growing like $\log\log H$ along rare $H$, see \S\ref{sec:off}), but the off-diagonal is not mean-zero, and its
 mean is not zero by accident but by a near-cancellation of two computable constants.
 
 \IfFileExists{data/offdiag-10000000.dat}{%
@@ -973,8 +1040,9 @@ boundary an explicit formula is asymptotic, not convergent, in the position of t
 smooth terms subtracted exactly, the zeros of $L(s,\chi_{-4})$ appear in the second moment of $t^2+1$ with the
 predicted amplitude and phase.
 
-\paragraph{Open problems.} (a)~Prove (E1) and (E2) for quadratics (part~III). (b)~The multiplicity of the
-trivial character in $\Psi_N$ for general $G$, hence the full list of real poles $-1+1/N$; for $S_n$ it is
+\paragraph{Open problems.} (a)~Prove (E1) and (E2) for quadratics (part~III). (b)~The sign and size of $m_N=\langle\Psi_N,\mathbf 1\rangle$ for general $G$ and $N\ge4$, hence the full list of
+real poles $-1+1/N$ and their orders; Table~\ref{tab:mN} has $m_4<0$ and $m_5>0$ in every case, so the next real pole
+after $-\tfrac23$ would be at $-\tfrac45$, inside the error term, but we have no proof of either sign in general. For $S_n$, $m_N$ is
 $\tfrac1N\sum_{j\mid N}\mu(j)(-1)^{N/j+1}\,\mathbb E[\chi_V(g^j)^{N/j}]$, with moments of fixed-point counts of powers
 of random permutations. (c)~The limiting logarithmic distribution of $E_m(x)/x^{m-3/4}$ (in the sense of
 Rubinstein--Sarnak) and whether it is biased. (d)~Higher moments: the $k$-point singular series of

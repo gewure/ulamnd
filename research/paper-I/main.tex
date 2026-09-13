@@ -35,7 +35,7 @@
 \title{The pair singular series of a polynomial:\\ an exact identity, its Dedekind zeta function,\\ and the variance of prime values}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
 carried out with heavy use of a large language model; see the disclosure at the end.}}
-\date{12 September 2026}
+\date{13 September 2026}
 
 \begin{document}
 \maketitle
@@ -100,19 +100,37 @@ For every irreducible, integer-valued $f$ without fixed prime divisor,
 \begin{equation}\label{eq:conj}
 \sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+A_f+o(1)\qquad(H\to\infty),
 \end{equation}
-with a constant $A_f$ depending on $f$, and consequently
-\begin{equation}\label{eq:conjsharp}
-\Sigma_f(H):=\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1).
-\end{equation}
+with a constant $A_f$ depending on $f$.
 \end{conjecture}
 
-The Ces\`aro weight $1-h/H$ in~\eqref{eq:conj} is not a technicality. The sharp sum $\Sigma_f(H)$ oscillates by
-a bounded amount as $H$ varies and has no limit after subtracting $-\tfrac12C\log H$: for $f=t^2+1$, $S_f(h)=0$ for
-every odd $h$, so $\Sigma_f(H)$ drops by exactly $C(f)^2$ at every odd $H$ and recovers at the next even one, for
-all $H$. Only the Ces\`aro mean, which is the average of $\Sigma_f(H')$ over $H'<H$, can converge, and it is the Ces\`aro
-mean that the exact identity of Section~\ref{sec:sum} controls (Theorem~\ref{thm:smoothed}). The constant $A_f$ is
-defined by~\eqref{eq:conj}; in the sharp form only $O(1)$ can be claimed, and the numerical constants ``$A_f/C$'' of
-Section~\ref{sec:sum} are Ces\`aro constants.
+The conjecture is about the Ces\`aro mean, and only about it. We write
+\begin{equation}\label{eq:conjsharp}
+\Sigma_f(H):=\sum_{h\le H}\bigl(S_f(h)-C(f)^2\bigr)
+\end{equation}
+for the sharp sum, of which the left side of~\eqref{eq:conj} is the average $\frac1H\sum_{H'<H}\Sigma_f(H')$, and we
+make no conjecture about $\Sigma_f(H)$ itself beyond what follows from~\eqref{eq:conj} by partial summation.
+
+\begin{remark}[the sharp sum has no bounded remainder]\label{rem:sharp}
+Earlier versions of this paper stated, as a consequence of~\eqref{eq:conj}, that
+$\Sigma_f(H)=-\tfrac12C(f)\log H+O_f(1)$. That is false, and it is not a consequence of anything: differencing gives
+$\Sigma_f(H)-\Sigma_f(H-1)=S_f(H)-C(f)^2$, so a bounded remainder would force $S_f$ to be bounded, whereas $S_f(h)$
+is unbounded. For $f=t$ this is classical: $\Sig(H)=2C_2\prod_{p\mid H,\,p>2}\frac{p-1}{p-2}$ grows like a constant
+times $\log\log H$ along the primorials $H=\prod_{p\le y}p$ ($\Sig(H)/2C_2=5.44$ at $y=47$, where $\log\log H=3.7$).
+For $f=t^2+1$ the same growth comes from the primes represented by $Q(h)=h^2+4$ in Theorem~\ref{thm:quadratic}, that
+is, from the off-diagonal: choosing $h$ even with $p\mid h^2+4$ for the first $K$ split primes $p$ (and $h\equiv1$
+modulo the small inert primes, so that no prime dividing $h$ contributes) gives
+$S_f(h)/C(f)^2=2.70,\,2.93,\,3.14,\,3.36,\,3.56$ for $K=5,10,20,40,80$, against $1.12$ for $K=0$. The jumps of
+$\Sigma_f(H)$ therefore grow like $\log\log H$, and two consecutive values of $\Sigma_f$ cannot both stay within a
+bounded distance of $-\tfrac12C\log H$. What is true is weaker and of a different kind: for $f=t$,
+$\sum_{h\le H}\Sig(h)=H-\tfrac12\log H+O((\log H)^{2/3})$ (Friedlander--Goldston, Vaughan), and the correct order of
+that remainder is open. Between the parity drop, which for $f=t^2+1$ takes $\Sigma_f$ down by exactly $C(f)^2$ at
+every odd $H$ because $S_f$ vanishes at odd $h$, and this slow unbounded growth, the sharp sum is the wrong object.
+The Ces\`aro mean averages both effects out; it is what the exact identity of Section~\ref{sec:sum} controls
+(Theorem~\ref{thm:smoothed}) and what the data of Section~\ref{sec:sum} measure. The constant $A_f$ is defined
+by~\eqref{eq:conj}, and the numerical constants ``$A_f/C$'' of Section~\ref{sec:sum} are Ces\`aro constants. (The
+bounded-remainder claim was pointed out to us by an external assessment of the repository on 12 September 2026; see
+\texttt{research/ERRATA.md}, item~11.)
+\end{remark}
 
 For $f(t)=t$ this is a theorem: $\sum_{h\le H}\Sig(h)=H-\tfrac12\log H+O((\log H)^{2/3})$, due to
 Friedlander and Goldston~\cite{FriedlanderGoldston1995} and Vaughan~\cite{Vaughan2001} after
@@ -530,11 +548,15 @@ $\log H$ and a genuine cancellation among the orbits is required (Section~\ref{s
 
 The full conjecture~\eqref{eq:conj}, with a constant term, needs more than the leading term:
 
-\medskip\noindent\textbf{Hypothesis (E).} $\mathrm{Off}^\ast_f(H)=O(H)$; in sharp form, $\mathrm{Off}_f(H)=O(1)$,
-which implies the Ces\`aro form since $\mathrm{Off}^\ast_f(H)=\sum_{t<H}\mathrm{Off}_f(t)-\tfrac12(1-D_f(1))H$
-with $D_f(1)=\sum_{d\ge1}a_f(d)/d$~\cite{ReichardtIII}. In words: the fractional parts $\{(H\pm m)/d\}$, $m$ ranging
+\medskip\noindent\textbf{Hypothesis (E).} $\mathrm{Off}^\ast_f(H)=O(H)$. In words: the fractional parts $\{(H\pm m)/d\}$, $m$ ranging
 over the differences of distinct roots of $f$ modulo $d$, have a mean against the weights $W_f(d)$ that differs from
-$\tfrac12$ by $O(1/H)$ on average.
+$\tfrac12$ by $O(1/H)$ on average. The sharp remainder $\mathrm{Off}_f(H)$ of~\eqref{eq:split}, for which
+$\mathrm{Off}^\ast_f(H)=\sum_{t<H}\mathrm{Off}_f(t)-\tfrac12(1-D_f(1))H$ with $D_f(1)=\sum_{d\ge1}a_f(d)/d$~\cite{ReichardtIII},
+is \emph{not} $O(1)$, although earlier versions of this paper offered that as an equivalent sharp form: its increments
+$\mathrm{Off}_f(H)-\mathrm{Off}_f(H-1)$ are the off-diagonal part of $(S_f(H)-C^2)/C^2$, which for $t^2+1$ is unbounded
+along the $h$ constructed in Remark~\ref{rem:sharp} (there the diagonal part is $O(1)$ and the growth is entirely
+off-diagonal). Hypothesis~(E) says that the Ces\`aro mean of $\mathrm{Off}_f$ is bounded, nothing more; the sharp
+$\mathrm{Off}_f(H)$ is bounded by $1.3$ to $10^7$ only because $\log\log10^7<3$.
 
 \medskip\noindent
 This is the equidistribution statement of Remark~\ref{rem:two} with a bounded, rather than merely
@@ -561,9 +583,9 @@ excluded. The script \texttt{research/experiments/sumS.ts} reproduces everything
 \centering\footnotesize\setlength{\tabcolsep}{4.5pt}
 \caption{Growth of $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C^2)$. Slopes are increments per unit of
 $\log H$ over the indicated decade, divided by $C$ or by $C^2$ (mean $\pm$ s.d.\ over the polynomials of
-the group). $A_f/C$ is $(\Sigma_f(10^5)+\tfrac12C\log10^5)/C$, the constant term of the sharp form~\eqref{eq:conjsharp}
-at $H=10^5$, which differs from the Ces\`aro constant of~\eqref{eq:conj} by the bounded oscillation of the sharp
-sum. Conjecture~\ref{conj} predicts $-0.50$ in the ``$/C$'' columns for every group; the scatter here is that
+the group). $A_f/C$ is $(\Sigma_f(10^5)+\tfrac12C\log10^5)/C$, evaluated for the sharp sum~\eqref{eq:conjsharp}
+at $H=10^5$; it differs from the Ces\`aro constant of~\eqref{eq:conj} by the remainder of the sharp sum, which is of
+size about $1$ in this range but is not bounded (Remark~\ref{rem:sharp}). Conjecture~\ref{conj} predicts $-0.50$ in the ``$/C$'' columns for every group; the scatter here is that
 of the sharp sum, see the exact test below.}\label{tab:sums}
 \begin{tabular}{lrrrrrrr}
 \toprule
@@ -618,8 +640,8 @@ Ces\`aro sum $\Sigma^\ast_f(H)=\sum_{h\le H}(1-h/H)(S_f(h)-C^2)$ (filled) and of
 computed from the closed formula of Theorem~\ref{thm:quadratic} with no truncation of the $h$-dependent part,
 against $C(f)$ on logarithmic axes. A law $-kC^\alpha$ is a straight line of slope $\alpha$; for the Ces\`aro sum
 the logarithmic fit gives $\alpha=\exCesAlpha\pm\exCesAlphaSe$, $k=\exCesK$, indistinguishable from the dashed line
-$\tfrac12C$ of Conjecture~\ref{conj}. The sharp points scatter around the same line by the bounded oscillation
-of $\Sigma_f(H)$ in $H$ (Table~\ref{tab:exact}).}\label{fig:exact}
+$\tfrac12C$ of Conjecture~\ref{conj}. The sharp points scatter around the same line by the oscillation
+of $\Sigma_f(H)$ in $H$, of size about $1$ at these $H$ (Table~\ref{tab:exact}; Remark~\ref{rem:sharp}).}\label{fig:exact}
 \end{figure}
 
 \begin{table}[htbp]
@@ -689,9 +711,10 @@ decade, exactly as Theorem~\ref{thm:smoothed} predicts for the diagonal once $\m
 The same fit for the sharp sum $\Sigma_f(H)$ gives $\alpha=\exAlpha\pm\exAlphaSe$ (logarithmic) and
 $\exAlphaLin\pm\exAlphaLinSe$ (unweighted), mean slope$/C$ $\exSlopeC\pm\exSlopeCsd$, and by decades $\exDecA$, $\exDecB$,
 $\exDecC$ with scatter $\pm\exDecAsd$, $\pm\exDecBsd$, $\pm\exDecCsd$; the $C^2$ law is excluded there too, but the scatter is
-forty times larger. The difference is entirely the bounded oscillation of $\Sigma_f(H)$ in $H$: the sharp sum evaluated
-at the two endpoints $10^3$ and $10^6$ carries an $O(1)$ term that does not average out, which is why the sharp
-form of Conjecture~\ref{conj} can only be stated with $O(1)$, and it is what an earlier version of this paper misread
+forty times larger. The difference is the oscillation of $\Sigma_f(H)$ in $H$: the sharp sum evaluated
+at the two endpoints $10^3$ and $10^6$ carries a remainder of size about $1$ that does not average out (and that is
+not even bounded as $H\to\infty$, Remark~\ref{rem:sharp}), which is why Conjecture~\ref{conj} is stated for the
+Ces\`aro mean only, and it is what an earlier version of this paper misread
 as a coefficient ``systematically short of $\tfrac12$''. The Ces\`aro sum is the quantity the exact identity
 controls, and it should be the quantity one measures.
 
@@ -1215,7 +1238,7 @@ $\F_q[u]$ together with the finite support of what remains (Lemma~\ref{lem:suppo
 which we have sketched but not written out. What is numerical is the rest: for $\exN$ quadratics computed
 exactly to $H=10^6$ with $C$ spanning more than a decade the slope of the Ces\`aro sum $\Sigma^\ast_f$ scales as
 $C^{\alpha}$ with $\alpha=\exCesAlpha\pm\exCesAlphaSe$ and coefficient $\exCesK$ against the predicted $\tfrac12$,
-excluding the $C^2$ law (the sharp sum gives $\alpha=\exAlpha\pm\exAlphaSe$ with a scatter set by its bounded
+excluding the $C^2$ law (the sharp sum gives $\alpha=\exAlpha\pm\exAlphaSe$ with a scatter set by its
 oscillation in $H$); the off-diagonal remainder of
 quadratics is bounded to $10^5$ and the function-field tail to $N=\ffNmax$; and the prime counts along
 polynomial sequences have the variance that~\eqref{eq:varHL2} predicts, with the finite-$T$ excess of the

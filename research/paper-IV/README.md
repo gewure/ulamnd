@@ -1,27 +1,31 @@
-# Paper IV — the window (scaffold, 11 September 2026)
+# Paper IV — the second spectrum (status page, 13 September 2026)
 
-**The problem, carried over verbatim from paper III, Theorem A′.** For an irreducible quadratic f with discriminant D,
-squarefree u with ω(u) ≥ 1, length Y = H/u and L = log H, the *window* of piece u is
+`main.tex` (21 pp): the Cesàro pieces of part III oscillate at the even Maass parameters of SL₂(Z), with amplitudes the
+Katok–Sarnak periods at the discriminant of the polynomial; a spectral argument for u = 1 on a model object; the
+uniformity in u as the open problem; the numerical evidence, including the parameter-free phase test.
 
-    W_u(Y; L) = Σ_{Y < d' ≤ u²Y L} (λ(d')/d') [ Σ_{x ∈ R^{(u)}_{d'}, <x>_{d'} ≤ Y} (Y − <x>_{d'}) − ω(d') Y²/(2d') ],
+**Status.** The u = 1 theorem (labels `thm:main`, `thm:K`) is **not established as stated**: the proof passes from the
+restricted divisor sum, whose moduli satisfy (d, 2D) = 1, to complete SL₂(Z)-orbits of Heegner points, and the
+restriction is not orbit-invariant (external assessment of 12 September 2026, Finding 3; `research/ERRATA.md` item 13;
+correction notice after the abstract and Remark `rem:coprime` in the paper). Two repairs are described there — drop the
+condition (theorem for the unrestricted sum, a finite union of orbits) or keep it (Γ₀(e)-orbits, e | rad 2D, level-e
+spectral theory) — and neither is carried out. The numerical sections are unaffected. `research/KNOWLEDGE.md` 0b–0c
+has the plan.
 
-where d' runs over squarefree moduli coprime to u all of whose primes split, R^{(u)}_{d'} = {x mod d' : u²x² ≡ D} (the roots
-of x² ≡ D dilated by ū), λ(p) = p/(p − 2ω(p)). Unconditionally (paper III, Thm A′)
+| file | what |
+|---|---|
+| `main.tex`, `refs.bib` | the paper; `tectonic main.tex` |
+| `NOTES-routeR.md` | working notes of the route that became the paper (12 Sep) |
+| `BRAINSTORM.md`, `LITERATURE.md` | the eleven routes rated, and the verified references (11 Sep; historical) |
+| `scripts/piece-general.ts` | pieces P_u(Y) for any quadratic and u (`ALLDIV=1 NOLAMBDA=1` gives the model object); log grid to `data/` |
+| `scripts/piece-maass.ts <tag>` | regression of P/√Y on the even, the odd and random frequency sets |
+| `scripts/piece-divset.ts` | (13 Sep) the model object for the coprime / all / excluded divisor sets — the test behind Remark `rem:coprime` |
+| `scripts/piece-periodogram.ts <tag>` | (13 Sep) single-frequency R² scan of a grid file |
+| `scripts/piece-freq.ts`, `piece-spectrum.ts`, `piece-stability.ts`, `piece.ts`, `window.ts`, `weyl-partial.ts` | frequency scans, spectral tests, stability across halves, the u = 1 piece, the window, Hooley's partial sums |
+| `scripts/ef.py`, `ef-general.py D u` | the mean value E F to 22 digits (an error δ enters as δY²/2) |
+| `scripts/maass-period.py`, `phase-test.py` | Katok–Sarnak periods from LMFDB coefficients; the phase test |
+| `data/` | every grid and log behind the tables |
 
-    Off*_f(H) = c_off(f) H + Σ_{u ≤ H^{2/3+ε}} w(u) W_u(H/u; log H) + O(H (log H)^{1−c}),
-
-so the Cesàro form of Hypothesis (E), hence the leading term −½C(f) log H of Conjecture 1, is EQUIVALENT to
-
-    (W)   Σ_{u ≤ H^{2/3+ε}} w(u) W_u(H/u; log H) = o(H log H),
-
-and "Off* = c_off H + o(H)" (the constant) needs the same sum to be o(H). Trivial size of the sum: H log H (each window
-has trivial size Y log(u² L); the sum over u of w(u)/u is a log). A saving of any unbounded factor suffices for (W).
-
-Exact Fourier form (paper III, Lemma finfourier): the bracket equals (1/(2d')) Σ_{0<k<d'/2} (1 − cos(2πkY/d'))/sin²(πk/d') · ρ_k(d'),
-ρ_k(d') = Σ_{x ∈ R^{(u)}_{d'}} e(kx/d'): flat weight ≍ Y²/d' for k ≤ d'/Y (up to u²L frequencies), then k^{-2} decay.
-
-What is known: u = 1 (DFI 2012 + sharp cut-off lemma) gives a power saving; u > H^{2/3+ε} is handled by averaging the
-dilations (paper III, Thm Type II); a Weyl-sum hypothesis W(θ,B) closes (W) iff θ + 6B < 1 (θ + 3B < 1 if the Type II
-range were u > H^{1/2+ε}): any power saving in the modulus, but almost no loss in frequency k ≤ u² log H or in u. The open range is roughly H^{1/10} < u < H^{2/3}, and for the constant all u > 1.
-
-Files: BRAINSTORM.md (routes, ratings, tests), LITERATURE.md (verified references, to be filled from the research round).
+Run everything from the repository root, e.g. `Q=1,0,1 U=1 Y=10000000 npx tsx research/paper-IV/scripts/piece-general.ts`
+or `D=-4 Y=10000000 npx tsx research/paper-IV/scripts/piece-divset.ts`. Python scripts need mpmath and numpy
+(`python -m venv .venv && .venv/bin/pip install mpmath numpy`).

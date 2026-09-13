@@ -1,19 +1,22 @@
 # research/paper-II/ — paper II: zeros of Dedekind zeta functions in the second moment of prime values
 
-Scaffold created 9 September 2026. Builds on `../paper-I/main.tex` (paper I, v6).
+`main.tex` (22 pp, 13 September 2026): the diagonal Dirichlet series E_f as an infinite product of Artin L-functions of
+the plethystic exponents Ψ_N; pair fields; the natural boundary Re s = −1; the RH-conditional explicit formula for the
+Riesz means of the diagonal (quadratics in full; general f with the correction of 13 September: a polynomial in log x
+at s = −2/3 whose degree is one less than the multiplicity of the trivial character in Ψ₃, `research/ERRATA.md` item
+12); the unconditional Ω-theorem; the off-diagonal as a Dirichlet series of Weyl sums; every coefficient for t²+1.
 
 | file | what |
 |---|---|
-| `ROADMAP.md` | the research programme: new structural facts, work packages WP0–WP7, milestones, honesty checks |
-| `LITERATURE.md` | state of the art (two independent surveys, verified refs), gap analysis, the "RH connection" stated frankly |
-| `ERRATA.md` | two corrections to paper I found while doing this (Theorem 4 last clause; Proposition 7) |
-| `main.tex`, `refs.bib` | skeleton of paper II with theorem statements and status tags; compile `tectonic main.tex` |
+| `main.tex`, `refs.bib` | the paper; `tectonic main.tex` |
+| `ROADMAP.md` | the programme as planned on 9–10 September (WP0–WP7); historical |
+| `LITERATURE.md`, `LITERATURE-2.md`, `LITERATURE-3.md` | three literature rounds: verified references, the attributions to Kurokawa, Moroz and Hooley, the "safe sentence" about RH (§0 of the first) |
 | `scripts/riesz-raw.ts` | raw Riesz means of the diagonal of t²+1 on a log grid (`npx tsx research/paper-II/scripts/riesz-raw.ts [X]`) |
-| `scripts/explicit-diag.py` | exact explicit formula (exponents, constants, all residues) and comparison with the data |
-| `data/` | generated: `riesz-raw.{dat,json}`, `explicit-diag.json`, `explicit-diag-{2,3}.dat`, `wp0.tex` |
+| `scripts/explicit-diag.py K P GMAX` | exact explicit formula (exponents, constants, all residues) and the comparison with the data (defaults 8, 4e6, 100) |
+| `scripts/gen-wp0.py` | generates `data/wp0.tex` from `data/explicit-diag.json` |
+| `scripts/offdiag-spectrum.ts` | the null spectral test of the sharp off-diagonal (the right observable turned out to be paper IV's pieces) |
+| `data/` | generated: `riesz-raw.*`, `explicit-diag*`, `wp0.tex` |
 
-Python: a virtual environment with mpmath 1.4 and numpy 2.5 (`python -m venv .venv && .venv/bin/pip install mpmath numpy`; created 9 Sep 2026 because the system
-Python has no pip). Run order: `riesz-raw.ts` (2 s) then `explicit-diag.py K P GMAX` (defaults 8, 4e6, 100;
-test setting `8 1000000 60` takes about 15 min).
-
-Never edit numbers in `main.tex` by hand; `data/wp0.tex` is to be generated from `data/explicit-diag.json`.
+The errata file that used to live here is `research/ERRATA.md` (project-wide). Python scripts need mpmath and numpy in
+a virtual environment (`python -m venv .venv && .venv/bin/pip install mpmath numpy`). Never edit numbers in `main.tex`
+by hand; they come from `data/`.

@@ -20,7 +20,7 @@
 \title{The pair singular series of a polynomial IV:\\ the second spectrum}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
 carried out with heavy use of a large language model; see the disclosure at the end.}}
-\date{Working draft of \today}
+\date{Working draft of 13 September 2026 (with a correction notice)}
 
 \begin{document}
 \maketitle
@@ -38,14 +38,30 @@ of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues t
 $\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. The same law, and the same parameter-free
 prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
 congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
-cancellation with an explicit spectral expansion. We prove it for $u=1$: the root pairs are Heegner points, the piece is a
+cancellation with an explicit spectral expansion. For $u=1$ we give a spectral argument for a model object: the root pairs are Heegner points, the piece is a
 sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are resolved by a
 truncation and by the symmetry of the orbit, the constant and continuous contributions vanish or are negligible
 because the seed has vanishing horizontal mean, the arising Bessel integral is evaluated exactly by a Mellin--Barnes
-contour shift, and the spectral sum converges absolutely for Riesz means of order at least two; discuss the uniformity in $u$ that the Ces\`aro
+contour shift, and the spectral sum converges absolutely for Riesz means of order at least two. One step of that
+argument is defective as written: the model retains the coprimality condition $(d,2D)=1$ on the moduli, and the
+passage to complete $\mathrm{SL}_2(\Z)$-orbits of Heegner points drops it, so the theorem is not established as stated
+(correction notice below and Remark~\ref{rem:coprime}, which also describes the repair). We discuss the uniformity in $u$ that the Ces\`aro
 conjecture of part~I would need, and report the numerical evidence, including phase predictions with no free
 parameter that agree to a median of $0.012$ radians.
 \end{abstract}
+
+\medskip\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{\small\textbf{Correction notice (13 September 2026).}
+An external assessment of the repository (revision a372a63, 12 September 2026; file \texttt{research/reviews/}) found
+that the proof of Theorem~\ref{thm:main} replaces the restricted sum defining the model object~\eqref{eq:model}, whose
+moduli satisfy $(d,2D)=1$, by a sum over complete $\mathrm{SL}_2(\Z)$-orbits of Heegner points, and that the restriction
+is not orbit-invariant: for $D=-4$ the admitted form $[5,4,1]$ and the excluded form $[2,2,1]$ lie in the same orbit.
+We have verified this. Theorem~\ref{thm:main} (and its informal version, Theorem~\ref{thm:K}) is therefore \emph{not
+established} for the object~\eqref{eq:model}. The argument appears to apply, once Lemma~\ref{lem:sawtooth} is redone
+without its symmetry assumption, to the unrestricted divisor sum, which is a finite union of complete orbits; this has
+not been carried out. The restricted sum requires the spectral theory of $\Gamma_0(N)$ with $N\mid\operatorname{rad}(2D)$.
+Remark~\ref{rem:coprime} states the defect and the two repairs precisely. The numerical results of
+\S\S\ref{sec:numerics}--\ref{sec:hooley} are unaffected. Nothing else has been changed; where the text below says
+``we prove'', it is to be read with this notice.}}
 
 \section{Introduction}\label{sec:intro}
 
@@ -70,8 +86,10 @@ Ces\`aro form of Conjecture~1 of part~I is equivalent to the windows being $o(H\
 
 \paragraph{Results.}
 \begin{itemize}
-\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}): for $u=1$, fixed $f$, and Riesz means of
-order $m\ge2$,
+\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}; \emph{not established as stated}, see the
+correction notice): for $u=1$, fixed $f$, and Riesz means of order $m\ge2$, and for the model object~\eqref{eq:model}
+of \S\ref{sec:numerics} rather than the piece itself (the weight $\lambda$ and the squarefree condition are dropped
+there, the condition $(d,2D)=1$ is kept),
 \[
 \mathcal P^{(m)}_u(Y)=c_{u}Y+Y^{1/2}\sum_{j}\bigl(\alpha_j(u,f)Y^{it_j}+\overline{\alpha_j(u,f)}Y^{-it_j}\bigr)\,\gamma_m(t_j)+O(Y^{1/2-\delta}),
 \]
@@ -336,11 +354,11 @@ produces terms $Y^{s_j}=\sqrt Y\,Y^{it_j}$ directly, exactly as the error term i
 problem does. This accounts at once for all four features of the data: the frequencies are the $t_j$ themselves, the
 scale is $\sqrt Y$, the spectrum is that of level $1$ and weight $0$, and the forms that can appear are those pairing
 non-trivially with the Heegner points or the closed geodesics of discriminant $D$, which by
-Proposition~\ref{prop:parity} are the even ones. What we shall prove is the following; the proof occupies
+Proposition~\ref{prop:parity} are the even ones. What we set out to prove is the following; the argument occupies
 \S\S\ref{sec:formula}--\ref{sec:proof}, and the precise form, with the order of the Riesz mean, is
-Theorem~\ref{thm:main}.
+Theorem~\ref{thm:main}. For its status see the correction notice and Remark~\ref{rem:coprime}.
 
-\begin{theorem}[the spectral formula for a piece]\label{thm:K}
+\begin{theorem}[the spectral formula for a piece; not established as stated]\label{thm:K}
 Let $u=1$ and let $\mathcal G$ be the model object~\eqref{eq:model}, smoothed by a Riesz mean of sufficiently high
 order. There are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ with
 $\lambda_j=\tfrac14+t_j^2$ and proportional to the Katok--Sarnak periods $\mathrm{Per}_D(u_j)$, such that
@@ -453,6 +471,43 @@ content of the change of route: the object is not a sum over moduli carrying Klo
 test function over an orbit of $\Gamma$ in $\mathbb H$, with the length $t$ entering only as a dilation parameter of
 the test function.
 
+\begin{remark}[the coprimality condition is not orbit-invariant; added 13 September 2026]\label{rem:coprime}
+Equation~\eqref{eq:orbit} is where the argument as first written goes wrong, and the error is not one of notation.
+The moduli of the model object~\eqref{eq:model}, like those of the pieces, satisfy $(d,2D)=1$; under~\eqref{eq:gauss}
+they are the forms $[d,b,\ast]$ with $(d,2D)=1$, and that set is not a union of $\Gamma$-orbits. For $D=-4$, where
+$h(D)=1$ and every primitive form lies in one orbit, the admitted form $[5,4,1]$, $z=(-2+i)/5$, is carried by
+$\gamma=\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ to $z/(z+1)=(-1+i)/2$, the excluded form $[2,2,1]$;
+more simply, both odd and even leading coefficients occur in the single class, so the admitted set is a proper
+non-empty subset of the orbit. (We checked, for the eleven discriminants $-3\ge D\ge-56$, that every class contains
+forms of both kinds among $d\le300$.) Consequently~\eqref{eq:orbit}, and everything built on it, describes the sum
+over \emph{all} pairs $(d,b)$, not the restricted one, and Theorem~\ref{thm:main} is not established
+for~\eqref{eq:model}. This was found by an external assessment of the repository on 12 September 2026, not by us.
+
+Two repairs are available; neither has been carried out at the time of writing. (i)~\emph{Drop the condition.} The
+unrestricted divisor sum $\sum_{d\mid h^2-D}d^{-1}$ corresponds, via $(d,x)\mapsto[d,2x,\ast]$, to all forms of
+discriminant $4D$, primitive or not, i.e.\ to the union of the Heegner points of the discriminants $4D/g^2$,
+$g^2\mid4D$; this is a finite union of complete orbits, and the argument of \S\ref{sec:proof} applies to it with the
+geometric factor a weighted sum of Katok--Sarnak periods over those discriminants. The cost is in
+Lemma~\ref{lem:sawtooth}: for $p\mid2D$ the root set $R_d$ has fixed points of $x\mapsto-x$, so the pairing argument
+must be redone, and the object moves further from the pieces of part~III, which do carry the condition.
+(ii)~\emph{Keep the condition.} Write $\mathbf 1_{(d,2D)=1}=\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\,\mathbf 1_{e\mid d}$.
+The set of forms with $e\mid d$ \emph{is} invariant under $\Gamma_0(e)$: for
+$\gamma=\left(\begin{smallmatrix}\alpha&\beta\\ \gamma'&\delta\end{smallmatrix}\right)$ with $e\mid\gamma'$ the new
+leading coefficient is $d\alpha^2+b\alpha\gamma'+c\gamma'^2\equiv d\alpha^2\pmod e$ with $(\alpha,e)=1$. (Checked
+numerically for eight pairs $(D,p)$.) So each term is a finite union of complete $\Gamma_0(e)$-orbits, and the
+argument of \S\ref{sec:proof} goes through at the fixed level $e\mid\operatorname{rad}(2D)$, with the Maass forms and
+the Eisenstein series of $\Gamma_0(e)$ in place of those of $\Gamma$, and with the sub-family $\{e\mid d\}$ in place of
+the full set of Heegner points. The spectrum of the restricted object then contains, besides the level-one forms, the
+newforms of the levels $e\mid\operatorname{rad}(2D)$; their presence or absence in the data is a test of this
+description. A first run of that test (13 September 2026; \texttt{scripts/piece-divset.ts}, \texttt{piece-level2.ts}, $Y\le10^7$)
+supports~(ii): after the six level-one even lines are removed, the restricted object and the excluded sub-family
+carry the even newforms of level $e$ at the $90$th--$100$th percentile against random frequency sets, and the unrestricted
+sum does not ($16$th--$78$th); for $D=-3$ the largest single line of the restricted object is at $5.085$, the first even
+Maass newform of level $3$ (LMFDB: $5.0987$), and it is absent from the unrestricted sum. Repair~(ii) is the right one
+for the pieces. It is also the fixed-level shadow of the problem of
+\S\ref{sec:uniformity}, where the sub-family is $\{2u^2\mid b\}$ at discriminant $4u^2D$ and the level grows with $u$.
+\end{remark}
+
 \begin{remark}[the Weyl series is a Poincar\'e-type series]\label{rem:poincare}
 Before going on, it is worth recording what~\eqref{eq:orbit} says about the Dirichlet series of the Weyl sums
 themselves, since it is the reason the spectrum can enter at all. Directly from the coordinates~\eqref{eq:coords},
@@ -549,7 +604,8 @@ proposition, because the convergence of the sum over $j$ is the unfinished step 
 it: an earlier version of this paper deduced it instead from a continuation theorem that, on inspection, applies to a
 different series (Remark~\ref{rem:notneeded}).
 
-Theorem~\ref{thm:K} is proved, in the precise form of Theorem~\ref{thm:main}, in \S\ref{sec:proof}.
+The argument for Theorem~\ref{thm:K}, in the precise form of Theorem~\ref{thm:main}, is in \S\ref{sec:proof}; its
+gap is Remark~\ref{rem:coprime}.
 
 \paragraph{Step 5: why the Poincar\'e series converges.} As it stands $|\Phi_t(z)|\le\tfrac12\Im z$ and
 $\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent as
@@ -767,7 +823,7 @@ inequality holds in every case.} Hence the integral is at most $\int_T^\infty y^
 substituting $x=\alpha y$ and using $K_0(x)\ll x^{-1/2}e^{-x}$ for $x\ge1$ gives the claim.
 \end{proof}
 
-\begin{theorem}\label{thm:main}
+\begin{theorem}[not established as stated: see the correction notice and Remark~\ref{rem:coprime}]\label{thm:main}
 Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)$ denote the Riesz mean of order $m$ of the model
 object~\eqref{eq:model}. For $m\ge2$ there are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of
 $\mathrm{SL}_2(\Z)$ and proportional to the Katok--Sarnak periods $\mathrm{Per}_D(u_j)$, such that
@@ -779,7 +835,9 @@ for some $\delta>0$, the sum converging absolutely, where $\mathcal E$ is the co
 spectrum and satisfies $\mathcal E(Y)=o(Y^{m+1/2})$.
 \end{theorem}
 \begin{proof}
-Apply the Riesz mean of order $m$ to~\eqref{eq:orbit} and truncate the seed at height $T=t$
+Apply the Riesz mean of order $m$ to~\eqref{eq:orbit}; by Remark~\ref{rem:coprime} this is the point at which the
+coprimality condition of~\eqref{eq:model} is lost, and the argument from here on concerns the complete orbit sum.
+Truncate the seed at height $T=t$
 (Lemma~\ref{lem:trunc}), which changes nothing. By Lemma~\ref{lem:seed} the automorphised seed converges absolutely
 and lies in $L^2(\Gamma\backslash\mathbb H)$, so it has a spectral decomposition; by Proposition~\ref{prop:riesz}
 the Riesz factor $\asymp t_j^{-m-1}$ makes the discrete part converge absolutely for $m\ge2$ even with only the
@@ -808,7 +866,9 @@ error terms sum by Proposition~\ref{prop:riesz} with room to spare, since they c
 The proof uses, as standard inputs: Gauss's parametrisation of the root pairs by binary quadratic forms
 (\S\ref{sec:formula}, Step~1), the spectral decomposition of $L^2(\Gamma\backslash\mathbb H)$, the Weyl law, the
 sup-norm bound for Maass forms, the bound $\lambda_j(n)\ll n^{7/64+\varepsilon}$, and Parseval's formula for the Mellin
-transform. Everything else is proved above. The two places we would look first for an error are the uniformity in
+transform. Everything else is proved above, with the exception recorded in Remark~\ref{rem:coprime}, which an
+external assessment found and we had not: the passage from the restricted sum to complete orbits. The two places we
+would have looked first for an error are the uniformity in
 $\tau$ of the shifted contour in Lemma~\ref{lem:mellin}, where we have given the Stirling estimate in outline rather
 than in full, and the passage from the spectral expansion of $P[\Phi^\flat_t]$ in $L^2$ to its pointwise evaluation at
 the Heegner points, which we justify by the absolute convergence supplied by the Riesz factor and which is the reason
@@ -933,7 +993,8 @@ The last column is the cleanest object of all. Dropping both the weight and the 
 \mathcal G(Y)=\sum_{h\le Y}(Y-h)\bigl(\sigma^{*}_{-1}(h^2-D)-\mathbb E\sigma^{*}_{-1}\bigr),\qquad
 \sigma^{*}_{-1}(n)=\sum_{\substack{d\mid n\\ (d,2D)=1}}\frac1d,
 \end{equation}
-a Riesz mean of the divisor-type sums of Hooley and Gafurov. Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used
+a Riesz mean of the divisor-type sums of Hooley and Gafurov. The condition $(d,2D)=1$ is retained, and it is what
+Remark~\ref{rem:coprime} is about. Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used
 $\lambda$ or squarefreeness, so they apply verbatim, and the Dirichlet series attached to~\eqref{eq:model} is
 \[
 Z_k(s)=\sum_{(d,2D)=1}\mathcal W_k(D;d)\,d^{-s},
@@ -1046,7 +1107,8 @@ Table~\ref{tab:periods} are stable across the halves of the present range and do
 
 \section{Uniformity in $u$, and what the Ces\`aro conjecture would need}\label{sec:uniformity}
 
-Theorem~\ref{thm:main} is for one piece, $u=1$. Part~III reduces the Ces\`aro form of Conjecture~1 of part~I to the
+Theorem~\ref{thm:main} is for one piece, $u=1$ (and, as it stands, for the complete orbit sum rather than for the
+restricted one, Remark~\ref{rem:coprime}). Part~III reduces the Ces\`aro form of Conjecture~1 of part~I to the
 windows of \emph{all} the pieces with $u\le H^{2/3+\varepsilon}$, so what is wanted is Theorem~\ref{thm:main} uniformly
 in $u$, with an error that survives summation against the weight $w(u)$ over that range. This section records what
 that requires, and why the proof above does not supply it.
