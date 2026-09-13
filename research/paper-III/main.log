@@ -773,12 +773,7 @@ L/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.9
 5 ) \OMS/cmsy/m/n/10.95 ^^\ \OML/cmm/m/it/10.95 U[]d[]$
  []
 
-[15]
-
-LaTeX Warning: Reference `sec:numerics-off' on page 16 undefined on input line 
-811.
-
-[16]
+[15] [16]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
 48.
  (t1lmtt.fd
@@ -835,10 +830,7 @@ t/10.95 N; M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )]$ \T1
  []
 
 [26] (main.bbl) [27] (main.aux)
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0751E97A2DCE7D6C02BFF5AD74BFC785;3611.
  )
-Output written on main.xdv (27 pages, 256752 bytes).
+Output written on main.xdv (27 pages, 256972 bytes).
