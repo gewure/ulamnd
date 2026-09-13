@@ -15,8 +15,10 @@ the spectrum of the model object and none in the unrestricted sum; this was chec
 correction notice after the abstract and Remark `rem:coprime` record the error; `research/ERRATA.md` item 13 lists
 every change. A second, fresh adversarial reading the same day passed the repair but found the **remainder bound
 unproved** (the truncated-tail lemma loses e^{−πt_j/2}; non-oscillatory errors get no Riesz decay in j): the exact
-spectral expansion in L² and its main terms are proved for m ≥ 2, the bound O(Y^{m+1/2−δ}) is open — Remark `rem:gaps`
-says what is missing and how to close it; `research/ERRATA.md` item 16. 26 pp.
+spectral expansion in L² and its main terms are proved for m ≥ 2 (Proposition `prop:exact` gives every coefficient
+exactly), the bound O(Y^{m+1/2−δ}) is open, and it is open for a reason: the remainder contains Riesz-smoothed Hooley
+sums of the same order as the main term (Remark `rem:gaps`; `research/ERRATA.md` items 16–17). The provable clean
+statement is the smooth-window version, whose shape is confirmed numerically (`piece-divset.ts` with `SMOOTH=1`). 27 pp.
 
 | file | what |
 |---|---|

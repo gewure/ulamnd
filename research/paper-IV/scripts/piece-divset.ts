@@ -78,6 +78,19 @@ for (let h = 1; h <= Y; h++) {
   while (gj < Mg && gridY[gj] === h) { for (const k in sets) { const s = sets[k]; s.grid.push(h * s.S - s.Sh - (clin as any)[k] * h); } gj++; }
 }
 mkdirSync("research/paper-IV/data", { recursive: true });
+// SMOOTH=1: the smooth-window sums S^w(Y) = sum_h w(h/Y)(F(h) - E F), w(u) = exp(-1/(1-(4u-3)^2)) on (1/2, 1), on a coarser grid;
+// prediction (13 Sep): S^w(Y) = Y^{-1/2} sum_j (beta_j Y^{i t_j} + c.c.) + smaller, i.e. sqrt(Y) S^w(Y) oscillates at the even Maass parameters
+if (process.env.SMOOTH === "1") {
+  const wfun = (u: number) => (u <= 0.5 || u >= 1 ? 0 : Math.exp(-1 / (1 - (4 * u - 3) ** 2)));
+  const Ms = 400, gridS = Array.from({ length: Ms }, (_, j) => Math.floor(Math.exp(lo + ((hi - lo) * j) / (Ms - 1))));
+  for (const k in sets) {
+    const rows: string[] = [];
+    for (const Yv of gridS) { let acc = 0, cc = 0; for (let h = Math.floor(Yv / 2); h <= Yv; h++) { const v = wfun(h / Yv) * (sets[k].F(h) - sets[k].mean) - cc; const t = acc + v; cc = t - acc - v; acc = t; }
+      rows.push(`${Math.log(Yv).toFixed(5)} ${Yv} ${acc.toPrecision(10)} ${(acc * Math.sqrt(Yv)).toFixed(6)}`); }
+    writeFileSync(`research/paper-IV/data/piece-DS-${k}-D${D}${U > 1 ? "-U" + U : ""}-smooth-grid.dat`, "logY Y Sw sqrtY_times_Sw\n" + rows.join("\n") + "\n");
+    const vals = rows.map((r) => Number(r.split(" ")[3])); console.log(`${k.padEnd(8)} smooth window: max |sqrtY * S^w| = ${Math.max(...vals.map(Math.abs)).toFixed(4)}, rms = ${Math.sqrt(vals.reduce((a, b) => a + b * b, 0) / vals.length).toFixed(4)}`);
+  }
+}
 for (const k in sets) {
   const g = sets[k].grid; // fitted linear coefficient of the RAW Riesz mean against Y over the grid (least squares through origin on P_raw = P + c Y)
   let sxy = 0, sxx = 0; for (let j = 0; j < Mg; j++) { const yy = gridY[j]; sxy += (g[j] + (clin as any)[k] * yy) * yy; sxx += yy * yy; }

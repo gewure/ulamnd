@@ -740,8 +740,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
-8.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
+0.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -753,7 +753,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 ] [2] [3] [4]
 [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 788
+LaTeX Font Info:    Trying to load font information for U+euf on input line 790
 .
  (ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
@@ -761,24 +761,34 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
 ) [15]
-[16] [17] [18] [19] [20] [21] [22]
+[16] [17]
+Underfull \hbox (badness 1014) in paragraph at lines 955--961
+[][]\T1/lmr/bx/n/10.95 Proposition 24 \T1/lmr/m/n/10.95 (the ex-act co-ef-fi-ci
+ent of the Riesz-s-moothed seed; added 13 Septem-
+ []
+
+
+Overfull \vbox (1.17809pt too high) has occurred while \output is active []
+
+
+[18] [19] [20] [21] [22] [23] [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1276.
+(hyperref)                removing `math shift' on input line 1339.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1276.
+(hyperref)                removing `math shift' on input line 1339.
 
-[23]
-Underfull \hbox (badness 2680) in paragraph at lines 1319--1319
+
+Underfull \hbox (badness 2680) in paragraph at lines 1382--1382
 [][][]\T1/lmr/m/n/9 Computed from the model ob-ject at $\OML/cmm/m/it/9 Y \OMS/
 cmsy/m/n/9 ^^T \OT1/cmr/m/n/9 10[]$ \T1/lmr/m/n/9 with the mean value eval-u-at
 ed to $\OT1/cmr/m/n/9 22$ \T1/lmr/m/n/9 dig-its
  []
 
-[24] (main.bbl [25]) [26] (main.aux)
+[25] (main.bbl [26]) [27] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 2C0078915FF879C88CFFC0AEED718C4E;2285.
  )
-Output written on main.xdv (26 pages, 219912 bytes).
+Output written on main.xdv (27 pages, 233420 bytes).

@@ -72,10 +72,12 @@ but four defects were found in the \emph{analytic} bookkeeping of the original p
 examined --- the truncated-tail bound discards a factor $e^{-\pi t_j/2}$ that the normalisation of the coefficients gives
 back, so it does not sum over $j$; the non-oscillatory error terms receive no Riesz decay in $j$; the boundedness of
 the Poincar\'e series was asserted from a measure statement; a paragraph claimed a saving where the arithmetic gives a
-loss. The third is repaired below (Lemma~\ref{lem:trunc}); the others are not. Consequently Theorem~\ref{thm:main}
-is proved as an exact spectral expansion with identified main terms, and the bound $O(Y^{m+1/2-\delta})$ on its
-remainder is \emph{not established}; Remark~\ref{rem:gaps} lists what is missing. Record: \texttt{research/ERRATA.md},
-items~13 and~16.}}
+loss. The third is repaired (Lemma~\ref{lem:trunc}) and the fourth corrected. For the first two, the route of smoothing
+first was carried out the same evening (Proposition~\ref{prop:exact}): it gives the exact spectral coefficients and the
+main terms, and it shows that the remainder is not a technicality --- it contains Riesz-smoothed Hooley sums of the same
+order as the main terms, so that the coefficients of the theorem are the residues of Proposition~\ref{prop:exact} plus a
+part not yet computed (Remark~\ref{rem:gaps}). Theorem~\ref{thm:main} stands as an exact expansion with proved leading
+terms; the bound on its remainder is open. Record: \texttt{research/ERRATA.md}, items~13, 16 and~17.}}
 
 \section{Introduction}\label{sec:intro}
 
@@ -949,6 +951,49 @@ as the main term of Lemma~\ref{lem:mellin}. The truncation at height $t$ leaves 
 estimate of the coefficients with $t_j\gg t^2$ is not the one the proof below uses. This was found by a second reading
 on 13 September 2026; see Remark~\ref{rem:gaps}.
 
+\begin{proposition}[the exact coefficient of the Riesz-smoothed seed; added 13 September 2026]\label{prop:exact}
+For $m\ge1$ and $Y>0$ let $\Psi_Y=\frac1{m!}\int_0^Y(Y-t)^m\Phi^+_t\,dt$, so that
+$\frac1{m!}\int_0^Y(Y-t)^mS_e(t)\,dt=\frac1{\sqrt{|D|}}\sum_{z\in\mathcal H_e/\Z}\Psi_Y(z)$. Then
+$\Psi_Y(z)=\frac y\pi\sum_{k\ge1}k^{-1}\cos(2\pi kx)\,J_m(c_ky;Y)$ with $c_k=2\pi k/\sqrt{|D|}$ and
+$J_m(\omega;Y)=\frac1{m!}\int_0^Y(Y-t)^m\sin(\omega t)\,dt$; $P_e[\Psi_Y]$ is bounded on $\Gamma_0(e)\backslash\mathbb H$ (by
+$\ll_DY^{m+2}$) with vanishing $x$-mean; and for an even Maass cusp form $u_j$ of $\Gamma_0(e)$, written
+$u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$,
+\[
+\begin{aligned}
+\langle P_e[\Psi_Y],u_j\rangle&=\frac{\sum_{k\ge1}a_j(k)k^{-3/2}}{\pi\sqrt{2\pi}}\cdot\frac1{2\pi i}\int_{(0)}\mathcal K_{m,t_j}(s;Y)\,ds,\\
+\mathcal K_{m,\tau}(s;Y)&=\frac{\pi\,|D|^{s/2}\,Y^{m+1-s}\,2^{-s-3/2}}{2\cos(\pi s/2)\,\Gamma(m+2-s)}\,
+\Gamma\Bigl(\frac{\tfrac12-s+i\tau}2\Bigr)\Gamma\Bigl(\frac{\tfrac12-s-i\tau}2\Bigr).
+\end{aligned}
+\]
+Shifting the contour to $\Re s=\tfrac34$ crosses only the poles at $s=\tfrac12\pm it_j$, whose residues are the terms
+$Y^{m+1/2\mp it_j}$ of Theorem~\ref{thm:main}; the integral on $\Re s=\tfrac34$ is
+$\ll Y^{m+1/4}\,e^{-\pi t_j/2}\,t_j^{-5/4}\,\bigl|\sum_ka_j(k)k^{-3/2}\bigr|\ll Y^{m+1/4}\,t_j^{-5/4+\varepsilon}$, uniformly in $j$.
+\end{proposition}
+\begin{proof}
+The Fourier series is the Riesz mean of the one in Step~4; the bound and the vanishing $x$-mean follow from
+Lemma~\ref{lem:seed} applied for each $t\le Y$ together with the coset count in the proof of Lemma~\ref{lem:trunc}, with
+$Y$ in place of $t$; hence $P_e[\Psi_Y]\in L^2$ and the coefficient is computed by unfolding as in Step~3. For each $k$
+use Mellin--Parseval in $y$ with
+$\int_0^\infty J_m(\omega;Y)\,\omega^{s-1}d\omega=\pi Y^{m+1-s}/(2\cos(\pi s/2)\Gamma(m+2-s))$ for $-1<\Re s<1$ (from
+$\int_0^\infty\sin(\omega t)\omega^{s-1}d\omega=t^{-s}\Gamma(s)\sin(\pi s/2)$ and the Beta integral; for $m=0$ this is the
+classical $-Y^{1-s}\Gamma(s-1)\sin(\pi s/2)$) and
+$\int_0^\infty y^{w-1}y^{-1/2}K_{it}(\alpha y)\,dy=2^{w-5/2}\alpha^{1/2-w}\Gamma(\tfrac{w-1/2+it}2)\Gamma(\tfrac{w-1/2-it}2)$ for
+$\Re w>\tfrac12$, on a line $\Re s=\sigma\in(-1,\tfrac12)$. With $\alpha_k=2\pi k$ the product
+$c_k^{-s}\alpha_k^{s-1/2}=|D|^{s/2}(2\pi k)^{-1/2}$ depends on $s$ only through $|D|^{s/2}$, so the $k$-sum factors out as
+$\sum_ka_j(k)k^{-3/2}$, absolutely convergent by Kim--Sarnak, which also justifies the interchanges. On the vertical
+lines the integrand decays like $|\Im s|^{-m-3/4}$, the exponentials of the four $\Gamma$-type factors cancelling by
+Stirling, so the shift to $\Re s=\tfrac34$ is legitimate, and between the two lines the only poles are
+$s=\tfrac12\pm it_j$: $\cos(\pi s/2)$ first vanishes at $s=1$, and the next poles of the $\Gamma$-factors are at
+$\tfrac52\pm it_j$. On $\Re s=\tfrac34$, with $\Im s=t$,
+$|\Gamma(-\tfrac18+\tfrac i2(t_j\mp t))|\ll(1+|t_j\mp t|)^{-5/8}e^{-\pi|t_j\mp t|/4}$, $|\cos(\pi s/2)|^{-1}\ll e^{-\pi|t|/2}$ and
+$|\Gamma(m+\tfrac54-it)|^{-1}\ll(1+|t|)^{-m-3/4}e^{\pi|t|/2}$; the product is $\ll e^{-\pi t_j/2}(1+|t|)^{-m-3/4}$ times
+$(1+|t_j-t|)^{-5/8}(1+t_j+|t|)^{-5/8}$, whose integral over $t$ is $\ll t_j^{-5/4}$, the range $|t|\le t_j/2$ dominating.
+\footnote{Validated numerically before this was written: the closed form of $J_m$ against quadrature; the Mellin--Parseval
+representation against a direct quadrature with $1400$ subintervals, to $8$ digits, for $(t_j,Y)=(13.7798,50)$ and
+$(5,20)$; the identity ``line at $\Re s=0$ equals line at $\Re s=\tfrac34$ minus the two residues'' to $7$ digits for
+$t_j=13.78,40$ and $Y=50,5000$; and the decay of the remainder in $t_j$ and its growth $\asymp Y^m$ in $Y$.}
+\end{proof}
+
 \begin{theorem}[the spectral formula for the model object; the remainder bound is not established, Remark~\ref{rem:gaps}]\label{thm:main}
 Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)$ denote the Riesz mean of order $m$ of the model
 object~\eqref{eq:model}. For each $e\mid\operatorname{rad}(2D)$ let $\{u^{(e)}_j\}$ be an orthonormal basis of the even
@@ -1001,24 +1046,42 @@ the $t$-dependent height $T=t$ does not respect as written. The first version of
 (``the error terms sum by Proposition~\ref{prop:riesz} with room to spare'').
 \end{proof}
 
-\begin{remark}[what is proved, what is not; added 13 September 2026]\label{rem:gaps}
+\begin{remark}[what is proved, what is not, and why; rewritten 13 September 2026, evening]\label{rem:gaps}
 Proved: the exact identity $S(t)=\sum_e\mu(e)S_e(t)$ with each $S_e$ a sum over the finitely many
-$\Gamma_0(e)$-orbits of $\mathcal H_e$ (Steps~1--3, Lemma~\ref{lem:subfamily}); $P_e[\Phi^\flat_t]\in L^2$ and hence
-the spectral expansion in $L^2$ (Lemma~\ref{lem:trunc}, with the coset count added on 13 September); the vanishing of
-the constant terms (Lemma~\ref{lem:trunc}(iii)); the exact value of the untruncated coefficient integrals
-(Lemma~\ref{lem:mellin}) and hence the main terms $Y^{m+1/2\pm it_j}\alpha_{j,e}$, with $\sum_j|\alpha_{j,e}|<\infty$ for
-$m\ge2$ (Proposition~\ref{prop:riesz}). Not proved: that the remainder is $O(Y^{m+1/2-\delta})$, equivalently that
-the three sums --- over $j$ of the non-main parts of the coefficients, over $j$ of the truncated tails, and the
-continuous spectrum with a quantitative rate --- are $o(Y^{m+1/2})$. What is needed, in our present understanding:
-(i)~apply the Riesz mean of order $m$ to the seed \emph{first}, so that every coefficient, not only the main term,
-carries a factor decaying in $t_j$; (ii)~replace $|K_{i\tau}|\le K_0$ by a bound that keeps $e^{-\pi\tau/2}$ (uniform
-bounds of the form $K_{i\tau}(x)\ll e^{-\pi\tau/2}(|x^2-\tau^2|+\tau^{2/3})^{-1/4}$ are classical) and treat the
-transition region $x\asymp\tau$, which for $t_j\gg t^2$ lies in the truncated range; (iii)~make the exponent $A$ of
-Lemma~\ref{lem:mellin} explicit (Stirling gives $A=1$ for the relative error $\asymp t_j(\sqrt{|D|}/t)^2$) and let (i)
-absorb it; the order $m$ may have to increase. The numerical evidence of \S\ref{sec:numerics} concerns the main terms
-and is unaffected. We record this rather than remove the theorem: the statement is what the data show and what the
-exact expansion says; its remainder bound is an open technical problem, of the standard kind, and not the open problem
-of \S\ref{sec:uniformity}.
+$\Gamma_0(e)$-orbits of $\mathcal H_e$ (Steps~1--3, Lemma~\ref{lem:subfamily}); the vanishing of the constant terms;
+$P_e[\Phi^\flat_t],P_e[\Psi_Y]\in L^2$; the exact coefficient formula of Proposition~\ref{prop:exact}, hence the main
+terms $Y^{m+1/2\pm it_j}$ with the residue coefficients, absolutely summable over $j$ for $m\ge2$.
+
+Not proved: that the remainder is $o(Y^{m+1/2})$. The per-form remainder of Proposition~\ref{prop:exact} is
+$\ll Y^{m+1/4}t_j^{-5/4+\varepsilon}$; with $|\mathrm{Per}_{D,e}(u_j)|\ll t_j^{1/2}$ and the Weyl law the sum over $j$ of these
+bounds diverges (it is $\sum_jt_j^{-3/4}$ against the density $t_j\,dt_j$). The exponent $-\tfrac54$ is not improved by the
+Riesz order, because it comes from the range $|\Im s|\ll t_j$ on the shifted line, where the only decay in $t_j$ is that
+of the two $\Gamma$-factors; and it is not improved by shifting further right, because $1/\cos(\pi s/2)$ has a pole at
+$s=1$. That pole is the obstruction, and it has a meaning. Its residue is a term $Y^m r_j$ with
+$r_j\asymp t_j^{-3/2+o(1)}\mathrm{Per}_{D,e}(u_j)$, whose spectral sum converges at best conditionally; on the geometric side
+it is the coefficient of $Y^m$ in $\Psi_Y(z)$ for $y\gg\sqrt{|D|}/(kY)$, namely $\tfrac{\sqrt{|D|}}2B_2(\{x\})$ with $B_2$ the
+second Bernoulli polynomial --- a function of $x$ alone, the memory of the sharp start of the sum at $h=1$, which no
+smoothing at the upper end removes. Summed over the points with $d\lesssim Y$ it is
+$\tfrac{Y^m}2\sum_{d\lesssim Y}\sum_{x\in R_d}B_2(x/d)=\tfrac{Y^m}{2\pi^2}\sum_kk^{-2}\sum_{d\lesssim Y}\rho_k(d)$: a Riesz-smoothed
+form of Hooley's Weyl sums $T_k(Y)$ of \S\ref{sec:hooley}, of size $Y^{1/2}$ conjecturally and $Y^{2/3+\varepsilon}$
+provably (Bykovski\u\i), oscillating at the same $t_j$ (\S\ref{sec:hooley}). So the coefficient of $Y^{m+1/2\pm it_j}$ in
+$\mathcal G^{(m)}(Y)$ is the residue of Proposition~\ref{prop:exact} \emph{plus} the contribution of these Hooley sums,
+and a bound for the remainder requires the modulus-side spectral theory (Kuznetsov, Bykovski\u\i) for the latter. This
+is not a technicality; the first version of this remark called it one, and the analysis above, carried out the same
+day, shows why it is not. It also offers an explanation of the one prediction of this paper that the data did not
+confirm, the amplitude law of \S\ref{sec:numerics}: the amplitudes we predicted were the residues alone.
+
+What \emph{is} provable by exactly this computation is the smooth-window statement. For $w\in C_c^\infty((0,\infty))$,
+Poisson summation turns $\sum_hw(h/Y)\bigl(\sigma^*_{-1}(h^2-D)-\mathbb E\sigma^*_{-1}\bigr)$ into a sum over $\mathcal H_e/\Z$ of the
+seed $\tfrac{2Yy^2}{|D|}\sum_k\Re\hat w(kYy/\sqrt{|D|})\cos(2\pi kx)$, Schwartz in $Yy$; its Mellin transform in $y$ is entire
+to the right and rapidly decaying, so the contour can be moved to $\Re s=\tfrac52-\varepsilon$, where the $\Gamma$-factors
+give $t_j^{-3}$ and the spectral sum converges absolutely with the trivial sup-norm bound. The result has the shape
+$Y^{-1/2}\sum_e\mu(e)\sum_j(\beta_{j,e}Y^{it_j}+\overline{\beta_{j,e}}Y^{-it_j})+O(Y^{-3/2+\varepsilon})$: it concerns the
+increments of $S(t)$ over $[Y/2,Y]$, not $S(t)$ itself, and so does not see the Hooley part. Its shape was checked
+before this paragraph was written (\texttt{scripts/piece-divset.ts}, \texttt{SMOOTH=1}): for $D=-4$, $Y\le2\cdot10^6$,
+$\sqrt Y$ times the smooth-window sum is explained by the six level-one even parameters at the $100$th percentile
+against random frequency sets (the odd set at the $13$th--$22$nd), and for the restricted object its largest line is
+at $8.95$, the first even newform of level $2$. We have not written that proof out and do not state it as a theorem.
 \end{remark}
 
 \begin{remark}[what a referee should check]\label{rem:referee}

@@ -119,6 +119,12 @@ Hooley's sum observes square-root cancellation numerically with the even level-o
   amplitudes (Katok–Sarnak periods, phases (t_j/2) log|D|) are, as far as we know, new.
 - *What it does not give*: the sharp sum. The passage from a Riesz mean to the sharp cutoff costs exactly the
   exponent Bykovskiĭ loses.
+- *Sharpened 13 Sep (evening)*: the remainder of paper IV's Riesz-mean theorem IS a Riesz-smoothed Hooley sum
+  (ERRATA 17): the sharp start of Σ_{h≤t} leaves the term Y^m(√|D|/2)B₂({x}) = Y^m(2π²)^{-1}Σ_k k^{-2}Σ_{d≲Y}ρ_k(d). So the
+  two problems are one: the piece's oscillation at t_j has an argument-side source (our residues) and a modulus-side
+  source (Hooley's sums), and any theorem with an error term for the Cesàro pieces must treat both. Conversely, the
+  organising identity gives the argument-side half of Hooley's problem for free. ★★★★ for the *smoothed* statements
+  (both sides are then standard); ☆ for the sharp sums.
 - *First step*: write the seed for e(k Re z), check the parity rule (odd forms drop out for the real part; the
   imaginary part picks the odd ones — a new, testable prediction), and rerun weyl-partial.ts on Riesz means.
 
@@ -199,9 +205,11 @@ reformulation may unblock a hybrid; no concrete step identified.
 4. **The model → piece passage** (weight λ, squarefree condition): write it as sub-families {mℓ² | d} with weights
    κ(m)μ(ℓ), decaying like 1/m and 1/ℓ²; state precisely which level-uniform input would make Theorem main a theorem
    about the actual u = 1 piece. Milder than the u-problem; unexplored.
-5. **Paper IV's remainder bound** (ERRATA 16, Remark rem:gaps): Riesz-smooth the seed before expanding, keep e^{−πτ/2}
-   in the Bessel bounds, name the Stirling exponent. A standard technical task, a day of work, verify every bound
-   numerically. Until it is done the u = 1 result is an exact expansion with proved main terms, not an asymptotic. ★★★★★
+5. **Paper IV's remainder bound** (ERRATA 16–17, Remark rem:gaps): the smoothing route was carried out on 13 Sep and
+   is NOT enough — the remainder contains Riesz-smoothed Hooley sums of the same order as the main term. Two honest
+   options: (a) write the smooth-window theorem (increments of S; provable by the same computation; shape confirmed
+   numerically) ★★★★★; (b) compute the Hooley part by the modulus-side spectral expansion and add it to the residues,
+   then retest the amplitude law ★★★ (a research task, Bykovskiĭ's territory).
 6. **Paper II's corrected general theorem, tested**: the cyclic cubic t³ − 3t − 1 must show a log x factor at
    x^{m−2/3}. Script riesz-cubic.ts (13 Sep) produces the Riesz means; the fit and the exact prediction of the
    coefficient are the next step (research/paper-II/scripts/). Status 13 Sep: constants to 40 digits (two routes),

@@ -25,14 +25,18 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
   paper-I   28 pp  v9 (13 Sep). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
                    rem:sharp; ERRATA 11, 14). Preprint ready; awaiting an arXiv endorser (math.NT).
   paper-II  22 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
-  paper-III 26 pp  unchanged in content (one sentence about part IV softened; formatting). READ BY NOBODY: the fresh
-                   reader launched 13 Sep died on the rate limit. Relaunch it (prompt shape in 0c).
-  paper-IV  26 pp  u = 1: orbit error REPAIRED 13 Sep (levels Gamma_0(e), e | rad(2D); ERRATA 13). Then a fresh
-                   adversarial reading (13 Sep, later) PASSED the repair but found the REMAINDER BOUND unproved
-                   (ERRATA 16, F30–F32): |K_iτ| ≤ K_0 loses e^{−πτ/2}; non-oscillatory errors get no Riesz decay in j;
-                   truncation at height t is not harmless for t_j ≫ t². STATUS: exact spectral expansion in L² + main
-                   terms PROVED (m ≥ 2); remainder O(Y^{m+1/2−δ}) OPEN (a standard technical problem, not the
-                   u-problem). Remark rem:gaps has the route. Section 7: piece u lives at level u^2 (verified).
+  paper-III 26 pp  READ by a fresh adversarial reader (13 Sep evening, opus): core sound (decomposition, c_off to six
+                   digits, θ+6B<1 recomputed); 7 findings all FIXED (ERRATA 18): Thm u1's exponent 12/13 -> 1-1/16 (the
+                   K-optimisation had not been done), a proposition invoked outside its hypothesis (harmless for u=1,
+                   now said), the finite Fourier lemma used at non-integer Y (correction term added), d'>1 in the
+                   definition, the sign argument for c_off, two exponents in Thm A's display, (loglog u)^3 -> ^4.
+  paper-IV  27 pp  u = 1: orbit error REPAIRED (ERRATA 13); remainder bound found unproved (ERRATA 16); the smoothing
+                   route CARRIED OUT (ERRATA 17, Prop. prop:exact): exact coefficients, main terms as residues — and the
+                   remainder is NOT a technicality: it contains Riesz-smoothed Hooley sums (the sharp start at h=1 leaves
+                   a Y^m B_2({x}) term), same order as the main term. So α_j = residue + Hooley part (uncomputed); the
+                   theorem stands as exact expansion + proved leading terms, remainder OPEN and equivalent to the
+                   modulus-side (Kuznetsov/Bykovskiĭ) treatment of smoothed Hooley sums. PROVABLE instead: the
+                   smooth-window statement (increments of S over [Y/2,Y]), shape confirmed numerically; not yet written.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -40,11 +44,12 @@ in a fix we had made ourselves and endorsed after a numerical check that could n
 density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
 
 WHEN PICKING UP AGAIN, IN ORDER:
-0. Paper IV: close the remainder bound (Remark rem:gaps): Riesz-smooth the seed BEFORE the spectral expansion; use
-   uniform K-Bessel bounds that keep e^{−πτ/2} (Balogh-type: K_iτ(x) ≪ e^{−πτ/2}(|x²−τ²|+τ^{2/3})^{−1/4}); make the
-   Stirling exponent A explicit; expect the Riesz order to rise. A day of careful work; verify each bound numerically.
-   Also relaunch the adversarial reading of paper III (died on credits) — prompt: decomposition identity, exponent
-   condition θ+6B<1 recomputed, c_off/Lemma Gbar and the Type II partial summation, weighted KS, Theorem A′ uniformity.
+0. Paper IV: (a) write the smooth-window theorem out (Remark rem:gaps, last paragraph): Poisson, Schwartz seed,
+   contour to Re s = 5/2−ε, absolute convergence, m-free; verify its residue coefficients against the SMOOTH=1 data
+   (amplitudes AND phases) — this is a clean provable theorem. (b) For the Riesz/Cesàro object: the Hooley part. Either
+   compute it with the modulus-side spectral expansion (Bykovskiĭ's method for Σ_{d≲Y}ρ_k(d) with the smooth cutoff J_m
+   provides) and ADD it to the residues — then test the amplitude law (F22) with the corrected α_j — or state the theorem
+   with α_j = residue + Hooley part and leave the bound open. Do NOT call the remainder bound a technicality again.
 1. Paper IV: get the REPAIRED Section 5 read by someone outside (a fresh adversarial pass of 13 Sep passed it). What to check first:
    Step 1 (pairs (d,x) <-> ALL forms of disc 4D, incl. imprimitive), Lemma subfamily (Gamma_0(e)-stability of {e | a}),
    Step 2 (Möbius regrouping of the paired sawtooth series; S_e is NOT sum_h(F_e - E_e), it is the psi-series), Step 3
@@ -144,12 +149,27 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   and b are nearly collinear over log x ∈ [11.5, 16.1]. INCONCLUSIVE. Needed: the exact a_pred (Laurent coefficient
   at s = −2/3: m!ζ(−2/3)ζ_K(1/3)L(1,χ)²L(1,χ̄)²/9 × ∏_{N≠3}L(N/3,Ψ_N) × M_{f,K}(−2/3)/∏(s0+j)), and the zero terms of
   ζ(s)L(s,χ)L(s,χ̄) subtracted (paper II did this for t^2+1 and got β = 1.008).
+  THE REMAINDER ROUTE CARRIED OUT (13 Sep, evening; ERRATA 17). Exact Mellin–Barnes coefficient formula (validated to
+  8 digits), main terms = residues at 1/2 ± i t_j, per-form remainder ≪ Y^{m+1/4} t_j^{-5/4}, j-sum of the bounds
+  DIVERGES for every m; the pole of 1/cos(πs/2) at s = 1 is the obstruction and equals Y^m (√|D|/2) B_2({x}) — the
+  sharp start at h=1 — i.e. Riesz-smoothed Hooley sums Σ_k k^{-2} Σ_{d≲Y} ρ_k(d), size √Y conjecturally. LESSON (F33):
+  the Y^{1/2±it_j} oscillation of the piece has TWO sources — the argument-side residues (our Poincaré series at the
+  Heegner points) and the modulus-side Hooley sums — and the data see their sum; the "amplitude law not confirmed"
+  (F22) is what that looks like. Provable now: the smooth-window version (increments), shape confirmed (piece-divset
+  SMOOTH=1: 100th pct even level-1, top line 8.95 = level-2 newform for the coprime object). In the smooth version the
+  small moduli d ≪ Y drop out (Poisson), so it is a statement about the window + far moduli only — exactly paper III's
+  open region. Sharp-start objects (Cesàro, Riesz) carry the small moduli's Hooley sums in addition.
   DECISION (author, 13 Sep): (ii). Principle stated: correct or leave open, never patch with a weaker claim about a
   different object. REPAIR DONE the same day (ERRATA 13 has the list of changes). Verified before writing: the 4D
   parametrisation (orbit counts = sum_g h(4D/g^2), 9 discriminants), Gamma_0(e)-stability and finite orbit counts (15
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (night). Remainder route of paper IV carried out: exact coefficient formula (Prop. prop:exact), main terms as
+  residues, and the discovery that the remainder contains Riesz-smoothed Hooley sums (ERRATA 17, F33); the
+  smooth-window statement identified as the provable one and its shape confirmed numerically. Paper III read by a fresh
+  reader (opus, ~160k tokens): 7 findings, all fixed (ERRATA 18, F34–F36); core sound. Cubic test of paper II's
+  correction: constants to 40 digits, fit inconclusive, exact prediction of the log coefficient NOT done (next).
 - 13 Sep (evening). Second adversarial reading of paper IV Section 5 (fresh agent): repair passed, remainder bound found
   unproved (F30–F32, ERRATA 16); theorem downgraded to "exact expansion + main terms proved, remainder open"; the
   boundedness gap closed by a coset count. Paper III reader died on credits. RESEARCH-USES.md written (uses and hints,
@@ -567,6 +587,21 @@ F31. "The error terms sum by Prop. riesz with room to spare, since they carry tw
 F32. "Saving of t_j^{−3/4}" from ∫_0^W w^{3/2}dw with W = √t_j/c (paper IV, paragraph after Lemma Kuniform). The integral
     is (2/5)W^{5/2} = (2/5)t_j^{5/4}c^{−5/2}; times c²/t_j this is t_j^{+1/4}c^{−1/2}: a LOSS. Superseded by Lemma mellin,
     but false as written for a day. RULE: do the one-line integral on paper before writing "saving".
+F33. "The remainder bound is a standard technical task, a day of work" (KNOWLEDGE 0b and ERRATA 16, 13 Sep afternoon;
+    withdrawn the same evening). Carrying the route out (ERRATA 17) showed the remainder contains Riesz-smoothed Hooley
+    sums of the same order as the main term, because the sharp start of Σ_{h≤t} leaves a Y^m B_2({x}) component whose
+    spectral coefficients decay only like t_j^{-3/2}. RULE: before estimating a remainder, ask what it IS on the other
+    side of the identity; a spectral sum whose trivial bounds diverge is usually a real object, not a bad bound.
+F34. "≪ Y^{12/13+ε} with K = Y^{1/20}" (paper III, Theorem u1): the tail Y/K = Y^{19/20} was never compared with the
+    claimed exponent; the optimum gives Y^{0.9345}. RULE: when balancing two terms, WRITE both exponents at the chosen
+    K and check them; an unoptimised K with a copied exponent is a classic. Found by the fresh reader (opus), 13 Sep.
+F35. "Lemma proved for integer Y, applied at Y = H/u" (paper III, Lemma finfourier in Prop. windowW). The identity is
+    false for non-integer Y (−0.32 vs −0.57 at d'=7, Y=5.5); the fix costs one correction term. RULE: every lemma's
+    hypotheses are re-read at every application; "Y ≥ 1 an integer" is a hypothesis. Same reader.
+F36. "c_off < 0 since every term is" (paper III, Thm typeII). When 3 splits, λ(3) = −3 and m_3 < 0: the terms are not all
+    negative; the sum is, by an identity (λ(p)m_p = mp/(p−2)) and a sign count of Euler factors. RULE: "every term is
+    negative" must be checked at the smallest prime, where our weights change sign (λ(3) = −3 is the recurring culprit:
+    F23 too).
 F29. "The theorem is for the piece P_u" (paper IV results list). It was for the model object (weight lambda and the
     squarefree condition dropped); the results list said "piece". Minor, but the same drift between headline and
     statement as F7 and F15. RULE: after every rewrite of a theorem, re-read the abstract and the results list against

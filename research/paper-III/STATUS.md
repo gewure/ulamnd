@@ -18,3 +18,10 @@ Reproduce: `npx tsx research/paper-III/scripts/offstar-mean.ts 10000000` (t²+1)
 13 Sep 2026: the external assessment (research/reviews/) had no finding on paper III. One sentence changed: the
 remark pointing at part IV's u = 1 result now says it is a spectral argument with a known gap, not a theorem
 (research/ERRATA.md item 13). 24 pp.
+
+13 Sep 2026 (evening): read adversarially by a fresh reader (research/ERRATA.md item 18). Core sound: decomposition,
+dilation-average lemma (verified for six moduli), c_off (table to six digits), exponent condition θ+6B<1 (recomputed).
+Seven findings, all fixed: Theorem u1's exponent 12/13 → 1−1/16 (the K-balance had not been optimised); the window
+proposition invoked outside its hypothesis (harmless for u = 1, now argued); the finite Fourier lemma used at
+non-integer Y (correction term added); d' > 1 in the definition of a piece; the sign argument for c_off; two exponents
+in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.

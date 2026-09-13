@@ -213,3 +213,34 @@ route before being applied (the checks are described in the items). We agree wit
     referee remark amended. KNOWLEDGE: F30–F32. The numerical evidence concerns the main terms and is unaffected.
     **Paper III was to be read by a second fresh reader the same day; that reader died on the session's rate limit
     before producing anything. Paper III remains unread by anyone.**
+
+17. **Paper IV, the remainder bound: the route of item 16 carried out, and what it shows (13 Sep, evening).** Smoothing the
+    seed first (Riesz mean in t before the spectral expansion) gives an EXACT Mellin–Barnes formula for every spectral
+    coefficient (new Proposition prop:exact; the Mellin transform of the Riesz-smoothed sine is π Y^{m+1−s}/(2cos(πs/2)Γ(m+2−s));
+    validated to 8 digits against direct quadrature). Shifting the contour to Re s = 3/4 gives the main terms
+    Y^{m+1/2±it_j} as residues and a per-form remainder ≪ Y^{m+1/4} t_j^{−5/4+ε}. BUT the sum over j of these bounds
+    diverges (Σ t_j^{−3/4} against the Weyl density), the exponent −5/4 cannot be improved by the Riesz order or by
+    shifting further (pole of 1/cos(πs/2) at s = 1), and the pole has a meaning: its residue is Y^m × (√|D|/2)B_2({x}), the
+    memory of the sharp start at h = 1, which summed over d ≲ Y is a Riesz-smoothed Hooley sum Σ_k k^{−2}Σ_{d≲Y}ρ_k(d) —
+    conjecturally of size √Y, i.e. of the SAME ORDER as the main term, and oscillating at the same t_j. Consequences:
+    (i) the coefficients α_j of Theorem main are the residues PLUS a Hooley part not computed; (ii) the remainder bound
+    is not a technicality but needs the modulus-side spectral theory (Kuznetsov/Bykovskiĭ) — item 16's "a day of work"
+    was wrong; (iii) this plausibly explains the unconfirmed amplitude law (F22): the predicted amplitudes were residues
+    only. What IS provable by the same computation: the smooth-window statement (two-sided smooth weight w: the seed is
+    Schwartz, the contour goes to Re s = 5/2−ε, absolute convergence), shape confirmed numerically (√Y × smooth sum
+    oscillates at the level-1 even parameters at the 100th percentile; restricted object's top line 8.95 = level-2 even
+    newform). Not written as a theorem. Remark rem:gaps rewritten; theorem title unchanged ("remainder not established").
+
+18. **Paper III, seven findings of a fresh adversarial reading (13 Sep, evening; fixes applied).** Core checked out:
+    Lemma Gbar and its integral (verified for six moduli), the c_off formula (table to six digits), θ+6B<1 (recomputed).
+    Found: (1) Theorem u1 claimed P_1^≤(Y) ≪ Y^{12/13+ε} with K = Y^{1/20}, but the tail is Y/K = Y^{19/20}; the optimum
+    K = Y^{1/15} gives Y^{0.9346}. FIXED: statement now Y^{1−1/16} (qualitative conclusion P_1 ≪ Y^{1−δ} unchanged). (2) The
+    same theorem invoked Prop. windowW outside its hypothesis θ+B<1 ((11/12,1/4) has 7/6); the hypothesis is used only
+    for k > Y/2, empty for u = 1. FIXED: sentence added. (3) Lemma finfourier is proved for integer Y and was applied at
+    Y = H/u real; false otherwise (verified: d'=7, R={±3}, Y=5.5: −0.3214 vs −0.5714). FIXED: reduction to ⌊Y⌋ with the
+    correction term {Y}(N(m) − (2Y−{Y})/(2d')), which contributes ≪ Y^ε log(u²L) over the window. (4) Definition (eq:piece)
+    omitted d' > 1. FIXED. (5) "c_off < 0 since every term is" — false reasoning when 3 splits (λ(3) = −3, m_3 < 0);
+    true via λ(p)m_p = mp/(p−2) and c·m > 0. FIXED. (6) Theorem A's window display had u^{−θ−B} for u^{−θ} and "θ+B<1" for
+    "θ+3B<1" (both implied by θ+6B<1). FIXED. (7) Remark: A ≤ 3 → A ≤ 4 and exp((log log u)^3) → ^4 (three places); the
+    constant "m = 0.728431" in the numerical check is M = c_f m/2. FIXED. Paper III 26 pp. No finding touches Theorem A′,
+    the decomposition, or c_off.

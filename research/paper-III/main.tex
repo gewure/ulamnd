@@ -177,8 +177,10 @@ R^{(u)}_{d'}=\{-\bar ur\bmod d':\ r\in R_{d'}\}=\{x\bmod d':\ u^2x^2\equiv D\ (d
 the roots of the fixed quadratic $Q_u(x)=u^2x^2-D$ modulo $d'$ (the equality because $x\mapsto-\bar ux$ is a bijection
 $R_{d'}\to R^{(u)}_{d'}$ when $(u,d')=1$), and the \emph{piece}
 \begin{equation}\label{eq:piece}
-\mathcal P_u(Y)=\sum_{d'}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}\bigl(\rep x{d'}\bigr).
+\mathcal P_u(Y)=\sum_{d'>1}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}\bigl(\rep x{d'}\bigr),
 \end{equation}
+the sum over admissible $d'>1$ (the modulus $d'=1$, with $R_1=\{0\}$, is excluded as in the proof of
+Proposition~\ref{prop:pieces}; including it would add $-Y/2+O(1)$ to every piece).
 
 \begin{proposition}[pieces]\label{prop:pieces}
 For every $H\ge1$,
@@ -431,14 +433,15 @@ $\beta=1-o(1)$ and some $\gamma=\gamma(f)$ by the prime number theorem for the c
 ($\sum_{p\le t\ \mathrm{split}}1/p=\tfrac12\log\log t+O_D(1)$). Removing in addition the primes dividing a squarefree $u$
 (where $R^{(u)}_p=\emptyset$) lowers the first sum in~\eqref{eq:dens} by at most
 $C_0\sum_{p\mid u}1/p\le C_0(\log\log\log u+O(1))$ and can only lower the second; so~\eqref{eq:dens} holds with
-$\beta=\tfrac12$, the same $\gamma$, and $t_0=\exp((\log\log u)^{A})$ for an absolute $A=A(C_0)$, $A\le3$ for
-$C_0\le10$: in particular uniformly for $t\ge\exp((\log\log u)^3)$, $u\ge u_1$. The resulting exponent is $c=(1-2^{-1/2})/8\approx0.037$; no attempt has been made to
+$\beta=\tfrac12$, the same $\gamma$, and $t_0=\exp((\log\log u)^{A})$ for an absolute $A=A(C_0)$; since the removed
+primes cost $\approx2\log\log\log u$ in the exponent, $\beta=\tfrac12$ needs $\log\log t\ge4\log\log\log u+O(1)$, so $A\le4$
+for $C_0\le10$: in particular uniformly for $t\ge\exp((\log\log u)^4)$, $u\ge u_1$. The resulting exponent is $c=(1-2^{-1/2})/8\approx0.037$; no attempt has been made to
 optimise it, and none is needed for the Ces\`aro form.
 \end{remark}
 
 \begin{theorem}[small moduli, unconditional]\label{thm:small}
 For every irreducible quadratic $f$ there is $c=c(f)>0$ such that, uniformly for squarefree $u$ with $\omega(u)\ge1$
-and $Y\ge\max(\exp((\log\log u)^3),Y_1(f))$,
+and $Y\ge\max(\exp((\log\log u)^4),Y_1(f))$,
 \[
 \mathcal P^{\le}_u(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_fY(\log Y)^{-c}.
 \]
@@ -451,7 +454,7 @@ By~\eqref{eq:koksma}, $|\mathcal P^\le_u(Y)|\le\tfrac32\sum_{d'\le Y}\lambda(d')
 squarefree split $d'$ coprime to $u$. Apply Proposition~\ref{prop:KSw} to the family $A_p=R^{(u)}_p$ (of size $2$ at
 split $p\nmid 2Du$, empty otherwise) and to $w=|\lambda\omega|\cdot\mathbf 1_{(\cdot,2Du)=1}$ (which is non-negative, multiplicative,
 and bounded by $10$ at every prime, $|\lambda\omega(3)|=6$); by Remark~\ref{rem:KSwconst} the
-hypotheses hold with constants depending only on $f$ provided $Y\ge\exp((\log\log u)^3)$ and $u\ge u_1$, and for the
+hypotheses hold with constants depending only on $f$ provided $Y\ge\exp((\log\log u)^4)$ and $u\ge u_1$, and for the
 finitely many $u<u_1$ they hold with $t_0=t_0(f)$. Since $Q$ is then exactly the set of admissible $d'$ and
 $\rho(d')=\omega(d')$, the bound is $\ll Y(\log Y)^{-c}$ with $c=c(f)$. For the consequence, the weight
 $w(u)$ has $\sum_{u\le U}w(u)/u\ll\log U$, and for $u\le H^{1-\varepsilon}$ we have $\log(H/u)\ge\varepsilon\log H$, so
@@ -570,18 +573,24 @@ are removed by inclusion--exclusion at the cost of the divisor bound).
 \begin{theorem}[the first piece: small moduli]\label{thm:u1}
 For $D$ as in Lemma~\ref{lem:sharp},
 \[
-\mathcal P^{\le}_1(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_{D,\varepsilon}Y^{12/13+\varepsilon}.
+\mathcal P^{\le}_1(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_{D}Y^{1-1/16}.
 \]
 Together with Lemma~\ref{lem:far} ($u=1$, $L=Y^{\varepsilon}$; the window $(Y,YL]$ is then the only part not
 covered) this gives $\mathcal P_1(Y)=\mathcal W_1(Y;Y^{\varepsilon})+O(Y^{1-\varepsilon})$, and Proposition~\ref{prop:windowW}
-with $(\theta,B)=(\tfrac{11}{12},\tfrac14)$ bounds the window by $Y^{11/12+O(\varepsilon)}$: so $\mathcal P_1(Y)\ll Y^{1-\delta}$
-unconditionally.
+with $(\theta,B)=(\tfrac{11}{12},\tfrac14)$ bounds the window by $Y^{11/12+O(\varepsilon)}$ --- its hypothesis $\theta+B<1$
+fails for these exponents, but the proof uses it only for the frequencies $k>Y/2$, and for $u=1$, $L=Y^\varepsilon$ the
+frequencies run over $k\le K=LY^{\varepsilon}=Y^{2\varepsilon}<Y/2$, so only the first term of its bound occurs. Hence
+$\mathcal P_1(Y)\ll Y^{1-\delta}$ unconditionally.
 \end{theorem}
 \begin{proof}
 Lemma~\ref{lem:sharp} gives~\eqref{eq:W} for $u=1$ with $\theta=\tfrac{11}{12}+\varepsilon$, $B=\tfrac14$. By
 Lemma~\ref{lem:partial}, $T_k(Y)\ll k^{1/4}(kY)^{12/13+\varepsilon}$, and inserting into~\eqref{eq:Ple}:
-$\sum_{k\le K}k^{-2}T_k\ll Y^{12/13+\varepsilon}\sum_{k\le K}k^{-2+1/4+12/13}\ll Y^{12/13+\varepsilon}K^{0.18}$, while
-$\sum_{k>K}k^{-2}|T_k|\ll Y/K$; with $K=Y^{1/20}$ both are $\ll Y^{12/13+\varepsilon}$.
+$\sum_{k\le K}k^{-2}T_k\ll Y^{12/13+\varepsilon}\sum_{k\le K}k^{-2+1/4+12/13}\ll Y^{12/13+\varepsilon}K^{9/52}$, while
+$\sum_{k>K}k^{-2}|T_k|\ll Y/K$. With $K=Y^{1/15}$ the first is $\ll Y^{12/13+9/780+\varepsilon}=Y^{0.9346+\varepsilon}$ and the
+second is $Y^{14/15}$; both are $\ll Y^{1-1/16}$. (The first version of this theorem claimed $Y^{12/13+\varepsilon}$ with
+$K=Y^{1/20}$, for which the tail is $Y^{19/20}$; the optimal $K$ gives $Y^{0.9345}$, so $12/13$ is unattainable by this
+argument. Found by a second reading on 13 September 2026, together with the misapplication of
+Proposition~\ref{prop:windowW} corrected in the statement.)
 \end{proof}
 
 
@@ -784,7 +793,13 @@ $\sum_{d'}(\lambda M_{d'}/d')\int_{Y_0}^\infty|\bar G_{d'}|Y^{-2}dY\ll Y_0^{-1}\
 with $Y_0$ replaced by $1$, together with (b) below $1$, show that the series defining $c_{\mathrm{off}}$ in~\eqref{eq:coff}
 converges absolutely. Altogether $\mathcal M(H)=c_{\mathrm{off}}(f)H+O(H^{5/6+3\varepsilon'}+H^{2/3+2\varepsilon'}\log H)$, and
 with~\eqref{eq:MH} the theorem follows with $\delta=\varepsilon/5$. The second expression for $c_{\mathrm{off}}$ is
-Lemma~\ref{lem:Gbar}(e), and it is negative since every term is.
+Lemma~\ref{lem:Gbar}(e). It is negative, but not because every term is: when $3$ splits, $\lambda(3)=-3$ and
+$m_3<0$. Rather, from $m_p=m(1+2\lambda(p)/p)^{-1}$ and $\lambda(p)=p/(p-4)$ one has $\lambda(p)m_p=mp/(p-2)$ for every
+split $p$, so that $c_{\mathrm{off}}=-c\,m\sum_{p\ \mathrm{split}}\frac{\log p}{(p-2)(p-1)}$ with $c$ the constant relating
+$M_p$ to $m_p$ in~\eqref{eq:md}, and $c\,m>0$: each of $c$ and $m$ has exactly one negative Euler factor, at $p=3$, when
+$3$ splits, and none otherwise. (The first version wrote ``since every term is''; corrected after a second reading,
+13 September 2026, which also checked the resulting formula against the table of \S\ref{sec:numerics-off} to six
+digits.)
 \end{proof}
 
 \emph{In words.} When the agreeing part $u$ is much larger than the length $Y=H/u$, the dilation $\bar u$ runs
@@ -820,7 +835,7 @@ that $S_f$ has mean value $C(f)^2$ (part~I, Theorem~2), and $\sum_dW_f(d)\omega(
 
 \paragraph{Numerical check for $f=t^2+1$.} Here $w(2u')=4A_0\lambda(u')\omega(u')$ with $A_0=\prod_{p\equiv1(4)}P_p=0.51747684\ldots$
 ($w$ vanishes on odd $u$, see the set-up), $D_f(1)=0.75079081\ldots$ (part~II), and~\eqref{eq:coff} evaluates to
-$c_{\mathrm{off}}(t^2+1)=-0.134390$ (\texttt{research/paper-III/scripts/coff.py}: $m=0.728431$, prime sum $0.184492$ over $p\equiv1\ (4)$, $p\le2\cdot10^6$).
+$c_{\mathrm{off}}(t^2+1)=-0.134390$ (\texttt{research/paper-III/scripts/coff.py}: $M=c_fm/2=0.728431$, prime sum $0.184492$ over $p\equiv1\ (4)$, $p\le2\cdot10^6$).
 The corollary then predicts the mean of $\Off_f(t)$ to be $-0.134390+0.124605=-0.00978$. The exact values of
 $\Off_f(t)$ for all $t\le10^7$ (\texttt{research/paper-III/scripts/offstar-mean.ts}, from the identity of part~I with the constants of part~II)
 have the following means over consecutive dyadic blocks ending at $2^{17},\dots,2^{23}$:
@@ -881,7 +896,7 @@ $\sum_{u\le H^{2/3+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)=o(H\log H)$.
 \begin{proof}
 Proposition~\ref{prop:pieces}, Theorem~\ref{thm:typeII} for $u>H^{2/3+\varepsilon}$, and for $u\le H^{2/3+\varepsilon}$
 (so $Y=H/u\ge H^{1/3-\varepsilon}$) the split $\mathcal P_u(Y)=\mathcal P^\le_u(Y)+\mathcal W_u(Y;\log H)+\mathcal P^{\mathrm{far}}_u(Y;\log H)$
-with Theorem~\ref{thm:small} (applicable since $Y\ge\exp((\log\log u)^3)$) and Lemma~\ref{lem:far}:
+with Theorem~\ref{thm:small} (applicable since $Y\ge\exp((\log\log u)^4)$) and Lemma~\ref{lem:far}:
 $\sum_{u\le H^{2/3+\varepsilon}}w(u)\bigl[(H/u)(\log H)^{-c}+H/(u^3\log H)\bigr]\ll H(\log H)^{1-c}$.
 \end{proof}
 
@@ -961,7 +976,13 @@ Assume Hypothesis~W$(\theta,B)$ with $\theta+B<1$. Then for squarefree $u$ with 
 \]
 \end{proposition}
 \begin{proof}
-By Lemma~\ref{lem:finfourier} (all $d'$ are odd, $R^{(u)}_{d'}$ is symmetric and avoids $0$),
+By Lemma~\ref{lem:finfourier} (all $d'$ are odd, $R^{(u)}_{d'}$ is symmetric and avoids $0$), applied at $\lfloor Y\rfloor$
+when $Y$ is not an integer: writing $Y=N+\vartheta$ with $N=\lfloor Y\rfloor$, one has
+$B^{(Y)}_{d'}(m)=B^{(N)}_{d'}(m)+\vartheta\bigl(N_{d'}(m)-(2Y-\vartheta)/(2d')\bigr)$ with $N_{d'}(m)=\#\{h\le N:h\equiv m\ (d')\}\le1$
+for $d'>Y$, so the difference contributes $\ll\sum_{Y<d'\le u^2YL}\lambda(d')\omega(d')/d'\ll Y^{\varepsilon}\log(u^2L)$ to
+$\mathcal W_u(Y;L)$, negligible against the term $Y^{1-\varepsilon}$ below (the lemma is stated for integer $Y$; its use for
+real $Y=H/u$ was unjustified in the first version and fails without this correction, e.g.\ $d'=7$, $R=\{\pm3\}$,
+$Y=5.5$: found by a second reading, 13 September 2026),
 \[
 \mathcal W_u(Y;L)=\frac12\sum_{k\ge1}\ \sum_{\substack{Y<d'\le u^2YL\\ d'>2k}}\lambda(d')\,\rho_k(d')\,g_k(d'),\qquad
 g_k(d')=\frac{1-\cos(2\pi kY/d')}{d'^2\sin^2(\pi k/d')},
@@ -1031,12 +1052,14 @@ $(1-\theta)/6<(1-\theta)/(2(2-\theta))$.
 \emph{Window.} Proposition~\ref{prop:windowW} with $Y=H/u$:
 \[
 \begin{aligned}
-\sum_{u\le U_0}|w(u)|\,\mathcal W_u\Bigl(\frac Hu;L\Bigr)&\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{3B-\theta}+H^{\theta+B+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{-\theta-B}\\
+\sum_{u\le U_0}|w(u)|\,\mathcal W_u\Bigl(\frac Hu;L\Bigr)&\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{3B-\theta}+H^{\theta+B+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{-\theta}\\
 &\quad+\sum_{u\le U_0}|w(u)|\Bigl(\frac Hu\Bigr)^{1-\varepsilon}
 \end{aligned}
 \]
-$\ll H^{\theta+(2/3)(1+3B-\theta)+O(\varepsilon)}+H^{\theta+B+(2/3)(1-\theta-B)+O(\varepsilon)}+H^{1-\varepsilon/3}$. The first exponent is
-$\tfrac23+\tfrac13\theta+2B<1$ exactly when $\theta+6B<1$; the second is $\tfrac23+\tfrac13(\theta+B)<1$, which is weaker.
+$\ll H^{\theta+(2/3)(1+3B-\theta)+O(\varepsilon)}+H^{\theta+B+(2/3)(1-\theta)+O(\varepsilon)}+H^{1-\varepsilon/3}$ (the second term is
+$u^BY^BY^{\theta}=H^{\theta+B}u^{-\theta}$ at $Y=H/u$). The first exponent is
+$\tfrac23+\tfrac13\theta+2B<1$ exactly when $\theta+6B<1$; the second is $\tfrac23+\tfrac13\theta+B<1$, i.e.\ $\theta+3B<1$,
+which is weaker.
 Choosing $\varepsilon$ small gives $\Off^\ast_f(H)=c_{\mathrm{off}}H+O(H^{1-\delta})$; the consequence is~\eqref{eq:cesaro}.
 \end{proof}
 
