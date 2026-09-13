@@ -644,7 +644,12 @@ work (12 September 2026): for $f=t^3-3t-1$, irreducible with discriminant $81$ a
 $\chi_V=(3,0,0)$ on the three group elements, $\Psi_3=(8,-1,-1)$ and $m_3=2$, so $L(3w,\Psi_3)$ contains
 $\zeta(3w)^2$ and the pole at $s=-\tfrac23$ is double. An earlier version of this theorem wrote the term as
 $c'_{f,m}x^{m-2/3}$ with a constant for every $f$, which is wrong for this polynomial and for every group in
-Table~\ref{tab:mN} other than $S_n$, $A_n$ and $A_4$.
+Table~\ref{tab:mN} other than $S_n$, $A_n$ and $A_4$. For $t^3-3t-1$ the coefficient of $x^{m-2/3}\log x$ is computable
+from the residue machinery (\texttt{scripts/predict-cubic.py}, which reproduces $D_f(1)$ to $5\cdot10^{-12}$ at $s=1$ as a
+check and is independent of the truncation $K$): $a=-0.00234$ at $m=2$ and $-0.00300$ at $m=3$, with $b=-0.0049$ and
+$-0.0050$. It is four orders of magnitude below the zero terms $x^{m-3/4}$ at accessible $x$, so the correction is
+established by the multiplicity computation and cannot be seen in data to $x=10^7$; for $t^2+1$ the corresponding
+constant is $-0.455$.
 \end{proof}
 
 \begin{table}[htbp]

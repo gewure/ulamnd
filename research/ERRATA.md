@@ -271,3 +271,14 @@ route before being applied (the checks are described in the items). We agree wit
     Volfson, Bortolussi, Kuperberg 2025, Kuperberg–Rodgers–Roditty-Gershon, de la Bretèche–Kuperberg, Goldston–Suriajaya,
     Kravitz–Woo–Xu, Aletheia-Zomlefer–Fukshansky–Garcia, Marklof–Welsh, Kowalski–Soundararajan) is gathered in the same
     paragraphs. Author's request; rule: cite only what was verified.
+
+21. **Paper IV: Theorem thm:smooth confirmed on two forms; paper II: the cubic log term is real but invisible (13 Sep, late).**
+    Smooth-window data recomputed to Y = 10⁷; joint fit of the six even level-1 lines (smooth-two-lines.py): t₁ amplitude
+    ratio 0.99, phase difference 0.010 rad (upper half: 0.998, 0.0001); t₂ = 17.7386 with its own LMFDB coefficients
+    (1.0.1.7.1, downloaded 13 Sep, stored in data/): predicted 0.0085 / 5.860, observed over the upper half 0.0090 / 5.753
+    (ratio 1.05, 0.11 rad); the lower half does not resolve the t₂ line (amplitude 0.001). Cubic: predict-cubic.py
+    computes the Laurent coefficients at the double pole s = −2/3 for t³−3t−1 with the full Ψ_N machinery (a_N, b_N for
+    N ≤ 11, K-independent to 9 digits, D_f(1) reproduced to 5e−12 at s = 1, the residual being the Euler-product tail);
+    a = −0.00234 (m = 2), −0.00300 (m = 3); b ≈ −0.005. The zero terms are ~20 in the same units up to x^{1/12}: the log
+    term is undetectable at x ≤ 10⁷. The correction of Theorem general-f therefore rests on the algebra (pole order),
+    not on data; paper II now says so. Tail of M(s₀) (~2.5%) not applied to a; noted.

@@ -219,8 +219,10 @@ reformulation may unblock a hybrid; no concrete step identified.
 6. **Paper II's corrected general theorem, tested**: the cyclic cubic t³ − 3t − 1 must show a log x factor at
    x^{m−2/3}. Script riesz-cubic.ts (13 Sep) produces the Riesz means; the fit and the exact prediction of the
    coefficient are the next step (research/paper-II/scripts/). Status 13 Sep: constants to 40 digits (two routes),
-   fit inconclusive (a ≠ 0 favoured by the residual, wrong m-dependence, a and b collinear); needs a_pred and the zero
-   terms. Lesson re-learned: mpmath's dirichlet() is wrong at s = 1; compute L(1,χ) by the digamma formula.
+   fit inconclusive; then (13 Sep late) a_pred computed exactly: −0.0023 at m = 2, four orders below the zero-term noise
+   at x ≤ 10⁷ — the log term is undetectable there, the correction rests on the algebra. To test it one would need the
+   zeros of L(s,χ) for the cubic character subtracted exactly and x far beyond 10⁷; not worth it. ☆ as a numerical
+   project. Lesson re-learned: mpmath's dirichlet() is wrong at s = 1; compute L(1,χ) by the digamma formula.
 
 ## 5. Thoughts, unrated
 - Every one of the three errors found on 12 Sep sits at a place where an "obviously" true step replaced a

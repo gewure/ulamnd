@@ -1193,11 +1193,15 @@ $\mathrm{Per}\propto u_1(2i)+u_1(i)/2>0$ from the LMFDB coefficients of $u_1$. P
 least squares on $Y\le2\cdot10^6$, $\varphi=4.032$: a difference of $0.035$ radians, where the opposite sign of the period
 would give $3.1$ (\texttt{scripts/smooth-phase-test.py}). The amplitude was then tested as well: the $L^2$-norm of $u_1$ over the fundamental domain, computed from the same
 twenty coefficients (converged to twenty digits with twelve), gives the normalisation, and the predicted amplitude
-$2|D|^{-1/4}|\mathrm{Per}(u_1)\tilde L_1|\,|\Gamma(-it_1)W_c(\tfrac32+it_1)|=0.0600$ against the observed $0.0569$, a ratio
-of $0.95$ (\texttt{scripts/smooth-amplitude-test.py}; the fitted amplitude carries the uncertainty of a least-squares
-fit over $Y\le2\cdot10^6$ in the presence of the other lines). This is the first amplitude prediction of this paper
-that the data confirm; the amplitude law for the Riesz object in \S\ref{sec:numerics} remains unconfirmed, for the
-reason given in Remark~\ref{rem:gaps}.
+$2|D|^{-1/4}|\mathrm{Per}(u_1)\tilde L_1|\,|\Gamma(-it_1)W_c(\tfrac32+it_1)|=0.0600$ against the observed $0.0569$
+(\texttt{scripts/smooth-amplitude-test.py}). Extending the data to $Y\le10^7$ and fitting the first six even lines
+jointly (\texttt{scripts/smooth-two-lines.py}) sharpens this to a ratio $0.99$ and a phase difference of $0.010$ radians
+for $t_1$ over the whole range ($0.998$ and $0.0001$ over its upper half), and gives for the second even form,
+$t_2=17.7386$, with its own coefficients from the LMFDB, a predicted amplitude $0.0085$ and phase $5.860$ against
+$0.0090$ and $5.753$ observed over the upper half of the range (the line is seven times weaker than the first and is
+not resolved over the lower half). Two independent forms, every constant. This is the first amplitude prediction of
+this paper that the data confirm; the amplitude law for the Riesz object in \S\ref{sec:numerics} remains unconfirmed,
+for the reason given in Remark~\ref{rem:gaps}.
 
 \begin{remark}[what the smooth theorem says and does not say]\label{rem:smoothmeaning}
 Since the seed is $O(Y^{-N})$ on the moduli $d\le Y$, Theorem~\ref{thm:smooth} is a statement about the window and

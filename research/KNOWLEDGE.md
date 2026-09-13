@@ -38,8 +38,9 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
                    modulus-side (Kuznetsov/Bykovskiĭ) treatment of smoothed Hooley sums. PROVED instead (13 Sep night):
                    Theorem thm:smooth — the smooth-window spectral formula, absolutely convergent, explicit
                    coefficients, phase of the first line predicted with no free parameter and observed to 0.035 rad,
-                   AMPLITUDE predicted 0.0600 vs observed 0.0569 (ERRATA 19, 20). One proved theorem in paper IV again,
-                   both of its testable constants confirmed; unread by anyone outside. 30 pp.
+                   amplitude and phase confirmed on TWO forms (t_1: ratio 0.99, 0.010 rad; t_2: 1.05, 0.11 rad over the
+                   upper half of Y ≤ 1e7; ERRATA 19–21). One proved theorem in paper IV again, every constant tested;
+                   an outside reading requested 13 Sep. 30 pp.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -143,7 +144,11 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   the orthonormal basis of oldforms is a Gram–Schmidt of u(e''z), not those functions). Verdict quoted: "the sum of
   main terms converges absolutely for m ≥ 2, but the remainder O(Y^{m+1/2−δ}) is not established; Theorem main is
   unproven as stated." We agree. The paper III reader died on the rate limit — paper III remains unread.
-  CUBIC TEST OF PAPER II's CORRECTION (13 Sep, in progress): riesz-cubic.ts (Riesz means of the diagonal of
+  CUBIC TEST — CLOSED (13 Sep late, ERRATA 21): a_pred = −0.00234 (m=2), K-independent, machinery checked at s=1 to
+  5e-12; four orders below the zero-term noise at x ≤ 1e7 → undetectable; the correction stands on the algebra. The
+  earlier fit values (21, 15.7) were the zero terms' low-frequency part, not the log term (F-lesson: a fit with a
+  collinear log x + b basis over 4.6 units of log x is meaningless without subtracting the oscillatory terms).
+  CUBIC TEST OF PAPER II's CORRECTION (13 Sep, in progress — superseded by the entry above): riesz-cubic.ts (Riesz means of the diagonal of
   t^3−3t−1 to 10^7), constants-cubic.py (A0, D_f(1), C(f) to 40 digits, two routes agree; C via L(1,χ)L(1,χ̄) with
   the digamma formula — mpmath's dirichlet() is WRONG at s = 1, gave 8e4 instead of 0.377; and both first versions of
   the C product skipped the inert primes, F9 again), fit-cubic.py. Result so far: with exact D_f(1) and 1/(2C) the
@@ -168,6 +173,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (later). thm:smooth confirmed on two forms to Y = 1e7 (ERRATA 21); cubic log coefficient computed and found
+  undetectable (ERRATA 21); second even Maass form's coefficients downloaded from the LMFDB (download_coefficients
+  endpoint works; the API has no coefficients).
 - 13 Sep (late). Theorem thm:smooth amplitude-tested: 0.0600 predicted vs 0.0569 observed (ERRATA 20). Related-work
   paragraphs with nine newly verified references added to papers I–IV (ERRATA 20; author's request).
 - 13 Sep (later night). Theorem thm:smooth (smooth windows) proved and phase-tested to 0.035 rad (ERRATA 19); smooth-phase-test.py.
