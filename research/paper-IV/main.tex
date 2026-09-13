@@ -115,7 +115,7 @@ Riesz means of order $m\ge2$, and the model object~\eqref{eq:model}
 of \S\ref{sec:numerics} rather than the piece itself (the weight $\lambda$ and the squarefree condition are dropped
 there, the condition $(d,2D)=1$ is kept),
 \[
-\mathcal P^{(m)}_u(Y)=c_{u}Y+Y^{1/2}\sum_{j}\bigl(\alpha_j(u,f)Y^{it_j}+\overline{\alpha_j(u,f)}Y^{-it_j}\bigr)\,\gamma_m(t_j)+O(Y^{1/2-\delta}),
+Y^{-m}\mathcal P^{(m)}_u(Y)=c_{u,m}Y+Y^{1/2}\sum_{j}\bigl(\alpha_j(u,f)Y^{it_j}+\overline{\alpha_j(u,f)}Y^{-it_j}\bigr)\,\gamma_m(t_j)+O(Y^{1/2-\delta}),
 \]
 the sum over the even Maass cusp forms $u_j$ of level one and the even newforms of the levels $e\mid\operatorname{rad}(2D)$,
 with Laplace eigenvalue $\tfrac14+t_j^2$ (and, for $u>1$, the levels dividing $4u^2$), with $\alpha_j(u,f)$ an explicit
@@ -138,13 +138,15 @@ $A<\tfrac14$; the level dependence of the Kuznetsov formula is therefore the who
 
 \section{The piece as a twisted Walfisz sum}\label{sec:walfisz}
 
-Throughout, $f$ is an irreducible quadratic of discriminant $D$ and $u$ is squarefree with $\omega(u)\ge1$. Call a
-modulus $d$ \emph{admissible} (for $u$) if it is squarefree and coprime to $2Du$. Only such $d$ occur: if
-$p\mid Q_u(h)=u^2h^2-D$ and $p\nmid2Du$ then $D\equiv(uh)^2\pmod p$, so $\bigl(\tfrac Dp\bigr)=1$ and $p$ is split.
-The condition ``every prime dividing $d$ is split'', which appears in part~III, is therefore automatic here, and we do
-not impose it. For admissible $d$ put
+Throughout, $f$ is an irreducible quadratic of discriminant $D$ and $u$ is squarefree with $\omega(u)\ge1$ prime
+factors. Call a modulus $d$ \emph{admissible} (for $u$) if it is squarefree, coprime to $2Du$, and every prime
+dividing it is split, $\bigl(\tfrac Dp\bigr)=1$, as in part~III. The third condition is automatic for the moduli that
+actually divide a value: if $p\mid Q_u(h)=u^2h^2-D$ and $p\nmid2Du$ then $D\equiv(uh)^2\pmod p$, so $p$ is split.
+It is nevertheless imposed, because the sums over admissible $d$ below (the expectation $\mathbb EF_u$, the sawtooth
+series) run over all admissible moduli and not only over divisors of values, and for an inert prime $p$ the root set
+$R_p$ is empty and $\lambda(p)$ is not defined. For admissible $d$ put
 \[
-R_d=R^{(u)}_d=\{x\bmod d:\ u^2x^2\equiv D\},\qquad \rho(d)=|R_d|=\omega(d)=2^{\nu(d)},\qquad
+R_d=R^{(u)}_d=\{x\bmod d:\ u^2x^2\equiv D\},\qquad \rho(d)=|R_d|=2^{\nu(d)},\qquad
 \rho_k(d)=\sum_{x\in R_d}\e\Bigl(\frac{kx}d\Bigr),
 \]
 $\nu$ the number of prime factors and $\e(y)=e^{2\pi iy}$. Two properties are used constantly: $R_d$ is
@@ -155,16 +157,25 @@ F_u(n)=\sum_{\substack{d\mid n,\ d>1\\ d\ \mathrm{admissible}}}\frac{\lambda(d)}
 \mathbb EF_u=\sum_{\substack{d>1\\ d\ \mathrm{admissible}}}\frac{\lambda(d)\rho(d)}{d^2},\qquad Q_u(h)=u^2h^2-D,
 \end{equation}
 both sums absolutely convergent ($\lambda(d)\rho(d)\ll d^{\varepsilon}$). \emph{All sums over moduli below run over
-admissible $d>1$}: including $d=1$ would add $1$ to $F_u$ and to $\mathbb EF_u$, leaving~\eqref{eq:Sm} unchanged but
-spoiling the symmetry used in Lemma~\ref{lem:sawtooth}, since $R_1=\{0\}$ is not a union of pairs $\{x,-x\}$ with
-$x\ne-x$. The \emph{sharp piece} and the
-\emph{Riesz pieces} are
+admissible $d>1$}: including $d=1$ would add $1$ to $F_u$ and to $\mathbb EF_u$ and would spoil the symmetry used in
+Lemma~\ref{lem:sawtooth}, since $R_1=\{0\}$ is not a union of pairs $\{x,-x\}$ with $x\ne-x$. The \emph{sharp piece}
+is the function of the real variable $t\ge0$
 \begin{equation}\label{eq:Sm}
-S_u(t)=\sum_{h\le t}\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr),\qquad
-\mathcal P^{(m)}_u(Y)=\frac1{m!}\sum_{h\le Y}(Y-h)^m\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)\quad(m\ge0),
+S_u(t)=\sum_{h\le t}F_u(Q_u(h))-t\,\mathbb EF_u ,
 \end{equation}
-so that $\mathcal P^{(0)}_u=S_u$ and, for integers $Y$, $\mathcal P^{(1)}_u(Y)=\sum_{t<Y}S_u(t)$; up to the explicit
-constant of part~III, $\mathcal P^{(1)}_u(Y)$ is the piece $\mathcal P_u(Y)$ of part~III.
+and the \emph{Riesz pieces} are its Riesz means
+\begin{equation}\label{eq:Pm}
+\mathcal P^{(m)}_u(Y)=\frac1{m!}\int_0^Y(Y-t)^m\,S_u(t)\,dt\qquad(m\ge0),
+\end{equation}
+the convention used throughout \S\S\ref{sec:formula}--\ref{sec:proof}. The expectation is subtracted at the real
+argument $t$, not at $\lfloor t\rfloor$; the two agree at integers, and the sawtooth identity of
+Lemma~\ref{lem:sawtooth} holds for all real $t$ only with this choice. For integer $Y$, since $\int_h^Ydt=Y-h$,
+\[
+\mathcal P^{(0)}_u(Y)=\sum_{h\le Y}(Y-h)\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)-\tfrac12\,\mathbb EF_u\,Y
+=\mathcal P_u(Y)-\tfrac Y2 ,
+\]
+with $\mathcal P_u$ the piece of the set-up paragraph, the object computed in \S\ref{sec:numerics}; the two differ by
+a linear term, which every statement below carries as a nuisance term anyway.
 The connection with part~III is that $F_u(Q_u(h))$ is the divisor-sum form of the inner sum of a piece: $d\mid Q_u(h)$
 exactly when $h$ lies in one of the $\rho(d)$ classes $R_d$.
 
@@ -173,7 +184,7 @@ Let $\psi(y)=\tfrac12-\{y\}$. For every $t\ge0$,
 \begin{equation}\label{eq:sawtooth}
 S_u(t)=\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)}d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
 \end{equation}
-the series converging absolutely.
+the series converging when the two terms $x,-x$ of each modulus are paired (it does not converge absolutely).
 \end{lemma}
 
 \begin{proof}
@@ -201,13 +212,17 @@ $\sum_{x\in R_d}(\tfrac12-\rep xd/d)=0$ for every admissible $d>1$. Therefore
 \]
 which is~\eqref{eq:sawtooth}. For the convergence, group the terms of a pair $\{x,-x\}$ and write $a=\rep xd$ with
 $a\le d/2$, so that the pair is $\{a,d-a\}$. If $d>2t$ and $a>t$ then $\{(t-a)/d\}=(t-a+d)/d$ and
-$\{(t+a)/d\}=(t+a)/d$, so by the periodicity of $\psi$ the two sawtooths sum to $-2t/d$; if $a\le t$ their sum is
-bounded by $1$, and this happens for at most $\rho(d)$ values with $a\le t<d/2$, a set that is empty once $d>2t$.
-Hence for $d>2t$ each pair contributes $\ll t/d$ and
+$\{(t+a)/d\}=(t+a)/d$, so by the periodicity of $\psi$ the two sawtooths sum to $-2t/d$. The alternative $a\le t$
+means that some $h\le t$ satisfies $d\mid Q_u(h)$, hence $d\le u^2t^2+|D|$. So for $d>D_0(t):=u^2t^2+|D|$, which
+exceeds $2t$, every pair contributes exactly $-2t/d$, and the tail of the series is
 \[
-\sum_{d>2t}\frac{\lambda(d)}d\cdot\frac{t\,\rho(d)}{d}\ \ll\ t\sum_{d>2t}\frac{\lambda(d)\rho(d)}{d^2}\ \ll\ t^{\varepsilon},
+\sum_{d>D_0}\frac{\lambda(d)}d\cdot\frac{\rho(d)}2\cdot\Bigl(-\frac{2t}d\Bigr)=-t\sum_{d>D_0}\frac{\lambda(d)\rho(d)}{d^2}
+\ \ll\ t^{-1+\varepsilon},
 \]
-while the range $d\le2t$ is a finite sum. So the paired series converges and~\eqref{eq:sawtooth} holds.
+an absolutely convergent sum, while the range $d\le D_0$ is a finite sum. So the paired series converges,
+and~\eqref{eq:sawtooth} holds, for every real $t\ge0$. \footnote{The alternative $a\le t$ does occur for $d>2t$
+($D=-4$, $u=1$, $t=2$, $d=5$, $a=1$), so the finiteness of that range comes from $d\mid Q_u(a)$ and not from
+$d>2t$; the first version argued the latter.}
 \end{proof}
 
 \emph{In words.} A piece counts, for each admissible modulus $d$, how far the number of $h\le t$ with $d\mid Q_u(h)$
@@ -219,30 +234,38 @@ with weight $1/n$, and here one sums it over admissible moduli, at the roots of 
 $\lambda(d)/d$.
 
 \begin{lemma}[Weyl-sum form]\label{lem:weyl}
-For every $t\ge0$ and every $K\ge1$,
+For every $t\ge0$,
 \begin{equation}\label{eq:weylform}
-S_u(t)=\frac1\pi\sum_{k\ge1}\frac1k\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)\rho_k(d)}{d}\,\sin\frac{2\pi kt}d ,
+S_u(t)-\tfrac12F_u(Q_u(t))\,\mathbf 1_{t\in\Z}=\frac1\pi\sum_{k\ge1}\frac1k\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)\rho_k(d)}{d}\,\sin\frac{2\pi kt}d ,
 \end{equation}
-the $k$-sum converging boundedly. Consequently, for the Riesz pieces of order $m\ge1$ and integer $Y$,
+in the following sense: for each $D_0$ the $k$-series over the finitely many moduli $d\le D_0$ converges, and the
+truncated right-hand side tends to the left-hand side as $D_0\to\infty$; for $D_0\ge u^2t^2+|D|$ the omitted moduli
+contribute exactly $-t\sum_{d>D_0}\lambda(d)\rho(d)d^{-2}$. Consequently, for $m\ge1$ and in the same sense,
 \begin{equation}\label{eq:rieszweyl}
 \mathcal P^{(m)}_u(Y)=\frac1\pi\sum_{k\ge1}\frac1k\sum_{d}\frac{\lambda(d)\rho_k(d)}{d}\,\Phi_m\Bigl(\frac{2\pi k}d;Y\Bigr),
-\qquad \Phi_m(\theta;Y)=\frac1{m!}\sum_{h\le Y}(Y-h)^m\sin(\theta h),
+\qquad \Phi_m(\theta;Y)=\frac1{m!}\int_0^Y(Y-t)^m\sin(\theta t)\,dt,
 \end{equation}
-with $\Phi_m(\theta;Y)\ll_m\min\bigl(Y^{m+1},\ Y^{m}\|\theta/2\pi\|^{-1}\bigr)$, $\|\cdot\|$ the distance to $\Z$.
+with $\Phi_m(\theta;Y)\ll_m\min\bigl(\theta Y^{m+2},\ Y^{m}\theta^{-1}\bigr)$.
 \end{lemma}
 
 \begin{proof}
-The Fourier expansion $\psi(y)=\sum_{k\ge1}\sin(2\pi ky)/(\pi k)$ holds for $y\notin\Z$, boundedly and uniformly on
-compact subsets of $\R\setminus\Z$, and the partial sums are uniformly bounded. Insert it into~\eqref{eq:sawtooth}
-and use, for each $d$,
+The Fourier series $\sum_{k\ge1}\sin(2\pi ky)/(\pi k)$ has uniformly bounded partial sums; it converges to $\psi(y)$
+for $y\notin\Z$ and to $0=\psi(y)-\tfrac12$ for $y\in\Z$. Insert it into~\eqref{eq:sawtooth} for the finitely many
+$d\le D_0$. For such $d$ and $x\in R_d$ the argument $(t-x)/d$ is an integer exactly when $t\in\Z$ and
+$d\mid Q_u(t)$; these terms are the ones for which the series returns $\psi-\tfrac12$ instead of $\psi$, and they
+account for the correction $\tfrac12\sum_{d\mid Q_u(t)}\lambda(d)/d=\tfrac12F_u(Q_u(t))$ on the left. For each $d$,
 \[
 \sum_{x\in R_d}\sin\frac{2\pi k(t-x)}d=\Im\Bigl[\e\Bigl(\frac{kt}d\Bigr)\overline{\rho_k(d)}\Bigr]=\rho_k(d)\,\sin\frac{2\pi kt}d,
 \]
-since $\rho_k(d)$ is real. The interchange of the $k$-sum with the $d$-sum is justified by the uniform boundedness of
-the partial sums of the Fourier series together with the absolute convergence established in
-Lemma~\ref{lem:sawtooth} (dominated convergence for series). For~\eqref{eq:rieszweyl}, apply $\frac1{m!}\sum_{h\le Y}(Y-h)^m$
-to $t=h$ in~\eqref{eq:weylform}, which is a finite sum, and evaluate $\Phi_m$ by summation by parts $m$ times against
-the geometric sum $\sum_{h\le Y}\e(\theta h/2\pi)\ll\min(Y,\|\theta/2\pi\|^{-1})$.
+since $\rho_k(d)$ is real. The tail $d>D_0$ is the one computed in the proof of Lemma~\ref{lem:sawtooth}.
+For~\eqref{eq:rieszweyl} apply $\frac1{m!}\int_0^Y(Y-t)^m\,dt$ to~\eqref{eq:weylform}: the correction term is
+supported on the integers and does not affect the integral; for each fixed $d\le D_0$ the partial sums in $k$ are
+uniformly bounded and converge for almost every $t$, so the integral may be taken termwise (dominated convergence);
+and the integrated tail, $-\frac1{m!}\int_0^Y(Y-t)^mt\,dt\sum_{d>D_0}\lambda(d)\rho(d)d^{-2}$, tends to $0$ with
+$D_0$. The bound on $\Phi_m$ follows from $|\sin\theta t|\le\theta t$ and from one integration by parts. Neither
+\eqref{eq:weylform} nor~\eqref{eq:rieszweyl} is used in \S\S\ref{sec:formula}--\ref{sec:proof}, which work with the
+sawtooth form directly; they are recorded because they are the form in which the modulus-side route of
+\S\ref{sec:salie} sees the problem.
 \end{proof}
 
 \begin{remark}\label{rem:whyk}
@@ -267,8 +290,12 @@ A_u(s)=\sum_{h\ge1}\frac{F_u(Q_u(h))-\mathbb EF_u}{h^{s}}\qquad(\Re s>1).
 Then $A_u$ extends to a function holomorphic in $\Re s>\tfrac12$ except possibly for the singularities inherited from
 the $W_k$, and for integer $Y\ge2$ and any $c>1$,
 \begin{equation}\label{eq:perron}
-\mathcal P^{(m)}_u(Y)=\frac1{2\pi i}\int_{(c)}A_u(s)\,\frac{Y^{s+m}}{s(s+1)\cdots(s+m)}\,ds .
+\mathcal P^{(m)}_u(Y)=\frac1{2\pi i}\int_{(c)}A_u(s)\,\frac{Y^{s+m+1}}{s(s+1)\cdots(s+m+1)}\,ds+\mathbb EF_u\,R_m(Y),
+\qquad R_m(Y)=\sum_{h\le Y}\frac{(Y-h)^{m+1}}{(m+1)!}-\frac{Y^{m+2}}{(m+2)!},
 \end{equation}
+$R_m$ an explicit polynomial of degree $m+1$ in the integer $Y$ (Faulhaber): by~\eqref{eq:Pm},
+$\mathcal P^{(m)}_u(Y)=\sum_{h\le Y}\frac{(Y-h)^{m+1}}{(m+1)!}F_u(Q_u(h))-\mathbb EF_u\frac{Y^{m+2}}{(m+2)!}$, and the
+integral is Perron's formula for the Riesz sum of order $m+1$ of the coefficients of $A_u$.
 Moreover, for $0<\Re s<1$,
 \begin{equation}\label{eq:AviaW}
 A_u(s)=\frac{2\Gamma(1-s)}{(2\pi)^{1-s}}\,\sin\frac{\pi s}2\;\sum_{k\ge1}k^{s-1}\,W_k(s+1)\;+\;\bigl(\text{entire}\bigr),
@@ -347,14 +374,15 @@ so~\eqref{eq:salie} determines $\mathcal W_h(D;c)$ for every odd squarefree $c$ 
 \begin{proof}
 \eqref{eq:multiplicative} is the Chinese remainder theorem: $b\mapsto(b\bmod c_1,b\bmod c_2)$ is a bijection of the
 roots modulo $c$ onto the pairs of roots, and $b/c\equiv b_1\overline{c_2}/c_1+b_2\overline{c_1}/c_2\pmod1$. For
-\eqref{eq:salie}, substitute $b=2\bar hy$ in~\eqref{eq:Wh}, which is a bijection of the roots of $b^2\equiv D$ onto the
-roots of $y^2\equiv h^2D\bar4$ and turns $\e(2hb/p)$ into $\e(2y/p)$; hence
-$\mathcal W_{2h}(D;p)=\sum_{y^2\equiv h^2D\bar4}\e(2y/p)$. Sali\'e's evaluation of the twisted Kloosterman sum,
+\eqref{eq:salie}, substitute $b=\bar hy$ in~\eqref{eq:Wh}, which is a bijection of the roots of $b^2\equiv D$ onto the
+roots of $y^2\equiv h^2D$ and turns $\e(2hb/p)$ into $\e(2y/p)$; hence
+$\mathcal W_{2h}(D;p)=\sum_{y^2\equiv h^2D}\e(2y/p)$. Sali\'e's evaluation of the twisted Kloosterman sum,
 $K_\chi(m,n;p)=\varepsilon_p\sqrt p\,\bigl(\tfrac mp\bigr)\sum_{y^2\equiv mn\,(p)}\e\bigl(\tfrac{2y}p\bigr)$
 \cite[\S4.5]{Iwaniec1997}, applied with $m=D$, $n=h^2$ gives~\eqref{eq:salie}, the factor $\bigl(\tfrac Dp\bigr)$
 being $1$ because $p$ is split. \footnote{Both identities were verified numerically for all split $p\le37$, all
 $D\in\{-4,-3,5,8,12\}$ and $h\in\{1,2,3,5\}$, and~\eqref{eq:multiplicative} for composite $c$; the reference for
-Sali\'e's evaluation should be pinned to a precise statement of the normalisation.}
+Sali\'e's evaluation should be pinned to a precise statement of the normalisation. The first version substituted
+$b=2\bar hy$, which turns $\e(2hb/p)$ into $\e(4y/p)$ and does not give the displayed intermediate identity.}
 \end{proof}
 
 \begin{remark}[what Lemma~\ref{lem:salie} does and does not give]\label{rem:achieved}
@@ -369,7 +397,7 @@ why, because the distinction is easy to miss. Selberg's Kloosterman zeta functio
 $Z_{m,n}(\sigma)=\sum_cS(m,n;c)c^{-2\sigma}$, with poles at $\sigma=s_j$, $\lambda_j=s_j(1-s_j)$
 \cite[Theorem~1]{GoldfeldSarnak1983}, and their Remark~3 covers exactly our case, weight $\tfrac12$ on
 $\Gamma_0(4N)$. Tracing that normalisation through Lemma~\ref{lem:salie} and Proposition~\ref{prop:mellin} places the
-singularities of $A_u$ at $s=-\tfrac12+2it_j$ and predicts an oscillation of $\mathcal P^{(1)}_u(Y)/\sqrt Y$ at
+singularities of $A_u$ at $s=-\tfrac12+2it_j$ and predicts an oscillation of $\mathcal P_u(Y)/\sqrt Y$ at
 frequency $2t_j$. That prediction is false: fitted at the frequencies $2t_j$ the even set explains between $2.1\%$
 and $2.2\%$ of the variance and sits at the $43$rd to $69$th percentile of random frequency sets drawn from the same
 band, against the $99.7$th to $100$th percentile at the frequencies $t_j$ (\S\ref{sec:numerics};
@@ -415,9 +443,14 @@ Sali\'e sums is what any \emph{quantitative} treatment of the remainder, or any 
 
 \section{Katok--Sarnak and the parity rule}\label{sec:ks}
 
-The route of \S\ref{sec:salie} would place the poles of $W_k$ at $\tfrac12\pm it_j$, $t_j$ running over the weight-$\tfrac12$ spectrum, with
-residues proportional to $\overline{\rho_j(|D|)}\rho_j((k/2)^2)$. Two classical inputs turn this into a statement
-about the Maass forms of $\mathrm{SL}_2(\Z)$.
+In the modulus-side route of \S\ref{sec:salie} the Weyl sums are, by Lemma~\ref{lem:salie}, Kloosterman sums of
+half-integral weight, and the Kuznetsov formula of weight $\tfrac12$ would place the singularities of $W_k$ at
+$s=\tfrac12\pm2it_j$ (Selberg's normalisation $c^{-2\sigma}$ together with the factor $d^{-1/2}$ of~\eqref{eq:salie}),
+with residues proportional to $\overline{\rho_j(|D|)}\rho_j((k/2)^2)$, $\rho_j$ the Fourier coefficients of the
+weight-$\tfrac12$ forms. That is the frequency $2t_j$ rejected in Remark~\ref{rem:achieved}; the route of
+\S\ref{sec:formula} produces $t_j$. What survives from the modulus side is the arithmetic of the coefficients
+$\rho_j(|D|)$: two classical inputs turn them into periods of the Maass forms of $\mathrm{SL}_2(\Z)$, and that is
+what decides which forms can appear.
 
 \paragraph{Shimura and Katok--Sarnak.} The Shimura correspondence sends the weight-$\tfrac12$ forms of level $4$ in
 Kohnen's plus space to weight-$0$ Maass forms of level $1$ with the same spectral parameter, and the image consists of
@@ -429,8 +462,11 @@ $\mathrm{Per}_D(u_j)$ for that period,
 \begin{equation}\label{eq:ks}
 \rho_j(|D|)=\kappa(t_j,D)\,\mathrm{Per}_D(u_j)
 \end{equation}
-with an explicit factor $\kappa$. \footnote{Only $|\kappa|$, and only its dependence on $D$, is used below; the normalisation of $\mathrm{Per}$ should be pinned to and the normalisation of $\mathrm{Per}$ to
-\cite{KatokSarnak1993}; only $|\kappa|$, and only its dependence on $D$, is used below.}
+with an explicit factor $\kappa$. \footnote{The identity is linear in the period, as in \cite{KatokSarnak1993}; its square, which expresses
+$|\rho_j(|D|)|^2$ through $L(\tfrac12,u_j\otimes\chi_D)$, is the Waldspurger--Kohnen--Zagier form and is not what is
+used here. Only $|\kappa|$, and only its dependence on $D$, enters below; the normalisations of $\rho_j$,
+$\mathrm{Per}$ and $\kappa$ should be pinned to \cite{KatokSarnak1993} before any amplitude is computed
+from~\eqref{eq:ks}.}
 
 \begin{proposition}[parity]\label{prop:parity}
 If $u_j$ is an odd Maass form then $\mathrm{Per}_D(u_j)=0$, for every discriminant $D$. Consequently only the even
@@ -443,7 +479,8 @@ $Q=[a,b,c]$ of discriminant $D$, one for each class, and $\iota(z_{[a,b,c]})=z_{
 is the inversion of the class group, it permutes the classes, so $\iota$ permutes the set of Heegner points. Hence
 $\mathrm{Per}_D(u_j)=\sum_Qu_j(z_Q)=\sum_Qu_j(\iota z_Q)=-\mathrm{Per}_D(u_j)$, which forces
 $\mathrm{Per}_D(u_j)=0$. For $D>0$ the same involution permutes the closed geodesics $S_Q$ attached to the classes,
-and reverses none of the identifications used in defining the cycle integral, so the same computation applies to
+reversing the orientation of each; the cycle integral $\int_{\Gamma_Q\backslash S_Q}u_j\,ds$ is taken against the
+unoriented hyperbolic arc length, so the orientation is immaterial and the same computation applies to
 $\mathrm{Per}_D(u_j)=\sum_Q\int_{\Gamma_Q\backslash S_Q}u_j\,ds$.
 \end{proof}
 
@@ -465,15 +502,19 @@ Katok--Sarnak periods $\sum_{g^2\mid4D}\mathrm{Per}_{4D/g^2}(u_j)$.
 value $u_1(z_D)$ at $z_D=(-b+i\sqrt{|D|})/2$. Through the Fourier expansion
 $u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$ this is governed by $K_{it_j}(2\pi y)$ with
 $y=\sqrt{|D|}/2$. The Bessel function $K_{it}(x)$ of imaginary order is of size $e^{-\pi t/2}$ and oscillatory while
-$x<t$, and only begins to decay in $x$ once $x>t$. Hence the periods of a fixed form $u_j$ are all of comparable size
-for
+$x<t$; for $x>t$ it decays like $\exp\bigl(-(\sqrt{x^2-t^2}-t\arccos(t/x))\bigr)$, which is gradual just past the
+turning point, about $\exp(-\tfrac{2\sqrt2}3(x-t)^{3/2}t^{-1/2})$, and exponential only well beyond it. The turning
+point $x=t_j$ is
 \begin{equation}\label{eq:threshold}
-|D|<\Bigl(\frac{t_j}\pi\Bigr)^2,
+|D|=\Bigl(\frac{t_j}\pi\Bigr)^2,
 \end{equation}
-and collapse exponentially beyond it. For the first even form, $t_1=13.7798$, the threshold is $|D|\approx19.2$. This
-is a falsifiable prediction: the first line should be visible for the small discriminants and invisible for
-$|D|\ge43$, while the higher lines, having larger $t_j$, should persist further. Section~\ref{sec:numerics} reports
-what is observed.
+about $19.2$ for the first even form, $t_1=13.7798$. Explicitly, $|K_{it_1}(\pi\sqrt{|D|})|$ relative to its value at
+$|D|=3$ is $1.0$ at $|D|=23$, $0.48$ at $27$, $0.023$ at $43$, $3\cdot10^{-4}$ at $67$ and $10^{-9}$ at $163$. Below
+the turning point the periods of a fixed form are of comparable size only on average: $K_{it_1}(\pi\sqrt{|D|})$
+changes sign between $|D|=3$ and $|D|=4$, so a discriminant close to a zero has an anomalously small period. The
+falsifiable prediction is therefore: the first line is visible for the small discriminants, marginal around
+$|D|=27$, reduced by a factor of order $50$ at $|D|=43$, and gone at $67$ and $163$; the higher lines, having larger
+$t_j$, persist further. Section~\ref{sec:numerics} reports what is observed.
 
 \section{The spectral formula for a piece}\label{sec:formula}
 
@@ -547,19 +588,23 @@ $e\mid D$ the condition $e\mid a$ forces $e\mid b$ (as $x^2\equiv D\equiv0\pmod 
 Heegner points of level $e$ in the sense of Gross, Kohnen and Zagier, with root $b\equiv0\pmod{2e}$.
 
 \paragraph{Step 2: the piece is a signed sum of sums over $\Gamma_0(e)$-orbits.} The sawtooth form of
-Lemma~\ref{lem:sawtooth} applies to the model object (it used neither $\lambda$ nor squarefreeness; the modulus $d=1$,
-included in $\sigma^*_{-1}$, contributes $\psi(t)-\tfrac12=0$ at integer $t$), so that
+Lemma~\ref{lem:sawtooth} applies to the model object, whose moduli are all $d\ge1$ with $(d,2D)=1$: it used neither
+$\lambda$ nor squarefreeness, and the modulus $d=1$, which the lemma excluded, is now kept, because the family
+$\mathcal H_1$ must contain the point $z_{(1,0)}=i\sqrt{|D|}$ to be $\mathrm{SL}_2(\Z)$-invariant. Its single root
+$x=0$ contributes $\psi(t)$, and $\#\{h\le t\}=\lfloor t\rfloor=t-\tfrac12+\psi(t)$; so, for real $t\ge0$,
 \[
-S(t)=\sum_{h\le t}\bigl(\sigma^*_{-1}(h^2-D)-\mathbb E\sigma^*_{-1}\bigr)=\sum_{(d,2D)=1}\frac1d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
+S(t):=\sum_{h\le t}\sigma^*_{-1}(h^2-D)-t\,\mathbb E\sigma^*_{-1}+\tfrac12=\sum_{(d,2D)=1}\frac1d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
+\qquad \mathbb E\sigma^*_{-1}=\sum_{(d,2D)=1}\frac{\rho(d)}{d^2},
 \]
-the series summed with $x$ and $-x$ paired. Its terms are indexed by the pairs $(d,x)$ with $(d,2D)=1$, and by
+the series summed with $x$ and $-x$ paired. Its Riesz means $\mathcal G^{(m)}(Y)=\frac1{m!}\int_0^Y(Y-t)^mS(t)\,dt$
+are the objects of Theorem~\ref{thm:main}; at integer $Y$, $\mathcal G^{(0)}(Y)=\int_0^YS(t)\,dt$ is exactly the
+model object~\eqref{eq:model}, linear term included. Its terms are indexed by the pairs $(d,x)$ with $(d,2D)=1$, and by
 M\"obius inversion
 \[
 S(t)=\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\,S_e(t),\qquad S_e(t)=\sum_{e\mid d}\frac1d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
 \]
 each $S_e$ again summed in pairs and convergent by the tail estimate of Lemma~\ref{lem:sawtooth}: the only unpaired
-roots are $x=0$, which occurs for the finitely many $d\mid D$, and $x=d/2$ for even $d$, which contributes
-$\psi(t/d-\tfrac12)=-t/d$ for $d>2t$, like a pair. \footnote{The regrouping was checked in exact rational arithmetic
+root is $x=0$ at $d=1$ (the moduli are odd and coprime to $D$, so $0\notin R_d$ and $d/2\notin\Z$ for $d>1$). \footnote{The regrouping was checked in exact rational arithmetic
 for $D=-4$, $t=37.5$ and $1000.5$, $d\le6000$.} Substituting~\eqref{eq:coords}, each $S_e$ is a sum over the
 sub-family $\mathcal H_e$ taken modulo translation ($x\bmod d$ is $\Re z\bmod1$):
 \begin{equation}\label{eq:orbit}
@@ -1006,8 +1051,8 @@ $t_j=13.78,40$ and $Y=50,5000$; and the decay of the remainder in $t_j$ and its 
 \end{proof}
 
 \begin{theorem}[the spectral formula for the model object; the remainder bound is not established, Remark~\ref{rem:gaps}]\label{thm:main}
-Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)$ denote the Riesz mean of order $m$ of the model
-object~\eqref{eq:model}. For each $e\mid\operatorname{rad}(2D)$ let $\{u^{(e)}_j\}$ be an orthonormal basis of the even
+Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)=\frac1{m!}\int_0^Y(Y-t)^mS(t)\,dt$ be the Riesz mean of order $m$ of the
+sawtooth series $S$ of Step~2, whose order-$0$ mean is the model object~\eqref{eq:model} at integer $Y$. For each $e\mid\operatorname{rad}(2D)$ let $\{u^{(e)}_j\}$ be an orthonormal basis of the even
 Maass cusp forms of $\Gamma_0(e)$, with Laplace eigenvalues $\tfrac14+t_{j,e}^2$. For $m\ge2$ there are coefficients
 $\alpha_{j,e}(D)$, proportional to the periods $\mathrm{Per}_{D,e}(u^{(e)}_j)$ of~\eqref{eq:spectral}, such that
 \[
@@ -1267,7 +1312,8 @@ the weak points than let a reader hunt for them.
 \section{Numerical evidence}\label{sec:numerics}
 
 All computations are exact rational or high-precision arithmetic; the scripts are in the repository
-(\texttt{research/paper-IV/scripts/}). For each $f$ and $u$ we compute $\mathcal P^{(1)}_u(Y)$ for all $Y\le10^7$
+(\texttt{research/paper-IV/scripts/}). For each $f$ and $u$ we compute the piece $\mathcal P_u(Y)$ of the set-up paragraph ($=\mathcal P^{(0)}_u(Y)+Y/2$
+by~\eqref{eq:Pm}) for all $Y\le10^7$
 (a sieve of $Q_u(h)$ for $h\le Y$, with $\mathbb EF_u$ evaluated to $22$ significant digits, since an error
 $\delta$ in $\mathbb EF_u$ enters as $\delta Y^2/2$), sample it on a logarithmic grid of $4096$ points in
 $\log Y\in[\log10^3,\log Y_{\max}]$, remove the mean and the linear trend in $\log Y$, and regress the result on
@@ -1280,7 +1326,7 @@ among the random sets.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Fit of $\mathcal P^{(1)}_u(Y)/\sqrt Y$ to the even and to the odd spectral parameters of $\mathrm{SL}_2(\Z)$,
+\caption{Fit of $\mathcal P_u(Y)/\sqrt Y$ to the even and to the odd spectral parameters of $\mathrm{SL}_2(\Z)$,
 against $300$ random frequency sets of the same size ($Y\le10^7$; $u=1$ throughout except where shown).}\label{tab:fits}
 \begin{tabular}{llrrrrr}
 \toprule
@@ -1345,11 +1391,11 @@ largest in modulus, and $|\lambda(3)\rho(3)/3|=2>1$, so at $\Re s=\tfrac12$ the 
 product for $W_k$ has modulus up to $3\cdot2\cdot3^{-1/2}=3.46$: it is the one local factor that can dominate the
 spectral term. Removing the weight confirms this. Define the \emph{model piece} by replacing $\lambda$ by $1$ in
 \eqref{eq:FE}, so that $F$ becomes the restricted divisor function $\sum_{d\mid n,\ d\ \mathrm{adm}}1/d$ and
-$\mathcal P^{(1)}$ is a Riesz mean of $\sigma_{-1}$ along $Q_u$. Repeating the regression:
+$\mathcal P_u$ is a Riesz mean of $\sigma_{-1}$ along $Q_u$. Repeating the regression:
 
 \begin{table}[htbp]
 \centering\small
-\caption{Removing the arithmetic weight, at $Y\le10^7$, $u=1$. Fit of $\mathcal P^{(1)}/\sqrt Y$ to the six even
+\caption{Removing the arithmetic weight, at $Y\le10^7$, $u=1$. Fit of $\mathcal P_u/\sqrt Y$ to the six even
 spectral parameters, for the weighted piece of part~III, for the same sum with $\lambda\equiv1$, and for the sum over
 all divisors rather than the squarefree ones. The odd sets, omitted, run from the $4.7$th to the $28.7$th percentile
 throughout.}\label{tab:model}
@@ -1378,12 +1424,15 @@ weight is what obscures it.
 
 The last column is the cleanest object of all. Dropping both the weight and the squarefree condition leaves
 \begin{equation}\label{eq:model}
-\mathcal G(Y)=\sum_{h\le Y}(Y-h)\bigl(\sigma^{*}_{-1}(h^2-D)-\mathbb E\sigma^{*}_{-1}\bigr),\qquad
+\mathcal G(Y)=\sum_{h\le Y}(Y-h)\bigl(\sigma^{*}_{-1}(h^2-D)-\mathbb E\sigma^{*}_{-1}\bigr)-\tfrac12\bigl(\mathbb E\sigma^{*}_{-1}-1\bigr)Y,\qquad
 \sigma^{*}_{-1}(n)=\sum_{\substack{d\mid n\\ (d,2D)=1}}\frac1d,
 \end{equation}
-a Riesz mean of the divisor-type sums of Hooley and Gafurov. The condition $(d,2D)=1$ is retained; it is what makes
-the levels $e\mid\operatorname{rad}(2D)$ appear (Step~2 of \S\ref{sec:formula} and Remark~\ref{rem:coprime}). Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used
-$\lambda$ or squarefreeness, so they apply verbatim, and the Dirichlet series attached to~\eqref{eq:model} is
+a Riesz mean of the divisor-type sums of Hooley and Gafurov. The linear term is the one of the set-up paragraph;
+with it, $\mathcal G(Y)=\int_0^YS(t)\,dt$ at integer $Y$ for the sawtooth series $S$ of Step~2 of
+\S\ref{sec:formula}, and it is what the scripts compute. The condition $(d,2D)=1$ is retained; it is what makes
+the levels $e\mid\operatorname{rad}(2D)$ appear (Step~2 of \S\ref{sec:formula} and Remark~\ref{rem:coprime}).
+Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used $\lambda$ or squarefreeness, so they apply with the modulus
+$d=1$ added (Step~2), and the Dirichlet series attached to~\eqref{eq:model} is
 \[
 Z_k(s)=\sum_{(d,2D)=1}\mathcal W_k(D;d)\,d^{-s},
 \]

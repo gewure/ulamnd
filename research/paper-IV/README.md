@@ -1,4 +1,4 @@
-# Paper IV — the second spectrum (status page, 13 September 2026)
+# Paper IV — the second spectrum (status page, 14 September 2026)
 
 `main.tex` (21 pp): the Cesàro pieces of part III oscillate at the even Maass parameters of SL₂(Z), with amplitudes the
 Katok–Sarnak periods at the discriminant of the polynomial; a spectral argument for u = 1 on a model object; the
@@ -20,7 +20,7 @@ exactly), the bound O(Y^{m+1/2−δ}) is open, and it is open for a reason: the 
 sums of the same order as the main term (Remark `rem:gaps`; `research/ERRATA.md` items 16–17). The clean statement
 is the smooth-window version, now **Theorem `thm:smooth`** (absolutely convergent spectral expansion with explicit
 coefficients; phase of the first line predicted with no free parameter and observed to 0.035 rad,
-`scripts/smooth-phase-test.py`; `research/ERRATA.md` item 19). Read adversarially by a fresh reader (core verified). 31 pp.
+`scripts/smooth-phase-test.py`; `research/ERRATA.md` item 19). Read adversarially by a fresh reader (core verified). Sections 2–4 read adversarially on 14 Sep: the sharp piece and its Riesz means are now defined for real arguments as integrals of the sawtooth series (the discrete Weyl-sum formula was off by a main term), admissible moduli have all primes split, the Salié substitution and the Section 4 frequency were corrected, the visibility threshold softened (`research/ERRATA.md` item 25). Internal phase finished. 31 pp.
 
 | file | what |
 |---|---|

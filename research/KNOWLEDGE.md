@@ -54,10 +54,11 @@ WHEN IS THE INTERNAL PHASE FINISHED (criterion set 13 Sep, at the author's reque
   a paper is internally done when every statement in it is either PROVED AND READ ADVERSARIALLY AT LEAST ONCE (external
   assessment or a fresh agent with no session context) or EXPLICITLY LABELLED open/conjectural; every number is
   reproducible from the repository; ERRATA/KNOWLEDGE are current; the open problem is stated exactly with its known
-  obstructions. Status against it (13 Sep night): paper I yes (assessment + internal); paper III yes (fresh reading,
-  7 fixes); paper IV yes (Section 5 read twice, thm:smooth read, Sections 2–4 reading launched); paper II: Sections 2–4
-  reading launched. When those two readings are in and their findings fixed, the internal phase STOPS. What remains
-  after that is RESEARCH (RESEARCH-USES.md), to be started only by a decision of the author, and EXTERNAL review.
+  obstructions. Status (14 Sep): paper I yes (assessment + internal); paper III yes (fresh reading, 7 fixes); paper II yes
+  (Sections 2–4 read, 7 fixes, ERRATA 24); paper IV yes (Section 5 read twice, thm:smooth read, Sections 2–4 read: 10
+  findings, 9 fixed, 1 rejected with reason, ERRATA 25). THE INTERNAL PHASE IS FINISHED as of 14 Sep. What remains is
+  RESEARCH (RESEARCH-USES.md §4b), to be started only by a decision of the author, and EXTERNAL review (the author is
+  reading outside; feedback so far, no issues found). Do not reopen polishing without a concrete finding.
 
 WHEN PICKING UP AGAIN, IN ORDER:
 0. Paper IV: (a) DONE 13 Sep: Theorem thm:smooth written, phase-tested (0.035 rad) and amplitude-tested (0.95) by
@@ -185,6 +186,11 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep. Last two internal readings applied: paper II Sections 2–4 (7 fixes, ERRATA 24) and paper IV Sections 2–4
+  (10 findings: 9 fixed, the "Katok–Sarnak is squared" claim rejected; ERRATA 25). Substantive: S_u(t) and the Riesz
+  pieces redefined for real t as integrals (the discrete eq:rieszweyl was off by a main term), admissible = all primes
+  split, Salié substitution b = h̄y, the Section 4 frequency 2t_j, the visibility threshold softened with computed
+  Bessel values. INTERNAL PHASE FINISHED per the criterion in 0b.
 - 13 Sep (very last). Level-2 part of thm:smooth confirmed on the restricted object (ERRATA 23): Möbius sign, the
   level-2 newform, the oldform Gram matrix — each visible in the data at its predicted size. Gotcha: LMFDB coefficient
   files may start with "1 +- 0" without a decimal point; check Atkin–Lehner a(p) = -eps/sqrt p for p | level.

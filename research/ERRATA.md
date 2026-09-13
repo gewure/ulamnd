@@ -307,3 +307,50 @@ route before being applied (the checks are described in the items). We agree wit
     (basis u₁(z), u₁(2z) orthonormalised on Γ₀(2)\H, ⟨u₁(2z),u₁⟩/‖u₁‖² = 0.730): predicted 0.0268 vs 0.0600 (all), observed
     0.0271 vs 0.0597. Three lines, two objects, all constants. smooth-level2-test.py; the "upper half" fits it prints with
     14 frequencies on 200 points are overfitted and not used.
+
+24. **Paper II, Sections 2–4 read adversarially (fresh reader, opus, 14 Sep): seven points fixed, core sound.**
+    (a) The constant c'_{f,m} was written with a product over all N ≥ 4 where the proof truncates at N = K; the product
+    now runs to K with a sentence saying why the tail is absorbed. (b) Lemma lem:horizontal (zero-free horizontal
+    segments): the pointwise dyadic count of zeros near a given height was not what the argument used; the lemma now
+    averages T_Λ(t) = Σ_{2ε₀ ≤ |γ−t| ≤ 1} |t−γ|⁻¹ over t (each zero contributes 2 log(1/2ε₀)), applies Markov to six
+    quantities at once and gets a set of measure ≥ (4/5)·2T. (c) Theorem thm:omega assumed implicitly that L(s,χ_D)
+    has no real zero β₀ > 1/2; the hypothesis is now stated, with the sentence on the real pole at β₀/2 − 1 it would
+    create. (d) An exponent U^{−5/4+7ε₀} was printed with the wrong multiple of ε₀. (e) A sign inside
+    exp(Σ_{M>K} d_M(g_p) v^M). (f) The bound |Ψ_N(n)| ≤ 2n^N was asserted; the chain
+    n^N + Σ_{j|N, j≥2} n^{N/j} ≤ n^N + Σ_{k≤N/2} n^k ≤ n^N + 2n^{N/2} ≤ 2n^N is now written. (g) Notation: χ_D is the
+    primitive Kronecker symbol of the fundamental discriminant D₀ of D, not of D itself (t² + 3 has D = −12, D₀ = −3).
+    None of the seven changes a statement; paper II 24 pp, 0 overfull.
+
+25. **Paper IV, Sections 2–4 read adversarially (fresh reader, opus, 14 Sep): ten findings; nine fixed, one rejected.**
+    Fixed: (1) eq:sawtooth was false for non-integer t (the proof yields t·EF_u, the definition subtracted ⌊t⌋·EF_u; the
+    reader measured the defect {t}·EF_u at t = 5.5, 12.3, 20.7). S_u(t) is now Σ_{h≤t} F_u(Q_u(h)) − t·EF_u for real t, and
+    the Riesz pieces are (1/m!)∫₀^Y (Y−t)^m S_u(t) dt, the convention Sections 5–6 already used; at integer Y the order-0
+    mean is the set-up piece minus Y/2. Section 6 now names the computed object 𝒫_u; the Perron formula eq:perron is
+    restated for this convention (order m+1 plus an explicit Faulhaber polynomial). (2) The convergence step of Lemma
+    sawtooth claimed the case "a ≤ t, d > 2t" is empty; it is not (D = −4, t = 2, d = 5, a = 1). The finiteness comes from
+    d | Q_u(a), so d ≤ u²t² + |D|; the tail beyond that is exactly −t Σ_{d>D₀} λρ/d². (3) The lemma said "converging
+    absolutely" while its proof said the opposite; it now says "when x, −x are paired (not absolutely)", and Lemma weyl
+    no longer cites an absolute convergence that does not exist. (4) eq:weylform fails at integers by ½F_u(Q_u(t))
+    (the Fourier series of ψ takes the midpoint); the correction term is now in the statement, the mode of convergence
+    (truncate in d, sum in k, let the truncation go to infinity; explicit tail) is stated, and eq:rieszweyl is the
+    integral form, which the midpoint defect does not affect. The old eq:rieszweyl, obtained by "applying the discrete
+    Riesz weight to t = h", was off by a main term ≈ EF_u Y^{m+1}/(2(m+1)!). (5) "Admissible" now includes "every prime
+    split", as in part III: without it ρ(d) = 2^{ν(d)} is false (R₃ = ∅ for D = −4) and λ(3) undefined, while d = 3 sits in
+    every sum; the double use of ω removed. (6) Salié proof: the substitution is b = h̄y (roots y² ≡ h²D), not b = 2h̄y,
+    which gives e(4y/p). (7) Section 4 opened by placing the W_k poles at ½ ± it_j, which would make the rejected
+    modulus-side route predict the observed t_j; Selberg's c^{−2σ} and the d^{−1/2} of eq:salie give ½ ± 2it_j, i.e. the
+    frequency 2t_j rejected in Remark achieved; rewritten. (9) Parity for D > 0: ι reverses the orientation of each
+    geodesic; the conclusion holds because ds is unoriented; said so. (10) The visibility threshold was overstated:
+    K_{it}(x) decays only gradually past x = t; |K_{it₁}(π√|D|)| relative to |D| = 3 is 1.0 at 23, 0.48 at 27, 0.023 at 43,
+    3·10⁻⁴ at 67, 10⁻⁹ at 163 (recomputed here with mpmath), and K changes sign between |D| = 3 and 4. The prediction
+    now reads "marginal at 27, reduced by ~50 at 43, gone at 67 and 163". Step 2 of Section 5 and eq:model were made
+    consistent with (1): the sawtooth series of the model object keeps d = 1 (the family H₁ must contain i√|D| to be
+    SL₂(Z)-invariant), S(t) = Σ_{h≤t} σ*(h²−D) − tE + ½ for real t, and its order-0 Riesz mean at integer Y is exactly
+    the model object with the linear term −½(E−1)Y, the quantity the scripts compute.
+    REJECTED: (8) the reader held that Katok–Sarnak is a squared identity |ρ_j(|D|)|² = κ·Per_D(u_j). It is linear in the
+    period (Katok–Sarnak 1993, Theorem 1; Duke 1988 uses it in that form); the squared identity, with L(½, u_j ⊗ χ_D), is
+    Waldspurger–Kohnen–Zagier. The footnote to eq:ks now says this and repairs a garbled duplicate half-sentence.
+    Checked out by the reader: Lemma bridge, eq:salie and eq:multiplicative (zero failures over eight discriminants,
+    split p < 60, five values of h, composite c). Paper IV 31 pp, 0 overfull. With this item the internal phase defined in
+    KNOWLEDGE 0b is finished.
+

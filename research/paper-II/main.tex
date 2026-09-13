@@ -174,7 +174,12 @@ $\zeta_K(s+1)$ for the prime elements of $K$; part~I's introduction places this 
 \ref{sec:omega}; each is followed by a short paragraph ``in words''. Section~\ref{sec:off} is the foundation
 of part~III. Appendix~\ref{app:comp} lists every computation with inputs, outputs and cost.
 
-\paragraph{Notation.} $f\in\Z[t]$ irreducible of degree $n$ without fixed prime divisor; $G=\operatorname{Gal}(f)$;
+\paragraph{Notation.} $\chi_D$ denotes the \emph{primitive} quadratic character attached to $f$, the Kronecker symbol
+of the fundamental discriminant $D_0$ with $\operatorname{disc}f=D_0m^2$; it is this character whose $L$-function has the
+functional equation, the Riemann hypothesis and the class-number value $L(1,\chi_D)$ used below. For $p\nmid\operatorname{disc}f$
+one has $\omega_f(p)=1+\chi_D(p)$; the finitely many primes dividing $m$ change finitely many Euler factors, which are
+absorbed in $M_{f,K}$ (a second reading, 13 September 2026, noted that $f=t^2+3$, of discriminant $-12$, needs this
+distinction). $f\in\Z[t]$ irreducible of degree $n$ without fixed prime divisor; $G=\operatorname{Gal}(f)$;
 $V=V_f$ its permutation representation on the roots, $\chi_V(g)$ the number of roots fixed by $g$;
 $\omega_f(p)=\chi_V(\Frob_p)$ for unramified $p$; $K=\Q[t]/(f)$; $w=s+1$; $u=1/p$, $v=p^{-w}$;
 $P_p=1-\omega_f(p)^2/(p-\omega_f(p))^2$, $b(p)=(p-\omega_f(p))^{-2}$, $W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ for squarefree $d$;
@@ -255,7 +260,7 @@ $\Psi_1,\dots,\Psi_{K-1}$ are virtual characters. The series
 $R(g,v)\prod_{N<K}\det(1-gv^N\mid\Psi_N)$ has coefficients in $R(G)$ (products of the series
 $\det(1-gX\mid A)^{\pm1}$, whose coefficients are $\pm$ the characters of exterior or symmetric powers of
 $A$), and by (ii) it equals $1+\Psi_K(g)v^K+O(v^{K+1})$; so $\Psi_K\in R(G)$. The case $N=1$ is the
-definition. (iii) $|\chi_V(g^j)|\le n$, and $\sum_{j\mid N}n^{N/j}\le n^N+N n^{N/2}\le2n^N$ for $n\ge2$; for $n=1$ the claim is trivial.
+definition. (iii) $|\chi_V(g^j)|\le n$, and $\sum_{j\mid N}n^{N/j}\le n^N+\sum_{j\mid N,\,j\ge2}n^{N/j}\le n^N+\sum_{k\le N/2}n^k\le n^N+2n^{N/2}\le2n^N$ for $n\ge2$; for $n=1$ the claim is trivial.
 \end{proof}
 
 For $f$ linear, $\chi_V=1$ and $1+v=(1-v^2)/(1-v)$: $\Psi_1=1$, $\Psi_2=-1$, $\Psi_N=0$ for $N\ge3$, which is
@@ -296,7 +301,7 @@ factor of $M_{f,K}$ is, by Lemma~\ref{lem:psi}(ii),
 \[
 \begin{aligned}
 M_p(s)&=\frac{F_p(s)}{1+\omega v}\cdot\frac{1+\omega v}{\prod_{N\le K}\det(1-g_pv^N\mid\Psi_N)^{-1}}\\
-&=\frac{1-2\omega u/(1+\omega v)}{(1-\omega u)^2}\cdot\exp\Bigl(-\sum_{M>K}d_M(g_p)v^M\Bigr),
+&=\frac{1-2\omega u/(1+\omega v)}{(1-\omega u)^2}\cdot\exp\Bigl(\sum_{M>K}d_M(g_p)v^M\Bigr),
 \end{aligned}
 \]
 with $\omega=\omega_f(p)$ and $d_M(g)=\sum_{N\mid M,\ N>K}\Psi_N(g^{M/N})N/M$, so $|d_M|\le2n^M\tau(M)$ by
@@ -482,10 +487,13 @@ of $G_m(s)x^{s+m}$ at $s=\rho/2-1$, and
 \[
 \begin{aligned}
 c'_{f,m}=\Res_{s=-2/3}G_m(s)&=\frac{m!\,\zeta(-\tfrac23)\zeta(\tfrac13)L(\tfrac13,\chi_D)L(1,\chi_D)}{3\,\zeta(\tfrac23)^2L(\tfrac23,\chi_D)}\\
-&\quad\times\prod_{N\ge4}\zeta(\tfrac N3)^{a_N}L(\tfrac N3,\chi_D)^{b_N}\frac{M_{f,K}(-\tfrac23)}{(-\tfrac23)(\tfrac13)\cdots(m-\tfrac23)},
+&\quad\times\prod_{N=4}^{K}\zeta(\tfrac N3)^{a_N}L(\tfrac N3,\chi_D)^{b_N}\frac{M_{f,K}(-\tfrac23)}{(-\tfrac23)(\tfrac13)\cdots(m-\tfrac23)},
 \end{aligned}
 \]
-$c_{f,m}$ being the constant term of the residue at $s=0$. The implied constant depends on $f$, $m$ and
+$c_{f,m}$ being the constant term of the residue at $s=0$. In $c'_{f,m}$ the truncation $K\ge4$ is arbitrary: the
+finite product over $4\le N\le K$ and the factor $M_{f,K}(-\tfrac23)$ each depend on $K$, their product does not, and
+the product over all $N\ge4$ alone diverges, because $|\Psi_N(e)|\asymp2^N/N$ makes the local factors at the small
+split primes grow (a second reading, 13 September 2026, found the product written without the truncation). The implied constant depends on $f$, $m$ and
 $\varepsilon_0$.
 \end{theorem}
 
@@ -538,14 +546,19 @@ $t=2U$ write, by (G2),
 Under RH $\beta=\tfrac12$, so $|\sigma'+it-\rho|=\sqrt{(\sigma'-\tfrac12)^2+(t-\gamma)^2}$ and, with
 $\theta=|t-\gamma|$, $\int_Z\le\int_{-2\varepsilon_0}^{2\varepsilon_0}\frac{dy}{\sqrt{y^2+\theta^2}}=2\operatorname{arsinh}(2\varepsilon_0/\theta)$,
 which is $\le4\varepsilon_0/\theta$ for $\theta\ge2\varepsilon_0$ and $\le2\log(4\varepsilon_0/\theta)+2$ for $\theta<2\varepsilon_0$.
-By (G2) the zeros with $2\varepsilon_0\le\theta\le1$ contribute at most $4\varepsilon_0\sum\theta^{-1}\le4\varepsilon_0\log(1/2\varepsilon_0)\,c_0\log t$
-(split the range of $\theta$ dyadically: each dyadic block $[\theta_0,2\theta_0]$ contains at most $c_0\log t$ zeros, each contributing at most $\theta_0^{-1}$). The zeros with $\theta<2\varepsilon_0$ contribute $2\Sigma_\Lambda(t)+2\#\{\gamma:|\gamma-t|<2\varepsilon_0\}$
-with $\Sigma_\Lambda(t)=\sum_{|\gamma-t|<2\varepsilon_0}\log(4\varepsilon_0/|t-\gamma|)$. Now average over $t\in[2T,4T]$:
-each zero contributes at most $\int_{-2\varepsilon_0}^{2\varepsilon_0}\log(4\varepsilon_0/|y|)\,dy=4\varepsilon_0(1+\log2)$, and there are
-$\le c_0'T\log T$ zeros with $\gamma\in[2T-1,4T+1]$, so $\frac1{2T}\int_{2T}^{4T}\Sigma_\Lambda(t)\,dt\le 6c_0'\varepsilon_0\log T$
-and similarly the average of $\#\{\gamma:|\gamma-t|<2\varepsilon_0\}$ is $\le4c_0'\varepsilon_0\log T$. By Markov's inequality the set
-of $t\in[2T,4T]$ with $\Sigma_\zeta(t)+\Sigma_L(t)+\#_\zeta+\#_L\le 100c_0'\varepsilon_0\log T$ has measure $\ge\tfrac{3}{5}\cdot2T$;
-pick $U$ with $2U$ in it. Altogether $\log(1/|\Lambda(\sigma+2iU)|)\le(\tfrac\delta4+c_1\varepsilon_0\log(1/\varepsilon_0))\log T$
+The zeros with $2\varepsilon_0\le\theta\le1$ contribute at most $4\varepsilon_0T_\Lambda(t)$, $T_\Lambda(t)=\sum_{2\varepsilon_0\le|\gamma-t|\le1}|t-\gamma|^{-1}$,
+and those with $\theta<2\varepsilon_0$ at most $2\Sigma_\Lambda(t)+2\#\{\gamma:\ |\gamma-t|<2\varepsilon_0\}$ with
+$\Sigma_\Lambda(t)=\sum_{|\gamma-t|<2\varepsilon_0}\log(4\varepsilon_0/|t-\gamma|)$. (A pointwise bound for $T_\Lambda(t)$ from the
+zero count alone loses the factor $\varepsilon_0$: a dyadic block $[\theta_0,2\theta_0]$ of length $\theta_0\ll1/\log t$ may contain
+$\asymp\log t$ zeros, so the dyadic sum is $\ll\log t$ and not $\ll\varepsilon_0\log(1/\varepsilon_0)\log t$; the first version of this proof
+made that mistake, found by a second reading on 13 September 2026. The average over $t$ is what is needed, for all
+three quantities.) Average over $t\in[2T,4T]$: each zero $\gamma\in[2T-1,4T+1]$ contributes to $\int T_\Lambda\,dt$ at most
+$\int_{2\varepsilon_0\le|y|\le1}dy/|y|=2\log(1/2\varepsilon_0)$, to $\int\Sigma_\Lambda\,dt$ at most
+$\int_{-2\varepsilon_0}^{2\varepsilon_0}\log(4\varepsilon_0/|y|)\,dy=4\varepsilon_0(1+\log2)$, and to $\int\#\,dt$ at most $4\varepsilon_0$, and
+there are $\le c_0'T\log T$ such zeros. Hence the averages over $[2T,4T]$ of $4\varepsilon_0T_\Lambda$, $2\Sigma_\Lambda$ and $2\#$
+are each $\le c_2\varepsilon_0\log(1/\varepsilon_0)\log T$ with $c_2$ absolute. By Markov's inequality the set of $t\in[2T,4T]$ on
+which the sum of these six quantities (three for $\zeta$, three for $L$) is at most $30c_2\varepsilon_0\log(1/\varepsilon_0)\log T$ has
+measure $\ge\tfrac45\cdot2T$; pick $U$ with $2U$ in it. Altogether $\log(1/|\Lambda(\sigma+2iU)|)\le(\tfrac\delta4+c_1\varepsilon_0\log(1/\varepsilon_0))\log T$
 for $\sigma\in Z$, with $c_1$ absolute, which is $\le\delta\log T$ once $\varepsilon_0\le\varepsilon_1(\delta)$.
 \end{proof}
 
@@ -580,7 +593,7 @@ for $m\ge2$ the exponent is $<-1$. The vertical integral is therefore $\ll x^{m-
 $\zeta(w)L(w)$, $\zeta(3w)L(3w)$ and the $N\ge4$ factors by $U^{7/4+3\varepsilon_0+\varepsilon}$ (worst case at the left end),
 Lemma~\ref{lem:horizontal} bounds $\zeta(2w)^{-2}L(2w,\chi_D)^{-1}$ by $U^{3\varepsilon_0}$, and $M_{f,K}\ll1$; the kernel
 is $\ll U^{-m-1}$ and $|x^{s+m}|\le x^{m+2}$. The two segments contribute
-$\ll x^{m+2}U^{7/4+6\varepsilon_0+\varepsilon-m-1}\le x^{m+2}U^{-1/4+7\varepsilon_0}$ for $m\ge2$, and the truncation of
+$\ll x^{m+2}U^{7/4+6\varepsilon_0+\varepsilon-m-1}\le x^{m+2}U^{-5/4+7\varepsilon_0}$ for $m\ge2$, and the truncation of
 the original integral at height $U$ contributes $\ll x^{m+2}U^{-m}$; with $U\ge x^{16}$ and $\varepsilon_0\le\tfrac1{100}$
 both are $\ll x^{m-1}$.
 
@@ -748,7 +761,9 @@ after Theorem~\ref{thm:boundary}.
 Let $f$ be an irreducible quadratic and $m\ge1$, and let
 $E_m(x)=R_m(x)-\frac{D_f(1)}{m+1}x^{m+1}-x^m\bigl(-\frac{\log x}{2C(f)}+c_{f,m}\bigr)-c'_{f,m}x^{m-2/3}$.
 Suppose that for some zero $\rho_1=\tfrac12+i\gamma_1$ of $\zeta(s)^2L(s,\chi_D)$ the function $G_m$ has a genuine
-pole at $\rho_1/2-1$ (i.e.\ $Q_{m,\rho_1}\ne0$). Then, unconditionally,
+pole at $\rho_1/2-1$ (i.e.\ $Q_{m,\rho_1}\ne0$), and that $L(s,\chi_D)$ has no real zero $\beta_0>\tfrac12$ (true under the
+Riemann hypothesis, and unconditionally for all but at most one $D$ in any range $|D|\le X$, by Landau's theorem on
+exceptional zeros). Then, with no further hypothesis,
 \[
 E_m(x)=\Omega_\pm\bigl(x^{m-3/4}\bigr).
 \]
@@ -769,7 +784,9 @@ and the fact that $\int_1^{x_0}$ is entire; the Mellin transforms of $x^{m+1}$, 
 are $1/(s-1)$, $1/s^2$, $1/s$, $1/(s+\tfrac23)$ up to constants, and they cancel the poles of $G_m$ at $1$, $0$,
 $-\tfrac23$ exactly by the definition of the coefficients. The right-hand side is therefore meromorphic in
 $\Re s>-\tfrac45$ (Theorem~\ref{thm:structure}), holomorphic on the real segment $(-\tfrac45,\infty)$ (the
-remaining real singularities of $D_f$ in this range are the zeros at $-\tfrac12$ and $-\tfrac34$), and has a
+remaining real singularities of $D_f$ in this range are the zeros at $-\tfrac12$ and $-\tfrac34$; a real zero
+$\beta_0>\tfrac12$ of $L(s,\chi_D)$ would give $L(2w,\chi_D)^{-1}$ a real pole at $\beta_0/2-1>-\tfrac34$, which is why it is
+excluded --- with such a zero the remainder would instead contain a term $\asymp x^{m-1+\beta_0/2}$ of constant sign), and has a
 pole at $\rho_1/2-1$, of real part $-\tfrac34$. By Landau's theorem for integrals with non-negative
 integrand~\cite[Theorem~1.7]{MontgomeryVaughan2007}, the abscissa of convergence of the left-hand side
 is a singularity of the function on the real axis; hence the integral converges for $\Re s>-\tfrac45$, and its
