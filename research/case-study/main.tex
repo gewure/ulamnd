@@ -1,0 +1,323 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,array,longtable}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks,linkcolor=NavyBlue,citecolor=NavyBlue,urlcolor=NavyBlue]{hyperref}
+\linespread{1.06}
+\setlength{\emergencystretch}{3em}
+\input{record.tex}
+
+% ---- scaffold macros: visible in the draft, silenced by \finalversion
+\newif\iffinal
+%\finaltrue
+\newcommand{\interview}[2]{\iffinal\else\par\noindent\colorbox{Goldenrod!25}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{Interview Q#1.} #2}}\par\fi}
+\newcommand{\todo}[1]{\iffinal\else\par\noindent\colorbox{Red!12}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{To do.} #1}}\par\fi}
+\newcommand{\evidence}[1]{\iffinal\else{\footnotesize\textcolor{Gray}{[evidence: #1]}}\fi}
+\newcommand{\file}[1]{\texttt{#1}}
+
+\title{Four papers in six days:\\ a case study of AI-driven mathematical research\\ under a verifiable process}
+\author{Jasper Reichardt}
+\date{Draft scaffold, 14 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+Between \FirstDay{} and \LastDay{} a software engineer with no research background in analytic number theory
+produced, with a large language model doing almost all of the mathematical, computational and textual work,
+a series of four research papers on the pair singular series of prime values of polynomials
+(\PagesI{}, \PagesII{}, \PagesIII{} and \PagesIV{} pages). The mathematics is not the subject of this paper. Its subject is
+the \emph{process}: how a test-driven engineering habit and a small set of structural guardrails (a public
+knowledge base of state and errors, a project-wide errata file, adversarial readings by fresh model instances,
+external assessments archived against the revision they read, a two-routes rule for every constant, and a
+stopping criterion) turned an inherently unreliable generator of mathematics into a process whose output can be
+checked, and was checked, by people who did not take part in it. We document the set-up, the evolution of the
+prompting, the guardrails and when each was introduced, the complete record of \NFallacies{} recorded
+fallacies and \NErrata{} errata items, who caught which class of error, and what the process could not catch. The
+programme's mathematical status is reported exactly as its own errata report it: theorems proved and read,
+theorems retracted, and problems left open.
+\todo{Rewrite the abstract once the interview is in; the numbers are generated from the repository by
+\file{scripts/process-record.py}.}
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+
+\paragraph{The question.} Large language models can write mathematics that looks right. The question this case
+study addresses is narrower and more useful than whether they can do research: under what \emph{process} does a
+non-specialist, working with such a model, produce mathematical output whose correctness does not depend on
+trusting either of them? The programme documented here is one data point, with a complete public record, and
+this paper is the reading of that record.
+
+\paragraph{What is claimed and what is not.} We claim that the process described in \S\ref{sec:guardrails} produced
+(i) a body of work in which every statement is labelled proved, conditional, conjectural or open, (ii) a record of
+every error found, by whom, and how it was fixed, and (iii) numbers that can be regenerated from the repository. We
+do \emph{not} claim that the mathematics is important, nor that it is correct beyond what its errata say; as of
+this writing the four papers have been read adversarially by model instances without session context and by two
+outside readers, and not yet by a specialist in the field (\S\ref{sec:limits}). The case study has $n=1$.
+
+\paragraph{The subject programme in one paragraph.} For an irreducible polynomial $f$, the pair singular series
+$S_f(h)$ is the explicit weight that, under the Hardy--Littlewood conjecture, governs simultaneous primality of
+$f(t)$ and $f(t+h)$. Paper~I proves an exact identity for $\sum_{h\le H}(S_f(h)-C(f)^2)$, splits it into a diagonal
+whose Dirichlet series is $\zeta_K(s+1)E_f(s)$ and an off-diagonal, and states a conjecture in Ces\`aro form.
+Paper~II identifies $E_f$ as an infinite product of Artin $L$-functions and proves a conditional explicit formula.
+Paper~III decomposes the off-diagonal into pieces and proves everything except one window. Paper~IV finds, and
+partly proves, that the pieces oscillate at the spectral parameters of even Maass forms. Nothing in the four papers
+proves anything about primes without Hardy--Littlewood, and nothing bears on the Riemann Hypothesis.
+\evidence{\file{research/KNOWLEDGE.md} \S0; root \file{README.md}}
+
+\paragraph{Reader's guide.} \S\ref{sec:setup} describes the author, the tools and the timeline. \S\ref{sec:origin}
+describes how a visualisation tool with a test suite became a research programme. \S\ref{sec:guardrails} lists the
+guardrails and their origin. \S\ref{sec:prompting} traces the evolution of the prompting. \S\ref{sec:errors} reads
+the error record. \S\ref{sec:verification} describes what was verified and how. \S\ref{sec:limits} says what the
+process cannot do. \S\ref{sec:recommend} draws recommendations. Appendix~\ref{app:interview} contains the interview,
+Appendix~\ref{app:record} the process record.
+
+\section{Set-up}\label{sec:setup}
+
+\subsection{The author}
+\interview{1}{Background: role, training, level of mathematics before the project (last formal course; what you
+could and could not read in a number-theory paper on 8 September), prior experience with LLMs in engineering work,
+and what triggered the project (the Ulam spiral? something read?).}
+
+\subsection{The tools}
+The work was done in a terminal agent (Claude Code) driving Claude models: Claude Opus~5 for most of the
+programme, Claude Fable~5.1 for the correction phase from 13~September. Fresh model instances without access to
+the working session were used as adversarial readers (\S\ref{sec:guardrails}); a cheaper model was used for
+simpler tasks after rate limits made this necessary. One external assessment was produced by a different vendor's
+model (ChatGPT) on request of the author and archived as a PDF against the revision it read; a second outside
+screening was produced by a separate Claude instance without repository access beyond the papers.
+\evidence{\file{research/reviews/2026-09-12-assessment-a372a63.pdf}; ERRATA 11--15, 26; disclosure paragraphs in each paper}
+Software: TypeScript (\file{tsx}) for sieves and exact rational arithmetic, Python with \file{mpmath} for high
+precision, \file{vitest} for the workbench tests, \LaTeX{} via \file{tectonic}, and downloaded Maass-form
+coefficients from the LMFDB. Every number in the four papers is produced by a script in the repository.
+\interview{2}{Tools and cost: sessions per day, hours per day, approximate token or money cost, other tools
+(ChatGPT for the assessment, anything else), and whether anything was done outside the agent.}
+
+\subsection{The timeline}
+\begin{center}\small\CommitsTable\end{center}
+\noindent\NCommits{} commits over \NDays{} days; \NTexLines{} lines of \LaTeX{} across the four papers;
+\NScriptsTS{} TypeScript and \NScriptsPy{} Python sources; \NData{} data files; \NReviews{} archived external
+assessment. The phases, from the commit log and the knowledge base:
+\begin{description}[leftmargin=2.2em,itemsep=1pt]
+\item[8 Sep] The Ulam-nD workbench (an $n$-dimensional prime-spiral explorer) is built with a test suite; the
+  \emph{thesis suite} (\file{research/experiments/run.ts}) states the author's four claims as pass/fail tests and
+  refutes three of them the same evening. The one surviving lead is a sub-Poisson variance along polynomial rays.
+\item[9 Sep] Paper~I (versions 6--7) and the scaffold of paper~II; the knowledge base with timeline, status board,
+  fallacies and rated paths is started; the first ``second opinion'' by another model instance is assessed
+  line by line.
+\item[10 Sep] Paper~III written and self-reviewed (39 commits in one day); paper~IV scaffolded, and the ``second
+  spectrum'' (Maass-form oscillations in the pieces) found numerically at 21:02.
+\item[11 Sep] Authorship decision: the model is removed as co-author, a uniform disclosure section replaces it
+  (ERRATA~8). Paper~IV's theorem written.
+\item[12 Sep] The external assessment (three findings, all confirmed); the obstruction in paper~IV identified
+  exactly; the first error in paper~IV's theorem found by the assessment.
+\item[13 Sep] Corrections applied (ERRATA 11--23); paper~IV repaired at level $\Gamma_0(e)$; the remainder bound
+  found not to close and said so; the smooth-window theorem proved and confirmed on three spectral lines; six
+  adversarial readings in one day, errors in five of them.
+\item[14 Sep] The last two internal readings applied (ERRATA 24--25); the internal phase declared finished by the
+  criterion set the day before; a second outside reader finds an unproved non-vanishing claim in paper~I
+  (ERRATA~26), fixed the same day.
+\end{description}
+\evidence{\texttt{git log}; \file{KNOWLEDGE.md} \S1 Timeline}
+
+\section{From a visualisation tool to a research programme}\label{sec:origin}
+
+The programme did not start as one. It started as a web application for looking at prime spirals in higher
+dimensions, built to test a private thesis (that Ulam-spiral pseudo-patterns become polynomial patterns in higher
+dimensions, that Fibonacci dimensions are special, and that this might say something about the Riemann
+Hypothesis). Two engineering decisions on the first day shaped everything after:
+\begin{enumerate}[itemsep=1pt]
+\item \textbf{The thesis was written as a test suite.} Each claim became a hypothesis with a pass/fail criterion,
+  a deterministic seed, a raw report (\file{REPORT.md}) and a separate reading (\file{CONCLUSIONS.md}). Three of the
+  four claims failed the tests within hours; the tool had been built to falsify, and it did.
+  \evidence{\file{research/experiments/CONCLUSIONS.md}}
+\item \textbf{The honest framing was agreed inside the tool.} The theory panel of the application stated that
+  spiral patterns are a Bateman--Horn main-term phenomenon, that the Riemann Hypothesis is an error-term
+  statement, and that no link between them is known. This sentence survived into every paper.
+\end{enumerate}
+The one lead the tests left standing, a sub-Poisson variance along polynomial rays, is the Montgomery--Soundararajan
+second moment for polynomial prime values; its diagonal weight $\omega_f(p)/(p-\omega_f(p))$ is where paper~I began.
+\interview{3}{The turn: when and why did you decide the tool's residue was worth a paper, and then four? What did you
+expect at that point, and what did the model tell you to expect?}
+
+\section{The guardrails}\label{sec:guardrails}
+
+Each guardrail below is stated with what it prevents, when it entered the process, and, where the record shows it,
+what triggered it. The column ``origin'' is to be completed from the interview.
+
+\begin{longtable}{@{}p{3.6cm}p{5.6cm}p{2.2cm}p{3.6cm}@{}}
+\toprule
+guardrail & what it does & since & origin / trigger\\
+\midrule
+\endhead
+Knowledge base (\file{KNOWLEDGE.md}): one-paragraph state, ``where things stand and what to do next'', status board,
+timeline & Forces every session to start from the recorded state, not from the model's memory of it; makes
+``what is proved'' a maintained list rather than a feeling & 9 Sep & \interview{4a}{whose idea; what went wrong
+before it existed}\\
+Fallacy list (\S3 of the knowledge base, F1--F\NFallacies) & Every error is written down with its fix and a rule
+that would have prevented it; read before repeating & 9 Sep & \\
+Project-wide errata (\file{ERRATA.md}), never deleted & Corrections are additive and dated; a reader can see what
+each version claimed & 9 Sep (per paper), 13 Sep (project-wide) & \\
+Every number from a script in the repository & No number in a paper is typed by hand or by the model & 8 Sep &
+inherited from the workbench's macro generation\\
+Two independent routes for every constant (F9) & Product vs.\ $L$-values; partial sum plus analytic tail vs.\ exact
+& 9--10 Sep & a truncated Euler product multiplying $H$ (F4)\\
+``Difference it first'' (F26); recompute every pole order in a ``same proof'' generalisation (F27); list every
+summation condition and check group invariance (F28) & Rules extracted from the three findings of the external
+assessment & 13 Sep & the assessment\\
+Adversarial reading by a fresh model instance with no session context & Separates the generator from the checker;
+a reader who did not write the proof and cannot see the session & 9 Sep (second opinion), systematic from 12 Sep &
+\\
+External assessment archived with the revision hash & The review and the text it reviewed stay paired & 12 Sep & \\
+Disclosure paragraph, identical in all papers; single human author & Publisher policy and responsibility & 11 Sep
+(ERRATA~8) & author's decision\\
+``Correct or leave open; never patch with a weaker claim about a different object'' & Decides what a repair may do
+& 13 Sep & the author, choosing between repair routes for paper~IV\\
+Stopping criterion for the internal phase & Ends open-ended polishing: every statement proved and read at least
+once, or labelled open; every number reproducible; errata current; open problems stated with obstructions & 13 Sep &
+the author asking ``are we over-rigoring?''\\
+``Do not claim'' list in the knowledge base & Sentences the model is forbidden to write (e.g.\ anything about
+primes without Hardy--Littlewood, anything about RH) & 9 Sep & \\
+\bottomrule
+\end{longtable}
+\evidence{\file{KNOWLEDGE.md} \S0b, \S3, \S6; \file{ERRATA.md}}
+\interview{4}{For each row: was it your idea, the model's, or forced by an event? Which guardrail do you consider
+the single most important, and which one did you add too late?}
+
+\section{How the prompting developed}\label{sec:prompting}
+
+\todo{This section is written from the interview and from the user turns preserved in the session transcripts;
+the repository does not contain prompts. Reconstruct the trajectory in four stages and quote the actual
+prompts where the author agrees.}
+
+\subsection{Stage 1: build and test (8 September)}
+\interview{5}{Your first prompts: how did you describe the tool and the thesis? Did you ask for the tests, or did
+the model propose them? What did you do when the tests refuted the thesis?}
+
+\subsection{Stage 2: the research register (9--10 September)}
+The commit messages of these two days show a fixed vocabulary appearing: ``reviewer round'', ``rigorous pass'',
+``self-review'', ``literature round $n$ (verified)'', ``STATUS'', ``ERRATA''. \evidence{\texttt{git log} 9--10 Sep}
+\interview{6}{What did you ask for that produced this? Were there prompts you stopped using because they produced
+confident nonsense? How did you learn to ask ``be exact'' (12--13 Sep) and what did that change?}
+
+\subsection{Stage 3: correction under external pressure (12--13 September)}
+The author's turns preserved from this phase include the decision principle (``we rather leave it open, or, if we
+have reason to think we can fix it, fix it''), the instruction to consider ``the series in totality'', and the
+economic constraint (``take care for tokens, maybe use a worse model for a simpler task'').
+\interview{7}{How did you decide between the repair routes for paper~IV without being able to check the
+mathematics yourself? What did you rely on: the data, the model's account, the structure of the argument?}
+
+\subsection{Stage 4: knowing when to stop (13--14 September)}
+The author asked when the internal phase should be considered finished; the answer became the stopping
+criterion in the knowledge base. \evidence{\file{KNOWLEDGE.md} \S0b}
+\interview{8}{Why did you ask? What did you observe in the model's behaviour that made you suspect over-polishing?}
+
+\section{The error record}\label{sec:errors}
+
+The knowledge base records \NFallacies{} fallacies and the errata \NErrata{} items. We classify them by type and by who
+caught them. \todo{Fill the table from \file{KNOWLEDGE.md} \S3 and \file{ERRATA.md}; the classification below is
+provisional.}
+
+\begin{center}\small
+\begin{tabular}{@{}lp{7.2cm}l@{}}
+\toprule
+class & examples & caught by\\
+\midrule
+Borrowed theorem outside its hypotheses & DFI range (F11, F13); Kurokawa's class (KB \S5); Selberg--Delange
+non-vanishing (F37) & literature check; outside reader\\
+Over-claiming in prose & ``proved'' for a conjecture (F7); $o(1)$ then $O(1)$ for a sum with no bounded remainder
+(F15, F26); ``submitted'' when it had not been (F21) & external assessment; self\\
+Algebraic slips with structural consequences & pole orders in a ``same proof'' generalisation (F27); orbit
+invariance of a coprimality condition (F28); Sali\'e substitution (ERRATA 25) & external assessment; fresh readers\\
+Numerics that cannot see what they test & log-term of size $0.002$ against noise $20$ (ERRATA 21); a check that
+could not detect $\log\log$ growth & self, after the fact\\
+Misjudged effort & ``the remainder bound is a day of work'' (F33) & the work itself\\
+Convergence and mode-of-convergence errors & absolute vs.\ paired convergence; integer-$Y$ lemma used at real $Y$
+(F35); midpoint of a Fourier series at integers (ERRATA 25) & fresh readers\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Who caught what.} Internal readings (the model re-reading its own work in a fresh instance) caught
+algebraic slips, convergence errors and inconsistencies between sections, reliably and in quantity. The two outside
+readers caught what internal readings did not: a claim that is true in the special case and false in general (the
+assessment's finding on paper~II), a sum rewritten as an orbit sum over a set that is not an orbit (paper~IV), and a
+method invoked with a hypothesis it does not have (paper~I, ERRATA~26). The second outside reader's own assessment of
+this asymmetry is quoted in \S\ref{sec:limits}. \evidence{ERRATA 11--15, 18, 22, 24--26}
+
+\paragraph{Two retractions.} The programme retracted two statements it had believed: the sharp form of
+Conjecture~1 (there is no bounded remainder at all, F26) and the level-one form of paper~IV's theorem (the object
+is a signed sum over $\Gamma_0(e)$-orbits, not one orbit, F28). Both are recorded with the reasoning that had
+produced them.
+\interview{9}{Your worst moment. Which error did you feel most, and what did you change afterwards?}
+
+\section{Verification}\label{sec:verification}
+
+What ``verified'' means in this programme, from the checklist in the knowledge base (\S6):
+\begin{itemize}[itemsep=1pt]
+\item Every exact constant by two independent routes.
+\item Every explicit formula by exact subtraction, at most one fitted coefficient, and comparison with shifted
+  controls (a fit that also matches a wrong frequency proves nothing).
+\item Every theorem by at least one adversarial reading by an instance that did not write it.
+\item Every prediction with no free parameter tested against data before it is called confirmed: paper~IV's
+  smooth-window theorem predicted the amplitude and phase of three spectral lines on two objects from LMFDB
+  coefficients alone, and the data matched to a few percent and a few hundredths of a radian (ERRATA 21--23).
+\end{itemize}
+\interview{10}{What did you personally verify, and how? What could you not verify, and how did you decide to
+trust it anyway? Did you ever refuse a claim the model insisted on?}
+
+\section{What the process cannot do}\label{sec:limits}
+
+The second outside reader, after finding the paper~I defect, wrote an assessment of the limits of such readings
+that we adopt as the honest statement of the limits of this whole process. Paraphrased: the attacks a model
+reader can mount are algebra it can re-derive, numerics it can re-run, and consistency it can grep for; the
+failure mode that matters most, a borrowed theorem invoked outside its hypotheses, is detectable only by someone
+who has read the sources; its own finding was possible only because Dedekind's conjecture and Siegel zeros are
+famous; Shiu's exact uniformity conditions and Katok--Sarnak's normalisation are not, and neither the reader nor the
+author can check them. \todo{Quote verbatim with the author's permission.}
+
+Consequently, the state of the mathematics is: every statement has survived at least two adversarial passes and,
+for the core of papers~I--II, one external assessment; the class of error that remains possible is known and
+named; the only remaining move is review by a specialist who knows the sources. This paper does not claim more.
+
+\section{Recommendations}\label{sec:recommend}
+
+\todo{Write after the interview. Provisional list.}
+\begin{enumerate}[itemsep=1pt]
+\item Write the thesis as a test suite before writing anything else; let it fail.
+\item Keep one file that says what is proved, what is open, and what may not be claimed; make the model read it
+  first in every session.
+\item Record every error with the rule that would have prevented it; the list is worth more than the theorems.
+\item Separate generator and checker: fresh instances, no session context, the papers only.
+\item Archive external reviews against the revision hash; apply findings additively in a dated errata file.
+\item Decide the repair principle before the repair: correct, or leave open; never a weaker claim about a
+  different object.
+\item Set the stopping criterion in advance, in writing.
+\item Know the class of error the process cannot catch, say so in the papers, and route the work to someone who
+  can.
+\end{enumerate}
+
+\appendix
+\section{The interview}\label{app:interview}
+\todo{Verbatim answers to Questions 1--12 (\file{INTERVIEW.md}), lightly edited for length, approved by the
+author.}
+
+\section{The process record}\label{app:record}
+Generated by \file{scripts/process-record.py} from the repository at the revision named in the footer of this
+document. \todo{Add the revision hash and the list of adversarial readings with dates, models and outcomes (from
+\file{ERRATA.md} items 18, 22, 24, 25 and \file{KNOWLEDGE.md} \S0c).}
+
+\section*{AI-assisted research: disclosure}
+This case study was drafted by the same model that did the work it describes, from the repository record and an
+interview with the author; the author verified every factual statement against the record and is responsible for
+the text. \todo{Align with the disclosure paragraph of the four papers.}
+
+\end{document}

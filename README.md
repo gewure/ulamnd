@@ -22,6 +22,11 @@ repository.
 | III | The off-diagonal in Cesàro form: decomposition into pieces, unconditional small and far moduli, the main term c_off(f)·H, the window as the single open input, a function-field theorem | 27 pp. Read adversarially on 13 Sep (fresh reader): core sound, seven findings fixed (`research/ERRATA.md` item 18), one stated exponent corrected |
 | IV | The second spectrum: the pieces oscillate at the even Maass parameters of SL₂(Z) with Katok–Sarnak amplitudes; a spectral argument for u = 1; uniformity in u as the open problem | 31 pp. The u = 1 theorem's orbit error (found by the external assessment) was repaired on 13 Sep (groups Γ₀(e), e \| rad(2D)); a second adversarial reading passed the repair but found the **remainder bound unproved**; carrying the proposed route out showed why: the remainder contains smoothed Hooley sums of the same order as the main term (Remark `rem:gaps`). The exact expansion and its leading terms are proved; the error term is open. For **smooth windows** the full theorem is proved (Theorem `thm:smooth`, 13 Sep): phase predicted with no free parameter and observed to 0.035 rad, amplitude predicted 0.0600 and observed 0.0597; on the restricted object the level-2 newform line and the oldform correction appear at their predicted sizes Sections 2–4 read adversarially 14 Sep: nine fixes incl. the real-argument definition of the piece and its Riesz means, one reader claim rejected (ERRATA 25). Internal phase finished; external review is what remains. |
 
+**Case study (started 14 September 2026).** `research/case-study/` scaffolds a fifth, methodological paper: how this
+programme was produced (test-driven origin, guardrails, evolution of the prompting, the complete error record, what
+model readers cannot catch). `main.tex` is the scaffold with interview slots, `INTERVIEW.md` the questionnaire,
+`SOURCES.md` maps every claim to its evidence, `scripts/process-record.py` regenerates every process number from git.
+
 Nothing here proves anything about primes without the Hardy–Littlewood conjecture, and nothing here bears on the
 Riemann Hypothesis (`research/paper-II/LITERATURE.md`, §0, has the sentence we allow ourselves).
 

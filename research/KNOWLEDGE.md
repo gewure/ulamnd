@@ -187,6 +187,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (evening). Case study scaffolded (research/case-study/): 9-pp LaTeX skeleton with §§ set-up, origin,
+  guardrails table, prompting stages, error classification, verification, limits, recommendations; 12 interview
+  questions (INTERVIEW.md) awaiting the author's answers; process numbers generated from git (record.tex).
 - 14 Sep (later). Outside screening (author's second hostile reader) found the unproved "non-vanishing in a zero-free
   region" in the proof of paper I Thm dirichlet's asymptotic. Replaced by a Perron argument with ζ_K in the numerator;
   error term now O(x^{−1/(6n)+ε}) unconditionally; B_f identified as the Laurent constant. ERRATA 26, F37. Paper I 31 pp.
