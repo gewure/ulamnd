@@ -7,6 +7,9 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \usepackage[margin=2.5cm]{geometry}
+\linespread{1.06}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[1]
 \usepackage{microtype}
 \usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
 \usepackage{longtable}
@@ -186,9 +189,9 @@ draws a consequence: for a quadratic the diagonal Riesz means have an explicit f
 $\zeta^2L(\chi_D)$ (Proposition~\ref{thm:explicit}), explains why these zeros are nevertheless invisible
 in a direct computation to $4\cdot10^7$, and tests whether the Galois group affects the constant.
 
-\paragraph{Consequences for primes.} Let $\mathbf 1_t$ be the indicator that $f(t)$ is prime,
-$p_t=\min(1,C(f)/\log f(t))$ its Bateman--Horn probability, $A_T=\sum_{t<T}\mathbf 1_t$ and
-$V_T=\sum_{t<T}p_t(1-p_t)$ the independent-trials variance. If the Hardy--Littlewood conjecture holds for
+\paragraph{Consequences for primes.} Let $\mathbf 1_t$ be the indicator that $f(t)$ is prime, let
+$p_t=\min(1,C(f)/\log f(t))$ be its Bateman--Horn probability, and let $A_T=\sum_{t<T}\mathbf 1_t$ and
+$V_T=\sum_{t<T}p_t(1-p_t)$ be the count and the independent-trials variance. If the Hardy--Littlewood conjecture holds for
 the pair $(f(t),f(t+h))$, i.e.\ $\Pr[\mathbf 1_t\mathbf 1_{t+h}=1]\approx S_f(h)\,w_tw_{t+h}$ with
 $w_t=1/\log f(t)$, then
 \begin{equation}\label{eq:varHL}
@@ -315,8 +318,10 @@ converges absolutely and equals $\sum_q\prod_{p\mid q}g_p(h)$, which is~\eqref{e
 multiplicativity. Summing over $h\le H$ (a finite sum) and using
 $\sum_{h\le H}c_q(m-h)=\sum_{d\mid q}d\,\mu(q/d)\,\#\{h\le H:\ d\mid m-h\}$, we get for $q>1$
 \[
-\sum_{h\le H}c^f_q(h)=\sum_{d\mid q}d\,\mu(q/d)\sum_{s,s'\bmod q}\Bigl(\frac Hd+\psi_d(s'-s,H)\Bigr)
-=\sum_{d\mid q,\ d>1}d\,\mu(q/d)\,\omega_f(q/d)^2\,\Psi_d(H),
+\begin{aligned}
+\sum_{h\le H}c^f_q(h)&=\sum_{d\mid q}d\,\mu(q/d)\sum_{s,s'\bmod q}\bigl(\tfrac Hd+\psi_d(s'-s,H)\bigr)\\
+&=\sum_{d\mid q,\ d>1}d\,\mu(q/d)\,\omega_f(q/d)^2\,\Psi_d(H),
+\end{aligned}
 \]
 because $\sum_{d\mid q}\mu(q/d)=0$ and pairs of roots modulo $q$ project onto pairs modulo $d$ with
 multiplicity $\omega_f(q/d)^2$. Writing $q=dm$ with $(m,d)=1$ and summing over $m$,
@@ -441,11 +446,12 @@ every prime $p\nmid 2aD$: $\omega_f(p)=1+\chi_D(p)$, the two roots of $f$ modulo
 $\pm\sqrt D/a$, and hence $\nu_f(p,h)=\omega_f(p)$ if $p\mid h$, $\nu_f(p,h)=1$ if $p\mid Q(h)$ and $p\nmid h$,
 and $\nu_f(p,h)=0$ otherwise. Consequently
 \[
-S_f(h)=C(f)^2\prod_pP_p\;\prod_{p\mid h}\frac{p-\omega_f(p)}{p-2\omega_f(p)}\;\prod_{\substack{p\mid Q(h)\\p\nmid h}}\frac{p-3}{p-4},
+S_f(h)=C(f)^2\prod_pP_p\!\prod_{p\mid h}\!\frac{p-\omega_f(p)}{p-2\omega_f(p)}\!\prod_{\substack{p\mid Q(h)\\p\nmid h}}\!\frac{p-3}{p-4},
 \]
-with the finitely many primes dividing $2aD$ carrying their exact local factors instead. For $f=t^2+1$:
-$S_f(h)=0$ for odd $h$ and, for even $h$,
-$S_f(h)=2C(f)^2\prod_{p\equiv1(4)}P_p\prod_{p\mid h,\,p\equiv1(4)}\frac{p-2}{p-4}\prod_{p\mid h^2+4,\,p\nmid h}\frac{p-3}{p-4}$.
+with the finitely many primes dividing $2aD$ carrying their exact local factors instead. For $f=t^2+1$: $S_f(h)=0$ for odd $h$ and, for even $h$,
+\[
+S_f(h)=2C(f)^2\prod_{p\equiv1(4)}P_p\prod_{\substack{p\mid h\\ p\equiv1(4)}}\frac{p-2}{p-4}\prod_{\substack{p\mid h^2+4\\ p\nmid h}}\frac{p-3}{p-4}.
+\]
 \end{theorem}
 
 \begin{proof}
@@ -580,7 +586,7 @@ Euler's $t^2+t+41$, $t^2+1$ and $t^3+2$. Polynomials with a fixed divisor or a s
 excluded. The script \texttt{research/experiments/sumS.ts} reproduces everything; no primes are used.
 
 \begin{table}[htbp]
-\centering\footnotesize\setlength{\tabcolsep}{4.5pt}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
 \caption{Growth of $\Sigma_f(H)=\sum_{h\le H}(S_f(h)-C^2)$. Slopes are increments per unit of
 $\log H$ over the indicated decade, divided by $C$ or by $C^2$ (mean $\pm$ s.d.\ over the polynomials of
 the group). $A_f/C$ is $(\Sigma_f(10^5)+\tfrac12C\log10^5)/C$, evaluated for the sharp sum~\eqref{eq:conjsharp}
@@ -698,8 +704,10 @@ $\log(-\text{slope})$ against $\log C$, which weights every polynomial equally i
 unweighted least squares on the slopes themselves, which weights the large-$C$ polynomials more. The
 results are
 \[
-\alpha=\exCesAlpha\pm\exCesAlphaSe,\ k=\exCesK\quad\text{(logarithmic)};\qquad
+\begin{gathered}
+\alpha=\exCesAlpha\pm\exCesAlphaSe,\ k=\exCesK\quad\text{(logarithmic)};\\
 \alpha=\exCesAlphaLin\pm\exCesAlphaLinSe,\ k=\exCesKLin\pm\exCesKLinSe\quad\text{(unweighted)},
+\end{gathered}
 \]
 against the prediction $\alpha=1$, $k=\tfrac12$ of Conjecture~\ref{conj}, and more than $\exCesSigmaTwoMin$ standard
 errors from $\alpha=2$; the correlation of slope$/C$ with $C$ is $\exCesCorrC$, that of slope$/C^2$ with $C$ is
@@ -759,8 +767,8 @@ Let $f\in\A[t]$ be as above, let $a_f(d)=W_f(d)\,\omega_f(d)$ with $W_f$ as in T
 \begin{align*}
 \sum_{\substack{h\ne0\\\deg h<N}}\Bigl(\frac{S_f(h)}{C(f)^2}-1\Bigr)
 &=-\sum_{1\le\deg d\le N}a_f(d)\;-\;q^N\sum_{\deg d>N}\frac{a_f(d)}{|d|}\;+\;\bigl(1-P(1)\bigr)\;+\;\mathrm{Off}_f(N),\\
-\mathrm{Off}_f(N)&=\sum_{\deg d>N}W_f(d)\sum_{\substack{s,s'\bmod d\\ s\ne s'}}\Bigl(\mathbf 1_{0\le\deg\tilde m<N}-q^{N-\deg d}\Bigr),
-\qquad \tilde m\equiv s'-s\ (d),\ \deg\tilde m<\deg d,
+\mathrm{Off}_f(N)&=\sum_{\deg d>N}W_f(d)\sum_{\substack{s,s'\bmod d\\ s\ne s'}}\Bigl(\mathbf 1_{0\le\deg\tilde m<N}-q^{N-\deg d}\Bigr),\\
+&\qquad\text{where }\tilde m\equiv s'-s\ (d),\ \deg\tilde m<\deg d,
 \end{align*}
 where $\mathrm{Off}_f(N)$
 runs over squarefree $d$ of degree $>N$ only. In particular the pairs of \emph{distinct} roots modulo $d$
@@ -832,7 +840,10 @@ both sums over all squarefree monic $d$ including $d=1$.
 \end{lemma}
 
 \begin{proof}
-By definition $\mathrm{Off}_f(N)=\sum_{\deg d>N}W_f(d)\bigl(A_N(d)-(\omega_f(d)^2-\omega_f(d))q^{N-\deg d}\bigr)$,
+By definition
+\[
+\mathrm{Off}_f(N)=\sum_{\deg d>N}W_f(d)\bigl(A_N(d)-(\omega_f(d)^2-\omega_f(d))q^{N-\deg d}\bigr),
+\]
 so it remains to bound the degrees with $A_N(d)\ne0$. Let $(s,s')$, $s\ne s'$, have $0\le\deg\tilde m<N$,
 and split $d=d_1d_2$ with $d_2=\prod\{P\mid d:\ s\equiv s'\ (P)\}$. Then $d_2\mid\tilde m$, so
 $\deg d_2\le\deg\tilde m\le N-1$ because $\tilde m\ne0$. For $P\mid d_1$ the two roots are distinct modulo
@@ -1092,7 +1103,7 @@ $\Phi_{\mathrm{rand}}$ must be $1$. Everything is generated by \texttt{research/
 seed.
 
 \begin{table}[htbp]
-\centering\footnotesize\setlength{\tabcolsep}{4.5pt}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
 \caption{Variance experiment, averaged over the $T$-grid of each family and degree (weighted by
 $1/\mathrm{se}^2$). $\rho=\log T/\overline{\log f}$, so $1-\rho$ is the law~\eqref{eq:MS} with
 $H=T$; $\Phi_{\mathrm{HL}}$ is the pair-correlation prediction~\eqref{eq:varHL2}; $\kappa$ and
@@ -1276,14 +1287,14 @@ higher moments should be computable by the same means.
 
 All code (TypeScript), the raw results and the scripts that generate every number, table and figure of
 this paper from them are in the repository accompanying the manuscript
-(\url{https://github.com/gewure/ulamnd}, directory \texttt{research/}; the experiment scripts run from the repository
-root with \texttt{npx tsx <path>}, and \texttt{research/experiments/REPORT-full.md} lists them): \texttt{research/experiments/sumS.ts},
-\texttt{research/experiments/exact.ts}, \texttt{research/experiments/offdiag.ts}, \texttt{research/experiments/ff.ts}, \texttt{research/experiments/ff-tail.ts}
+(\url{https://github.com/gewure/ulamnd}, directory \path{research/}; the experiment scripts run from the repository
+root with \texttt{npx tsx <path>}, and \path{research/experiments/REPORT-full.md} lists them): \path{research/experiments/sumS.ts},
+\path{research/experiments/exact.ts}, \path{research/experiments/offdiag.ts}, \path{research/experiments/ff.ts}, \path{research/experiments/ff-tail.ts}
 (Section~\ref{sec:sum}),
-the \texttt{riesz} scripts and \texttt{research/experiments/galois.ts} (Section~\ref{sec:riesz}),
-\texttt{research/experiments/variance.ts} (Section~\ref{sec:primes}),
-\texttt{research/experiments/run.ts} (Section~\ref{sec:spiral} and the negative results),
-\texttt{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
+the \texttt{riesz} scripts and \path{research/experiments/galois.ts} (Section~\ref{sec:riesz}),
+\path{research/experiments/variance.ts} (Section~\ref{sec:primes}),
+\path{research/experiments/run.ts} (Section~\ref{sec:spiral} and the negative results),
+\path{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
 
 \section*{AI-assisted research: disclosure}
 This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and

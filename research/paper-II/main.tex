@@ -5,6 +5,9 @@
 \usepackage{booktabs,array,longtable,caption,placeins,microtype,xcolor}
 \usepackage{pgfplots}\pgfplotsset{compat=1.18}
 \usepackage[margin=2.5cm]{geometry}
+\linespread{1.06}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[1]
 \usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
 \captionsetup{font=small,labelfont=bf}
 \IfFileExists{data/wp0.tex}{\input{data/wp0.tex}}{}
@@ -284,8 +287,10 @@ of the finitely many local factors at $p\in S$.
 Fix $K$ and a compact set in $\Re w>1/(K+1)$, on which $\Re w\ge\eta>1/(K+1)$. For $p\notin S$ the local
 factor of $M_{f,K}$ is, by Lemma~\ref{lem:psi}(ii),
 \[
-M_p(s)=\frac{F_p(s)}{1+\omega v}\cdot\frac{1+\omega v}{\prod_{N\le K}\det(1-g_pv^N\mid\Psi_N)^{-1}}
-=\frac{1-2\omega u/(1+\omega v)}{(1-\omega u)^2}\cdot\exp\Bigl(-\sum_{M>K}d_M(g_p)v^M\Bigr),
+\begin{aligned}
+M_p(s)&=\frac{F_p(s)}{1+\omega v}\cdot\frac{1+\omega v}{\prod_{N\le K}\det(1-g_pv^N\mid\Psi_N)^{-1}}\\
+&=\frac{1-2\omega u/(1+\omega v)}{(1-\omega u)^2}\cdot\exp\Bigl(-\sum_{M>K}d_M(g_p)v^M\Bigr),
+\end{aligned}
 \]
 with $\omega=\omega_f(p)$ and $d_M(g)=\sum_{N\mid M,\ N>K}\Psi_N(g^{M/N})N/M$, so $|d_M|\le2n^M\tau(M)$ by
 Lemma~\ref{lem:psi}(iii). For $p$ so large that $n|v|\le n p^{-\eta}\le\tfrac12$ and $\omega u\le\tfrac14$
@@ -458,16 +463,20 @@ Let $f$ be an irreducible quadratic of discriminant $D$ and $m\ge2$. Assume the 
 $\zeta$ and for $L(s,\chi_D)$. Then there is $\varepsilon_0\in(0,\tfrac1{100})$ such that for $x\ge2$ and some
 $U\in[x^{16},2x^{16}]$,
 \begin{equation}\label{eq:explicit}
-R_m(x)=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+c'_{f,m}\,x^{m-2/3}
-+x^{m-1}\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|\le2U}}Q_{m,\rho}(\log x)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
+\begin{split}
+R_m(x)&=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+c'_{f,m}\,x^{m-2/3}\\
+&\quad+x^{m-1}\sum_{\substack{\rho=\beta+i\gamma\\|\gamma|\le2U}}Q_{m,\rho}(\log x)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
+\end{split}
 \end{equation}
 where $\rho$ runs over the zeros of $\zeta(s)^2L(s,\chi_D)$ (all with $\beta=\tfrac12$), $Q_{m,\rho}$ is the
 polynomial (of degree less than the order of the pole of $G_m$ at $\rho/2-1$, i.e.\ of degree $0$ at simple
 zeros of $L$ and $1$ at simple zeros of $\zeta$) such that $Q_{m,\rho}(\log x)x^{\rho/2-1+m}$ is the residue
 of $G_m(s)x^{s+m}$ at $s=\rho/2-1$, and
 \[
-c'_{f,m}=\Res_{s=-2/3}G_m(s)=\frac{m!\,\zeta(-\tfrac23)\zeta(\tfrac13)L(\tfrac13,\chi_D)L(1,\chi_D)}{3\,\zeta(\tfrac23)^2L(\tfrac23,\chi_D)}
-\prod_{N\ge4}\zeta(\tfrac N3)^{a_N}L(\tfrac N3,\chi_D)^{b_N}\frac{M_{f,K}(-\tfrac23)}{(-\tfrac23)(\tfrac13)\cdots(m-\tfrac23)},
+\begin{aligned}
+c'_{f,m}=\Res_{s=-2/3}G_m(s)&=\frac{m!\,\zeta(-\tfrac23)\zeta(\tfrac13)L(\tfrac13,\chi_D)L(1,\chi_D)}{3\,\zeta(\tfrac23)^2L(\tfrac23,\chi_D)}\\
+&\quad\times\prod_{N\ge4}\zeta(\tfrac N3)^{a_N}L(\tfrac N3,\chi_D)^{b_N}\frac{M_{f,K}(-\tfrac23)}{(-\tfrac23)(\tfrac13)\cdots(m-\tfrac23)},
+\end{aligned}
 \]
 $c_{f,m}$ being the constant term of the residue at $s=0$. The implied constant depends on $f$, $m$ and
 $\varepsilon_0$.
@@ -514,8 +523,10 @@ Let $\Lambda$ be one of the two functions, $\sigma_1=\tfrac12+\varepsilon_0$, an
 (the ``zone''). For $\sigma\ge\sigma_1$ the claim is (G1) with $\delta/2$ in place of $\varepsilon$. For $\sigma\in Z$ and
 $t=2U$ write, by (G2),
 \[
-\log\frac1{|\Lambda(\sigma+it)|}=\log\frac1{|\Lambda(\sigma_1+it)|}+\Re\int_\sigma^{\sigma_1}\frac{\Lambda'}{\Lambda}(\sigma'+it)\,d\sigma'
-\le\frac{\delta}4\log T+\sum_{|\gamma-t|\le1}\int_{Z}\frac{d\sigma'}{|\sigma'+it-\rho|}+3\varepsilon_0C\log t .
+\begin{aligned}
+\log\frac1{|\Lambda(\sigma+it)|}&=\log\frac1{|\Lambda(\sigma_1+it)|}+\Re\int_\sigma^{\sigma_1}\frac{\Lambda'}{\Lambda}(\sigma'+it)\,d\sigma'\\
+&\le\frac{\delta}4\log T+\sum_{|\gamma-t|\le1}\int_{Z}\frac{d\sigma'}{|\sigma'+it-\rho|}+3\varepsilon_0C\log t .
+\end{aligned}
 \]
 Under RH $\beta=\tfrac12$, so $|\sigma'+it-\rho|=\sqrt{(\sigma'-\tfrac12)^2+(t-\gamma)^2}$ and, with
 $\theta=|t-\gamma|$, $\int_Z\le\int_{-2\varepsilon_0}^{2\varepsilon_0}\frac{dy}{\sqrt{y^2+\theta^2}}=2\operatorname{arsinh}(2\varepsilon_0/\theta)$,
@@ -586,8 +597,10 @@ $m_N=\langle\Psi_N,\mathbf 1\rangle$ be the multiplicity of the trivial characte
 $L(N(s+1),\Psi_N)$ has at $s=-1+1/N$ a pole of order $m_N$ if $m_N>0$ and a zero of order $-m_N$ if $m_N<0$. Then
 there is $\varepsilon_0>0$ such that, for $U\in[x^{16},2x^{16}]$ suitably chosen,
 \[
-R_m(x)=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+\sum_{N\in\{3,4\}}x^{m-1+1/N}\,P_{f,m,N}(\log x)
-+x^{m-1}\sum_{\substack{\rho\\|\gamma|\le2U}}Q_{m,\rho}(\log x)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
+\begin{aligned}
+R_m(x)&=\frac{D_f(1)}{m+1}x^{m+1}+x^m\Bigl(-\frac{\log x}{2C(f)}+c_{f,m}\Bigr)+\sum_{N\in\{3,4\}}x^{m-1+1/N}\,P_{f,m,N}(\log x)\\
+&\quad+x^{m-1}\sum_{\substack{\rho\\|\gamma|\le2U}}Q_{m,\rho}(\log x)\,x^{\rho/2}+O(x^{m-3/4-\varepsilon_0}),
+\end{aligned}
 \]
 where $\rho$ runs over the zeros of $L(s,\Sym^2V)=\zeta_K(s)\prod_O\zeta_{K_O}(s)$, and $P_{f,m,N}$ is the polynomial
 (possibly zero) given by the residue at $s=-1+1/N$: if the integrand has there a pole of order $r_N\ge1$, then
@@ -734,7 +747,10 @@ For $f=t^2+1$ the hypothesis holds with $\gamma_1=6.0209\dots$, the first zero o
 Suppose $E_m(x)\le\varepsilon x^{m-3/4}$ for all $x\ge x_0$. The function
 $F(x)=\varepsilon x^{m-3/4}-E_m(x)$ is then non-negative for $x\ge x_0$, and for $\Re s>1$
 \[
-\int_{x_0}^\infty F(x)\,x^{-s-m-1}\,dx=\frac{\varepsilon x_0^{-s-1/4}}{s+\tfrac14}-G_m(s)+\Bigl(\text{the Mellin transforms of the subtracted terms}\Bigr)+\bigl(\text{entire}\bigr),
+\begin{aligned}
+\int_{x_0}^\infty F(x)\,x^{-s-m-1}\,dx&=\frac{\varepsilon x_0^{-s-1/4}}{s+\tfrac14}-G_m(s)\\
+&\quad+\bigl(\text{the Mellin transforms of the subtracted terms}\bigr)+\bigl(\text{entire}\bigr),
+\end{aligned}
 \]
 where we used $\int_1^\infty R_m(x)x^{-s-m-1}dx=G_m(s)$ for $\Re s>1$ (Mellin inversion of~\eqref{eq:mellin})
 and the fact that $\int_1^{x_0}$ is entire; the Mellin transforms of $x^{m+1}$, $x^m\log x$, $x^m$, $x^{m-2/3}$
@@ -1015,8 +1031,10 @@ $w_t=1/\log f(t)$. Then formula~(6) of part~I expresses $\Var(A_T)$ through $\su
 smooth weight $W_T$, and inserting the explicit formula gives, provided Conjecture~\eqref{eq:conj} holds with
 the constant $A_f$,
 \[
-\frac{\Var(A_T)}{\E(A_T)}=1-\frac{\log T}{\log X}+\frac{1+2A_f/C(f)}{\log X}+\frac{c_1(f)\,T^{-2/3}+\sum_\rho c_\rho(f,T)\,T^{-3/4}}{\log X}
-+O\Bigl(\frac{T^{-1/2+\varepsilon}}{\log X}\Bigr),\qquad X\approx f(T),
+\begin{aligned}
+\frac{\Var(A_T)}{\E(A_T)}&=1-\frac{\log T}{\log X}+\frac{1+2A_f/C(f)}{\log X}\\
+&\quad+\frac{c_1(f)\,T^{-2/3}+\sum_\rho c_\rho(f,T)\,T^{-3/4}}{\log X}+O\Bigl(\frac{T^{-1/2+\varepsilon}}{\log X}\Bigr),\qquad X\approx f(T),
+\end{aligned}
 \]
 with $c_\rho(f,T)$ bounded and oscillating in $\log T$. Three remarks. (i) The first three terms are the
 polynomial Montgomery--Soundararajan law of part~I; $A_f$ consists of an explicit diagonal part and
@@ -1092,8 +1110,8 @@ $8.3$ to $11.5$ and separating the ordinates $12.99$ and $14.13$. Hours, $\ge16$
 \end{itemize}
 
 \section*{Data and code}
-\texttt{research/paper-II/scripts/riesz-raw.ts}, \texttt{research/paper-II/scripts/explicit-diag.py},
-\texttt{research/paper-II/scripts/gen-wp0.py}; results in \texttt{research/paper-II/data/}. Part~I's code is in \texttt{research/experiments/}.
+\path{research/paper-II/scripts/riesz-raw.ts}, \path{research/paper-II/scripts/explicit-diag.py},
+\path{research/paper-II/scripts/gen-wp0.py}; results in \path{research/paper-II/data/}. Part~I's code is in \path{research/experiments/}.
 
 \section*{AI-assisted research: disclosure}
 This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and

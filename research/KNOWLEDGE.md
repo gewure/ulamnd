@@ -103,6 +103,24 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   square-root cancellation holds for the unrestricted sum too, as repair (i) predicts.
   CONCLUSION FOR THE REPAIR DECISION: the data say the paper's object is a level-rad(2D) object, i.e. repair (ii) is the
   true description; repair (i) (drop the condition) gives a correct level-1 theorem about a different object.
+  GENERAL u, THE CLEAN STATEMENT (13 Sep, after the repair): the forms of piece u are those of disc 4u^2 D with
+  2u^2 | b and u^2 | c; that set is stable under Gamma^0(u^2) = {u^2 | beta} (conjugate to Gamma_0(u^2)) and under
+  none of Gamma_0(u^2), Gamma^0(u), Gamma(u) — VERIFIED numerically for 5 pairs (D,u). Also z_{[a,2u^2x,*]} = u *
+  z_{[a,2ux,*]}: piece u = the level-u sub-family {2u | b} of the disc-4D points, dilated by u. So the u-problem is:
+  Theorem main at level u^2, uniformly in u, plus the period bound. The "twisted period" of 3e is the level-1 way of
+  writing this level-u^2 period. Section 7 of paper IV now says so.
+  u > 1 NUMERICS (13 Sep, piece-divset.ts U=3,5; D=-8,-11 (u=3), D=-4 (u=5); Y=1e7): INCONCLUSIVE. Level-1 even lines
+  NOT detectable at u=3,5 (R^2 0.01-0.02, 2nd-35th pct) although present at u=1,2. Objects dominated by a slowly
+  varying component (single-frequency peaks at ~3.5 and ~5.1 in log Y with R^2 up to 0.60, in ALL and COPRIME alike);
+  with a cubic detrend and t >= 6, the level-3 even newforms at u=3 sit at the 59th-70th pct (nothing), while ODD
+  level-3/5 sets score 96th-100th — contradicting parity, hence almost certainly an artefact of residual low-frequency
+  power (odd lists contain small parameters). The 5.1 line at u=3 for BOTH D=-8 and D=-11 matches the level-3 even
+  newform 5.0987 (predicted), but 5.105 also appears at u=5, D=-4, where level 5 has no such parameter -> do not
+  claim. NEEDED before any conclusion: understand the slow component (candidates: continuous spectrum at level u^2,
+  a Y^{1/2-delta} main term of the far moduli, or the small first eigenvalues of level-u^2 newforms — level 9 and 25
+  are NOT in the LMFDB; LMFDB Maass forms exist for squarefree levels only, e.g. 2, 3, 5); a proper spectral estimate
+  (multitaper / matched filter with the Riesz kernel) instead of single-frequency R^2; and Maass data at levels u^2
+  (compute them: Hejhal's algorithm, or Strömberg's tables). Tools: piece-level2.ts (QUAD=1 cubic detrend, FMIN).
   DECISION (author, 13 Sep): (ii). Principle stated: correct or leave open, never patch with a weaker claim about a
   different object. REPAIR DONE the same day (ERRATA 13 has the list of changes). Verified before writing: the 4D
   parametrisation (orbit counts = sum_g h(4D/g^2), 9 discriminants), Gamma_0(e)-stability and finite orbit counts (15

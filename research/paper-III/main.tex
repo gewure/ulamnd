@@ -5,6 +5,9 @@
 \usepackage{booktabs,caption,microtype,xcolor}
 \usepackage{pgfplots}\pgfplotsset{compat=1.18}
 \usepackage[margin=2.5cm]{geometry}
+\linespread{1.06}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[1]
 \usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
 \captionsetup{font=small,labelfont=bf}
 \newtheorem{theorem}{Theorem}
@@ -73,8 +76,10 @@ $D=b^2-4c$ (not a square). For a prime $p$ let $\omega(p)=\omega_f(p)$ be the nu
 $\omega(p)=2$ if $p\nmid2D$ and $D$ is a square modulo $p$ (\emph{split}), $0$ if $D$ is a non-square (\emph{inert}),
 and $\le1$ if $p\mid2D$ (\emph{special}). All moduli below are squarefree. Put
 \[
-\lambda(p)=\frac p{p-2\omega(p)},\qquad P_p=1-\frac{\omega(p)^2}{(p-\omega(p))^2},\qquad P(1)=\prod_pP_p,\qquad
+\begin{gathered}
+\lambda(p)=\frac p{p-2\omega(p)},\qquad P_p=1-\frac{\omega(p)^2}{(p-\omega(p))^2},\qquad P(1)=\prod_pP_p,\\
 W_f(d)=\frac{P(1)\lambda(d)}d,\qquad w(u)=u\,\omega(u)\,W_f(u)=P(1)\lambda(u)\omega(u),
+\end{gathered}
 \]
 $\lambda$ multiplicative; this is the weight of part~I, $W_f(d)=d\,b(d)\prod_{p\nmid d}P_p$ with $b(p)=(p-\omega(p))^{-2}$,
 since $p\,b(p)/P_p=1/(p-2\omega(p))$. If $\omega(2)=1$ (as for $t^2+1$) then $P_2=0$ and $\lambda(2)$ is undefined; in
@@ -98,8 +103,10 @@ B^{(Y)}_d(m)=\sum_{\substack{h\le Y\\ h\equiv m\ (d)}}(Y-h)-\frac{Y^2}{2d}.
 \end{equation}
 Part~I, Theorem~6, proved that with $C=C(f)$
 \begin{equation}\label{eq:cesaro}
-\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr)=-\tfrac12C\log H+O_f(1)+\frac{C^2}H\Off^\ast_f(H),\qquad
+\begin{gathered}
+\sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C^2\bigr)=-\tfrac12C\log H+O_f(1)+\frac{C^2}H\Off^\ast_f(H),\\
 \Off^\ast_f(H)=\sum_{d}W_f(d)\sum_{\substack{s,s'\ \mathrm{roots\ of\ }f\bmod d\\ s\ne s'}}B^{(H)}_d(s'-s),
+\end{gathered}
 \end{equation}
 the series converging absolutely, and that $\Off^\ast_f(H)\ll H\log H$ trivially. \emph{Hypothesis~(E) in
 Ces\`aro form} is $\Off^\ast_f(H)=o(H\log H)$; it implies Conjecture~1 of part~I in Ces\`aro form with the leading
@@ -127,7 +134,10 @@ moduli $d'\le Y$ is $\ll Y(\log Y)^{-c}$ uniformly in $u$, by Koksma's inequalit
 the Chinese-remainder equidistribution theorem of Kowalski and Soundararajan~\cite{KowalskiSoundararajan2021}
 (Proposition~\ref{prop:KSw}). Hence the small-moduli part of $\Off^\ast_f$ is $o(H\log H)$ unconditionally.
 \item \emph{The window} (\S\ref{sec:W}): unconditionally (Theorem~\ref{thm:Aprime})
-$\Off^\ast_f(H)=c_{\mathrm{off}}H+\sum_{u\le H^{2/3+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)+O(H(\log H)^{1-c})$, where the
+\[
+\Off^\ast_f(H)=c_{\mathrm{off}}H+\sum_{u\le H^{2/3+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)+O(H(\log H)^{1-c}),
+\]
+where the
 window $\mathcal W_u$ collects the moduli $d'\in(Y,u^2Y\log H]$ of piece $u$, on which the interval $[1,Y]$ is shorter
 than the period. The window is the core of Hypothesis~(E): a logarithmic saving there is not enough. We give its
 exact finite Fourier expansion (Lemma~\ref{lem:finfourier}), which has $u^2\log H$ frequencies of full weight per
@@ -301,8 +311,10 @@ E=\sum_{p\le z}\frac{p^\delta-1}{p}.
 Put $\lambda=\delta\log z$ and $g(v)=(e^{\delta v}-1)/v$, an increasing function of $v>0$, so that $(p^\delta-1)/p=g(\log p)\log p/p$.
 With $S(t)=\sum_{p\le t}\log p/p=\log t+R(t)$, $|R(t)|\le R_0$ for $t\ge2$ (Mertens), Stieltjes integration gives
 \[
-E=\int_{2^-}^{z}g(\log t)\,dS(t)=\int_{\log2}^{\log z}g(v)\,dv+\int_{2^-}^{z}g(\log t)\,dR(t)
-\le\int_0^{\lambda}\frac{e^{s}-1}{s}\,ds+3R_0\,g(\log z)+g(\log2)\log2,
+\begin{aligned}
+E=\int_{2^-}^{z}g(\log t)\,dS(t)&=\int_{\log2}^{\log z}g(v)\,dv+\int_{2^-}^{z}g(\log t)\,dR(t)\\
+&\le\int_0^{\lambda}\frac{e^{s}-1}{s}\,ds+3R_0\,g(\log z)+g(\log2)\log2,
+\end{aligned}
 \]
 where we used that $g$ is increasing to bound $\int R\,dg$. Since $(e^s-1)/s\le e^s$, the integral is $\le e^\lambda$; the
 second term is $\le3R_0e^\lambda/\log z$; and $g(\log2)\log2=2^\delta-1\le1$ as $\delta\le1$ (because $\lambda\le\log u\le\log\log z$).
@@ -368,8 +380,10 @@ since $\sum_{z<p\le x}w(p)/p\le C_0\log P+O(C_0)$. Inserting~\eqref{eq:L37},
 \]
 Now multiply by $w(s)$ and sum over $z$-smooth $s\le x^{1/3}$, $s\in Q$. Since $w(s)/\varphi(s)=\prod_{p\mid s}w(p)/(p-1)$,
 \[
-\sum_{s}\frac{w(s)}{\varphi(s)}\prod_{p\mid s}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)\le\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}{p-1}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)\Bigr)
-\ll\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}{p}\Bigr)\exp\Bigl(-\sum_{\substack{p\le z\\ \rho(p)\ge2}}\frac{w(p)}p\Bigl(1-\frac1{\sqrt{\rho(p)}}\Bigr)\Bigr),
+\begin{aligned}
+\sum_{s}\frac{w(s)}{\varphi(s)}\prod_{p\mid s}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)&\le\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}{p-1}\Bigl(\frac1{\sqrt{\rho(p)}}+\frac1{\sqrt p}\Bigr)\Bigr)\\
+&\ll\prod_{\substack{p\le z\\ p\in Q}}\Bigl(1+\frac{w(p)}{p}\Bigr)\exp\Bigl(-\sum_{\substack{p\le z\\ \rho(p)\ge2}}\frac{w(p)}p\Bigl(1-\frac1{\sqrt{\rho(p)}}\Bigr)\Bigr),
+\end{aligned}
 \]
 because $(1+w(1/\sqrt\rho+p^{-1/2})/(p-1))/(1+w/p)\le\exp(-w(1-1/\sqrt\rho)/p+O(C_0p^{-3/2}))$ and the primes with
 $\rho(p)=1$ contribute $O(1)$; the exponential is $\exp(-P_z)$ with $P_z$ the sum defining $P$ cut at $z$, and
@@ -454,7 +468,10 @@ is a power of $\log$, which is exactly what the Ces\`aro form can afford.
 
 For $d'>Y$ and $m\in[1,d']$ at most one $h\le Y$ lies in the class of $m$, so $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$ and
 \begin{equation}\label{eq:Pgt}
-\sum_{d'>Z}\frac{\lambda(d')}{d'}\sum_{x\in R'_{d'}}B^{(Y)}_{d'}(\rep x{d'})=\sum_{x\le Y}(Y-x)\sum_{\substack{d'>Z\\ d'\mid Q_u(x)}}\frac{\lambda(d')}{d'}\;-\;\frac{Y^2}2\sum_{d'>Z}\frac{\lambda(d')\rho(d')}{d'^2}=:\mathcal A_Z-\mathcal E_Z\qquad(Z\ge Y),
+\begin{split}
+\sum_{d'>Z}\frac{\lambda(d')}{d'}\sum_{x\in R'_{d'}}B^{(Y)}_{d'}(\rep x{d'})&=\sum_{x\le Y}(Y-x)\sum_{\substack{d'>Z\\ d'\mid Q_u(x)}}\frac{\lambda(d')}{d'}\;-\;\frac{Y^2}2\sum_{d'>Z}\frac{\lambda(d')\rho(d')}{d'^2}\\
+&=:\mathcal A_Z-\mathcal E_Z\qquad(Z\ge Y),
+\end{split}
 \end{equation}
 where $d'$ ranges over squarefree split moduli coprime to $u$, and we used that an integer $x\in[1,Y]$ is the
 representative of an element of $R'_{d'}$ exactly when $d'\mid Q_u(x)$. Both terms are of the same size, and
@@ -505,7 +522,10 @@ and $\sum_{e\le t}\rho^\ast(e)\ll_ft$ (the Dirichlet series of $\rho^\ast$ is $\
 convergent for $\Re s>\tfrac12$), whence $\sum_{e\le t}\rho_u(e)e^{-1/2}\ll_ft^{1/2}$ by partial summation. With $t=2Y/(gL)$ the inner sum is therefore
 $\ll\rho_u(g)\bigl(Y/(gL^2)+Y/(gL)\bigr)\ll\rho_u(g)Y/(gL)$, and $\mathcal A_Z\ll(Y/(u^2L))\sum_g\kappa(g)\rho_u(g)/g^2\ll Y/(u^2L)$.
 
-For the consequence, $\sum_{u\ge1}w(u)(H/u)u^{-2}L^{-1}=HL^{-1}\sum_uw(u)u^{-3}\ll H/L$, as $\sum_{u\le t}w(u)\ll t$.
+For the consequence,
+\[
+\sum_{u\ge1}w(u)\frac Hu\,u^{-2}L^{-1}=\frac HL\sum_uw(u)u^{-3}\ll\frac HL,\qquad\text{as }\sum_{u\le t}w(u)\ll t.
+\]
 \end{proof}
 
 \emph{In words.} When the modulus exceeds $u^2$ times the length, each root that falls below the length has
@@ -548,7 +568,10 @@ are removed by inclusion--exclusion at the cost of the divisor bound).
 \end{proof}
 
 \begin{theorem}[the first piece: small moduli]\label{thm:u1}
-For $D$ as in Lemma~\ref{lem:sharp}, $\mathcal P^{\le}_1(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_{D,\varepsilon}Y^{12/13+\varepsilon}$.
+For $D$ as in Lemma~\ref{lem:sharp},
+\[
+\mathcal P^{\le}_1(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_{D,\varepsilon}Y^{12/13+\varepsilon}.
+\]
 Together with Lemma~\ref{lem:far} ($u=1$, $L=Y^{\varepsilon}$; the window $(Y,YL]$ is then the only part not
 covered) this gives $\mathcal P_1(Y)=\mathcal W_1(Y;Y^{\varepsilon})+O(Y^{1-\varepsilon})$, and Proposition~\ref{prop:windowW}
 with $(\theta,B)=(\tfrac{11}{12},\tfrac14)$ bounds the window by $Y^{11/12+O(\varepsilon)}$: so $\mathcal P_1(Y)\ll Y^{1-\delta}$
@@ -568,8 +591,11 @@ Throughout this subsection $g$ is the multiplicative function of the set-up ($g(
 supported on squarefree integers; $g(p)\le10$ at every prime), $\chi=\chi_D$ is the Kronecker symbol, and $m$, $m_d$
 are the constants
 \begin{equation}\label{eq:md}
+\begin{gathered}
 m=L(1,\chi)\prod_p\Bigl(1-\frac1p\Bigr)\Bigl(1-\frac{\chi(p)}p\Bigr)\Bigl(1+\frac{g(p)}p\Bigr),\qquad
-m_d=m\prod_{p\mid d}\Bigl(1+\frac{g(p)}p\Bigr)^{-1},\qquad M_d=\begin{cases}c_fm_d&(\omega(2)\ne1),\\ c_fm_d/2&(\omega(2)=1),\end{cases}
+m_d=m\prod_{p\mid d}\Bigl(1+\frac{g(p)}p\Bigr)^{-1},\\
+M_d=\begin{cases}c_fm_d&(\omega(2)\ne1),\\ c_fm_d/2&(\omega(2)=1),\end{cases}
+\end{gathered}
 \end{equation}
 the product converging absolutely since $g(p)-1-\chi(p)=(1+\chi(p))\kappa(p)\ll1/p$ for $p\nmid2D$ (at the finitely
 many $p\mid2D$ the factor is merely bounded); in the case $\omega(2)=1$ the product is taken with $g(2)=0$, and the factor
@@ -626,7 +652,10 @@ Consequently: (a) $|\bar G_{d'}(Y)|\le\omega(d')\sigma(d')/(8\varphi(d'))$ and $
 (b) $\bar G_{d'}(Y)=-\omega(d')Y^2/(2d')=G_{d'}(a,Y)$ for $0<Y<1$ and every $a$;
 (c) $Y\mapsto G_{d'}(a,Y)$ and $Y\mapsto\bar G_{d'}(Y)$ are continuous, piecewise linear, with $|\partial_Y|\le\omega(d')$;
 (d) $|G_{d'}(a,Y)|\le\omega(d')\min(d',Y)$ for all $a$, $Y$;
-(e) $\displaystyle\int_0^\infty\bar G_{d'}(Y)\frac{dY}{Y^2}=\begin{cases}-\dfrac{\omega(p)\log p}{2\varphi(p)}=-\dfrac{\log p}{p-1}&\text{if }d'=p\text{ is prime},\\[2ex] 0&\text{if $d'$ has at least two prime factors,}\end{cases}$
+(e)
+\[
+\int_0^\infty\bar G_{d'}(Y)\frac{dY}{Y^2}=\begin{cases}-\dfrac{\omega(p)\log p}{2\varphi(p)}=-\dfrac{\log p}{p-1}&\text{if }d'=p\text{ is prime},\\[2ex] 0&\text{if $d'$ has at least two prime factors,}\end{cases}
+\]
 the integral converging absolutely.
 \end{lemma}
 \begin{proof}
@@ -634,8 +663,11 @@ Every $r\in R_{d'}$ is a unit ($r^2\equiv D$, $(D,d')=1$), so $a\mapsto ar$ perm
 $\sum_aG_{d'}(a,Y)=\omega(d')\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(x)$. By M\"obius inversion and the elementary identity
 $\sum_{h'\le X}(X-h')=X^2/2-X/2+\phi(\{X\})/2$ ($X\ge0$),
 \[
-\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(x)=\sum_{e\mid d'}\mu(e)\,e\sum_{h'\le Y/e}\Bigl(\frac Ye-h'\Bigr)-\frac{\varphi(d')Y^2}{2d'}
-=\frac{Y^2}2\sum_{e\mid d'}\frac{\mu(e)}e-\frac Y2\sum_{e\mid d'}\mu(e)+\frac12\sum_{e\mid d'}\mu(e)e\,\phi\Bigl(\Bigl\{\frac Ye\Bigr\}\Bigr)-\frac{\varphi(d')Y^2}{2d'},
+\begin{aligned}
+\sum_{x\in(\Z/d')^\times}B^{(Y)}_{d'}(x)&=\sum_{e\mid d'}\mu(e)\,e\sum_{h'\le Y/e}\Bigl(\frac Ye-h'\Bigr)-\frac{\varphi(d')Y^2}{2d'}
+\\
+&=\frac{Y^2}2\sum_{e\mid d'}\frac{\mu(e)}e-\frac Y2\sum_{e\mid d'}\mu(e)+\frac12\sum_{e\mid d'}\mu(e)e\,\phi\Bigl(\Bigl\{\frac Ye\Bigr\}\Bigr)-\frac{\varphi(d')Y^2}{2d'},
+\end{aligned}
 \]
 and the first, second and last terms cancel ($d'>1$). This is~\eqref{eq:Gbar}. (a): $0\le e\phi(\{Y/e\})\le e/4$
 gives the first bound; for $e\le Y$ also $e\phi\le Y/4$, and for $e>Y$, $e\phi(Y/e)=Y-Y^2/e\in[0,Y]$, giving the
@@ -689,37 +721,57 @@ $\psi(\bar u)=\bar\psi(u)$,
 \]
 For fixed $\psi$, partial summation against $S_\psi(t)=\sum_{U<u\le t}w(u)\bar\psi(u)\ll U^{1/2+\varepsilon'}d'^{1/2}$
 (Lemma~\ref{lem:AP}(ii)) gives
-$|\sum_uw(u)\bar\psi(u)\hat G(\psi,H/u)|\le\sup_t|S_\psi(t)|\bigl(\sup_u|\hat G(\psi,H/u)|+\mathrm{Var}_{u\in(U,2U]}\hat G(\psi,H/u)\bigr)$.
+\[
+\Bigl|\sum_uw(u)\bar\psi(u)\hat G(\psi,H/u)\Bigr|\le\sup_t|S_\psi(t)|\Bigl(\sup_u|\hat G(\psi,H/u)|+\mathrm{Var}_{u\in(U,2U]}\hat G(\psi,H/u)\Bigr).
+\]
 Now sum over $\psi$ using Cauchy--Schwarz and Parseval on $(\Z/d')^\times$:
 \[
-\sum_\psi|\hat G(\psi,Y)|\le\varphi(d')^{1/2}\Bigl(\sum_\psi|\hat G(\psi,Y)|^2\Bigr)^{1/2}=\Bigl(\sum_a|G^\circ(a,Y)|^2\Bigr)^{1/2}\le\varphi(d')^{1/2}\max_a|G^\circ(a,Y)|\le2\varphi(d')^{1/2}\omega(d')\min(d',Y)
+\begin{aligned}
+\sum_\psi|\hat G(\psi,Y)|&\le\varphi(d')^{1/2}\Bigl(\sum_\psi|\hat G(\psi,Y)|^2\Bigr)^{1/2}\\
+&=\Bigl(\sum_a|G^\circ(a,Y)|^2\Bigr)^{1/2}\le\varphi(d')^{1/2}\max_a|G^\circ(a,Y)|\\
+&\le2\varphi(d')^{1/2}\omega(d')\min(d',Y)
+\end{aligned}
 \]
 by Lemma~\ref{lem:Gbar}(d), and in the same way, using (c) and $\partial_u=-(H/u^2)\partial_Y$,
-$\sum_\psi\mathrm{Var}_u\hat G(\psi,H/u)\le\int_U^{2U}\varphi(d')^{1/2}\max_a|\partial_uG^\circ(a,H/u)|\,du\le2\varphi(d')^{1/2}\omega(d')\,Y_U$.
+\[
+\sum_\psi\mathrm{Var}_u\hat G(\psi,H/u)\le\int_U^{2U}\varphi(d')^{1/2}\max_a|\partial_uG^\circ(a,H/u)|\,du\le2\varphi(d')^{1/2}\omega(d')\,Y_U.
+\]
 Hence $|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}d'^{1/2}\varphi(d')^{1/2}\omega(d')Y_U$, and
 \[
-\sum_{d'\le Z_U}\frac{\lambda(d')}{d'}|\mathcal E_{d'}(U)|\ll U^{1/2+\varepsilon'}Y_UZ_U^{1+\varepsilon'}\ll H^{1/2+\varepsilon'}Y_U^{3/2}H^{\eta+2\varepsilon'}\le H^{1/2+\eta+3\varepsilon'+(3/2)(1/3-\varepsilon)}=H^{1-3\varepsilon/4}\le H^{1-\varepsilon/4},
+\begin{aligned}
+\sum_{d'\le Z_U}\frac{\lambda(d')}{d'}|\mathcal E_{d'}(U)|&\ll U^{1/2+\varepsilon'}Y_UZ_U^{1+\varepsilon'}\ll H^{1/2+\varepsilon'}Y_U^{3/2}H^{\eta+2\varepsilon'}\\
+&\le H^{1/2+\eta+3\varepsilon'+(3/2)(1/3-\varepsilon)}=H^{1-3\varepsilon/4}\le H^{1-\varepsilon/4},
+\end{aligned}
 \]
 using $U=H/Y_U$, $Y_U\le Y_0=H^{1/3-\varepsilon}$, $\eta=\varepsilon/2$ and $\varepsilon'=\varepsilon/12$. Together with Step~3
 (where $\eta-3\varepsilon'=\varepsilon/4$) and the $O(\log H)$ blocks,
-\begin{equation}\label{eq:MH}
-\sum_{u>U_0}w(u)\mathcal P_u(H/u)=\mathcal M(H)+O(H^{1-\varepsilon/4}\log H),\qquad
-\mathcal M(H):=\sum_{d'}\frac{\lambda(d')}{d'}\sum_{\substack{u>U_0\\ (u,d')=1}}w(u)\,\bar G_{d'}\Bigl(\frac Hu\Bigr),
-\end{equation}
+\begin{align}\label{eq:MH}
+\sum_{u>U_0}w(u)\mathcal P_u(H/u)&=\mathcal M(H)+O(H^{1-\varepsilon/4}\log H),\\
+\mathcal M(H)&:=\sum_{d'}\frac{\lambda(d')}{d'}\sum_{\substack{u>U_0\\ (u,d')=1}}w(u)\,\bar G_{d'}\Bigl(\frac Hu\Bigr),\nonumber
+\end{align}
 where the double series converges absolutely: for $u\le H$, Lemma~\ref{lem:Gbar}(a) gives
-$\sum_{d'}(\lambda/d')|\bar G_{d'}(Y)|\ll\sum_{d'\le Y}\lambda\omega\sigma/(d'\varphi)+Y\sum_{d'>Y}\lambda\omega\tau/(d'\varphi)\ll Y^{\varepsilon'}$, for $u>H$
-it gives $\ll Y^2$, and $\sum_{U_0<u\le H}w(u)(H/u)^{\varepsilon'}+\sum_{u>H}w(u)(H/u)^2<\infty$.
+\[
+\sum_{d'}\frac{\lambda(d')}{d'}|\bar G_{d'}(Y)|\ll\sum_{d'\le Y}\frac{\lambda\omega\sigma}{d'\varphi}(d')+Y\sum_{d'>Y}\frac{\lambda\omega\tau}{d'\varphi}(d')\ll Y^{\varepsilon'},
+\]
+for $u>H$ it gives $\ll Y^2$, and $\sum_{U_0<u\le H}w(u)(H/u)^{\varepsilon'}+\sum_{u>H}w(u)(H/u)^2<\infty$.
 
 \emph{Step 5: the main term.} For each $d'$ let $A_{d'}(t)=\sum_{u\le t,\ (u,d')=1}w(u)=M_{d'}t+E_{d'}(t)$, so that
 $E_{d'}(t)\ll t^{1/2+\varepsilon'}d'^{\varepsilon'}$ by Lemma~\ref{lem:AP}(i). Stieltjes integration and the substitution $t=H/Y$ give
 \[
-\sum_{\substack{u>U_0\\ (u,d')=1}}w(u)\bar G_{d'}(H/u)=\int_{U_0}^\infty\bar G_{d'}(H/t)\,dA_{d'}(t)
-=M_{d'}H\int_0^{Y_0}\bar G_{d'}(Y)\frac{dY}{Y^2}+R_{d'},\qquad
-R_{d'}=-\bar G_{d'}(Y_0)E_{d'}(U_0)-\int_{U_0}^\infty E_{d'}(t)\,\partial_t\bigl[\bar G_{d'}(H/t)\bigr]dt,
+\begin{aligned}
+\sum_{\substack{u>U_0\\ (u,d')=1}}w(u)\bar G_{d'}(H/u)&=\int_{U_0}^\infty\bar G_{d'}(H/t)\,dA_{d'}(t)\\
+&=M_{d'}H\int_0^{Y_0}\bar G_{d'}(Y)\frac{dY}{Y^2}+R_{d'},\\
+R_{d'}&=-\bar G_{d'}(Y_0)E_{d'}(U_0)-\int_{U_0}^\infty E_{d'}(t)\,\partial_t\bigl[\bar G_{d'}(H/t)\bigr]dt,
+\end{aligned}
 \]
 the boundary term at infinity vanishing because $|\bar G_{d'}(H/t)|\le\omega H^2/(2d't^2)$ for $t>H$. By
-Lemma~\ref{lem:Gbar}(a),(b),(c), $\int_{U_0}^H|\partial_t\bar G_{d'}(H/t)|dt=\int_1^{Y_0}|\partial_Y\bar G_{d'}|dY\le\omega(d')Y_0$ and
-$\int_H^\infty t^{1/2+\varepsilon'}\omega H^2/(d't^3)\,dt\ll\omega H^{1/2+\varepsilon'}/d'$, so
+Lemma~\ref{lem:Gbar}(a),(b),(c),
+\[
+\int_{U_0}^H|\partial_t\bar G_{d'}(H/t)|\,dt=\int_1^{Y_0}|\partial_Y\bar G_{d'}|\,dY\le\omega(d')Y_0
+\qquad\text{and}\qquad
+\int_H^\infty t^{1/2+\varepsilon'}\frac{\omega H^2}{d't^3}\,dt\ll\frac{\omega H^{1/2+\varepsilon'}}{d'},
+\]
+so
 $R_{d'}\ll\omega(d')d'^{\varepsilon'}\bigl(\sigma(d')/\varphi(d')+Y_0\bigr)H^{1/2+\varepsilon'}$ and
 $\sum_{d'\le H^{1/3}}(\lambda(d')/d')|R_{d'}|\ll H^{1/2+1/3+3\varepsilon'}$. For $d'>H^{1/3}$ we bound the two sides separately:
 for $U_0<u\le H$ we have $H/u\le Y_0<d'$, so by (a) and (b)
@@ -746,7 +798,8 @@ one, which is where the closed formula~\eqref{eq:coff} comes from. The dilation,
 small $u$, is the mechanism for large $u$; but it leaves a main term.
 
 \begin{corollary}[the constant, and the mean of the sharp off-diagonal]\label{cor:coff}
-Let $\Off_f(t)=\sum_dW_f(d)\sum_{s\ne s'}\psi_d(s'-s,t)$ be the sharp off-diagonal of part~I, $\psi_d(m,t)=\#\{h\le t:h\equiv m\ (d)\}-t/d$. Then
+Let $\Off_f(t)=\sum_dW_f(d)\sum_{s\ne s'}\psi_d(s'-s,t)$ be the sharp off-diagonal of part~I, where
+$\psi_d(m,t)=\#\{h\le t:h\equiv m\ (d)\}-t/d$. Then
 \begin{equation}\label{eq:sharpcesaro}
 \Off^\ast_f(H)=\sum_{t<H}\Off_f(t)-\frac{\kappa_f}2H,\qquad\kappa_f=\sum_dW_f(d)\frac{\omega(d)(\omega(d)-1)}d=1-D_f(1),
 \end{equation}
@@ -784,7 +837,7 @@ $(1-D_f(1))/2$ is what made $\Off_f$ look mean-zero in the numerics of part~II.
 
 The same test for three further quadratics (\texttt{research/paper-III/scripts/off-general.ts}, exact $\Off_f(t)$ for all
 $t\le10^7$; here $P(1)\ne0$ and $D_f(1)$ includes the term $d=1$):
-\begin{center}\small
+\begin{center}\footnotesize\setlength{\tabcolsep}{4pt}
 \begin{tabular}{lrrrrl}
 \toprule
 $f$ & $C(f)$ & $c_{\mathrm{off}}(f)$ & $\tfrac12(1-D_f(1))$ & predicted mean & measured mean (dyadic blocks $2^{20}$--$2^{23}$)\\
@@ -861,11 +914,17 @@ $\rho_k=\sum_{x\in R}\e(kx/d')$ (real). Then
 \sum_{x\in R}B^{(Y)}_{d'}(\rep x{d'})=\frac1{4d'}\sum_{0<k<d'}\frac{1-\cos(2\pi kY/d')}{\sin^2(\pi k/d')}\,\rho_k
 =\frac1{2d'}\sum_{0<k<d'/2}\frac{1-\cos(2\pi kY/d')}{\sin^2(\pi k/d')}\,\rho_k .
 \end{equation}
-For every $k$ the coefficient satisfies $0\le\frac{1-\cos(2\pi kY/d')}{4d'\sin^2(\pi k/d')}\le\frac1{d'}\min\Bigl(\frac{d'^2}{8k^2},\frac{\pi^2Y^2}{8}\Bigr)$ when $0<k\le d'/2$.
+For $0<k\le d'/2$ the coefficient satisfies
+\[
+0\le\frac{1-\cos(2\pi kY/d')}{4d'\sin^2(\pi k/d')}\le\frac1{d'}\min\Bigl(\frac{d'^2}{8k^2},\frac{\pi^2Y^2}{8}\Bigr).
+\]
 \end{lemma}
 \begin{proof}
-Let $F(m)=B^{(Y)}_{d'}(m)$, a function on $\Z/d'$, with Fourier coefficients $\hat F(k)=d'^{-1}\sum_{m}F(m)\e(-km/d')$, so
-that $\sum_{x\in R}F(x)=\sum_{k\bmod d'}\hat F(k)\rho_k$. For $k\equiv0$, $\hat F(0)=d'^{-1}(\sum_{h\le Y}(Y-h)-Y^2/2)=-Y/(2d')$.
+Let $F(m)=B^{(Y)}_{d'}(m)$, a function on $\Z/d'$, with Fourier coefficients
+$\hat F(k)=d'^{-1}\sum_{m}F(m)\e(-km/d')$, so that $\sum_{x\in R}F(x)=\sum_{k\bmod d'}\hat F(k)\rho_k$. For $k\equiv0$,
+\[
+\hat F(0)=d'^{-1}\Bigl(\sum_{h\le Y}(Y-h)-\frac{Y^2}2\Bigr)=-\frac Y{2d'}.
+\]
 For $k\not\equiv0$ put $\alpha=k/d'$; since $\sum_m(Y^2/2d')\e(-km/d')=0$,
 \[
 \hat F(k)=\frac1{d'}\sum_{h\le Y}(Y-h)\e(-h\alpha)=\frac1{d'}\sum_{j=0}^{Y-1}\ \sum_{h=1}^{j}\e(-h\alpha)
@@ -917,8 +976,11 @@ $t\mapsto t\sin(\pi k/t)$ increases for $t>k$ and equals at least $2k$ for $t\ge
 $b\le1/(4k^2)$, so $\mathrm{Var}\,b\le\sup b\le1/(4k^2)$. The phase $2\pi kY/d'$ decreases over the block through an
 interval of length $\pi kY/V$, so $a$ has $\sup a\le\min(2,2\pi^2k^2Y^2/V^2)$ and $\mathrm{Var}\,a\le2\sup a\cdot(kY/V+1)$. Hence on the block
 \[
-\sup g_k+\mathrm{Var}\,g_k\ \le\ 2\sup a\sup b+\sup a\,\mathrm{Var}\,b+\sup b\,\mathrm{Var}\,a\ \ll\ \frac{\min(1,k^2Y^2/V^2)}{k^2}\Bigl(1+\frac{kY}V\Bigr)
-\ \ll\ \begin{cases}k^{-2}+Y/(kV)&(V\le kY),\\ Y^2/V^2&(V>kY).\end{cases}
+\begin{aligned}
+\sup g_k+\mathrm{Var}\,g_k&\le 2\sup a\sup b+\sup a\,\mathrm{Var}\,b+\sup b\,\mathrm{Var}\,a\\
+&\ll\frac{\min(1,k^2Y^2/V^2)}{k^2}\Bigl(1+\frac{kY}V\Bigr)
+\ll\begin{cases}k^{-2}+Y/(kV)&(V\le kY),\\ Y^2/V^2&(V>kY).\end{cases}
+\end{aligned}
 \]
 Partial summation against $S_k$ (Hypothesis~W: $\sup_{t\le2V}|S_k(t)|\ll(uk)^B(2V)^{\theta+\varepsilon}$) gives for the block
 $\bigl|\sum_{V<d'\le2V}\lambda\rho_kg_k\bigr|\le2\sup_{t\le2V}|S_k(t)|\,(\sup g_k+\mathrm{Var}\,g_k)$, and summing over the
@@ -968,7 +1030,10 @@ $(1-\theta)/6<(1-\theta)/(2(2-\theta))$.
 
 \emph{Window.} Proposition~\ref{prop:windowW} with $Y=H/u$:
 \[
-\sum_{u\le U_0}|w(u)|\,\mathcal W_u\Bigl(\frac Hu;L\Bigr)\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{3B-\theta}+H^{\theta+B+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{-\theta-B}+\sum_{u\le U_0}|w(u)|\Bigl(\frac Hu\Bigr)^{1-\varepsilon}
+\begin{aligned}
+\sum_{u\le U_0}|w(u)|\,\mathcal W_u\Bigl(\frac Hu;L\Bigr)&\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{3B-\theta}+H^{\theta+B+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{-\theta-B}\\
+&\quad+\sum_{u\le U_0}|w(u)|\Bigl(\frac Hu\Bigr)^{1-\varepsilon}
+\end{aligned}
 \]
 $\ll H^{\theta+(2/3)(1+3B-\theta)+O(\varepsilon)}+H^{\theta+B+(2/3)(1-\theta-B)+O(\varepsilon)}+H^{1-\varepsilon/3}$. The first exponent is
 $\tfrac23+\tfrac13\theta+2B<1$ exactly when $\theta+6B<1$; the second is $\tfrac23+\tfrac13(\theta+B)<1$, which is weaker.
@@ -1030,8 +1095,10 @@ Let $\mathcal A=\F_q[u]$, $q$ odd, $f=t^2-D$ with $D\in\mathcal A$ squarefree of
 $\lambda$, $P(1)$, $W_f$ as over $\Z$ with $|P|=q^{\deg P}$. Part~I, Theorem~8 and Lemma~9: for $N\ge1$, with the sum over
 the $q^N-1$ nonzero $h$ of degree $<N$,
 \begin{equation}\label{eq:ffid}
-\sum_h\Bigl(\frac{S_f(h)}{C^2}-1\Bigr)=-\sum_{1\le\deg d\le N}a_f(d)-q^N\sum_{\deg d>N}\frac{a_f(d)}{|d|}+\bigl(1-P(1)\bigr)+\Off_f(N),
-\qquad\Off_f(N)=T_{\mathrm{act}}(N)-T_{\exp}(N),
+\begin{gathered}
+\sum_h\Bigl(\frac{S_f(h)}{C^2}-1\Bigr)=-\sum_{1\le\deg d\le N}a_f(d)-q^N\sum_{\deg d>N}\frac{a_f(d)}{|d|}+\bigl(1-P(1)\bigr)+\Off_f(N),\\
+\Off_f(N)=T_{\mathrm{act}}(N)-T_{\exp}(N),
+\end{gathered}
 \end{equation}
 \[
 T_{\mathrm{act}}(N)=\sum_{N<\deg d\le M(N)}W_f(d)A_N(d),\qquad T_{\exp}(N)=q^N\sum_{\deg d>N}\frac{W_f(d)\bigl(\omega_f(d)^2-\omega_f(d)\bigr)}{|d|},
@@ -1086,15 +1153,21 @@ $(16/c^2)(a+1/c^2)$ vanishes, i.e.\ unless $a=-1/c^2$ ($O(q)$ configurations). F
 of the $\omega(d_2)=2$ choices of $s_{d_2}$ there is exactly one ordered pair with difference $cd_2$; the pairs with
 difference $-cd_2$ are those of $(d_2,-c)$, which gives the same $d'$. Hence
 \[
-T_{\mathrm{act}}(2)=\sum_{(d_2,c)\ \mathrm{admissible}}2\,W_f(d_2d')=2P(1)\sum\frac{\lambda(d_2)\lambda(d')}{q^3}
-=\frac{2}{q^3}\Bigl(\frac{q-1}2\Bigr)(q-1)\bigl(1+O(q^{-1})\bigr)=\frac1q+O\Bigl(\frac1{q^2}\Bigr).
+\begin{aligned}
+T_{\mathrm{act}}(2)&=\sum_{(d_2,c)\ \mathrm{admissible}}2\,W_f(d_2d')=2P(1)\sum\frac{\lambda(d_2)\lambda(d')}{q^3}\\
+&=\frac{2}{q^3}\Bigl(\frac{q-1}2\Bigr)(q-1)\bigl(1+O(q^{-1})\bigr)=\frac1q+O\Bigl(\frac1{q^2}\Bigr).
+\end{aligned}
 \]
 The error $O(q^{-3/2})$ stated in the theorem is what the same argument gives for general $D$ (Weil); for $D=u$
 the count is exact up to the $O(q)$ excluded configurations and the error is $O(q^{-2})$.
 \end{proof}
 
 \begin{remark}[the random permutation model]\label{rem:perm}
-The leading term of $T_{\exp}(N)$ is $q^N\sum_{\deg d=N+1}\omega^\circ(d)q^{-2(N+1)}=q^{-1}\,\mathbb E_{N+1}[\omega^2-\omega]$, the
+The leading term of $T_{\exp}(N)$ is
+\[
+q^N\sum_{\deg d=N+1}\omega^\circ(d)\,q^{-2(N+1)}=q^{-1}\,\mathbb E_{N+1}[\omega^2-\omega],
+\]
+the
 expectation over monic $d$ of degree $N+1$. As $q\to\infty$ the factorisation type of a random $d$ of degree $k$ is
 distributed like the cycle type of a random permutation in $S_k$, and $\chi_D$ takes the values $\pm1$
 independently and equiprobably on the prime factors (Weil), so that $\omega(d)=2^{\#\{P\mid d\}}$ if all factors are
@@ -1115,7 +1188,10 @@ function-field Hypothesis~(E) itself), the configuration $(j,i,k)$ contributes $
 is $\le-1$ with equality exactly when $i=N-1$ and $k=N+1-j$ (moduli of degree $N+1$), subject to
 $k\le\deg(m^2-4D)=\max(2N-2,\deg D)$. Hence
 \[
-T_{\mathrm{act}}(N)\;\to\;\frac{c_N(D)}q,\qquad c_N(D)=\#\{j\in[0,N-1]:\ N+1-j\le\max(2N-2,\deg D)\}=\min\bigl(N,\ \max(2N-2,\deg D)-1\bigr),
+\begin{aligned}
+T_{\mathrm{act}}(N)&\;\to\;\frac{c_N(D)}q,\\
+c_N(D)&=\#\{j\in[0,N-1]:\ N+1-j\le\max(2N-2,\deg D)\}\\&=\min\bigl(N,\ \max(2N-2,\deg D)-1\bigr),
+\end{aligned}
 \]
 while $T_{\exp}(N)\to(N+1)/q$ by Remark~\ref{rem:perm}. For $D=u$: $c_1=0$, $c_2=1$, in agreement with the theorem;
 $c_N=N$ for $N\ge3$. The generic value $c_N=N$ leaves $\Off_f(N)\to-1/q$, and $1/q=q^N\sum_{\deg d=N+1}a_f(d)/|d|$ is
@@ -1132,7 +1208,8 @@ with $c_N(D)$ as in Remark~\ref{rem:config}; in particular $\Off_f(N)=-1/q+O(q^{
 $N\le2$ unless $\deg D\le N$, where it is $-2/q+O(q^{-3/2})$.
 \end{conjecture}
 
-Table~\ref{tab:offq} and Figure~\ref{fig:offq} give the exact values for $D=u$, $u^2+1$, $u^3+u$ (\texttt{research/paper-III/scripts/offq.ts}).
+Table~\ref{tab:offq} and Figure~\ref{fig:offq} give the exact values for $D=u$, $u^2+1$, $u^3+u$
+(\path{research/paper-III/scripts/offq.ts}).
 They agree with the conjecture in every case: $q\,\Off_f(N)$ is near $-2$ for $(N,\deg D)=(1,1),(2,1),(2,2)$ and
 near $-1$ for $(1,2),(1,3),(2,3)$; for $(3,1)$ with all moduli only $q\le7$ is available and the values $-4.9,-2.5,-2.0$
 are still descending. Since the main term comes from the moduli of degree $N+1$ alone (the others contribute
@@ -1147,8 +1224,9 @@ $D=u$.
 \caption{$q\,\Off_f(N)$, $q\,T_{\mathrm{act}}(N)$ and $q\,T_{\exp}(N)$ for $f=t^2-D$ over $\F_q[u]$, the three largest $q$ computed.
 Predicted limits (Conjecture~\ref{conj:kappa}, Remarks~\ref{rem:perm}, \ref{rem:config}): $qT_{\exp}\to N+1$, $qT_{\mathrm{act}}\to c_N(D)$.}
 \label{tab:offq}
+\footnotesize\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{llrrrrr}\toprule
-$D$ & $N$ & $q$ & $q\,\Off_f(N)$ & $q\,T_{\mathrm{act}}$ & $q\,T_{\exp}$ & predicted limit of $q\,\Off_f$\\\midrule
+$D$ & $N$ & $q$ & $q\,\Off_f(N)$ & $q\,T_{\mathrm{act}}$ & $q\,T_{\exp}$ & predicted limit\\\midrule
 $u$     & 1 & 37, 41, 43 & $-2.15$, $-2.13$, $-2.13$ & $0$, $0$, $0$ & $2.15$, $2.13$, $2.13$ & $-2$\\
 $u$     & 2 & 37, 41, 43 & $-2.08$, $-2.08$, $-2.02$ & $1.06$, $1.05$, $1.10$ & $3.14$, $3.13$, $3.12$ & $-2$\\
 $u$     & 3 & 3, 5, 7    & $-4.91$, $-2.50$, $-2.02$ & --- & --- & $-1$\\
@@ -1217,7 +1295,8 @@ several orbit types and a saving over the trivial bound is not enough (part~I, R
 
 \appendix
 \section{Computations}
-\texttt{research/paper-III/scripts/offq.ts} computes $T_{\mathrm{act}}(N)$ and $T_{\exp}(N)$ exactly from the roots modulo every squarefree
+The script \texttt{offq.ts} in \path{research/paper-III/scripts/} computes $T_{\mathrm{act}}(N)$ and $T_{\exp}(N)$ exactly
+from the roots modulo every squarefree
 $d$ of degree in $(N,M(N)]$ (the finite-support lemma of part~I), for $f=t^2-D$ with $D$ given by the environment
 variable \texttt{D}; the data for $D=u$ ($N\le2$ for the primes $q\le43$, $N\le3$ for $q\le7$) are in
 \texttt{research/paper-III/data/offq*.dat}. The runs for $D=u^2+1$ ($q\le43$) and $D=u^3+u$ ($q\le23$) are in
