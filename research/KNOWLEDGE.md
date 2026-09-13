@@ -22,10 +22,10 @@ prime statements need Hardy–Littlewood.
 ## 0b. WHERE THINGS STAND, AND WHAT TO DO NEXT (updated 13 September 2026, after the first external assessment)
 
 STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passing.
-  paper-I   28 pp  v9 (13 Sep). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
+  paper-I   30 pp  v9 (13 Sep). Conjecture 1 in Cesàro form ONLY; the sharp sum has no bounded remainder (new Remark
                    rem:sharp; ERRATA 11, 14). Preprint ready; awaiting an arXiv endorser (math.NT).
-  paper-II  22 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
-  paper-III 26 pp  READ by a fresh adversarial reader (13 Sep evening, opus): core sound (decomposition, c_off to six
+  paper-II  24 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
+  paper-III 27 pp  READ by a fresh adversarial reader (13 Sep evening, opus): core sound (decomposition, c_off to six
                    digits, θ+6B<1 recomputed); 7 findings all FIXED (ERRATA 18): Thm u1's exponent 12/13 -> 1-1/16 (the
                    K-optimisation had not been done), a proposition invoked outside its hypothesis (harmless for u=1,
                    now said), the finite Fourier lemma used at non-integer Y (correction term added), d'>1 in the
@@ -49,6 +49,15 @@ Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
 in a fix we had made ourselves and endorsed after a numerical check that could not have detected it (F26). The error
 density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
+
+WHEN IS THE INTERNAL PHASE FINISHED (criterion set 13 Sep, at the author's request, to stop open-ended polishing):
+  a paper is internally done when every statement in it is either PROVED AND READ ADVERSARIALLY AT LEAST ONCE (external
+  assessment or a fresh agent with no session context) or EXPLICITLY LABELLED open/conjectural; every number is
+  reproducible from the repository; ERRATA/KNOWLEDGE are current; the open problem is stated exactly with its known
+  obstructions. Status against it (13 Sep night): paper I yes (assessment + internal); paper III yes (fresh reading,
+  7 fixes); paper IV yes (Section 5 read twice, thm:smooth read, Sections 2–4 reading launched); paper II: Sections 2–4
+  reading launched. When those two readings are in and their findings fixed, the internal phase STOPS. What remains
+  after that is RESEARCH (RESEARCH-USES.md), to be started only by a decision of the author, and EXTERNAL review.
 
 WHEN PICKING UP AGAIN, IN ORDER:
 0. Paper IV: (a) DONE 13 Sep: Theorem thm:smooth written, phase-tested (0.035 rad) and amplitude-tested (0.95) by

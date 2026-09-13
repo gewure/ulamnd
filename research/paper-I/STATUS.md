@@ -77,3 +77,5 @@ Theorem 10 (spiral rays are degree-d polynomials). Proposition 7 (explicit formu
 
 ## Reviews received
 Three rounds (external Claude reviewer), all addressed; see NOTES §§8–9. Suggested venues: JNT, Acta Arith., Mathematika.
+
+13 Sep (night): related-work paragraph with verified references added; 30 pp.

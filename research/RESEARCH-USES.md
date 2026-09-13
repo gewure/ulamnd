@@ -224,6 +224,16 @@ reformulation may unblock a hybrid; no concrete step identified.
    zeros of L(s,χ) for the cubic character subtracted exactly and x far beyond 10⁷; not worth it. ☆ as a numerical
    project. Lesson re-learned: mpmath's dirichlet() is wrong at s = 1; compute L(1,χ) by the digamma formula.
 
+## 4b. Parked research items (13 Sep night): NOT part of the internal phase
+These are research, not polishing; they start only on the author's decision. In order of expected value per effort:
+1. The Hooley part of the Riesz-mean theorem via the modulus-side (Kuznetsov/Bykovskiĭ) expansion, then the amplitude law
+   of §6 retested with the corrected coefficients (★★★).
+2. The smooth-window theorem at general u (level u², Γ⁰(u²)): the computation is the same; testing needs Maass data at
+   non-squarefree levels (★★★ for the theorem, blocked for the test).
+3. The function-field theorem (1d) (★★★★★ for a closable statement).
+4. The Hecke/L-function mechanism for the u-sum (1a) (★★★★☆), then the level-aspect tools of 1b.
+5. Uniformity in u itself.
+
 ## 5. Thoughts, unrated
 - Every one of the three errors found on 12 Sep sits at a place where an "obviously" true step replaced a
   computation. The programme's strength is that it tests; its weakness is the step between the test and the theorem.

@@ -25,3 +25,5 @@ Seven findings, all fixed: Theorem u1's exponent 12/13 → 1−1/16 (the K-balan
 proposition invoked outside its hypothesis (harmless for u = 1, now argued); the finite Fourier lemma used at
 non-integer Y (correction term added); d' > 1 in the definition of a piece; the sign argument for c_off; two exponents
 in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
+
+13 Sep (night): related-work paragraph; date updated; 27 pp.

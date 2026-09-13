@@ -20,7 +20,7 @@ exactly), the bound O(Y^{m+1/2−δ}) is open, and it is open for a reason: the 
 sums of the same order as the main term (Remark `rem:gaps`; `research/ERRATA.md` items 16–17). The clean statement
 is the smooth-window version, now **Theorem `thm:smooth`** (absolutely convergent spectral expansion with explicit
 coefficients; phase of the first line predicted with no free parameter and observed to 0.035 rad,
-`scripts/smooth-phase-test.py`; `research/ERRATA.md` item 19). Not yet read by anyone outside. 29 pp.
+`scripts/smooth-phase-test.py`; `research/ERRATA.md` item 19). Read adversarially by a fresh reader (core verified). 31 pp.
 
 | file | what |
 |---|---|
