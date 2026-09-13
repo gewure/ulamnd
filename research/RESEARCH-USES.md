@@ -76,6 +76,12 @@ with polynomial dependence on t_j) — no level-uniform spectral theory would be
   own sub-families.
 
 ### 1b. The spectral large sieve in the level aspect ★★★
+*Literature found 13 Sep (verified):* Liu–Masri–Young (Compos. Math. 2013) equidistribute the FULL sets of Heegner points
+of level q as q, D → ∞ via hybrid subconvexity and L²-restriction norms on the points; Humphries–Nordentoft (JEMS, to
+appear) do the level and subgroup aspects for real quadratic invariants by rewriting Weyl sums as adèlic period
+integrals of Rankin–Selberg type; Pascadi (Forum Math. Pi 2026) has a level-uniform large sieve for exceptional
+Maass forms. These are the tools for our sub-families {2u²|b, u²|c}; none treats sub-families defined by a
+divisibility condition on the middle coefficient, which is the new feature.
 Deshouillers–Iwaniec's large sieve inequality for the spectrum of Γ₀(N) is uniform in N. The pieces at level u² are
 Poincaré series at a cusp of width u²; Σ_u w(u) Σ_j |⟨Φ,u_j^{(u²)}⟩|²·(period)² is the kind of quantity it bounds.
 - *What must be true*: the period sums over ≍ u Heegner points of level u² must be bounded on average over j with a
@@ -137,7 +143,7 @@ proving anything about primes; the value is the sharp, falsifiable statement and
 - *Related open problem*: the k-point analogue (paper II open problem (d)); even the linear case's third moment is open
   (Kuperberg). ★ for that.
 
-### 2c. Equidistribution of Heegner points and closed geodesics in the level aspect ★★
+### 2c. Equidistribution of Heegner points and closed geodesics in the level aspect ★★★ (raised 13 Sep: the methods exist, see 1b)
 Duke's theorem (discriminant aspect) is the untwisted statement behind our period sums; the u-problem asks for period
 bounds over the level-u² sub-families with the level growing — a "sparse" or level-aspect equidistribution for Heegner
 points, related to Michel–Venkatesh's work in spirit. Our contribution would be a natural family (the dilates of the

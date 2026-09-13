@@ -255,3 +255,19 @@ route before being applied (the checks are described in the items). We agree wit
     predicted 4.066, observed 4.032 rad — difference 0.035 (the other sign would give 3.1). The theorem is about the
     window and far moduli of part III for u = 1 (small moduli drop out), i.e. the increments of S(t), which do not see
     the Hooley part. Not yet read by anyone outside.
+
+20. **Paper IV: amplitude of Theorem thm:smooth confirmed; related-work paragraphs added to all four papers (13 Sep, late).**
+    Amplitude: the L²-norm of u_1 over the SL₂(Z) fundamental domain computed from the 20 LMFDB coefficients (Parseval
+    for y ≥ 1, Gauss–Legendre 24×24 below; converged to 20 digits with 12 coefficients: ‖ũ_1‖² = 1.8158e−19 in the
+    a(1) = 1 normalisation); predicted amplitude of the t_1 line 2|D|^{−1/4}|Per L~||Γ(−it_1)W_c(3/2+it_1)| = 0.0600 vs
+    observed 0.0569 (ratio 0.95; scripts/smooth-amplitude-test.py). Together with the phase (0.035 rad) this confirms
+    every constant of the theorem. Related work: a "Related work" paragraph in the introductions of papers I, II, III
+    and in Section 7 of paper IV, citing nine references NEW to the repository, each verified on 13 Sep against its
+    arXiv abstract page (title, authors, date; journal where given): Browning–Sofos–Teräväinen (arXiv:2212.10373),
+    Sofos (2606.15698), Demangos–Longhi–Saettone (2606.29250), Kotsovolis–Woo (2312.11445), Kuperberg (2210.09775),
+    Ngo (2107.13301; Bull. LMS 2024, doi 10.1112/blms.13108), Liu–Masri–Young (1206.3208; Compos. Math. 149 (2013)
+    1150–1174), Pascadi (2404.04239; Forum Math. Pi 14 (2026) e8), Humphries–Nordentoft (2211.05890; JEMS, to appear).
+    Descriptions in the text are taken from the abstracts only. Previously cited contemporary work (Banks–Ford,
+    Volfson, Bortolussi, Kuperberg 2025, Kuperberg–Rodgers–Roditty-Gershon, de la Bretèche–Kuperberg, Goldston–Suriajaya,
+    Kravitz–Woo–Xu, Aletheia-Zomlefer–Fukshansky–Garcia, Marklof–Welsh, Kowalski–Soundararajan) is gathered in the same
+    paragraphs. Author's request; rule: cite only what was verified.

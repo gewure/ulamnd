@@ -37,8 +37,9 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
                    theorem stands as exact expansion + proved leading terms, remainder OPEN and equivalent to the
                    modulus-side (Kuznetsov/Bykovskiĭ) treatment of smoothed Hooley sums. PROVED instead (13 Sep night):
                    Theorem thm:smooth — the smooth-window spectral formula, absolutely convergent, explicit
-                   coefficients, phase of the first line predicted with no free parameter and observed to 0.035 rad
-                   (ERRATA 19). One proved theorem in paper IV again; unread by anyone outside. 29 pp.
+                   coefficients, phase of the first line predicted with no free parameter and observed to 0.035 rad,
+                   AMPLITUDE predicted 0.0600 vs observed 0.0569 (ERRATA 19, 20). One proved theorem in paper IV again,
+                   both of its testable constants confirmed; unread by anyone outside. 30 pp.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -46,10 +47,9 @@ in a fix we had made ourselves and endorsed after a numerical check that could n
 density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
 
 WHEN PICKING UP AGAIN, IN ORDER:
-0. Paper IV: (a) DONE 13 Sep night: Theorem thm:smooth written and phase-tested (0.035 rad). Still to do: test the
-   AMPLITUDES (needs ρ_j(1), the L²-normalisation of u_1 — not in the LMFDB pages we used; compute ‖u_1‖ via the
-   Rankin–Selberg/Hoffstein–Lockhart formula |ρ(1)|² = cosh(πt)/(‖u‖² L(1,sym²u))·const, or from Strömberg's tables) and
-   the second line t_2 (needs its coefficients); then get the proof read. (b) For the Riesz/Cesàro object: the Hooley part. Either
+0. Paper IV: (a) DONE 13 Sep: Theorem thm:smooth written, phase-tested (0.035 rad) and amplitude-tested (0.95) by
+   computing ‖u_1‖ from the coefficients (smooth-amplitude-test.py). Still to do: the second line t_2 (needs its
+   coefficients), the restricted object (needs level-2 forms), and an outside reading of the proof. (b) For the Riesz/Cesàro object: the Hooley part. Either
    compute it with the modulus-side spectral expansion (Bykovskiĭ's method for Σ_{d≲Y}ρ_k(d) with the smooth cutoff J_m
    provides) and ADD it to the residues — then test the amplitude law (F22) with the corrected α_j — or state the theorem
    with α_j = residue + Hooley part and leave the bound open. Do NOT call the remainder bound a technicality again.
@@ -168,6 +168,8 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (late). Theorem thm:smooth amplitude-tested: 0.0600 predicted vs 0.0569 observed (ERRATA 20). Related-work
+  paragraphs with nine newly verified references added to papers I–IV (ERRATA 20; author's request).
 - 13 Sep (later night). Theorem thm:smooth (smooth windows) proved and phase-tested to 0.035 rad (ERRATA 19); smooth-phase-test.py.
 - 13 Sep (night). Remainder route of paper IV carried out: exact coefficient formula (Prop. prop:exact), main terms as
   residues, and the discovery that the remainder contains Riesz-smoothed Hooley sums (ERRATA 17, F33); the
