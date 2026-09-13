@@ -141,8 +141,8 @@ route before being applied (the checks are described in the items). We agree wit
     m₄ < 0, m₅ > 0 throughout); abstract, "in words" paragraph and open problem (b) adjusted. The quadratic theorem is
     unaffected (m₃ = 1), as is the numerical S₃ example t³−2 (m₃ = 1).
 
-13. **Paper IV, Theorem thm:main and its informal version thm:K (Finding 3: significant proof defect — NOT YET
-    REPAIRED).** The model object (label eq:model) keeps the condition (d, 2D) = 1 on the moduli; Step 2 of the section
+13. **Paper IV, Theorem thm:main and its informal version thm:K (Finding 3: significant proof defect — REPAIRED
+    13 Sep, repair (ii); not yet read externally).** The model object (label eq:model) keeps the condition (d, 2D) = 1 on the moduli; Step 2 of the section
     "The spectral formula for a piece" writes the sum as a sum over complete SL₂(Z)-orbits of Heegner points, and the
     restriction is not orbit-invariant: for D = −4 (class number 1, a single orbit) the admitted form [5,4,1] is sent
     by z ↦ z/(z+1) to the excluded form [2,2,1]. Verified, and strengthened: for the eleven discriminants
@@ -163,7 +163,21 @@ route before being applied (the checks are described in the items). We agree wit
     `scripts/piece-periodogram.ts`, `scripts/piece-level2.ts`. First run (13 Sep, KNOWLEDGE.md 0c): the restricted
     object carries the even Maass newforms of level e | rad(2D) and the unrestricted one does not — for D = −3 the
     largest line of the restricted object is 5.085, the first even level-3 newform (LMFDB: 5.0987), absent from the
-    unrestricted sum. That is what repair (ii) predicts. **Repair: pending the author's decision; see KNOWLEDGE.md 0b–0c.**
+    unrestricted sum. That is what repair (ii) predicts. **Repair carried out the same day (author's decision: (ii),
+    keep the object, do the work):** Step 1 re-parametrises the pairs (d, x mod d) by ALL forms [d, 2x, ∗] of discriminant
+    4D (a bijection for every d, verified: orbit counts Σ_g h(4D/g²) for 9 discriminants; the old discriminant-D
+    parametrisation is a bijection only for odd d coprime to D and produces different points, Lemma conventions);
+    Lemma subfamily: H_e = {e | a} is Γ₀(e)- and reflection-stable and a finite union of Γ₀(e)-orbits (orbit counts
+    stabilise for 15 pairs (D,e)); Corollary parity-e; Step 2: S = Σ_{e | rad 2D} μ(e) S_e by Möbius on the paired
+    sawtooth series (exact regrouping verified in rational arithmetic), each S_e a sum of Φ_t over H_e mod translation;
+    Steps 3–5, Lemmas seed/trunc, Remark eisenstein (all cusps of Γ₀(e)), Prop. riesz (Kim–Sarnak, Hoffstein–Lockhart at
+    fixed level, Weyl law for Γ₀(e)) and Theorem main redone at level e with P_e, Per_{D,e}; frequencies k, a_j(k),
+    α_k = 2πk, β_k = 2πkt/√|D| (the ratio α/β = √|D|/t and hence the phase prediction are convention-independent).
+    Theorem main now: sum over e | rad(2D) with μ(e), over even cusp forms of Γ₀(e) (level-one forms + newforms of
+    level e). Correction notice and Remark rem:coprime record the error and the test. The referee remark names the new
+    Step 1–2 as the first thing to check. **Status: proved modulo external reading; the repaired statement was tested
+    against data before it was written (level-e newform lines present in the restricted object, absent in the
+    unrestricted one).**
 
 14. **Paper I, Hypothesis (E), sharp form; paper II §6 (found by us while applying item 11).** "(E): Off*_f(H) = O(H);
     in sharp form, Off_f(H) = O(1), which implies the Cesàro form" — the sharp form is false by the same differencing:

@@ -20,7 +20,7 @@
 \title{The pair singular series of a polynomial IV:\\ the second spectrum}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
 carried out with heavy use of a large language model; see the disclosure at the end.}}
-\date{Working draft of 13 September 2026 (with a correction notice)}
+\date{Working draft of 13 September 2026 (corrected)}
 
 \begin{document}
 \maketitle
@@ -38,30 +38,32 @@ of Sali\'e sums, which the Kuznetsov formula of half-integral weight continues t
 $\tfrac12\pm it_j$, and the Katok--Sarnak correspondence identifies the residues as periods of Maass forms. The same law, and the same parameter-free
 prediction of its phases, holds for a barer and more classical object: the partial sums of the Weyl sums of the
 congruence $b^2\equiv D$, which Hooley bounded by $X^{3/4+\varepsilon}$ and which we find to exhibit square-root
-cancellation with an explicit spectral expansion. For $u=1$ we give a spectral argument for a model object: the root pairs are Heegner points, the piece is a
+cancellation with an explicit spectral expansion. We prove it for $u=1$ on a model object: the root pairs are Heegner points, the piece is a
 sum of one test function over a modular orbit, the convergence obstruction and the passage to $L^2$ are resolved by a
 truncation and by the symmetry of the orbit, the constant and continuous contributions vanish or are negligible
 because the seed has vanishing horizontal mean, the arising Bessel integral is evaluated exactly by a Mellin--Barnes
-contour shift, and the spectral sum converges absolutely for Riesz means of order at least two. One step of that
-argument is defective as written: the model retains the coprimality condition $(d,2D)=1$ on the moduli, and the
-passage to complete $\mathrm{SL}_2(\Z)$-orbits of Heegner points drops it, so the theorem is not established as stated
-(correction notice below and Remark~\ref{rem:coprime}, which also describes the repair). We discuss the uniformity in $u$ that the Ces\`aro
+contour shift, and the spectral sum converges absolutely for Riesz means of order at least two. The argument runs at
+the levels $\Gamma_0(e)$, $e\mid\operatorname{rad}(2D)$: the coprimality condition $(d,2D)=1$ carried by the moduli is not
+invariant under $\mathrm{SL}_2(\Z)$, an error of the first version of this paper found by an external reader, but its
+M\"obius resolution into the sub-families $\{e\mid d\}$ is invariant under $\Gamma_0(e)$, and the spectrum accordingly
+contains the even Maass newforms of those levels next to the level-one forms, as the data confirm (for $D=-3$ the
+largest line is the first even newform of level $3$). We discuss the uniformity in $u$ that the Ces\`aro
 conjecture of part~I would need, and report the numerical evidence, including phase predictions with no free
 parameter that agree to a median of $0.012$ radians.
 \end{abstract}
 
 \medskip\noindent\fbox{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}{\small\textbf{Correction notice (13 September 2026).}
 An external assessment of the repository (revision a372a63, 12 September 2026; file \texttt{research/reviews/}) found
-that the proof of Theorem~\ref{thm:main} replaces the restricted sum defining the model object~\eqref{eq:model}, whose
-moduli satisfy $(d,2D)=1$, by a sum over complete $\mathrm{SL}_2(\Z)$-orbits of Heegner points, and that the restriction
-is not orbit-invariant: for $D=-4$ the admitted form $[5,4,1]$ and the excluded form $[2,2,1]$ lie in the same orbit.
-We have verified this. Theorem~\ref{thm:main} (and its informal version, Theorem~\ref{thm:K}) is therefore \emph{not
-established} for the object~\eqref{eq:model}. The argument appears to apply, once Lemma~\ref{lem:sawtooth} is redone
-without its symmetry assumption, to the unrestricted divisor sum, which is a finite union of complete orbits; this has
-not been carried out. The restricted sum requires the spectral theory of $\Gamma_0(N)$ with $N\mid\operatorname{rad}(2D)$.
-Remark~\ref{rem:coprime} states the defect and the two repairs precisely. The numerical results of
-\S\S\ref{sec:numerics}--\ref{sec:hooley} are unaffected. Nothing else has been changed; where the text below says
-``we prove'', it is to be read with this notice.}}
+that the proof of Theorem~\ref{thm:main} in the version of 12 September replaced the restricted sum defining the model
+object~\eqref{eq:model}, whose moduli satisfy $(d,2D)=1$, by a sum over complete $\mathrm{SL}_2(\Z)$-orbits of Heegner
+points, and that the restriction is not orbit-invariant: for $D=-4$ the admitted form $[5,4,1]$ and the excluded form
+$[2,2,1]$ lie in the same orbit. We verified this; the theorem was not established as then stated. The present version
+repairs the argument by working at the levels $\Gamma_0(e)$, $e\mid\operatorname{rad}(2D)$ (Lemma~\ref{lem:subfamily}
+and Step~2 of \S\ref{sec:formula}), which also required moving the parametrisation from discriminant $D$ to
+discriminant $4D$ (Step~1); every analytic step is unchanged, the level being fixed by $D$. The repaired theorem predicts
+the even Maass newforms of the levels $e$ in the spectrum of the model object and their absence from the unrestricted
+divisor sum, and this was checked numerically before the repair was written (Remark~\ref{rem:coprime}). The repair has
+not been read by anyone outside; Remark~\ref{rem:referee} says what to check first. Record: \texttt{research/ERRATA.md}, item~13.}}
 
 \section{Introduction}\label{sec:intro}
 
@@ -86,16 +88,17 @@ Ces\`aro form of Conjecture~1 of part~I is equivalent to the windows being $o(H\
 
 \paragraph{Results.}
 \begin{itemize}
-\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}; \emph{not established as stated}, see the
-correction notice): for $u=1$, fixed $f$, and Riesz means of order $m\ge2$, and for the model object~\eqref{eq:model}
+\item \emph{The spectral formula for a piece} (Theorem~\ref{thm:main}; repaired on 13 September 2026, see the correction
+notice): for $u=1$, fixed $f$, Riesz means of order $m\ge2$, and the model object~\eqref{eq:model}
 of \S\ref{sec:numerics} rather than the piece itself (the weight $\lambda$ and the squarefree condition are dropped
 there, the condition $(d,2D)=1$ is kept),
 \[
 \mathcal P^{(m)}_u(Y)=c_{u}Y+Y^{1/2}\sum_{j}\bigl(\alpha_j(u,f)Y^{it_j}+\overline{\alpha_j(u,f)}Y^{-it_j}\bigr)\,\gamma_m(t_j)+O(Y^{1/2-\delta}),
 \]
-the sum over the even Maass cusp forms $u_j$ of $\mathrm{SL}_2(\Z)$ with Laplace eigenvalue $\tfrac14+t_j^2$ (and, for
-$u>1$, the newforms of the levels dividing $u^2$), with $\alpha_j(u,f)$ an explicit multiple of the Katok--Sarnak period
-of $u_j$ at discriminant $D$, and $\gamma_m(t)\ll|t|^{-m-1}$.
+the sum over the even Maass cusp forms $u_j$ of level one and the even newforms of the levels $e\mid\operatorname{rad}(2D)$,
+with Laplace eigenvalue $\tfrac14+t_j^2$ (and, for $u>1$, the levels dividing $4u^2$), with $\alpha_j(u,f)$ an explicit
+signed combination of periods of $u_j$ over Heegner points of level $e$ and discriminant $4D$, the Katok--Sarnak
+periods for level one, and $\gamma_m(t)\ll|t|^{-m-1}$.
 \item \emph{Numerical confirmation} (\S\ref{sec:numerics}): for five quadratics the even parameters explain the
 variance of $\mathcal P_u(Y)/\sqrt Y$ at the $92$nd--$100$th percentile among random frequency sets, the odd ones at the
 $12$th--$66$th; the dominant line $t_1=13.7798$ has stable amplitude and phase over two decades of $\log Y$; the two
@@ -352,16 +355,21 @@ sum over $h\le Y$ as a finite combination of Poincar\'e series for $\mathrm{SL}_
 decomposition in weight $0$ and level $1$. There the parametrisation $\lambda_j=s_j(1-s_j)$, $s_j=\tfrac12+it_j$,
 produces terms $Y^{s_j}=\sqrt Y\,Y^{it_j}$ directly, exactly as the error term in the hyperbolic lattice-point
 problem does. This accounts at once for all four features of the data: the frequencies are the $t_j$ themselves, the
-scale is $\sqrt Y$, the spectrum is that of level $1$ and weight $0$, and the forms that can appear are those pairing
-non-trivially with the Heegner points or the closed geodesics of discriminant $D$, which by
-Proposition~\ref{prop:parity} are the even ones. What we set out to prove is the following; the argument occupies
+scale is $\sqrt Y$, the spectrum is that of weight $0$ and of the levels $e\mid\operatorname{rad}(2D)$ with the
+level-one lines dominant (the newforms of level $e$ were seen in the data only after the first version of this paper
+had been corrected, Remark~\ref{rem:coprime}), and the forms that can appear are those pairing
+non-trivially with the Heegner points or the closed geodesics, which by
+Proposition~\ref{prop:parity} and Corollary~\ref{cor:parity-e} are the even ones. What we prove is the following; the proof occupies
 \S\S\ref{sec:formula}--\ref{sec:proof}, and the precise form, with the order of the Riesz mean, is
-Theorem~\ref{thm:main}. For its status see the correction notice and Remark~\ref{rem:coprime}.
+Theorem~\ref{thm:main}. (Its first version, at level one only, was wrong; see the correction notice and
+Remark~\ref{rem:coprime}.)
 
-\begin{theorem}[the spectral formula for a piece; not established as stated]\label{thm:K}
+\begin{theorem}[the spectral formula for a piece]\label{thm:K}
 Let $u=1$ and let $\mathcal G$ be the model object~\eqref{eq:model}, smoothed by a Riesz mean of sufficiently high
-order. There are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ with
-$\lambda_j=\tfrac14+t_j^2$ and proportional to the Katok--Sarnak periods $\mathrm{Per}_D(u_j)$, such that
+order. There are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of the groups $\Gamma_0(e)$,
+$e\mid\operatorname{rad}(2D)$ --- the forms of level one and the newforms of the levels $e$ --- with
+$\lambda_j=\tfrac14+t_j^2$ and proportional to periods of $u_j$ over Heegner points of level $e$ and discriminant
+$4D$ (the Katok--Sarnak periods when $e=1$), such that
 \[
 \mathcal G(Y)=\sqrt Y\sum_{j}\bigl(\alpha_j(D)Y^{it_j}+\overline{\alpha_j(D)}Y^{-it_j}\bigr)+\mathcal E(Y)+O\bigl(Y^{1/2-\delta}\bigr)
 \]
@@ -418,8 +426,11 @@ Proposition~\ref{prop:mellin} it killed the odd half of Hurwitz's formula; here 
 spectrum. All three are the statement that the roots of a quadratic congruence come in pairs $\pm x$.
 
 \begin{corollary}[the shape of a piece]\label{cor:shape}
-In Theorem~\ref{thm:K} the spectral sum runs over the even Maass cusp forms of $\mathrm{SL}_2(\Z)$ only, and the
-coefficient of the line $t_j$ is proportional to $\mathrm{Per}_D(u_j)$.
+In Theorem~\ref{thm:K} the spectral sum runs over even Maass cusp forms only, those of $\mathrm{SL}_2(\Z)$ and the
+newforms of the levels $e\mid\operatorname{rad}(2D)$. The coefficient of a line $t_j$ is a signed combination, over $e$,
+of the periods of the corresponding forms over the sub-families $\mathcal H_e$ of Lemma~\ref{lem:subfamily} (Step~3 of
+\S\ref{sec:formula}); for the unrestricted divisor sum, which is the term $e=1$ alone, it is proportional to the
+Katok--Sarnak periods $\sum_{g^2\mid4D}\mathrm{Per}_{4D/g^2}(u_j)$.
 \end{corollary}
 
 \paragraph{The size of the periods, and a visibility threshold.} For $D<0$ of class number one the period is the single
@@ -438,74 +449,126 @@ what is observed.
 
 \section{The spectral formula for a piece}\label{sec:formula}
 
-We now describe the argument-side route in the form we believe it takes, for $u=1$ and the model
-object~\eqref{eq:model}, and say precisely which steps are established and which are not. Throughout $D<0$; for
-$D>0$ every occurrence of a Heegner point is replaced by a closed geodesic and the argument is parallel.
+We now give the argument-side route for $u=1$ and the model object~\eqref{eq:model}. The moduli of the model carry
+the condition $(d,2D)=1$, and the first version of this section (12 September 2026) treated the sum as a sum over
+complete $\mathrm{SL}_2(\Z)$-orbits of Heegner points, which it is not (Remark~\ref{rem:coprime}). The argument below
+works instead at the levels $e\mid\operatorname{rad}(2D)$: the condition is resolved by M\"obius inversion into
+sub-families $\{e\mid d\}$, each a finite union of orbits of $\Gamma_0(e)$, and the spectral theory of
+$\Gamma_0(e)\backslash\mathbb H$ replaces that of the modular surface. Nothing analytic changes; the level is fixed,
+depending on $D$ alone. Throughout $D<0$; for $D>0$ every occurrence of a Heegner point is replaced by a closed
+geodesic and the argument is parallel.
 
-\paragraph{Step 1: the root pairs are Heegner points.} Let $\mathcal Q_D$ be the set of integral binary quadratic
-forms of discriminant $D$ and, for $Q=[a,b,c]\in\mathcal Q_D$ with $a>0$, let $z_Q=(-b+\sqrt D)/(2a)\in\mathbb H$.
-Gauss's parametrisation, in the form used by Hooley~\cite[\S3]{Hooley1963} and studied in general by
-Welsh~\cite{Welsh2022}, is the bijection
+\paragraph{Step 1: the root pairs are Heegner points, of discriminant $4D$.} A pair $(d,x)$ with $d\ge1$ and
+$x\bmod d$, $x^2\equiv D\pmod d$, determines the integral form $[d,2x,(x^2-D)/d]$ of discriminant $4D$, and every
+form $[d,b,c]$ of discriminant $4D$ with $d\ge1$ arises exactly once in this way: $b^2-4dc=4D$ forces $b$ even, $b=2x$
+with $x^2\equiv D\pmod d$, and $b\bmod2d$ corresponds to $x\bmod d$. This is Gauss's parametrisation in the form used
+by Hooley~\cite[\S3]{Hooley1963} and studied in general by Welsh~\cite{Welsh2022}, and it holds for \emph{every} $d$,
+even or odd, coprime to $D$ or not; the forms need not be primitive. Writing $\mathcal Q_{4D}$ for the set of all
+integral forms $Q=[a,b,c]$ of discriminant $4D$ with $a\ge1$, primitive or not, and $z_Q=(-b+\sqrt{4D})/(2a)$ for the root
+of $Q$ in $\mathbb H$,
 \begin{equation}\label{eq:gauss}
-\{(d,b):\ d\ge1,\ b\bmod2d,\ b^2\equiv D\ (4d)\}\ \longleftrightarrow\ \{Q=[d,b,\ast]\in\mathcal Q_D\},\qquad
-(d,b)\mapsto z_{(d,b)}=\frac{-b+\sqrt D}{2d},
+\{(d,x):\ d\ge1,\ x\bmod d,\ x^2\equiv D\ (d)\}\ \longleftrightarrow\ \mathcal Q_{4D},\qquad
+(d,x)\mapsto z_{(d,x)}=\frac{-x+\sqrt D}{d}.
 \end{equation}
-under which the pairs $(d,b)$ become the Heegner points of discriminant $D$, falling into exactly $h(D)$ orbits of
-$\Gamma=\mathrm{PSL}_2(\Z)$. \footnote{We verified~\eqref{eq:gauss} numerically: reducing $z_{(d,b)}$ to the fundamental
-domain for all $d\le60$ gives exactly $h(D)$ distinct points, for $D=-3,-4,-8,-11,-20,-23,-24$ with
-$h=1,1,1,1,2,3,2$. The conventions relating $b^2\equiv D\ (4d)$ to the $b^2\equiv D\ (d)$ of \S\ref{sec:walfisz}
-must be fixed carefully in the final version.} The two coordinates of a Heegner point carry exactly the two data of a
-root pair:
+A form of content $g$ is $g$ times a primitive form of discriminant $4D/g^2$ with the same root, so the points
+$z_{(d,x)}$ are the Heegner points of the discriminants $4D/g^2$, $g^2\mid4D$, and they fall into
+$\sum_gh(4D/g^2)$ orbits of $\Gamma=\mathrm{PSL}_2(\Z)$. \footnote{Verified numerically: reducing the forms
+$[d,2x,\ast]$ for all $d\le80$ gives exactly $\sum_gh(4D/g^2)$ classes, namely $2,2,2,3,4,4,6,6,6$ for
+$D=-4,-3,-7,-8,-11,-15,-20,-24,-23$. The first version of this paper parametrised the pairs by forms of discriminant
+$D$ with $b^2\equiv D\ (4d)$; that is a bijection onto the same pairs when $d$ is odd and coprime to $D$
+(Lemma~\ref{lem:conventions}), but it is not available for the moduli the sub-families below contain, and it produces
+different points of $\mathbb H$.} The two coordinates of a point carry exactly the two data of a root pair:
 \begin{equation}\label{eq:coords}
-\Im z_{(d,b)}=\frac{\sqrt{|D|}}{2d},\qquad \Re z_{(d,b)}=-\frac b{2d}.
+\Im z_{(d,x)}=\frac{\sqrt{|D|}}{d},\qquad \Re z_{(d,x)}=-\frac xd.
 \end{equation}
 
-\paragraph{Step 2: the piece is a sum over a Heegner orbit.} Substituting~\eqref{eq:coords} into the sawtooth form of
-Lemma~\ref{lem:sawtooth} turns the sum over root pairs into a sum over Heegner points:
+\begin{lemma}[the sub-families are $\Gamma_0(e)$-stable]\label{lem:subfamily}
+For $e\ge1$ let $\mathcal H_e=\{[a,b,c]\in\mathcal Q_{4D}:\ e\mid a\}$, the forms whose modulus is divisible by $e$. Then
+$\mathcal H_e$ is stable under $\Gamma_0(e)$ and under the reflection $\iota:[a,b,c]\mapsto[a,-b,c]$, and it is a finite
+union of $\Gamma_0(e)$-orbits. For $e=1$ it is all of $\mathcal Q_{4D}$.
+\end{lemma}
+\begin{proof}
+For $\gamma=\left(\begin{smallmatrix}\alpha&\beta\\ \gamma'&\delta\end{smallmatrix}\right)\in\Gamma_0(e)$ the
+leading coefficient of $Q\circ\gamma$ is $Q(\alpha,\gamma')=a\alpha^2+b\alpha\gamma'+c\gamma'^2\equiv a\alpha^2\pmod e$,
+since $e\mid\gamma'$, and $(\alpha,e)=1$ because $\alpha\delta-\beta\gamma'=1$; so $e\mid a$ is preserved. The
+reflection fixes $a$. For the finiteness, $\mathcal Q_{4D}$ is a finite union of $\Gamma$-orbits, $\Gamma_0(e)$ has
+finite index in $\Gamma$, so each $\Gamma$-orbit is a finite union of $\Gamma_0(e)$-orbits, and $\mathcal H_e$ is a
+union of some of them. \footnote{Checked numerically: for fifteen pairs $(D,e)$ with $e\mid\operatorname{rad}(2D)$ the
+number of $\Gamma_0(e)$-orbits met by the forms with $d\le60$, $120$ and $240$ is the same, e.g.\ $3$ for $(-4,2)$, $2$
+for $(-3,3)$, $6$ for $(-20,5)$, $10$ for $(-20,10)$; and $3000$ random elements of $\Gamma_0(e)$ preserve $e\mid a$ in
+every case. $\mathcal H_e$ is \emph{not} $\Gamma$-stable: for $D=-4$,
+$\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ carries $[5,4,1]$ to $[2,2,1]$.}
+\end{proof}
+
+\begin{corollary}[parity at level $e$]\label{cor:parity-e}
+Let $u$ be a Maass cusp form of $\Gamma_0(e)$ with $u\circ\iota=-u$, $\iota(z)=-\bar z$. Then
+$\sum_{Q\in\Gamma_0(e)\backslash\mathcal H_e}u(z_Q)/|\Gamma_0(e)_{z_Q}|=0$, where $\Gamma_0(e)_{z_Q}$ is the
+stabiliser of $z_Q$ in $\Gamma_0(e)$.
+\end{corollary}
+\begin{proof}
+$\iota$ normalises $\Gamma_0(e)$ (conjugation by $\iota$ negates the off-diagonal entries), so it permutes the
+$\Gamma_0(e)$-orbits in $\mathcal H_e$, which it preserves by Lemma~\ref{lem:subfamily}, and $\iota(z_Q)=z_{\iota Q}$
+with stabilisers of equal order. The sum therefore equals its own negative. This is Proposition~\ref{prop:parity} at
+level $e$.
+\end{proof}
+
+The moduli of~\eqref{eq:model} are those with $(d,2D)=1$, and
+$\mathbf 1_{(d,2D)=1}=\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\,\mathbf 1_{e\mid d}$. The sub-families $\mathcal H_e$ with
+$e\mid\operatorname{rad}(2D)$ are the objects the argument is about; there are $2^{\omega(2D)}$ of them. For odd
+$e\mid D$ the condition $e\mid a$ forces $e\mid b$ (as $x^2\equiv D\equiv0\pmod e$ with $e$ squarefree), so these are
+Heegner points of level $e$ in the sense of Gross, Kohnen and Zagier, with root $b\equiv0\pmod{2e}$.
+
+\paragraph{Step 2: the piece is a signed sum of sums over $\Gamma_0(e)$-orbits.} The sawtooth form of
+Lemma~\ref{lem:sawtooth} applies to the model object (it used neither $\lambda$ nor squarefreeness; the modulus $d=1$,
+included in $\sigma^*_{-1}$, contributes $\psi(t)-\tfrac12=0$ at integer $t$), so that
+\[
+S(t)=\sum_{h\le t}\bigl(\sigma^*_{-1}(h^2-D)-\mathbb E\sigma^*_{-1}\bigr)=\sum_{(d,2D)=1}\frac1d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
+\]
+the series summed with $x$ and $-x$ paired. Its terms are indexed by the pairs $(d,x)$ with $(d,2D)=1$, and by
+M\"obius inversion
+\[
+S(t)=\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\,S_e(t),\qquad S_e(t)=\sum_{e\mid d}\frac1d\sum_{x\in R_d}\psi\Bigl(\frac{t-x}d\Bigr),
+\]
+each $S_e$ again summed in pairs and convergent by the tail estimate of Lemma~\ref{lem:sawtooth}: the only unpaired
+roots are $x=0$, which occurs for the finitely many $d\mid D$, and $x=d/2$ for even $d$, which contributes
+$\psi(t/d-\tfrac12)=-t/d$ for $d>2t$, like a pair. \footnote{The regrouping was checked in exact rational arithmetic
+for $D=-4$, $t=37.5$ and $1000.5$, $d\le6000$.} Substituting~\eqref{eq:coords}, each $S_e$ is a sum over the
+sub-family $\mathcal H_e$ taken modulo translation ($x\bmod d$ is $\Re z\bmod1$):
 \begin{equation}\label{eq:orbit}
-S(t)=\frac{2}{\sqrt{|D|}}\sum_{z}\Phi_t(z),\qquad
-\Phi_t(z)=\Im z\cdot\psi\Bigl(\frac{2t\,\Im z}{\sqrt{|D|}}+2\Re z\Bigr),
+S_e(t)=\frac{1}{\sqrt{|D|}}\sum_{z\in\mathcal H_e/\Z}\Phi_t(z),\qquad
+\Phi_t(z)=\Im z\cdot\psi\Bigl(\frac{t\,\Im z}{\sqrt{|D|}}+\Re z\Bigr),
 \end{equation}
-the sum over all Heegner points of discriminant $D$, i.e.\ over the $h(D)$ orbits $\Gamma z_Q$. This is the whole
-content of the change of route: the object is not a sum over moduli carrying Kloosterman sums, but a sum of a fixed
-test function over an orbit of $\Gamma$ in $\mathbb H$, with the length $t$ entering only as a dilation parameter of
-the test function.
+since $\frac1d\psi\bigl(\frac{t-x}d\bigr)=\frac{\Im z}{\sqrt{|D|}}\,\psi\bigl(\frac{t\Im z}{\sqrt{|D|}}+\Re z\bigr)$ at
+$z=z_{(d,x)}$. By Lemma~\ref{lem:subfamily} each $\mathcal H_e$ is a finite union of $\Gamma_0(e)$-orbits. This is the
+whole content of the change of route: the object is not a sum over moduli carrying Kloosterman sums, but a signed
+combination of sums of one fixed test function over orbits of the groups $\Gamma_0(e)$, $e\mid\operatorname{rad}(2D)$,
+in $\mathbb H$, with the length $t$ entering only as a dilation parameter of the test function.
 
-\begin{remark}[the coprimality condition is not orbit-invariant; added 13 September 2026]\label{rem:coprime}
-Equation~\eqref{eq:orbit} is where the argument as first written goes wrong, and the error is not one of notation.
-The moduli of the model object~\eqref{eq:model}, like those of the pieces, satisfy $(d,2D)=1$; under~\eqref{eq:gauss}
-they are the forms $[d,b,\ast]$ with $(d,2D)=1$, and that set is not a union of $\Gamma$-orbits. For $D=-4$, where
-$h(D)=1$ and every primitive form lies in one orbit, the admitted form $[5,4,1]$, $z=(-2+i)/5$, is carried by
-$\gamma=\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ to $z/(z+1)=(-1+i)/2$, the excluded form $[2,2,1]$;
-more simply, both odd and even leading coefficients occur in the single class, so the admitted set is a proper
-non-empty subset of the orbit. (We checked, for the eleven discriminants $-3\ge D\ge-56$, that every class contains
-forms of both kinds among $d\le300$.) Consequently~\eqref{eq:orbit}, and everything built on it, describes the sum
-over \emph{all} pairs $(d,b)$, not the restricted one, and Theorem~\ref{thm:main} is not established
-for~\eqref{eq:model}. This was found by an external assessment of the repository on 12 September 2026, not by us.
+\begin{remark}[the coprimality condition is not $\Gamma$-invariant: the error of the first version]\label{rem:coprime}
+The first version of this section (12 September 2026) wrote $S(t)$ itself, with its condition $(d,2D)=1$, as a sum over
+complete $\Gamma$-orbits of Heegner points of discriminant $D$, and applied the spectral theory of
+$\Gamma\backslash\mathbb H$. That is wrong: the leading coefficient of a form is not a class invariant (its values over
+an orbit are the numbers the form represents), and the set of forms with $(a,2D)=1$ is a proper non-empty subset of
+every orbit. For $D=-4$, where $h(D)=1$, the admitted form $[5,4,1]$ is carried by $z\mapsto z/(z+1)$ to the excluded
+form $[2,2,1]$; for the eleven discriminants $-3\ge D\ge-56$ every class contains forms of both kinds among $a\le300$.
+The error was found by an external assessment of the repository (12 September 2026; \texttt{research/reviews/}), not
+by us, and is recorded in the repository's errata (item~13). What \emph{is} invariant is the divisibility $e\mid a$,
+under $\Gamma_0(e)$ (Lemma~\ref{lem:subfamily}); hence the M\"obius inversion of Step~2 and the passage to the groups
+$\Gamma_0(e)$, which is the form of the argument now given.
 
-Two repairs are available; neither has been carried out at the time of writing. (i)~\emph{Drop the condition.} The
-unrestricted divisor sum $\sum_{d\mid h^2-D}d^{-1}$ corresponds, via $(d,x)\mapsto[d,2x,\ast]$, to all forms of
-discriminant $4D$, primitive or not, i.e.\ to the union of the Heegner points of the discriminants $4D/g^2$,
-$g^2\mid4D$; this is a finite union of complete orbits, and the argument of \S\ref{sec:proof} applies to it with the
-geometric factor a weighted sum of Katok--Sarnak periods over those discriminants. The cost is in
-Lemma~\ref{lem:sawtooth}: for $p\mid2D$ the root set $R_d$ has fixed points of $x\mapsto-x$, so the pairing argument
-must be redone, and the object moves further from the pieces of part~III, which do carry the condition.
-(ii)~\emph{Keep the condition.} Write $\mathbf 1_{(d,2D)=1}=\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\,\mathbf 1_{e\mid d}$.
-The set of forms with $e\mid d$ \emph{is} invariant under $\Gamma_0(e)$: for
-$\gamma=\left(\begin{smallmatrix}\alpha&\beta\\ \gamma'&\delta\end{smallmatrix}\right)$ with $e\mid\gamma'$ the new
-leading coefficient is $d\alpha^2+b\alpha\gamma'+c\gamma'^2\equiv d\alpha^2\pmod e$ with $(\alpha,e)=1$. (Checked
-numerically for eight pairs $(D,p)$.) So each term is a finite union of complete $\Gamma_0(e)$-orbits, and the
-argument of \S\ref{sec:proof} goes through at the fixed level $e\mid\operatorname{rad}(2D)$, with the Maass forms and
-the Eisenstein series of $\Gamma_0(e)$ in place of those of $\Gamma$, and with the sub-family $\{e\mid d\}$ in place of
-the full set of Heegner points. The spectrum of the restricted object then contains, besides the level-one forms, the
-newforms of the levels $e\mid\operatorname{rad}(2D)$; their presence or absence in the data is a test of this
-description. A first run of that test (13 September 2026; \texttt{scripts/piece-divset.ts}, \texttt{piece-level2.ts}, $Y\le10^7$)
-supports~(ii): after the six level-one even lines are removed, the restricted object and the excluded sub-family
-carry the even newforms of level $e$ at the $90$th--$100$th percentile against random frequency sets, and the unrestricted
-sum does not ($16$th--$78$th); for $D=-3$ the largest single line of the restricted object is at $5.085$, the first even
-Maass newform of level $3$ (LMFDB: $5.0987$), and it is absent from the unrestricted sum. Repair~(ii) is the right one
-for the pieces. It is also the fixed-level shadow of the problem of
-\S\ref{sec:uniformity}, where the sub-family is $\{2u^2\mid b\}$ at discriminant $4u^2D$ and the level grows with $u$.
+Two consequences are visible in the data and were not predicted by the first version: the spectrum of the model
+object contains, besides the even Maass forms of level one, the even \emph{newforms} of the levels
+$e\mid\operatorname{rad}(2D)$; and the unrestricted divisor sum $\sum_{d\mid h^2-D}d^{-1}$, which is the term $e=1$
+alone and a finite union of $\Gamma$-orbits, does not. Both were checked on 13 September 2026, before the repair was
+written (\texttt{scripts/piece-divset.ts}, \texttt{piece-level2.ts}, $Y\le10^7$; Maass parameters from the LMFDB):
+after the six level-one even lines are removed, the restricted object and its difference from the unrestricted sum
+carry the eight smallest even newforms of level $e$ at the $90$th--$100$th percentile against $400$ random sets of
+eight frequencies ($D=-4,-8$ with $e=2$; $D=-3$ with $e=3$), the unrestricted sum at the $16$th--$78$th; and for
+$D=-3$ the largest single line of the restricted object is at $5.085$, where the first even Maass newform of level $3$
+has $t=5.0987$, while at that frequency the unrestricted sum has $R^2=0.01$. Not seen: level-$2$ lines for $D=-3$,
+although $2\mid\operatorname{rad}(2D)$; the corresponding periods may be small, and we record the absence. The same
+non-invariance, at the level $4u^2$ that grows with $u$, is the obstruction of \S\ref{sec:uniformity}: the sub-family
+there is $\{2u^2\mid b\}$ at discriminant $4u^2D$.
 \end{remark}
 
 \begin{remark}[the Weyl series is a Poincar\'e-type series]\label{rem:poincare}
@@ -513,50 +576,60 @@ Before going on, it is worth recording what~\eqref{eq:orbit} says about the Diri
 themselves, since it is the reason the spectrum can enter at all. Directly from the coordinates~\eqref{eq:coords},
 for $\Re s>1$,
 \begin{equation}\label{eq:poincare}
-\sum_{z\ \mathrm{Heegner}}(\Im z)^{s}\,\e(m\,\Re z)
-=\Bigl(\frac{\sqrt{|D|}}2\Bigr)^{s}\sum_{d\ge1}\frac1{d^{s}}\sum_{b^2\equiv D\,(4d)}\e\Bigl(\frac{-mb}{2d}\Bigr):
+\sum_{z\in\mathcal H_e/\Z}(\Im z)^{s}\,\e(m\,\Re z)
+=|D|^{s/2}\sum_{e\mid d}\frac1{d^{s}}\sum_{x^2\equiv D\,(d)}\e\Bigl(\frac{-mx}{d}\Bigr):
 \end{equation}
 \emph{the Dirichlet series of the Weyl sums of a quadratic congruence is a Poincar\'e-type series summed over the
-Heegner points of that discriminant.} \footnote{Verified numerically for $D=-4$, $s=1.6$, $m=1$ to $10^{-16}$.} The proof
+Heegner points of discriminant $4D$, modulo translation} --- over all of them for the unrestricted Weyl sums
+($e=1$), and in the signed combination over $e$ for the Weyl sums over moduli coprime to $2D$. The proof
 below does not use~\eqref{eq:poincare}; it works with the test function directly, which is what makes it elementary.
 We record the identity because it is the structural statement behind everything, and because \S\ref{sec:hooley}
 tests the same law on the bare sums it describes.
 \end{remark}
 
 \paragraph{Step 3: unfolding and the period.} One point of bookkeeping decides the shape of everything that follows.
-The arithmetic parametrisation of~\eqref{eq:gauss} is by pairs $(d,b)$ with $b$ taken \emph{modulo} $2d$, and
-$b\mapsto b+2d$ is $z\mapsto z-1$; so the sum in~\eqref{eq:orbit} runs over the Heegner points \emph{modulo
-translation}, that is over $\Gamma_\infty\backslash\Gamma z_Q$ and not over $\Gamma z_Q$. This is not a
-normalisation: a full $\Gamma$-orbit contains $z_Q+n$ for every $n\in\Z$, all of the same height, and
+The arithmetic parametrisation of~\eqref{eq:gauss} is by pairs $(d,x)$ with $x$ taken \emph{modulo} $d$, and
+$x\mapsto x+d$ is $z\mapsto z-1$; so the sum in~\eqref{eq:orbit} runs over the points of $\mathcal H_e$ \emph{modulo
+translation}, that is over $\Gamma_\infty\backslash\Gamma_0(e)z_Q$ and not over $\Gamma_0(e)z_Q$, where
+$\Gamma_\infty=\{z\mapsto z+n\}$ is the stabiliser of the cusp $\infty$, the same subgroup for every $e$. This is not a
+normalisation: a full orbit contains $z_Q+n$ for every $n\in\Z$, all of the same height, and
 $\sum_{\gamma\in\Gamma}(\Im\gamma w)^2$ diverges for that reason, whereas
 $\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^2=E(w,2)$ converges. Accordingly we set
 \[
-P[\Phi_t](w)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}\Phi_t(\gamma w),
+P_e[\Phi_t](w)=\sum_{\gamma\in\Gamma_\infty\backslash\Gamma_0(e)}\Phi_t(\gamma w),
 \]
-a Poincar\'e series in the classical sense, so that
-$S(t)=\frac2{\sqrt{|D|}}\sum_{Q\in\Gamma\backslash\mathcal Q_D}|\Gamma_{z_Q}|^{-1}P[\Phi_t](z_Q)$. The spectral
-decomposition of $P[\Phi_t]$ on $L^2(\Gamma\backslash\mathbb H)$, together with the classical unfolding
-$\langle P[\Phi_t],u_j\rangle=\int_0^\infty\!\!\int_0^1\Phi_t(z)\overline{u_j(z)}\,\frac{dx\,dy}{y^2}$ --- the
-$x$-integral over a single period, which is exactly the integral computed in Step~4 --- gives
+a Poincar\'e series for $\Gamma_0(e)$ in the classical sense, so that
+\[
+S_e(t)=\frac1{\sqrt{|D|}}\sum_{Q\in\Gamma_0(e)\backslash\mathcal H_e}\frac{P_e[\Phi_t](z_Q)}{|\Gamma_0(e)_{z_Q}|},
+\]
+the sum over the finitely many orbits of Lemma~\ref{lem:subfamily}, $\Gamma_0(e)_{z_Q}$ the stabiliser (of order $1$,
+$2$ or $3$). The spectral decomposition of $P_e[\Phi_t]$ on $L^2(\Gamma_0(e)\backslash\mathbb H)$, together with the
+classical unfolding $\langle P_e[\Phi_t],u\rangle=\int_0^\infty\!\!\int_0^1\Phi_t(z)\overline{u(z)}\,\frac{dx\,dy}{y^2}$
+--- the $x$-integral over a single period, which is exactly the integral computed in Step~4; the cusp $\infty$ of
+$\Gamma_0(e)$ has width $1$ --- gives
 \begin{equation}\label{eq:spectral}
-S(t)=\frac2{\sqrt{|D|}}\Bigl[(\text{constant and Eisenstein terms})+\sum_j\langle\Phi_t,u_j\rangle\sum_{Q\in\Gamma\backslash\mathcal Q_D}\frac{u_j(z_Q)}{|\Gamma_{z_Q}|}\Bigr],
+S_e(t)=\frac1{\sqrt{|D|}}\Bigl[(\text{constant and Eisenstein terms})+\sum_{j}\langle\Phi_t,u^{(e)}_j\rangle\,\mathrm{Per}_{D,e}\bigl(u^{(e)}_j\bigr)\Bigr],\qquad
+\mathrm{Per}_{D,e}(u)=\sum_{Q\in\Gamma_0(e)\backslash\mathcal H_e}\frac{u(z_Q)}{|\Gamma_0(e)_{z_Q}|},
 \end{equation}
-in which the geometric factor is precisely the Katok--Sarnak period $\mathrm{Per}_D(u_j)$ of \S\ref{sec:ks}. By
-Proposition~\ref{prop:parity} it vanishes for every odd $u_j$: the parity rule is now visible as the statement that
-the Heegner orbit is symmetric about the imaginary axis while an odd form is antisymmetric.
+the sum over an orthonormal basis $\{u^{(e)}_j\}$ of the Maass cusp forms of $\Gamma_0(e)$, which may be taken to
+consist of Hecke eigenforms: the newforms of the levels dividing $e$ and the oldforms they generate, the level-one
+forms among them. For $e=1$ the geometric factor is the Katok--Sarnak period of \S\ref{sec:ks}, summed over the
+discriminants $4D/g^2$; for $e>1$ it is the same kind of sum over the Heegner points of level $e$. By
+Corollary~\ref{cor:parity-e} it vanishes for every odd $u^{(e)}_j$: the parity rule is now visible as the statement
+that $\mathcal H_e$ is symmetric about the imaginary axis while an odd form is antisymmetric.
 
 \paragraph{Step 4: where the frequencies come from.} No continuation theorem is needed here. Expand $\psi$ in
 Fourier series; since $\psi$ is odd,
 \[
-\psi(a+2x)+\psi(a-2x)=\frac2\pi\sum_{k\ge1}\frac{\sin(2\pi ka)\cos(4\pi kx)}{k},
-\qquad a=\frac{2t\,\Im z}{\sqrt{|D|}},
+\psi(a+x)+\psi(a-x)=\frac2\pi\sum_{k\ge1}\frac{\sin(2\pi ka)\cos(2\pi kx)}{k},
+\qquad a=\frac{t\,\Im z}{\sqrt{|D|}},
 \]
-so that $\Phi^+_t(z)=\frac y\pi\sum_k k^{-1}\sin(2\pi ka)\cos(4\pi kx)$. Pair this against the expansion of an even
-Maass form, $u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$. The $x$-integral is
-$\int_0^1\cos(4\pi kx)\cos(2\pi nx)\,dx=\tfrac12\delta_{n,2k}$, so only the coefficients at even indices survive and
+so that $\Phi^+_t(z)=\frac y\pi\sum_k k^{-1}\sin(2\pi ka)\cos(2\pi kx)$. Pair this against the Fourier expansion at
+the cusp $\infty$ of an even Maass cusp form of $\Gamma_0(e)$, $u_j(z)=2\sqrt y\sum_{n\ge1}a_j(n)K_{it_j}(2\pi ny)\cos(2\pi nx)$.
+The $x$-integral is $\int_0^1\cos(2\pi kx)\cos(2\pi nx)\,dx=\tfrac12\delta_{n,k}$, so
 \begin{equation}\label{eq:innerprod}
-\langle\Phi^+_t,u_j\rangle=\sum_{k\ge1}\frac{a_j(2k)}{\pi k}\,I_k,\qquad
-I_k=\int_0^\infty y^{-1/2}\sin(\beta_ky)\,K_{it_j}(\alpha_ky)\,dy,\quad \alpha_k=4\pi k,\ \beta_k=\frac{4\pi kt}{\sqrt{|D|}} .
+\langle\Phi^+_t,u_j\rangle=\sum_{k\ge1}\frac{a_j(k)}{\pi k}\,I_k,\qquad
+I_k=\int_0^\infty y^{-1/2}\sin(\beta_ky)\,K_{it_j}(\alpha_ky)\,dy,\quad \alpha_k=2\pi k,\ \beta_k=\frac{2\pi kt}{\sqrt{|D|}} .
 \end{equation}
 Substituting $y=w/\beta_k$ gives $I_k=\beta_k^{-1/2}\int_0^\infty w^{-1/2}\sin(w)K_{it_j}(\alpha_kw/\beta_k)\,dw$,
 in which $\alpha_k/\beta_k=\sqrt{|D|}/t$ is small. Two standard facts finish the computation: the small-argument
@@ -571,7 +644,8 @@ I_k=\beta_k^{-1/2}\Bigl[\Gamma(-it_j)\Gamma\bigl(\tfrac12+it_j\bigr)\sin\tfrac{\
 \end{equation}
 Every $t$-dependence is now explicit: $\beta_k^{-1/2}\propto t^{-1/2}$ and the bracket carries $t^{\mp it_j}$. So
 $\langle\Phi^+_t,u_j\rangle=t^{-1/2}\bigl(A_j(D)\,t^{-it_j}+\overline{A_j(D)}\,t^{it_j}\bigr)+O(t^{-5/2})$, and
-by~\eqref{eq:spectral} the same holds for $S(t)$ with $A_j$ multiplied by $\mathrm{Per}_D(u_j)$. Summing over
+by~\eqref{eq:spectral} the same holds for $S_e(t)$ with $A_j$ multiplied by $\mathrm{Per}_{D,e}(u_j)$, hence for
+$S(t)$ after the signed sum over $e$. Summing over
 $t<Y$ turns $t^{-1/2\mp it_j}$ into $Y^{1/2\mp it_j}$, which is the observed law.
 
 Two features of the data are read off~\eqref{eq:asymp} directly. The frequencies are the $t_j$ themselves, not
@@ -604,36 +678,36 @@ proposition, because the convergence of the sum over $j$ is the unfinished step 
 it: an earlier version of this paper deduced it instead from a continuation theorem that, on inspection, applies to a
 different series (Remark~\ref{rem:notneeded}).
 
-The argument for Theorem~\ref{thm:K}, in the precise form of Theorem~\ref{thm:main}, is in \S\ref{sec:proof}; its
-gap is Remark~\ref{rem:coprime}.
+Theorem~\ref{thm:K} is proved, in the precise form of Theorem~\ref{thm:main}, in \S\ref{sec:proof}.
 
 \paragraph{Step 5: why the Poincar\'e series converges.} As it stands $|\Phi_t(z)|\le\tfrac12\Im z$ and
-$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}\Im(\gamma w)$ diverges, so $P[\Phi_t]$ is not absolutely convergent as
-it stands. The divergence is exactly that of the Eisenstein series at $s=1$. It is removed by the symmetry of the Heegner orbit,
+$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma_0(e)}\Im(\gamma w)$ diverges, so $P_e[\Phi_t]$ is not absolutely convergent as
+it stands. The divergence is exactly that of the Eisenstein series at $s=1$. It is removed by the symmetry of the sub-family $\mathcal H_e$,
 which we may as well build into the seed.
 
 \begin{lemma}[the symmetrised seed decays quadratically]\label{lem:seed}
-Write $z=x+iy$, $a=a_t(y)=2ty/\sqrt{|D|}$, and
-$\Phi^+_t(z)=\tfrac12\bigl(\Phi_t(z)+\Phi_t(-\bar z)\bigr)=\tfrac y2\bigl(\psi(a+2x)+\psi(a-2x)\bigr)$. Then
+Write $z=x+iy$, $a=a_t(y)=ty/\sqrt{|D|}$, and
+$\Phi^+_t(z)=\tfrac12\bigl(\Phi_t(z)+\Phi_t(-\bar z)\bigr)=\tfrac y2\bigl(\psi(a+x)+\psi(a-x)\bigr)$. Then
 \begin{enumerate}
-\item[(i)] if $\|2x\|>a$, where $\|\cdot\|$ is the distance to $\Z$ and $a<\tfrac12$, then
-$\Phi^+_t(z)=-ay=-2ty^2/\sqrt{|D|}$ exactly;
-\item[(ii)] $|\Phi^+_t(z)|\le y/2$ always, and the exceptional set $\{x:\|2x\|\le a\}$ has measure $2a$ in $x$
+\item[(i)] if $\|x\|>a$, where $\|\cdot\|$ is the distance to $\Z$ and $a<\tfrac12$, then
+$\Phi^+_t(z)=-ay=-ty^2/\sqrt{|D|}$ exactly;
+\item[(ii)] $|\Phi^+_t(z)|\le y/2$ always, and the exceptional set $\{x:\|x\|\le a\}$ has measure $2a$ in $x$
 modulo $1$.
 \end{enumerate}
-Moreover $\Phi^+_t$ may replace $\Phi_t$ in~\eqref{eq:orbit} without changing the value, because the Heegner orbit is
-stable under $z\mapsto-\bar z$: the pair $(d,b)$ maps to $(d,-b)$.
+Moreover $\Phi^+_t$ may replace $\Phi_t$ in~\eqref{eq:orbit} without changing the value, because $\mathcal H_e$ is
+stable under $z\mapsto-\bar z$ (Lemma~\ref{lem:subfamily}): the pair $(d,x)$ maps to $(d,-x)$.
 \end{lemma}
 \begin{proof}
-$\psi$ is odd and, on any interval free of integers, satisfies $\psi(\theta+a)=\psi(\theta)-a$. If $\|2x\|>a$ then
-neither $2x$ nor $-2x$ crosses an integer when shifted by $a$, so
-$\psi(2x+a)+\psi(-2x+a)=\psi(2x)+\psi(-2x)-2a=-2a$, giving (i); (ii) is $|\psi|\le\tfrac12$ and the definition of the
-exceptional set. The last statement is $z_{(d,-b)}=-\overline{z_{(d,b)}}$ for $D<0$.
+$\psi$ is odd and, on any interval free of integers, satisfies $\psi(\theta+a)=\psi(\theta)-a$. If $\|x\|>a$ then
+neither $x$ nor $-x$ crosses an integer when shifted by $a$, so
+$\psi(x+a)+\psi(-x+a)=\psi(x)+\psi(-x)-2a=-2a$, giving (i); (ii) is $|\psi|\le\tfrac12$ and the definition of the
+exceptional set. The last statement is $z_{(d,-x)}=-\overline{z_{(d,x)}}$ for $D<0$.
 \end{proof}
 
 So the seed is $O(t\,y^2)$ off a set of $x$-measure $O(ty)$, on which it is $O(y)$; both contributions to
-$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}|\Phi^+_t(\gamma w)|$ are then dominated by
-$t\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^2=tE(w,2)$, which converges. The
+$\sum_{\gamma\in\Gamma_\infty\backslash\Gamma_0(e)}|\Phi^+_t(\gamma w)|$ are then dominated by
+$t\sum_{\gamma\in\Gamma_\infty\backslash\Gamma}(\Im\gamma w)^2=tE(w,2)$, which converges (the cosets of $\Gamma_0(e)$
+are among those of $\Gamma$). The
 arithmetic form of this convergence is the tail estimate already proved in Lemma~\ref{lem:sawtooth}. This is the
 fourth and last appearance of one symmetry: the root set of a quadratic congruence is stable under $x\mapsto-x$, and
 that single fact makes the linear term of the sawtooth identity vanish (Lemma~\ref{lem:sawtooth}), kills the odd half
@@ -646,57 +720,65 @@ Three things were left open above: the two conventions for the modulus, the sens
 decomposition of Step~3 is legitimate, and the order of Riesz mean at which the sum over the spectrum converges. We
 settle all three.
 
-\begin{lemma}[the two conventions agree]\label{lem:conventions}
-Let $d$ be odd and coprime to $2D$. Reduction modulo $d$ is a bijection
+\begin{lemma}[the two conventions]\label{lem:conventions}
+Let $d$ be odd and coprime to $D$. Reduction modulo $d$ is a bijection
 \[
-\{b'\bmod2d:\ b'^2\equiv D\ (4d)\}\ \longrightarrow\ \{b\bmod d:\ b^2\equiv D\ (d)\},
+\{b'\bmod2d:\ b'^2\equiv D\ (4d)\}\ \longrightarrow\ \{x\bmod d:\ x^2\equiv D\ (d)\},
 \]
-and under it $\e\bigl(2k\,b'/(2d)\bigr)=\e(kb/d)$ for every $k$. Hence the frequency $k$ of the sawtooth expansion of
-\S\ref{sec:walfisz} corresponds to the frequency $m=2k$ of~\eqref{eq:poincare}, and the two parametrisations describe
-the same sums.
+so that for such $d$ the pairs of~\eqref{eq:gauss} are also parametrised by the forms $[d,b',\ast]$ of discriminant
+$D$, with $\e(2k\,b'/(2d))=\e(kx/d)$. For even $d$, or $(d,D)>1$, no such bijection exists in general: for
+$D\equiv5\pmod8$ there is no form of discriminant $D$ with even leading coefficient at all. This is why the
+sub-families of Lemma~\ref{lem:subfamily} are taken in discriminant $4D$.
 \end{lemma}
 \begin{proof}
-Since $(d,2)=1$, the Chinese remainder theorem splits the condition $b'^2\equiv D\ (4d)$ into $b'^2\equiv D\ (d)$ and
-$b'^2\equiv D\ (4)$. The latter is solvable because $D\equiv0$ or $1\pmod4$, and it determines $b'$ modulo $2$;
-combined with $b'$ modulo $d$ this determines $b'$ modulo $2d$. So each $b$ has exactly one lift, and the map is a
-bijection. The phases agree because $b'\equiv b\pmod d$. \footnote{Verified for $D\in\{-11,-8,-7,-4,-3,5,8,12\}$ and all
-odd $d\le200$ coprime to $2D$, and $k\le3$.}
+Since $(d,2)=1$, the Chinese remainder theorem splits $b'^2\equiv D\ (4d)$ into $b'^2\equiv D\ (d)$ and
+$b'^2\equiv D\ (4)$; the latter is solvable because $D\equiv0$ or $1\pmod4$ and determines $b'$ modulo $2$, which
+together with $b'$ modulo $d$ determines $b'$ modulo $2d$. The phases agree because $b'\equiv x\pmod d$. For the last
+claim, $b'^2-4dc=D$ with $d$ even forces $b'^2\equiv D\pmod8$, and $5$ is not a square modulo $8$. \footnote{The
+bijection was verified for $D\in\{-11,-8,-7,-4,-3,5,8,12\}$ and all odd $d\le200$ coprime to $2D$.}
 \end{proof}
 
 \begin{lemma}[truncation, and why the decomposition is legitimate]\label{lem:trunc}
-Every Heegner point of discriminant $D$ satisfies $\Im z=\sqrt{|D|}/(2d)\le\sqrt{|D|}/2$. Consequently, replacing
-$\Phi^+_t$ by its truncation $\Phi^\flat_t=\Phi^+_t\cdot\mathbf 1_{\{\Im z\le\sqrt{|D|}/2\}}$ changes neither side
+Every point of $\mathcal H_e$ satisfies $\Im z=\sqrt{|D|}/d\le\sqrt{|D|}$. Consequently, replacing
+$\Phi^+_t$ by its truncation $\Phi^\flat_t=\Phi^+_t\cdot\mathbf 1_{\{\Im z\le\sqrt{|D|}\}}$ changes neither side
 of~\eqref{eq:orbit}. The truncated seed satisfies
 \begin{enumerate}
-\item[(i)] $|\Phi^\flat_t(z)|\le\sqrt{|D|}/4$, and $\Phi^\flat_t(z)=0$ for $\Im z>\sqrt{|D|}/2$;
+\item[(i)] $|\Phi^\flat_t(z)|\le\sqrt{|D|}/2$, and $\Phi^\flat_t(z)=0$ for $\Im z>\sqrt{|D|}$;
 \item[(ii)] $\Phi^\flat_t(z)\ll t\,(\Im z)^2$ as $\Im z\to0$, in the sense of Lemma~\ref{lem:seed};
 \item[(iii)] $\int_0^1\Phi^\flat_t(x+iy)\,dx=0$ for every $y$.
 \end{enumerate}
-Hence $P[\Phi^\flat_t]$ is bounded on $\Gamma\backslash\mathbb H$, lies in $L^2$, and its spectral decomposition is
+Hence $P_e[\Phi^\flat_t]$ is bounded on $\Gamma_0(e)\backslash\mathbb H$, lies in $L^2$, and its spectral decomposition is
 valid.
 \end{lemma}
 \begin{proof}
-(i) and (ii) are Lemma~\ref{lem:seed} and the truncation. (iii) holds because $\psi$ has mean zero and $x\mapsto2x$
-covers two full periods, so $\int_0^1[\psi(a+2x)+\psi(a-2x)]dx=0$ for every $y$; the truncation does not depend on
-$x$ and so preserves this. For the last statement, if $\Im w>\sqrt{|D|}/2$ then the identity coset contributes
-nothing, and only the finitely many cosets $\gamma\in\Gamma_\infty\backslash\Gamma$ with $\Im\gamma w\le\sqrt{|D|}/2$ remain; on the rest of a fundamental
-domain the sum is dominated by $tE(w,2)$, which is bounded there. So $P[\Phi^\flat_t]$ is
-bounded, hence square-integrable on the finite-volume quotient.
+(i) and (ii) are Lemma~\ref{lem:seed} and the truncation. (iii) holds because $\psi$ has mean zero over a period, so $\int_0^1[\psi(a+x)+\psi(a-x)]dx=0$ for every $y$; the
+truncation does not depend on $x$ and so preserves this. For the last statement, if $\Im w>\sqrt{|D|}$ then the
+identity coset contributes nothing and every other coset $\gamma\in\Gamma_\infty\backslash\Gamma_0(e)$ has
+$\Im\gamma w\le1/\Im w<1/\sqrt{|D|}$, so the sum is dominated by $t\,(E(w,2)-(\Im w)^2)$, which is bounded; on the
+rest of a fundamental domain the sum is dominated by $tE(w,2)$, bounded there. So $P_e[\Phi^\flat_t]$ is bounded,
+hence square-integrable on the finite-volume quotient $\Gamma_0(e)\backslash\mathbb H$.
 \end{proof}
 
 \begin{remark}[the continuous spectrum]\label{rem:eisenstein}
-Property (iii) also disposes of the Eisenstein contribution. Unfolding gives
-$\langle P[\Phi^\flat_t],E(\cdot,\tfrac12+ir)\rangle=\int_{\mathbb H}\Phi^\flat_tE(\cdot,\tfrac12+ir)\,d\mu$, and the
-two terms $y^{s}$ and $\varphi(s)y^{1-s}$ of the Fourier expansion of $E$ do not depend on $x$, so by (iii) they
-contribute nothing. Only the non-constant modes of $E$ remain, and against those the computation of Step~4 is the
-same one with $it_j$ replaced by $ir$. The continuous spectrum therefore contributes
-$\sqrt Y\int c(r)Y^{ir}\,dr$ to the Riesz mean, which is $o(\sqrt Y)$ by the Riemann--Lebesgue lemma as soon as
-$c\in L^1$. This is why the discrete lines are what one sees.
+Property (iii) also disposes of the Eisenstein contribution. The group $\Gamma_0(e)$ has finitely many cusps
+$\mathfrak a$ (one for $e=1$, $2^{\omega(e)}$ for squarefree $e$), with Eisenstein series $E_{\mathfrak a}(z,s)$ whose
+Fourier expansion at the cusp $\infty$ is $\delta_{\mathfrak a\infty}y^s+\varphi_{\mathfrak a\infty}(s)y^{1-s}$ plus
+non-constant modes $\varphi_{\mathfrak a\infty}(n,s)\sqrt y\,K_{s-1/2}(2\pi|n|y)\e(nx)$
+\cite[Theorem~3.4]{Iwaniec2002}. Unfolding gives
+$\langle P_e[\Phi^\flat_t],E_{\mathfrak a}(\cdot,\tfrac12+ir)\rangle=\int_0^\infty\!\!\int_0^1\Phi^\flat_t\,\overline{E_{\mathfrak a}(\cdot,\tfrac12+ir)}\,d\mu$,
+and the two constant terms do not depend on $x$, so by (iii) they contribute nothing, for every cusp. Only the
+non-constant modes remain, and against those the computation of Step~4 is the same one with $it_j$ replaced by $ir$
+and $a_j(n)$ by the coefficients $\varphi_{\mathfrak a\infty}(n,\tfrac12+ir)$, which are of polynomial size in $|n|$
+and $|r|$. The continuous spectrum therefore contributes $\sqrt Y\int c(r)Y^{ir}\,dr$ to the Riesz mean, which is
+$o(\sqrt Y)$ by the Riemann--Lebesgue lemma as soon as $c\in L^1$, the Riesz factor $\asymp|r|^{-m-1}$ supplying the
+integrability. This is why the discrete lines are what one sees.
 \end{remark}
 
 \begin{proposition}[which Riesz order]\label{prop:riesz}
-Normalise $u_j$ in $L^2(\Gamma\backslash\mathbb H)$ and write $a_j(n)=\rho_j(1)\lambda_j(n)$ with $\lambda_j$ the
-Hecke eigenvalues. Then in~\eqref{eq:asymp}
+Normalise $u_j$ in $L^2(\Gamma_0(e)\backslash\mathbb H)$. For a newform of level $e'\mid e$ write
+$a_j(n)=\rho_j(1)\lambda_j(n)$ with $\lambda_j$ the Hecke eigenvalues; an oldform $u(e''z)$ has the coefficients of $u$
+at the indices divisible by $e''$, and the statements below hold for it with the constants of $u$. Then
+in~\eqref{eq:asymp}
 \begin{equation}\label{eq:Ajsize}
 |A_j(D)|\ \asymp_D\ t_j^{-1/2+o(1)} ,
 \end{equation}
@@ -710,21 +792,25 @@ In particular the Ces\`aro mean, $m=1$, suffices, which is the mean at which the
 were computed.
 \end{proposition}
 \begin{proof}
-For~\eqref{eq:Ajsize}: the $k$-sum $\sum_ka_j(2k)k^{-3/2}=\rho_j(1)\sum_k\lambda_j(2k)k^{-3/2}$ converges absolutely
-and is $\rho_j(1)t_j^{o(1)}$, since $\lambda_j(n)\ll n^{7/64+\varepsilon}$ and $\tfrac32-\tfrac7{64}>1$. The
+For~\eqref{eq:Ajsize}: the $k$-sum $\sum_ka_j(k)k^{-3/2}=\rho_j(1)\sum_k\lambda_j(k)k^{-3/2}$ converges absolutely
+and is $\rho_j(1)t_j^{o(1)}$, since $\lambda_j(n)\ll n^{7/64+\varepsilon}$ at every level~\cite{KimSarnak2003} and
+$\tfrac32-\tfrac7{64}>1$. The
 $\Gamma$-factors of~\eqref{eq:asymp} have modulus
 \[
 |\Gamma(-it_j)|\,\bigl|\Gamma(\tfrac12+it_j)\bigr|\,\bigl|\sin\tfrac{\pi(\frac12+it_j)}2\bigr|
 \asymp\sqrt{\frac{2\pi}{t_j}}e^{-\pi t_j/2}\cdot\sqrt{2\pi}e^{-\pi t_j/2}\cdot\frac{e^{\pi t_j/2}}2
 \asymp\frac{1}{\sqrt{t_j}}\,e^{-\pi t_j/2},
 \]
-while $|\rho_j(1)|^2\asymp\cosh(\pi t_j)/L(1,\mathrm{sym}^2u_j)$ gives $|\rho_j(1)|\asymp e^{\pi t_j/2}t_j^{o(1)}$.
+while $|\rho_j(1)|^2\asymp_e\cosh(\pi t_j)/L(1,\mathrm{sym}^2u_j)$ with $t_j^{-\varepsilon}\ll L(1,\mathrm{sym}^2u_j)\ll t_j^{\varepsilon}$
+\cite{HoffsteinLockhart1994} gives $|\rho_j(1)|\asymp e^{\pi t_j/2}t_j^{o(1)}$, the implied constants depending on the
+(fixed) level.
 The two exponentials cancel and~\eqref{eq:Ajsize} follows. For the Riesz factor,
 $\frac1{m!}\int_0^Y(Y-t)^mt^{-1/2-it_j}dt=\frac{Y^{m+1/2-it_j}}{m!}B(m+1,\tfrac12-it_j)$ and
 $B(m+1,\sigma)=\Gamma(m+1)\Gamma(\sigma)/\Gamma(m+1+\sigma)\asymp|\sigma|^{-m-1}$. Finally
-$|\mathrm{Per}_D(u_j)|\le h(D)\|u_j\|_\infty$, so the $j$-th amplitude is
-$\ll t_j^{5/12+\varepsilon}\cdot t_j^{-1/2+o(1)}\cdot t_j^{-m-1}$, and by the Weyl law
-$\#\{j:t_j\le T\}\sim T^2/12$ the sum over $j$ is dominated by $\int^\infty t^{5/12-1/2-m-1}\,t\,dt=\int^\infty t^{-m-1/12}\,dt$,
+$|\mathrm{Per}_{D,e}(u_j)|\le N_{D,e}\|u_j\|_\infty$, with $N_{D,e}$ the number of orbits in Lemma~\ref{lem:subfamily}
+and the supremum over the compact set containing the finitely many points, so the $j$-th amplitude is
+$\ll t_j^{5/12+\varepsilon}\cdot t_j^{-1/2+o(1)}\cdot t_j^{-m-1}$, and by the Weyl law for $\Gamma_0(e)$,
+$\#\{j:t_j\le T\}\sim\mathrm{vol}(\Gamma_0(e)\backslash\mathbb H)\,T^2/(4\pi)$, the sum over $j$ is dominated by $\int^\infty t^{5/12-1/2-m-1}\,t\,dt=\int^\infty t^{-m-1/12}\,dt$,
 which converges for $m>\tfrac{11}{12}$. With the trivial sup-norm bound the exponent is $\int^\infty t^{-m}dt$ instead.
 \end{proof}
 
@@ -775,8 +861,8 @@ the range where the lemma applies.
 
 Two estimates finish the argument: an exact treatment of the integral $I_k$, and a bound for the tail removed by the
 truncation. Both are elementary. Throughout, the truncation height of Lemma~\ref{lem:trunc} is taken to be $T=t$
-rather than $\sqrt{|D|}/2$; this is permitted, since any height above $\sqrt{|D|}/2$ leaves the orbit sum unchanged,
-and it costs only $\|P[\Phi^\flat_t]\|_2\ll\sqrt t$.
+rather than $\sqrt{|D|}$; this is permitted, since any height above $\sqrt{|D|}$ leaves the orbit sum unchanged,
+and it costs only $\|P_e[\Phi^\flat_t]\|_2\ll\sqrt t$.
 
 \begin{lemma}[the integral, exactly]\label{lem:mellin}
 Let $\alpha,\beta>0$, $\tau\ge1$, and $I(\alpha,\beta,\tau)=\int_0^\infty y^{-1/2}\sin(\beta y)K_{i\tau}(\alpha y)\,dy$.
@@ -823,37 +909,42 @@ inequality holds in every case.} Hence the integral is at most $\int_T^\infty y^
 substituting $x=\alpha y$ and using $K_0(x)\ll x^{-1/2}e^{-x}$ for $x\ge1$ gives the claim.
 \end{proof}
 
-\begin{theorem}[not established as stated: see the correction notice and Remark~\ref{rem:coprime}]\label{thm:main}
+\begin{theorem}[the spectral formula for the model object]\label{thm:main}
 Let $D<0$ be a discriminant, $u=1$, and let $\mathcal G^{(m)}(Y)$ denote the Riesz mean of order $m$ of the model
-object~\eqref{eq:model}. For $m\ge2$ there are coefficients $\alpha_j(D)$, supported on the even Maass cusp forms of
-$\mathrm{SL}_2(\Z)$ and proportional to the Katok--Sarnak periods $\mathrm{Per}_D(u_j)$, such that
+object~\eqref{eq:model}. For each $e\mid\operatorname{rad}(2D)$ let $\{u^{(e)}_j\}$ be an orthonormal basis of the even
+Maass cusp forms of $\Gamma_0(e)$, with Laplace eigenvalues $\tfrac14+t_{j,e}^2$. For $m\ge2$ there are coefficients
+$\alpha_{j,e}(D)$, proportional to the periods $\mathrm{Per}_{D,e}(u^{(e)}_j)$ of~\eqref{eq:spectral}, such that
 \[
-\mathcal G^{(m)}(Y)=Y^{m}\sqrt Y\sum_{j}\bigl(\alpha_j(D)\,Y^{it_j}+\overline{\alpha_j(D)}\,Y^{-it_j}\bigr)
+\mathcal G^{(m)}(Y)=Y^{m}\sqrt Y\sum_{e\mid\operatorname{rad}(2D)}\mu(e)\sum_{j}\bigl(\alpha_{j,e}(D)\,Y^{it_{j,e}}+\overline{\alpha_{j,e}(D)}\,Y^{-it_{j,e}}\bigr)
 \;+\;\mathcal E(Y)\;+\;O\bigl(Y^{m+\frac12-\delta}\bigr)
 \]
-for some $\delta>0$, the sum converging absolutely, where $\mathcal E$ is the contribution of the continuous
-spectrum and satisfies $\mathcal E(Y)=o(Y^{m+1/2})$.
+for some $\delta>0$, each inner sum converging absolutely, where $\mathcal E$ is the contribution of the continuous
+spectra and satisfies $\mathcal E(Y)=o(Y^{m+1/2})$. The spectral parameters that occur are those of the even Maass cusp
+forms of level one and of the even newforms of the levels $e\mid\operatorname{rad}(2D)$, and no others.
 \end{theorem}
 \begin{proof}
-Apply the Riesz mean of order $m$ to~\eqref{eq:orbit}; by Remark~\ref{rem:coprime} this is the point at which the
-coprimality condition of~\eqref{eq:model} is lost, and the argument from here on concerns the complete orbit sum.
-Truncate the seed at height $T=t$
-(Lemma~\ref{lem:trunc}), which changes nothing. By Lemma~\ref{lem:seed} the automorphised seed converges absolutely
-and lies in $L^2(\Gamma\backslash\mathbb H)$, so it has a spectral decomposition; by Proposition~\ref{prop:riesz}
-the Riesz factor $\asymp t_j^{-m-1}$ makes the discrete part converge absolutely for $m\ge2$ even with only the
-trivial sup-norm bound, so the expansion converges uniformly and may be evaluated at the Heegner points and summed
-over the orbit, which replaces $u_j$ by $\mathrm{Per}_D(u_j)$ (Step~3). The constant term vanishes because
-$\int_0^1\Phi^\flat_t\,dx=0$ (Lemma~\ref{lem:trunc}(iii)), and the same identity confines the Eisenstein contribution
-to the non-constant modes, whence $\mathcal E(Y)=o(Y^{m+1/2})$ by Remark~\ref{rem:eisenstein}.
+By Step~2, $S(t)=\sum_e\mu(e)S_e(t)$ is a finite signed sum and the Riesz mean is linear, so it suffices to treat one
+$S_e$, given by~\eqref{eq:orbit} as a sum over the finitely many $\Gamma_0(e)$-orbits of $\mathcal H_e$
+(Lemma~\ref{lem:subfamily}). Apply the Riesz mean of order $m$ to~\eqref{eq:orbit} and truncate the seed at height
+$T=t$ (Lemma~\ref{lem:trunc}), which changes nothing. By Lemma~\ref{lem:seed} the automorphised seed
+$P_e[\Phi^\flat_t]$ converges absolutely and lies in $L^2(\Gamma_0(e)\backslash\mathbb H)$, so it has a spectral
+decomposition; by Proposition~\ref{prop:riesz} the Riesz factor $\asymp t_j^{-m-1}$ makes the discrete part converge
+absolutely for $m\ge2$ even with only the trivial sup-norm bound, so the expansion converges uniformly and may be
+evaluated at the points $z_Q$ and summed over the orbits, which replaces $u^{(e)}_j$ by
+$\mathrm{Per}_{D,e}(u^{(e)}_j)$ (Step~3); the odd forms drop out by Corollary~\ref{cor:parity-e}. The constant term
+vanishes because $\int_0^1\Phi^\flat_t\,dx=0$ (Lemma~\ref{lem:trunc}(iii)), and the same identity confines the
+Eisenstein contribution of every cusp to the non-constant modes, whence $\mathcal E(Y)=o(Y^{m+1/2})$ by
+Remark~\ref{rem:eisenstein}. The last sentence of the statement holds because the basis may be chosen to consist of
+newforms of levels $e'\mid e$ and their oldform images, whose spectral parameters are those of the newforms.
 
-For the coefficients, \eqref{eq:innerprod} expresses $\langle\Phi^\flat_t,u_j\rangle$ as $\sum_k(a_j(2k)/\pi k)$
-times $I(\alpha_k,\beta_k,t_j)$ minus the truncated tail, with $\alpha_k=4\pi k$ and $\beta_k=4\pi kt/\sqrt{|D|}$.
+For the coefficients, \eqref{eq:innerprod} expresses $\langle\Phi^\flat_t,u_j\rangle$ as $\sum_k(a_j(k)/\pi k)$
+times $I(\alpha_k,\beta_k,t_j)$ minus the truncated tail, with $\alpha_k=2\pi k$ and $\beta_k=2\pi kt/\sqrt{|D|}$.
 The interchange of the $k$-sum with the $y$-integral is justified by
-$\int_0^\infty y^{-1/2}K_0(\alpha_ky)\,dy\ll k^{-1/2}$ together with $\sum_k|a_j(2k)|k^{-3/2}<\infty$, which holds
+$\int_0^\infty y^{-1/2}K_0(\alpha_ky)\,dy\ll k^{-1/2}$ together with $\sum_k|a_j(k)|k^{-3/2}<\infty$, which holds
 because $\lambda_j(n)\ll n^{7/64+\varepsilon}$. Lemma~\ref{lem:mellin} evaluates each $I(\alpha_k,\beta_k,t_j)$ with a
 relative error $O(\tau^{A}(\alpha_k/\beta_k)^{2-\varepsilon})$; crucially $\alpha_k/\beta_k=\sqrt{|D|}/t$ does not
 depend on $k$, so the relative error is uniform in $k$ and survives the $k$-sum unchanged. Lemma~\ref{lem:tail}
-bounds the tail by $\ll e^{-4\pi kt}$, which after summation over $k$ and, using the Riesz factor, over $j$, is
+bounds the tail by $\ll e^{-2\pi kt}$, which after summation over $k$ and, using the Riesz factor, over $j$, is
 $O(e^{-2\pi t})$. Collecting the main terms gives
 $\langle\Phi^\flat_t,u_j\rangle=t^{-1/2}(A_j(D)t^{-it_j}+\overline{A_j(D)}t^{it_j})+O(t^{-5/2+\varepsilon}t_j^{A})$
 with $|A_j(D)|\asymp_Dt_j^{-1/2+o(1)}$ by~\eqref{eq:Ajsize}; the factor
@@ -863,14 +954,17 @@ error terms sum by Proposition~\ref{prop:riesz} with room to spare, since they c
 \end{proof}
 
 \begin{remark}[what a referee should check]\label{rem:referee}
-The proof uses, as standard inputs: Gauss's parametrisation of the root pairs by binary quadratic forms
-(\S\ref{sec:formula}, Step~1), the spectral decomposition of $L^2(\Gamma\backslash\mathbb H)$, the Weyl law, the
-sup-norm bound for Maass forms, the bound $\lambda_j(n)\ll n^{7/64+\varepsilon}$, and Parseval's formula for the Mellin
-transform. Everything else is proved above, with the exception recorded in Remark~\ref{rem:coprime}, which an
-external assessment found and we had not: the passage from the restricted sum to complete orbits. The two places we
-would have looked first for an error are the uniformity in
+The proof uses, as standard inputs: Gauss's parametrisation of the root pairs by binary quadratic forms of
+discriminant $4D$ (\S\ref{sec:formula}, Step~1), the spectral decomposition of $L^2(\Gamma_0(e)\backslash\mathbb H)$
+for the finitely many levels $e\mid\operatorname{rad}(2D)$ with its Eisenstein series at each cusp, the Weyl law and the
+sup-norm bound for Maass forms at fixed level, the Kim--Sarnak bound $\lambda_j(n)\ll n^{7/64+\varepsilon}$ and the
+Hoffstein--Lockhart normalisation of $\rho_j(1)$ for newforms of fixed level, and Parseval's formula for the Mellin
+transform. Everything else is proved above. The step that was wrong in the first version, the passage from the
+restricted sum to orbits (Remark~\ref{rem:coprime}), was found by an external reader; its replacement is
+Lemma~\ref{lem:subfamily} together with Step~2, and it is the first thing to check. The two further places we would
+look are the uniformity in
 $\tau$ of the shifted contour in Lemma~\ref{lem:mellin}, where we have given the Stirling estimate in outline rather
-than in full, and the passage from the spectral expansion of $P[\Phi^\flat_t]$ in $L^2$ to its pointwise evaluation at
+than in full, and the passage from the spectral expansion of $P_e[\Phi^\flat_t]$ in $L^2$ to its pointwise evaluation at
 the Heegner points, which we justify by the absolute convergence supplied by the Riesz factor and which is the reason
 the theorem is stated for $m\ge2$ rather than $m\ge1$. This paper has twice contained an argument that appealed to a
 classical theorem about a different object (Remarks~\ref{rem:achieved} and~\ref{rem:notneeded}); we would rather name
@@ -993,8 +1087,8 @@ The last column is the cleanest object of all. Dropping both the weight and the 
 \mathcal G(Y)=\sum_{h\le Y}(Y-h)\bigl(\sigma^{*}_{-1}(h^2-D)-\mathbb E\sigma^{*}_{-1}\bigr),\qquad
 \sigma^{*}_{-1}(n)=\sum_{\substack{d\mid n\\ (d,2D)=1}}\frac1d,
 \end{equation}
-a Riesz mean of the divisor-type sums of Hooley and Gafurov. The condition $(d,2D)=1$ is retained, and it is what
-Remark~\ref{rem:coprime} is about. Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used
+a Riesz mean of the divisor-type sums of Hooley and Gafurov. The condition $(d,2D)=1$ is retained; it is what makes
+the levels $e\mid\operatorname{rad}(2D)$ appear (Step~2 of \S\ref{sec:formula} and Remark~\ref{rem:coprime}). Lemmas~\ref{lem:sawtooth} and~\ref{lem:weyl} never used
 $\lambda$ or squarefreeness, so they apply verbatim, and the Dirichlet series attached to~\eqref{eq:model} is
 \[
 Z_k(s)=\sum_{(d,2D)=1}\mathcal W_k(D;d)\,d^{-s},
@@ -1005,8 +1099,12 @@ by the squarefree condition, through M\"obius over $\ell^2$, and by $\lambda=1*\
 
 \paragraph{The phases: a test with no free parameter.} The sharpest check available to us is not the size of the
 oscillation but its phase. In~\eqref{eq:orbit} the length enters the test function only through the combination
-$2t/\sqrt{|D|}$, so the spectral term carries the factor $(2/\sqrt{|D|})^{it_j}$; and by Step~3 the amplitude is
-proportional to $\mathrm{Per}_D(u_j)$, a real number whose \emph{sign} therefore shifts the phase by $\pi$. Writing
+$t/\sqrt{|D|}$, so the spectral term carries the factor $(\sqrt{|D|}/2t)^{it_j}$ of~\eqref{eq:asymp}, that is
+$(\sqrt{|D|}/2)^{it_j}$ in its dependence on $D$; and by Step~3 the amplitude is a real number, a signed combination of
+periods of the real-valued form $u_j$, whose \emph{sign} therefore shifts the phase by $\pi$. (The sign used below is
+that of the Katok--Sarnak period at $D$, as in the first version of this paper; the corrected Step~3 makes the
+coefficient a combination over $e\mid\operatorname{rad}(2D)$ in which the level-one term is expected to dominate, and
+the agreement found here is evidence that it does.) Writing
 the fitted oscillation as $A_D\cos(t_1\log Y-\varphi_D)$, the mechanism predicts, once one discriminant is fixed as a
 reference and with nothing else at our disposal,
 \begin{equation}\label{eq:phasepred}
@@ -1062,8 +1160,8 @@ $b^2\equiv D$ by Tonelli--Shanks, Hensel and the Chinese remainder theorem).
 $T_1(X)/\sqrt X$ is indeed bounded, staying below $0.56$ in absolute value with standard deviation $0.14$ for
 $D=-4$: square-root cancellation, well beyond the proved exponent $\tfrac34$. Its spectrum is the even one, for every
 discriminant tested, at the $96$th percentile or above, while the frequencies $2t_j$ are rejected at the $12.7$th.
-And the phase test of~\eqref{eq:phasepred} applies verbatim, with $(2/\sqrt{|D|})^{it_1}$ entering through the
-factor $(\sqrt{|D|}/2)^{s}$ of~\eqref{eq:poincare}:
+And the phase test of~\eqref{eq:phasepred} applies verbatim, with $(\sqrt{|D|}/2)^{it_1}$ entering through the
+factor $(\sqrt{|D|}/2t)^{it_1}$ of~\eqref{eq:asymp}:
 
 \begin{table}[htbp]
 \centering\small
@@ -1107,8 +1205,7 @@ Table~\ref{tab:periods} are stable across the halves of the present range and do
 
 \section{Uniformity in $u$, and what the Ces\`aro conjecture would need}\label{sec:uniformity}
 
-Theorem~\ref{thm:main} is for one piece, $u=1$ (and, as it stands, for the complete orbit sum rather than for the
-restricted one, Remark~\ref{rem:coprime}). Part~III reduces the Ces\`aro form of Conjecture~1 of part~I to the
+Theorem~\ref{thm:main} is for one piece, $u=1$. Part~III reduces the Ces\`aro form of Conjecture~1 of part~I to the
 windows of \emph{all} the pieces with $u\le H^{2/3+\varepsilon}$, so what is wanted is Theorem~\ref{thm:main} uniformly
 in $u$, with an error that survives summation against the weight $w(u)$ over that range. This section records what
 that requires, and why the proof above does not supply it.

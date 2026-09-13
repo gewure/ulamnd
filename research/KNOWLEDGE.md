@@ -26,9 +26,12 @@ STATE. Four papers, all compiling, zero unresolved references, 26/26 tests passi
                    rem:sharp; ERRATA 11, 14). Preprint ready; awaiting an arXiv endorser (math.NT).
   paper-II  22 pp  corrected 13 Sep: the general-f explicit formula has the log-polynomial at s = −2/3 (ERRATA 12).
   paper-III 24 pp  unchanged (one sentence about part IV softened).
-  paper-IV  21 pp  THE u = 1 THEOREM IS NOT ESTABLISHED (ERRATA 13, F28): the proof drops the coprimality condition
-                   (d, 2D) = 1 of the model object when it passes to complete SL_2(Z)-orbits. Correction notice after
-                   the abstract; Remark rem:coprime has the counterexample and the two repairs. The numerics stand.
+  paper-IV  23 pp  u = 1 theorem REPAIRED 13 Sep (repair (ii), author's decision): the argument now runs at the levels
+                   Gamma_0(e), e | rad(2D), after Möbius inversion of (d,2D) = 1 into the sub-families {e | d}; the
+                   parametrisation moved from discriminant D to 4D (Step 1). Every analytic step unchanged. Predicts
+                   level-e even newforms in the spectrum of the model object and their absence from the unrestricted
+                   sum — confirmed numerically BEFORE the rewrite (0c). NOT yet read by anyone outside; the correction
+                   notice says so. Remark rem:coprime records the error; ERRATA 13 the repair.
 Everything is pushed to github.com/gewure/ulamnd. The assessment is archived in research/reviews/.
 
 WHAT THE ASSESSMENT TAUGHT US (record in 0c). Three places examined, three real errors; two in the newest work, one
@@ -36,19 +39,20 @@ in a fix we had made ourselves and endorsed after a numerical check that could n
 density rises with recency, and nothing in papers II–IV has been read by a specialist. Assume there is more to find.
 
 WHEN PICKING UP AGAIN, IN ORDER:
-1. Paper IV: decide and carry out the repair of ERRATA 13. (i) Drop the coprimality condition — theorem for the
-   unrestricted divisor sum (union of the Heegner points of discriminants 4D/g^2, a finite union of complete orbits);
-   redo Lemma sawtooth for the fixed points of x -> -x at p | 2D; object moves away from part III's pieces. (ii) Keep
-   it — Möbius over e | rad(2D), Gamma_0(e)-orbits, level-e spectral theory (multiple cusps, oldforms + newforms);
-   the right object for the pieces and the fixed-level shadow of the u-problem (3e). Test FIRST, as always: does the
-   excluded sub-family (2 | d for D = −4) oscillate at level-2 Maass parameters that the coprime object lacks?
-   Tools: scripts/piece-divset.ts + piece-periodogram.ts (13 Sep; see 0c for the first run).
+1. Paper IV: get the REPAIRED Section 5 read by someone outside (or a fresh, adversarial pass). What to check first:
+   Step 1 (pairs (d,x) <-> ALL forms of disc 4D, incl. imprimitive), Lemma subfamily (Gamma_0(e)-stability of {e | a}),
+   Step 2 (Möbius regrouping of the paired sawtooth series; S_e is NOT sum_h(F_e - E_e), it is the psi-series), Step 3
+   (unfolding at level e, width of the cusp infinity is 1), Remark eisenstein (constant terms of ALL cusps killed by the
+   vanishing x-mean), Prop. riesz (Hoffstein–Lockhart at fixed level; oldforms). Open loose end: the amplitude/sign
+   bookkeeping of Section 6's phase test still uses the level-1 Katok–Sarnak period at D; the corrected coefficient is a
+   signed combination over e. Compute the level-e periods numerically (needs Fourier coefficients of level-2/3 Maass
+   newforms) and check amplitudes AND the D = −3 level-2 absence.
 2. Only then: a second pass over the other ~20 places of the same three kinds (every "consequently", every
    "identical to the proof of", every passage from an arithmetic sum to a group-theoretic one), by an outside reader.
 3. arXiv for paper I (endorsement is the only blocker; routes in the 12 Sep timeline entry).
 4. The open problem of 3e/3f is unchanged (hybrid attack, 3f item 4). Do not attack it before 1 is done.
 
-DO NOT, WITHOUT NEW EVIDENCE: call paper IV's u = 1 result a theorem (it is an argument with a known gap); state ANY
+DO NOT, WITHOUT NEW EVIDENCE: call paper IV's u = 1 result externally verified (repaired 13 Sep, read by nobody yet); state ANY
 sharp-sum asymptotic with a bounded remainder (F26: differencing kills it whenever the summand is unbounded); write
 "the same proof works" for a generalisation without recomputing the multiplicities and pole orders (F27); pass from a
 restricted arithmetic sum to an orbit sum without checking that the restriction is invariant (F28); describe the u > 1
@@ -99,8 +103,15 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   square-root cancellation holds for the unrestricted sum too, as repair (i) predicts.
   CONCLUSION FOR THE REPAIR DECISION: the data say the paper's object is a level-rad(2D) object, i.e. repair (ii) is the
   true description; repair (i) (drop the condition) gives a correct level-1 theorem about a different object.
+  DECISION (author, 13 Sep): (ii). Principle stated: correct or leave open, never patch with a weaker claim about a
+  different object. REPAIR DONE the same day (ERRATA 13 has the list of changes). Verified before writing: the 4D
+  parametrisation (orbit counts = sum_g h(4D/g^2), 9 discriminants), Gamma_0(e)-stability and finite orbit counts (15
+  pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 13 Sep (later). Paper IV REPAIRED by route (ii): Section 5 rewritten at level Gamma_0(e), e | rad(2D) (details in
+  ERRATA 13); discriminant convention moved to 4D; abstract, notice, thm:K, cor:shape, referee remark, Section 6 phase
+  paragraph updated; three bib entries added (Iwaniec 2002, Hoffstein–Lockhart 1994, Kim–Sarnak 2003). 23 pp, compiles.
 - 13 Sep. FIRST EXTERNAL ASSESSMENT applied (0c; ERRATA 11–15). Paper I v9 (all sharp-sum claims removed; sharp
   form of Hypothesis (E) recorded as false); paper II general-f theorem corrected (log-polynomial at −2/3, table of
   m_N for 19 groups: m_4 < 0 and m_5 > 0 in all of them, no proof); paper IV u = 1 theorem marked NOT ESTABLISHED with
