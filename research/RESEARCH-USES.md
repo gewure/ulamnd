@@ -244,3 +244,73 @@ These are research, not polishing; they start only on the author's decision. In 
 - If the Hecke idea (1a) is right, the Cesàro constant A_f would acquire a spectral expression: A_f^diag from ζ_K and
   the pair fields, C²c_off from the dilation average, and the pieces' contribution from L-values of Maass forms at the
   edge — three different spectra in one constant. That would be worth a paper even without the uniformity.
+
+## 6. Follow-up paths explored on 14 September 2026 (after the internal phase; literature verified that day)
+
+Question asked by the author: the k-tuple singular series as a follow-up — interesting, or cosmetic? And what else, more
+promising, could the findings be used for? Literature checked (arXiv abstracts read; papers named here only if seen):
+Montgomery–Soundararajan 2004 (Gaussian moments of the k-point series for f = t); Kowalski, Acta Arith. 148 (2011),
+arXiv 0805.4682 (limiting distribution of the k-tuple singular series, moment symmetry µ_k(m) = µ_m(k), Gallagher-type
+LEADING-order averages for general polynomial families f ⊙ h, conditional Poisson law for polynomial prime patterns in
+short intervals); Kuperberg 2023, arXiv 2301.06095 (singular-series sums with smooth weights); Kowalski–Soundararajan,
+arXiv 2003.12965 (equidistribution from CRT; roots of polynomial congruences, quantitative forms open in degree ≥ 3);
+arXiv 2003.13100 (joint distribution of roots of pairs of congruences); Einsiedler–Lindenstrauss–Michel–Venkatesh, Ann.
+Math. 173 (2011) (periodic torus orbits, Duke's theorem for cubic fields); Bykovskiĭ (spectral expansion of Σ σ_ν(n²+h),
+error O(X^{2/3+ε})); Gorodetsky–Sawin, Math. Ann. 2019, arXiv 1811.04834 (twin prime polynomials over F_q[T], large q,
+a LOWER-ORDER term in Δ consistent with Hardy–Littlewood); Sawin–Shusterman, arXiv 1808.04001 (twin primes over F_q[T],
+fixed large q); Entin, arXiv 1409.0846; Bank–Foster, arXiv 1708.07491; Palimar, arXiv 1909.03778.
+
+### 6a. The k-tuple series as proposed ★★ (cosmetic as a stand-alone paper)
+Leading order for polynomial k-point series is Kowalski 2011 (Gallagher-type, Poisson regime). The second-order
+Gaussian-moment structure of Montgomery–Soundararajan pairs moduli and is universal; a polynomial version would be
+conditional on Conjecture 1 and would teach nothing new about primes. Do not do this alone.
+
+### 6b. The root-statistics hierarchy (the defensible version of 6a) ★★★★ for insight, conditional, weeks of work
+Reframe by the number of roots involved: level 1 = divisor sums of f(n) (Hooley 1963 quadratics; cubic case open);
+level 2 = pair correlation (papers I–IV); level k = k-tuples of roots. Content that would help others: (i) the exact
+reduction "pair correlation of a degree-n f = level-1 root statistics of its difference polynomial (degree n(n−1))",
+which locates why quadratics are special (x² − D) and why cubics live on the Galois closure; (ii) ordered k-tuples of
+roots mod d ↔ ideals of norm d ↔ integral points on periodic torus orbits in SL_m(Z)\SL_m(R)/SO_m (Heegner points = m=2;
+ELMV = m=3), with the GL_3 spectrum of a cubic's level-1 statistics as a stated conjecture, not a chase; (iii) the Galois
+tower in the sub-leading terms (k-point terms see k-transitivity; unconditional, testable: S_4 vs A_4 quartics at the
+3-point level); (iv) which quantitative joint-equidistribution hypothesis on roots gives which Cesàro prime statistic,
+stated in smoothed form (F26). MS-type Gaussian moments as one corollary. First step: read Kowalski 2011 §5 and
+Kowalski–Soundararajan fully; pilot: joint distribution of pairs of roots of one S_3 cubic mod d.
+
+### 6c. Function field, positioned against Gorodetsky–Sawin ★★★★★ (unchanged rating, novelty now sharper)
+Our object (the shift-averaged pair correlation with its explicit constant −(N+1−c_N(D))/q, paper III §5) is not their
+object (the count at a single shift Δ), but their lower-order term "consistent with Hardy–Littlewood" is the closest
+prior result and the methods (equidistribution of L-functions, Katz monodromy) are the same. Any write-up must cite
+GS 2019, Sawin–Shusterman 2018, Entin 2014, Bank–Foster 2017 and state the difference in the first paragraph. Fixed-q,
+degree → ∞ (Sawin–Shusterman's regime) is out of reach for us; large q is the target.
+
+### 6d. Statistics of the pair singular series of a polynomial (Kowalski's Theorems 1.1–1.2 for S_f(h)) ★★★★ doable, ★★★ interest
+Kowalski proved, for linear k-tuples, that Σ*_{|h|≤H} S(h)^m ~ µ_k(m) H^k with the symmetry µ_k(m) = µ_m(k), and a
+limiting distribution. For a fixed polynomial f the moments Σ_{h≤H} S_f(h)^m are Frobenian Euler products with a
+1/p-dependence — exactly the Ψ_N machinery of paper II; our −½C(f) log H is the m = 1 second-order term. New questions
+with tools in hand: the second-order (log) terms of all moments via ζ_K and the pair fields; whether a polynomial
+analogue of the symmetry exists (the "local" origin Kowalski describes should be checkable p by p); the limiting
+distribution of S_f(h) and its dependence on the Galois group. Self-contained, independent of the open window, uses
+only paper I's identity and paper II's algebra. Natural companion: the Frobenian-Euler-product note of §3 (Kurokawa–
+Moroz–Alberts extended to the two-variable case). One paper: "Moments and distribution of the pair singular series
+of a polynomial".
+
+### 6e. A benchmark paper for the experimental community ★★★★ value per effort
+Conjecture 1 + Hardy–Littlewood predict Var/E = 1 − log H/log X + (A_f-dependent corrections) for the primes among
+f(t) in short ranges (paper I eq. varHL2). Nobody has tested the second moment of polynomial prime values against a
+prediction with an explicit constant. The workbench sieves are built for exactly this; publish data, code and the
+comparison for ~20 polynomials to T ~ 10^9–10^10 (Aletheia-Zomlefer–Fukshansky–Garcia's "experiments on Bateman–Horn"
+is the audience; also Kourbatov's k-tuple gap statistics). Independent of the open window; it tests HL at second order,
+which is new evidence of a kind that helps others calibrate their own experiments.
+
+### 6f. Smoothed Hooley/divisor sums with explicit Maass amplitudes (2a revisited) ★★ novelty, ★★★★ cheapness
+Bykovskiĭ has the spectral expansion and O(X^{2/3+ε}) for Σ σ_ν(n²+h); our contribution would be the explicit
+Katok–Sarnak amplitudes and phases confirmed numerically (and the odd forms in the imaginary part). A short note at most;
+"known to experts" risk high.
+
+### 6g. Order of preference (14 Sep)
+1. 6c function field (a closable theorem; cite GS 2019 first). 2. 6e benchmark paper (outward-facing, quick, uses the
+workbench). 3. 6d moments/distribution of S_f(h) (new, self-contained). 4. 1a Hecke/L-function mechanism (the route to
+the conjecture; A_f with three spectra). 5. 6b hierarchy, only if the author wants the k-tuple theme; never 6a alone.
+Items 1–3 depend only on paper I's identity and paper II's algebra, which are the parts that have been reviewed most;
+nothing building on III–IV should start before outside review of those two.
