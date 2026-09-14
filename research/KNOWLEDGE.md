@@ -191,6 +191,10 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (~04:30). Closed form of the level-1 amplitude ratio at odd prime dilation u: r = √u Pᵀ(u(u+1)G)⁻¹L with G the
+  oldform Gram matrix (entries λ√u/(u+1) and (λ²−1−1/u)/(u+1)), P the local period multiplicities (2u | u−χ; λ√u + (u−1) |
+  λ√u − (1+χ)), L = (1, 1/u, 1/u²); matches the direct computation to 4 digits. Identities to be proved (Hecke on Heegner
+  divisors). explore/STATE.md §7b.
 - 15 Sep (~04:00). RESULT: the amplitude of the level-1 Maass line at dilation u derived from thm:smooth at level Γ₀(u²)
   (oldform projection onto {u_j(z),u_j(uz),u_j(u²z)} over the family W_u = {disc 4u²D: u²|a, 2u²|b}) and confirmed with
   no free parameter on 21 (u,D) pairs (explore/STATE.md §7; hecke-oldform-predict.py). Depends on D only via χ_D(u);

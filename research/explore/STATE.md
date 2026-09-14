@@ -248,3 +248,20 @@ amplitudes are the same formula with v running over those forms — needs their 
 can now cite this; NOT edited (new result, not a correction — author's decision where it goes: paper IV remark or the
 follow-up paper).
 
+### 7b. Closed form (odd prime u; discovered from the numbers, verified to 4 digits against the direct computation; TO BE PROVED)
+With λ = λ_j(u), s = √u, χ = χ_D(u), index u(u+1), and relative to ‖u_j‖²_{Γ₀(u²)}:
+   Gram matrix of (u_j(z), u_j(uz), u_j(u²z)):  G = [[1, g, h], [g, 1, g], [h, g, 1]],  g = λ s/(u+1),  h = (λ² − 1 − 1/u)/(u+1)
+      (g is Iwaniec–Luo–Sarnak; h was read off at u = 2, 3, 5: 0.3001, −0.3181, −0.1095 — the same formula each time.)
+   Periods over W_u relative to Per_D(u_j):   P = (p0, p1, p0),
+      p1 = Per_W(u_j(uz))/Per_D = 2u (u | D),  u − χ (u ∤ D)        [a multiplicity: each class of disc 4D appears 2u or u−χ times]
+      p0 = Per_W(u_j(z))/Per_D = Per_W(u_j(u²z))/Per_D = λ s + (u − 1)  (u | D),   λ s − (1 + χ)  (u ∤ D)
+   Fourier factors: L = (1, 1/u, 1/u²) times L~_j.
+   r_j(u; χ) = √u · Pᵀ (u(u+1) G)^{−1} L        (basis-free form of Σ_k Per(v_k) L~(v_k) over an orthonormal basis).
+   Values: u=3: +0.6954 / −0.3105 / +0.1925 (χ = 0 / +1 / −1); u=5: +0.4210 / −0.0763 / +0.0894 — equal to the direct
+   computation (+0.695 / −0.311 / +0.192; +0.421 / −0.076 / +0.089). u = 2 is 2-adically different (p1 = 4.912, 0.321, 1.373 for
+   D ≡ 0 mod 4 / D ≡ 1 mod 8 / D ≡ 5 mod 8; not integers — the condition "2u | b" at u = 2 reads "4 | b" while b is always even)
+   and needs its own local computation; the direct method handles it (0.850 / −0.341 / −0.068, confirmed).
+   Proof route for the identities: the Hecke correspondence T_u on Heegner divisors (Gross–Kohnen–Zagier): the u+1 points
+   uz_Q, (z_Q + b)/u; the sub-family {2u | b} is where z_Q/u is again integral of level u²; p0 = λ s + (local count) is
+   T_u u_j = λ u_j·(normalisation) minus the terms not in the family. A day of algebra; the numbers say what to prove.
+
