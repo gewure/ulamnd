@@ -191,6 +191,8 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (08:00). Lemmas A and B of the dilation draft PROVED (lines in P¹(F_u), B-orthogonality, Hecke sum minus isotropic
+  lines); Theorem 2 now rests only on the Gram lemma (standard). Adversarial reading of the draft launched (fresh opus agent).
 - 15 Sep (morning). The reviewing conversation read the PROOFS: two real defects in paper II (an empty parameter set in the
   explicit-formula proof; the Ω-theorem's proof did not prove it — comparison term's transform mislocated, its real pole
   forgotten) fixed with the standard Landau second step and an explicit constant; paper I's natural-boundary sentence now

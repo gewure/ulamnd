@@ -326,3 +326,15 @@ t₁ = 13.8 with R² ≈ 0.15). A second cubic (cyclic, x³−3x−1) and Y = 10
 theoretical prediction of the growth exponent first. PARKED. Paper IV §7 / RESEARCH-USES 6b: record as "tested, negative
 at 10⁷".
 
+## 10. Lemmas A and B PROVED (15 Sep, 08:00); adversarial reading of the draft launched
+Proofs in PROOFS-dilation.md §1' and in paper-dilation/main.tex (Section 3). Mechanism: the transported group is
+G_u = Γ₀(u) ∩ Γ⁰(u); its cosets in SL₂(Z) are ordered pairs of distinct lines in P¹(F_u); the family condition "2u | b" is
+B-orthogonality of the two column lines for the bilinear form B of the class; the mass formula turns the weighted orbit
+count into a coset count → m = #{orthogonal pairs} = u − χ (B nondegenerate: isotropic lines excluded) or 2u (rank one:
+radical line paired with anything). For the period: the Hecke coset of z_Q/u depends only on the first line; summing the
+Hecke relation over lines and subtracting the isotropic lines (= the same-discriminant neighbours [𝔭]·C, GKZ) gives
+p0 = √u λ − (1+χ), and the rank-one case gives √u λ + (u−1). Hypothesis: u ∤ D, or u ∥ D with u prime to the conductor.
+Lemma C (Gram) remains: the general oldform inner-product formula ⟨f|B_{p^a}, f|B_{p^b}⟩/⟨f,f⟩ = p^{−k/2}(λ(p^k) − λ(p^{k−2})/p)/(1+1/p),
+k = |a−b|, reproduces both entries (k=1: ILS; k=2: our h) — to be located/derived. A fresh adversarial reader (opus) is
+reading the draft now; its findings go into ERRATA before anything else happens to the draft.
+
