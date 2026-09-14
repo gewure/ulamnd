@@ -101,9 +101,10 @@ p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\mid D,\\ -(1+\chi)&u\nmid D.\end{case
 In particular $r_j(u;D)=\lambda_j(u)/u+O(u^{-3/2})$ for $u\nmid D$ and $r_j(u;D)=u^{-1/2}\bigl(1+O(\lambda_j(u)u^{-1/2})\bigr)$
 for $u\mid D$, the implied constants absolute.
 \end{theorem}
-\status{conditional on Lemmas~\ref{lem:mult}, \ref{lem:period} and~\ref{lem:gram}, each of which is stated with the values
-the numerics fix and proved to the extent marked. The values of~\eqref{eq:r} agree with the direct spectral computation to
-four digits and with the data to the noise (Table~\ref{tab:ratios}).}
+\status{Lemmas~\ref{lem:mult} and~\ref{lem:period} are proved below for $u\nmid D$ and for $u\parallel D$ with $u$ not
+dividing the conductor of $D$; Lemma~\ref{lem:gram} is a standard unfolding whose entries are fixed numerically to four digits
+and whose write-up is pending. The values of~\eqref{eq:r} agree with the direct spectral computation to four digits and with
+the data to the noise (Table~\ref{tab:ratios}).}
 
 \begin{theorem}[the newform lines]\label{thm:newform}
 Let $u$ be an odd prime and $v$ an even Hecke--Maass newform of level $u$ with Atkin--Lehner eigenvalue $\varepsilon$
@@ -168,40 +169,71 @@ which is the vector $L$ of Theorem~\ref{thm:level1}.
 Throughout $u$ is an odd prime and $\Per_D(f)=\sum_{Q\in\mathcal H/\mathrm{SL}_2(\Z)}f(z_Q)/|\Gamma_Q|$.
 
 \begin{lemma}[multiplicity]\label{lem:mult}
-For every $\mathrm{SL}_2(\Z)$-class $C$ of forms of discriminant $4D$,
+Let $u$ be an odd prime with $u\nmid D$, or $u\parallel D$ and $u$ not dividing the conductor of $D$. For every
+$\mathrm{SL}_2(\Z)$-class $C$ of forms of discriminant $4D$,
 $\sum_{Q'\in\Gamma_0(u^2)\backslash\mathcal W_u,\ uz_{Q'}\in C}|\Gamma_0(u^2)_{z_{Q'}}|^{-1}=m_u(D)\,|\Gamma_C|^{-1}$ with
 $m_u(D)=2u$ if $u\mid D$ and $m_u(D)=u-\chi_D(u)$ if $u\nmid D$. Equivalently $\Per_{\mathcal W_u}(u_j(u\,\cdot))=m_u(D)\Per_D(u_j)$.
 \end{lemma}
-\begin{proof}[Sketch]
-$u_j(u\tau_{Q'})=u_j(z_Q)$, so the identity is a count of the $\Gamma_0(u^2)$-orbits of $\mathcal W_u$ above $C$, weighted
-by stabilisers. Transporting by $\tau=z/u$, these are the orbits of $\Gamma^0(u^2)=\{u^2\mid\beta\}$ on the forms
-$\gamma Q_0\in C$ with $2u\mid b(\gamma Q_0)$. The condition depends on $\gamma$ modulo $u$ and singles out, in
-$\mathbb P^1(\mathbb F_u)$, the points at which a binary quadratic attached to $Q_0$ does not vanish; there are
-$u+1-(1+\chi)=u-\chi$ of them when $u\nmid D$, and the lifts to $\mathbb P^1(\Z/u^2)$ account for the rest of the count.
-When $u\mid D$ the quadratic has a double root and the forms with $u\mid a$ contribute a second family of $u$ orbits.
-\todo{Complete the coset count; the identification of the excluded points with the roots of $Q_0\bmod u$ is the step to
-write out. Numerically $m=6.000,10.00$ ($u=3,5$, $u\mid D$), $2.001,4.000$ (split), $3.999,6.000$ (inert).}
+\begin{proof}
+Write $(Q\circ\gamma)(v)=Q(\gamma v)$ (a right action), $C=Q_0\circ\Gamma$ with $\Gamma=\mathrm{SL}_2(\Z)$, $S=\{\gamma:Q_0\circ\gamma=Q_0\}$,
+and let $B$ be the bilinear form of $Q_0$, $B(v,w)=av_1w_1+\tfrac b2(v_1w_2+v_2w_1)+cv_2w_2$, of discriminant $D$.
+
+\emph{The transported group.} With $\alpha=\left(\begin{smallmatrix}1&0\\0&u\end{smallmatrix}\right)$, $z\mapsto z/u$, one has
+$\alpha^{-1}\Gamma_0(u^2)\alpha=G_u:=\Gamma_0(u)\cap\Gamma^0(u)=\{u\mid b,\ u\mid c\}$, of index $u(u+1)$. The bijection
+$Q\mapsto Q'=[u^2a,ub,c]$ of $\mathcal H^{(u)}$ onto $\mathcal W_u$ has $z_{Q'}=z_Q/u$ and intertwines the action of $G_u$ on
+$\mathcal H^{(u)}$ with that of $\Gamma_0(u^2)$ on $\mathcal W_u$, orbits and stabilisers included; and $\mathcal H^{(u)}$ is
+$G_u$-stable, since $b(Q\circ g)\equiv b\,\alpha\delta\equiv b\pmod u$ for $g\in G_u$. So we count $G_u$-orbits in
+$C\cap\mathcal H^{(u)}$.
+
+\emph{Cosets are ordered pairs of lines.} $\Gamma\to\mathrm{SL}_2(\mathbb F_u)$ is onto and $G_u$ is the preimage of the diagonal
+torus $T$, so $\Gamma/G_u\cong\mathrm{SL}_2(\mathbb F_u)/T$: a matrix with columns $(v,w)$ modulo $(v,w)\mapsto(\lambda v,\lambda^{-1}w)$
+is the ordered pair of distinct lines $(\ell_1,\ell_2)=(\langle v\rangle,\langle w\rangle)$ in $\mathbb P^1(\mathbb F_u)$,
+$u(u+1)$ pairs in all.
+
+\emph{The family condition is orthogonality.} The middle coefficient of $Q_0\circ\gamma$ is $2B(\gamma e_1,\gamma e_2)$; so
+$Q_0\circ\gamma\in\mathcal H^{(u)}$ iff $\ell_1\perp_B\ell_2$, a condition on the right coset $\gamma G_u$ and unchanged under
+$\gamma\mapsto s\gamma$, $s\in S$.
+
+\emph{The mass formula.} $C\cong S\backslash\Gamma$, the $G_u$-orbits in $C$ are the double cosets $S\gamma G_u$, with stabiliser
+$G_u\cap\gamma^{-1}S\gamma$, and each double coset consists of $|S|/|G_u\cap\gamma^{-1}S\gamma|$ right cosets $\gamma'G_u$. Hence for
+every function $\varphi$ on $\Gamma$ that is left-$S$- and right-$G_u$-invariant,
+\begin{equation}\label{eq:mass}
+\sum_{\text{$G_u$-orbits }O\subset C}\frac{\varphi(O)}{|\mathrm{Stab}_{G_u}(O)|}=\frac1{|S|}\sum_{\gamma\in\Gamma/G_u}\varphi(\gamma).
+\end{equation}
+With $\varphi=\mathbf 1[\ell_1\perp\ell_2]$ this gives $m_u(D)=\#\{(\ell_1,\ell_2)\text{ distinct}:\ \ell_1\perp_B\ell_2\}$. If
+$u\nmid D$, $B$ is nondegenerate modulo $u$; every $\ell_1$ has a unique $\ell_1^\perp$, admissible iff $\ell_1^\perp\ne\ell_1$, i.e.\ iff
+$\ell_1$ is not isotropic; the isotropic lines are the roots of $Q_0$ modulo $u$, $1+\chi_D(u)$ of them; so $m=u+1-(1+\chi)=u-\chi$.
+If $u\parallel D$ and $u$ does not divide the conductor, $Q_0\not\equiv0$ and $B$ has rank one modulo $u$ with radical line $r$
+(the double root); $B(v,w)=0$ iff $\langle v\rangle=r$ or $\langle w\rangle=r$, giving $u+u=2u$ ordered pairs.
 \end{proof}
 
 \begin{lemma}[the period of the dilated family]\label{lem:period}
+Under the hypotheses of Lemma~\ref{lem:mult},
 $\Per_{\mathcal W_u}(u_j)=\Per_{\mathcal W_u}(u_j(u^2\,\cdot))=\bigl(\lambda_j(u)\sqrt u+c_u(D)\bigr)\Per_D(u_j)$ with
 $c_u(D)=u-1$ if $u\mid D$ and $c_u(D)=-(1+\chi_D(u))$ if $u\nmid D$.
 \end{lemma}
-\begin{proof}[Sketch]
-For $Q=[a,b,c]$ with $u\nmid a$ the $u+1$ Hecke neighbours of $z_Q$ are $uz_Q$, the point of $[a,ub,u^2c]$, and
-$(z_Q+k)/u$, the points of $[u^2a,\,u(b-2ak),\,ak^2-bk+c]$, $k\bmod u$, all of discriminant $4u^2D$, and
-$\sum_{\text{neighbours }\nu}u_j(\nu)=\lambda_j(u)\sqrt u\,u_j(z_Q)$. Exactly one neighbour lies in $\mathcal W_u$: $(z_Q+k)/u$
-with $k\equiv(b/2)a^{-1}\pmod u$, since $2u^2\mid u(b-2ak)$ iff $b/2\equiv ak\pmod u$. Among the others, when $u\nmid D$,
-exactly $1+\chi$ have content divisible by $u$ and are Heegner points of discriminant $4D$ again --- the classical
-description of $T_u$ on CM points \cite{GrossKohnenZagier1987}: the classes multiplied by the prime ideals above $u$ ---
-and summed over all classes of $\mathcal H$ these contribute $(1+\chi)\Per_D(u_j)$. The remaining neighbours of discriminant
-$4u^2D$ are $\Gamma_0(u^2)$-equivalent to the selected neighbours of the other $m_u(D)$ representatives of the same class
-(Lemma~\ref{lem:mult}); summing the Hecke relation over the classes and subtracting the same-discriminant terms gives the
-claim for $u\nmid D$. For $u\mid D$ the forms with $u\mid a$ add $u\Per_D$, and the term $-1$ is the single ramified
-neighbour of discriminant $4D$. The identity for $u_j(u^2\,\cdot)$: $u^2\tau_{Q'}=uz_Q$ is itself the first neighbour.
-\todo{The bijection between non-selected neighbours and the selected neighbours of the other representatives is the step
-to write out; the ramified count too. Numerically $c=+2,+4$ ($u=3,5$, $u\mid D$), $-2$ (split), $0$ (inert), each to four
-digits, and $\Per(u_j)=\Per(u_j(u^2\cdot))$ exactly.}
+\begin{proof}
+In the notation of the previous proof, $z_{Q_0\circ\gamma}=\gamma^{-1}z_0$, so $z_{Q_0\circ\gamma}/u=\alpha\gamma^{-1}z_0$ with
+$\alpha\gamma^{-1}$ of determinant $u$. The map $\gamma\mapsto\Gamma\alpha\gamma^{-1}$ is a bijection of $\Gamma/\Gamma_0(u)$ onto
+the $u+1$ cosets $\Gamma\backslash\Delta_u$ of the Hecke operator, and $\gamma\Gamma_0(u)$ is determined by $\ell_1=\langle\gamma e_1\rangle$
+alone. Hence $u_j(\alpha\gamma^{-1}z_0)=:u_j(h_{\ell_1}(z_0))$ depends only on $\ell_1$, the points $h_\ell(z_0)$, $\ell\in\mathbb P^1(\mathbb F_u)$,
+are the $u+1$ Hecke neighbours of $z_0$, and $\sum_\ell u_j(h_\ell(z_0))=\sqrt u\,\lambda_j(u)u_j(z_0)$. Applying~\eqref{eq:mass} with
+$\varphi(\gamma)=u_j(\alpha\gamma^{-1}z_0)\mathbf 1[\ell_1\perp\ell_2]$ and summing over the classes,
+\[
+\Per_{\mathcal W_u}(u_j)=\sum_C\frac1{|S_C|}\sum_{\ell_1}N(\ell_1)\,u_j(h_{\ell_1}(z_C)),\qquad N(\ell_1)=\#\{\ell_2\ne\ell_1:\ \ell_1\perp\ell_2\}.
+\]
+If $u\nmid D$ then $N(\ell_1)=1$ for non-isotropic and $0$ for isotropic $\ell_1$, so the inner sum is
+$\sqrt u\lambda_j(u)u_j(z_C)-\sum_{\ell\text{ isotropic}}u_j(h_\ell(z_C))$. The isotropic lines are the eigenlines of the order
+$\mathcal O_{4D}$ acting on $L_C/uL_C$, $L_C=\Z+\Z z_C$, i.e.\ the $1+\chi$ sublattices $\mathfrak pL_C$ for the primes
+$\mathfrak p\mid u$ of the order; their Heegner points have discriminant $4D$ again, with class $[\mathfrak p]\cdot C$
+\cite[II]{GrossKohnenZagier1987}. Since $C\mapsto\mathfrak pC$ permutes the classes of each order and preserves $|S_C|$ (the
+units of the order), $\sum_C|S_C|^{-1}\sum_{\text{iso}}u_j(h_\ell(z_C))=(1+\chi)\Per_D(u_j)$, and the claim follows.
+If $u\parallel D$ with $u$ prime to the conductor, $N(r)=u$ and $N(\ell_1)=1$ for $\ell_1\ne r$, so the inner sum is
+$\sqrt u\lambda_j(u)u_j(z_C)+(u-1)u_j(h_r(z_C))$, and $h_r(z_C)=z_{\mathfrak pC}$ for the ramified prime $\mathfrak p$, again a
+permutation of the classes: $\Per_{\mathcal W_u}(u_j)=(\sqrt u\lambda_j(u)+u-1)\Per_D(u_j)$. Finally
+$u^2z_{Q'}=u z_Q=\alpha'\gamma^{-1}z_0$ with $\alpha'=\left(\begin{smallmatrix}u&0\\0&1\end{smallmatrix}\right)$, whose Hecke coset is
+determined by $\ell_2$; the counts $\#\{\ell_1\ne\ell_2:\ell_1\perp\ell_2\}$ equal the $N(\ell_1)$ by the symmetry of $B$, which gives
+$\Per_{\mathcal W_u}(u_j(u^2\cdot))=\Per_{\mathcal W_u}(u_j)$.
 \end{proof}
 
 \begin{lemma}[the Gram matrix]\label{lem:gram}
@@ -299,7 +331,8 @@ tabulated and their amplitudes in piece $3$ cannot be predicted here.
 
 \section{What is open}\label{sec:open}
 \begin{enumerate}
-\item The three lemmas, to be proved in full (Section~\ref{sec:lemmas}); the vanishing of the newform period for inert $u$.
+\item Lemma~\ref{lem:gram} (a standard unfolding) to be written out; the case $u$ dividing the conductor of $D$; the
+vanishing of the newform period for inert $u$ (the same isotropic-line argument should give it).
 \item The $2$-adic case; the tensor-product argument for composite $u$.
 \item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect
 equidistribution of \cite{LiuMasriYoung2013,HumphriesNordentoft2025}, route 1b of the knowledge base.

@@ -83,6 +83,66 @@ with `u | a` (excluded above) contribute the additional `u · Per_D`, giving `λ
 `W_u` after the transport … [check]. **Status: mechanism identified and consistent with all six numbers; the bijection in
 (iii) and the ramified count are the two steps to write out.**
 
+## 1'. Lemmas A and B: the proof (15 Sep, 08:00; replaces the sketches above)
+
+**Setting.** `u` an odd prime, `D<0`, `u ∤ D` or `u ∥ D` with `u` not dividing the conductor of `D` (the case `u | conductor`
+is excluded; the direct computation still applies there). Right action `(Q∘γ)(v) = Q(γv)`; `C = Q₀∘Γ` a class, `Γ = SL₂(Z)`,
+`S = Stab_Γ(Q₀)` (finite; sizes 1, 2, 3 in PSL). Let `B` be the bilinear form of `Q₀`: `Q₀(v) = B(v,v)`,
+`B(v,w) = a v₁w₁ + (b/2)(v₁w₂+v₂w₁) + c v₂w₂`, of discriminant `D`; `B mod u` is nondegenerate iff `u ∤ D`, and of rank 1 with
+radical line `r` (the double root of `Q₀ mod u`) if `u ∥ D`.
+
+**Step 1: the transported group.** `α = (1 0; 0 u)` sends `z ↦ z/u`. For `γ ∈ Γ₀(u²)`, `α⁻¹γα = (a, ub; c/u, d)` with `u | c/u`;
+so `α⁻¹Γ₀(u²)α = G_u := Γ₀(u) ∩ Γ⁰(u) = {u | b, u | c}`, of index `u(u+1)` in `Γ`. The bijection `Q ↦ Q' = [u²a, ub, c]`,
+`H^{(u)} → W_u`, satisfies `z_{Q'} = z_Q/u` and intertwines the action of `G_u` on `H^{(u)}` with that of `Γ₀(u²)` on `W_u`
+(same orbits, same stabilisers). Invariance of `H^{(u)}` under `G_u`: for `g ∈ G_u`, `b(Q∘g) ≡ b·αδ ≡ b (mod u)`, and `b` is even.
+
+**Step 2: cosets are ordered pairs of lines.** `Γ → SL₂(F_u)` is onto and `G_u` is the preimage of the diagonal torus `T`, so
+`Γ/G_u ≅ SL₂(F_u)/T`. A matrix `γ` with columns `(v, w)`, `det = 1`, modulo `T` (`v ↦ λv, w ↦ λ⁻¹w`) is the ordered pair of
+distinct lines `(ℓ₁, ℓ₂) = (⟨v⟩, ⟨w⟩)` in `P¹(F_u)`: `u(u+1)` of them.
+
+**Step 3: the family condition is orthogonality.** The middle coefficient of `Q₀∘γ` is `2B(γe₁, γe₂)`; so
+`Q₀∘γ ∈ H^{(u)}` iff `u | B(γe₁, γe₂)` iff `ℓ₁ ⊥_B ℓ₂`. This is well defined on `Γ/G_u` (Step 2) and on `S\Γ` (`Q₀∘sγ = Q₀∘γ`).
+
+**Step 4: the orbit mass.** `C ≅ S\Γ` via `Sγ ↦ Q₀∘γ`; the `G_u`-orbits in `C` are the double cosets `SγG_u`, with
+`Stab_{G_u}(Q₀∘γ) = G_u ∩ γ⁻¹Sγ`. Each double coset contains `|S|/|G_u ∩ γ⁻¹Sγ|` right cosets `γ'G_u`. Hence, for any
+right-`G_u`-invariant, left-`S`-invariant function `φ` on `Γ`,
+    Σ_{G_u-orbits O ⊂ C} φ(O)/|Stab_{G_u}(O)| = (1/|S|) Σ_{γ ∈ Γ/G_u} φ(γ).                                               (M)
+
+**Lemma A.** Take `φ = 1_{H^{(u)}}(Q₀∘γ) = 1[ℓ₁ ⊥ ℓ₂]`. Then `m_u(D) = #{(ℓ₁,ℓ₂) distinct : ℓ₁ ⊥_B ℓ₂}`.
+- `u ∤ D`: `B` nondegenerate; each `ℓ₁` has a unique `ℓ₁^⊥`, and the pair is admissible iff `ℓ₁^⊥ ≠ ℓ₁`, i.e. `ℓ₁` non-isotropic.
+  Isotropic lines are the roots of `Q₀ mod u`: `1 + χ_D(u)` of them. So `m = u + 1 − (1 + χ) = u − χ`.  ∎
+- `u ∥ D`: `B(v,w) = 0` iff `⟨v⟩ = r` or `⟨w⟩ = r`; pairs `(r, ℓ₂)` and `(ℓ₁, r)` with the other line ≠ r: `u + u = 2u`.  ∎
+(Equivalently `Per_{W_u}(u_j(u·)) = m·Per_D(u_j)`, since `u_j(u τ_{Q'}) = u_j(z_Q)` is constant on the class.)
+
+**Lemma B.** Take `φ(γ) = u_j(z_{Q₀∘γ}/u)·1[ℓ₁ ⊥ ℓ₂]`. Since `z_{Q₀∘γ} = γ⁻¹z₀`, `z_{Q₀∘γ}/u = αγ⁻¹z₀`, and `αγ⁻¹ ∈ Δ_u`
+(det `u`). The map `γ ↦ Γαγ⁻¹` is a bijection `Γ/Γ₀(u) → Γ\Δ_u` (the `u+1` Hecke cosets), and `γΓ₀(u)` is determined by
+`ℓ₁ = ⟨γe₁⟩` alone (right multiplication by `Γ₀(u)` fixes the first column mod `u` up to scalars). So the value
+`u_j(αγ⁻¹z₀) =: u_j(h_{ℓ₁}(z₀))` depends only on `ℓ₁`, and `{h_ℓ(z₀) : ℓ ∈ P¹(F_u)}` are the `u+1` Hecke neighbours of `z₀`:
+    Σ_ℓ u_j(h_ℓ(z₀)) = √u λ_j(u) u_j(z₀)                                                                                   (T_u)
+(Hecke normalisation `T_u f(z) = u^{-1/2} Σ_{Γ\Δ_u} f(Mz)`). By (M),
+    Per_{W_u}(u_j) = Σ_C (1/|S_C|) Σ_{ℓ₁} N(ℓ₁) u_j(h_{ℓ₁}(z_C)),   N(ℓ₁) = #{ℓ₂ ≠ ℓ₁ : ℓ₁ ⊥ ℓ₂}.
+- `u ∤ D`: `N(ℓ₁) = 1` if `ℓ₁` non-isotropic, `0` if isotropic. Hence
+  `Per_{W_u}(u_j) = Σ_C (1/|S_C|)[√u λ u_j(z_C) − Σ_{ℓ isotropic} u_j(h_ℓ(z_C))]`. The isotropic lines are the eigenlines of the
+  order `O_{4D}` acting on `L_C/uL_C` (`L_C = Z + Z z_C`), i.e. the `1+χ` sublattices `𝔭L_C` for the primes `𝔭 | u` of the order:
+  their Heegner points `h_ℓ(z_C) = z_{𝔭·C}` have discriminant `4D` again, with the class multiplied by `[𝔭]`. The map `C ↦ 𝔭C`
+  permutes the classes of each order (each content) and preserves `|S_C|` (the unit group of the order). Summing over `C`:
+  `Σ_C (1/|S_C|) Σ_{iso} u_j(h_ℓ(z_C)) = (1 + χ) Per_D(u_j)`, and
+    Per_{W_u}(u_j) = (√u λ_j(u) − (1 + χ_D(u))) Per_D(u_j).  ∎
+- `u ∥ D`: `N(r) = u`, `N(ℓ₁) = 1` for `ℓ₁ ≠ r`. So
+  `Per_{W_u}(u_j) = Σ_C (1/|S_C|)[Σ_ℓ u_j(h_ℓ) − u_j(h_r) + u·u_j(h_r)] = √u λ Per_D + (u−1) Σ_C (1/|S_C|) u_j(h_r(z_C))`,
+  and `h_r(z_C) = z_{𝔭C}` for the ramified prime `𝔭` (`𝔭² = (u)`), a permutation of the classes; hence
+    Per_{W_u}(u_j) = (√u λ_j(u) + u − 1) Per_D(u_j).  ∎
+- `Per_{W_u}(u_j(u²·)) = Per_{W_u}(u_j)`: `u²τ_{Q'} = u z_Q = α'γ⁻¹z₀` with `α' = (u 0; 0 1)`, whose Hecke coset is determined
+  by `ℓ₂ = ⟨γe₂⟩`; the counts `N'(ℓ₂) = #{ℓ₁ ≠ ℓ₂ : ⊥}` are the same as `N(ℓ₁)` by the symmetry of `B`.  ∎
+
+**What is used from the literature.** (T_u) is the definition of the Hecke operator; the identification of the isotropic
+lines with the same-discriminant Hecke neighbours, and of their classes with `[𝔭]·C`, is the classical action of `T_u` on
+CM points / Heegner divisors (Gross–Kohnen–Zagier, Math. Ann. 278, §II; also in Zagier's account of the Hecke action on
+Heegner points), valid when `u` does not divide the conductor. Numerically all six values (`m` and `c` for `u = 3, 5`, three
+splitting types) agree with these formulas to four digits.
+
+**Lemma C (Gram).** Still to be written out (a standard unfolding); the entries are numerically certain to four digits.
+
 ## 3. Lemma C (the Gram matrix). On `Γ_0(u²)\H`, with `f_m(z) = u_j(u^m z)` and `⟨·,·⟩` the Petersson inner product,
 
     ⟨f_1, f_0⟩ = ⟨f_2, f_1⟩ = (λ_j(u)√u/(u+1)) ⟨f_0, f_0⟩,      ⟨f_2, f_0⟩ = ((λ_j(u)² − 1 − 1/u)/(u+1)) ⟨f_0, f_0⟩,      ⟨f_0,f_0⟩ = u(u+1) ‖u_j‖²_{SL_2(Z)}.

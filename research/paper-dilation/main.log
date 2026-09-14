@@ -480,7 +480,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 [2]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-41.
+42.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -491,27 +491,26 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 143.
+(hyperref)                removing `math shift' on input line 144.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 143.
+(hyperref)                removing `subscript' on input line 144.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 143.
-
-
-Underfull \hbox (badness 4156) in paragraph at lines 171--174
-[][]\T1/lmr/bx/n/10.95 Lemma 6 \T1/lmr/m/n/10.95 (mul-ti-plic-ity)\T1/lmr/bx/n/
-10.95 . []\T1/lmr/m/it/10.95 For ev-ery $[][]\OT1/cmr/m/n/10.95 (\U/msb/m/n/10.
-95 Z\OT1/cmr/m/n/10.95 )$\T1/lmr/m/it/10.95 -class $\OML/cmm/m/it/10.95 C$ \T1/
-lmr/m/it/10.95 of forms of dis-crim-i-nant $\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/1
-0.95 D$\T1/lmr/m/it/10.95 ,
- []
+(hyperref)                removing `math shift' on input line 144.
 
 [3]
-Underfull \hbox (badness 1902) in paragraph at lines 208--211
+LaTeX Font Info:    Trying to load font information for U+euf on input line 227
+.
+ (ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) (mt-euf.cfg
+File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
+
+) [4]
+Underfull \hbox (badness 1902) in paragraph at lines 240--243
 [][]\T1/lmr/bx/n/10.95 Lemma 8 \T1/lmr/m/n/10.95 (the Gram ma-trix)\T1/lmr/bx/n
 /10.95 . []\T1/lmr/m/it/10.95 On $\OT1/cmr/m/n/10.95 ^^@[](\OML/cmm/m/it/10.95 
 u[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 n\U/msb/m/n/10.95 H$\T1/lmr/m/it/10.
@@ -521,8 +520,8 @@ u[]\OT1/cmr/m/n/10.95 )\OMS/cmsy/m/n/10.95 n\U/msb/m/n/10.95 H$\T1/lmr/m/it/10.
 /m/it/10.95 f[]; f[]\OMS/cmsy/m/n/10.95 i \OT1/cmr/m/n/10.95 =
  []
 
-[4] [5] (main.bbl [6]) [7] (main.aux)
+[5] [6] (main.bbl) [7] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C04E5766FDF776CA1A4EEDE9ECBAB7C9;733.
  )
-Output written on main.xdv (7 pages, 53092 bytes).
+Output written on main.xdv (7 pages, 58708 bytes).
