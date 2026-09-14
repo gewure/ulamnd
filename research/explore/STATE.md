@@ -351,3 +351,12 @@ reading the draft now; its findings go into ERRATA before anything else happens 
 Every line of piece u that has a name is now a Heegner-type period: level-1 lines (Lemma B) and level-u newform lines
 (Lemma D). Unnamed: the cycloidal-group forms of level u².
 
+## 12. First outside reading of the draft (15 Sep, 10:30): the asymptotic was wrong; draft rewritten
+The reviewing conversation found that "λ(u)/u" was not the leading term: evaluating the closed form at u = 1009 gives
+r = −3.0e−5 against λ/u = +5e−4. Verified symbolically: inert r = u^{-3/2} exactly (all λ), split r = −u^{-3/2}(1 − 2λ/√u + O(1/u)),
+ramified r = u^{-1/2}(1 − λ/√u + (λ²+1)/u + …). Lesson F41: evaluate closed forms at large arguments before stating asymptotics.
+The draft (9 pp) now has: Theorem 2 with the correct asymptotics and the exact inert identity; Lemmas A–D proved (A, B with the
+ℓ₂ correction; C by traces; D the newform cancellation); tempered abstract (13/21 resolved, one outlier; period vs data for the
+inert vanishing); the corollary with Σ u^{-2}. Still open: u | conductor (all of u = 2), composite-u tensor argument in writing,
+cycloidal lines, a conceptual proof of the inert identity, and the error term.
+

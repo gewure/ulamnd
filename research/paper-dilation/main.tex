@@ -38,13 +38,16 @@ family $\mathcal W_u$ of forms of discriminant $4u^2D$ with $u^2\mid a$ and $2u^
 a level-one form $u_j$ in piece $u$ is therefore a projection onto the oldform space $\{u_j(z),u_j(uz),u_j(u^2z)\}$, and
 for an odd prime $u$ it equals the coefficient in piece $1$ times an explicit rational function of $\lambda_j(u)$,
 $\sqrt u$ and $\chi_D(u)$: the Gram matrix of the oldforms (Iwaniec--Luo--Sarnak) and two local period identities for the
-Hecke neighbours of Heegner points (Gross--Kohnen--Zagier). The ratio is $\lambda_j(u)/u+O(u^{-3/2})$ for $u\nmid D$ and
-$u^{-1/2}(1+O(\lambda_j(u)/\sqrt u))$ for $u\mid D$, so the main terms of the level-one lines are uniformly summable over
-$u$. The same formula with a newform $v$ of level $u$ gives its line in piece $u$, and predicts that it vanishes when $u$ is
-inert in $\Q(\sqrt D)$. Both predictions carry no free parameter; they were tested on $21$ pairs $(u,D)$ for the first
-level-one line and on seven discriminants for the first newform of level~$3$, and hold to a few percent in amplitude and a
-few hundredths of a radian in phase. The error term uniform in $u$, the open core of the conjecture of part~III, is not
-touched.
+Hecke neighbours of Heegner points (Gross--Kohnen--Zagier). The decay in $u$ is set by the splitting type of $u$ in
+$\Q(\sqrt D)$ and not by the Hecke eigenvalue: the ratio is exactly $u^{-3/2}$ when $u$ is inert, $-u^{-3/2}(1-2\lambda_j(u)u^{-1/2}+O(u^{-1}))$
+when $u$ splits, and $u^{-1/2}(1-\lambda_j(u)u^{-1/2}+O(u^{-1}))$ when $u$ is ramified; so the main terms of the level-one lines
+are uniformly summable over $u$. The same formula with a newform $v$ of level $u$ gives its line in piece $u$, and the
+period that drives it vanishes when $u$ is inert, because the Hecke and Fricke contributions cancel. Both predictions carry
+no free parameter. Where the line is resolved in the data ($|r|\gtrsim0.1$ on grids to $Y=10^7$) they hold to a few percent
+in amplitude and a few hundredths of a radian in phase --- $13$ of the $21$ pairs $(u,D)$ tested for the first level-one line,
+with one unexplained outlier, and five of the seven discriminants for the first newform of level~$3$, the other two being the
+inert cases, where the line is observed at the noise level as predicted. The error term uniform in $u$, the open core of the
+conjecture of part~III, is not touched.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -98,13 +101,22 @@ g=\frac{\lambda_j(u)\sqrt u}{u+1},\qquad h=\frac{\lambda_j(u)^2-1-1/u}{u+1},\qqu
 p_1=\begin{cases}2u&u\mid D,\\ u-\chi&u\nmid D,\end{cases}\qquad
 p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\mid D,\\ -(1+\chi)&u\nmid D.\end{cases}
 \]
-In particular $r_j(u;D)=\lambda_j(u)/u+O(u^{-3/2})$ for $u\nmid D$ and $r_j(u;D)=u^{-1/2}\bigl(1+O(\lambda_j(u)u^{-1/2})\bigr)$
-for $u\mid D$, the implied constants absolute.
+Moreover
+\[
+\begin{aligned}
+r_j(u;D)&=u^{-3/2}&&\text{($u$ inert in $\Q(\sqrt D)$; exactly, for every $\lambda_j(u)$),}\\
+r_j(u;D)&=-u^{-3/2}\bigl(1-2\lambda_j(u)u^{-1/2}+O(u^{-1})\bigr)&&\text{($u$ split),}\\
+r_j(u;D)&=u^{-1/2}\bigl(1-\lambda_j(u)u^{-1/2}+(\lambda_j(u)^2+1)u^{-1}+O(u^{-3/2})\bigr)&&\text{($u\parallel D$),}
+\end{aligned}
+\]
+the implied constants absolute. The Hecke eigenvalue enters only the corrections; the decay is set by the splitting type.
 \end{theorem}
-\status{Lemmas~\ref{lem:mult} and~\ref{lem:period} are proved below for $u\nmid D$ and for $u\parallel D$ with $u$ not
-dividing the conductor of $D$; Lemma~\ref{lem:gram} is a standard unfolding whose entries are fixed numerically to four digits
-and whose write-up is pending. The values of~\eqref{eq:r} agree with the direct spectral computation to four digits and with
-the data to the noise (Table~\ref{tab:ratios}).}
+\status{proved (Section~\ref{sec:lemmas}) for $u\nmid D$ and for $u\parallel D$ with $u$ not dividing the conductor of $D$;
+the asymptotics are read off~\eqref{eq:r} symbolically (the inert identity was verified with a computer algebra system and
+is an algebraic identity in $\lambda$ and $\sqrt u$). The first version of this draft stated the asymptotic as
+$\lambda_j(u)/u$ for $u\nmid D$; that was wrong --- the $\lambda_j(u)\sqrt u$ terms of $p_0$ and $p_1L_2$ cancel exactly --- and was
+caught by an outside reading that evaluated~\eqref{eq:r} at large $u$. The values of~\eqref{eq:r} agree with the direct
+spectral computation to four digits and with the data to the noise (Table~\ref{tab:ratios}).}
 
 \begin{theorem}[the newform lines]\label{thm:newform}
 Let $u$ be an odd prime and $v$ an even Hecke--Maass newform of level $u$ with Atkin--Lehner eigenvalue $\varepsilon$
@@ -116,13 +128,14 @@ $\{v_1,v_2\}$ the orthonormalisation of $\{v(z),v(uz)\}$ on $\Gamma_0(u^2)\backs
 entry $a_v(u)\sqrt u/u=-\varepsilon/u$ relative to $\langle v,v\rangle$. If $u$ is inert in $\Q(\sqrt D)$ then
 $\Per_{\mathcal W_u}(v)=\Per_{\mathcal W_u}(v(u\,\cdot))=0$ and the line is absent.
 \end{theorem}
-\status{the formula is Theorem~\ref{thm:pieceu} restricted to the two-dimensional oldspace; the Gram entry and the
-vanishing for inert $u$ are observed numerically (to $10^{-17}$) and not yet proved. Tested on seven discriminants
-(Table~\ref{tab:newform}).}
+\status{proved: the formula is Theorem~\ref{thm:pieceu} restricted to the two-dimensional oldspace, the Gram entry is
+Lemma~\ref{lem:gram}(iii), and the vanishing is Lemma~\ref{lem:newperiod}. Tested on seven discriminants (Table~\ref{tab:newform}):
+the period vanishes identically for inert $u$ in the computation, and in the data the line is at the noise level there.}
 
 \begin{corollary}[uniform summability of the level-one main terms]\label{cor:sum}
 For a fixed level-one form $u_j$ and any bounded weights $w(u)$, $\sum_{u\le U}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll H^{1/2}$
-uniformly in $U$, the sum over odd primes $u$ converging absolutely like $\sum_u|\lambda_j(u)|u^{-3/2}$.
+uniformly in $U$: the sum over odd primes $u\nmid D$ converges absolutely like $\sum_uu^{-2}$, and the finitely many
+$u\mid D$ contribute $\ll_D H^{1/2}$.
 \end{corollary}
 
 \begin{remark}[what this does and does not settle]
@@ -214,38 +227,80 @@ $c_u(D)=u-1$ if $u\mid D$ and $c_u(D)=-(1+\chi_D(u))$ if $u\nmid D$.
 \end{lemma}
 \begin{proof}
 In the notation of the previous proof, $z_{Q_0\circ\gamma}=\gamma^{-1}z_0$, so $z_{Q_0\circ\gamma}/u=\alpha\gamma^{-1}z_0$ with
-$\alpha\gamma^{-1}$ of determinant $u$. The map $\gamma\mapsto\Gamma\alpha\gamma^{-1}$ is a bijection of $\Gamma/\Gamma_0(u)$ onto
-the $u+1$ cosets $\Gamma\backslash\Delta_u$ of the Hecke operator, and $\gamma\Gamma_0(u)$ is determined by $\ell_1=\langle\gamma e_1\rangle$
-alone. Hence $u_j(\alpha\gamma^{-1}z_0)=:u_j(h_{\ell_1}(z_0))$ depends only on $\ell_1$, the points $h_\ell(z_0)$, $\ell\in\mathbb P^1(\mathbb F_u)$,
+$\alpha\gamma^{-1}$ of determinant $u$. Since $\alpha M\alpha^{-1}=\left(\begin{smallmatrix}a&b/u\\ uc&d\end{smallmatrix}\right)$ is integral iff $u\mid b$, the coset
+$\Gamma\alpha\gamma^{-1}$ depends on $\gamma$ only modulo right multiplication by $\Gamma^0(u)$, which fixes the second column
+line $\ell_2=\langle\gamma e_2\rangle$ and moves the first; the map $\gamma\mapsto\Gamma\alpha\gamma^{-1}$ is a bijection of
+$\Gamma/\Gamma^0(u)$ onto the $u+1$ cosets $\Gamma\backslash\Delta_u$ of the Hecke operator. (Check: $\gamma=\left(\begin{smallmatrix}1&-k\\0&1\end{smallmatrix}\right)$
+has $\ell_1=\langle e_1\rangle$ fixed, $\ell_2=\langle(-k,1)\rangle$, and $\alpha\gamma^{-1}z=(z+k)/u$, $u$ distinct neighbours.)
+Hence $u_j(\alpha\gamma^{-1}z_0)=:u_j(h_{\ell_2}(z_0))$ depends only on $\ell_2$, the points $h_\ell(z_0)$, $\ell\in\mathbb P^1(\mathbb F_u)$,
 are the $u+1$ Hecke neighbours of $z_0$, and $\sum_\ell u_j(h_\ell(z_0))=\sqrt u\,\lambda_j(u)u_j(z_0)$. Applying~\eqref{eq:mass} with
 $\varphi(\gamma)=u_j(\alpha\gamma^{-1}z_0)\mathbf 1[\ell_1\perp\ell_2]$ and summing over the classes,
 \[
-\Per_{\mathcal W_u}(u_j)=\sum_C\frac1{|S_C|}\sum_{\ell_1}N(\ell_1)\,u_j(h_{\ell_1}(z_C)),\qquad N(\ell_1)=\#\{\ell_2\ne\ell_1:\ \ell_1\perp\ell_2\}.
+\Per_{\mathcal W_u}(u_j)=\sum_C\frac1{|S_C|}\sum_{\ell_2}N(\ell_2)\,u_j(h_{\ell_2}(z_C)),\qquad N(\ell_2)=\#\{\ell_1\ne\ell_2:\ \ell_1\perp\ell_2\}.
 \]
-If $u\nmid D$ then $N(\ell_1)=1$ for non-isotropic and $0$ for isotropic $\ell_1$, so the inner sum is
+If $u\nmid D$ then $N(\ell_2)=1$ for non-isotropic and $0$ for isotropic $\ell_2$, so the inner sum is
 $\sqrt u\lambda_j(u)u_j(z_C)-\sum_{\ell\text{ isotropic}}u_j(h_\ell(z_C))$. The isotropic lines are the eigenlines of the order
 $\mathcal O_{4D}$ acting on $L_C/uL_C$, $L_C=\Z+\Z z_C$, i.e.\ the $1+\chi$ sublattices $\mathfrak pL_C$ for the primes
 $\mathfrak p\mid u$ of the order; their Heegner points have discriminant $4D$ again, with class $[\mathfrak p]\cdot C$
 \cite[II]{GrossKohnenZagier1987}. Since $C\mapsto\mathfrak pC$ permutes the classes of each order and preserves $|S_C|$ (the
 units of the order), $\sum_C|S_C|^{-1}\sum_{\text{iso}}u_j(h_\ell(z_C))=(1+\chi)\Per_D(u_j)$, and the claim follows.
-If $u\parallel D$ with $u$ prime to the conductor, $N(r)=u$ and $N(\ell_1)=1$ for $\ell_1\ne r$, so the inner sum is
+If $u\parallel D$ with $u$ prime to the conductor, $N(r)=u$ and $N(\ell_2)=1$ for $\ell_2\ne r$, so the inner sum is
 $\sqrt u\lambda_j(u)u_j(z_C)+(u-1)u_j(h_r(z_C))$, and $h_r(z_C)=z_{\mathfrak pC}$ for the ramified prime $\mathfrak p$, again a
 permutation of the classes: $\Per_{\mathcal W_u}(u_j)=(\sqrt u\lambda_j(u)+u-1)\Per_D(u_j)$. Finally
 $u^2z_{Q'}=u z_Q=\alpha'\gamma^{-1}z_0$ with $\alpha'=\left(\begin{smallmatrix}u&0\\0&1\end{smallmatrix}\right)$, whose Hecke coset is
-determined by $\ell_2$; the counts $\#\{\ell_1\ne\ell_2:\ell_1\perp\ell_2\}$ equal the $N(\ell_1)$ by the symmetry of $B$, which gives
-$\Per_{\mathcal W_u}(u_j(u^2\cdot))=\Per_{\mathcal W_u}(u_j)$.
+determined by $\ell_1$; the counts $\#\{\ell_2\ne\ell_1:\ell_1\perp\ell_2\}$ equal the $N(\ell_2)$ by the symmetry of $B$, which gives
+$\Per_{\mathcal W_u}(u_j(u^2\cdot))=\Per_{\mathcal W_u}(u_j)$. (The same equality follows from the Fricke involution $\tau\mapsto-1/(u^2\tau)$
+of $\Gamma_0(u^2)$, which maps $[u^2a',2u^2b',c]$ to $[u^2c,-2u^2b',a']$ --- the pairing of the divisor $d$ with $Q_u(x)/d$ --- and
+so permutes $\mathcal W_u$.)
 \end{proof}
 
 \begin{lemma}[the Gram matrix]\label{lem:gram}
-On $\Gamma_0(u^2)\backslash\HH$, with $f_m(z)=u_j(u^mz)$: $\langle f_0,f_0\rangle=u(u+1)\|u_j\|^2_{\mathrm{SL}_2(\Z)}$,
-$\langle f_1,f_0\rangle=\langle f_2,f_1\rangle=\frac{\lambda_j(u)\sqrt u}{u+1}\langle f_0,f_0\rangle$ and
-$\langle f_2,f_0\rangle=\frac{\lambda_j(u)^2-1-1/u}{u+1}\langle f_0,f_0\rangle$.
+On $\Gamma_0(u^2)\backslash\HH$, with $f_m(z)=u_j(u^mz)$: (i) $\langle f_0,f_0\rangle=u(u+1)\|u_j\|^2_{\mathrm{SL}_2(\Z)}$ and
+$\langle f_1,f_0\rangle=\langle f_2,f_1\rangle=\frac{\lambda_j(u)\sqrt u}{u+1}\langle f_0,f_0\rangle$;
+(ii) $\langle f_2,f_0\rangle=\frac{\lambda_j(u)^2-1-1/u}{u+1}\langle f_0,f_0\rangle$; (iii) for a newform $v$ of level $u$ with Fricke
+eigenvalue $\varepsilon$, $\langle v(u\,\cdot),v\rangle=-\frac\varepsilon u\langle v,v\rangle$.
 \end{lemma}
-\begin{proof}[Sketch]
-The first entry is the index; the second is \cite[Lemma~2.4]{IwaniecLuoSarnak2000} (stated there for holomorphic forms;
-the unfolding is identical for Maass forms). The third follows by the same unfolding from $\langle f|B_{u^2},f\rangle$ and
-the Hecke relation $\lambda(u^2)=\lambda(u)^2-1$; it reads $(\lambda_j(u^2)-1/u)/(u+1)$. \todo{Write out or locate; numerically
-$0.3001,-0.3181,-0.1095$ at $u=2,3,5$, matching the formula to four digits.}
+\begin{proof}
+Write $\mathrm{Tr}_H^G F=\sum_{\gamma\in H\backslash G}F\circ\gamma$ for $H\subset G$ of finite index, so that
+$\langle F,\Phi\rangle_H=\langle\mathrm{Tr}_H^GF,\Phi\rangle_G$ for $G$-invariant $\Phi$, and $\langle\Phi,\Psi\rangle_H=[G:H]\langle\Phi,\Psi\rangle_G$
+for $G$-invariant $\Phi,\Psi$. (i) The cosets $\Gamma_0(u)\backslash\Gamma$ are $\left(\begin{smallmatrix}1&0\\ b&1\end{smallmatrix}\right)$,
+$b\bmod u$, and $S$, and the points $u\gamma z$ over them are the $u+1$ Hecke neighbours of $z$; so
+$\mathrm{Tr}_{\Gamma_0(u)}^\Gamma(u_j(u\,\cdot))=\sqrt u\lambda_j(u)u_j$, $\langle u_j(uz),u_j\rangle_{\Gamma_0(u)}=\sqrt u\lambda_j(u)\|u_j\|^2_\Gamma=
+\frac{\sqrt u\lambda_j(u)}{u+1}\|u_j\|^2_{\Gamma_0(u)}$ \cite[Lemma~2.4]{IwaniecLuoSarnak2000}, and the ratio persists on $\Gamma_0(u^2)$
+since both functions are $\Gamma_0(u)$-invariant; $\langle f_2,f_1\rangle$ reduces to the same by $z\mapsto z/u$, which carries
+$\Gamma_0(u^2)\backslash\HH$ to $(\Gamma_0(u)\cap\Gamma^0(u))\backslash\HH$ of the same index. (ii) Trace from $\Gamma_0(u^2)$ to $\Gamma_0(u)$
+over $\gamma_b=\left(\begin{smallmatrix}1&0\\ ub&1\end{smallmatrix}\right)$: $f_2(\gamma_bz)=u_j\bigl(\left(\begin{smallmatrix}u&0\\ b&1\end{smallmatrix}\right)uz\bigr)$,
+and $\left(\begin{smallmatrix}u&0\\ b&1\end{smallmatrix}\right)\in\Gamma\left(\begin{smallmatrix}1&k\\0&u\end{smallmatrix}\right)$ with $k\equiv b^{-1}$ for
+$b\ne0$, so $f_2(\gamma_bz)=u_j((uz+k)/u)$ for $b\ne0$ and $u_j(u^2z)$ for $b=0$; by the Hecke relation at the point $uz$,
+$\mathrm{Tr}\,f_2=\sum_{k\bmod u}u_j((uz+k)/u)-u_j(z)+u_j(u^2z)=\sqrt u\lambda_j(u)u_j(uz)-u_j(z)$. Hence
+$\langle f_2,f_0\rangle_{\Gamma_0(u^2)}=\sqrt u\lambda_j(u)\langle f_1,f_0\rangle_{\Gamma_0(u)}-\|u_j\|^2_{\Gamma_0(u)}
+=\bigl(\tfrac{\lambda_j(u)^2u}{u+1}-1\bigr)\|u_j\|^2_{\Gamma_0(u)}=\tfrac{\lambda_j(u)^2-1-1/u}{u+1}\langle f_0,f_0\rangle$.
+(iii) The same trace gives $\mathrm{Tr}\,v(u\,\cdot)=\sum_b v\bigl(\left(\begin{smallmatrix}1&0\\ b&1\end{smallmatrix}\right)uz\bigr)$, and
+$\sum_bv\bigl(\left(\begin{smallmatrix}1&0\\ b&1\end{smallmatrix}\right)w\bigr)=-v(-1/w)$ because a newform has vanishing trace to
+level one; with $w=uz$, $\mathrm{Tr}\,v(u\,\cdot)=-v(-1/(uz))=-\varepsilon v(z)$, so $\langle v(uz),v\rangle_{\Gamma_0(u^2)}=-\varepsilon\|v\|^2_{\Gamma_0(u)}=-\frac\varepsilon u\|v\|^2_{\Gamma_0(u^2)}$.
+\end{proof}
+
+\begin{lemma}[the newform periods]\label{lem:newperiod}
+Let $v$ be a newform of level $u$ with Fricke eigenvalue $\varepsilon$, under the hypotheses of Lemma~\ref{lem:mult}. Then
+$\Per_{\mathcal W_u}(v(u\,\cdot))=\varepsilon\Per_{\mathcal W_u}(v)$, and
+\[
+\Per_{\mathcal W_u}(v)=\begin{cases}0&\text{$u$ inert,}\\ -\sum_C|S_C|^{-1}\sum_{\ell_2\text{ isotropic}}v(h_{\ell_2}(z_C))&\text{$u$ split,}\\
+(u-1)\sum_C|S_C|^{-1}v(h_r(z_C))&\text{$u\parallel D$,}\end{cases}
+\]
+where the $h_\ell(z_C)$ are taken as points of $X_0(u)$: the sums on the right are periods of $v$ over the Heegner points of
+level $u$ and discriminant $4D$ above each class, in the sense of Gross--Kohnen--Zagier.
+\end{lemma}
+\begin{proof}
+For fixed $\ell_2$ the $u$ choices of $\ell_1$ are $\gamma\mapsto\gamma\left(\begin{smallmatrix}1&0\\ c&1\end{smallmatrix}\right)$, and
+$\alpha\left(\begin{smallmatrix}1&0\\-c&1\end{smallmatrix}\right)\alpha^{-1}=\left(\begin{smallmatrix}1&0\\-uc&1\end{smallmatrix}\right)\in\Gamma_0(u)$;
+so $v(\alpha\gamma^{-1}z_0)=:V(\ell_2)$ depends only on $\ell_2$ also for the level-$u$ form. As points of $X_0(u)$ the $u+1$
+values are $(z_0+k)/u$ ($\ell_2=\langle(-k,1)\rangle$) and $-1/(uz_0)$ ($\ell_2=\langle e_1\rangle$), so
+$\sum_{\ell_2}V(\ell_2)=\sqrt u\,a_v(u)v(z_0)+\varepsilon v(z_0)=(-\varepsilon+\varepsilon)v(z_0)=0$: for a newform the Hecke term and the Fricke
+term cancel. By~\eqref{eq:mass}, $\Per_{\mathcal W_u}(v)=\sum_C|S_C|^{-1}\sum_{\ell_2}N(\ell_2)V_C(\ell_2)$ with $N$ as in Lemma~\ref{lem:period};
+for inert $u$, $N\equiv1$ and the sum vanishes; for split $u$, $N=1-\mathbf 1[\text{isotropic}]$; for $u\parallel D$, $N(r)=u$ and
+$N=1$ otherwise. The relation between $v$ and $v(u\,\cdot)$ is the Fricke involution of $\Gamma_0(u^2)$ acting on $\mathcal W_u$ as the
+divisor pairing, since $v(-1/(u^2\tau))=\varepsilon v(u\tau)$. Numerically the split and ramified formulas reproduce the direct orbit
+sums to all computed digits at $D=-8,-11,-20$ and $D=-3,-15$ ($u=3$).
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:level1} from the lemmas]
@@ -253,8 +308,10 @@ Theorem~\ref{thm:pieceu} restricted to the span of $f_0,f_1,f_2$ gives the coeff
 over an orthonormal basis $v_k$ of that span, which is the basis-free quantity $\sqrt u\,\mathbf P^{\mathsf T}\mathbf G^{-1}\mathbf L$
 with $\mathbf P_m=\Per_{\mathcal W_u}(f_m)$, $\mathbf G_{mn}=\langle f_m,f_n\rangle$, $\mathbf L_m=\tilde L_{f_m}$. Dividing by
 the $u=1$ coefficient $\Per_D(u_j)\tilde L_j/\|u_j\|^2$ and inserting the lemmas gives~\eqref{eq:r}; the phase $u^{-it_j}$
-is from Theorem~\ref{thm:pieceu}. The asymptotics: as $u\to\infty$, $G\to I$, $L\to(1,0,0)$, and $p_0/(u(u+1))\to
-\lambda_j(u)u^{-1}$ or $u^{-1}$ according as $u\nmid D$ or $u\mid D$.
+is from Theorem~\ref{thm:pieceu}. The asymptotics are not read off termwise --- $p_1\asymp u$ is large while $L_2=1/u$ and
+$g\asymp\lambda u^{-1/2}$ are small, and the $\lambda_j(u)\sqrt u$ of $p_0$ cancels against $p_1(1/u-g)$ --- but from the closed
+form~\eqref{eq:r} as a rational function of $\lambda$ and $\sqrt u$: with a computer algebra system, $r=u^{-3/2}$ identically
+when $\chi=-1$, and the expansions in $u^{-1/2}$ stated in the theorem when $\chi=+1$ and $\chi=0$.
 \end{proof}
 
 \section{Numerical confirmation}\label{sec:numerics}
@@ -331,8 +388,9 @@ tabulated and their amplitudes in piece $3$ cannot be predicted here.
 
 \section{What is open}\label{sec:open}
 \begin{enumerate}
-\item Lemma~\ref{lem:gram} (a standard unfolding) to be written out; the case $u$ dividing the conductor of $D$; the
-vanishing of the newform period for inert $u$ (the same isotropic-line argument should give it).
+\item The case $u$ dividing the conductor of $D$ (including $u=2$ for every $D$, since $4D$ has conductor divisible by $2$ when
+$D$ is odd and $2$ ramified otherwise); the tensor-product argument for composite $u$; a proof of the inert identity
+$r=u^{-3/2}$ that explains it rather than verifies it.
 \item The $2$-adic case; the tensor-product argument for composite $u$.
 \item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect
 equidistribution of \cite{LiuMasriYoung2013,HumphriesNordentoft2025}, route 1b of the knowledge base.

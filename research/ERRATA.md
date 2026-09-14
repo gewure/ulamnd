@@ -436,3 +436,16 @@ route before being applied (the checks are described in the items). We agree wit
     spectrum is separated from the lines only by powers of log Y (as the theorem's statement always said), a modest margin
     at Y = 10⁷. Paper I 31 pp, paper IV 32 pp.
 
+33. **Follow-up draft (research/paper-dilation), first outside reading (15 Sep, the author's reviewing conversation): the
+    asymptotic in Theorem 2 and the abstract was wrong.** The draft read off "r_j(u;D) = λ_j(u)/u + O(u^{-3/2}) for u ∤ D" from
+    the closed form by sending L → (1,0,0) and G → I; but P has the entry p₁ ≍ u, and the discarded terms p₁L₂ and p₁ g L₁ are of
+    the same order as the kept one and cancel it. Correct: for inert u the ratio is EXACTLY u^{-3/2}, identically in λ and u
+    (verified with sympy: r·u^{3/2} = 1); for split u, −u^{-3/2}(1 − 2λ/√u + O(1/u)); for ramified u, u^{-1/2}(1 − λ/√u + (λ²+1)/u
+    + …). The decay is governed by the splitting type of u in Q(√D), the Hecke eigenvalue only by the corrections; the
+    corollary improves (Σ u^{-2}). The reviewer also derived Lemma C independently (Rankin–Selberg residues) with the same
+    entries, checked Theorem 1's geometry and Table 1's internal consistency, and asked for the test claims in the abstract to be
+    tempered (13 of 21 pairs resolved, one outlier; the inert newform vanishing is exact for the PERIOD but only at the 5–15%
+    level in the DATA) — done. Same reading day: Lemmas A, B, C, D written out in full (C by two traces; D: the Hecke and Fricke
+    terms of a newform cancel, so its family period vanishes for inert u), and a slip in Lemma B's text (the Hecke coset is fixed
+    by the SECOND column line) corrected before anyone else read it. Fallacy F41 with the reviewer's rule.
+

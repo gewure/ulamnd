@@ -191,6 +191,10 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (10:30). First outside reading of the dilation draft: the asymptotic λ(u)/u was WRONG (the λ√u terms cancel); the
+  truth is u^{-3/2} exactly for inert u, −u^{-3/2}(1−2λ/√u+…) split, u^{-1/2}(1−λ/√u+…) ramified — decay set by the splitting
+  type, Hecke eigenvalue only in corrections. Draft rewritten with Lemmas A–D proved (D: newform Hecke+Fricke cancellation),
+  claims tempered. ERRATA 33, F41. A second fresh reading is running.
 - 15 Sep (09:20). Lemmas C (Gram, two traces) and D (newform periods: Hecke and Fricke terms cancel, vanishing for inert u,
   level-u Heegner period otherwise) PROVED and checked to machine precision. All named lines of the dilated pieces are now
   Heegner-type periods. Draft edits wait for the adversarial reading in progress.
@@ -521,6 +525,13 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   (Bykovskiĭ 1984); only DFI 2012 and Grimmelt–Merikoski 2025 have discriminant uniformity, neither covers a = u²;
   Kloosterman-fraction route structurally blocked (numerator depends on the modulus through the root). Hence Hypothesis W
   is not the plan for paper IV; the plan is the divisor-problem / Dirichlet-series view of the pieces (route 11).
+
+F41. "r = λ(u)/u + O(u^{-3/2})" read off a closed form by dropping the small entries (paper-dilation draft, 15 Sep). The vector
+P had an entry of size u multiplying the "small" entries, and the dropped products cancelled the kept term exactly; the true
+law is ±u^{-3/2} (exactly u^{-3/2} for inert u). Rule (from the reviewer): whenever an asymptotic is read off a closed form,
+EVALUATE the closed form at a large argument (two lines of numpy at u = 1009) and compare; and when a "leading term" carries
+an oscillating factor (λ), check whether it survives at all. Same species as F26/F39/F40: local steps right, one global magnitude
+relation dropped. (ERRATA 33)
 
 F38. "A Claude instance given the papers and nothing else" (case study v1, §8) for a reader that was the author's
 long-running reviewing conversation with weeks of context. A statement about PROCESS asserted from memory instead of
@@ -898,6 +909,7 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 - Any truncated Euler product multiplying H or x^{m+1}: complete the tail analytically.
 - Any novelty claim: Kurokawa 1986, Moroz 1988, Alberts 2024 (Euler products); Hooley 1963/64, DFI 1995/2012,
   Marklof–Welsh 2023 (roots of congruences); Goldston–Suriajaya 2021, KRR 2022 (singular-series averages).
+- Any asymptotic read off a closed form: evaluate the closed form at a large argument and compare (F41).
 - Any named constant or exponent chosen in a proof: list its constraints, check the set is non-empty (F39). Any Mellin/
   Perron/Laplace transform in a display: recompute it, never copy the pattern; list the singularities of every object the
   proof itself introduces (F40).
