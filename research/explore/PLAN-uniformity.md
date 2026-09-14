@@ -17,15 +17,19 @@ Cesàro piece 𝒫^{(0)}_u(Y) = ∫_0^Y S_u(t) dt (= paper III's piece up to the
      suffices that 𝒲_u(Y; L) = o(Y) uniformly in u ≤ Y², L ≤ 3 log Y — ANY uniform saving; and since the small moduli
      (Theorem small, log-saving, uniform) and the far moduli (Lemma far) are already o(Y) uniformly, this is
 (T′) 𝒫^{(0)}_u(Y) = o(Y) uniformly in squarefree u ≤ Y².
-(T″) Write 𝒫^{(0)}_u(Y) = Y S_u(Y) − Σ_{h≤Y} h (F_u(Q_u(h)) − E_u) (partial summation). The second term is a sum of dyadic
-     smooth-window sums of the type of paper IV Theorem smooth / dilation Theorem 1 (weight h on [Y_j, 2Y_j]), each of size
-     Y_j · (increment of S_u over the block) ≈ Y_j · Y_j^{-1/2}·(spectral sum at level u²). So, GIVEN an increments bound
-     uniform in u (Task A), (T′) ⇔  S_u(Y) → 0 uniformly in squarefree u ≤ Y²  — the SHARP sum tends to zero.
-     S_u(Y) = Σ_{d adm.} (λ(d)/d) Σ_{x∈R_d} ψ((Y−x)/d) (Lemma sawtooth, paired convergence; moduli d ≤ u²Y² + |D| matter),
-     ψ = 1/2 − {·}. This is a pointwise statement about a sum of sawtooths over ALL admissible moduli, i.e. the
-     equidistribution of the dilated roots ū·R_d ∩ [1, Y] for every scale of d simultaneously: Hooley's problem for the
-     polynomial u²x² − D, uniform in u. Numerically S_1(t) stays below 1.3 and the observed 𝒫 ≍ 0.4√Y forces
-     S_u(Y) ≍ Σ_j t_j amp_j Y^{-1/2}·osc → 0.
+(T″) [WRONG as first written, corrected 15 Sep 13:40 after the test below.] The sharp sum S_u(t) does NOT tend to zero:
+     at integer t it has the offset E_u/2 (the mean over integer t of ψ((t−x)/d) is 1/(2d)), and S_u(t) − E_u/2 is an O(1)
+     "noise" — sup over dyadic blocks ≈ 0.9–1.3 for D = −4, T = 2·10⁴, for EVERY u from 1 to 10⁵, not decaying in T.
+     Its CESÀRO mean is what vanishes: (2/T)∫_{T/2}^T (S_u − E_u/2) = ±0.005 for all eleven u tested (u = 1, 2, 3, 7, 11, 31,
+     101, 1009, 10007, 100003; D = −4, T = 2·10⁴), against the trivial O(1) and consistent with 0.4√T/(T/2) = 0.006
+     (hecke: research/explore/sharp-sum-u.py, logs/sharp-sum-u-D4-T2e4.log). So the picture is: S_u − E_u/2 is bounded,
+     mean-zero, short-range-correlated noise whose integral is the √Y random-walk-like piece with the Maass spectrum; the
+     smooth-window theorem describes the smoothed averages of that noise at scale Y (size Y^{-1/2}); the Cesàro piece is
+     ∫_0^Y S_u, and its o(Y) is the equidistribution of the dilated roots on ALL scales of moduli at once, Cesàro-averaged.
+     Partial summation 𝒫^{(0)} = Y S_u(Y) − Σ_{h≤Y} h(F−E) is useless (both terms O(Y), cancelling to O(√Y)); the sharp
+     cutoff at h = Y and the sharp start at h = 1 are both Hooley-type. NUMERICAL SUPPORT FOR (T′) UNIFORMLY IN u: the
+     Cesàro mean deviates from E_u/2 by ≤ 0.006 ≈ 0.4√T/(T/2) for all u up to 10⁵ = T^{1.16} (the needed range is u ≤ Y²).
+     Runs to T = 2·10⁵ (u up to 10⁸+7) and D = −7 launched 13:45 (logs/sharp-sum-u-D4-T2e5.log, -D7-T5e4.log).
 
 ## 1. What is known, with the u-dependence (literature checked 15 Sep)
 - Hooley 1963 Thm 1: W_h(x,1) = Σ_{x<n<2x} ρ_h(n) ≪_h x^{3/4}(log x)² for a FIXED irreducible quadratic (constant depends on the
@@ -86,5 +90,35 @@ Hecke-orbit equidistribution statement at the level-one points, rate via the spe
 instead of the level-u² spectral theory. To be tested numerically before use (F24): compute Σ_{Q∈W_u} Ψ(z_Q) for a
 smooth seed and compare with (u − χ)·(mean) as u grows.
 
-## 4. Log
+## 4. Numerical facts established 15 Sep 13:30–14:30 (F24: tested BEFORE any mechanism is trusted)
+(N1) Cesàro convergence uniform in u, including u ≫ Y. D = −4, T = 2·10⁵: (2/T)∫_{T/2}^T S_u − E_u/2 = +0.0011, +0.0008,
+     +0.0003, +0.0012 for u = 1, 7, 101, 10007 (trivial size O(1); 0.4√T/(T/2) = 0.0018); at T = 2·10⁴ the deviations were
+     ≤ 0.006 for eleven u up to 10⁵; D = −7, T = 5·10⁴: ≤ 0.0004 for u = 1, 2, 3, 11, 1009, 100003. The deviation scales like
+     T^{-1/2} and shows no dependence on u. Scripts: sharp-sum-u.py; logs/sharp-sum-u-*.log.
+(N2) Dilated Hooley sums have square-root cancellation uniformly in u. T^{(u)}_1(x) = Σ_{d≤x} Σ_{r²≡D(d)} e(ū r/d), D = −4,
+     x ≤ 3·10⁵: max |T|/√x over dyadic blocks = 0.38 (u=1), 0.31 (2), 0.70 (3), 1.33 (7), 0.78 (101), 0.46 (1009), 0.99 (10007),
+     0.53 (10⁶+3); no growth with u, u up to 10⁶ ≫ x. Script weyl-dilated.py; logs/weyl-dilated-D4-k1.log (k = 3: -k3.log).
+(N3) The smooth-window sums √Y S^w_u(Y) grow mildly with u on the existing grids: std over the grid 0.10–0.14 (u = 1),
+     0.07–0.19 (u = 2), 0.21–0.28 (u = 3), 0.21–0.32 (u = 5), 0.29–0.33 (u = 6) — roughly u^{1/2}, far below the crude
+     level-u² spectral count u².
+CONJECTURE U (the uniform truth, from N1–N2): T^{(u)}_k(x) ≪_{D,ε} k^{A} x^{1/2+ε} and 𝒫^{(0)}_u(Y) ≪_{D} Y^{1/2+ε}, both
+uniformly in squarefree u ≥ 1 (all u, not only u ≤ Y²). Everything the methods lose in u is an artefact of the method.
+
+## 5. Where u sits in the Hooley–Tóth–Ngo parametrisation (read 15 Sep, arXiv 2107.13301 §3)
+For f(X) = αX² + βX + γ the roots of f(ν) ≡ 0 (mod n) correspond to the forms Q_f = {[u', r, v] : v ≡ 0 (α), r ≡ β (2α),
+disc Δ} with v = nα, modulo Γ_∞, and Q_f is stable under Γ = Γ₀(α). For OUR polynomial u²X² − D: α = u², β = 0, Δ = 4u²D,
+Γ = Γ₀(u²), and Q_f = {v ≡ 0 (u²), r ≡ 0 (2u²)} — exactly the family W_u of the dilation draft (a ↔ v). Hooley's identity
+r(ξ)/v(ξ) = 2a/c − (rc + 2vd)/(c v(ξ)) turns the Weyl phase e(k·root/n) into e(ka/c) + O(k/x): the Weyl sums are Poincaré
+series on Γ₀(u²) (Ngo Cor. 3.14) whose Kloosterman sums have moduli c ≡ 0 (mod u²), and the spectral input is the
+Deshouillers–Iwaniec/Pitt bound for sums of Kloosterman sums of Γ₀(q), q = Nu² (Ngo Thm 2.5, explicit in q). Consequences:
+(i) B2 is well-posed: rerun Hooley's Weil-bound argument (incomplete Kloosterman sums over d of length ≍ √x to modulus
+    c = u²c' — a 1/u fraction of the period) with u tracked; first guess T^{(u)}_k(x) ≪ u^{1/2} x^{3/4+ε} k^{c} (the u^{1/2} from
+    the ≍ u h(D) classes of discriminant 4u²D, partly compensated by the shorter c'-range). To be derived, not guessed (F24).
+(ii) Two regimes: for u ≫ √x the Kloosterman moduli c = u²c' exceed the range, and the roots are parametrised by the
+    translates of the ≍ u class representatives alone — a different, "elementary" regime in which N2 still shows
+    square-root cancellation; its mechanism (cancellation ACROSS classes) is unexplained and is the new phenomenon.
+(iii) The λ(d)-weight of the pieces is harmless: λ = 1 * g with g(p) = 4/(p−4), so Σ_d λ(d)ρ_k(d) = Σ_e g(e) W_k(x; e) needs the
+    Weyl sums with the divisibility e | d, which is DFI's/Ngo's W_h(x, N) with N = e and Σ_e g(e) e^{-1+...} convergent.
+
+## 4′. Log
 - 15 Sep 13:00: file created; literature facts above from arXiv 2107.13301 (Ngo) which quotes Hooley, Bykovskii, DFI, Tóth.

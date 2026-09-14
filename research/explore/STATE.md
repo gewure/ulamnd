@@ -371,3 +371,15 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   Conjecture removed from the draft; Corollary extended to squarefree u. Draft 11 pp, 0 overfull.
 - Next: paper IV §7 remark pointing to the draft; case-study episode (two readings, same error, F41). Then PLAN-uniformity.md
   and the error term (the hard work).
+
+## 14. The hard work started (15 Sep, 13:00–14:30): PLAN-uniformity.md, two decisive numerical facts
+- PLAN-uniformity.md §0 states the target three ways; the first version of (T″) ("S_u(Y) → 0") was WRONG and is corrected:
+  the sharp sum has the offset E_u/2 at integers and is O(1) noise; its Cesàro mean is what vanishes.
+- N1: Cesàro mean of S_u − E_u/2 over [T/2, T] is ±0.001 at T = 2·10⁵ for u = 1, 7, 101, 10007 (D = −4), scaling T^{-1/2},
+  no u-dependence; also D = −7. N2: dilated Hooley sums T^{(u)}_1(x)/√x ≤ 1.33 for u up to 10⁶ at x ≤ 3·10⁵ — square-root
+  cancellation uniform in u. Conjecture U recorded. Scripts sharp-sum-u.py, weyl-dilated.py.
+- Literature: Hooley x^{3/4}log², Bykovskii/Hejhal x^{2/3+ε}, DFI 1995 Prop 1 (N²/x)^{1/20}(x/N)^{1+ε}gcd(h,N), Ngo 2021
+  12/13 (positive disc) — none uniform in the discriminant; Ngo's §3 shows the parametrisation lives on Γ₀(α), α = the
+  leading coefficient = u² for us = the level of the dilation draft. Kloosterman moduli ≡ 0 mod u².
+- Next: B2 — Hooley's Weil-bound argument for u²X² − D with u explicit (PROOFS-uniform.md), then feed into paper III's
+  Hypothesis-W machinery for a partial range of u; the u ≫ √x regime is the new phenomenon to understand.
