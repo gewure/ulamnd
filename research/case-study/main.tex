@@ -91,22 +91,30 @@ theory. What the author could read in a number-theory paper on 8~September was t
 asymptotic statement and why it matters, and concepts such as the Bateman--Horn constant $C(f)$ and the comparison of
 polynomials by their arithmetic; not the proofs. The curiosity about primes was old, and the prime-rich diagonals of
 the Ulam spiral were the visual intuition from which the study started. \evidence{Interview Q1}
-\interview{1b}{Still open from Q1: prior experience with LLMs in engineering work before this project (how long,
-which tools, in what role: autocomplete, pair programming, agents?).}
+
 
 \subsection{The tools}
-The work was done in a terminal agent (Claude Code) driving Claude models: Claude Opus~5 for most of the
-programme, Claude Fable~5.1 for the correction phase from 13~September. Fresh model instances without access to
-the working session were used as adversarial readers (\S\ref{sec:guardrails}); a cheaper model was used for
-simpler tasks after rate limits made this necessary. One external assessment was produced by a different vendor's
-model (ChatGPT) on request of the author and archived as a PDF against the revision it read; a second outside
-screening was produced by a separate Claude instance without repository access beyond the papers.
-\evidence{\file{research/reviews/2026-09-12-assessment-a372a63.pdf}; ERRATA 11--15, 26; disclosure paragraphs in each paper}
+The work was done in a Linux terminal with the Claude Code agent driving Claude Fable~5.1 throughout, with Claude
+Opus~5 for simpler tasks (the disclosure sections of the four papers name Opus~5 and should be aligned; see
+ERRATA). Fresh model instances without access to the working session were used as adversarial readers
+(\S\ref{sec:guardrails}); the cheaper model was used for such readings when rate limits made this necessary. The
+author reviewed the output with models of other vendors, mostly OpenAI's GPT and Google's Gemini, instructing them
+to take a hostile position; one such assessment (ChatGPT, 12~September) is archived as a PDF against the revision
+it read, and a second outside screening (a separate Claude instance, 14~September) found the defect recorded as
+ERRATA~26. For orientation the author used ChatGPT, Gemini, web search, Mathematics Stack Exchange and the arXiv;
+a good part of the background knowledge came from popular mathematics videos (Numberphile).
+\evidence{Interview Q2; \file{research/reviews/}; ERRATA 11--15, 26}
+
+The author worked about eight hours a day for the six days. The total computation cost was about
+\$150. \evidence{Interview Q2}
+
 Software: TypeScript (\file{tsx}) for sieves and exact rational arithmetic, Python with \file{mpmath} for high
 precision, \file{vitest} for the workbench tests, \LaTeX{} via \file{tectonic}, and downloaded Maass-form
 coefficients from the LMFDB. Every number in the four papers is produced by a script in the repository.
-\interview{2}{Tools and cost: sessions per day, hours per day, approximate token or money cost, other tools
-(ChatGPT for the assessment, anything else), and whether anything was done outside the agent.}
+
+The author's prior experience with language models predates this project by years: an early adopter who had
+worked with GPT-3 in its closed beta, and who describes ``a vast experience in working with AI output''. This is
+the one qualification the case study cannot control for. \evidence{Interview Q2}
 
 \subsection{The timeline}
 \begin{center}\small\CommitsTable\end{center}
@@ -152,80 +160,112 @@ Hypothesis). Two engineering decisions on the first day shaped everything after:
 \end{enumerate}
 The one lead the tests left standing, a sub-Poisson variance along polynomial rays, is the Montgomery--Soundararajan
 second moment for polynomial prime values; its diagonal weight $\omega_f(p)/(p-\omega_f(p))$ is where paper~I began.
-\interview{3}{The turn: when and why did you decide the tool's residue was worth a paper, and then four? What did you
-expect at that point, and what did the model tell you to expect?}
+\paragraph{The turn.} The author asked a short literature question (who had worked on this) and found little.
+From a software engineer's viewpoint the problem ``was not super hard to solve with AI'': working test-driven, one
+could try to dig deeper where Bateman--Horn stopped. As soon as something of interest appeared, the instruction
+became to build a paper, and possibly a research programme if the findings turned out to be interesting. The model's
+stated expectation at that point was to expect nothing, but that experiments can be valuable in this field.
+\evidence{Interview Q3}
 
 \section{The guardrails}\label{sec:guardrails}
 
 Each guardrail below is stated with what it prevents, when it entered the process, and, where the record shows it,
 what triggered it. The column ``origin'' is to be completed from the interview.
 
-\begin{longtable}{@{}p{3.6cm}p{5.6cm}p{2.2cm}p{3.6cm}@{}}
+\begin{longtable}{@{}p{3.4cm}p{5.4cm}p{1.9cm}p{4.3cm}@{}}
 \toprule
 guardrail & what it does & since & origin / trigger\\
 \midrule
 \endhead
-Knowledge base (\file{KNOWLEDGE.md}): one-paragraph state, ``where things stand and what to do next'', status board,
-timeline & Forces every session to start from the recorded state, not from the model's memory of it; makes
-``what is proved'' a maintained list rather than a feeling & 9 Sep & \interview{4a}{whose idea; what went wrong
-before it existed}\\
-Fallacy list (\S3 of the knowledge base, F1--F\NFallacies) & Every error is written down with its fix and a rule
-that would have prevented it; read before repeating & 9 Sep & \\
-Project-wide errata (\file{ERRATA.md}), never deleted & Corrections are additive and dated; a reader can see what
-each version claimed & 9 Sep (per paper), 13 Sep (project-wide) & \\
-Every number from a script in the repository & No number in a paper is typed by hand or by the model & 8 Sep &
-inherited from the workbench's macro generation\\
-Two independent routes for every constant (F9) & Product vs.\ $L$-values; partial sum plus analytic tail vs.\ exact
-& 9--10 Sep & a truncated Euler product multiplying $H$ (F4)\\
-``Difference it first'' (F26); recompute every pole order in a ``same proof'' generalisation (F27); list every
-summation condition and check group invariance (F28) & Rules extracted from the three findings of the external
-assessment & 13 Sep & the assessment\\
-Adversarial reading by a fresh model instance with no session context & Separates the generator from the checker;
-a reader who did not write the proof and cannot see the session & 9 Sep (second opinion), systematic from 12 Sep &
-\\
-External assessment archived with the revision hash & The review and the text it reviewed stay paired & 12 Sep & \\
-Disclosure paragraph, identical in all papers; single human author & Publisher policy and responsibility & 11 Sep
-(ERRATA~8) & author's decision\\
-``Correct or leave open; never patch with a weaker claim about a different object'' & Decides what a repair may do
-& 13 Sep & the author, choosing between repair routes for paper~IV\\
-Stopping criterion for the internal phase & Ends open-ended polishing: every statement proved and read at least
-once, or labelled open; every number reproducible; errata current; open problems stated with obstructions & 13 Sep &
-the author asking ``are we over-rigoring?''\\
-``Do not claim'' list in the knowledge base & Sentences the model is forbidden to write (e.g.\ anything about
-primes without Hardy--Littlewood, anything about RH) & 9 Sep & \\
+Research programme declared in the first prompt: test-driven, methods and paths enumerated and rated, a
+\file{KNOWLEDGE.md} collecting findings & The author's framing of the whole enterprise & 8--9 Sep & author (first
+prompt); the author considers this the decisive guardrail\\
+Knowledge base: one-paragraph state, ``where things stand and what to do next'', status board, timeline & Forces
+every session to start from the recorded state, not from the model's memory of it; ``compacted notes'' that a new
+session can recover without re-deriving everything & 9 Sep & author\\
+Fallacy list (F1--F\NFallacies) & Every error written down with its fix and the rule that would have prevented it &
+9 Sep & author's ``known fallacies'' in the first framing; entries written by the model after each error\\
+Project-wide errata, never deleted & Corrections additive and dated & 9 Sep (per paper), 13 Sep (project-wide) &
+model proposal, adopted\\
+Every number from a script in the repository & Nothing typed by hand or by the model & 8 Sep & inherited from the
+workbench (test-driven habit of the author)\\
+Two independent routes for every constant (F9) & Product vs.\ $L$-values; partial sum plus tail vs.\ exact & 9--10
+Sep & forced by an error (a truncated Euler product multiplying $H$, F4)\\
+Rules extracted from the assessment (F26--F28) & Difference first; recompute pole orders; check group invariance of
+every summation condition & 13 Sep & forced by the external assessment\\
+Hostile outside review, compressed and fed back & Other vendors' models asked to take a hostile position; findings
+compressed, annotated with context, returned to the working agent & 9 Sep on & author (``very similar to how real
+peer review works'')\\
+Adversarial reading by a fresh instance with no session context & Separates generator from checker & systematic
+from 12 Sep & model proposal after the assessment, adopted\\
+External assessment archived with the revision hash & Review and text stay paired & 12 Sep & model proposal\\
+Single human author, disclosure paragraph & Publisher policy; responsibility & 11 Sep & author\\
+``Correct or leave open; never a weaker claim about a different object'' & Decides what a repair may do & 13 Sep &
+author, choosing between repair routes for paper~IV\\
+Pressing on effort estimates & When the model said ``two weeks of work'', the author asserted it is hours for a
+model and demanded the attempt & 12--13 Sep & author; decisive in paper~IV (\S\ref{sec:prompting}); wrong once in the
+other direction (F33)\\
+Stopping criterion for the internal phase & Ends open-ended polishing & 13 Sep & author (``are we over-rigoring?'');
+came late\\
+``Do not claim'' list & Sentences the model may not write & 9 Sep & author's honest framing, made explicit by the
+model\\
 \bottomrule
 \end{longtable}
 \evidence{\file{KNOWLEDGE.md} \S0b, \S3, \S6; \file{ERRATA.md}}
-\interview{4}{For each row: was it your idea, the model's, or forced by an event? Which guardrail do you consider
-the single most important, and which one did you add too late?}
+\paragraph{The author's own account of why this works.} In the author's view the knowledge base and the fallacy
+list ``force the model's direct context to compacted notes about the work it did'', and this is what raises the
+quality: ``these contextual guardrails, notes, chronologies and known fallacies help to recover important high-class
+context, so a new session does not have to pick up everything. It is similar to how human notes work.'' The author
+sees the success of elaborate agent frameworks as largely the same mechanism. The second half of the recipe is the
+engineering habit: ``a computational check for everything, rigorously, and a proper documentation of the way of
+thought.'' \evidence{Interview Q4}
+\interview{4b}{Still open: which guardrail came too late? (My reading of the record: the stopping criterion and the
+archived external review, both 12--13 Sep.)}
 
 \section{How the prompting developed}\label{sec:prompting}
 
-\todo{This section is written from the interview and from the user turns preserved in the session transcripts;
-the repository does not contain prompts. Reconstruct the trajectory in four stages and quote the actual
-prompts where the author agrees.}
+The repository contains no prompts; this section is written from the interview and from the author's
+turns preserved in the session transcripts. \todo{Quote three or four actual prompts once the author has selected
+them from the transcripts.}
 
-\subsection{Stage 1: build and test (8 September)}
-\interview{5}{Your first prompts: how did you describe the tool and the thesis? Did you ask for the tests, or did
-the model propose them? What did you do when the tests refuted the thesis?}
+\subsection{Stage 1: the framing (8 September)}
+The first prompt defined the enterprise as a research programme, to be run test-driven, with methods and paths
+enumerated and rated, and with a knowledge file collecting the findings (\S\ref{sec:guardrails}). The thesis itself
+was handed over as four claims and came back as a test suite that refuted three of them the same evening. The
+author did not defend the claims; the surviving lead was pursued instead. \evidence{Interview Q3--Q5; \file{CONCLUSIONS.md}}
 
-\subsection{Stage 2: the research register (9--10 September)}
-The commit messages of these two days show a fixed vocabulary appearing: ``reviewer round'', ``rigorous pass'',
-``self-review'', ``literature round $n$ (verified)'', ``STATUS'', ``ERRATA''. \evidence{\texttt{git log} 9--10 Sep}
-\interview{6}{What did you ask for that produced this? Were there prompts you stopped using because they produced
-confident nonsense? How did you learn to ask ``be exact'' (12--13 Sep) and what did that change?}
+\subsection{Stage 2: the persona and the register (9--10 September)}
+The author describes the working image: ``an absolute pro mathematician who never bulges to my requests but
+patiently works with me through the problems and explains them in a way that I, as a software engineer, can build
+a research framework around, or tell it when I think we should hold, do more tests, a review.'' When the author
+understood nothing of a passage, the instruction was to simplify until a decision could be made: which deeper path
+to follow, whether more literature was needed. Vagueness in the agent's answers was treated as a signal to ask for
+literature. The vocabulary that appears in the commit log of these days (``reviewer round'', ``rigorous pass'',
+``literature round, verified'') is the trace of this: each is a request the author could formulate without
+mathematics. \evidence{Interview Q6; \texttt{git log} 9--10 Sep}
 
-\subsection{Stage 3: correction under external pressure (12--13 September)}
-The author's turns preserved from this phase include the decision principle (``we rather leave it open, or, if we
-have reason to think we can fix it, fix it''), the instruction to consider ``the series in totality'', and the
-economic constraint (``take care for tokens, maybe use a worse model for a simpler task'').
-\interview{7}{How did you decide between the repair routes for paper~IV without being able to check the
-mathematics yourself? What did you rely on: the data, the model's account, the structure of the argument?}
+\subsection{Stage 3: outside hostility, compressed and returned (9--13 September)}
+Decisions the author could not check mathematically were routed through review: the papers were given to other
+vendors' models with the instruction to take a hostile position and find errors; the findings were compressed,
+annotated with context, and returned to the working agent; the agent's response was discussed with the reviewer
+again. The author notes that this is how peer review works. The external assessment of 12~September, whose three
+findings all stood, is the largest instance; ERRATA~26 the latest. For the choice of repair route in paper~IV the
+author relied on this loop together with the data (the divisor-set test that showed the level-2 lines predicted by
+the repair), not on an independent reading of the proofs. \evidence{Interview Q7; KNOWLEDGE \S0c}
 
-\subsection{Stage 4: knowing when to stop (13--14 September)}
-The author asked when the internal phase should be considered finished; the answer became the stopping
-criterion in the knowledge base. \evidence{\file{KNOWLEDGE.md} \S0b}
-\interview{8}{Why did you ask? What did you observe in the model's behaviour that made you suspect over-polishing?}
+\subsection{Stage 4: effort, and knowing when to stop (12--14 September)}
+Two opposite corrections of the model's judgement of effort occurred. The author repeatedly pressed the model when
+it estimated ``at least two weeks of work'', asserting that for a model it is a few hours and demanding the attempt;
+by the author's account this was decisive in paper~IV, where the level-$\Gamma_0(e)$ repair and the smooth-window
+theorem were produced in one day. In the other direction, the model's estimate that the remainder bound of paper~IV
+was ``a day of work'' was wrong: the bound is open, and the error is recorded as fallacy F33. \evidence{Interview
+Q8; ERRATA 16--17; F33}
+
+The author's one regret concerns rigour rather than error: by the fourth paper the process demanded more
+verification than the situation warranted, sessions ran out of context, and work had to be restarted; ``one should
+keep the context somewhat human, not absolute superhuman.'' The question ``are we over-rigoring?'' produced the
+written stopping criterion. \evidence{Interview Q8--Q9; KNOWLEDGE \S0b}
+\interview{9}{Still open: the restart after running out of context: one episode or several, which day and paper?}
 
 \section{The error record}\label{sec:errors}
 
@@ -264,7 +304,8 @@ this asymmetry is quoted in \S\ref{sec:limits}. \evidence{ERRATA 11--15, 18, 22,
 Conjecture~1 (there is no bounded remainder at all, F26) and the level-one form of paper~IV's theorem (the object
 is a signed sum over $\Gamma_0(e)$-orbits, not one orbit, F28). Both are recorded with the reasoning that had
 produced them.
-\interview{9}{Your worst moment. Which error did you feel most, and what did you change afterwards?}
+The author reports no ``worst moment'' attached to any of these errors; the retractions were absorbed by the
+process that had been set up to absorb them. \evidence{Interview Q9}
 
 \section{Verification}\label{sec:verification}
 
@@ -278,8 +319,11 @@ What ``verified'' means in this programme, from the checklist in the knowledge b
   smooth-window theorem predicted the amplitude and phase of three spectral lines on two objects from LMFDB
   coefficients alone, and the data matched to a few percent and a few hundredths of a radian (ERRATA 21--23).
 \end{itemize}
-\interview{10}{What did you personally verify, and how? What could you not verify, and how did you decide to
-trust it anyway? Did you ever refuse a claim the model insisted on?}
+\paragraph{What the author verified.} The author read the code of some of the tests, ran them often, and asked the
+model to ``reflect'' on the results and look for logical fallacies and flawed outcomes; the mathematics of the
+proofs was not checked by the author, and the author says so. The author never refused a claim the model insisted
+on; the standing instruction was ``excellence and simplicity, a kind of humbleness'', which, in the author's view,
+worked against the pace at times: the model asked for human input more often than was needed. \evidence{Interview Q10}
 
 \section{What the process cannot do}\label{sec:limits}
 
@@ -297,25 +341,43 @@ named; the only remaining move is review by a specialist who knows the sources. 
 
 \section{Recommendations}\label{sec:recommend}
 
-\todo{Write after the interview. Provisional list.}
+The list below is the author's recipe as stated in the interview, ordered by the author's own weighting, with
+the record's additions marked.
 \begin{enumerate}[itemsep=1pt]
-\item Write the thesis as a test suite before writing anything else; let it fail.
-\item Keep one file that says what is proved, what is open, and what may not be claimed; make the model read it
-  first in every session.
-\item Record every error with the rule that would have prevented it; the list is worth more than the theorems.
-\item Separate generator and checker: fresh instances, no session context, the papers only.
-\item Archive external reviews against the revision hash; apply findings additively in a dated errata file.
-\item Decide the repair principle before the repair: correct, or leave open; never a weaker claim about a
-  different object.
-\item Set the stopping criterion in advance, in writing.
-\item Know the class of error the process cannot catch, say so in the papers, and route the work to someone who
-  can.
+\item Declare the enterprise in the first prompt: a research programme, test-driven, with the methods and paths to
+  be enumerated and rated, and a knowledge file that collects findings, chronology and known fallacies. The author
+  considers this the decisive step; it forces the model's context into compacted notes of its own work.
+\item A computational check for everything, and a written record of the way of thought.
+\item Ask for excellence, simplicity and humility, and for explanations at the level at which you can decide.
+\item Route what you cannot check through hostile outside review: other models, instructed to attack; compress the
+  findings, annotate them, return them to the working agent, and discuss again.
+\item Press on effort estimates in both directions: demand the attempt when the model says ``weeks''; record it when
+  the model says ``a day'' and is wrong.
+\item (From the record.) Decide the repair principle before the repair: correct, or leave open; never a weaker claim
+  about a different object.
+\item (From the record.) Set the stopping criterion in writing before you need it; keep the demanded rigour at a
+  human scale.
+\item (From the record.) Know the class of error the process cannot catch, say so in the papers, and route the work
+  to someone who can.
 \end{enumerate}
+
+\paragraph{The author's claim.} The author states the purpose of this case study as a role model ``for how to work
+scientifically in very complex domains while maintaining scientific rigour'', for anyone working in science with AI,
+wanting to, or refusing to. The work met hostility when first presented, and nobody checked it at first, on the
+assumption that it was machine-generated noise; the author understands this reaction and agrees with the recent
+statement on AI and mathematics signed by many leading mathematicians \todo{cite correctly once the author supplies
+title and URL}. The programme is offered as a demonstration that a workable toolkit exists for embedding AI so that
+the quality of its output rises and the output becomes easier to falsify: test-driven development borrowed from
+software engineering, and the enumeration and rating of the available methods. \evidence{Interview Q11--Q12}
+
+\paragraph{On authorship.} The author at first wanted the model as co-author, and abandoned this because no journal
+accepts it and because the model is not a persona; not knowing how to credit it, the author chose complete
+transparency about the flow of work instead, of which this paper is part. \evidence{Interview Q11; ERRATA 8}
 
 \appendix
 \section{The interview}\label{app:interview}
-\todo{Verbatim answers to Questions 1--12 (\file{INTERVIEW.md}), lightly edited for length, approved by the
-author.}
+The answers are in \file{INTERVIEW.md}, verbatim and dated; they will be reproduced here, lightly edited
+for spelling only, once the author approves the edited version. \todo{Insert.}
 
 \section{The process record}\label{app:record}
 Generated by \file{scripts/process-record.py} from the repository at the revision named in the footer of this
