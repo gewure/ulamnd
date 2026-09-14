@@ -28,6 +28,11 @@ of a quadratic with exact tails, the pieces of paper IV (sharp and smooth window
 predictions of the smooth-window theorem. Only numpy and mpmath are needed; `research/python/README.md` has three
 one-minute examples and the tests cross-check every module against the TypeScript output or brute force.
 
+**Follow-up draft (15 September 2026).** `research/paper-dilation/` — "Dilated pieces, Hecke correspondences and the
+second spectrum": the coefficient of every computable Maass line in the piece with dilation u as an oldform projection at
+level u², with an explicit closed form for the level-one lines at odd prime u, tested parameter-free on 21 (u,D) pairs and
+on a level-3 newform. Working draft, not for circulation; three lemmas still to be proved in full (see its STATUS.md).
+
 **Case study (started 14 September 2026).** `research/case-study/` scaffolds a fifth, methodological paper: how this
 programme was produced (test-driven origin, guardrails, evolution of the prompting, the complete error record, what
 model readers cannot catch). `main.tex` is the scaffold with interview slots, `INTERVIEW.md` the questionnaire,

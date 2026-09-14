@@ -191,6 +191,10 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (~06:00). Multiplicativity in u exact on the theory side (level-36 direct computation equals the product; Gram
+  matrix is a tensor product). First draft of the follow-up paper written: research/paper-dilation/ (Theorem 1 proved,
+  Theorem 2 conditional on three lemmas with numerically fixed values, Theorem 3 newform lines, corollary on uniform
+  summability of the level-one main terms). NOT read by anyone; no claim outside the repository.
 - 15 Sep (~05:30). The level-3 newform line (t = 5.0987) in piece u = 3 predicted with no free parameter and confirmed at
   five discriminants (amplitude within 4%, phase within 0.07 rad), predicted and observed absent when 3 is inert. Every
   computable line of a dilated piece now follows one formula (oldforms + newforms, each with its Gram matrix).

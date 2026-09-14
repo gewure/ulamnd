@@ -294,3 +294,9 @@ research/explore/hecke-oldform-composite.py, log research/explore/logs/composite
 Also learned: r(2; −12) = +0.945 ≠ 0.850 — the 2-adic constant depends on D/4 mod 4 (D=−12: D/4 ≡ 1), confirming that
 u = 2 needs its own local analysis (four 2-adic classes: D ≡ 1, 5 (mod 8); D/4 ≡ 1, 2, 3 (mod 4) …).
 
+### 8c. Multiplicativity settled on the theory side (15 Sep ~06:00)
+hecke-oldform-composite.py at level 36 (9-dim oldspace, 72 cosets, ‖f₀‖²/‖u₁‖² = 72.000): r(6;−12) = +0.6573 = 0.945·0.695,
+r(6;−8) = −0.2642 = 0.850·(−0.311). The 9×9 Gram matrix is the tensor product of the level-4 and level-9 matrices entry by
+entry. So r_j(u;D) = Π_{p|u} r_j(p;D) exactly; the observed u=6 scatter is data noise. Draft paper written:
+research/paper-dilation/main.tex (+ STATUS.md, refs.bib), compiled; not for circulation, unread by anyone else.
+

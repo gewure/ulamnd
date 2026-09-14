@@ -1,0 +1,315 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,array,caption,microtype,xcolor}
+\usepackage[margin=2.5cm]{geometry}
+\linespread{1.06}
+\setlength{\emergencystretch}{3em}
+\allowdisplaybreaks[1]
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\R}{\mathbb R}\newcommand{\Q}{\mathbb Q}\newcommand{\HH}{\mathbb H}
+\newcommand{\e}{\mathrm e}\newcommand{\Per}{\mathrm{Per}}
+\newcommand{\todo}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
+\newcommand{\status}[1]{\textcolor{blue!50!black}{\small\sffamily Status: #1}}
+
+\title{Dilated pieces, Hecke correspondences and the second spectrum:\\ the level-one lines of the pieces $\mathcal P_u$}
+\author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com. This work was
+carried out with heavy use of a large language model; see the disclosure at the end.}}
+\date{Working draft of 15 September 2026 --- not for circulation. Every displayed constant was tested numerically before
+it was written down; the proofs marked ``sketch'' are not complete.}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Part~IV of this series~\cite{ReichardtIV} showed that the pieces $\mathcal P_u(Y)$ of the off-diagonal of the pair
+singular series of an irreducible quadratic $f$ oscillate at the spectral parameters of the even Maass cusp forms, and
+that the piece with dilation $u$ lives at level $u^2$. It left open ``the size, in $u$, of the restricted geometric
+factor''. This note computes that factor for the level-one lines and for the newforms of level $u$. The piece with
+dilation $u$ is the level-one seed of the smooth-window theorem, at length $uY$, summed over the $\Gamma_0(u^2)$-invariant
+family $\mathcal W_u$ of forms of discriminant $4u^2D$ with $u^2\mid a$ and $2u^2\mid b$. The coefficient of the line $t_j$ of
+a level-one form $u_j$ in piece $u$ is therefore a projection onto the oldform space $\{u_j(z),u_j(uz),u_j(u^2z)\}$, and
+for an odd prime $u$ it equals the coefficient in piece $1$ times an explicit rational function of $\lambda_j(u)$,
+$\sqrt u$ and $\chi_D(u)$: the Gram matrix of the oldforms (Iwaniec--Luo--Sarnak) and two local period identities for the
+Hecke neighbours of Heegner points (Gross--Kohnen--Zagier). The ratio is $\lambda_j(u)/u+O(u^{-3/2})$ for $u\nmid D$ and
+$u^{-1/2}(1+O(\lambda_j(u)/\sqrt u))$ for $u\mid D$, so the main terms of the level-one lines are uniformly summable over
+$u$. The same formula with a newform $v$ of level $u$ gives its line in piece $u$, and predicts that it vanishes when $u$ is
+inert in $\Q(\sqrt D)$. Both predictions carry no free parameter; they were tested on $21$ pairs $(u,D)$ for the first
+level-one line and on seven discriminants for the first newform of level~$3$, and hold to a few percent in amplitude and a
+few hundredths of a radian in phase. The error term uniform in $u$, the open core of the conjecture of part~III, is not
+touched.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+\paragraph{The object.} Notation as in part~IV~\cite{ReichardtIV}. For a discriminant $D<0$, a squarefree $u\ge1$ and
+$Q_u(h)=u^2h^2-D$, the unrestricted piece with dilation $u$ and smooth window $w\in C_c^\infty((0,\infty))$ is
+\[
+S^w_u(Y)=\sum_{h\ge1}w\Bigl(\frac hY\Bigr)\bigl(\sigma_{-1}(Q_u(h))-\mathbb E_u\bigr),\qquad
+\sigma_{-1}(n)=\sum_{d\mid n}\frac1d,\quad \mathbb E_u=\sum_d\frac{\rho_u(d)}{d^2},
+\]
+$\rho_u(d)$ the number of roots of $u^2x^2\equiv D\pmod d$. For $u=1$ Theorem~\textsc{smooth} of part~IV gives
+\begin{equation}\label{eq:smooth1}
+\sqrt Y\,S^w_1(Y)=|D|^{-1/4}\sum_j\Per_D(u_j)\,\tilde L_j\bigl[A_j(Y)+\overline{A_j(Y)}\bigr]+\mathcal E^w(Y)+O(Y^{-2+\varepsilon}),
+\qquad A_j(Y)=\Gamma(-it_j)W_c\bigl(\tfrac32+it_j\bigr)\Bigl(\frac{\pi\sqrt{|D|}}Y\Bigr)^{it_j},
+\end{equation}
+the sum over an orthonormal basis of even Maass cusp forms of $\mathrm{SL}_2(\Z)$, with $\Per_D(u_j)=\sum_Qu_j(z_Q)/|\Gamma_Q|$
+over all classes of forms of discriminant $4D$, $\tilde L_j=\sum_ka_j(k)k^{-3/2}$, and $W_c$ the Mellin factor of the window.
+Part~IV, Section~7, showed that piece $u$ lives at level $u^2$ and named the one missing ingredient: how the coefficients
+depend on $u$. Its footnote on $u=3,5$ recorded that the level-one lines are weak there and that the lines of $\Gamma_0(9)$
+take over.
+
+\paragraph{Results.} Write $\lambda_j(u)$ for the Hecke eigenvalue ($T_uu_j=\lambda_j(u)u_j$, $a_j(1)=1$) and
+$\chi=\chi_D(u)$ for the Kronecker symbol, so $\chi=0$ iff $u\mid D$.
+
+\begin{theorem}[the spectral formula for piece $u$]\label{thm:pieceu}
+Let $\mathcal W_u=\{[a,b,c]\ \text{of discriminant }4u^2D:\ u^2\mid a,\ 2u^2\mid b\}$ (all contents). Then $\mathcal W_u$ is
+$\Gamma_0(u^2)$-invariant and, for every $\varepsilon>0$,
+\[
+\sqrt Y\,S^w_u(Y)=\sqrt u\,|D|^{-1/4}\sum_v\Per_{\mathcal W_u}(v)\,\tilde L_v\bigl[A_v(uY)+\overline{A_v(uY)}\bigr]+\mathcal E^w_u(Y)+O(Y^{-2+\varepsilon}),
+\]
+the sum over an orthonormal basis $\{v\}$ of the even Maass cusp forms of $\Gamma_0(u^2)$, with $\Per_{\mathcal W_u}(v)=
+\sum_{Q\in\Gamma_0(u^2)\backslash\mathcal W_u}v(z_Q)/|\Gamma_0(u^2)_{z_Q}|$, $\tilde L_v$ formed with the Fourier coefficients
+of $v$ at the cusp $\infty$, and $\mathcal E^w_u$ the continuous spectrum.
+\end{theorem}
+\status{proved (Section~\ref{sec:seed}): it is Theorem~\textsc{smooth} of part~IV at level $u^2$ applied to an explicit
+identity between seeds; every constant checked numerically at $u=2,3,5$.}
+
+\begin{theorem}[the level-one lines]\label{thm:level1}
+Let $u$ be an odd prime and $u_j$ an even Hecke--Maass form of level one. The coefficient of the line $t_j$ in
+$\sqrt Y S^w_u(Y)$ equals the coefficient in $\sqrt YS^w_1(Y)$ multiplied by $u^{-it_j}$ and by
+\begin{equation}\label{eq:r}
+r_j(u;D)=\sqrt u\,P^{\mathsf T}\bigl(u(u+1)\,G\bigr)^{-1}L,\qquad
+G=\begin{pmatrix}1&g&h\\ g&1&g\\ h&g&1\end{pmatrix},\quad
+g=\frac{\lambda_j(u)\sqrt u}{u+1},\quad h=\frac{\lambda_j(u)^2-1-1/u}{u+1},
+\end{equation}
+\[
+P=(p_0,p_1,p_0),\qquad p_1=\begin{cases}2u&u\mid D,\\ u-\chi&u\nmid D,\end{cases}\qquad
+p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\mid D,\\ -(1+\chi)&u\nmid D,\end{cases}\qquad L=(1,u^{-1},u^{-2}).
+\]
+In particular $r_j(u;D)=\lambda_j(u)/u+O(u^{-3/2})$ for $u\nmid D$ and $r_j(u;D)=u^{-1/2}\bigl(1+O(\lambda_j(u)u^{-1/2})\bigr)$
+for $u\mid D$, the implied constants absolute.
+\end{theorem}
+\status{conditional on Lemmas~\ref{lem:mult}, \ref{lem:period} and~\ref{lem:gram}, each of which is stated with the values
+the numerics fix and proved to the extent marked. The values of~\eqref{eq:r} agree with the direct spectral computation to
+four digits and with the data to the noise (Table~\ref{tab:ratios}).}
+
+\begin{theorem}[the newform lines]\label{thm:newform}
+Let $u$ be an odd prime and $v$ an even Hecke--Maass newform of level $u$ with Atkin--Lehner eigenvalue $\varepsilon$
+($a_v(u)=-\varepsilon u^{-1/2}$). The coefficient of its line in $\sqrt YS^w_u(Y)$ is
+\[
+2\sqrt u\,|D|^{-1/4}\Bigl[\sum_{k=1}^2\Per_{\mathcal W_u}(v_k)\tilde L(v_k)\Bigr]\,\Gamma(-it_v)W_c\bigl(\tfrac32+it_v\bigr)\,u^{-it_v},
+\]
+$\{v_1,v_2\}$ the orthonormalisation of $\{v(z),v(uz)\}$ on $\Gamma_0(u^2)\backslash\HH$, whose Gram matrix has off-diagonal
+entry $a_v(u)\sqrt u/u=-\varepsilon/u$ relative to $\langle v,v\rangle$. If $u$ is inert in $\Q(\sqrt D)$ then
+$\Per_{\mathcal W_u}(v)=\Per_{\mathcal W_u}(v(u\,\cdot))=0$ and the line is absent.
+\end{theorem}
+\status{the formula is Theorem~\ref{thm:pieceu} restricted to the two-dimensional oldspace; the Gram entry and the
+vanishing for inert $u$ are observed numerically (to $10^{-17}$) and not yet proved. Tested on seven discriminants
+(Table~\ref{tab:newform}).}
+
+\begin{corollary}[uniform summability of the level-one main terms]\label{cor:sum}
+For a fixed level-one form $u_j$ and any bounded weights $w(u)$, $\sum_{u\le U}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll H^{1/2}$
+uniformly in $U$, the sum over odd primes $u$ converging absolutely like $\sum_u|\lambda_j(u)|u^{-3/2}$.
+\end{corollary}
+
+\begin{remark}[what this does and does not settle]
+Part~III's conjecture needs the pieces with $u\le H^{2/3}$ to sum to $o(H\log H)$ with their \emph{errors}. The
+corollary says the level-one \emph{main} terms do so with room to spare; the newform lines of level $u$ are new at every
+$u$ (Theorem~\ref{thm:newform} gives their size for each $u$ but not a bound uniform in the newform), the cycloidal-group
+forms of level $u^2$~\cite{Stromberg2012} are not covered at all, and the error term of Remark~\textsc{gaps} of part~IV is
+untouched. What has changed is that the main-term side of the $u$-problem is Hecke theory on Heegner divisors, and it
+decays.
+\end{remark}
+
+\paragraph{Method and checks.} Section~\ref{sec:seed} proves Theorem~\ref{thm:pieceu}. Section~\ref{sec:lemmas} states
+the three lemmas behind Theorem~\ref{thm:level1} with what is proved of each. Section~\ref{sec:numerics} reports the
+tests: the ratio~\eqref{eq:r} against a direct computation of the oldform projection with the Maass forms' values (no
+closed form used), and both against the pieces computed to $Y=10^7$; then the newform of level~$3$; then the case $u=2$
+and the composite $u=6$. Section~\ref{sec:open} lists what is open. Scripts and data are in the repository
+(\texttt{research/explore/}, \texttt{hecke-oldform-predict.py}, \texttt{hecke-newform-u3.py}, \texttt{hecke-ratio-sharp.py}).
+
+\section{The seed identity and the family $\mathcal W_u$}\label{sec:seed}
+
+The pairs $(d,x)$ with $u^2x^2\equiv D\pmod d$ are the forms $Q=[d,\,2ux,\,(u^2x^2-D)/d]$ of discriminant $4D$ with
+$2u\mid b$; write $\mathcal H^{(u)}$ for this sub-family of the set $\mathcal H$ of all forms of discriminant $4D$, and
+$z_Q=(-ux+i\sqrt{|D|})/d$. Poisson summation in $h$, exactly as in the proof of Theorem~\textsc{smooth}, writes
+$S^w_u(Y)$ as $\sum_{(d,x)}\frac{Y}{d^2}\sum_{k\ne0}\hat w(kY/d)\,\e(kx/d)$, and in the coordinates of $z=z_Q$ ($y=\sqrt{|D|}/d$,
+$x/d=-\Re z/u$) the summand is
+\[
+\frac{Yy^2}{|D|}\sum_{k\ne0}\hat w\Bigl(\frac{kYy}{\sqrt{|D|}}\Bigr)\e\Bigl(-\frac{k\Re z}u\Bigr)=u\,\Psi^w_{uY}(z/u),
+\]
+$\Psi^w_{Y'}(\tau)=\frac{Y'(\Im\tau)^2}{|D|}\sum_{k\ne0}\hat w(kY'\Im\tau/\sqrt{|D|})\e(-k\Re\tau)$ the level-one seed of
+part~IV at length $Y'$. The point $\tau=z_Q/u=(-2u^2x+i\sqrt{4u^2|D|})/(2u^2d)$ is the Heegner point of the form
+$Q'=[u^2d,\,2u^2x,\,(u^2x^2-D)/d]$ of discriminant $4u^2D$, and $Q\mapsto Q'$ is a bijection of $\mathcal H^{(u)}$ onto
+$\mathcal W_u$. For $\gamma\in\Gamma_0(u^2)$ the middle coefficient transforms as $b'=2a\alpha\beta+b(\alpha\delta+\beta\gamma)+2c\gamma\delta
+\equiv b\,\alpha\delta\equiv b\pmod{2u^2}$, since $u^2\mid a$, $u^2\mid\gamma$ and $\alpha\delta\equiv1\pmod{u^2}$; the
+condition $u^2\mid a$ is $\Gamma_0(u^2)$-stable by Lemma~\textsc{subfamily} of part~IV. So $\mathcal W_u$ is a finite union of
+$\Gamma_0(u^2)$-orbits, the translation $\tau\mapsto\tau+1$ is $x\mapsto x-d$, and $S^w_u(Y)=u\sum_{\tau\in\mathcal W_u/\Z}\Psi^w_{uY}(\tau)$.
+The proof of Theorem~\textsc{smooth} applies verbatim on $\Gamma_0(u^2)\backslash\HH$ (its cusp at $\infty$ has width one, so
+the pairing with the Fourier expansions at $\infty$ is unchanged), with $Y$ replaced by $uY$; the factor $u$ and
+$(uY)^{-1/2}$ combine to $\sqrt u\,Y^{-1/2}$, and $(\pi\sqrt{|D|}/(uY))^{it_v}$ carries the phase $-t_v\log u$. This proves
+Theorem~\ref{thm:pieceu}. For $f_m(z)=u_j(u^mz)$ the coefficient at index $u^mn$ is $u^{m/2}a_j(n)$, so $\tilde L_{f_m}=u^{-m}\tilde L_j$,
+which is the vector $L$ of Theorem~\ref{thm:level1}.
+
+\section{The three lemmas}\label{sec:lemmas}
+
+Throughout $u$ is an odd prime and $\Per_D(f)=\sum_{Q\in\mathcal H/\mathrm{SL}_2(\Z)}f(z_Q)/|\Gamma_Q|$.
+
+\begin{lemma}[multiplicity]\label{lem:mult}
+For every $\mathrm{SL}_2(\Z)$-class $C$ of forms of discriminant $4D$,
+$\sum_{Q'\in\Gamma_0(u^2)\backslash\mathcal W_u,\ uz_{Q'}\in C}|\Gamma_0(u^2)_{z_{Q'}}|^{-1}=m_u(D)\,|\Gamma_C|^{-1}$ with
+$m_u(D)=2u$ if $u\mid D$ and $m_u(D)=u-\chi_D(u)$ if $u\nmid D$. Equivalently $\Per_{\mathcal W_u}(u_j(u\,\cdot))=m_u(D)\Per_D(u_j)$.
+\end{lemma}
+\begin{proof}[Sketch]
+$u_j(u\tau_{Q'})=u_j(z_Q)$, so the identity is a count of the $\Gamma_0(u^2)$-orbits of $\mathcal W_u$ above $C$, weighted
+by stabilisers. Transporting by $\tau=z/u$, these are the orbits of $\Gamma^0(u^2)=\{u^2\mid\beta\}$ on the forms
+$\gamma Q_0\in C$ with $2u\mid b(\gamma Q_0)$. The condition depends on $\gamma$ modulo $u$ and singles out, in
+$\mathbb P^1(\mathbb F_u)$, the points at which a binary quadratic attached to $Q_0$ does not vanish; there are
+$u+1-(1+\chi)=u-\chi$ of them when $u\nmid D$, and the lifts to $\mathbb P^1(\Z/u^2)$ account for the rest of the count.
+When $u\mid D$ the quadratic has a double root and the forms with $u\mid a$ contribute a second family of $u$ orbits.
+\todo{Complete the coset count; the identification of the excluded points with the roots of $Q_0\bmod u$ is the step to
+write out. Numerically $m=6.000,10.00$ ($u=3,5$, $u\mid D$), $2.001,4.000$ (split), $3.999,6.000$ (inert).}
+\end{proof}
+
+\begin{lemma}[the period of the dilated family]\label{lem:period}
+$\Per_{\mathcal W_u}(u_j)=\Per_{\mathcal W_u}(u_j(u^2\,\cdot))=\bigl(\lambda_j(u)\sqrt u+c_u(D)\bigr)\Per_D(u_j)$ with
+$c_u(D)=u-1$ if $u\mid D$ and $c_u(D)=-(1+\chi_D(u))$ if $u\nmid D$.
+\end{lemma}
+\begin{proof}[Sketch]
+For $Q=[a,b,c]$ with $u\nmid a$ the $u+1$ Hecke neighbours of $z_Q$ are $uz_Q$, the point of $[a,ub,u^2c]$, and
+$(z_Q+k)/u$, the points of $[u^2a,\,u(b-2ak),\,ak^2-bk+c]$, $k\bmod u$, all of discriminant $4u^2D$, and
+$\sum_{\text{neighbours }\nu}u_j(\nu)=\lambda_j(u)\sqrt u\,u_j(z_Q)$. Exactly one neighbour lies in $\mathcal W_u$: $(z_Q+k)/u$
+with $k\equiv(b/2)a^{-1}\pmod u$, since $2u^2\mid u(b-2ak)$ iff $b/2\equiv ak\pmod u$. Among the others, when $u\nmid D$,
+exactly $1+\chi$ have content divisible by $u$ and are Heegner points of discriminant $4D$ again --- the classical
+description of $T_u$ on CM points \cite{GrossKohnenZagier1987}: the classes multiplied by the prime ideals above $u$ ---
+and summed over all classes of $\mathcal H$ these contribute $(1+\chi)\Per_D(u_j)$. The remaining neighbours of discriminant
+$4u^2D$ are $\Gamma_0(u^2)$-equivalent to the selected neighbours of the other $m_u(D)$ representatives of the same class
+(Lemma~\ref{lem:mult}); summing the Hecke relation over the classes and subtracting the same-discriminant terms gives the
+claim for $u\nmid D$. For $u\mid D$ the forms with $u\mid a$ add $u\Per_D$, and the term $-1$ is the single ramified
+neighbour of discriminant $4D$. The identity for $u_j(u^2\,\cdot)$: $u^2\tau_{Q'}=uz_Q$ is itself the first neighbour.
+\todo{The bijection between non-selected neighbours and the selected neighbours of the other representatives is the step
+to write out; the ramified count too. Numerically $c=+2,+4$ ($u=3,5$, $u\mid D$), $-2$ (split), $0$ (inert), each to four
+digits, and $\Per(u_j)=\Per(u_j(u^2\cdot))$ exactly.}
+\end{proof}
+
+\begin{lemma}[the Gram matrix]\label{lem:gram}
+On $\Gamma_0(u^2)\backslash\HH$, with $f_m(z)=u_j(u^mz)$: $\langle f_0,f_0\rangle=u(u+1)\|u_j\|^2_{\mathrm{SL}_2(\Z)}$,
+$\langle f_1,f_0\rangle=\langle f_2,f_1\rangle=\frac{\lambda_j(u)\sqrt u}{u+1}\langle f_0,f_0\rangle$ and
+$\langle f_2,f_0\rangle=\frac{\lambda_j(u)^2-1-1/u}{u+1}\langle f_0,f_0\rangle$.
+\end{lemma}
+\begin{proof}[Sketch]
+The first entry is the index; the second is \cite[Lemma~2.4]{IwaniecLuoSarnak2000} (stated there for holomorphic forms;
+the unfolding is identical for Maass forms). The third follows by the same unfolding from $\langle f|B_{u^2},f\rangle$ and
+the Hecke relation $\lambda(u^2)=\lambda(u)^2-1$; it reads $(\lambda_j(u^2)-1/u)/(u+1)$. \todo{Write out or locate; numerically
+$0.3001,-0.3181,-0.1095$ at $u=2,3,5$, matching the formula to four digits.}
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:level1} from the lemmas]
+Theorem~\ref{thm:pieceu} restricted to the span of $f_0,f_1,f_2$ gives the coefficient $\sqrt u\sum_k\Per_{\mathcal W_u}(v_k)\tilde L(v_k)$
+over an orthonormal basis $v_k$ of that span, which is the basis-free quantity $\sqrt u\,\mathbf P^{\mathsf T}\mathbf G^{-1}\mathbf L$
+with $\mathbf P_m=\Per_{\mathcal W_u}(f_m)$, $\mathbf G_{mn}=\langle f_m,f_n\rangle$, $\mathbf L_m=\tilde L_{f_m}$. Dividing by
+the $u=1$ coefficient $\Per_D(u_j)\tilde L_j/\|u_j\|^2$ and inserting the lemmas gives~\eqref{eq:r}; the phase $u^{-it_j}$
+is from Theorem~\ref{thm:pieceu}. The asymptotics: as $u\to\infty$, $G\to I$, $L\to(1,0,0)$, and $p_0/(u(u+1))\to
+\lambda_j(u)u^{-1}$ or $u^{-1}$ according as $u\nmid D$ or $u\mid D$.
+\end{proof}
+
+\section{Numerical confirmation}\label{sec:numerics}
+
+All data are the pieces of part~IV computed to $Y=10^7$ (\texttt{piece-divset.ts}, unrestricted object), sharp Riesz means
+on $4096$ log-spaced points and smooth windows on $401$; amplitudes and phases by joint least squares at the level-one
+lines with the dominant level-$u^2$ lines as nuisance frequencies (Str\"omberg's $\Gamma_0(9)$ eigenvalues at $u=3$
+\cite{Stromberg2012}, the six strongest data-driven peaks at $u=5$). The predictions of Theorem~\ref{thm:level1} were
+computed twice: from~\eqref{eq:r}, and directly by evaluating the Maass form at the orbit representatives of $\mathcal W_u$,
+integrating the Gram matrix over the cosets of $\Gamma_0(u^2)$, and orthonormalising; the two agree to four digits, and
+the direct route also checks $\langle f_0,f_0\rangle/\|u_j\|^2=u(u+1)$ and the Iwaniec--Luo--Sarnak entry.
+
+\begin{table}[htbp]\centering\small
+\caption{The first even line $t_1=13.7798$: signed ratio of its amplitude in piece $u$ to piece $1$ (sign $-$ when the
+phase is shifted by $\pi$ beyond $-t_1\log u$). ``pred'' from~\eqref{eq:r} for odd $u$ and from the direct computation
+for $u=2$; ``obs'' from the sharp grids. Predicted $|r|<0.1$ is below the noise of these grids.}\label{tab:ratios}
+\begin{tabular}{@{}lrrrl@{}}
+\toprule
+$u$, type of $u$ in $\Q(\sqrt D)$ & pred & obs & $D$\\
+\midrule
+$2$, $D\equiv0\ (4)$, $D/4\equiv2,3\ (4)$ & $+0.850$ & $+0.852,\ +0.865,\ +0.899$ & $-4,-8,-20$\\
+$2$, $D\equiv0\ (4)$, $D/4\equiv1\ (4)$ & $+0.945$ & (piece $u=2$ not yet fitted) & $-12$\\
+$2$, split ($D\equiv1\ (8)$) & $-0.341$ & $-0.353,\ -0.379,\ -0.428$ & $-7,-15,-23$\\
+$2$, inert ($D\equiv5\ (8)$) & $-0.068$ & $-0.065,\ -0.061,\ -0.071$ & $-3,-11,-19$\\
+$3$, ramified & $+0.695$ & $+0.655,\ +0.726$ & $-3,-15$\\
+$3$, split & $-0.311$ & $-0.285,\ -0.320,\ -0.332$ & $-8,-11,-20$\\
+$3$, inert & $+0.192$ & $+0.196,\ (+0.341)$ & $-4,-7$\\
+$5$, ramified & $+0.421$ & $+0.431$ & $-15$\\
+$5$, split & $-0.076$ & (noise) & $-4,-11$\\
+$5$, inert & $+0.089$ & (noise) & $-3,-8$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]\centering\small
+\caption{The first even newform of level $3$ ($t=5.0987$, Fricke $+1$) in the smooth piece $u=3$: predicted amplitude and
+phase from Theorem~\ref{thm:newform} with the LMFDB coefficients, against the fit (all $\Gamma_0(9)$ even lines and four
+level-one lines in the fit).}\label{tab:newform}
+\begin{tabular}{@{}rlrrrr@{}}
+\toprule
+$D$ & $3$ in $\Q(\sqrt D)$ & $C_{\mathrm{pred}}$ & $C_{\mathrm{obs}}$ & ratio & $\Delta\varphi$\\
+\midrule
+$-3$ & ramified & $0.3200$ & $0.3262$ & $1.020$ & $-0.008$\\
+$-15$ & ramified & $0.2016$ & $0.1946$ & $0.965$ & $+0.024$\\
+$-8$ & split & $0.1404$ & $0.1426$ & $1.016$ & $+0.072$\\
+$-11$ & split & $0.1371$ & $0.1370$ & $1.000$ & $+0.050$\\
+$-20$ & split & $0.1945$ & $0.1931$ & $0.993$ & $+0.032$\\
+$-4$ & inert & $0$ & $0.019$ & --- & ---\\
+$-7$ & inert & $0$ & $0.006$ & --- & ---\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{The case $u=2$.} The local constants are not integers: $\Per_{\mathcal W_2}(u_1(2\cdot))/\Per_D(u_1)=4.912$ for
+$D/4\equiv2,3\pmod4$ and $5.278$ for $D/4\equiv1\pmod4$, $0.321$ for $D\equiv1\pmod8$, $1.373$ for $D\equiv5\pmod8$; so the
+multiplicity of Lemma~\ref{lem:mult} is not class-independent at $u=2$ and the closed form~\eqref{eq:r} does not apply.
+The direct computation does, and matches the data (Table~\ref{tab:ratios}). \todo{2-adic local analysis.}
+
+\paragraph{Composite $u$.} For squarefree $u=u_1u_2$ the family condition factors over the primes and the oldform space is
+$\{u_j(dz):d\mid u^2\}$, of dimension $9$ for $u=6$. The direct computation at level $36$ (Gram matrix over the $72$ cosets,
+$\|f_0\|^2/\|u_j\|^2=72.000$) gives $r_1(6;-12)=+0.6573$ and $r_1(6;-8)=-0.2642$, against the products
+$r_1(2;-12)\,r_1(3;-12)=0.945\times0.695=0.657$ and $r_1(2;-8)\,r_1(3;-8)=0.850\times(-0.311)=-0.264$; and the $9\times9$
+Gram matrix is the tensor product of the $3\times3$ matrices at levels $4$ and $9$ entry by entry ($0.0781=0.7303\times0.1069$,
+$-0.2323=0.7303\times(-0.3181)$, $-0.0955=0.3001\times(-0.3181)$, \dots). So the projection factors over the primes dividing
+$u$ and the multiplicativity $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$ holds on the theory side; its proof is the observation that the
+period vector and the Gram matrix are tensor products, which follows from Lemmas~\ref{lem:mult}--\ref{lem:gram} applied
+prime by prime. \todo{Write out the tensor-product argument.} The data at $u=6$ are noisy (the level-$36$ spectrum is dense):
+the five signs observed agree with the products and the magnitudes scatter by up to $0.2$ ($D=-8,-20,-15,-4,-12$: observed
+$-0.449,-0.320,-0.295,+0.111,+0.549$ against $-0.264,-0.264,-0.237,+0.163,+0.657$).
+
+\paragraph{The cycloidal lines.} At $u=3$ the pieces are dominated by the lines $3.536$, $5.504$, $6.647$, $7.432$, $8.698$,
+which Str\"omberg attributes to forms of the cycloidal group $\Gamma^3$~\cite{Stromberg2012}; their coefficients are not
+tabulated and their amplitudes in piece $3$ cannot be predicted here.
+
+\section{What is open}\label{sec:open}
+\begin{enumerate}
+\item The three lemmas, to be proved in full (Section~\ref{sec:lemmas}); the vanishing of the newform period for inert $u$.
+\item The $2$-adic case; the tensor-product argument for composite $u$.
+\item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect
+equidistribution of \cite{LiuMasriYoung2013,HumphriesNordentoft2025}, route 1b of the knowledge base.
+\item The error term uniform in $u$ (part~IV, Remark~\textsc{gaps}), which is the conjecture of part~III itself.
+\end{enumerate}
+
+\section*{AI-assisted research: disclosure}
+This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and Claude
+Opus~5, used interactively by the author in September 2026 as research assistants. The author posed the questions, set
+the direction and the scope, and made every decision about what to pursue, claim and submit. The model derived the
+identities, wrote and ran the software behind every number, searched the literature and drafted the text, in dialogue
+with the author, who verified the code and the numerical claims against the repository record. The repository
+(\url{https://github.com/gewure/ulamnd}) contains the scripts, the data, and the knowledge base with the record of errors.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}
