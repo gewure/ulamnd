@@ -330,7 +330,7 @@ assessment's finding on paper~II), a sum rewritten as an orbit sum over a set th
 method invoked with a hypothesis it does not have (paper~I, ERRATA~26). The reviewing instance's own assessment of
 this asymmetry is quoted in \S\ref{sec:limits}.
 
-\paragraph{What the count means.} Thirty-seven fallacies and twenty-six errata items in six days reads as
+\paragraph{What the count means.} \NFallacies{} fallacies and \NErrata{} errata items in \NDays{} days reads as
 catastrophic, and the reader should know what it is being compared with, which is nothing: we know of no published
 count of the errors in a human first draft before referee reports, because such errors are corrected silently and
 never recorded. The number here is a property of the recording, not a measured error rate. Every slip is on the
@@ -340,6 +340,20 @@ two retractions of stated results, one repair that changed an object, and the re
 expect a specialist's first draft of a programme of this size to contain errors of the local kinds in comparable
 number and to record none of them; whether it would contain the two retractions is the question the process cannot
 answer about itself. \evidence{KNOWLEDGE \S3; ERRATA} \evidence{ERRATA 11--15, 18, 22, 24--26}
+
+\paragraph{An episode after version 1 of this study.} On 15~September the first draft of a follow-up note stated an
+asymptotic for a ratio that had been derived as a closed form (a rational function of a Hecke eigenvalue and $\sqrt u$),
+read off term by term: the leading term was given as $\lambda(u)/u$. Two readings, made independently of each other on the
+same day --- the author's long-running reviewing conversation and a fresh instance given the draft, the proof notes and
+the paper it builds on --- found the same error by the same move: they evaluated the closed form at $u=1009$ and compared.
+The $\lambda(u)\sqrt u$ terms of two entries cancel exactly, and the true leading term is $u^{-3/2}$, with an exact identity
+in the inert case. The error was in the prose, not in the formula, which every numerical test had confirmed; the tests were
+at $u\le6$, where the two expressions differ by less than the noise. The knowledge base gained the rule that an asymptotic
+read off a closed form is evaluated at a large argument before it is written down (F41). The fresh reading also supplied
+proofs of two lemmas that the draft had left as sketches; they coincided with the proofs written the same morning.
+The episode is the pattern of \S\ref{sec:verification} working as designed: the derivation was right, the numerics were
+right, the sentence summarising them was wrong, and only a reader with the formula in hand and the will to evaluate it
+found out. \evidence{ERRATA 33, 34; KNOWLEDGE F41}
 
 \paragraph{Two retractions.} The programme retracted two statements it had believed: the sharp form of
 Conjecture~1 (there is no bounded remainder at all, F26) and the level-one form of paper~IV's theorem (the object
@@ -566,6 +580,10 @@ screening & one finding, paper I Thm 3's proof; fixed (ERRATA 26)\\
 14 Sep & the same instance & this case study, version 1 & provenance of the \S\ref{sec:limits} quote wrong (F38); base
 rate missing; recommendation 4 over-promising; a surviving hypothesis violation in paper III (ERRATA 27); all four
 applied\\
+15 Sep & the reviewing instance & follow-up note (dilated pieces), draft 1 & the stated asymptotic wrong (F41, ERRATA 33);
+found by evaluating the closed form at a large argument\\
+15 Sep & Claude Opus (fresh) & the same draft, with the proof notes and paper IV & the same error, independently; one swapped index; proofs
+of two lemmas coinciding with ours; six points of presentation, all applied (ERRATA 34)\\
 \bottomrule
 \end{tabular}
 \end{center}
