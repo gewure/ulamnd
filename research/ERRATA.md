@@ -425,7 +425,7 @@ route before being applied (the checks are described in the items). We agree wit
     ε ≥ |c₁|; the theorem now states limsup E_m/x^{m−3/4} ≥ |c₁| and liminf ≤ −|c₁| with c₁ = Res_{ρ₁/2−1} G_m (= Q_{m,ρ₁}
     for a simple pole), and acquires the hypothesis L(1/2, χ_D) ≠ 0 (to exclude a real pole of G_m at −3/4; true for χ₋₄).
     Two fallacies recorded: F39 (a parameter chosen without checking that the constraint set is non-empty) and F40 (a
-    transform copied by pattern from its neighbours; the comparison term's own singularity forgotten). Paper II 24 pp.
+    transform copied by pattern from its neighbours; the comparison term's own singularity forgotten). Paper II 25 pp (0 overfull).
 
 32. **Paper I and paper IV: two presentation defects from the same reading (15 Sep).** Paper I, proof of Theorem thm:artin:
     "these zeros have real part → −1 and imaginary parts dense, which gives the natural boundary" was a mechanism, not a
