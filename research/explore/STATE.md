@@ -209,3 +209,42 @@ sub-family, as smooth-level2-test.py did for the level-2 restricted object; pred
 free parameter. If they match, the u-dependence of the main spectral terms is understood, and the follow-up paper has
 its theorem.
 
+## 7. THE AMPLITUDE OF THE LEVEL-1 LINE AT DILATION u: DERIVED AND CONFIRMED (15 Sep, ~04:00)
+
+**Statement (derived from the proof of thm:smooth; research/explore/hecke-oldform-predict.py, docstring has the derivation).**
+The pairs (d, x) with u²x² ≡ D (mod d) are the forms [d, 2ux, ·] of discriminant 4D with 2u | b; the Poisson seed of piece u
+at z_Q equals u·Ψ^w_{uY}(z_Q/u), and the points τ = z_Q/u are the Heegner points of the Γ₀(u²)-invariant family
+W_u = {forms of disc 4u²D : u² | a, 2u² | b} (all contents), with τ ↦ τ+1 ↔ x ↦ x−d. Hence
+   √Y S^w_u(Y) = √u |D|^{−1/4} Σ_v Per_{W_u}(v) L~_v [Γ(−it_v) W_c(3/2+it_v) (π√|D|/(uY))^{it_v} + c.c.],
+v over an orthonormal basis of the even cusp forms of Γ₀(u²). For a level-1 form u_j the relevant v span
+{u_j(z), u_j(uz), u_j(u²z)}, orthonormalised on Γ₀(u²)\H, with L~(u_j(u^m z)) = u^{−m} L~_j. The signed ratio of the
+t_j line, piece u over piece 1, is
+   r_j(u; D) = √u · Σ_k Per_{W_u}(v_k) L~(v_k) / (Per_D(u_j) L~_j / ‖u_j‖²_{SL₂(Z)}),   phase shift −t_j log u (+π if r < 0).
+**Checks inside the computation:** ‖u₁‖²_{Γ₀(u²)} = index·‖u₁‖²_1 to 4 digits (index 6, 12, 30); ⟨u₁(uz),u₁⟩/‖u₁‖² =
+λ₁(u)√u/(u+1) to 4 digits (0.7303, 0.1069, 0.2747) — the Iwaniec–Luo–Sarnak entry, which explains paper IV's measured 0.730.
+**Prediction vs observation (sharp grids, hecke-ratio-sharp.py), NO free parameter:**
+   u=2 ramified: +0.850 | obs +0.852, +0.865, +0.899 (D=−4,−8,−20)      split: −0.341 | obs −0.353, −0.379, −0.428 (−7,−15,−23)
+        inert:    −0.068 | obs −0.065, −0.061, −0.071 (−3,−11,−19)
+   u=3 ramified: +0.695 | obs +0.655, +0.726 (−3,−15)                   split: −0.311 | obs −0.285, −0.320, −0.332 (−8,−11,−20)
+        inert:    +0.192 | obs +0.196, +0.341 (−4,−7; the second at ~3σ)
+   u=5 ramified: +0.421 | obs +0.431 (−15)   split: −0.076 | obs −0.159, −0.114 (−4,−11; predicted below noise)
+        inert:    +0.089 | obs −0.255, +0.439 (−3,−8; predicted below noise, observed noise)
+Every measurable case (predicted |r| ≥ 0.19, 13 cases) agrees within the noise (typ. ±0.03, worst D=−23 −0.43 vs −0.34
+and D=−7 u=3 +0.34 vs +0.19, both with u=1 amplitudes ≈ 0.02 i.e. low signal). The four cases with predicted |r| < 0.1
+are consistent with noise. The fitted three-parameter guess of §6 (4) is superseded and was wrong at u = 3 as recorded.
+**Structural observations from the numbers (to be proved):** (i) the ratio depends on D only through χ_D(u) (identical to
+three decimals for all D of one splitting type — a local identity at u); (ii) Per_{W_u}(u₁(z)) = Per_{W_u}(u₁(u²z)) exactly;
+(iii) Per_{W_u}(u₁(uz))/Per_D(u₁) = 2u for ramified u = 3, 5 (6.00, 10.00) and 4.91 at u = 2, D = −4 (4 | D: different local
+structure); (iv) the ramified ratios 0.850, 0.695, 0.421 decay like ≈ 2.6/(u+1).
+**Meaning.** The "restricted geometric factor" that paper IV §7 names as the one missing ingredient is, for the level-1
+lines, an explicit derived expression, tested on 21 (u, D) pairs. The u-dependence of the main spectral terms of piece u
+is understood: bounded, decaying like 1/u for ramified u, and given by a 3×3 oldform projection whose only inputs are
+λ_j(u), χ_D(u) and the Heegner values. This is the theorem of the follow-up paper (uniformity in u, main-term side).
+Still open on the way to the conjecture: (a) the closed form of Per_{W_u}(f_m)/Per_D as a function of (u, χ_D(u), λ_j(u));
+(b) the lines of the level-u newforms and of the cycloidal-group forms at dilation u (they dominate pieces 3 and 5; their
+amplitudes are the same formula with v running over those forms — needs their coefficients: LMFDB for level u, none for
+Γ^u); (c) the ERROR term uniform in u, which no main-term formula addresses (paper IV Remark rem:gaps still applies).
+**Paper IV:** §7's sentence "what is missing is precisely one thing: the size, in u, of the restricted geometric factor"
+can now cite this; NOT edited (new result, not a correction — author's decision where it goes: paper IV remark or the
+follow-up paper).
+

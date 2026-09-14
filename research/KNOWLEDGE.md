@@ -191,6 +191,11 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (~04:00). RESULT: the amplitude of the level-1 Maass line at dilation u derived from thm:smooth at level Γ₀(u²)
+  (oldform projection onto {u_j(z),u_j(uz),u_j(u²z)} over the family W_u = {disc 4u²D: u²|a, 2u²|b}) and confirmed with
+  no free parameter on 21 (u,D) pairs (explore/STATE.md §7; hecke-oldform-predict.py). Depends on D only via χ_D(u);
+  ramified ratios 0.850, 0.695, 0.421 at u = 2, 3, 5. The "restricted geometric factor" of paper IV §7 is explicit for
+  the level-1 lines. Follow-up paper has its theorem (main terms); the error term uniform in u remains open.
 - 15 Sep (early, continued). Hecke test of route 1a on 23 (D,u) pairs: naive ratio |λ(u)|/√u REFUTED (tested before
   writing, F24 worked); phase law −t log u confirmed at u = 2, 3, 5 (ramified); amplitude follows the splitting of u in
   Q(√D) and decays like ~2.6/(u+1) when ramified. Gram entry λ√u/(u+1) = 0.730 matches paper IV's measured 0.730. Next:

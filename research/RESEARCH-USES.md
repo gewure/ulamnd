@@ -337,3 +337,10 @@ level u², whose Gram matrix carries λ_j(u) (checked: ⟨u₁(2z),u₁⟩/‖u�
 Deriving it is the next theoretical step and gives the follow-up paper its theorem; the observed 1/(u+1) decay is far
 inside the u^{1/4−ε} that uniformity needs, for the main terms.
 
+### 6j. 15 Sep ~04:00: the level-1 amplitude at dilation u DERIVED and confirmed on 21 (u, D) pairs (★★★★★ for the follow-up theorem)
+r_j(u; D) = √u Σ_k Per_{W_u}(v_k) L~(v_k) / (Per_D(u_j) L~_j/‖u_j‖²), v_k the orthonormalised {u_j(z), u_j(uz), u_j(u²z)} on
+Γ₀(u²)\H, W_u = {disc 4u²D : u²|a, 2u²|b}; no free parameter; matches every measurable case (explore/STATE.md §7). The
+ratio depends on D only through χ_D(u) and decays like ≈ 2.6/(u+1) when u is ramified. Route 1a is thereby replaced by a
+proved-in-principle statement about the main terms; the follow-up paper's theorem. Open: closed form in (u, χ, λ), the
+level-u and Γ^u lines, and the error term uniform in u.
+
