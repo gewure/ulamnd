@@ -191,6 +191,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (11:30). Second outside reading of the dilation draft (fresh instance): same fatal item as the first (asymptotic), same
+  column slip, same proofs for Gram and inert vanishing; six further points applied (u² ∤ D; O-constants depend on u; PSL;
+  Theorem 3 display; corollary scale; multiplicativity a conjecture). ERRATA 34. Draft now: every statement proved or open.
 - 15 Sep (10:30). First outside reading of the dilation draft: the asymptotic λ(u)/u was WRONG (the λ√u terms cancel); the
   truth is u^{-3/2} exactly for inert u, −u^{-3/2}(1−2λ/√u+…) split, u^{-1/2}(1−λ/√u+…) ramified — decay set by the splitting
   type, Hecke eigenvalue only in corrections. Draft rewritten with Lemmas A–D proved (D: newform Hecke+Fricke cancellation),

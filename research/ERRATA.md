@@ -449,3 +449,20 @@ route before being applied (the checks are described in the items). We agree wit
     terms of a newform cancel, so its family period vanishes for inert u), and a slip in Lemma B's text (the Hecke coset is fixed
     by the SECOND column line) corrected before anyone else read it. Fallacy F41 with the reviewer's rule.
 
+34. **Follow-up draft, second outside reading (15 Sep; a fresh model instance given the draft, the proof notes and paper IV's
+    smooth section).** Ten items. Items 1 (asymptotic λ/u wrong; inert r = u^{-3/2} exactly, with the one-line reason
+    P = (u+1)·(middle column of G)), 2 (Lemma B's Hecke coset is fixed by the second column line, group Γ⁰(u) not Γ₀(u)),
+    4 (the inert vanishing of the newform period, proved via the vanishing trace of a newform), 5 (Lemma C by the trace with
+    the exact count of primitive Hecke cosets) coincide with ERRATA 33 and with our own corrections of the same morning; the
+    proofs the reader supplied agree with ours. New and applied: (3) Theorem 2 and Lemmas A–B are stated for u² ∤ D, not
+    u | D (imprimitive classes with u | content break the class-independence of the multiplicity), and "u prime to the
+    conductor" is redundant for odd u ∥ D; (6) Theorem 1's error term and continuous spectrum carry constants depending on
+    u — written O_{w,D,u,ε} with a sentence saying nothing is uniform in u; (7) stabilisers in PSL₂ stated once; (8) Theorem 3's
+    display written as [A_v(uY) + conj] with the (π√|D|/(uY))^{it} phase; (9) the corollary now says where (H/u)^{1/2} comes
+    from (Theorem A' of part III) and drops the vacuous "uniformly in U"; (10) multiplicativity in u is stated as a conjecture
+    supported by the direct level-36 computation, not as a theorem following from Lemmas A–C prime by prime (the exhibited
+    instance involves u = 2, where the lemmas do not apply). The reader verified independently: the seed identity (also by
+    the alternative route at discriminant 4u²D and length u²Y), the family and its invariance, the coset combinatorics, the
+    mass formula, both local constants, eq. (r) against every table entry, Lemma C's entries, the −ε/u entry, and the ramified
+    asymptotic. Draft 9 pp, 0 overfull.
+

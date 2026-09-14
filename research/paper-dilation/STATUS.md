@@ -15,5 +15,5 @@ Working draft, not for circulation. What it contains and what its status is:
 - Tests: 21 (u,D) pairs for the first level-one line; 7 discriminants for the level-3 newform; u = 6 signs. All in
   research/explore/STATE.md §6–8 with the scripts.
 Open: the 2-adic case (u dividing the conductor); cycloidal-group lines; any bound uniform in the newform; the error term
-uniform in u (the conjecture of part III itself). This draft has been read once from outside (15 Sep: the asymptotic error found and fixed; Lemma C independently derived); a second fresh reading is in progress; the rule of the programme
+uniform in u (the conjecture of part III itself). This draft has been read twice from outside on 15 Sep (the author's reviewing conversation, and a fresh model instance given the files): both found the asymptotic error (fixed), the second also the swapped column (fixed) and supplied proofs of the Gram entries and of the inert vanishing that coincide with ours; its six remaining points (u² ∤ D hypothesis, u-dependence of the O-constants, PSL convention, Theorem 3's display, the corollary's scale, composite u as a conjecture) are applied. Every statement now has a proof or is labelled open; the rule of the programme
 (no second claim before an outside reading) applies.

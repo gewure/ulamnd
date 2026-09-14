@@ -78,17 +78,19 @@ $\chi=\chi_D(u)$ for the Kronecker symbol, so $\chi=0$ iff $u\mid D$.
 Let $\mathcal W_u=\{[a,b,c]\ \text{of discriminant }4u^2D:\ u^2\mid a,\ 2u^2\mid b\}$ (all contents). Then $\mathcal W_u$ is
 $\Gamma_0(u^2)$-invariant and, for every $\varepsilon>0$,
 \[
-\sqrt Y\,S^w_u(Y)=\sqrt u\,|D|^{-1/4}\sum_v\Per_{\mathcal W_u}(v)\,\tilde L_v\bigl[A_v(uY)+\overline{A_v(uY)}\bigr]+\mathcal E^w_u(Y)+O(Y^{-2+\varepsilon}),
+\sqrt Y\,S^w_u(Y)=\sqrt u\,|D|^{-1/4}\sum_v\Per_{\mathcal W_u}(v)\,\tilde L_v\bigl[A_v(uY)+\overline{A_v(uY)}\bigr]+\mathcal E^w_u(Y)+O_{w,D,u,\varepsilon}(Y^{-2+\varepsilon}),
 \]
 the sum over an orthonormal basis $\{v\}$ of the even Maass cusp forms of $\Gamma_0(u^2)$, with $\Per_{\mathcal W_u}(v)=
 \sum_{Q\in\Gamma_0(u^2)\backslash\mathcal W_u}v(z_Q)/|\Gamma_0(u^2)_{z_Q}|$, $\tilde L_v$ formed with the Fourier coefficients
-of $v$ at the cusp $\infty$, and $\mathcal E^w_u$ the continuous spectrum.
+of $v$ at the cusp $\infty$, and $\mathcal E^w_u$ the continuous spectrum, $\mathcal E^w_u(Y)\ll_{A,u}Y^{-1/2}(\log Y)^{-A}$. Every
+implied constant depends on $u$ (through the spectral data of $\Gamma_0(u^2)$); nothing here is uniform in $u$, which is why the
+$u$-dependence of the coefficients is computed explicitly below.
 \end{theorem}
 \status{proved (Section~\ref{sec:seed}): it is Theorem~\textsc{smooth} of part~IV at level $u^2$ applied to an explicit
 identity between seeds; every constant checked numerically at $u=2,3,5$.}
 
 \begin{theorem}[the level-one lines]\label{thm:level1}
-Let $u$ be an odd prime and $u_j$ an even Hecke--Maass form of level one. The coefficient of the line $t_j$ in
+Let $u$ be an odd prime with $u^2\nmid D$ and $u_j$ an even Hecke--Maass form of level one. The coefficient of the line $t_j$ in
 $\sqrt Y S^w_u(Y)$ equals the coefficient in $\sqrt YS^w_1(Y)$ multiplied by $u^{-it_j}$ and by
 \begin{equation}\label{eq:r}
 r_j(u;D)=\sqrt u\,P^{\mathsf T}\bigl(u(u+1)\,G\bigr)^{-1}L,\qquad
@@ -98,9 +100,11 @@ G=\begin{pmatrix}1&g&h\\ g&1&g\\ h&g&1\end{pmatrix},
 g=\frac{\lambda_j(u)\sqrt u}{u+1},\qquad h=\frac{\lambda_j(u)^2-1-1/u}{u+1},\qquad L=(1,u^{-1},u^{-2}),\qquad P=(p_0,p_1,p_0),
 \]
 \[
-p_1=\begin{cases}2u&u\mid D,\\ u-\chi&u\nmid D,\end{cases}\qquad
-p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\mid D,\\ -(1+\chi)&u\nmid D.\end{cases}
+p_1=\begin{cases}2u&u\parallel D,\\ u-\chi&u\nmid D,\end{cases}\qquad
+p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\parallel D,\\ -(1+\chi)&u\nmid D,\end{cases}
 \]
+where $u\parallel D$ means $u\mid D$, $u^2\nmid D$ (the case $u^2\mid D$ is excluded: there the multiplicity of Lemma~\ref{lem:mult}
+is not class-independent, as at $u=2$).
 Moreover
 \[
 \begin{aligned}
@@ -111,19 +115,21 @@ r_j(u;D)&=u^{-1/2}\bigl(1-\lambda_j(u)u^{-1/2}+(\lambda_j(u)^2+1)u^{-1}+O(u^{-3/
 \]
 the implied constants absolute, and the inert identity exact for every $\lambda_j(u)$. The Hecke eigenvalue enters only the corrections; the decay is set by the splitting type.
 \end{theorem}
-\status{proved (Section~\ref{sec:lemmas}) for $u\nmid D$ and for $u\parallel D$ with $u$ not dividing the conductor of $D$;
-the asymptotics are read off~\eqref{eq:r} symbolically (the inert identity was verified with a computer algebra system and
-is an algebraic identity in $\lambda$ and $\sqrt u$). The first version of this draft stated the asymptotic as
+\status{proved (Section~\ref{sec:lemmas}); the asymptotics are read off~\eqref{eq:r} as a rational function of $\lambda$ and $\sqrt u$.
+The inert identity has a one-line reason: for $\chi=-1$, $P=(\lambda\sqrt u,\,u+1,\,\lambda\sqrt u)=(u+1)(g,1,g)$ is $(u+1)$ times the
+middle column of $G$, so $G^{-1}P=(u+1)e_2$ and $P^{\mathsf T}G^{-1}L=(u+1)/u$, whence $r=\sqrt u\,(u+1)/(u\cdot u(u+1))=u^{-3/2}$. The first version of this draft stated the asymptotic as
 $\lambda_j(u)/u$ for $u\nmid D$; that was wrong --- the $\lambda_j(u)\sqrt u$ terms of $p_0$ and $p_1L_2$ cancel exactly --- and was
 caught by an outside reading that evaluated~\eqref{eq:r} at large $u$. The values of~\eqref{eq:r} agree with the direct
 spectral computation to four digits and with the data to the noise (Table~\ref{tab:ratios}).}
 
 \begin{theorem}[the newform lines]\label{thm:newform}
 Let $u$ be an odd prime and $v$ an even Hecke--Maass newform of level $u$ with Atkin--Lehner eigenvalue $\varepsilon$
-($a_v(u)=-\varepsilon u^{-1/2}$). The coefficient of its line in $\sqrt YS^w_u(Y)$ is
+($a_v(u)=-\varepsilon u^{-1/2}$). Its line in $\sqrt YS^w_u(Y)$ is
 \[
-2\sqrt u\,|D|^{-1/4}\Bigl[\sum_{k=1}^2\Per_{\mathcal W_u}(v_k)\tilde L(v_k)\Bigr]\,\Gamma(-it_v)W_c\bigl(\tfrac32+it_v\bigr)\,u^{-it_v},
+\sqrt u\,|D|^{-1/4}\Bigl[\sum_{k=1}^2\Per_{\mathcal W_u}(v_k)\tilde L(v_k)\Bigr]\bigl[A_v(uY)+\overline{A_v(uY)}\bigr],\qquad
+A_v(uY)=\Gamma(-it_v)W_c\bigl(\tfrac32+it_v\bigr)\Bigl(\frac{\pi\sqrt{|D|}}{uY}\Bigr)^{it_v},
 \]
+i.e.\ an amplitude $2\sqrt u|D|^{-1/4}|\sum_k\Per(v_k)\tilde L(v_k)|\,|\Gamma(-it_v)W_c(\tfrac32+it_v)|$ and a phase shifted by $-t_v\log u$;
 $\{v_1,v_2\}$ the orthonormalisation of $\{v(z),v(uz)\}$ on $\Gamma_0(u^2)\backslash\HH$, whose Gram matrix has off-diagonal
 entry $a_v(u)\sqrt u/u=-\varepsilon/u$ relative to $\langle v,v\rangle$. If $u$ is inert in $\Q(\sqrt D)$ then
 $\Per_{\mathcal W_u}(v)=\Per_{\mathcal W_u}(v(u\,\cdot))=0$ and the line is absent.
@@ -133,9 +139,11 @@ Lemma~\ref{lem:gram}(iii), and the vanishing is Lemma~\ref{lem:newperiod}. Teste
 the period vanishes identically for inert $u$ in the computation, and in the data the line is at the noise level there.}
 
 \begin{corollary}[uniform summability of the level-one main terms]\label{cor:sum}
-For a fixed level-one form $u_j$ and any bounded weights $w(u)$, $\sum_{u\le U}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll H^{1/2}$
-uniformly in $U$: the sum over odd primes $u\nmid D$ converges absolutely like $\sum_uu^{-2}$, and the finitely many
-$u\mid D$ contribute $\ll_D H^{1/2}$.
+In Theorem~A$'$ of part~III the piece with dilation $u$ enters at length $H/u$, so its level-one main terms are of size
+$(H/u)^{1/2}|r_j(u;D)|$ times the $u=1$ amplitude. For a fixed level-one form $u_j$ and bounded weights $w(u)$,
+$\sum_{u\text{ odd prime}}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll_D H^{1/2}$: the sum over $u\nmid D$ converges absolutely like
+$\sum_uu^{-2}$, and the finitely many $u\parallel D$ contribute $\ll_DH^{1/2}$. (The weights of part~III are
+$w(u)=\lambda(u)\omega(u)\ll u^{\varepsilon}$; the conclusion is unchanged.)
 \end{corollary}
 
 \begin{remark}[what this does and does not settle]
@@ -182,10 +190,13 @@ which is the vector $L$ of Theorem~\ref{thm:level1}.
 Throughout $u$ is an odd prime and $\Per_D(f)=\sum_{Q\in\mathcal H/\mathrm{SL}_2(\Z)}f(z_Q)/|\Gamma_Q|$.
 
 \begin{lemma}[multiplicity]\label{lem:mult}
-Let $u$ be an odd prime with $u\nmid D$, or $u\parallel D$ and $u$ not dividing the conductor of $D$. For every
+Let $u$ be an odd prime with $u^2\nmid D$ (for odd $u$, $u\parallel D$ already forces $u$ prime to the conductor of the order of
+discriminant $4D$). For every
 $\mathrm{SL}_2(\Z)$-class $C$ of forms of discriminant $4D$,
 $\sum_{Q'\in\Gamma_0(u^2)\backslash\mathcal W_u,\ uz_{Q'}\in C}|\Gamma_0(u^2)_{z_{Q'}}|^{-1}=m_u(D)\,|\Gamma_C|^{-1}$ with
-$m_u(D)=2u$ if $u\mid D$ and $m_u(D)=u-\chi_D(u)$ if $u\nmid D$. Equivalently $\Per_{\mathcal W_u}(u_j(u\,\cdot))=m_u(D)\Per_D(u_j)$.
+$m_u(D)=2u$ if $u\parallel D$ and $m_u(D)=u-\chi_D(u)$ if $u\nmid D$. Equivalently $\Per_{\mathcal W_u}(u_j(u\,\cdot))=m_u(D)\Per_D(u_j)$.
+Stabilisers are taken in $\mathrm{PSL}_2$ throughout (sizes $1$, $2$, $3$); since $-I$ lies in every group considered, the
+convention only has to be the same on both sides of each identity.
 \end{lemma}
 \begin{proof}
 Write $(Q\circ\gamma)(v)=Q(\gamma v)$ (a right action), $C=Q_0\circ\Gamma$ with $\Gamma=\mathrm{SL}_2(\Z)$, $S=\{\gamma:Q_0\circ\gamma=Q_0\}$,
@@ -216,14 +227,14 @@ every function $\varphi$ on $\Gamma$ that is left-$S$- and right-$G_u$-invariant
 With $\varphi=\mathbf 1[\ell_1\perp\ell_2]$ this gives $m_u(D)=\#\{(\ell_1,\ell_2)\text{ distinct}:\ \ell_1\perp_B\ell_2\}$. If
 $u\nmid D$, $B$ is nondegenerate modulo $u$; every $\ell_1$ has a unique $\ell_1^\perp$, admissible iff $\ell_1^\perp\ne\ell_1$, i.e.\ iff
 $\ell_1$ is not isotropic; the isotropic lines are the roots of $Q_0$ modulo $u$, $1+\chi_D(u)$ of them; so $m=u+1-(1+\chi)=u-\chi$.
-If $u\parallel D$ and $u$ does not divide the conductor, $Q_0\not\equiv0$ and $B$ has rank one modulo $u$ with radical line $r$
+If $u\parallel D$, then $Q_0\not\equiv0\pmod u$ for every class (a content divisible by $u$ would force $u^2\mid D$) and $B$ has rank one modulo $u$ with radical line $r$
 (the double root); $B(v,w)=0$ iff $\langle v\rangle=r$ or $\langle w\rangle=r$, giving $u+u=2u$ ordered pairs.
 \end{proof}
 
 \begin{lemma}[the period of the dilated family]\label{lem:period}
 Under the hypotheses of Lemma~\ref{lem:mult},
 $\Per_{\mathcal W_u}(u_j)=\Per_{\mathcal W_u}(u_j(u^2\,\cdot))=\bigl(\lambda_j(u)\sqrt u+c_u(D)\bigr)\Per_D(u_j)$ with
-$c_u(D)=u-1$ if $u\mid D$ and $c_u(D)=-(1+\chi_D(u))$ if $u\nmid D$.
+$c_u(D)=u-1$ if $u\parallel D$ and $c_u(D)=-(1+\chi_D(u))$ if $u\nmid D$.
 \end{lemma}
 \begin{proof}
 In the notation of the previous proof, $z_{Q_0\circ\gamma}=\gamma^{-1}z_0$, so $z_{Q_0\circ\gamma}/u=\alpha\gamma^{-1}z_0$ with
@@ -244,7 +255,7 @@ $\mathcal O_{4D}$ acting on $L_C/uL_C$, $L_C=\Z+\Z z_C$, i.e.\ the $1+\chi$ subl
 $\mathfrak p\mid u$ of the order; their Heegner points have discriminant $4D$ again, with class $[\mathfrak p]\cdot C$
 \cite[II]{GrossKohnenZagier1987}. Since $C\mapsto\mathfrak pC$ permutes the classes of each order and preserves $|S_C|$ (the
 units of the order), $\sum_C|S_C|^{-1}\sum_{\text{iso}}u_j(h_\ell(z_C))=(1+\chi)\Per_D(u_j)$, and the claim follows.
-If $u\parallel D$ with $u$ prime to the conductor, $N(r)=u$ and $N(\ell_2)=1$ for $\ell_2\ne r$, so the inner sum is
+If $u\parallel D$, $N(r)=u$ and $N(\ell_2)=1$ for $\ell_2\ne r$, so the inner sum is
 $\sqrt u\lambda_j(u)u_j(z_C)+(u-1)u_j(h_r(z_C))$, and $h_r(z_C)=z_{\mathfrak pC}$ for the ramified prime $\mathfrak p$, again a
 permutation of the classes: $\Per_{\mathcal W_u}(u_j)=(\sqrt u\lambda_j(u)+u-1)\Per_D(u_j)$. Finally
 $u^2z_{Q'}=u z_Q=\alpha'\gamma^{-1}z_0$ with $\alpha'=\left(\begin{smallmatrix}u&0\\0&1\end{smallmatrix}\right)$, whose Hecke coset is
@@ -375,10 +386,11 @@ $\{u_j(dz):d\mid u^2\}$, of dimension $9$ for $u=6$. The direct computation at l
 $\|f_0\|^2/\|u_j\|^2=72.000$) gives $r_1(6;-12)=+0.6573$ and $r_1(6;-8)=-0.2642$, against the products
 $r_1(2;-12)\,r_1(3;-12)=0.945\times0.695=0.657$ and $r_1(2;-8)\,r_1(3;-8)=0.850\times(-0.311)=-0.264$; and the $9\times9$
 Gram matrix is the tensor product of the $3\times3$ matrices at levels $4$ and $9$ entry by entry ($0.0781=0.7303\times0.1069$,
-$-0.2323=0.7303\times(-0.3181)$, $-0.0955=0.3001\times(-0.3181)$, \dots). So the projection factors over the primes dividing
-$u$ and the multiplicativity $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$ holds on the theory side; its proof is the observation that the
-period vector and the Gram matrix are tensor products, which follows from Lemmas~\ref{lem:mult}--\ref{lem:gram} applied
-prime by prime. \todo{Write out the tensor-product argument.} The data at $u=6$ are noisy (the level-$36$ spectrum is dense):
+$-0.2323=0.7303\times(-0.3181)$, $-0.0955=0.3001\times(-0.3181)$, \dots). We conjecture $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$ for squarefree $u$. The evidence is the computation just described, which uses
+only Theorem~\ref{thm:pieceu} and the direct evaluation of periods and Gram matrices (valid for $u=2$ as well); a proof would
+show that the period vector and the Gram matrix are tensor products over the primes dividing $u$, which for odd primes
+Lemmas~\ref{lem:mult}--\ref{lem:gram} make plausible but which we have not written out, and which at $2$ needs the
+$2$-adic constants. The data at $u=6$ are noisy (the level-$36$ spectrum is dense):
 the five signs observed agree with the products and the magnitudes scatter by up to $0.2$ ($D=-8,-20,-15,-4,-12$: observed
 $-0.449,-0.320,-0.295,+0.111,+0.549$ against $-0.264,-0.264,-0.237,+0.163,+0.657$).
 
