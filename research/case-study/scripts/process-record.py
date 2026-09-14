@@ -15,6 +15,7 @@ for l in log:
     d = l.split('\t')[0][:10]; days[d] = days.get(d,0)+1
 first, last = log[0][:10], log[-1][:10]
 ncommits = len(log)
+rev = git('rev-parse','--short','HEAD').strip()
 # pages per paper from the compiled PDFs (pdfinfo), fallback to '?'
 def pages(pdf):
     try:
@@ -36,6 +37,7 @@ with open('research/case-study/record.tex','w', encoding='utf-8') as f:
     f.write(f'\\newcommand{{\\NDays}}{{{len(days)}}}\n\\newcommand{{\\NFallacies}}{{{nfall}}}\n\\newcommand{{\\NErrata}}{{{nerr}}}\n')
     f.write(f'\\newcommand{{\\NScriptsTS}}{{{nts}}}\n\\newcommand{{\\NScriptsPy}}{{{npy}}}\n\\newcommand{{\\NData}}{{{ndata}}}\n')
     f.write(f'\\newcommand{{\\NReviews}}{{{nreviews}}}\n\\newcommand{{\\NTexLines}}{{{texlines}}}\n')
+    f.write(f'\\newcommand{{\\RepoRev}}{{{rev}}}\n')
     for k,v in papers.items(): f.write(f'\\newcommand{{\\Pages{k}}}{{{v}}}\n')
     f.write('\\newcommand{\\CommitsTable}{\\begin{tabular}{lr}\\toprule day & commits\\\\\\midrule\n')
     for d,n in days.items(): f.write(f'{d} & {n}\\\\\n')

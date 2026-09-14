@@ -187,6 +187,10 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (night). Case study finished as version 1 (16 pp, research/case-study/main.pdf, venue arXiv): interview
+  Q1–Q12 in two rounds (Appendix A, spelling-corrected), prompt fragments only, the outside reader's limits paragraph
+  quoted verbatim with permission, the mathandai.org declaration cited, all independent readings listed (Appendix B),
+  repository map and regeneration table (Appendix C). Tone made deliberately modest at the author's request.
 - 14 Sep (evening). Case study scaffolded (research/case-study/): 9-pp LaTeX skeleton with §§ set-up, origin,
   guardrails table, prompting stages, error classification, verification, limits, recommendations; 12 interview
   questions (INTERVIEW.md) awaiting the author's answers; process numbers generated from git (record.tex).

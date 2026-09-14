@@ -25,7 +25,7 @@ repository.
 **Case study (started 14 September 2026).** `research/case-study/` scaffolds a fifth, methodological paper: how this
 programme was produced (test-driven origin, guardrails, evolution of the prompting, the complete error record, what
 model readers cannot catch). `main.tex` is the scaffold with interview slots, `INTERVIEW.md` the questionnaire,
-`SOURCES.md` maps every claim to its evidence, `scripts/process-record.py` regenerates every process number from git.
+`SOURCES.md` maps every claim to its evidence, `scripts/process-record.py` regenerates every process number from git. Its Appendix C is a one-page map of this repository (which files matter, what each is for, how everything is regenerated); read it first if you are new here.
 
 Nothing here proves anything about primes without the Hardy–Littlewood conjecture, and nothing here bears on the
 Riemann Hypothesis (`research/paper-II/LITERATURE.md`, §0, has the sentence we allow ourselves).

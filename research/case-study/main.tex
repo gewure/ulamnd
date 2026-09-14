@@ -7,6 +7,8 @@
 \usepackage{booktabs,array,longtable}
 \usepackage{enumitem}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds}
 \usepackage[colorlinks,linkcolor=NavyBlue,citecolor=NavyBlue,urlcolor=NavyBlue]{hyperref}
 \linespread{1.06}
 \setlength{\emergencystretch}{3em}
@@ -14,36 +16,35 @@
 
 % ---- scaffold macros: visible in the draft, silenced by \finalversion
 \newif\iffinal
-%\finaltrue
+\finaltrue
 \newcommand{\interview}[2]{\iffinal\else\par\noindent\colorbox{Goldenrod!25}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{Interview Q#1.} #2}}\par\fi}
 \newcommand{\todo}[1]{\iffinal\else\par\noindent\colorbox{Red!12}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{To do.} #1}}\par\fi}
-\newcommand{\evidence}[1]{\iffinal\else{\footnotesize\textcolor{Gray}{[evidence: #1]}}\fi}
+\newcommand{\evidence}[1]{{\footnotesize\textcolor{Gray}{[evidence: #1]}}}
 \newcommand{\file}[1]{\texttt{#1}}
 
-\title{Four papers in six days:\\ a case study of AI-driven mathematical research\\ under a verifiable process}
+\title{A verifiable process for AI-assisted mathematical research:\\ a case study}
 \author{Jasper Reichardt}
-\date{Draft scaffold, 14 September 2026}
+\date{Version 1, 14 September 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
 \noindent
-Between \FirstDay{} and \LastDay{} a software engineer with no research background in analytic number theory
-produced, with a large language model doing almost all of the mathematical, computational and textual work,
-a series of four research papers on the pair singular series of prime values of polynomials
-(\PagesI{}, \PagesII{}, \PagesIII{} and \PagesIV{} pages). The mathematics is not the subject of this paper. Its subject is
-the \emph{process}: how a test-driven engineering habit and a small set of structural guardrails (a public
-knowledge base of state and errors, a project-wide errata file, adversarial readings by fresh model instances,
-external assessments archived against the revision they read, a two-routes rule for every constant, and a
-stopping criterion) turned an inherently unreliable generator of mathematics into a process whose output can be
-checked, and was checked, by people who did not take part in it. We document the set-up, the evolution of the
-prompting, the guardrails and when each was introduced, the complete record of \NFallacies{} recorded
-fallacies and \NErrata{} errata items, who caught which class of error, and what the process could not catch. The
-programme's mathematical status is reported exactly as its own errata report it: theorems proved and read,
-theorems retracted, and problems left open.
-\todo{Rewrite the abstract once the interview is in; the numbers are generated from the repository by
-\file{scripts/process-record.py}.}
+Between \FirstDay{} and \LastDay{} a software engineer with no background in analytic number theory worked with a
+large language model, which did most of the mathematical, computational and textual work, on a series of four
+draft papers about the pair singular series of prime values of polynomials. Whether that mathematics is correct or
+worth anything is not settled and is not the subject of this paper; the drafts have been read adversarially by
+model instances and by two outside readers, not yet by a specialist. The subject is the process: a test-driven
+engineering habit and a small set of written guardrails (a knowledge file of state and known fallacies, a
+project-wide errata file that is never shortened, readings by fresh model instances, outside assessments archived
+with the revision they read, two independent routes for every constant, a stopping criterion) that were meant to
+make the output checkable by people who took no part in it, and to make its errors visible rather than hidden. We
+describe the set-up, how the prompting developed, when each guardrail was introduced and why, the record of
+\NFallacies{} fallacies and \NErrata{} errata items with who caught which class of error, and the class of error the process
+did not catch. The mathematical status is reported as the programme's own errata report it: some theorems proved
+and read, two statements retracted, the central problems open. The study has one case and one author, and its
+conclusions are offered as an experience report, not as a method with demonstrated generality.
 \end{abstract}
 
 \tableofcontents
@@ -78,7 +79,8 @@ describes how a visualisation tool with a test suite became a research programme
 guardrails and their origin. \S\ref{sec:prompting} traces the evolution of the prompting. \S\ref{sec:errors} reads
 the error record. \S\ref{sec:verification} describes what was verified and how. \S\ref{sec:limits} says what the
 process cannot do. \S\ref{sec:recommend} draws recommendations. Appendix~\ref{app:interview} contains the interview,
-Appendix~\ref{app:record} the process record.
+Appendix~\ref{app:record} the process record, Appendix~\ref{app:env} the
+environment: which files matter, what each one is for, and how everything is regenerated.
 
 \section{Set-up}\label{sec:setup}
 
@@ -178,7 +180,7 @@ guardrail & what it does & since & origin / trigger\\
 \endhead
 Research programme declared in the first prompt: test-driven, methods and paths enumerated and rated, a
 \file{KNOWLEDGE.md} collecting findings & The author's framing of the whole enterprise & 8--9 Sep & author (first
-prompt); the author considers this the decisive guardrail\\
+prompt); in the author's view the most important guardrail\\
 Knowledge base: one-paragraph state, ``where things stand and what to do next'', status board, timeline & Forces
 every session to start from the recorded state, not from the model's memory of it; ``compacted notes'' that a new
 session can recover without re-deriving everything & 9 Sep & author\\
@@ -292,9 +294,9 @@ agentic work in general, not a large one in this project. \evidence{Interview, s
 
 \section{The error record}\label{sec:errors}
 
-The knowledge base records \NFallacies{} fallacies and the errata \NErrata{} items. We classify them by type and by who
-caught them. \todo{Fill the table from \file{KNOWLEDGE.md} \S3 and \file{ERRATA.md}; the classification below is
-provisional.}
+The knowledge base records \NFallacies{} fallacies and the errata \NErrata{} items. The classification below, by
+type and by who caught them, is ours and is one of several possible; the items themselves are in
+\file{KNOWLEDGE.md} \S3 and \file{ERRATA.md}.
 
 \begin{center}\small
 \begin{tabular}{@{}p{3.6cm}p{6.6cm}p{3.6cm}@{}}
@@ -383,7 +385,8 @@ the record's additions marked.
 \begin{enumerate}[itemsep=1pt]
 \item Declare the enterprise in the first prompt: a research programme, test-driven, with the methods and paths to
   be enumerated and rated, and a knowledge file that collects findings, chronology and known fallacies. The author
-  considers this the decisive step; it forces the model's context into compacted notes of its own work.
+  regards this as the most important step; in the author's experience it forces the model's context into compacted
+  notes of its own work.
 \item A computational check for everything, and a written record of the way of thought.
 \item Ask for excellence, simplicity and humility, and for explanations at the level at which you can decide.
 \item Route what you cannot check through hostile outside review: other models, instructed to attack; compress the
@@ -423,8 +426,83 @@ is the arXiv. \evidence{Interview Q11--Q12; ERRATA 8}
 
 \appendix
 \section{The interview}\label{app:interview}
-The answers are in \file{INTERVIEW.md}, verbatim and dated; they will be reproduced here, lightly edited
-for spelling only, once the author approves the edited version. \todo{Insert.}
+The questions were put in writing on 14 September 2026 and answered the same day in two rounds. The answers are
+reproduced here with spelling and punctuation corrected and a few words supplied in brackets; the unedited text is in
+\file{INTERVIEW.md}.
+
+\begin{description}[leftmargin=1.2em,itemsep=4pt,font=\normalfont\itshape]
+\item[Q1, background.] I am a freelance software engineer, entrepreneur and trader, running multiple projects. I have
+a bachelor's degree in software engineering, and the hardest mathematical course I had to pass was stochastics. What I
+can read in number-theory papers is the human-language explanations and the importance of asymptotic proofs. I can
+understand concepts such as the Bateman--Horn $C(f)$ quite clearly and know how to compare polynomials conceptually;
+during my studies I could do Fourier transforms and Markov chains fluently, and at work I needed to implement
+specialised algorithms, for instance to find all cycles in a bidirectional weighted graph up to $N$ vertices. I have
+had a curiosity for number theory for a long time, and the prime-richer diagonals of the Ulam spiral were my visual
+intuition for where to start a study.
+\item[Q2, tools and cost.] I worked about eight hours per day. The tools are the Linux terminal and Claude with
+Fable~5.1, and sometimes, for simpler things, Opus. I spent in total about \$150 on computation. I have been an early
+adopter of LLMs and worked with GPT-3 in its closed beta already, so I have a vast experience of working with AI
+output. I reviewed the output with different AIs, mostly OpenAI's GPT and Gemini. I used ChatGPT, Gemini, Google,
+Mathematics Stack Exchange and the arXiv for research; a lot of my knowledge also comes from watching Numberphile
+videos.
+\item[Q3, the turn.] I asked a short literature question, who had done research on this, and found not a lot; but from
+my viewpoint the problem was not super hard to attack with AI. Working test-driven, I thought: let us try to dig
+deeper where Bateman--Horn stopped. As soon as I found something of interest I started to instruct [the model] to
+build a paper, and possibly a research programme if the findings turned out more interesting. The model told me not
+to expect anything, but that experiments can be valuable in this field.
+\item[Q4, guardrails.] I would say the first prompt, where I defined that we do a ``research programme'' and work
+test-driven, enumerating methods and paths and keeping a \file{KNOWLEDGE.md} where we collect our findings, was the
+important part. This usually forces the LLM's direct context into compacted notes about the work it did, and in my
+view increases the quality a lot. This is also one reason, in my view, why complex ``agent'' systems are so
+successful with what is basically prompt masquerading. These contextual guardrails, notes, chronologies and known
+fallacies help to recover important high-class context, so that a new session does not have to pick up everything.
+It is similar to how human notes work, and I think this is key to having quality AI output. This, and test-driven:
+have a computational check for everything, rigorously, and a proper documentation of the way of thought.
+
+I would not say that any guardrail came too late. I was a bit late to restructure everything around the research
+programme rather than the web service that visualises the Ulam experiments, but I do not think it had much influence.
+It is important, though, to keep in mind that every file and every piece of additional context in the project can
+influence the quality of the work. Maybe, I cannot prove this, the Next.js context helped the model to be more
+efficient. This is common prompt philosophy and very hard, if at all possible, to prove. What I can say from my
+years of experience is that asking stupid questions gets stupid answers, and that a few verbose words at the right
+time can make a big difference. If enough anchor points are given, a vague prompt with a lot of fantasy can turn into
+a proper output; the anchor points must be valid. To give an analogy: I think the Heegner points play a similar role
+in the work. But I do not understand the work, of course; I am giving my best now to learn how to defend and present
+it, purely classically, mathematically.
+\item[Q6, the research register.] When I really understood nothing, I asked the AI to simplify so that I could still
+make decisions, for example about which deeper paths to follow, and whether we needed more literature because the
+agent was vague. I imagined the agent as an absolute professional mathematician who never bulges to my requests but
+patiently works with me through the problems and explains them to me in a way that I, as a software engineer, can
+ideally build a research framework around it, or tell it when I think we should hold, do more tests, do a review.
+\item[Q7, deciding without checking the mathematics.] I discussed with Claude directly, had external AIs review the
+papers and discussed with them; I asked them to take a hostile position and find errors, then compressed [their
+findings] and gave them, with a context annotation, back to the original agent. Very similar to how real peer review
+works, actually.
+\item[Q8, effort and stopping.] I was pressing Fable at times more than it wanted, asserting that when it says ``this
+is at least two weeks of work'' it is actually one to three hours for an AI, and demanding that it try. This worked,
+and was particularly important, I think, in paper~IV.
+\item[Q9, worst moment.] I did not really have a worst moment; [the closest was] running out of context, having burned
+\$10, and needing to start again. I think it was about wanting too much rigour across, by then, four papers. One should
+keep the context somewhat human, not absolutely superhuman. Restarts should, if possible, not happen in a dense
+situation. They can happen because one runs out of money, or even because a sub-agent gets stuck in a loop and eats
+away a lot. I think this is an open problem in general, but it was not a big problem during this process.
+\item[Q10, own verification.] I looked at the code of some of the tests it implemented and was impressed by the
+mathematical complexity. I let it run the tests often and ``reflect'' on them, and check for logical fallacies and
+flawed results. I did not refuse anything, but I asked for excellence and simplicity, a kind of humbleness. This
+worked a bit against me, even, as the model demanded more human input at times than was needed.
+\item[Q11, authorship.] At first I even wanted it as co-author. The problem is that no journal will accept this. I
+also think that, since it is not a persona, it is a bit weird. I do not fully know how to credit this, but I decided
+to be absolutely open and transparent about everything, including the flow of work. This paper shall serve as a role
+model for how to work scientifically in very complex domains while maintaining scientific rigour.
+\item[Q12, this case study.] The audience is anybody working in science with AI, or wanting to, or even rejecting
+it. I got a lot of hostility when presenting my work; nobody at first seriously checked it, assuming AI slop. I can
+understand this. I have read the mathandai.org text, which is signed by almost all the Fields medallists, and I agree
+with it. This project shall demonstrate a possible workable way, a toolkit, for embedding AI such that the quality of
+its output rises and it becomes more easily falsifiable, borrowing the proven concept of test-driven development from
+software engineering; enumerating and rating the toolsets are key concepts. I think this project is about the limits
+of what AI can do; beyond it, it currently becomes infeasible. Already here, even experts will need a long time to
+understand all of the output. Target venue: yes, why not the arXiv.
+\end{description}
 
 \section{The process record}\label{app:record}
 The numbers in this document are generated by \file{scripts/process-record.py} from the repository. The readings
@@ -451,11 +529,93 @@ expository fixes (ERRATA 22)\\
 \end{tabular}
 \end{center}
 \noindent Not listed: the model's own re-readings inside the working session (``self-review'', ``rigorous pass'' in the
-commit log), which are not independent. \todo{Add the revision hash of the final version.}
+commit log), which are not independent. This document was built from repository revision \texttt{\RepoRev}; the
+commit that adds the built version is the one following it.
+
+\section{The environment: files, roles, regeneration}\label{app:env}
+
+Everything described in this paper lives in one public git repository. Figure~\ref{fig:env} shows the parts that
+matter and how they feed each other; Table~\ref{tab:regen} says how each layer is regenerated. The repository is
+\url{https://github.com/gewure/ulamnd}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  box/.style={draw,rounded corners=2pt,align=left,font=\scriptsize,inner sep=5pt,fill=white,text width=6.6cm},
+  gov/.style={box,fill=Goldenrod!15},
+  paper/.style={box,fill=NavyBlue!8},
+  code/.style={box,fill=OliveGreen!10},
+  ext/.style={box,fill=Gray!12},
+  arr/.style={-{Stealth[length=5pt]},thick,Gray},
+  lab/.style={font=\scriptsize\itshape,text=Gray}]
+\node[code] (src) {\textbf{src/} web workbench (Next.js): spiral canvas, theory panel with the honest framing,
+  worker.\\ \texttt{npm test} (vitest)};
+\node[code,right=8mm of src] (lib) {\textbf{research/lib/} sieve, polynomials, Bateman--Horn, FFT, function fields
+  (TypeScript)\\ \textbf{research/experiments/} thesis suite \texttt{run.ts} $\to$ \texttt{REPORT.md},
+  \texttt{CONCLUSIONS.md}};
+\node[paper,below=8mm of src] (p1) {\textbf{paper-I/} \texttt{main.tex}, \texttt{refs.bib}, \texttt{STATUS.md},
+  \texttt{NOTES-towards-7.md}\\ singular series, $\zeta_K(s+1)E_f(s)$, Conjecture~1 (Ces\`aro)};
+\node[paper,right=8mm of p1] (p2) {\textbf{paper-II/} \texttt{main.tex}, \texttt{README.md}, \texttt{ROADMAP.md},
+  \texttt{LITERATURE*.md}, \texttt{scripts/} (cubic prediction)\\ $E_f$ as Artin products, explicit formula};
+\node[paper,below=6mm of p1] (p3) {\textbf{paper-III/} \texttt{main.tex}, \texttt{STATUS.md}, \texttt{scripts/}
+  (\texttt{coff.py}, \texttt{off*.ts})\\ off-diagonal pieces, $c_{\mathrm{off}}$, the open window};
+\node[paper,right=8mm of p3] (p4) {\textbf{paper-IV/} \texttt{main.tex}, \texttt{README.md}, \texttt{BRAINSTORM.md},
+  \texttt{scripts/} (\texttt{piece-*.ts}, \texttt{smooth-*.py}), \texttt{data/} (grids, LMFDB coefficients)\\
+  Maass spectrum of the pieces};
+\node[gov,below=8mm of p3] (kn) {\textbf{research/KNOWLEDGE.md} state, next steps, do-not-claim, timeline, status
+  board, fallacies F1--F\NFallacies, verification checklist};
+\node[gov,right=8mm of kn] (er) {\textbf{research/ERRATA.md} \NErrata{} dated items, never shortened\\
+  \textbf{research/reviews/} outside assessments with the revision hash\\ \textbf{research/RESEARCH-USES.md} rated
+  open directions};
+\node[ext,below=8mm of kn] (cs) {\textbf{research/case-study/} this paper: \texttt{main.tex}, \texttt{INTERVIEW.md},
+  \texttt{SOURCES.md}, \texttt{scripts/process-record.py} $\to$ \texttt{record.tex}};
+\node[ext,right=8mm of cs] (root) {\textbf{README.md} (root) status table of the papers\\ \textbf{CLAUDE.md},
+  \textbf{AGENTS.md} agent instructions (tooling only)\\ \textbf{package.json} \texttt{npm run thesis}, \texttt{npm test}};
+\draw[arr] (src) -- (p1) node[midway,right,lab] {the residue of the tests};
+\draw[arr] (lib) -- (p2);
+\draw[arr] (p1) -- (p3); \draw[arr] (p2) -- (p4);
+\draw[arr] (p3) -- (kn) node[midway,right,lab] {every session starts here};
+\draw[arr] (p4) -- (er);
+\draw[arr,dashed] (er) -- (p4) ; \draw[arr,dashed] (kn) -- (p3);
+\draw[arr] (kn) -- (cs); \draw[arr] (er) -- (root);
+\end{tikzpicture}
+\caption{The repository. Green: code that produces numbers. Blue: the four papers, each with its scripts, data and
+status page. Yellow: the governance files that every session reads first and every error is written to; the dashed
+arrows are the corrections flowing back into the papers. Grey: documentation of the whole.}\label{fig:env}
+\end{figure}
+
+\begin{table}[htbp]
+\centering\small
+\caption{How each layer is regenerated. Tools: Node with \texttt{tsx}, a Python virtual environment with
+\texttt{mpmath}, and \texttt{tectonic} for \LaTeX; no other software.}\label{tab:regen}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{10.4cm}@{}}
+\toprule
+what & how\\
+\midrule
+workbench tests & \texttt{npm test}\\
+thesis suite (8 Sep claims) & \texttt{npm run thesis} (quick) or \texttt{npx tsx research/experiments/run.ts --full};
+writes \texttt{REPORT.md}, \texttt{results.json}\\
+a number in a paper & the script named next to it in the paper's \texttt{scripts/} folder; TypeScript via
+\texttt{npx tsx <script>} with parameters as environment variables (e.g.\ \texttt{D=-4 Y=1e7 npx tsx
+research/paper-IV/scripts/piece-divset.ts}), Python via the virtual environment (e.g.\ \texttt{python
+research/paper-IV/scripts/smooth-two-lines.py}); outputs land in the paper's \texttt{data/}\\
+LMFDB coefficients & downloaded once from the LMFDB (\texttt{lmfdb.org}, \texttt{ModularForm/GL2/Q/Maass/}\allowbreak\texttt{download\_coefficients/<label>}),
+stored in \texttt{paper-IV/data/} (files begin with the line ``1 +- 0'')\\
+a paper & \texttt{tectonic main.tex} in its folder; page counts and the absence of overfull lines are checked from the
+log\\
+the numbers in this paper & \texttt{python3 research/case-study/scripts/process-record.py}, then \texttt{tectonic main.tex}\\
+the state of the programme & read \texttt{research/KNOWLEDGE.md} \S0b first, then \texttt{ERRATA.md}; the root
+\texttt{README.md} has the one-line status of each paper\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section*{AI-assisted research: disclosure}
 This case study was drafted by the same model that did the work it describes, from the repository record and an
 interview with the author; the author verified every factual statement against the record and is responsible for
-the text. \todo{Align with the disclosure paragraph of the four papers.}
+the text. The division of roles is the one stated in the disclosure sections of the four papers: the author posed
+the questions, set the direction and the scope, and made every decision about what to pursue, claim and publish; the
+model drafted arguments, wrote and ran the software, searched the literature and drafted the text, in dialogue with
+the author.
 
 \end{document}
