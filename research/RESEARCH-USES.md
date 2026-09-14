@@ -329,3 +329,11 @@ nothing building on III–IV should start before outside review of those two.
   closed for the smooth object. Cubic full-factorisation object validated on the control; x³−2 at Y = 10⁶ has rms(P) ∝
   T^0.16 instead of √T — first hint that the cubic level-1 statistic behaves differently; Y = 10⁷ running.
 
+### 6i. 15 Sep, early: route 1a tested — the naive Hecke ratio is refuted, the oldform-projection form is the route (★★★★☆)
+Amplitude of the level-1 line at dilation u = 2, 3, 5 measured for 5–11 discriminants each (explore/STATE.md §6): phase law
+−t_j log u holds; amplitude ratio is 0.87 / −0.39 / −0.065 at u = 2 according to χ_D(2) = 0/+1/−1, and ≈ c/(u+1) for ramified
+u — not |λ_j(u)|/√u. The correct statement is the projection of the dilated sub-family onto the 3-dim oldform space at
+level u², whose Gram matrix carries λ_j(u) (checked: ⟨u₁(2z),u₁⟩/‖u₁‖² = λ_1(2)√2/3 = 0.730, as measured in paper IV).
+Deriving it is the next theoretical step and gives the follow-up paper its theorem; the observed 1/(u+1) decay is far
+inside the u^{1/4−ε} that uniformity needs, for the main terms.
+

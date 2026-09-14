@@ -167,3 +167,45 @@ with measured tail κ/N, TS). (2) HAZARD: running piece-divset.ts with a small Y
 piece-DS-*-D-<D>-grid.dat (no Y in the file name) — I did this twice tonight for D = −4 and regenerated the Y = 10⁷ files
 (bit-identical to the committed ones). Do diagnostics with a different D or copy the file first.
 
+## 6. The Hecke mechanism for the u-sum (route 1a), TESTED 15 Sep early: the naive form is REFUTED, the phase law holds, and the
+##    amplitude follows the splitting of u in Q(√D)
+
+**Hypothesis tested:** amp_j(u)/amp_j(1) = |λ_j(u)|/√u for the level-1 line t_1 = 13.7798 in piece u (λ_1(2) = 1.549,
+λ_1(3) = 0.247, λ_1(5) = 0.737 → predicted 1.095, 0.143, 0.330), phase shift −t_1 log u.
+**Data:** sharp Riesz pieces, object 'all', Y = 10⁷, 4096 points, DEG-3 detrend; fit of t_1, t_2 plus nuisance lines (two more
+even level-1 lines; Strömberg's Γ₀(9) even set at u = 3; six data-driven peaks in [2,12] at u = 5). Scripts:
+research/explore/hecke-amp-test.py (smooth grids), hecke-ratio-sharp.py (sharp grids, the table below). Grids computed
+tonight: DS-all-D-<|D|>-U2 for D = −3,−4,−7,−8,−11,−15,−19,−20,−23,−27,−31; U3 for −3,−4,−7,−8,−11,−15,−20; U5 for
+−3,−4,−8,−11,−15 (+ u = 1 for all these D). Signed ratio = amp(u)/amp(1) with sign − when the phase is shifted by π
+relative to −t_1 log u.
+   u = 2:  2 ramified (D = −4, −8, −20):   +0.852, +0.865, +0.899   (phase residuals +0.006, −0.148, −0.087)
+           2 split   (D = −7, −15, −23):    −0.353, −0.379, −0.428   (phase ≈ π: 3.11, 3.05, 2.83)
+           2 inert   (D = −3, −11, −19):    −0.065, −0.061, −0.071   (phase ≈ π; 3σ-level amplitudes, consistent)
+           (D = −27, −31: u=1 amplitude ≤ 0.006, below noise — ignore)
+   u = 3:  3 ramified (D = −3, −15):        +0.655, +0.726           (phase residuals +0.21, +0.04)
+           3 split   (D = −8, −11, −20):    −0.285, −0.320, −0.332   (phase ≈ π: −2.79, 2.77, 3.11)
+           3 inert   (D = −4, −7):          +0.196, +0.341           (phases +0.02, +0.83; noise 0.06–0.09 rms → ~3σ)
+   u = 5:  5 ramified (D = −15):            +0.431                   (phase +0.019)
+           5 split   (D = −4, −11):         −0.159, −0.114           (phases ±1.6–2.0: unresolved)
+           5 inert   (D = −3, −8):          −0.255, +0.439           (inconsistent; noise)
+**Conclusions.** (1) The phase law −t_j log u holds wherever the line is measurable (all ramified cases at u = 2, 3, 5
+within 0.2 rad). (2) The amplitude ratio is NOT |λ_j(u)|/√u: at u = 2 it is 0.87 / −0.39 / −0.065 for χ_D(2) = 0 / +1 / −1
+(predicted 1.095 for all); at u = 3 the ramified ratio is +0.69 where λ_1(3)/√3 = 0.14. The naive Hecke mechanism of
+RESEARCH-USES 1a is refuted by the data, as its predecessor (KNOWLEDGE 3b) was; tested before anything was written (F24).
+(3) The ramified ratios 0.87, 0.69, 0.43 at u = 2, 3, 5 are consistent with c/(u+1), c ≈ 2.6, independent of λ_1(u);
+the split ratios are negative (sign flip) and of size 0.39, 0.31, ~0.13; the inert ones small. (4) A three-parameter
+guess r = λ(u²)/u + (1−χ)/(u(u+1)) − χ²λ(u)/√u fits the three u = 2 values (0.867, −0.395, −0.062) and FAILS at u = 3
+(predicts −0.23 ramified, observed +0.69); recorded only so nobody refits it.
+**What this means for uniformity in u.** The level-1 amplitude at dilation u is the projection of the dilated sub-family
+{2u | b} of discriminant-4D Heegner points onto the 3-dimensional oldform space span{u_j(z), u_j(uz), u_j(u²z)} at level
+u², with the Fourier-mode selection at a cusp of width u². The Hecke eigenvalue enters only through the Gram matrix of
+that space — and paper IV's level-2 test already measured one Gram entry: ⟨u₁(2z), u₁⟩/‖u₁‖² = 0.730, which equals
+λ_1(2)√2/(2+1) = 0.7303 exactly (the Iwaniec–Luo–Sarnak formula for prime level). So the amplitude law is a finite,
+derivable expression: orbit representatives of the dilated sub-family under Γ⁰(u²) (conjugate to Γ₀(u²)), Maass values
+there, the 3×3 Gram matrix in λ_j(u), and the cusp-width Fourier factor. The empirical decay ~2.6/(u+1) of the ramified
+ratio, if it is the general size of the restricted geometric factor, is far inside what the u-sum needs (paper IV §7
+asks for u^{1/4−ε}). NEXT STEP (theory, a day): derive amp_j(u; D) at level u² by the proof of thm:smooth on the
+sub-family, as smooth-level2-test.py did for the level-2 restricted object; predict the 23 signed ratios above with no
+free parameter. If they match, the u-dependence of the main spectral terms is understood, and the follow-up paper has
+its theorem.
+
