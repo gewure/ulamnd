@@ -191,6 +191,10 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (~05:30). The level-3 newform line (t = 5.0987) in piece u = 3 predicted with no free parameter and confirmed at
+  five discriminants (amplitude within 4%, phase within 0.07 rad), predicted and observed absent when 3 is inert. Every
+  computable line of a dilated piece now follows one formula (oldforms + newforms, each with its Gram matrix).
+  Multiplicativity at u = 6: signs right, magnitudes noisy; exact level-36 prediction running. explore/STATE.md §8.
 - 15 Sep (~04:30). Closed form of the level-1 amplitude ratio at odd prime dilation u: r = √u Pᵀ(u(u+1)G)⁻¹L with G the
   oldform Gram matrix (entries λ√u/(u+1) and (λ²−1−1/u)/(u+1)), P the local period multiplicities (2u | u−χ; λ√u + (u−1) |
   λ√u − (1+χ)), L = (1, 1/u, 1/u²); matches the direct computation to 4 digits. Identities to be proved (Hecke on Heegner

@@ -265,3 +265,32 @@ With λ = λ_j(u), s = √u, χ = χ_D(u), index u(u+1), and relative to ‖u_j�
    uz_Q, (z_Q + b)/u; the sub-family {2u | b} is where z_Q/u is again integral of level u²; p0 = λ s + (local count) is
    T_u u_j = λ u_j·(normalisation) minus the terms not in the family. A day of algebra; the numbers say what to prove.
 
+## 8. The level-3 newform at dilation 3: predicted and confirmed (15 Sep, ~05:30) — the first line that does not exist at u = 1
+
+Script research/explore/hecke-newform-u3.py: the level-3 newform v with t = 5.0987419 (LMFDB 3.0.1.2.1, even, Fricke +1;
+coefficients downloaded to data/maass-3.0.1.2.1-coefficients.txt, format one bracketed list; Atkin–Lehner a(3) = −1/√3 checked),
+evaluated anywhere by SL₂(Z)-reduction + coset split + Fricke v(−1/(z+k)) = ε v((z+k)/3); oldspace {v(z), v(3z)} on Γ₀(9)
+(Gram: ⟨v(3z),v⟩/⟨v,v⟩ = −1/3 = a(3)√3/3 exactly; ⟨v(3z),v(3z)⟩ = ⟨v,v⟩); periods over the W₃ orbits; formula of §7 with √3.
+Predicted amplitude and phase of the 5.0987 line in the smooth piece u = 3 (unrestricted object), NO free parameter, vs fit:
+   D=−8  (3 split):    C 0.1404 / 0.1426 (ratio 1.016), Δφ +0.072      D=−11 (split):  0.1371 / 0.1370 (1.000), +0.050
+   D=−20 (split):      0.1945 / 0.1931 (0.993), +0.032                D=−3  (3 | D):  0.3200 / 0.3262 (1.020), −0.008
+   D=−15 (3 | D):      0.2016 / 0.1946 (0.965), +0.024
+   D=−4, −7 (3 inert): predicted 0 (Per_{W₃}(v) = 0 to 1e-17: the newform's period over the family vanishes identically);
+                       observed 0.019, 0.006 (noise level on these grids ~0.01–0.02).
+So every line of piece u that we can compute is given by the same formula: level-1 oldforms (§7) and level-u newforms (§8),
+each with its own Gram matrix; the cycloidal-group forms are the only ones we cannot predict (no coefficients). The phase
+formula t log(π√|D|/u) + arg(ΓW_c) holds for both.
+**Structural fact:** for inert u the level-u newform's period over W_u vanishes; for split/ramified u it does not — a
+"local sign" of the newform lines (to be derived with Lemma B's method; it is the statement that Σ over the family of a
+newform is a multiple of its period over the classes of disc 4D lifted to level u, which is empty when u is inert).
+
+### 8b. Multiplicativity in u (conjecture §5 of PROOFS-dilation.md): partially tested at u = 6
+Observed signed ratio of the t₁ line, piece 6 over piece 1 (sharp grids, 10 data-driven nuisance lines), vs r(2)·r(3):
+   D=−8: −0.449 vs −0.264 | D=−20: −0.320 vs −0.264 | D=−15: −0.295 vs −0.237 | D=−4: +0.111 vs +0.163 | D=−12: +0.549 vs +0.657.
+All five signs right (three sign flips predicted and seen); magnitudes within ~0.1 except D=−8 (0.19 off). The u = 6 grids
+are noisy (level-36 spectrum dense, rms 0.05–0.10 against amplitudes 0.004–0.016), so this neither confirms nor refutes
+exact multiplicativity. The exact theory-side value is being computed directly (9-dim oldspace {u₁(dz): d | 36}, 72 cosets;
+research/explore/hecke-oldform-composite.py, log research/explore/logs/composite-u6.log, ~30 min per D).
+Also learned: r(2; −12) = +0.945 ≠ 0.850 — the 2-adic constant depends on D/4 mod 4 (D=−12: D/4 ≡ 1), confirming that
+u = 2 needs its own local analysis (four 2-adic classes: D ≡ 1, 5 (mod 8); D/4 ≡ 1, 2, 3 (mod 4) …).
+
