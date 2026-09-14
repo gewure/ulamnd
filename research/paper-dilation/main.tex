@@ -103,8 +103,8 @@ g=\frac{\lambda_j(u)\sqrt u}{u+1},\qquad h=\frac{\lambda_j(u)^2-1-1/u}{u+1},\qqu
 p_1=\begin{cases}2u&u\parallel D,\\ u-\chi&u\nmid D,\end{cases}\qquad
 p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\parallel D,\\ -(1+\chi)&u\nmid D,\end{cases}
 \]
-where $u\parallel D$ means $u\mid D$, $u^2\nmid D$ (the case $u^2\mid D$ is excluded: there the multiplicity of Lemma~\ref{lem:mult}
-is not class-independent, as at $u=2$).
+where $u\parallel D$ means $u\mid D$, $u^2\nmid D$. (For $u^2\mid D$, and for $u=2$ with every $D$, the entries of $P$ depend on the
+class and are given by Proposition~\ref{prop:classwise}; the rest of~\eqref{eq:r} is unchanged.)
 Moreover
 \[
 \begin{aligned}
@@ -162,7 +162,7 @@ the three lemmas behind Theorem~\ref{thm:level1} with what is proved of each. Se
 tests: the ratio~\eqref{eq:r} against a direct computation of the oldform projection with the Maass forms' values (no
 closed form used), and both against the pieces computed to $Y=10^7$; then the newform of level~$3$; then the case $u=2$
 and the composite $u=6$. Section~\ref{sec:open} lists what is open. Scripts and data are in the repository
-(\texttt{research/explore/}, \texttt{hecke-oldform-predict.py}, \texttt{hecke-newform-u3.py}, \texttt{hecke-ratio-sharp.py}).
+(\texttt{research/explore/}, \texttt{hecke-oldform-predict.py}, \texttt{hecke-classwise.py}, \texttt{hecke-newform-u3.py}, \texttt{hecke-ratio-sharp.py}).
 
 \section{The seed identity and the family $\mathcal W_u$}\label{sec:seed}
 
@@ -267,6 +267,57 @@ of $\Gamma_0(u^2)$, which maps $[u^2a',2u^2b',c]$ to $[u^2c,-2u^2b',a']$ --- the
 so permutes $\mathcal W_u$.)
 \end{proof}
 
+\begin{proposition}[the class-by-class form of Lemmas~\ref{lem:mult} and~\ref{lem:period}]\label{prop:classwise}
+Let $u$ be any prime and $D<0$ any discriminant (no hypothesis on $u$ and $D$). For a class $C$ of forms of discriminant $4D$
+with representative $Q_C=[a,b,c]$ and bilinear form $B_C$, let
+\begin{gather*}
+m(C)=\#\{(\ell_1,\ell_2)\ \text{distinct}:\ B_C(\ell_1,\ell_2)\equiv0\ (u)\},\\
+N_C(\ell_2)=\#\{\ell_1\ne\ell_2:\ B_C(\ell_1,\ell_2)\equiv0\ (u)\},
+\end{gather*}
+over the lines of $\mathbb P^1(\mathbb F_u)$, and let $h_\ell$ be the Hecke neighbour fixed by $\ell$: $h_{\langle(k,1)\rangle}z=(z-k)/u$,
+$h_{\langle(1,0)\rangle}z=-1/(uz)$. Then
+\begin{gather*}
+\Per_{\mathcal W_u}(u_j(u\,\cdot))=\sum_C\frac{m(C)}{|S_C|}u_j(z_C),\\
+\Per_{\mathcal W_u}(u_j)=\Per_{\mathcal W_u}(u_j(u^2\,\cdot))=\sum_C\frac1{|S_C|}\sum_{\ell}N_C(\ell)\,u_j(h_\ell z_C),
+\end{gather*}
+and Theorem~\ref{thm:level1} holds with $p_1=\Per_{\mathcal W_u}(u_j(u\cdot))/\Per_D(u_j)$, $p_0=\Per_{\mathcal W_u}(u_j)/\Per_D(u_j)$.
+For $u=2$ the counts depend only on $(a,b/2,c)$ modulo $2$: with $b'=b/2$,
+\begin{gather*}
+m(C)=2\bigl([b'\equiv0]+[a\equiv b']+[c\equiv b']\bigr),\qquad N_C(\langle e_2\rangle)=[b'\equiv0]+[c\equiv b'],\\
+N_C(\langle e_1+e_2\rangle)=[a\equiv b']+[c\equiv b'],\qquad N_C(\langle e_1\rangle)=[b'\equiv0]+[a\equiv b'];
+\end{gather*}
+so $m(C)=4$ for a primitive class of even $D$, $6$ for a class of even content, $2$ for a class of odd $D$ that is not of even content,
+and $0$ for a class of even content and odd $D$ (where $B_C$ is alternating modulo $2$).
+\end{proposition}
+\begin{proof}
+Steps 1--4 of the proof of Lemma~\ref{lem:mult} and the first half of the proof of Lemma~\ref{lem:period} (the coset bijection,
+the orthogonality condition, the mass formula~\eqref{eq:mass} and the identification of $\alpha\gamma^{-1}z_0$ with the
+neighbour $h_{\ell_2}z_0$) use neither the parity of $u$ nor any hypothesis on $D$; the two displays are~\eqref{eq:mass} with
+$\varphi=\mathbf 1[\ell_1\perp\ell_2]$ and $\varphi=u_j(\alpha\gamma^{-1}z_0)\mathbf 1[\ell_1\perp\ell_2]$, and the equality of the
+periods of $f_0$ and $f_2$ is the symmetry of $B_C$ as before. Only the evaluation of the counts used the hypotheses: for odd $u$
+with $u^2\nmid D$ the reduction $B_C\bmod u$ is determined by $D$ up to equivalence, hence the counts are class-independent;
+for $u=2$ the three lines are $\langle e_1\rangle,\langle e_2\rangle,\langle e_1+e_2\rangle$ with $B_C(e_1,e_2)=b'$,
+$B_C(e_1,e_1+e_2)=a+b'$, $B_C(e_2,e_1+e_2)=b'+c$, which gives the table (a nondegenerate symmetric form over $\mathbb F_2$ is
+not determined by its determinant: $\left(\begin{smallmatrix}1&0\\0&1\end{smallmatrix}\right)$ and
+$\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$ are inequivalent, which is why the counts depend on the class);
+for $u^2\mid D$ the classes of content divisible by $u$ have $B_C\equiv0$ and $m(C)=u(u+1)$. The case distinction for $m(C)$
+at $u=2$ is read off $b'^2-ac=D$: for even $D$, either $b'$ is odd and $a,c$ are odd, or $b'$ is even and exactly one of $a,c$ is even,
+both giving $m=4$, or $a,b,c$ are all even ($m=6$); for odd $D$, either $b'$ is even and $a,c$ odd, or $b'$ odd and exactly one of $a,c$
+even, both giving $m=2$, or $b'$ is odd and $a,c$ even, the even-content classes, where $B_C\bmod2$ is alternating and $m=0$.
+\end{proof}
+\begin{remark}\label{rem:classwise}
+The two displays of Proposition~\ref{prop:classwise} were checked against the direct enumeration of the
+$\Gamma_0(u^2)$-orbits of $\mathcal W_u$ (\texttt{hecke-classwise.py}) for $u=2$ and nine discriminants
+$-3\ge D\ge-20$, and for $u=3$ with $D=-9,-27,-36$; the two routes agree to the four digits printed. At $u=2$ the resulting $p_1$ takes the values
+$4.913$ ($D\equiv0\ (4)$, $D/4\equiv2,3\ (4)$), $5.278$ ($D/4\equiv1\ (4)$), $5.565$ ($D/4\equiv0\ (4)$), $0.321$ ($D\equiv1\ (8)$),
+$1.373$ ($D\equiv5\ (8)$): by the table, $p_1=4+2\,\Per^{(2)}_D/\Per_D$ for even $D$ and $2-2\,\Per^{(2)}_D/\Per_D$ for odd $D$, where
+$\Per^{(2)}_D$ is the period over the classes of even content, i.e.\ over the forms $2Q'$ with $Q'$ of discriminant $D$; the observed
+values give $\Per_D/\Per^{(2)}_D=\sqrt2\lambda_j(2)-\chi_D(2)$ to four digits when $D$ is odd or $D/4\equiv2,3\ (4)$ (when $D/4$ is
+not itself a discriminant), as the Hecke relation at $2$ between the periods of discriminants $D$ and $4D$ suggests, and a
+different value when $D/4$ is a discriminant ($1.564$ at $D=-12$, $1.278$ at $D=-16$), where that relation has a further term. We have not used this. For $u=3$ and $9\mid D$ the ratio $r_1(3;D)$ exceeds $1$
+($4.22$ at $D=-27$, $1.75$ at $D=-9,-36$) because the classes of content $3$ have $m(C)=12$.
+\end{remark}
+
 \begin{lemma}[the Gram matrix]\label{lem:gram}
 On $\Gamma_0(u^2)\backslash\HH$, with $f_m(z)=u_j(u^mz)$: (i) $\langle f_0,f_0\rangle=u(u+1)\|u_j\|^2_{\mathrm{SL}_2(\Z)}$ and
 $\langle f_1,f_0\rangle=\langle f_2,f_1\rangle=\frac{\lambda_j(u)\sqrt u}{u+1}\langle f_0,f_0\rangle$;
@@ -339,8 +390,8 @@ the direct route also checks $\langle f_0,f_0\rangle/\|u_j\|^2=u(u+1)$ and the I
 
 \begin{table}[htbp]\centering\small
 \caption{The first even line $t_1=13.7798$: signed ratio of its amplitude in piece $u$ to piece $1$ (sign $-$ when the
-phase is shifted by $\pi$ beyond $-t_1\log u$). ``pred'' from~\eqref{eq:r} for odd $u$ and from the direct computation
-for $u=2$; ``obs'' from the sharp grids. Predicted $|r|<0.1$ is below the noise of these grids.}\label{tab:ratios}
+phase is shifted by $\pi$ beyond $-t_1\log u$). ``pred'' from~\eqref{eq:r}, with the class-by-class $P$ of
+Proposition~\ref{prop:classwise} for $u=2$; ``obs'' from the sharp grids. Predicted $|r|<0.1$ is below the noise of these grids.}\label{tab:ratios}
 \begin{tabular}{@{}lrrrl@{}}
 \toprule
 $u$, type of $u$ in $\Q(\sqrt D)$ & pred & obs & $D$\\
@@ -378,10 +429,10 @@ $-7$ & inert & $0$ & $0.006$ & --- & ---\\
 \end{tabular}
 \end{table}
 
-\paragraph{The case $u=2$.} The local constants are not integers: $\Per_{\mathcal W_2}(u_1(2\cdot))/\Per_D(u_1)=4.912$ for
-$D/4\equiv2,3\pmod4$ and $5.278$ for $D/4\equiv1\pmod4$, $0.321$ for $D\equiv1\pmod8$, $1.373$ for $D\equiv5\pmod8$; so the
-multiplicity of Lemma~\ref{lem:mult} is not class-independent at $u=2$ and the closed form~\eqref{eq:r} does not apply.
-The direct computation does, and matches the data (Table~\ref{tab:ratios}). \todo{2-adic local analysis.}
+\paragraph{The case $u=2$.} The local constants are not integers ($p_1=4.913$, $5.278$, $0.321$, $1.373$ for
+$D/4\equiv2,3\ (4)$, $D/4\equiv1\ (4)$, $D\equiv1\ (8)$, $D\equiv5\ (8)$): the multiplicity depends on the class through
+$B_C$ modulo $2$, Proposition~\ref{prop:classwise}, and~\eqref{eq:r} applies with the class-by-class $P$. The values so obtained
+coincide with the direct computation and match the data (Table~\ref{tab:ratios}).
 
 \paragraph{Composite $u$.} For squarefree $u=u_1u_2$ the family condition factors over the primes and the oldform space is
 $\{u_j(dz):d\mid u^2\}$, of dimension $9$ for $u=6$. The direct computation at level $36$ (Gram matrix over the $72$ cosets,
@@ -402,10 +453,10 @@ tabulated and their amplitudes in piece $3$ cannot be predicted here.
 
 \section{What is open}\label{sec:open}
 \begin{enumerate}
-\item The case $u$ dividing the conductor of $D$ (including $u=2$ for every $D$, since $4D$ has conductor divisible by $2$ when
-$D$ is odd and $2$ ramified otherwise); the tensor-product argument for composite $u$; a proof of the inert identity
-$r=u^{-3/2}$ that explains it rather than verifies it.
-\item The $2$-adic case; the tensor-product argument for composite $u$.
+\item A proof of the inert identity $r=u^{-3/2}$ that explains it rather than verifies it; and closed forms for the
+class-dependent entries of Proposition~\ref{prop:classwise} (at $u=2$, and for $u^2\mid D$) in terms of $\lambda_j(u)$ and the
+periods of the discriminants $D/u^{2k}$, via the Hecke relations.
+\item The tensor-product argument for composite $u$.
 \item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect
 equidistribution of \cite{LiuMasriYoung2013,HumphriesNordentoft2025}, route 1b of the knowledge base.
 \item The error term uniform in $u$ (part~IV, Remark~\textsc{gaps}), which is the conjecture of part~III itself.

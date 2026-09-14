@@ -199,6 +199,31 @@ For level-1 `f`: `f(W_{u²}τ) = f(u²τ)`, hence `Per(f_0) = Per(f_2)`. For a l
 `v(W_{u²}τ) = ε v(uτ)` and `Per(v) = ε Per(v(u·))` (observed: equal, with ε = +1). The vanishing of `Per_{W_u}(v)` for inert `u`
 is NOT explained by this; it needs the level-`u` analogue of the isotropic-line argument (open; the reader has been asked).
 
+## 1''. The class-by-class form of Lemmas A and B: every prime u, every D (15 Sep, 11:30) — PROVED and checked
+
+Steps 1–4 of §1' (transported group, cosets = ordered pairs of lines, family condition = orthogonality, mass formula (M))
+and the identification `αγ⁻¹z₀ = h_{ℓ₂}(z₀)` use no hypothesis on `u` or `D`. Hence for EVERY prime `u` and every `D < 0`:
+    Per_W(f₁) = Σ_C m(C) u_j(z_C)/|S_C|,          m(C)    = #{(ℓ₁,ℓ₂) distinct : B_C(ℓ₁,ℓ₂) ≡ 0 (u)},
+    Per_W(f₀) = Per_W(f₂) = Σ_C |S_C|⁻¹ Σ_ℓ N_C(ℓ) u_j(h_ℓ z_C),   N_C(ℓ₂) = #{ℓ₁ ≠ ℓ₂ : B_C(ℓ₁,ℓ₂) ≡ 0 (u)},
+with `h_{⟨(k,1)⟩} z = (z−k)/u`, `h_{⟨(1,0)⟩} z = −1/(uz)`. Only the EVALUATION of the counts needed `u` odd and `u² ∤ D`
+(then `B_C mod u` is determined by `D` up to equivalence). At `u = 2`, with `b' = b/2`, `B(e₁,e₂) = b'`, `B(e₁,e₁+e₂) = a+b'`,
+`B(e₂,e₁+e₂) = b'+c`:
+    m(C) = 2([b'≡0] + [a≡b'] + [c≡b']);   N(e₂) = [b'≡0]+[c≡b'],  N(e₁+e₂) = [a≡b']+[c≡b'],  N(e₁) = [b'≡0]+[a≡b'].
+  D even: m = 4 (primitive), 6 (content even);  D odd: m = 2, or 0 for the even-content classes (B alternating mod 2 —
+  over F₂ the nondegenerate symmetric forms diag(1,1) and antidiag(1,1) are inequivalent; that is the 2-adic phenomenon).
+  u² | D (u odd): the content-u classes have B ≡ 0, m = u(u+1).
+**Check (hecke-classwise.py):** class-by-class vs direct orbit enumeration, p₀ and p₁ agree to 4 digits for u = 2,
+D = −3,−4,−7,−8,−11,−12,−15,−16,−20 and u = 3, D = −9,−27,−36. Values at u = 2: (p₀,p₁) = (4.104, 4.913) for D/4 ≡ 2,3 (4);
+(4.470, 5.278) for D/4 ≡ 1 (4); (4.756, 5.565) for D/4 ≡ 0 (4) [D = −16]; (−0.488, 0.321) for D ≡ 1 (8); (0.564, 1.373) for
+D ≡ 5 (8); r₁(2;D) = +0.850 / +0.945 / +1.019 / −0.341 / −0.068. At u = 3 with 9 | D: r = 4.22 (D = −27), 1.75 (D = −9, −36),
+larger than 1 because of the content-3 classes.
+**Consequence for p₁ at u = 2:** p₁ = 4 + 2 Per⁽²⁾/Per_D (D even), 2 − 2 Per⁽²⁾/Per_D (D odd), Per⁽²⁾ = period over the
+even-content classes (= forms 2Q', disc Q' = D). Numerically Per_D/Per⁽²⁾ = √2 λ(2) − χ_D(2) = 2.191, 1.191, 3.191 when D is
+odd or D/4 ≡ 2,3 (4), as the T₂ relation between the periods of disc D and 4D suggests; 1.564 (D = −12), 1.278 (D = −16)
+when D/4 is itself a discriminant (extra term). Not used; recorded in the draft as a remark.
+This closes "the 2-adic case" and "u | conductor" of the open list; what remains there is a closed form for these
+class-dependent entries via the Hecke relations (cosmetic) and the conceptual proof of the inert identity.
+
 ## 5'. Lemma D: the newform periods, and the vanishing for inert u (15 Sep, 09:00) — PROVED
 
 Let `v` be a Hecke–Maass newform of level `u` (odd prime) with Fricke eigenvalue `ε` (`v(−1/(uz)) = ε v(z)`), `a_v(u) = −ε u^{-1/2}`,

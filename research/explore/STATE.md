@@ -360,3 +360,11 @@ The draft (9 pp) now has: Theorem 2 with the correct asymptotics and the exact i
 inert vanishing); the corollary with Σ u^{-2}. Still open: u | conductor (all of u = 2), composite-u tensor argument in writing,
 cycloidal lines, a conceptual proof of the inert identity, and the error term.
 
+
+## 13. Closing the small gaps (15 Sep, 11:30–): the 2-adic case is closed
+- Proposition prop:classwise in the draft (PROOFS §1''): the class-by-class form of Lemmas A and B holds for every prime u
+  and every D; at u = 2 the counts are read off (a, b/2, c) mod 2; verified against the direct orbit enumeration for
+  twelve (u, D) pairs including 9 | D. Theorem 2 now covers u = 2 and u² | D with the class-by-class P. Draft 10 pp, 0 overfull.
+- Script: research/explore/hecke-classwise.py.
+- Next small gaps: the tensor-product argument for squarefree composite u (Conjecture → Proposition for odd u); paper IV §7
+  remark pointing to the draft; case-study episode (two readings, same error, F41). Then PLAN-uniformity.md and the error term.
