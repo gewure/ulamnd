@@ -564,9 +564,13 @@ for $\sigma\in Z$, with $c_1$ absolute, which is $\le\delta\log T$ once $\vareps
 
 \subsection{Proof of Theorem~\ref{thm:explicit-quadratic}}
 
-Fix $K=15$ (any $K\ge4$ with $(K+1)(\tfrac14-\varepsilon_0)>1$ works), $\delta=\varepsilon_0$ and
-$\varepsilon_0\le\min(\varepsilon_1(\varepsilon_0),\tfrac1{100})$, which is possible since $\varepsilon_1(\delta)\gg\delta/\log(1/\delta)$.
-Let $U$ be as in Lemma~\ref{lem:horizontal} with $T=x^{16}$, and let $\mathcal R$
+Fix $K=15$ (any $K\ge4$ with $(K+1)(\tfrac14-\varepsilon_0)>1$ works), $\delta=\tfrac18$, and
+$\varepsilon_0\le\min(\varepsilon_1(\tfrac18),\tfrac1{100})$, a genuine constant. (The first version took $\delta=\varepsilon_0$ ``since
+$\varepsilon_1(\delta)\gg\delta/\log(1/\delta)$''; but the proof of Lemma~\ref{lem:horizontal} gives $\varepsilon_1(\delta)\asymp\delta/\log(1/\delta)$,
+so $\varepsilon_0\le\varepsilon_1(\varepsilon_0)$ forces $\log(1/\varepsilon_0)\ll1$ and is incompatible with $\varepsilon_0\le\tfrac1{100}$ unless the
+absolute constant $c_1$ is small: the set of admissible $\varepsilon_0$ was, as far as the argument showed, empty. Nothing below
+needs $\delta$ small; the horizontal segments need only $\varepsilon_0+\delta\le\tfrac{17}{48}$. Found by an outside reading,
+15 September 2026.) Let $U$ be as in Lemma~\ref{lem:horizontal} with $T=x^{16}$ (so $T\ge T_0(\tfrac18)$ for $x$ large), and let $\mathcal R$
 be the rectangle with vertices $2\pm iU$ and $-\tfrac34-\varepsilon_0\pm iU$. By~\eqref{eq:mellin} (truncating the
 integral at height $U$ costs $\ll x^{m+2}U^{-m}$, since $G_m(2+it)\ll t^{-m-1}$) and the residue theorem,
 \[
@@ -591,11 +595,11 @@ for $m\ge2$ the exponent is $<-1$. The vertical integral is therefore $\ll x^{m-
 
 \emph{Horizontal segments.} On $\Im s=\pm U$, $-\tfrac34-\varepsilon_0\le\sigma\le2$: (G1) bounds $\zeta(s)$,
 $\zeta(w)L(w)$, $\zeta(3w)L(3w)$ and the $N\ge4$ factors by $U^{7/4+3\varepsilon_0+\varepsilon}$ (worst case at the left end),
-Lemma~\ref{lem:horizontal} bounds $\zeta(2w)^{-2}L(2w,\chi_D)^{-1}$ by $U^{3\varepsilon_0}$, and $M_{f,K}\ll1$; the kernel
+Lemma~\ref{lem:horizontal} bounds $\zeta(2w)^{-2}L(2w,\chi_D)^{-1}$ by $U^{3\delta}=U^{3/8}$, and $M_{f,K}\ll1$; the kernel
 is $\ll U^{-m-1}$ and $|x^{s+m}|\le x^{m+2}$. The two segments contribute
-$\ll x^{m+2}U^{7/4+6\varepsilon_0+\varepsilon-m-1}\le x^{m+2}U^{-5/4+7\varepsilon_0}$ for $m\ge2$, and the truncation of
+$\ll x^{m+2}U^{7/4+3\varepsilon_0+3\delta+\varepsilon-m-1}\le x^{m+2}U^{-7/8+4\varepsilon_0}$ for $m\ge2$, and the truncation of
 the original integral at height $U$ contributes $\ll x^{m+2}U^{-m}$; with $U\ge x^{16}$ and $\varepsilon_0\le\tfrac1{100}$
-both are $\ll x^{m-1}$.
+both are $\ll x^{m-1}$ (indeed $16(\tfrac78-4\varepsilon_0)>3$).
 
 Collecting, $R_m(x)$ equals the residue sum plus $O(x^{m-3/4-\varepsilon_0})$, which is~\eqref{eq:explicit}. \qed
 
@@ -763,35 +767,53 @@ $E_m(x)=R_m(x)-\frac{D_f(1)}{m+1}x^{m+1}-x^m\bigl(-\frac{\log x}{2C(f)}+c_{f,m}\
 Suppose that for some zero $\rho_1=\tfrac12+i\gamma_1$ of $\zeta(s)^2L(s,\chi_D)$ the function $G_m$ has a genuine
 pole at $\rho_1/2-1$ (i.e.\ $Q_{m,\rho_1}\ne0$), and that $L(s,\chi_D)$ has no real zero $\beta_0>\tfrac12$ (true under the
 Riemann hypothesis, and unconditionally for all but at most one $D$ in any range $|D|\le X$, by Landau's theorem on
-exceptional zeros). Then, with no further hypothesis,
+exceptional zeros), and that $L(\tfrac12,\chi_D)\ne0$ (so that $G_m$ has no real pole at $s=-\tfrac34$; conjecturally always
+true, and true for $\chi_{-4}$). Then, with no further hypothesis, and with $c_1=\operatorname*{Res}_{s=\rho_1/2-1}G_m(s)$
+($=Q_{m,\rho_1}$ when the pole is simple),
 \[
-E_m(x)=\Omega_\pm\bigl(x^{m-3/4}\bigr).
+\limsup_{x\to\infty}\frac{E_m(x)}{x^{m-3/4}}\ \ge\ |c_1|,\qquad \liminf_{x\to\infty}\frac{E_m(x)}{x^{m-3/4}}\ \le\ -|c_1|;
+\qquad\text{in particular}\quad E_m(x)=\Omega_\pm\bigl(x^{m-3/4}\bigr).
 \]
 For $f=t^2+1$ the hypothesis holds with $\gamma_1=6.0209\dots$, the first zero of $L(s,\chi_{-4})$
 ($|Q_{2,\rho_1}|$ is computed in Section~\ref{sec:t2p1} and is non-zero).
 \end{theorem}
 \begin{proof}
-Suppose $E_m(x)\le\varepsilon x^{m-3/4}$ for all $x\ge x_0$. The function
+Let $0<\varepsilon<|c_1|$ and suppose $E_m(x)\le\varepsilon x^{m-3/4}$ for all $x\ge x_0$. The function
 $F(x)=\varepsilon x^{m-3/4}-E_m(x)$ is then non-negative for $x\ge x_0$, and for $\Re s>1$
 \[
 \begin{aligned}
-\int_{x_0}^\infty F(x)\,x^{-s-m-1}\,dx&=\frac{\varepsilon x_0^{-s-1/4}}{s+\tfrac14}-G_m(s)\\
+\Phi(s):=\int_{x_0}^\infty F(x)\,x^{-s-m-1}\,dx&=\frac{\varepsilon x_0^{-s-3/4}}{s+\tfrac34}-G_m(s)\\
 &\quad+\bigl(\text{the Mellin transforms of the subtracted terms}\bigr)+\bigl(\text{entire}\bigr),
 \end{aligned}
 \]
 where we used $\int_1^\infty R_m(x)x^{-s-m-1}dx=G_m(s)$ for $\Re s>1$ (Mellin inversion of~\eqref{eq:mellin})
 and the fact that $\int_1^{x_0}$ is entire; the Mellin transforms of $x^{m+1}$, $x^m\log x$, $x^m$, $x^{m-2/3}$
 are $1/(s-1)$, $1/s^2$, $1/s$, $1/(s+\tfrac23)$ up to constants, and they cancel the poles of $G_m$ at $1$, $0$,
-$-\tfrac23$ exactly by the definition of the coefficients. The right-hand side is therefore meromorphic in
-$\Re s>-\tfrac45$ (Theorem~\ref{thm:structure}), holomorphic on the real segment $(-\tfrac45,\infty)$ (the
-remaining real singularities of $D_f$ in this range are the zeros at $-\tfrac12$ and $-\tfrac34$; a real zero
-$\beta_0>\tfrac12$ of $L(s,\chi_D)$ would give $L(2w,\chi_D)^{-1}$ a real pole at $\beta_0/2-1>-\tfrac34$, which is why it is
-excluded --- with such a zero the remainder would instead contain a term $\asymp x^{m-1+\beta_0/2}$ of constant sign), and has a
-pole at $\rho_1/2-1$, of real part $-\tfrac34$. By Landau's theorem for integrals with non-negative
-integrand~\cite[Theorem~1.7]{MontgomeryVaughan2007}, the abscissa of convergence of the left-hand side
-is a singularity of the function on the real axis; hence the integral converges for $\Re s>-\tfrac45$, and its
-value is holomorphic there, contradicting the pole at $\rho_1/2-1$. Thus $E_m(x)>\varepsilon x^{m-3/4}$ for
-arbitrarily large $x$, i.e.\ $E_m=\Omega_+(x^{m-3/4})$; applying the argument to $-E_m$ gives $\Omega_-$.
+$-\tfrac23$ exactly by the definition of the coefficients; the comparison term $\varepsilon x^{m-3/4}$ transforms to
+$\varepsilon x_0^{-s-3/4}/(s+\tfrac34)$, with a simple pole at $s=-\tfrac34$ of residue $\varepsilon>0$. (The first version
+of this proof wrote this transform as $\varepsilon x_0^{-s-1/4}/(s+\tfrac14)$ and then overlooked the real pole it
+introduces; found by an outside reading, 15 September 2026.) The right-hand side is meromorphic in
+$\Re s>-\tfrac45$ (Theorem~\ref{thm:structure}), and on the real segment $(-\tfrac45,\infty)$ its only singularity is
+that pole at $-\tfrac34$: the real singularities of $D_f$ in this range are the zeros at $-\tfrac12$ and $-\tfrac34$,
+which are harmless; a real zero $\beta_0>\tfrac12$ of $L(s,\chi_D)$ would give $L(2w,\chi_D)^{-1}$ a real pole at
+$\beta_0/2-1>-\tfrac34$, and $L(\tfrac12,\chi_D)=0$ a real pole at $-\tfrac34$ itself, which is why both are excluded
+(with a real zero $\beta_0>\tfrac12$ the remainder would instead contain a term $\asymp x^{m-1+\beta_0/2}$ of constant sign).
+By Landau's theorem for integrals with non-negative integrand~\cite[Theorem~1.7]{MontgomeryVaughan2007}, the abscissa
+of convergence $\sigma_c$ of $\Phi$ is a singularity of its continuation on the real axis; hence $\sigma_c\le-\tfrac34$ and
+$\Phi(s)$ converges absolutely for $\Re s>-\tfrac34$. This alone yields no contradiction, because the pole of $-G_m$ at
+$\rho_1/2-1$ has real part exactly $-\tfrac34$ and lies on the line $\Re s=\sigma_c$, not to its right; the contradiction
+comes from comparing the two poles on that line. Since $F\ge0$,
+\[
+|\Phi(\sigma+it)|\le\Phi(\sigma)\qquad(\sigma>-\tfrac34,\ t\in\R).
+\]
+As $\sigma\downarrow-\tfrac34$ on the real axis, $\Phi(\sigma)=\varepsilon/(\sigma+\tfrac34)+O(1)$, since $x_0^{-\sigma-3/4}\to1$ and the
+remaining terms are holomorphic at $s=-\tfrac34$. At $s=\sigma+i\gamma_1/2$ the term $-G_m(s)$ has the pole at
+$\rho_1/2-1=-\tfrac34+i\gamma_1/2$ with residue $-c_1$ (if the pole is of order $k>1$ the leading term is
+$\asymp(\sigma+\tfrac34)^{-k}$, and the argument below only improves), while the comparison term and the subtracted
+transforms are bounded there, $\gamma_1\ne0$; so $|\Phi(\sigma+i\gamma_1/2)|\ge|c_1|/(\sigma+\tfrac34)-O(1)$. The inequality
+gives $|c_1|\le\varepsilon+O(\sigma+\tfrac34)$, and $\sigma\downarrow-\tfrac34$ contradicts $\varepsilon<|c_1|$. Thus
+$E_m(x)>\varepsilon x^{m-3/4}$ for arbitrarily large $x$, for every $\varepsilon<|c_1|$, which is the $\limsup$ statement;
+applying the argument to $-E_m$ gives the $\liminf$.
 \end{proof}
 
 \begin{remark}

@@ -191,6 +191,12 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (morning). The reviewing conversation read the PROOFS: two real defects in paper II (an empty parameter set in the
+  explicit-formula proof; the Ω-theorem's proof did not prove it — comparison term's transform mislocated, its real pole
+  forgotten) fixed with the standard Landau second step and an explicit constant; paper I's natural-boundary sentence now
+  cites part II; paper IV's L² step made explicit and the log-only Eisenstein separation stated. ERRATA 31–32, F39–F40.
+  Same reading verified thm:dirichlet's new proof, thm:smoothed's Shiu step, paper III's exponents and thm:smooth's main
+  computation independently — the core holds.
 - 15 Sep (morning). CUBIC EXPERIMENT DONE (Y = 10⁷, 3.3 h): NO GL(3) signal; the level-1 statistic of x³ − 2 grows like
   T^{1/4}–T^{1/3}, not √T; the weak peaks (4.0, 6.8, 9.4) do not persist on the upper half; joint fits of GL(3) parameter
   sets are not above random. The quadratic mechanism does not transfer. Parked; explore/STATE.md §9.
@@ -517,6 +523,17 @@ checked with the author; same species as F21 ("submitted"). Rule: every sentence
 context, is a claim to be verified like a constant — ask, or look at the record; provenance of a reviewer is part of the
 evidence, and overstating independence is the case-study analogue of overstating a theorem. Found by the reader itself.
 (ERRATA 28)
+
+F39. "δ = ε₀ and ε₀ ≤ ε₁(ε₀), possible since ε₁(δ) ≫ δ/log(1/δ)" (paper II, explicit formula). The lemma gives ε₁(δ) ≍
+δ/log(1/δ), which makes the choice IMPOSSIBLE for small ε₀ — the justification was the reason it fails. Rule: for every
+named constant in a proof, list the constraints it must satisfy and check that the set is non-empty; a quantifier is a
+claim to be verified like any other. (ERRATA 31a)
+
+F40. "∫ ε x^{m−3/4} x^{−s−m−1} dx = ε x₀^{−s−1/4}/(s+1/4)" (paper II, Ω-theorem): the exponent copied by pattern from the
+neighbouring transforms (three of four in the same sentence were right), and the comparison term's own real pole then
+forgotten when declaring the function holomorphic on the real axis — which is exactly what Landau's theorem hinges on.
+Rule: recompute every transform in a display; never copy the pattern. And: the object YOU introduce (a comparison term, a
+smoothing, a truncation) has its own singularities — list them with the others. (ERRATA 31b)
 
 ## 2. What is proved, conjectured, refuted (status board)
 PROVED (paper I): exact identity; ζ_K(s+1)E_f(s) with residue 1/C; E_f = H_f/L(2s+2,Sym²V) with H_f abs. conv.
@@ -876,6 +893,9 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 - Any truncated Euler product multiplying H or x^{m+1}: complete the tail analytically.
 - Any novelty claim: Kurokawa 1986, Moroz 1988, Alberts 2024 (Euler products); Hooley 1963/64, DFI 1995/2012,
   Marklof–Welsh 2023 (roots of congruences); Goldston–Suriajaya 2021, KRR 2022 (singular-series averages).
+- Any named constant or exponent chosen in a proof: list its constraints, check the set is non-empty (F39). Any Mellin/
+  Perron/Laplace transform in a display: recompute it, never copy the pattern; list the singularities of every object the
+  proof itself introduces (F40).
 - Any partial-sum asymptotic with O(1): difference it first (F26). Any "same proof" generalisation: recompute every
   pole order and multiplicity the special case fixed by accident (F27). Any rewrite of an arithmetic sum as an orbit
   sum: list every condition on the summation variables and check its invariance under the group (F28).

@@ -813,16 +813,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 362.
 
+[7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 405.
+(hyperref)                removing `math shift' on input line 438.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 405.
+(hyperref)                removing `math shift' on input line 438.
 
-[7] [8] [9] [10] (data/sums-rows.tex)
-Package pgfplots info on input line 630: Using 'lua backend=false' for axis: xm
+[8] [9] [10] (data/sums-rows.tex) [11]
+Package pgfplots info on input line 667: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
 PGFPlots: reading {data/sums-curves.dat}
 PGFPlots: reading {data/sums-curves.dat}
@@ -831,29 +832,29 @@ PGFPlots: reading {data/sums-curves.dat}
 PGFPlots: reading {data/sums-curves.dat}
 PGFPlots: reading {data/sums-curves.dat}
 PGFPlots: reading {data/sums-curves.dat}
-Package pgfplots info on input line 653: Using 'lua backend=false' for axis: xm
+Package pgfplots info on input line 690: Using 'lua backend=false' for axis: xm
 ode=log unsupported (yet).
-Package pgfplots info on input line 653: Using 'lua backend=false' for axis: ym
+Package pgfplots info on input line 690: Using 'lua backend=false' for axis: ym
 ode=log unsupported (yet).
 PGFPlots: reading {data/exact.dat}
 PGFPlots: reading {data/exact.dat}
- (data/exact-rows.tex) [11] [12] [13]
-(data/off-rows.tex) [14] [15] [16]
-Underfull \hbox (badness 7415) in paragraph at lines 919--919
+ (data/exact-rows.tex) [12] [13] [14]
+(data/off-rows.tex) [15] [16] [17]
+Underfull \hbox (badness 6526) in paragraph at lines 956--956
 []\T1/lmr/bx/n/10 Table 4: |\T1/lmr/m/n/10 The function-field iden-tity of The-
-o-rem [][]9[][] for $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 t[] 
-\OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 D$ \T1/lmr/m/n/10 over $\U/msb/m/n/10 F[]
-\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ]$
+o-rem [][]10[][] for $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 t[]
+ \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 D$ \T1/lmr/m/n/10 over $\U/msb/m/n/10 F[
+]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ]$
  []
 
 (data/ff-rows.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 934--934
-[]\T1/lmr/bx/n/10 Table 5: |\T1/lmr/m/n/10 Lemma [][]10[][] checked (\T1/lmtt/m
+Underfull \hbox (badness 10000) in paragraph at lines 971--971
+[]\T1/lmr/bx/n/10 Table 5: |\T1/lmr/m/n/10 Lemma [][]11[][] checked (\T1/lmtt/m
 /n/10 research/experiments/ff-tail.ts\T1/lmr/m/n/10 ): the fi-nite sum
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 934--934
+Underfull \hbox (badness 1137) in paragraph at lines 971--971
 \T1/lmr/m/n/10 i-fied, the se-ries $\OML/cmm/m/it/10 q[] [][] W[]\OT1/cmr/m/n/1
 0 (\OML/cmm/m/it/10 d\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 ![]\OT1/cmr/m/n/10 (\OM
 L/cmm/m/it/10 d\OT1/cmr/m/n/10 )[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ![]\OT
@@ -863,24 +864,24 @@ L/cmm/m/it/10 d\OT1/cmr/m/n/10 )[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ![]\OT
  ob-tained
  []
 
-(data/fftail-rows.tex) [17] [18] [19]
+(data/fftail-rows.tex) [18] [19] [20]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 944.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 944.
+(hyperref)                removing `math shift' on input line 981.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 944.
+(hyperref)                removing `\chi' on input line 981.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 944.
+(hyperref)                removing `subscript' on input line 981.
 
-[20] (data/rieszd-rows.tex) [21] (data/galois-rows.tex) [22]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 981.
+
+[21] (data/rieszd-rows.tex) [22] (data/galois-rows.tex) [23]
 (data/summary-rows.tex)
 PGFPlots: reading {data/variance-spiral.dat}
 PGFPlots: reading {data/variance-random.dat}
@@ -889,37 +890,37 @@ PGFPlots: reading {data/variance-spiral.dat}
 PGFPlots: reading {data/variance-spiral.dat}
 PGFPlots: reading {data/variance-random.dat}
 PGFPlots: reading {data/variance-linear.dat}
- [23]
+ [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1208.
+(hyperref)                removing `math shift' on input line 1245.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1208.
+(hyperref)                removing `math shift' on input line 1245.
 
-[24] [25]
-Underfull \hbox (badness 1168) in paragraph at lines 1310--1320
+[25] [26]
+Underfull \hbox (badness 1168) in paragraph at lines 1347--1357
 \T1/lmr/m/n/10.95 the repos-i-tory root with \T1/lmtt/m/n/10.95 npx tsx <path>\
 T1/lmr/m/n/10.95 , and $\T1/lmtt/m/n/10.95 research / experiments / REPORT-[]fu
 ll . md$
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 1310--1320
+Underfull \hbox (badness 1742) in paragraph at lines 1347--1357
 \T1/lmtt/m/n/10.95 ts$ \T1/lmr/m/n/10.95 (Sec-tion [][]3[][]), the \T1/lmtt/m/n
 /10.95 riesz \T1/lmr/m/n/10.95 scripts and $\T1/lmtt/m/n/10.95 research / exper
 iments / galois . ts$ \T1/lmr/m/n/10.95 (Sec-tion [][]4[][]),
  []
 
-(main.bbl [26]
+(main.bbl [27]
 Underfull \hbox (badness 1062) in paragraph at lines 15--18
 []\T1/lmr/m/n/10.95 L. Bary-Soroker.  Hardy--Littlewood tu-ple con-jec-ture ove
 r large fi-nite fields, 2012.
  []
 
-[27] [28]) (data/cell-rows.tex) [29] [30] (main.aux)
+[28] [29]) (data/cell-rows.tex) [30] [31] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AAD6326DC1BB6BAA5DBF4A335962617C;4010.
  )
-Output written on main.xdv (30 pages, 668768 bytes).
+Output written on main.xdv (31 pages, 675720 bytes).

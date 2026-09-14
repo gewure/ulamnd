@@ -844,7 +844,12 @@ $\ll C_y+\eta C_y^2\ll y^{-1/2}+t/\sqrt{|D|}$ exceptional cosets in the block, e
 the $\ll1/y$ non-exceptional ones contribute $\ll ty^2$ each by Lemma~\ref{lem:seed}(i). The block therefore
 contributes $\ll y^{1/2}+ty$, and the sum over the dyadic blocks $y\le\sqrt{|D|}$ is $\ll_D1+t$. The cosets of
 $\Gamma_0(e)$ are among those of $\Gamma$, so $P_e[\Phi^\flat_t]$ is bounded (by $\ll_D1+t$) on the quotient, hence
-square-integrable on the finite-volume $\Gamma_0(e)\backslash\mathbb H$.
+square-integrable on the finite-volume $\Gamma_0(e)\backslash\mathbb H$. For later use we record the count itself: for $w$
+in the fundamental domain, $y\le\sqrt{|D|}$ and $\eta>0$,
+\begin{equation}\label{eq:cosetcount}
+\#\{\gamma\in\Gamma_\infty\backslash\Gamma:\ \Im\gamma w\in[y,2y]\}\ll\frac1y,\qquad
+\#\{\gamma:\ \Im\gamma w\in[y,2y],\ \|\Re\gamma w\|\le\eta\}\ll y^{-1/2}+\frac\eta y .
+\end{equation}
 \end{proof}
 
 \begin{remark}[the continuous spectrum]\label{rem:eisenstein}
@@ -1187,8 +1192,10 @@ carried out on the $k$-summed second form, where each term is bounded and the $d
 has vanishing $x$-mean. For $\kappa\ge1$ it is $\ll_N(Yy^2/|D|)\kappa^{-N}$: the moduli $d\le Y^{1-\delta}$, where
 $\kappa\ge Y^{\delta}$, contribute $O(Y^{-N})$ in total, while the moduli $d\asymp Y$ do contribute. For $\kappa<1$ it is
 $-(Yy^2/|D|)\hat w(0)$ off the set $\{x:\ \exists n,\ (n-x)/\kappa\in\operatorname{supp}w\}$, of measure $\ll\kappa$, and $\ll y$ on
-it. So for $\Im\gamma w$ in a dyadic block $[y_0,2y_0]$ with $Yy_0<\sqrt{|D|}$ the coset count in the proof of
-Lemma~\ref{lem:trunc}, with $Y$ in place of $t$, bounds the block by $\ll y_0^{1/2}+Yy_0$, and the blocks with
+it. So for $\Im\gamma w$ in a dyadic block $[y_0,2y_0]$ with $\kappa_0=Yy_0/\sqrt{|D|}<1$, the count~\eqref{eq:cosetcount}
+with $\eta\asymp\kappa_0$ gives $\ll y_0^{-1/2}+Y/\sqrt{|D|}$ cosets on which the seed is $\ll y_0$, contributing
+$\ll y_0^{1/2}+Yy_0$, and $\ll1/y_0$ cosets on which it is $\ll Yy_0^2/|D|$, contributing $\ll Yy_0$; so the block is
+$\ll_D y_0^{1/2}+Yy_0$, the sum over the dyadic blocks with $Yy_0<\sqrt{|D|}$ is $\ll_D1$, and the blocks with
 $Yy_0\ge\sqrt{|D|}$ are bounded by the rapid decay; hence $P_e[\Psi^w_Y]$ converges absolutely and uniformly on compacta,
 is bounded on $\Gamma_0(e)\backslash\mathbb H$ (by $\ll_D1$, uniformly in $Y$), and lies in $L^2$; its spectral expansion
 has no constant term. It is also continuous, $\Psi^w_Y$ being continuous.
@@ -1323,6 +1330,10 @@ $-43$ & 4 & $0.0006$ & $0.0024$ & --- & ---\\
 \end{table}
 
 \begin{remark}[what the smooth theorem says and does not say]\label{rem:smoothmeaning}
+The continuous spectrum is separated from the discrete lines only by powers of $\log Y$, not by a power of $Y$:
+$\mathcal E^w(Y)\ll_AY^{-1/2}(\log Y)^{-A}$ is of the same order as the main term up to logarithms, and at $Y=10^7$
+($\log Y\approx16$) that margin is modest. Any quantitative use of the theorem, including the level-$u^2$ discussion of
+\S\ref{sec:uniformity}, must carry the Eisenstein term along rather than drop it.
 Since the seed is $O(Y^{-N})$ on the moduli $d\le Y^{1-\delta}$ (not on all of $d\le Y$: the moduli $d\asymp Y$ contribute, a
 point a second reading made precise), Theorem~\ref{thm:smooth} is a statement about the moduli $d\ge Y^{1-\delta}$, essentially
 the window and the far moduli of part~III, for $u=1$ and the model weights: they oscillate at the Maass parameters, at the scale

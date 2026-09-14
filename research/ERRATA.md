@@ -410,3 +410,29 @@ route before being applied (the checks are described in the items). We agree wit
     grids piece-DS-all-D-<|D|>-smooth-grid.dat. Also: the Perron display eq:perron was 64 pt too wide (from ERRATA 25's
     edit) and is now a gathered display; paper IV 0 overfull.
 
+31. **Paper II: two defects in the proofs of the explicit formula and of the Ω-theorem (15 Sep; found by the author's
+    reviewing Claude conversation, which this time read the proofs line by line; both verified against the text).**
+    (a) Theorem thm:explicit-quadratic, head of the proof: "δ = ε₀ and ε₀ ≤ min(ε₁(ε₀), 1/100), possible since ε₁(δ) ≫
+    δ/log(1/δ)". The lemma's proof gives ε₁(δ) ≍ δ/log(1/δ), so ε₀ ≤ ε₁(ε₀) forces log(1/ε₀) ≪ 1 and is incompatible with
+    ε₀ ≤ 1/100 unless the absolute constant c₁ happens to be < 0.16: the admissible set was empty as far as the argument
+    showed. Nothing needs δ small; the horizontal segments need ε₀ + δ ≤ 17/48. Fixed: δ = 1/8, ε₀ ≤ min(ε₁(1/8), 1/100),
+    horizontal bound now U^{−7/8+4ε₀} (still ≪ x^{m−1} with U ≥ x¹⁶). The theorem is unchanged.
+    (b) Theorem thm:omega: the Mellin transform of the comparison term ε x^{m−3/4} was written ε x₀^{−s−1/4}/(s+1/4); it
+    is ε x₀^{−s−3/4}/(s+3/4), with a real pole at −3/4 that the proof then overlooked when it declared the right-hand side
+    holomorphic on (−4/5, ∞). With the pole in place Landau gives σ_c ≤ −3/4 and the target pole ρ₁/2−1 lies ON the line
+    Re s = −3/4, so convergence alone gives no contradiction: the printed proof did not prove the theorem. Repaired by the
+    standard second step: |Φ(σ+it)| ≤ Φ(σ) for F ≥ 0, Φ(σ) = ε/(σ+3/4) + O(1), |Φ(σ+iγ₁/2)| ≥ |c₁|/(σ+3/4) − O(1), hence
+    ε ≥ |c₁|; the theorem now states limsup E_m/x^{m−3/4} ≥ |c₁| and liminf ≤ −|c₁| with c₁ = Res_{ρ₁/2−1} G_m (= Q_{m,ρ₁}
+    for a simple pole), and acquires the hypothesis L(1/2, χ_D) ≠ 0 (to exclude a real pole of G_m at −3/4; true for χ₋₄).
+    Two fallacies recorded: F39 (a parameter chosen without checking that the constraint set is non-empty) and F40 (a
+    transform copied by pattern from its neighbours; the comparison term's own singularity forgotten). Paper II 24 pp.
+
+32. **Paper I and paper IV: two presentation defects from the same reading (15 Sep).** Paper I, proof of Theorem thm:artin:
+    "these zeros have real part → −1 and imaginary parts dense, which gives the natural boundary" was a mechanism, not a
+    proof; it now says so and cites part II's proof (which handles the three points a proof needs). Paper IV, Theorem
+    thm:smooth: the L² membership of the automorphised seed rested on "the coset count in the proof of Lemma trunc with Y
+    in place of t"; the count is now an explicit displayed statement (eq:cosetcount) in Lemma trunc's proof and the block
+    estimate in thm:smooth is derived from it on the page. Remark rem:smoothmeaning now states that the continuous
+    spectrum is separated from the lines only by powers of log Y (as the theorem's statement always said), a modest margin
+    at Y = 10⁷. Paper I 31 pp, paper IV 32 pp.
+
