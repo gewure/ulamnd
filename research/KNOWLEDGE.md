@@ -191,6 +191,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (09:20). Lemmas C (Gram, two traces) and D (newform periods: Hecke and Fricke terms cancel, vanishing for inert u,
+  level-u Heegner period otherwise) PROVED and checked to machine precision. All named lines of the dilated pieces are now
+  Heegner-type periods. Draft edits wait for the adversarial reading in progress.
 - 15 Sep (08:00). Lemmas A and B of the dilation draft PROVED (lines in P¹(F_u), B-orthogonality, Hecke sum minus isotropic
   lines); Theorem 2 now rests only on the Gram lemma (standard). Adversarial reading of the draft launched (fresh opus agent).
 - 15 Sep (morning). The reviewing conversation read the PROOFS: two real defects in paper II (an empty parameter set in the

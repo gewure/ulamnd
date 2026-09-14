@@ -338,3 +338,16 @@ Lemma C (Gram) remains: the general oldform inner-product formula ⟨f|B_{p^a}, 
 k = |a−b|, reproduces both entries (k=1: ILS; k=2: our h) — to be located/derived. A fresh adversarial reader (opus) is
 reading the draft now; its findings go into ERRATA before anything else happens to the draft.
 
+## 11. Lemmas C and D proved and checked (15 Sep, 09:20); one correction to the proof text of Lemma B
+- Lemma C (Gram): two trace computations (Γ₀(p²) → Γ₀(p) → Γ); ⟨f(p²z), f⟩/⟨f,f⟩ = (λ² − 1 − 1/p)/(p+1) exactly as observed.
+  Newform entry ⟨v(pz), v⟩/⟨v,v⟩ = −ε/p from the vanishing trace of a newform plus Fricke. PROOFS-dilation.md §3'.
+- Lemma D (newform periods): the value at a family point depends only on the second column line; the u+1 lines give the
+  u points (z+k)/u and the Fricke image W_u z, whose sum is √u a_v(u) v + ε v = 0; so the period vanishes for inert u and
+  equals −(sum over the isotropic-line neighbours as level-u Heegner points) for split u, (u−1)·(ramified neighbour) for u ∥ D.
+  Verified to machine precision at five discriminants. PROOFS §5'.
+- Correction: in Lemma B the Hecke coset of z_Q/u is fixed by the SECOND column line (right multiplication by Γ⁰(u)); values
+  unchanged by the symmetry of B. The draft (paper-dilation/main.tex) still has "first"; to be fixed together with the
+  reader's findings (reading in progress; the draft is not edited while it is read).
+Every line of piece u that has a name is now a Heegner-type period: level-1 lines (Lemma B) and level-u newform lines
+(Lemma D). Unnamed: the cycloidal-group forms of level u².
+

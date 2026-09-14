@@ -223,7 +223,9 @@ of `ℓ₁` are `Γ₀(u)`-equivalent and `v` takes the same value on them: `v(�
   level-`u` Heegner period over the ramified neighbour.
 - `Per_{W_u}(v(u·)) = ε Per_{W_u}(v)` by the divisor involution (§3'(iv)).
 So Theorem 3's coefficient is `√u·[P_v, εP_v]·(G_v)⁻¹·(L~_v, L~_v/u)ᵀ` with the 2×2 Gram matrix `⟨v,v⟩·[[1, −ε/u],[−ε/u, 1]]`, and
-it vanishes for inert `u`. Numerically confirmed at `D = −8, −11, −20` (split), `−3, −15` (ramified), `−4, −7` (inert): STATE §8.
+it vanishes for inert `u`. Numerically confirmed at `D = −8, −11, −20` (split), `−3, −15` (ramified), `−4, −7` (inert): STATE §8. **Direct check of the
+identity itself (09:20):** `Per_{W_3}(v)` from the orbit sum equals `−Σ_C Σ_{ℓ₂ iso} v((z_C+k)/3)/|S_C|` (split) and
+`(u−1)·Σ_C v(radical neighbour)/|S_C|` (ramified) to all printed digits (ratio 1.00000) at `D = −8, −11, −20, −3, −15`.
 
 **Consequence for the u-problem.** Every line of piece `u` that we can name is now a period over level-`u` Heegner points (or the
 level-1 period times a local factor): the level-1 lines by Lemma B, the level-`u` newform lines by Lemma D. What remains
