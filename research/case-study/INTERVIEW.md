@@ -87,3 +87,18 @@ of model reading be quoted verbatim?
 - Q12: target venue/format; permission to quote the second outside reader's assessment verbatim; the exact title/URL
   of the "AI and mathematics" statement signed by Fields medallists that you refer to (so it can be cited correctly).
 - Q4: which guardrail came too late (the stopping criterion? the archived external review?).
+
+**Answers, second round (14 Sep, verbatim):** https://mathandai.org/ you can quote verbatim. restarts should if possible not happen
+in a dense situation. it can happen because out of $ or even a sub-agent can get stuck in a loop and eat away a lot. this is an
+open problem i think generaly, but it was not a big problem during the process. i think that this project is about the limits of
+what AI can do, and beyond it currently gets unfeasable. Already here even experts will have a long time to understand all of the
+output. q4 i would not say that any guardrail came too late. i was a bit late to restructure everything around the research
+programm, not the webservice that visualizes ulam experiments - but i dont think it had too much influence. Its important though
+to keep in mind that every file/additional contex in the project can influence the quality of the work. Maybe, i cannot prove
+this, the next.js context helped the model to be more efficient. this is common prompt-philosophy and very hard, if even
+possible, to prove. what i can say from my yearlong experience is that asking stupid questions gets stupid answers and that few
+verbose words at the right time can make a big difference. if enough anchor-points are given a vague prompt with a lot of
+phantasy can turn into a proper output - the anchor points must be valid. To give a analogy: i think heegener points are similiar
+to that, in the works. But i dont understand the work, ofcourse - i give my best now, to learn about how to defend and present it
+- purely classical mathematically. regarding the prompts: quote only parts of them please. target venue: yes why not arxiv.
+

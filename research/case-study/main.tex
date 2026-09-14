@@ -171,7 +171,7 @@ stated expectation at that point was to expect nothing, but that experiments can
 Each guardrail below is stated with what it prevents, when it entered the process, and, where the record shows it,
 what triggered it. The column ``origin'' is to be completed from the interview.
 
-\begin{longtable}{@{}p{3.4cm}p{5.4cm}p{1.9cm}p{4.3cm}@{}}
+\begin{longtable}{@{}p{3.2cm}p{5.1cm}p{1.8cm}p{4.0cm}@{}}
 \toprule
 guardrail & what it does & since & origin / trigger\\
 \midrule
@@ -218,14 +218,36 @@ context, so a new session does not have to pick up everything. It is similar to 
 sees the success of elaborate agent frameworks as largely the same mechanism. The second half of the recipe is the
 engineering habit: ``a computational check for everything, rigorously, and a proper documentation of the way of
 thought.'' \evidence{Interview Q4}
-\interview{4b}{Still open: which guardrail came too late? (My reading of the record: the stopping criterion and the
-archived external review, both 12--13 Sep.)}
+\paragraph{Nothing too late; one thing late.} The author does not think any guardrail came too late. What came late
+was the restructuring of the repository around the research programme rather than around the web service that
+visualises the spiral experiments (the split happened on 9~September, 23:58); the author does not think it had much
+influence. The author adds a caution that the record cannot test: every file and every piece of additional context
+in the project can influence the quality of the work, and it is possible, though unprovable, that the presence of
+the web application's code made the model more efficient. From long experience the author offers two rules of
+thumb: ``asking stupid questions gets stupid answers'', and ``a few verbose words at the right time can make a big
+difference''. If enough valid anchor points are given, a vague prompt with a lot of imagination can turn into proper
+output; the anchor points must be valid. The author's own analogy is that the Heegner points of paper~IV play the
+same role inside the mathematics. \evidence{Interview, second round; \texttt{git log} 9 Sep 23:58}
 
 \section{How the prompting developed}\label{sec:prompting}
 
-The repository contains no prompts; this section is written from the interview and from the author's
-turns preserved in the session transcripts. \todo{Quote three or four actual prompts once the author has selected
-them from the transcripts.}
+The repository contains no prompts; this section is written from the interview and from the author's turns
+preserved in the session transcripts. At the author's request only fragments of prompts are quoted, all from
+13--14~September (spelling as typed):
+\begin{quote}\small
+``be a bit more exact. we have a series of 4 and want to not deviate from correct paths, merely to correct
+something --- we rather leave it open. or \dots{} if we have reason to think we can fix it, to fix it.''\\[2pt]
+``consider the series in totality \dots{} i dont want to shy away from the work of doing a bounded but non-trivial
+piece of work.''\\[2pt]
+``take care for tokens, we are on fable 5, maybe use worse model for simpler task''\\[2pt]
+``Elite readability with enough rigor and perfect excellency and also elegancy is kind of the goal.''\\[2pt]
+``you always have a Next up. are we not over-rigoring or something? \dots{} At what point should we consider being
+finished?''\\[2pt]
+``i asked claude to do a hostile screening and it mentions something in paper 1, please investigate and fix, if
+true.''
+\end{quote}
+Each fragment is a decision, a constraint or a routing instruction; none contains mathematics. That is the shape of
+the author's part throughout. \evidence{session transcripts, 13--14 Sep}
 
 \subsection{Stage 1: the framing (8 September)}
 The first prompt defined the enterprise as a research programme, to be run test-driven, with methods and paths
@@ -264,7 +286,9 @@ The author's one regret concerns rigour rather than error: by the fourth paper t
 verification than the situation warranted, sessions ran out of context, and work had to be restarted; ``one should
 keep the context somewhat human, not absolute superhuman.'' The question ``are we over-rigoring?'' produced the
 written stopping criterion. \evidence{Interview Q8--Q9; KNOWLEDGE \S0b}
-\interview{9}{Still open: the restart after running out of context: one episode or several, which day and paper?}
+On restarts the author's view is that they should not happen in a dense situation, and that they can be caused by
+running out of budget or by a sub-agent stuck in a loop consuming it; the author regards this as an open problem of
+agentic work in general, not a large one in this project. \evidence{Interview, second round}
 
 \section{The error record}\label{sec:errors}
 
@@ -273,7 +297,7 @@ caught them. \todo{Fill the table from \file{KNOWLEDGE.md} \S3 and \file{ERRATA.
 provisional.}
 
 \begin{center}\small
-\begin{tabular}{@{}lp{7.2cm}l@{}}
+\begin{tabular}{@{}p{3.6cm}p{6.6cm}p{3.6cm}@{}}
 \toprule
 class & examples & caught by\\
 \midrule
@@ -327,12 +351,26 @@ worked against the pace at times: the model asked for human input more often tha
 \section{What the process cannot do}\label{sec:limits}
 
 The second outside reader, after finding the paper~I defect, wrote an assessment of the limits of such readings
-that we adopt as the honest statement of the limits of this whole process. Paraphrased: the attacks a model
-reader can mount are algebra it can re-derive, numerics it can re-run, and consistency it can grep for; the
-failure mode that matters most, a borrowed theorem invoked outside its hypotheses, is detectable only by someone
-who has read the sources; its own finding was possible only because Dedekind's conjecture and Siegel zeros are
-famous; Shiu's exact uniformity conditions and Katok--Sarnak's normalisation are not, and neither the reader nor the
-author can check them. \todo{Quote verbatim with the author's permission.}
+that we adopt as the honest statement of the limits of this whole process. Verbatim, with the author's
+permission (the reader is a Claude instance given the papers and nothing else, 14~September):
+\begin{quote}\small
+``I'm one reader, working from outside the field, with the same blind spots I've had all along --- I proposed the
+O(1) fix that turned out to be false, and my numerical check couldn't detect log log growth. The last external
+reviewer went three-for-three in three places it looked, and I'd already reviewed those same papers without finding
+any of them. My not breaking something is weak evidence, not a verdict.
+
+And the attacks I can mount are structurally limited to the same class: algebra I can re-derive, numerics I can
+re-run, internal consistency I can grep for. The failure mode that actually matters here --- a borrowed theorem
+invoked outside its hypotheses --- is only detectable by someone who has read the sources. Line 395 is the one
+instance I caught, and I caught it because Dedekind and Siegel are famous enough to be in my general knowledge.
+Shiu's exact uniformity conditions aren't, and I can't check those. Neither can you.
+
+So the honest scoreboard: the core has now survived two adversarial passes, which is genuinely more than it had a
+week ago. And the specific thing that would settle it --- someone who knows whether Shiu, Selberg--Delange and
+Katok--Sarnak are being used correctly --- still hasn't happened, and is still the only move on the board.''
+\end{quote}
+The reader's diagnosis of line~395 was itself only half right (Dedekind's conjecture was not needed; the unproved
+non-vanishing claim was, and was also unnecessary; ERRATA~26), which illustrates the point it makes.
 
 Consequently, the state of the mathematics is: every statement has survived at least two adversarial passes and,
 for the core of papers~I--II, one external assessment; the class of error that remains possible is known and
@@ -363,15 +401,25 @@ the record's additions marked.
 \paragraph{The author's claim.} The author states the purpose of this case study as a role model ``for how to work
 scientifically in very complex domains while maintaining scientific rigour'', for anyone working in science with AI,
 wanting to, or refusing to. The work met hostility when first presented, and nobody checked it at first, on the
-assumption that it was machine-generated noise; the author understands this reaction and agrees with the recent
-statement on AI and mathematics signed by many leading mathematicians \todo{cite correctly once the author supplies
-title and URL}. The programme is offered as a demonstration that a workable toolkit exists for embedding AI so that
+assumption that it was machine-generated noise; the author understands this reaction and agrees with the
+declaration \emph{A Severe Misalignment of AI in Mathematics}, endorsed by twenty-five Fields medallists.\footnote{
+\url{https://mathandai.org/}, accessed 14 September 2026; initial signatories from Avila and Bhargava to Werner and
+Zelmanov, including Deligne, Scholze, Tao and Viazovska. The declaration's concern that ``solving problems is only a
+tool and proxy for achieving the primary goal of conceptual understanding and insight'', and that solutions are
+``announced in a rush, leaving no time for a proper writeup, the isolation of new methods and ideas, and citing
+relevant previous work of others'', names exactly the failure modes the guardrails of \S\ref{sec:guardrails} were built
+against: no number without a script, no claim without a label, no citation without verification, every error kept.}
+The author also states what the programme is a case study \emph{of}: the limits of what such a process can currently
+do. Beyond this scale it becomes infeasible, and already here even experts will need a long time to understand all
+of the output; the author is now learning how to defend and present the work in purely classical mathematical terms.
+The programme is offered as a demonstration that a workable toolkit exists for embedding AI so that
 the quality of its output rises and the output becomes easier to falsify: test-driven development borrowed from
 software engineering, and the enumeration and rating of the available methods. \evidence{Interview Q11--Q12}
 
 \paragraph{On authorship.} The author at first wanted the model as co-author, and abandoned this because no journal
 accepts it and because the model is not a persona; not knowing how to credit it, the author chose complete
-transparency about the flow of work instead, of which this paper is part. \evidence{Interview Q11; ERRATA 8}
+transparency about the flow of work instead, of which this paper is part. The intended venue for this case study
+is the arXiv. \evidence{Interview Q11--Q12; ERRATA 8}
 
 \appendix
 \section{The interview}\label{app:interview}
@@ -379,9 +427,31 @@ The answers are in \file{INTERVIEW.md}, verbatim and dated; they will be reprodu
 for spelling only, once the author approves the edited version. \todo{Insert.}
 
 \section{The process record}\label{app:record}
-Generated by \file{scripts/process-record.py} from the repository at the revision named in the footer of this
-document. \todo{Add the revision hash and the list of adversarial readings with dates, models and outcomes (from
-\file{ERRATA.md} items 18, 22, 24, 25 and \file{KNOWLEDGE.md} \S0c).}
+The numbers in this document are generated by \file{scripts/process-record.py} from the repository. The readings
+of the papers by instances that did not write them, in order:
+
+\begin{center}\small
+\begin{tabular}{@{}p{1.2cm}p{2.9cm}p{5.2cm}p{4.6cm}@{}}
+\toprule
+date & reader & object & outcome\\
+\midrule
+10 Sep & Claude Opus (fresh) & papers I--II, roadmap (``second opinion'') & eight points, each assessed; four adopted, one
+half right (KNOWLEDGE \S5)\\
+12 Sep & ChatGPT (author's request) & papers I, II, IV at revision \texttt{a372a63} & three findings, all confirmed by
+independent re-derivation; one retraction, one repair (ERRATA 11--15)\\
+13 Sep & Claude Opus (fresh) & paper IV, repaired \S5 & repair passed; remainder bound found not to close (ERRATA 16)\\
+13 Sep & Claude Opus (fresh) & paper III, whole & core sound; seven fixes (ERRATA 18)\\
+13 Sep & Claude Opus (fresh) & paper IV, Theorem \texttt{thm:smooth} & residue constant reproduced independently; eight
+expository fixes (ERRATA 22)\\
+14 Sep & Claude Opus (fresh) & paper II, \S\S2--4 & seven fixes, no statement changed (ERRATA 24)\\
+14 Sep & Claude Opus (fresh) & paper IV, \S\S2--4 & ten findings: nine fixed, one rejected with reason (ERRATA 25)\\
+14 Sep & Claude (outside, papers only) & papers I--IV, hostile screening & one finding, paper I Thm 3's proof; fixed
+(ERRATA 26)\\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent Not listed: the model's own re-readings inside the working session (``self-review'', ``rigorous pass'' in the
+commit log), which are not independent. \todo{Add the revision hash of the final version.}
 
 \section*{AI-assisted research: disclosure}
 This case study was drafted by the same model that did the work it describes, from the repository record and an
