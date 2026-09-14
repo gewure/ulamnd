@@ -97,8 +97,10 @@ scan of P/T^a for a ∈ {0.16, 0.33, 0.5}, and the FKL/Bian parameter convention
   (Farmer's page aimath.org/~farmer/symsquare, found by Bian and Booker). Farmer–Koutsoliotas–Lemurell, IMRN 2014,
   arXiv 1212.4545, Table 3.1 lists 15 forms as (λ₁, λ₂): (13.59658451, 4.76468206), (14.14163558, 2.38038848),
   (15.31863407, 4.19173391), (15.74069912, 7.85232504), (16.05436164, 1.98365457), (16.40312474, 0.17112189), … .
-  UNRESOLVED: the map between FKL's (λ₁, λ₂) and the three L-parameters (their λ-convention is defined in §3.2 of the
-  paper — read it before comparing); and which combination should appear as a frequency in log Y (the torus-orbit
+  RESOLVED: FKL §3.2–3.3: the Γ-factors are Γ_R(s+μ_j), μ_j = iλ_j, λ₁ ≥ λ₂ ≥ 0, λ₃ = −λ₁−λ₂; Farmer's page quotes μ_j/2
+  ({6.798, 2.382, −9.181} = half of FKL row 1 {13.5966, 4.7647, −18.3613}). Candidate frequencies in log Y are the |λ_j|:
+  form 1: 4.76, 13.60, 18.36; form 2: 2.38, 14.14, 16.52; form 3: 4.19, 15.32, 19.51; form 4: 7.85, 15.74, 23.59;
+  form 5: 1.98, 16.05, 18.04; form 6: 0.17, 16.40, 16.57 (or the halves, if the GL₃ analogue of Y^{1/2+it} carries μ/2); and which combination should appear as a frequency in log Y (the torus-orbit
   heuristic suggests the |μ_j| themselves; nothing is derived). Also the expected growth exponent of P for a cubic is
   NOT known (√T for GL₂; for GL₃ maybe different) — scan P/T^a for a ∈ {1/2, 2/3, 1}.
 **Honest expectation:** unknown outcome; that is the point. If lines appear at GL(3) parameters it is a new phenomenon;
@@ -124,7 +126,7 @@ forms alone, NO free parameter):**
 object), holds as a function of D including the class-number > 1 cases and the Bessel decay. This is the "amplitude law"
 of RESEARCH-USES §2d/§4 item 5(a) — done for the smooth object. NOT a test of the Katok–Sarnak constant (no weight-1/2
 coefficients involved); the KS shape (linear, |D|^{−3/4}) is from Sugiyama's announcement, see below.
-**For paper IV:** a table of these ratios belongs in the test paragraph of thm:smooth (sec:smooth) — NOT yet added; the
+**For paper IV:** DONE (ERRATA 30): paragraph + Table tab:dsweep in sec:smooth; the
 threshold paragraph's prediction ("marginal at 27, reduced ~50× at 43") is now checked: at −27 predicted 0.010 vs observed
 0.012; at −43 predicted 0.0006, observed at noise.
 

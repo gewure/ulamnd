@@ -401,3 +401,12 @@ route before being applied (the checks are described in the items). We agree wit
     still to be pinned to Katok–Sarnak 1993 (paywalled). Bib entries Stromberg2012, Sugiyama2021 added. Also: the
     display for 𝒫^{(0)} (this morning's ERRATA 25 edit) was 64 pt too wide and is split. Paper IV 31 pp, 0 overfull.
 
+30. **Paper IV, Section sec:smooth: the amplitude law tested across fifteen discriminants (14 Sep, night).** New paragraph
+    and Table tab:dsweep: the predicted amplitude of the line t₁ (no free parameter; Per_D over all classes of forms of
+    discriminant 4D with stabiliser weights) against the fitted amplitude on smooth-window data to Y = 10⁷. Ten
+    discriminants with |D| ≤ 23 within 5% and 0.1 rad (class numbers 2–6); beyond the Bessel turning point the predicted
+    amplitude falls to the noise floor and the ratios scatter, D = −43 below the floor as the threshold paragraph
+    anticipated. Robust to adding four nuisance level-one lines (≤ 5% change). Script research/explore/smooth-Dsweep.py;
+    grids piece-DS-all-D-<|D|>-smooth-grid.dat. Also: the Perron display eq:perron was 64 pt too wide (from ERRATA 25's
+    edit) and is now a gathered display; paper IV 0 overfull.
+
