@@ -40,7 +40,8 @@ for an odd prime $u$ it equals the coefficient in piece $1$ times an explicit ra
 $\sqrt u$ and $\chi_D(u)$: the Gram matrix of the oldforms (Iwaniec--Luo--Sarnak) and two local period identities for the
 Hecke neighbours of Heegner points (Gross--Kohnen--Zagier). The decay in $u$ is set by the splitting type of $u$ in
 $\Q(\sqrt D)$ and not by the Hecke eigenvalue: the ratio is exactly $u^{-3/2}$ when $u$ is inert, $-u^{-3/2}(1-2\lambda_j(u)u^{-1/2}+O(u^{-1}))$
-when $u$ splits, and $u^{-1/2}(1-\lambda_j(u)u^{-1/2}+O(u^{-1}))$ when $u$ is ramified; so the main terms of the level-one lines
+when $u$ splits, and $u^{-1/2}(1-\lambda_j(u)u^{-1/2}+O(u^{-1}))$ when $u$ is ramified; the ratio is multiplicative in squarefree
+$u$, and at $u=2$ the local constants depend on the class through the bilinear form modulo~$2$; so the main terms of the level-one lines
 are uniformly summable over $u$. The same formula with a newform $v$ of level $u$ gives its line in piece $u$, and the
 period that drives it vanishes when $u$ is inert, because the Hecke and Fricke contributions cancel. Both predictions carry
 no free parameter. Where the line is resolved in the data ($|r|\gtrsim0.1$ on grids to $Y=10^7$) they hold to a few percent
@@ -143,8 +144,9 @@ the period vanishes identically for inert $u$ in the computation, and in the dat
 \begin{corollary}[uniform summability of the level-one main terms]\label{cor:sum}
 In Theorem~A$'$ of part~III the piece with dilation $u$ enters at length $H/u$, so its level-one main terms are of size
 $(H/u)^{1/2}|r_j(u;D)|$ times the $u=1$ amplitude. For a fixed level-one form $u_j$ and bounded weights $w(u)$,
-$\sum_{u\text{ odd prime}}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll_D H^{1/2}$: the sum over $u\nmid D$ converges absolutely like
-$\sum_uu^{-2}$, and the finitely many $u\parallel D$ contribute $\ll_DH^{1/2}$. (The weights of part~III are
+$\sum_{u}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll_{D,\varepsilon} H^{1/2}$ over the squarefree $u$ with $p^2\nmid D$ for the odd $p\mid u$: by
+Proposition~\ref{prop:mult} and Theorem~\ref{thm:level1}, $|r_j(u;D)|\le\prod_{p\mid u}|r_j(p;D)|\ll_\varepsilon u^{-3/2+\varepsilon}\prod_{p\mid(u,D)}p$, and
+$\sum_uu^{-2+\varepsilon}$ converges. (The weights of part~III are
 $w(u)=\lambda(u)\omega(u)\ll u^{\varepsilon}$; the conclusion is unchanged.)
 \end{corollary}
 
@@ -344,6 +346,65 @@ $\sum_bv\bigl(\left(\begin{smallmatrix}1&0\\ b&1\end{smallmatrix}\right)w\bigr)=
 level one; with $w=uz$, $\mathrm{Tr}\,v(u\,\cdot)=-v(-1/(uz))=-\varepsilon v(z)$, so $\langle v(uz),v\rangle_{\Gamma_0(u^2)}=-\varepsilon\|v\|^2_{\Gamma_0(u)}=-\frac\varepsilon u\|v\|^2_{\Gamma_0(u^2)}$.
 \end{proof}
 
+\begin{proposition}[multiplicativity in $u$]\label{prop:mult}
+Let $u$ be squarefree and $D<0$ with $p^2\nmid D$ for every odd prime $p\mid u$. Write $\{f_d(z)=u_j(dz):d\mid u^2\}$ for the
+oldform space of $u_j$ at level $u^2$, $d=\prod_pp^{a_p}$ with $a_p\in\{0,1,2\}$, and $\mathbf P_d=\Per_{\mathcal W_u}(f_d)$,
+$\mathbf G_{dd'}=\langle f_d,f_{d'}\rangle_{\Gamma_0(u^2)}$, $\mathbf L_d=\tilde L_{f_d}=\tilde L_j/d$. Then
+\[
+\frac{\mathbf P_d}{\Per_D(u_j)}=\prod_{p\mid u}p^{(p)}_{a_p},\qquad
+\frac{\mathbf G_{dd'}}{\langle f_1,f_1\rangle}=\prod_{p\mid u}\hat G^{(p)}_{a_pa'_p},\qquad
+\langle f_1,f_1\rangle=\prod_{p\mid u}p(p+1)\,\|u_j\|^2,
+\]
+where $(p^{(p)}_0,p^{(p)}_1,p^{(p)}_2)=(p_0,p_1,p_0)$ is the vector $P$ of Theorem~\ref{thm:level1} at the prime $p$ (for $p=2$
+the class-by-class vector of Proposition~\ref{prop:classwise}) and $\hat G^{(p)}$ is the normalised $3\times3$ Gram matrix
+of Lemma~\ref{lem:gram} at $p$. Consequently $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$.
+\end{proposition}
+\begin{proof}
+\emph{The periods.} Steps 1--4 of the proof of Lemma~\ref{lem:mult} hold verbatim for squarefree $u$: $G_u=\Gamma_0(u)\cap\Gamma^0(u)$
+is the preimage of $\prod_{p\mid u}T_p$ under $\Gamma\to\prod_p\mathrm{SL}_2(\mathbb F_p)$, so a coset $\gamma G_u$ is a tuple
+$(\ell_1^{(p)},\ell_2^{(p)})_{p\mid u}$ of ordered pairs of distinct lines, and the family condition $u\mid B(\gamma e_1,\gamma e_2)$
+is $\ell_1^{(p)}\perp\ell_2^{(p)}$ for every $p$. For $d\mid u^2$ the point $d\cdot z_{Q_0\circ\gamma}/u$ is
+$\mathrm{diag}(d,u)\gamma^{-1}z_0$, and the $p$-part of $\mathrm{diag}(d,u)$ is a scalar if $a_p=1$, $\mathrm{diag}(1,p)$ if $a_p=0$
+and $\mathrm{diag}(p,1)$ if $a_p=2$; so the $\Gamma$-coset of $\mathrm{diag}(d,u)\gamma^{-1}$ is determined by the lines
+$\ell_2^{(p)}$ ($a_p=0$) and $\ell_1^{(p)}$ ($a_p=2$) alone, and the point is the composite Hecke neighbour
+$\prod_{a_p\ne1}h^{(p)}z_0$, the Heegner point of the sublattice of $L_C$ cut out by those lines (the $h^{(p)}$ commute:
+sublattices of coprime index intersect). The mass formula~\eqref{eq:mass} thus gives
+\[
+\Per_{\mathcal W_u}(f_d)=\sum_C\frac1{|S_C|}\prod_{a_p=1}m_p(C)\ \sum_{(\ell^{(p)})_{a_p\ne1}}\prod_{a_p\ne1}N^{(p)}_C(\ell^{(p)})\;
+u_j\Bigl(\prod_{a_p\ne1}h^{(p)}_{\ell^{(p)}}z_C\Bigr),
+\]
+with $m_p$, $N^{(p)}_C$ as in Proposition~\ref{prop:classwise}. For an odd $p\mid u$ the inner operator is, as in the proof of
+Lemma~\ref{lem:period}, $\sqrt p\lambda_j(p)-\mathrm{Iso}_p$ ($p\nmid D$) or $\sqrt p\lambda_j(p)+(p-1)\mathrm{Ram}_p$ ($p\parallel D$),
+where $\mathrm{Iso}_p$ and $\mathrm{Ram}_p$ replace $z_C$ by $z_{\mathfrak pC}$ for the primes $\mathfrak p\mid p$ of the order.
+The operator $\sqrt p\lambda_j(p)$ (the Hecke operator $T_p$) commutes with everything; and $C\mapsto\mathfrak pC$ is a permutation of
+the classes preserving $|S_C|$ under which every other prime's operator is transported: $(L_C/qL_C,B_C)\cong(\mathfrak pL_C/q\mathfrak pL_C,B_{\mathfrak pC})$
+for $q\ne p$, since $[L_C:\mathfrak pL_C]=p$ is prime to $q$ and $Q_{\mathfrak pC}=Q_C/p$ with $p$ a unit modulo $q$; under this
+isomorphism the index-$q$ sublattice $M\subset L_C$ corresponds to $\mathfrak pM=M\cap\mathfrak pL_C$, so
+$N^{(q)}_{\mathfrak pC}(\mathfrak pM)=N^{(q)}_C(M)$ and $h^{(q)}_Mh^{(p)}_{\mathfrak p}z_C=z_{\mathfrak pM}=h^{(q)}_{\mathfrak pM}z_{\mathfrak pC}$.
+Summing over $C$ one prime at a time therefore extracts the factor $p^{(p)}_{a_p}$ for each odd $p$, leaving
+$\sum_C|S_C|^{-1}\,\mathrm{Op}^{(2)}_{C,a_2}u_j(z_C)=p^{(2)}_{a_2}\Per_D(u_j)$ if $u$ is even and $\Per_D(u_j)$ otherwise.
+(Only one prime may carry a class-dependent operator; for squarefree $u$ under the hypothesis this is at most $p=2$.)
+
+\emph{The Gram matrix.} For $a,b\ge1$ put $g=(a,b)$, $a'=a/g$, $b'=b/g$. Unfolding against the Eisenstein series of
+$\Gamma_0(u^2)$ at $\infty$ (Rankin--Selberg), $\langle u_j(a\,\cdot),u_j(b\,\cdot)\rangle_{\Gamma_0(u^2)}$ is a constant depending
+only on $u_j$ and $u^2$ times the residue at $s=1$ of $\sum_{a\mid m,\,b\mid m}\sqrt{ab}\,\lambda_j(m/a)\lambda_j(m/b)m^{-s}
+=(a'b')^{-1/2}(ga'b')^{1-s}\sum_k\lambda_j(a'k)\lambda_j(b'k)k^{-s}$. Since $k\mapsto\lambda_j(a'k)\lambda_j(b'k)$ is multiplicative
+and its Euler factors at $p\nmid a'b'$ are those of $\sum\lambda_j(k)^2k^{-s}$, the ratio of residues is
+\[
+\frac{\langle u_j(a\,\cdot),u_j(b\,\cdot)\rangle}{\langle u_j,u_j\rangle_{\Gamma_0(u^2)}}=(a'b')^{-1/2}\prod_{p\mid a'b'}R_p(v_p(a'b')),\qquad
+R_p(k)=\frac{\sum_{e\ge0}\lambda_j(p^{k+e})\lambda_j(p^e)p^{-e}}{\sum_{e\ge0}\lambda_j(p^e)^2p^{-e}},
+\]
+the local series converging absolutely by the bound $|\lambda_j(p^e)|\le(e+1)p^{7e/64}$. With $a=d$, $b=d'$ this is
+$\prod_pp^{-|a_p-a'_p|/2}R_p(|a_p-a'_p|)$, a tensor product of Toeplitz $3\times3$ matrices, whose entries must be those of
+Lemma~\ref{lem:gram} (take $u=p$): $p^{-1/2}R_p(1)=\lambda_j(p)\sqrt p/(p+1)$ and $p^{-1}R_p(2)=(\lambda_j(p)^2-1-1/p)/(p+1)$. (Checked
+numerically from the Hecke relations at $p=2,3,5$; \texttt{hecke-classwise.py}.) The normalisation is $[\Gamma:\Gamma_0(u^2)]=\prod p(p+1)$.
+
+\emph{The ratio.} $\mathbf L=\bigotimes_p(1,p^{-1},p^{-2})\tilde L_j$, so $\sqrt u\,\mathbf P^{\mathsf T}\mathbf G^{-1}\mathbf L$ factors
+as $\prod_p\sqrt p\,P^{(p)\mathsf T}(p(p+1)\hat G^{(p)})^{-1}L^{(p)}\cdot\Per_D(u_j)\tilde L_j/\|u_j\|^2$, and dividing by the $u=1$
+coefficient gives $\prod_pr_j(p;D)$.
+\end{proof}
+
+
 \begin{lemma}[the newform periods]\label{lem:newperiod}
 Let $v$ be a newform of level $u$ with Fricke eigenvalue $\varepsilon$, under the hypotheses of Lemma~\ref{lem:mult}. Then
 $\Per_{\mathcal W_u}(v(u\,\cdot))=\varepsilon\Per_{\mathcal W_u}(v)$, and
@@ -434,17 +495,14 @@ $D/4\equiv2,3\ (4)$, $D/4\equiv1\ (4)$, $D\equiv1\ (8)$, $D\equiv5\ (8)$): the m
 $B_C$ modulo $2$, Proposition~\ref{prop:classwise}, and~\eqref{eq:r} applies with the class-by-class $P$. The values so obtained
 coincide with the direct computation and match the data (Table~\ref{tab:ratios}).
 
-\paragraph{Composite $u$.} For squarefree $u=u_1u_2$ the family condition factors over the primes and the oldform space is
-$\{u_j(dz):d\mid u^2\}$, of dimension $9$ for $u=6$. The direct computation at level $36$ (Gram matrix over the $72$ cosets,
-$\|f_0\|^2/\|u_j\|^2=72.000$) gives $r_1(6;-12)=+0.6573$ and $r_1(6;-8)=-0.2642$, against the products
-$r_1(2;-12)\,r_1(3;-12)=0.945\times0.695=0.657$ and $r_1(2;-8)\,r_1(3;-8)=0.850\times(-0.311)=-0.264$; and the $9\times9$
-Gram matrix is the tensor product of the $3\times3$ matrices at levels $4$ and $9$ entry by entry ($0.0781=0.7303\times0.1069$,
-$-0.2323=0.7303\times(-0.3181)$, $-0.0955=0.3001\times(-0.3181)$, \dots). We conjecture $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$ for squarefree $u$. The evidence is the computation just described, which uses
-only Theorem~\ref{thm:pieceu} and the direct evaluation of periods and Gram matrices (valid for $u=2$ as well); a proof would
-show that the period vector and the Gram matrix are tensor products over the primes dividing $u$, which for odd primes
-Lemmas~\ref{lem:mult}--\ref{lem:gram} make plausible but which we have not written out, and which at $2$ needs the
-$2$-adic constants. The data at $u=6$ are noisy (the level-$36$ spectrum is dense):
-the five signs observed agree with the products and the magnitudes scatter by up to $0.2$ ($D=-8,-20,-15,-4,-12$: observed
+\paragraph{Composite $u$.} For squarefree $u=u_1u_2$ the oldform space is $\{u_j(dz):d\mid u^2\}$, of dimension $9$ for $u=6$,
+and Proposition~\ref{prop:mult} gives $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$. The direct computation at level $36$ (Gram matrix over the
+$72$ cosets, $\|f_1\|^2/\|u_j\|^2=72.000$) was made before the proposition was proved and confirms it: $r_1(6;-12)=+0.6573$ and
+$r_1(6;-8)=-0.2642$, against the products $r_1(2;-12)\,r_1(3;-12)=0.945\times0.695=0.657$ and
+$r_1(2;-8)\,r_1(3;-8)=0.850\times(-0.311)=-0.264$; and the $9\times9$ Gram matrix is the tensor product of the $3\times3$
+matrices at levels $4$ and $9$ entry by entry ($0.0781=0.7303\times0.1069$, $-0.2323=0.7303\times(-0.3181)$,
+$-0.0955=0.3001\times(-0.3181)$, \dots). The data at $u=6$ are noisy (the level-$36$ spectrum is dense): the five signs observed
+agree with the products and the magnitudes scatter by up to $0.2$ ($D=-8,-20,-15,-4,-12$: observed
 $-0.449,-0.320,-0.295,+0.111,+0.549$ against $-0.264,-0.264,-0.237,+0.163,+0.657$).
 
 \paragraph{The cycloidal lines.} At $u=3$ the pieces are dominated by the lines $3.536$, $5.504$, $6.647$, $7.432$, $8.698$,
@@ -456,7 +514,6 @@ tabulated and their amplitudes in piece $3$ cannot be predicted here.
 \item A proof of the inert identity $r=u^{-3/2}$ that explains it rather than verifies it; and closed forms for the
 class-dependent entries of Proposition~\ref{prop:classwise} (at $u=2$, and for $u^2\mid D$) in terms of $\lambda_j(u)$ and the
 periods of the discriminants $D/u^{2k}$, via the Hecke relations.
-\item The tensor-product argument for composite $u$.
 \item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect
 equidistribution of \cite{LiuMasriYoung2013,HumphriesNordentoft2025}, route 1b of the knowledge base.
 \item The error term uniform in $u$ (part~IV, Remark~\textsc{gaps}), which is the conjecture of part~III itself.

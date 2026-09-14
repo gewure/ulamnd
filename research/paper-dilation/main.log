@@ -458,7 +458,7 @@ Package microtype Info: Character `029' is missing
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 9
-0.
+1.
  (t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -469,7 +469,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 LaTeX Font Warning: Font shape `T1/lmss/m/sc' in size <10> not available
-(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 90.
+(Font)              Font shape `T1/lmr/m/sc' tried instead on input line 91.
 
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/10'.
@@ -480,7 +480,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 [2]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-65.
+67.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -491,26 +491,35 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 167.
+(hyperref)                removing `math shift' on input line 169.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 167.
+(hyperref)                removing `subscript' on input line 169.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 167.
+(hyperref)                removing `math shift' on input line 169.
 
 [3] [4]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 256
+LaTeX Font Info:    Trying to load font information for U+euf on input line 258
 .
  (ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-) [5] [6] [7] [8] (main.bbl [9]) [10] (main.aux)
+) [5] [6] [7]
+Underfull \hbox (badness 1231) in paragraph at lines 402--405
+[]\T1/lmr/m/it/10.95 The ra-tio. $\OT1/cmr/bx/n/10.95 L \OT1/cmr/m/n/10.95 = []
+[](1\OML/cmm/m/it/10.95 ; p[]; p[]\OT1/cmr/m/n/10.95 )[]$\T1/lmr/m/n/10.95 , so
+ $[] \OT1/cmr/bx/n/10.95 P[]G[]L$ \T1/lmr/m/n/10.95 fac-tors as $[][] [] \OML/c
+mm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\
+OML/cmm/m/it/10.95 p \OT1/cmr/m/n/10.95 +
+ []
+
+[8] [9] (main.bbl [10]) [11] (main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C04E5766FDF776CA1A4EEDE9ECBAB7C9;733.
  )
-Output written on main.xdv (10 pages, 84476 bytes).
+Output written on main.xdv (11 pages, 96152 bytes).

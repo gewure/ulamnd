@@ -63,3 +63,19 @@ if __name__ == "__main__":
         p0, p1, rows = classwise(u, D); d = direct(u, D)
         print(f"{u:>2} {D:>4} | {p0:+9.4f} {d[0]:+9.4f} | {p1:+9.4f} {d[1]:+9.4f} | {d[2]:+9.4f} | {r_from_P(u,p0,p1):+9.4f} {r_from_P(u,d[0],d[1]):+9.4f} | "
               + "; ".join(f"[{a},{b},{c}] |S|={st} m={m} N={Ns}" for ((a, b, c), st, m, Ns) in rows))
+
+# ---- Rankin–Selberg local factors (Proposition prop:mult of the draft): the normalised Gram entry <u_j(a z), u_j(b z)>/<u_j,u_j>
+# equals (a'b')^{-1/2} Π_{p | a'b'} R_p(v_p(a'b')), a' = a/(a,b), b' = b/(a,b), with
+#     R_p(k) = Σ_e λ(p^{k+e}) λ(p^e) p^{-e} / Σ_e λ(p^e)^2 p^{-e};
+# check that p^{-1/2} R_p(1) = λ√p/(p+1) and p^{-1} R_p(2) = (λ² − 1 − 1/p)/(p+1) (Lemma gram) from the Hecke relations alone.
+def rankin_selberg_check(p, lam, E=80):
+    L = [1.0, lam]
+    for _ in range(E): L.append(lam * L[-1] - L[-2])
+    den = sum(L[e] ** 2 * p ** -e for e in range(E))
+    R = lambda k: sum(L[k + e] * L[e] * p ** -e for e in range(E)) / den
+    return (p ** -0.5 * R(1), lam * math.sqrt(p) / (p + 1)), (R(2) / p, (lam * lam - 1 - 1 / p) / (p + 1))
+
+if __name__ == "__main__":
+    for p, lam in ((2, 1.549304477941296), (3, 0.246899772453981), (5, 0.737060385348301)):
+        (g1, g2), (h1, h2) = rankin_selberg_check(p, lam)
+        print(f"Rankin–Selberg p={p}: g={g1:.6f} (Lemma C {g2:.6f}), h={h1:.6f} (Lemma C {h2:.6f})")

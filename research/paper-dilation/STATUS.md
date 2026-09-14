@@ -11,9 +11,14 @@ Working draft, not for circulation. What it contains and what its status is:
   of "vanishing observed": the PERIOD vanishes to 1e-17 in the computation; in the DATA the line is at the noise level
   (0.019, 0.006 against resolved amplitudes 0.14–0.32), i.e. absent to within 5–15%.
 - Corollary (uniform summability of the level-one main terms over u): follows from Theorem 2; the sum now converges like Σ u^{-2}.
-- Multiplicativity in u: exact on the theory side (direct level-36 computation = product; Gram matrix a tensor product), argument to be written.
+- Proposition prop:classwise (15 Sep, 11:30): the class-by-class form of Lemmas A and B for EVERY prime u and every D (u = 2, u² | D
+  included); at u = 2 the counts are read off (a, b/2, c) mod 2; verified against the direct orbit enumeration for twelve (u, D).
+- Proposition prop:mult (15 Sep, 12:30): multiplicativity r(u;D) = Π r(p;D) for squarefree u with p² ∤ D for odd p | u — PROVED
+  (periods: CRT on the lines + transport of the local structure under the class permutations C ↦ 𝔭C; Gram: Rankin–Selberg
+  unfolding gives a tensor product of Toeplitz matrices, whose entries reproduce Lemma C from the Hecke relations). The
+  level-36 computation (made before the proof) confirms it.
 - Tests: 21 (u,D) pairs for the first level-one line; 7 discriminants for the level-3 newform; u = 6 signs. All in
   research/explore/STATE.md §6–8 with the scripts.
-Open: the 2-adic case (u dividing the conductor); cycloidal-group lines; any bound uniform in the newform; the error term
+Open: closed forms for the class-dependent 2-adic constants (cosmetic); a conceptual proof of the inert identity; cycloidal-group lines; any bound uniform in the newform; the error term
 uniform in u (the conjecture of part III itself). This draft has been read twice from outside on 15 Sep (the author's reviewing conversation, and a fresh model instance given the files): both found the asymptotic error (fixed), the second also the swapped column (fixed) and supplied proofs of the Gram entries and of the inert vanishing that coincide with ours; its six remaining points (u² ∤ D hypothesis, u-dependence of the O-constants, PSL convention, Theorem 3's display, the corollary's scale, composite u as a conjecture) are applied. Every statement now has a proof or is labelled open; the rule of the programme
 (no second claim before an outside reading) applies.

@@ -224,6 +224,30 @@ when D/4 is itself a discriminant (extra term). Not used; recorded in the draft 
 This closes "the 2-adic case" and "u | conductor" of the open list; what remains there is a closed form for these
 class-dependent entries via the Hecke relations (cosmetic) and the conceptual proof of the inert identity.
 
+## 6'. Multiplicativity in squarefree u — PROVED (15 Sep, 12:30; draft Prop. prop:mult)
+Hypothesis: u squarefree, p² ∤ D for every ODD p | u (so at most one prime, p = 2, carries a class-dependent operator).
+**Periods.** Steps 1–4 of §1' hold for squarefree u by CRT: Γ/G_u = Π_p SL₂(F_p)/T_p, cosets = tuples of ordered pairs of lines,
+family condition = orthogonality at every p. For d = Π p^{a_p} | u², the point d·z_Q/u = diag(d,u)γ⁻¹z₀ has p-part scalar
+(a_p = 1), diag(1,p) (a_p = 0), diag(p,1) (a_p = 2): the Γ-coset depends on ℓ₂^{(p)} (a_p=0) and ℓ₁^{(p)} (a_p=2) only, and the
+point is the composite Hecke neighbour Π h^{(p)} z₀ (the sublattice cut out by those lines; coprime-index sublattices intersect,
+so the h^{(p)} commute). Mass formula ⇒ Per_W(f_d) = Σ_C |S_C|⁻¹ Π_{a_p=1} m_p(C) Σ_{(ℓ^{(p)})} Π N^{(p)}_C(ℓ^{(p)}) u_j(Π h z_C).
+For odd p the p-operator is √pλ(p) − Iso_p (p ∤ D) or √pλ(p) + (p−1)Ram_p (p ∥ D); √pλ(p) is T_p and commutes; Iso_p/Ram_p replace
+z_C by z_{𝔭C}, a permutation of classes preserving |S_C| that TRANSPORTS the other primes' structure:
+(L_C/qL_C, B_C) ≅ (𝔭L_C/q𝔭L_C, B_{𝔭C}) for q ≠ p ([L:𝔭L] = p prime to q; Q_{𝔭C} = Q_C/p, p a unit mod q); M ↦ 𝔭M = M ∩ 𝔭L_C
+matches index-q sublattices (𝔭M + 2L = M etc.), N^{(q)}_{𝔭C}(𝔭M) = N^{(q)}_C(M), h^{(q)}_M h^{(p)}_𝔭 z_C = z_{𝔭M} = h^{(q)}_{𝔭M} z_{𝔭C}.
+So Σ_C |S|⁻¹ Φ(𝔭C) = Σ_C |S|⁻¹ Φ(C) extracts the factor p^{(p)}_{a_p} prime by prime, leaving the 2-adic operator (if 2 | u), which
+gives p^{(2)}_{a_2} Per_D by §1''. Hence P_d/Per_D = Π_p p^{(p)}_{a_p}.
+**Gram.** Rankin–Selberg on Γ₀(u²) at ∞: ⟨u_j(a·), u_j(b·)⟩ = const · Res_{s=1} Σ_{a|m, b|m} √(ab) λ(m/a)λ(m/b) m^{-s}
+= const · (a'b')^{-1/2} Res Σ_k λ(a'k)λ(b'k)k^{-s}, a' = a/(a,b), b' = b/(a,b). The coefficient is multiplicative in k with the
+same Euler factors as Σ λ(k)² k^{-s} at p ∤ a'b'; so the normalised entry is (a'b')^{-1/2} Π_{p|a'b'} R_p(v_p(a'b')),
+R_p(k) = Σ_e λ(p^{k+e})λ(p^e)p^{-e} / Σ_e λ(p^e)² p^{-e} (absolutely convergent; denominators positive). For d, d' | u² this is
+Π_p p^{-|a_p−a'_p|/2} R_p(|a_p − a'_p|): a tensor product of Toeplitz 3×3 matrices. Check from the Hecke relations alone
+(hecke-classwise.py rankin_selberg_check): p^{-1/2}R_p(1) = λ√p/(p+1) and p^{-1}R_p(2) = (λ²−1−1/p)/(p+1) to 1e-12 at
+p = 2, 3, 5 — an independent second proof of Lemma C. Normalisation ⟨f₁,f₁⟩ = Π p(p+1) ‖u_j‖².
+**Ratio.** L = ⊗(1, 1/p, 1/p²) L̃_j, so √u Pᵀ G⁻¹ L = Π_p [√p P^{(p)T}(p(p+1)Ĝ^{(p)})⁻¹ L^{(p)}] · Per_D L̃/‖u_j‖², i.e.
+r(u;D) = Π_{p|u} r(p;D). The level-36 computation (STATE §8: r(6;−12) = 0.6573 = 0.945·0.695; Gram entries products) had
+confirmed this before the proof. Corollary cor:sum now runs over squarefree u: |r(u;D)| ≪_ε u^{-3/2+ε} Π_{p|(u,D)} p.
+
 ## 5'. Lemma D: the newform periods, and the vanishing for inert u (15 Sep, 09:00) — PROVED
 
 Let `v` be a Hecke–Maass newform of level `u` (odd prime) with Fricke eigenvalue `ε` (`v(−1/(uz)) = ε v(z)`), `a_v(u) = −ε u^{-1/2}`,

@@ -366,5 +366,8 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   and every D; at u = 2 the counts are read off (a, b/2, c) mod 2; verified against the direct orbit enumeration for
   twelve (u, D) pairs including 9 | D. Theorem 2 now covers u = 2 and u² | D with the class-by-class P. Draft 10 pp, 0 overfull.
 - Script: research/explore/hecke-classwise.py.
-- Next small gaps: the tensor-product argument for squarefree composite u (Conjecture → Proposition for odd u); paper IV §7
-  remark pointing to the draft; case-study episode (two readings, same error, F41). Then PLAN-uniformity.md and the error term.
+- Proposition prop:mult (12:30): multiplicativity in squarefree u PROVED (PROOFS §6'): CRT on lines/cosets, class permutations
+  transport the local structure at the other primes, Gram by Rankin–Selberg (tensor of Toeplitz matrices; reproduces Lemma C).
+  Conjecture removed from the draft; Corollary extended to squarefree u. Draft 11 pp, 0 overfull.
+- Next: paper IV §7 remark pointing to the draft; case-study episode (two readings, same error, F41). Then PLAN-uniformity.md
+  and the error term (the hard work).
