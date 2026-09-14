@@ -57,8 +57,10 @@ S^w_u(Y)=\sum_{h\ge1}w\Bigl(\frac hY\Bigr)\bigl(\sigma_{-1}(Q_u(h))-\mathbb E_u\
 \]
 $\rho_u(d)$ the number of roots of $u^2x^2\equiv D\pmod d$. For $u=1$ Theorem~\textsc{smooth} of part~IV gives
 \begin{equation}\label{eq:smooth1}
-\sqrt Y\,S^w_1(Y)=|D|^{-1/4}\sum_j\Per_D(u_j)\,\tilde L_j\bigl[A_j(Y)+\overline{A_j(Y)}\bigr]+\mathcal E^w(Y)+O(Y^{-2+\varepsilon}),
-\qquad A_j(Y)=\Gamma(-it_j)W_c\bigl(\tfrac32+it_j\bigr)\Bigl(\frac{\pi\sqrt{|D|}}Y\Bigr)^{it_j},
+\begin{gathered}
+\sqrt Y\,S^w_1(Y)=|D|^{-1/4}\sum_j\Per_D(u_j)\,\tilde L_j\bigl[A_j(Y)+\overline{A_j(Y)}\bigr]+\mathcal E^w(Y)+O(Y^{-2+\varepsilon}),\\
+A_j(Y)=\Gamma(-it_j)W_c\bigl(\tfrac32+it_j\bigr)\Bigl(\frac{\pi\sqrt{|D|}}Y\Bigr)^{it_j},
+\end{gathered}
 \end{equation}
 the sum over an orthonormal basis of even Maass cusp forms of $\mathrm{SL}_2(\Z)$, with $\Per_D(u_j)=\sum_Qu_j(z_Q)/|\Gamma_Q|$
 over all classes of forms of discriminant $4D$, $\tilde L_j=\sum_ka_j(k)k^{-3/2}$, and $W_c$ the Mellin factor of the window.
@@ -87,12 +89,14 @@ Let $u$ be an odd prime and $u_j$ an even Hecke--Maass form of level one. The co
 $\sqrt Y S^w_u(Y)$ equals the coefficient in $\sqrt YS^w_1(Y)$ multiplied by $u^{-it_j}$ and by
 \begin{equation}\label{eq:r}
 r_j(u;D)=\sqrt u\,P^{\mathsf T}\bigl(u(u+1)\,G\bigr)^{-1}L,\qquad
-G=\begin{pmatrix}1&g&h\\ g&1&g\\ h&g&1\end{pmatrix},\quad
-g=\frac{\lambda_j(u)\sqrt u}{u+1},\quad h=\frac{\lambda_j(u)^2-1-1/u}{u+1},
+G=\begin{pmatrix}1&g&h\\ g&1&g\\ h&g&1\end{pmatrix},
 \end{equation}
 \[
-P=(p_0,p_1,p_0),\qquad p_1=\begin{cases}2u&u\mid D,\\ u-\chi&u\nmid D,\end{cases}\qquad
-p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\mid D,\\ -(1+\chi)&u\nmid D,\end{cases}\qquad L=(1,u^{-1},u^{-2}).
+g=\frac{\lambda_j(u)\sqrt u}{u+1},\qquad h=\frac{\lambda_j(u)^2-1-1/u}{u+1},\qquad L=(1,u^{-1},u^{-2}),\qquad P=(p_0,p_1,p_0),
+\]
+\[
+p_1=\begin{cases}2u&u\mid D,\\ u-\chi&u\nmid D,\end{cases}\qquad
+p_0=\lambda_j(u)\sqrt u+\begin{cases}u-1&u\mid D,\\ -(1+\chi)&u\nmid D.\end{cases}
 \]
 In particular $r_j(u;D)=\lambda_j(u)/u+O(u^{-3/2})$ for $u\nmid D$ and $r_j(u;D)=u^{-1/2}\bigl(1+O(\lambda_j(u)u^{-1/2})\bigr)$
 for $u\mid D$, the implied constants absolute.
