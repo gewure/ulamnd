@@ -614,39 +614,39 @@ File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
-9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 3
+0.
  (ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 29.
-Package microtype Info: Applying patch `item' on input line 29.
-Package microtype Info: Applying patch `toc' on input line 29.
-Package microtype Info: Applying patch `eqnum' on input line 29.
-Package microtype Info: Applying patch `footnote' on input line 29.
+LaTeX Info: Redefining \microtypecontext on input line 30.
+Package microtype Info: Applying patch `item' on input line 30.
+Package microtype Info: Applying patch `toc' on input line 30.
+Package microtype Info: Applying patch `eqnum' on input line 30.
+Package microtype Info: Applying patch `footnote' on input line 30.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: No adjustment of tracking.
@@ -693,7 +693,7 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 29.
+Package hyperref Info: Link coloring ON on input line 30.
 (nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (refcount.sty
@@ -703,14 +703,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count329
 )
-LaTeX Info: Redefining \ref on input line 29.
-LaTeX Info: Redefining \pageref on input line 29.
-LaTeX Info: Redefining \nameref on input line 29.
+LaTeX Info: Redefining \ref on input line 30.
+LaTeX Info: Redefining \pageref on input line 30.
+LaTeX Info: Redefining \nameref on input line 30.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
 
 
 (umsa.fd
@@ -718,7 +718,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 
  (umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -727,7 +727,7 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
 ] [2] [3] [4] [5]
-Underfull \hbox (badness 1694) in paragraph at lines 300--304
+Underfull \hbox (badness 1694) in paragraph at lines 301--305
 \T1/lmr/m/n/10.95 where $\OT1/cmr/m/n/10.95 ^^A[]$ \T1/lmr/m/n/10.95 is the pro
 b-a-bil-ity mea-sure $\OML/cmm/m/it/10.95 !\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
 .95 d[]\OT1/cmr/m/n/10.95 )[] [][] \OML/cmm/m/it/10.95 ^^N[]$ \T1/lmr/m/n/10.95
@@ -737,11 +737,11 @@ b-a-bil-ity mea-sure $\OML/cmm/m/it/10.95 !\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
 [6] [7] [8] [9] [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 553.
+(hyperref)                removing `math shift' on input line 554.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 553.
+(hyperref)                removing `math shift' on input line 554.
 
 [11]
 
@@ -753,18 +753,6 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 607.
 
 [12] [13] [14]
-Overfull \hbox (2.0244pt too wide) in paragraph at lines 734--738
-\OML/cmm/m/it/10.95 G[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a; Y\OT1/cmr/m/n
-/10.95 ) \OMS/cmsy/m/n/10.95 ^^@ []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT
-1/cmr/m/n/10.95 )$\T1/lmr/m/n/10.95 , a func-tion on $\OT1/cmr/m/n/10.95 (\U/ms
-b/m/n/10.95 Z\OML/cmm/m/it/10.95 =d[]\OT1/cmr/m/n/10.95 )[]$ \T1/lmr/m/n/10.95 
-with mean zero, so that $\OML/cmm/m/it/10.95 G[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/
-it/10.95 a; Y\OT1/cmr/m/n/10.95 ) = [][] [](\OML/cmm/m/it/10.95  ; Y\OT1/cmr/m/
-n/10.95 )\OML/cmm/m/it/10.95  \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a\OT1/cmr
-/m/n/10.95 )$
- []
-
-
 Underfull \hbox (badness 2080) in paragraph at lines 740--743
 \T1/lmr/m/n/10.95 For fixed $\OML/cmm/m/it/10.95  $\T1/lmr/m/n/10.95 , par-tial
  sum-ma-tion against $\OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/
@@ -783,23 +771,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-Overfull \hbox (0.97083pt too wide) in paragraph at lines 863--865
-[]\T1/lmr/m/n/10.95 The same test for three fur-ther quadrat-ics (\T1/lmtt/m/n/
-10.95 research/paper-III/scripts/off-general.ts\T1/lmr/m/n/10.95 ,
- []
-
-[17]
-Overfull \hbox (1.19296pt too wide) detected at line 893
-[][]\OMS/cmsy/m/n/10.95 W[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 Y\OT1/cmr/m/
-n/10.95 ; \OML/cmm/m/it/10.95 L\OT1/cmr/m/n/10.95 ) = [] [] [] \OML/cmm/m/it/10
-.95 B[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 h\OML/cmm/m/it/10.95 x\OMS/cmsy/
-m/n/10.95 i[]\OT1/cmr/m/n/10.95 ) = [] [][][][]\OML/cmm/m/it/10.95 Y \OMS/cmsy/
-m/n/10.95 ^^@ h\OML/cmm/m/it/10.95 x\OMS/cmsy/m/n/10.95 i[][] ^^@ [][]\OML/cmm/
-m/it/10.95 ;
- []
-
-[18]
+ [17] [18]
 Underfull \hbox (badness 1430) in paragraph at lines 948--950
 []\T1/lmr/m/n/10.95 Let $\OML/cmm/m/it/10.95 F\OT1/cmr/m/n/10.95 (\OML/cmm/m/it
 /10.95 m\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/
@@ -813,7 +785,7 @@ PGFPlots: reading {data/offq-N1.dat}
 PGFPlots: reading {data/offq-N2.dat}
 PGFPlots: reading {data/offq-N3.dat}
  [24] [25]
-Underfull \hbox (badness 1910) in paragraph at lines 1331--1338
+Underfull \hbox (badness 1910) in paragraph at lines 1344--1351
 \T1/lmr/m/n/10.95 The script \T1/lmtt/m/n/10.95 offq.ts \T1/lmr/m/n/10.95 in $\
 T1/lmtt/m/n/10.95 research / paper-[]III / scripts/$ \T1/lmr/m/n/10.95 com-pute
 s $\OML/cmm/m/it/10.95 T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n
@@ -822,7 +794,7 @@ L/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )$
  []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 1331--1338
+Underfull \hbox (badness 1024) in paragraph at lines 1344--1351
 \T1/lmr/m/n/10.95 ex-actly from the roots mod-ulo ev-ery square-free $\OML/cmm/
 m/it/10.95 d$ \T1/lmr/m/n/10.95 of de-gree in $\OT1/cmr/m/n/10.95 (\OML/cmm/m/i
 t/10.95 N; M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )]$ \T1
@@ -833,4 +805,4 @@ t/10.95 N; M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )]$ \T1
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0751E97A2DCE7D6C02BFF5AD74BFC785;3611.
  )
-Output written on main.xdv (27 pages, 256972 bytes).
+Output written on main.xdv (27 pages, 259112 bytes).
