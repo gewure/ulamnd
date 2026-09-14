@@ -141,7 +141,7 @@ CM points / Heegner divisors (Gross–Kohnen–Zagier, Math. Ann. 278, §II; als
 Heegner points), valid when `u` does not divide the conductor. Numerically all six values (`m` and `c` for `u = 3, 5`, three
 splitting types) agree with these formulas to four digits.
 
-**Lemma C (Gram).** Still to be written out (a standard unfolding); the entries are numerically certain to four digits.
+**Lemma C (Gram).** Proved in §3' below.
 
 ## 3. Lemma C (the Gram matrix). On `Γ_0(u²)\H`, with `f_m(z) = u_j(u^m z)` and `⟨·,·⟩` the Petersson inner product,
 
@@ -152,6 +152,43 @@ L-functions" in the holomorphic case; the Maass case is identical by unfolding).
 `Γ_0(u²)`, or use `⟨f|B_{u²}, f⟩ = ⟨f|B_u, f|B_u^*⟩`-type manipulations with `T_u = u^{−1/2}(B_u^{-1}… )`; the answer
 `(λ(u²) − 1/u)/(u+1)` with `λ(u²) = λ(u)² − 1` is what the numbers say. **Status: to be located in the literature or
 proved by unfolding (a page).**
+
+## 3'. Lemma C (Gram matrix): PROOF (15 Sep, 08:40)
+
+Notation: `f` level-1 Hecke–Maass, `T_p f = λ f` with `T_p f(w) = p^{-1/2}[f(pw) + Σ_{k mod p} f((w+k)/p)]`; `⟨·,·⟩_G` the Petersson
+inner product on `G\H`; for `H ⊂ G` of finite index, `⟨F, Φ⟩_H = ⟨Tr_H^G F, Φ⟩_G` when `Φ` is `G`-invariant, with
+`(Tr_H^G F)(z) = Σ_{γ ∈ H\G} F(γz)`; and `⟨Φ, Ψ⟩_H = [G:H] ⟨Φ, Ψ⟩_G` when both are `G`-invariant.
+
+**(i) `⟨f(pz), f(z)⟩_{Γ₀(p)} = (λ√p/(p+1)) ⟨f,f⟩_{Γ₀(p)}`** (Iwaniec–Luo–Sarnak, Lemma 2.4): the cosets `Γ₀(p)\Γ` are the `p+1`
+matrices `(1 0; b 1)` (`b mod p`) and `S`, and `p·(1 0; b 1)z = (p 0; pb 1) z`, `p·Sz = -p/z`: the points `p γ z`, `γ ∈ Γ₀(p)\Γ`,
+are exactly the `p+1` Hecke neighbours of `z` (as `Γ\Δ_p`-cosets: `(p 0; pb 1) ~ (1 k; 0 p)` with `k ≡ b^{-1}`, and `(p 0; 0 1)`
+from `S` … or directly `Tr_{Γ₀(p)}^Γ (f∘p) = Σ_{Γ\Δ_p} f∘M = √p λ f`). Hence `⟨f(pz), f⟩_{Γ₀(p)} = ⟨√p λ f, f⟩_Γ = √p λ ⟨f,f⟩_Γ
+= (√p λ/(p+1)) ⟨f,f⟩_{Γ₀(p)}`. Both `f(pz)` and `f` are `Γ₀(p)`-invariant, so the same ratio holds on `Γ₀(p²)`: `g = λ√p/(p+1)`.
+Also `⟨f(p²z), f(pz)⟩_{Γ₀(p²)} = g ⟨f,f⟩_{Γ₀(p²)}`: substitute `w = pz`, which carries `Γ₀(p²)\H` to `G_p\H` (`G_p = Γ₀(p)∩Γ⁰(p)`,
+same index `p(p+1)`), and both `f(pw)`, `f(w)` are `Γ₀(p) ⊃ G_p`-invariant.
+
+**(ii) `⟨f(p²z), f(z)⟩_{Γ₀(p²)} = ((λ² − 1 − 1/p)/(p+1)) ⟨f,f⟩_{Γ₀(p²)}`.** Trace from `Γ₀(p²)` to `Γ₀(p)`: cosets `γ_b = (1 0; pb 1)`,
+`b mod p`. With `g(w) := f(pw)` (level `p`), `f(p²γ_b z) = g(pγ_b z) = g((p 0; pb 1)z) = g((1 0; b 1)·pz)`, and
+`g((1 0;b 1)w) = f((p 0; b 1) w)`. For `b ≢ 0`: `(p 0; b 1) = γ (1 k; 0 p)` with `γ ∈ Γ`, `k ≡ b^{-1} (mod p)`, so
+`f((p 0; b 1)w) = f((w+k)/p)`; for `b = 0`: `f(p w)`. With `w = pz`:
+    Tr f(p²·) (z) = Σ_{k ≢ 0} f((pz + k)/p) + f(p²z) = [Σ_{k mod p} f((pz+k)/p) − f(z)] + f(p²z) = [√p λ f(pz) − f(p²z) − f(z)] + f(p²z)
+                  = √p λ f(pz) − f(z),
+using the Hecke relation at the point `pz`. Therefore
+    ⟨f(p²z), f⟩_{Γ₀(p²)} = ⟨√p λ f(pz) − f, f⟩_{Γ₀(p)} = √p λ · (λ√p/(p+1)) ⟨f,f⟩_{Γ₀(p)} − ⟨f,f⟩_{Γ₀(p)}
+                          = (λ²p/(p+1) − 1) ⟨f,f⟩_{Γ₀(p)} = (λ²/(p+1) − 1/p) ⟨f,f⟩_{Γ₀(p²)} = ((λ² − 1 − 1/p)/(p+1)) ⟨f,f⟩_{Γ₀(p²)}.  ∎
+(Numerically 0.3001, −0.3181, −0.1095 at p = 2, 3, 5: exact to four digits.) Hence `h = (λ(p²) − 1/p)/(p+1)` with `λ(p²) = λ² − 1`.
+
+**(iii) Newform Gram entry.** For a newform `v` of level `p` with Fricke eigenvalue `ε` (`v(−1/(pz)) = ε v(z)`), the same trace
+gives `Tr_{Γ₀(p²)}^{Γ₀(p)} v(p·) (z) = Σ_b v((1 0; b 1)·pz)`. Now `Tr_{Γ₀(p)}^{Γ} v = Σ_b v((1 0;b 1)w) + v(Sw) = 0` (a newform is
+orthogonal to every level-1 form, so its trace, a level-1 cusp form, vanishes), hence `Σ_b v((1 0;b 1)w) = −v(−1/w)`, and with
+`w = pz`: `Tr v(p·) = −v(−1/(pz)) = −ε v(z)`. So `⟨v(pz), v⟩_{Γ₀(p²)} = −ε ⟨v,v⟩_{Γ₀(p)} = −(ε/p) ⟨v,v⟩_{Γ₀(p²)}`  ∎ (−1/3 at p = 3, ε = +1 ✓).
+
+**(iv) Why `Per_{W_u}(f_0) = Per_{W_u}(f_2)` and `Per_{W_u}(v) = ε Per_{W_u}(v(u·))`: the divisor involution.** The Fricke
+involution `W_{u²}: τ ↦ −1/(u²τ)` normalises `Γ₀(u²)` and maps the form `[u²a', 2u²b', c]` to `[u²c, −2u²b', a']` — i.e. the pair
+`(d, x)` to `(Q_u(x)/d, −x)`, the pairing of a divisor with its complement — so it permutes `W_u/Γ₀(u²)` (preserving stabilisers).
+For level-1 `f`: `f(W_{u²}τ) = f(u²τ)`, hence `Per(f_0) = Per(f_2)`. For a level-`u` newform: `W_{u²}τ = W_u(uτ)`, so
+`v(W_{u²}τ) = ε v(uτ)` and `Per(v) = ε Per(v(u·))` (observed: equal, with ε = +1). The vanishing of `Per_{W_u}(v)` for inert `u`
+is NOT explained by this; it needs the level-`u` analogue of the isotropic-line argument (open; the reader has been asked).
 
 ## 4. Theorem (the level-1 lines of the dilated pieces; conditional on Lemmas A–C, which are numerically certain)
 
