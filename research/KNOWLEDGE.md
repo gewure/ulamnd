@@ -191,6 +191,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (early). Python package research/python/ulamnd (roots, singular series with exact tails, pieces, spectral tests,
+  Maass predictions), 8 cross-check tests passing; C(t²+1) reproduced to 2e-9; three-route check of the expectation
+  constant to 1e-12 caught a 1.5e-9 truncation error in L(2,χ) (now Hurwitz zeta). See explore/STATE.md §5.
 - 14 Sep (deep night). D-sweep of the smooth amplitude law: confirmed at 15 discriminants (details explore/STATE.md §3);
   cubic full-divisor object built (cubic-full.ts), control validated against brute force, x³−2 at Y=10⁶ shows rms ∝ T^0.16;
   Y=10⁷ run launched in the background.

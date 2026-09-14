@@ -153,3 +153,17 @@ threshold paragraph's prediction ("marginal at 27, reduced ~50× at 43") is now 
 - piece-periodogram.ts: env COL selects the column to scan (default 3).
 - research/explore/ is the place for this exploration; data in research/paper-IV/data/ with tags DS-*-U3-smooth and cubic-*.
 - RESEARCH-USES §6 (14 Sep) has the ranked list of follow-up paths this work belongs to (6b hierarchy; §4 item 3).
+
+## 5. Python package (15 Sep, early hours) — research/python/ulamnd
+Written while the cubic run was computing, at the author's request ("most number researchers work with Python").
+Modules roots / singular / pieces / spectral / maass; README with examples; tests/test_ulamnd.py (8 tests, all pass:
+roots vs brute force; Kronecker and L(1,χ) closed forms; C(t²+1) = 1.3728134628182 to 2e-9 (the Hardy–Littlewood constant,
+two routes); S_f two routes; pieces vs brute force at T ≤ 5000 and vs the TS grid at 4096 common points to < 0.05;
+13.78 found and the even set ≥ 95th percentile on the TS data; predicted (C, φ) at D = −4 equals paper IV's).
+Two lessons recorded: (1) mpmath's dirichlet() at s = 1 is unreliable (known) AND a truncated Dirichlet series for L(2,χ)
+at 20000 terms is only good to 1e-9 — which produced a 1.5e-9 error in E and a visible quadratic trend; fixed by the
+Hurwitz-zeta formula L(s,χ) = q^{-s} Σ_a χ(a) ζ(s, a/q); found by comparing three routes (product+tail, direct sum to 10⁷
+with measured tail κ/N, TS). (2) HAZARD: running piece-divset.ts with a small Y overwrites research/paper-IV/data/
+piece-DS-*-D-<D>-grid.dat (no Y in the file name) — I did this twice tonight for D = −4 and regenerated the Y = 10⁷ files
+(bit-identical to the committed ones). Do diagnostics with a different D or copy the file first.
+

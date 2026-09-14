@@ -22,6 +22,12 @@ repository.
 | III | The off-diagonal in Cesàro form: decomposition into pieces, unconditional small and far moduli, the main term c_off(f)·H, the window as the single open input, a function-field theorem | 27 pp. Read adversarially on 13 Sep (fresh reader): core sound, seven findings fixed (`research/ERRATA.md` item 18), one stated exponent corrected |
 | IV | The second spectrum: the pieces oscillate at the even Maass parameters of SL₂(Z) with Katok–Sarnak amplitudes; a spectral argument for u = 1; uniformity in u as the open problem | 31 pp. The u = 1 theorem's orbit error (found by the external assessment) was repaired on 13 Sep (groups Γ₀(e), e \| rad(2D)); a second adversarial reading passed the repair but found the **remainder bound unproved**; carrying the proposed route out showed why: the remainder contains smoothed Hooley sums of the same order as the main term (Remark `rem:gaps`). The exact expansion and its leading terms are proved; the error term is open. For **smooth windows** the full theorem is proved (Theorem `thm:smooth`, 13 Sep): phase predicted with no free parameter and observed to 0.035 rad, amplitude predicted 0.0600 and observed 0.0597; on the restricted object the level-2 newform line and the oldform correction appear at their predicted sizes Sections 2–4 read adversarially 14 Sep: nine fixes incl. the real-argument definition of the piece and its Riesz means, one reader claim rejected (ERRATA 25). Internal phase finished; external review is what remains. |
 
+**Python package (15 September 2026).** `research/python/ulamnd/` ports the parts of the TypeScript machinery that other
+researchers are most likely to want: roots of polynomial congruences, the Bateman–Horn constant and pair singular series
+of a quadratic with exact tails, the pieces of paper IV (sharp and smooth window), the spectral tests, and the Maass-form
+predictions of the smooth-window theorem. Only numpy and mpmath are needed; `research/python/README.md` has three
+one-minute examples and the tests cross-check every module against the TypeScript output or brute force.
+
 **Case study (started 14 September 2026).** `research/case-study/` scaffolds a fifth, methodological paper: how this
 programme was produced (test-driven origin, guardrails, evolution of the prompting, the complete error record, what
 model readers cannot catch). `main.tex` is the scaffold with interview slots, `INTERVIEW.md` the questionnaire,
