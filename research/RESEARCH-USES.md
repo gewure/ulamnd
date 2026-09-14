@@ -343,4 +343,7 @@ r_j(u; D) = √u Σ_k Per_{W_u}(v_k) L~(v_k) / (Per_D(u_j) L~_j/‖u_j‖²), v_
 ratio depends on D only through χ_D(u) and decays like ≈ 2.6/(u+1) when u is ramified. Route 1a is thereby replaced by a
 proved-in-principle statement about the main terms; the follow-up paper's theorem. Open: closed form in (u, χ, λ), the
 level-u and Γ^u lines, and the error term uniform in u.
+- (15 Sep, morning) CUBIC: tested at Y = 10⁷ — negative. Growth T^{1/4}–T^{1/3} instead of √T, no stable lines, GL(3) sets
+  not above random. 6b's discovery value drops to ★★ until a theory predicts the growth exponent; the hierarchy paper is
+  not justified by data. The follow-up (paper-dilation) stands on its own.
 

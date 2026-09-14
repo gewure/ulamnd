@@ -2,3 +2,6 @@ f = [1,0,0,-2], disc = -108, Y = 10000000
 special primes: 2,3
 664579 primes (0 s)
 sieve done: 110587 fully split primes, mean rho 0.9993 (25 s)
+cofactors: 593289 trivial, 8088969 prime, 1317742 semiprime (12052 s)
+fitted trend: P ≈ 3.139e+5 (T/Y)^2 + 1.656e+5 (T/Y) + -1.202e+1  → E_eff − E = 6.277e-9; E = 1.066627014651
+max |P_detrended|/sqrtT = 0.249; wrote piece-full-x3m2-1e7-grid.dat (12052 s)

@@ -300,3 +300,29 @@ r(6;−8) = −0.2642 = 0.850·(−0.311). The 9×9 Gram matrix is the tensor pr
 entry. So r_j(u;D) = Π_{p|u} r_j(p;D) exactly; the observed u=6 scatter is data noise. Draft paper written:
 research/paper-dilation/main.tex (+ STATUS.md, refs.bib), compiled; not for circulation, unread by anyone else.
 
+## 9. THE CUBIC EXPERIMENT AT Y = 10⁷: RESULT (15 Sep, run finished after 12052 s; 1.32 M semiprime cofactors)
+Object: full divisor sum along x³ − 2 (all d coprime to 6), Riesz mean of order 1, quadratic+linear trend fitted (E_eff − E =
+6.28e−9 = the expected tail 1/(Y log Y) — the sieve and E are right). Grid piece-full-x3m2-1e7-grid.dat.
+**Growth:** rms(P) ∝ T^0.25 over [10³, 10⁷] (T^0.37 on the upper half), against T^0.497 for the quadratic control. The
+fluctuation of the cubic level-1 statistic is far below the √T of the GL₂ mechanism; rms(P)/√T falls from 0.18 to 0.02.
+**Lines:** single-frequency scan (DEG 3, taper): 1.49 (R² 0.40, residual trend), 3.99 (0.09), 6.78 (0.03), 9.38 (0.009), then
+< 0.01. The same three weak peaks appeared at Y = 10⁶ (3.93, 6.93, 9.35); on the upper half alone they are gone (12.1, 3.07,
+18.1 instead). 6.78 and 9.38 sit near Farmer's μ/2 values 6.798 and 9.181 of the first SL(3,Z) form, 3.99 near nothing.
+**Joint-fit tests** (six frequencies vs 200 random six-sets):
+      full | FKL lambda (2 forms)   R^2=0.076 pct= 54.0 (random median 0.072, 95th 0.515)
+      full | FKL lambda/2           R^2=0.302 pct= 46.5 (random median 0.325, 95th 0.677)
+      full | GL2 even level-1       R^2=0.020 pct= 20.5 (random median 0.027, 95th 0.045)
+upper half | FKL lambda (2 forms)   R^2=0.363 pct= 42.0 (random median 0.381, 95th 0.518)
+upper half | FKL lambda/2           R^2=0.289 pct=  8.5 (random median 0.312, 95th 0.330)
+upper half | GL2 even level-1       R^2=0.344 pct= 57.5 (random median 0.330, 95th 0.420)
+**Conclusion:** no defensible GL(3) signal at Y = 10⁷. The quadratic mechanism does not transfer naively: the cubic
+level-1 statistic grows like T^{1/4}–T^{1/3}, not √T, and shows no stable lines. That is the honest outcome of the
+discovery gamble, and it is itself informative: whatever governs the divisor sum of a cubic polynomial, it is not a
+√T-oscillation at GL(3) spectral parameters at these heights. Possible readings (not tested): (a) the natural normalisation
+for GL(3) is not P/√T (the archimedean parameters enter differently) and the lines are hidden under the trend removal;
+(b) the fluctuation is dominated by the near-random d ≤ T part and any spectral term is of lower order; (c) Y = 10⁷ is
+too small for a three-parameter spectrum whose first form has |λ| ≈ 13.6, 4.8, 18.4 (the quadratic needed Y = 10⁷ to see
+t₁ = 13.8 with R² ≈ 0.15). A second cubic (cyclic, x³−3x−1) and Y = 10⁸ would cost ~40 h CPU in Node; only worth it with a
+theoretical prediction of the growth exponent first. PARKED. Paper IV §7 / RESEARCH-USES 6b: record as "tested, negative
+at 10⁷".
+

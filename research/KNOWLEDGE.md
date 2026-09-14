@@ -191,6 +191,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 15 Sep (morning). CUBIC EXPERIMENT DONE (Y = 10⁷, 3.3 h): NO GL(3) signal; the level-1 statistic of x³ − 2 grows like
+  T^{1/4}–T^{1/3}, not √T; the weak peaks (4.0, 6.8, 9.4) do not persist on the upper half; joint fits of GL(3) parameter
+  sets are not above random. The quadratic mechanism does not transfer. Parked; explore/STATE.md §9.
 - 15 Sep (~06:00). Multiplicativity in u exact on the theory side (level-36 direct computation equals the product; Gram
   matrix is a tensor product). First draft of the follow-up paper written: research/paper-dilation/ (Theorem 1 proved,
   Theorem 2 conditional on three lemmas with numerically fixed values, Theorem 3 newform lines, corollary on uniform
