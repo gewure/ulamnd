@@ -324,4 +324,8 @@ nothing building on III–IV should start before outside review of those two.
   infrastructure otherwise ready. Still ★★★ discovery value, cost now known (a C factoriser, a day).
 - Katok–Sarnak: linear in the Heegner values with |D|^{−3/4} (Sugiyama, arXiv 2110.02847, level N). Pins the shape of
   paper IV's κ; the D-sweep amplitude test is the next step.
+- (later that night) AMPLITUDE LAW CONFIRMED across 15 discriminants (smooth-Dsweep.py): ten with |D| ≤ 23 within 5% and
+  0.1 rad, no free parameter, class numbers up to 6; Bessel decay past |D| ≈ 19 followed to the noise floor. §2d/§4-5(a)
+  closed for the smooth object. Cubic full-factorisation object validated on the control; x³−2 at Y = 10⁶ has rms(P) ∝
+  T^0.16 instead of √T — first hint that the cubic level-1 statistic behaves differently; Y = 10⁷ running.
 

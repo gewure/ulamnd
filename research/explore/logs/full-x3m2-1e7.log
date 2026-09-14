@@ -1,0 +1,4 @@
+f = [1,0,0,-2], disc = -108, Y = 10000000
+special primes: 2,3
+664579 primes (0 s)
+sieve done: 110587 fully split primes, mean rho 0.9993 (25 s)

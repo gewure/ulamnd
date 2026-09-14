@@ -53,7 +53,26 @@ LMFDB level-3 parities checked directly: 3.0.1.1.1 (4.388) odd, 3.0.1.2.1 (5.098
 **For paper IV:** §7 / Remark on u > 1 should cite Strömberg 2012 and state the identification; the footnote that called
   the u = 3, 5 tests inconclusive is now superseded for u = 3. NOT yet edited (author's decision on when).
 
-## 2. The cubic experiment: infrastructure built, object design corrected twice, BLOCKED on full factorisation
+## 2. The cubic experiment: full-factorisation object built and validated; Y = 10⁶ done, Y = 10⁷ running
+
+**Script:** research/explore/cubic-full.ts (all divisors: root sieve + BigInt division, cofactor = 1 / prime / semiprime
+via Miller–Rabin + Pollard–Brent; E = Π_{p≤Y}(1+ρ(p)/(p²−1)); a quadratic+linear trend in T is fitted and subtracted —
+the T² term absorbs the missing tail of E (measured 7.6e−8 ≈ 1/(Y log Y), as expected) and the linear term the constant).
+**Validation:** control x²+1 at Y = 10⁶: raw P(T) equals the brute-force Σ_{h≤T}(T−h)(F−EF) at T = 1000, 2000, 5000 to the
+precision of EF; rms(P) ∝ T^0.497 (√T as the GL₂ mechanism requires). The 13.78 line is NOT visible in a periodogram at
+Y = 10⁶ — but neither is it in paper IV's own object at Y = 10⁶ (checked: piece-divset Y=1e6 → top peak 10.85, R² 0.016);
+it needs Y = 10⁷. So the control passes as far as Y = 10⁶ allows.
+**Cubic x³ − 2, Y = 10⁶ (171 s; 129k semiprime cofactors):** rms(P) ∝ T^0.16 — NOT √T. The fluctuation of the cubic
+level-1 statistic grows much more slowly than the quadratic one over T ∈ [10³, 10⁶]. Periodogram of P/√T (DEG 2–3, taper):
+1.60 (R² 0.33, probably residual trend), 3.93 (0.09), 6.93 (0.05), 9.35 (0.02), 14.5 (0.02). Curiosity: 6.93 and 9.35 sit
+0.13 and 0.17 above the first SL(3,Z) form's parameters 6.798 and 9.181 — far too weak and too few points to mean anything
+yet. The T^0.16 growth is itself the first finding: with the GL₂ mechanism absent, the object may be much smaller (strong
+cancellation), or its natural scale is not P/√T. Decide after Y = 10⁷.
+**Running (background, started ~night of 14 Sep):** `NODE_OPTIONS=--max-old-space-size=12288 F="1,0,0,-2" Y=10000000
+TAG=full-x3m2-1e7 npx tsx research/explore/cubic-full.ts` → log research/explore/logs/full-x3m2-1e7.log, output
+piece-full-x3m2-1e7-grid.dat (expected ~30–60 min: ~1.3M semiprimes). Then: growth exponent, periodogram 0.3–40,
+scan of P/T^a for a ∈ {0.16, 0.33, 0.5}, and the FKL/Bian parameter convention (below) before any comparison.
+**Earlier tonight (superseded, kept for the record):**
 
 **Script:** research/explore/cubic-piece.ts (roots of f mod p by gcd(x^p − x, f) + Cantor–Zassenhaus, Hensel to p^k,
   CRT to all d ≤ Y, CSR storage; 2e6 in 7 s). Control f = x²+1 and target f = x³ − 2; grids written to
@@ -85,7 +104,31 @@ LMFDB level-3 parities checked directly: 3.0.1.1.1 (4.388) odd, 3.0.1.2.1 (5.098
 **Honest expectation:** unknown outcome; that is the point. If lines appear at GL(3) parameters it is a new phenomenon;
   if at unexplained frequencies, a puzzle; if none, the quadratic case is special in a way the heuristic does not predict.
 
-## 3. Amplitude law / Katok–Sarnak normalisation: the shape is pinned from the literature; the D-sweep test not run
+## 3. Amplitude law: CONFIRMED across discriminants (D-sweep of Theorem thm:smooth, 14 Sep night)
+
+**Script:** research/explore/smooth-Dsweep.py (generalises smooth-two-lines.py to any D < 0: Per_D = Σ over ALL reduced forms
+of discriminant 4D, primitive and imprimitive, of u₁(z_Q)/|Stab|; agrees with the old script at D = −4). Data: smooth grids
+`D=<D> U=1 Y=1e7 SMOOTH=1 piece-divset.ts` → piece-DS-all-D-<|D|>-smooth-grid.dat, now for 16 discriminants.
+**Result, first line t₁ = 13.7798 (C_obs/C_pred, phase difference in rad; C_pred from LMFDB coefficients and the reduced
+forms alone, NO free parameter):**
+   D=−3: 1.018 (−0.04) | −4: 0.979 (−0.01) | −7: 1.012 (+0.03) | −8: 1.054 (+0.10) | −11: 1.002 (+0.03) | −15: 0.980 (+0.05) |
+   −19: 1.006 (−0.01) | −20: 1.025 (−0.02) | −23: 0.971 (+0.08) | −24: 1.265 (+0.13) | −27: 1.177 (+0.40) | −31: 1.45 (−0.35) |
+   −35: 1.22 (−0.09) | −39: 0.68 (−0.26) | −43: 3.7 (−1.2).
+   Predicted amplitudes: 0.03–0.06 for |D| ≤ 23, then 0.016 (−24), 0.010 (−27), 0.007 (−31), 0.021 (−35), 0.007 (−39),
+   0.0006 (−43); the noise floor of a single line on these grids is ~0.003–0.005. So: ten discriminants with |D| ≤ 23 agree
+   within 5% and 0.1 rad (class numbers 2, 3, 4, 6 — the sum over ALL classes with stabiliser weights is right), and the
+   decay past the Bessel turning point |D| ≈ 19 follows the prediction down to the noise floor (−43 is below it, as paper
+   IV's threshold paragraph says: "gone at 43"). The second line t₂ (predicted 0.0002–0.018) is mostly below noise; where
+   predicted ≥ 0.008 (D = −4, −7, −15, −20) the ratios are 0.73, 1.25, 0.73, 1.22.
+**Meaning:** the amplitude law of thm:smooth, the one prediction paper IV had confirmed only at D = −4 (and the level-2
+object), holds as a function of D including the class-number > 1 cases and the Bessel decay. This is the "amplitude law"
+of RESEARCH-USES §2d/§4 item 5(a) — done for the smooth object. NOT a test of the Katok–Sarnak constant (no weight-1/2
+coefficients involved); the KS shape (linear, |D|^{−3/4}) is from Sugiyama's announcement, see below.
+**For paper IV:** a table of these ratios belongs in the test paragraph of thm:smooth (sec:smooth) — NOT yet added; the
+threshold paragraph's prediction ("marginal at 27, reduced ~50× at 43") is now checked: at −27 predicted 0.010 vs observed
+0.012; at −43 predicted 0.0006, observed at noise.
+
+### 3b. Katok–Sarnak normalisation: the shape is pinned from the literature
 
 **Found (arXiv 2110.02847, K. Sugiyama, announcement of a Shintani–Katok–Sarnak correspondence for level N; details
   "to appear elsewhere"):** Theorem 1: for Φ a weight-0 Maass cusp form on Γ₀(N) with eigenvalue λ(1−λ), there is a

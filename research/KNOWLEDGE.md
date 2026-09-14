@@ -191,6 +191,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (deep night). D-sweep of the smooth amplitude law: confirmed at 15 discriminants (details explore/STATE.md §3);
+  cubic full-divisor object built (cubic-full.ts), control validated against brute force, x³−2 at Y=10⁶ shows rms ∝ T^0.16;
+  Y=10⁷ run launched in the background.
 - 14 Sep (later night). Joint-fit test written (explore/freq-set-test.ts, Gram–Schmidt): even Γ₀(9) set at the 95th–100th
   percentile, odd-only set at the 1st–5th, on the u = 3 sharp pieces D = −8, −11 (both objects). Paper IV footnotes updated
   (ERRATA 29). Continuing with the cubic full-factorisation mode and the D-sweep of the smooth amplitude law.
