@@ -7,6 +7,14 @@ guardrail table in §4. Say "skip" to leave a question out. Numbers you are unsu
 Role, training, level of mathematics before 8 September (last formal course; what you could and could not read in
 a number-theory paper), prior LLM experience in engineering work, and what triggered the project.
 
+**Answer (14 Sep, verbatim):** Im a Freelance Software Engineer / Entrepreneur and Trader, running multiple projects. I have a
+bachelor degree in Software Engineering and the hardes mathematical course i had to pass was Stochastics. What i can read in
+number theory papers is the human language explanations and the importance of asymptotic proves. i can understand concects as
+the Bateman-Horn C(f) quite clearly, know how to conceptually compare polynoms, during studies i could do fourier
+transformations and markov chains fluently, during work i needed to implement specialized algorithms to find all cycles in a
+bidirectional weighted graph up to N vertices etc. i have a curiosity for number theory since a long time and the prime-richer
+diagonals on the ulam spiral were my visual intuition where to start a study.
+
 ## Q2 — Tools and cost
 Sessions per day, hours per day, approximate token/money cost, other tools (ChatGPT for the assessment; anything
 else), anything done outside the agent (reading, hand computation, talking to people).
