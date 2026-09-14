@@ -5,7 +5,8 @@
 import { readFileSync } from "node:fs";
 const tag = process.argv[2]; const tmin = Number(process.argv[3] ?? 4), tmax = Number(process.argv[4] ?? 30), step = Number(process.argv[5] ?? 0.005);
 const rows = readFileSync(`research/paper-IV/data/piece-${tag}-grid.dat`, "utf8").trim().split("\n").slice(1).map((l) => l.split(" ").map(Number));
-const x = rows.map((r) => r[0]), y0 = rows.map((r) => r[3]), M = x.length;
+const COL = Number(process.env.COL ?? 3); // column to scan (3 = P/sqrtY; 5 = A/sqrtY in the explore grids)
+const x = rows.map((r) => r[0]), y0 = rows.map((r) => r[COL]), M = x.length;
 const mx = x.reduce((a, b) => a + b, 0) / M, my = y0.reduce((a, b) => a + b, 0) / M;
 const sxx = x.reduce((a, v) => a + (v - mx) ** 2, 0), sxy = x.reduce((a, v, i) => a + (v - mx) * (y0[i] - my), 0);
 let y = y0.map((v, i) => v - my - (sxy / sxx) * (x[i] - mx));

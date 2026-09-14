@@ -60,6 +60,10 @@ WHEN IS THE INTERNAL PHASE FINISHED (criterion set 13 Sep, at the author's reque
   RESEARCH (RESEARCH-USES.md §4b), to be started only by a decision of the author, and EXTERNAL review (the author is
   reading outside; feedback so far: one concrete finding, paper I Thm dirichlet's proof, fixed 14 Sep, ERRATA 26).
   Do not reopen polishing without a concrete finding; act on every concrete finding at once.
+  EXPLORATION IN PROGRESS (14 Sep night, author asleep): research/explore/STATE.md — pick up there. Order when
+  resuming: (1) write the joint-fit test for the Γ₀(9) even set (cheap, closes item 2); (2) full factorisation
+  factoriser in C for h³ − 2, h ≤ 10⁶, then the cubic periodogram (item 1); (3) D-sweep of the smooth amplitude law
+  (item 3). Paper IV edits (Strömberg citation, KS footnote) only on the author's decision.
 
 WHEN PICKING UP AGAIN, IN ORDER:
 0. Paper IV: (a) DONE 13 Sep: Theorem thm:smooth written, phase-tested (0.035 rad) and amplitude-tested (0.95) by
@@ -187,6 +191,14 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (night). Exploration started on three follow-ups (research/explore/STATE.md has the full state). RESULT: the
+  unidentified u = 3 line at 3.5 is Strömberg's Γ₀(9) eigenvalue 3.5360 (a Γ³-type form, Proc. LMS 2012); smooth-window
+  pieces for D = −8, −11, −20 show the even Γ₀(9) spectrum (3.536, 5.099, 5.504, 6.647, 8.698) and not the odd-only one
+  (4.388, 6.121, 6.757) — the level-u² picture confirmed at a non-squarefree level. Prediction: the u = 5 line 2.625 is
+  the first eigenvalue of the cycloidal group Γ⁵ (unverified). Cubic experiment: infrastructure built; the control showed
+  that the Maass oscillation lives in moduli d > T (Hooley/DFI range), so the object needs FULL factorisation of f(h) —
+  blocked until that is written. Katok–Sarnak shape pinned from Sugiyama's level-N announcement (arXiv 2110.02847):
+  linear in Φ(z_v), factor |D|^{−3/4}. D-sweep amplitude test planned, not run.
 - 14 Sep (last). The reviewing conversation read the case study: provenance of its §8 quote wrong (F38, ERRATA 28);
   paper III prop:windowW restated so thm:u1 invokes it inside its hypotheses (ERRATA 27); base rate paragraph and the
   scope of model review added. Case study v1.1.

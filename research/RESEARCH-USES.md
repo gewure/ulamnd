@@ -314,3 +314,14 @@ workbench). 3. 6d moments/distribution of S_f(h) (new, self-contained). 4. 1a He
 the conjecture; A_f with three spectra). 5. 6b hierarchy, only if the author wants the k-tuple theme; never 6a alone.
 Items 1–3 depend only on paper I's identity and paper II's algebra, which are the parts that have been reviewed most;
 nothing building on III–IV should start before outside review of those two.
+
+### 6h. Night of 14 Sep: first results of the three follow-ups (details: research/explore/STATE.md)
+- u = 3 anomaly RESOLVED: the 3.5 line is Γ₀(9)'s 3.5360 (Strömberg 2012, a Γ³-type form); the u = 3 pieces show exactly
+  the even part of the Γ₀(9) spectrum. §4 item 3 closed; the level-u² picture (§1) confirmed where the LMFDB has no data. ★★★★★ as
+  evidence for §1; the u = 5 line 2.625 ↔ first eigenvalue of Γ⁵ is the next check.
+- Cubic experiment: the Maass oscillation of the divisor-sum object lives in the moduli d > T (Hooley/DFI range); any
+  truncation d ≤ T kills it (verified on the control). The cubic object therefore needs full factorisation of f(h);
+  infrastructure otherwise ready. Still ★★★ discovery value, cost now known (a C factoriser, a day).
+- Katok–Sarnak: linear in the Heegner values with |D|^{−3/4} (Sugiyama, arXiv 2110.02847, level N). Pins the shape of
+  paper IV's κ; the D-sweep amplitude test is the next step.
+
