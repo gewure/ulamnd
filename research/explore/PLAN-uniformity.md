@@ -120,5 +120,13 @@ Deshouillers–Iwaniec/Pitt bound for sums of Kloosterman sums of Γ₀(q), q = 
 (iii) The λ(d)-weight of the pieces is harmless: λ = 1 * g with g(p) = 4/(p−4), so Σ_d λ(d)ρ_k(d) = Σ_e g(e) W_k(x; e) needs the
     Weyl sums with the divisibility e | d, which is DFI's/Ngo's W_h(x, N) with N = e and Σ_e g(e) e^{-1+...} convergent.
 
+## 6. The regime map (15 Sep 15:20; derivation in PROOFS-uniform.md §2)
+(I) u ≤ X^{1/5}: Hooley's parametrisation on Γ₀(u²) carries the pairs; Weil gives X^{3/4}u^{5/4}; spectral version to do.
+(II) X^{1/5} < u < X^{1/2}: modular structure present but the Kloosterman moduli u²c' exceed the interval lengths √(X/ṽ).
+(III) u ≥ X^{1/2}: every pair (n, x) is the minimum of its own Γ₀(u²)-orbit — no cancellation from level u² at all; the sum is
+     a Kloosterman-fraction sum Σ_n Σ_r e(kū r/n) with fixed numerator u; averaging over u ≫ X² gives √X in mean square
+     (= part III's Type II). Conjecture U says individual u work too (N2). The proved-range target for now: (I).
+
 ## 4′. Log
+- 15 Sep 15:20: regime map §6; PROOFS-uniform.md started (setup verified, elementary bound with u tracked, three regimes).
 - 15 Sep 13:00: file created; literature facts above from arXiv 2107.13301 (Ngo) which quotes Hooley, Bykovskii, DFI, Tóth.
