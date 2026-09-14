@@ -171,8 +171,10 @@ the convention used throughout \S\S\ref{sec:formula}--\ref{sec:proof}. The expec
 argument $t$, not at $\lfloor t\rfloor$; the two agree at integers, and the sawtooth identity of
 Lemma~\ref{lem:sawtooth} holds for all real $t$ only with this choice. For integer $Y$, since $\int_h^Ydt=Y-h$,
 \[
-\mathcal P^{(0)}_u(Y)=\sum_{h\le Y}(Y-h)\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)-\tfrac12\,\mathbb EF_u\,Y
-=\mathcal P_u(Y)-\tfrac Y2 ,
+\begin{aligned}
+\mathcal P^{(0)}_u(Y)&=\sum_{h\le Y}(Y-h)\bigl(F_u(Q_u(h))-\mathbb EF_u\bigr)-\tfrac12\,\mathbb EF_u\,Y\\
+&=\mathcal P_u(Y)-\tfrac Y2 ,
+\end{aligned}
 \]
 with $\mathcal P_u$ the piece of the set-up paragraph, the object computed in \S\ref{sec:numerics}; the two differ by
 a linear term, which every statement below carries as a nuisance term anyway.
@@ -464,9 +466,11 @@ $\mathrm{Per}_D(u_j)$ for that period,
 \end{equation}
 with an explicit factor $\kappa$. \footnote{The identity is linear in the period, as in \cite{KatokSarnak1993}; its square, which expresses
 $|\rho_j(|D|)|^2$ through $L(\tfrac12,u_j\otimes\chi_D)$, is the Waldspurger--Kohnen--Zagier form and is not what is
-used here. Only $|\kappa|$, and only its dependence on $D$, enters below; the normalisations of $\rho_j$,
-$\mathrm{Per}$ and $\kappa$ should be pinned to \cite{KatokSarnak1993} before any amplitude is computed
-from~\eqref{eq:ks}.}
+used here. In the level-$N$ version announced by Sugiyama \cite{Sugiyama2021}, the coefficient of the weight-$\tfrac12$
+form at $-n$ is $n^{-3/4}\sum_v\Phi(z_v)/|\mathrm{Stab}(v)|$, the sum over the $\Gamma_0(N)$-classes of the forms of the
+corresponding discriminant; so $\kappa$ carries the factor $|D|^{-3/4}$ and, in that normalisation, no dependence on
+$t_j$. Only $|\kappa|$, and only its dependence on $D$, enters below; the constant should still be pinned to
+\cite{KatokSarnak1993} before any amplitude is computed from~\eqref{eq:ks}.}
 
 \begin{proposition}[parity]\label{prop:parity}
 If $u_j$ is an odd Maass form then $\mathrm{Per}_D(u_j)=0$, for every discriminant $D$. Consequently only the even
@@ -1594,11 +1598,25 @@ Computed from the model object at $Y\le10^7$ with the mean value evaluated to $2
 So the structure extends to every $u$: the argument of \S\S\ref{sec:formula}--\ref{sec:proof} applies verbatim to
 $\Gamma^0(u^2)$ for each fixed $u$, and what is missing is precisely one thing: the size, in $u$, of the restricted
 geometric factor, together with the uniformity in the level of the spectral expansion. \footnote{A first look at
-$u=3$ and $u=5$ (model object, $Y\le10^7$, \texttt{scripts/piece-divset.ts} with \texttt{U}) shows that the
-level-one lines, which carry the signal at $u=1$ and $u=2$, are no longer detectable ($2$nd--$35$th percentile), and that
-the object is dominated by a slowly varying component (single lines near $3.5$ and $5.1$ in $\log Y$, $R^2$ up to
-$0.6$) whose origin we have not identified; a test for the level-$u^2$ newforms is therefore inconclusive at this
-$Y$, and we record it as such (13 September 2026).} Summing $\lambda\omega(u)$ times an error $(H/u)^{1/2}u^{A}$ over $u\le H^{2/3}$ is
+$u=3$ and $u=5$ (model object, $Y\le10^7$, \texttt{scripts/piece-divset.ts} with \texttt{U}) showed that the
+level-one lines, which carry the signal at $u=1$ and $u=2$, are no longer detectable, and that the object is dominated by
+slowly varying components, single lines near $3.5$ and $5.1$ in $\log Y$, which on 13~September we could not identify.
+They are identified now (14~September). Str\"omberg \cite{Stromberg2012} proved that $\Gamma_0(9)$ has no genuinely new
+eigenvalues: its spectrum consists of the level-one forms, the forms of $\Gamma_0(3)$, their twists, and forms coming
+from the cycloidal group $\Gamma^3$ of index three, the last with multiplicity two and in both parities. His table
+begins $3.5360$ ($\Gamma^3$), $4.3881$ ($\Gamma_0(3)$, odd), $5.0987$ ($\Gamma_0(3)$, even), $5.5041$ ($\Gamma^3$),
+$6.1206$ (odd), $6.6466$ ($\Gamma^3$), $6.7574$ (odd), $7.4318$ ($\Gamma^3$), $8.0389$ (even), $8.6983$ ($\Gamma^3$).
+The smooth-window pieces at $u=3$ for $D=-8,-11,-20$ ($Y\le10^7$) have their peaks at $3.48$--$3.56$, $5.08$--$5.18$,
+$6.59$--$6.78$ and $8.5$--$8.7$, and only traces ($R^2\le0.02$) at the odd-only eigenvalues $4.388$, $6.121$, $6.757$:
+this is the even part of the $\Gamma_0(9)$ spectrum, as the level-$u^2$ picture predicts, on a level for which the LMFDB
+has no data. In the joint-fit test of Table~\ref{tab:fits} the six even eigenvalues $\{3.5360,5.0987,5.5041,6.6466,7.4318,
+8.6983\}$ explain $60$--$82\%$ of the variance of the sharp pieces at $D=-8,-11$ (both objects), at the $95$th--$100$th
+percentile of $300$ random six-sets from $[3,9.5]$, while the six odd-only eigenvalues explain $8$--$14\%$, at the
+$1$st--$5$th percentile (\texttt{research/explore/freq-set-test.ts}). For $u=5$ the strongest line is at $2.625$; Str\"omberg conjectures that $\Gamma_0(25)$ likewise has no
+genuinely new forms and that the forms of the cycloidal group $\Gamma^5$ appear with multiplicity two, so we predict
+$2.625$ to be the first eigenvalue of $\Gamma^5$, which we have not been able to check. A phase or amplitude test at
+level $9$ needs the Fourier coefficients of the $\Gamma^3$-type forms, which we do not have. Data and peak tables:
+\texttt{research/explore/STATE.md}.} Summing $\lambda\omega(u)$ times an error $(H/u)^{1/2}u^{A}$ over $u\le H^{2/3}$ is
 $O(H^{1-\delta})$ exactly when $A<\tfrac14$, so a bound $u^{1/4-\varepsilon}$ for that factor would settle the Ces\`aro
 conjecture for quadratics. This is the same wall part~III meets from the other side, in the guise of the exponent
 condition $\theta+6B<1$: there, no Weyl-sum bound is uniform enough in the frequency; here, no bound is known for the

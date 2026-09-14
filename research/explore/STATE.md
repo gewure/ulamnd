@@ -37,6 +37,10 @@ LMFDB level-3 parities checked directly: 3.0.1.1.1 (4.388) odd, 3.0.1.2.1 (5.098
   8.5–8.7 (=8.698 Γ³), 5.54 (=5.504 Γ³, D=−20 coprime), 7.5–7.67 (≈7.432 Γ³, offset +0.1–0.2, less clean). Odd-only
   eigenvalues 4.388, 6.121, 6.757 appear only weakly (R² ≤ .02) — as predicted. Unresolved: 9.28–9.52 (near the odd
   level-1 form 9.534, which should be absent; the smooth grid is coarse there), 5.96 (D=−8; between 5.504 and 6.121).
+**Joint-fit test (done, freq-set-test.ts, Gram–Schmidt, 300 random six-sets in [3, 9.5]):**
+  sharp grids DEG=3: all D=−8 R²(even)=0.82 [100th pct] R²(odd)=0.08 [3rd]; coprime D=−8 0.60 [95th] / 0.12 [5th];
+  all D=−11 0.81 [100th] / 0.14 [2nd]; coprime D=−11 0.63 [100th] / 0.11 [1st]. Smooth grids (401 pts, DEG=2): even set
+  at 99.7–100th percentile for all six; odd set 5th–53rd. Paper IV footnote updated with this (ERRATA 29).
 **Status:** the level-u² picture is confirmed on a NON-squarefree level, where the LMFDB has no data, by a published
   spectrum. This is item 3 of RESEARCH-USES §4 ("the slow component at u ≥ 3") closed in the affirmative. Not yet done:
   a joint-fit test (the six predicted even frequencies vs 300 random six-sets vs the odd-only set), as in paper IV's

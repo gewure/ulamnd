@@ -191,6 +191,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (later night). Joint-fit test written (explore/freq-set-test.ts, Gram–Schmidt): even Γ₀(9) set at the 95th–100th
+  percentile, odd-only set at the 1st–5th, on the u = 3 sharp pieces D = −8, −11 (both objects). Paper IV footnotes updated
+  (ERRATA 29). Continuing with the cubic full-factorisation mode and the D-sweep of the smooth amplitude law.
 - 14 Sep (night). Exploration started on three follow-ups (research/explore/STATE.md has the full state). RESULT: the
   unidentified u = 3 line at 3.5 is Strömberg's Γ₀(9) eigenvalue 3.5360 (a Γ³-type form, Proc. LMS 2012); smooth-window
   pieces for D = −8, −11, −20 show the even Γ₀(9) spectrum (3.536, 5.099, 5.504, 6.647, 8.698) and not the odd-only one

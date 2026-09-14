@@ -387,3 +387,17 @@ route before being applied (the checks are described in the items). We agree wit
     Same species as F21; recorded as F38. Also from that reading: a base-rate paragraph added to §6, recommendation 4
     now says what model review does and does not catch, and the paper III item above.
 
+29. **Paper IV, Section 7 footnote on u = 3, 5 and Section 4 Katok–Sarnak footnote updated (14 Sep, night).** (a) The
+    footnote that recorded the u = 3, 5 tests as inconclusive ("slowly varying components near 3.5 and 5.1 whose origin we
+    have not identified") is superseded: Strömberg (Proc. LMS 2012, arXiv 1106.5741) proved Γ₀(9) has no genuinely new
+    eigenvalues, its spectrum being level-1 and level-3 forms, their twists, and forms of the cycloidal group Γ³ (both
+    parities); his table gives 3.5360 (Γ³), 5.0987 (level 3, even), 5.5041, 6.6466, 7.4318, 8.6983 (Γ³) and odd-only
+    4.3881, 6.1206, 6.7574. The smooth-window pieces at u = 3 for D = −8, −11, −20 (new tonight) peak at exactly the even
+    part; the joint fit of the six even eigenvalues sits at the 95th–100th percentile against random six-sets, the
+    odd-only set at the 1st–5th (freq-set-test.ts, sharp grids D = −8, −11). The footnote now states this, cites
+    Strömberg, and records the u = 5 prediction (the line 2.625 should be the first eigenvalue of Γ⁵; unverified).
+    (b) The Katok–Sarnak footnote now gives the level-N shape from Sugiyama's announcement (arXiv 2110.02847, Thm 1):
+    coefficient at −n equals n^{−3/4} Σ_v Φ(z_v)/|Stab v|, linear in the values, factor |D|^{−3/4}; the constant is
+    still to be pinned to Katok–Sarnak 1993 (paywalled). Bib entries Stromberg2012, Sugiyama2021 added. Also: the
+    display for 𝒫^{(0)} (this morning's ERRATA 25 edit) was 64 pt too wide and is split. Paper IV 31 pp, 0 overfull.
+
