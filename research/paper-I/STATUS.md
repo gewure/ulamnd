@@ -2,7 +2,7 @@
 
 ## v10 (14 Sep): the asymptotic in Theorem thm:dirichlet re-proved without Selberg–Delange
 
-An outside reader found that the proof asserted ζ_K/ζ "non-vanishing in a standard zero-free region", which is not
+The author's long-running reviewing Claude conversation (not an independent reader) found that the proof asserted ζ_K/ζ "non-vanishing in a standard zero-free region", which is not
 known (Siegel zeros). The claim was unnecessary; the proof now runs Perron directly on ζ_K(s)E_f(s−1), needs nothing
 about zeros, and gives Σ_{d≤x} a_f(d) = log x/C(f) + B_f + O(x^{−1/(6n)+ε}) with B_f the Laurent constant of D_f at 0.
 No statement elsewhere depends on the old error term. Remark rem:noselbergdelange, ERRATA 26. 31 pp.

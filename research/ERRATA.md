@@ -355,7 +355,8 @@ route before being applied (the checks are described in the items). We agree wit
     KNOWLEDGE 0b is finished.
 
 26. **Paper I, Theorem thm:dirichlet: the proof of the asymptotic Σ_{d≤x} a_f(d) = log x/C(f) + B_f + o(1) replaced (14 Sep).**
-    Found by the author's outside screening (a second hostile reader), the only finding of that pass. The old proof
+    Found by the author's long-running reviewing Claude conversation (not independent: it had followed the whole programme,
+    seen every draft, and proposed the O(1) fix later found false), the only finding of that pass. The old proof
     invoked Selberg–Delange for ζ(s)·(ζ_K(s)/ζ(s))E_f(s−1) and asserted that the second factor is "holomorphic and
     non-vanishing in a neighbourhood of s = 1 and in a standard zero-free region". Verdict: half right. Holomorphy is
     true and cheap (the poles at s = 1 cancel; ζ ≠ 0 in its own zero-free region), so Dedekind's conjecture is NOT
@@ -368,4 +369,21 @@ route before being applied (the checks are described in the items). We agree wit
     O(x^{−1/(6n)+ε}), unconditionally, and B_f is identified as the constant term of the Laurent expansion of D_f at 0,
     B_f = γ_K E_f(0) + κ_K E_f'(0). New Remark rem:noselbergdelange records the episode. Downstream uses (the smoothed
     diagonal, §Cesàro) needed only log H/C(f) + O(1), so nothing else changes. Paper I 31 pp, 0 overfull. Fallacy F37.
+
+27. **Paper III, Proposition prop:windowW restated so that Theorem thm:u1 invokes it inside its hypotheses (14 Sep).**
+    ERRATA 18 had found the theorem invoking the proposition at (θ,B) = (11/12, 1/4), where θ+B = 7/6 violates the stated
+    hypothesis θ+B < 1, and had "fixed" it with a remark in the theorem that the hypothesis is used only for frequencies
+    k > Y/2, a range empty for u = 1, L = Y^ε. True, but a reader stops at the violation (one did, reading the case study).
+    The proposition now assumes only θ < 1 and states the bound with an explicit extra term E, zero when K = u²LY^ε ≤ Y/2
+    and ≪ u^B Y^{1+ε}(Y^{B+θ−1} + K^{B+θ−1} log K) otherwise; under θ+B < 1 this recovers the old bound, and Theorem A's use
+    (θ+6B < 1) is unchanged. Theorem u1 invokes it with K = Y^{2ε}, E = 0, no remark needed. Rule: when an invocation needs
+    a remark that the hypothesis is not really used, restate the theorem, do not annotate the invocation.
+
+28. **Case study (research/case-study), version 1: the provenance of the Section 8 quote was wrong (14 Sep).** The reader
+    quoted there was described as "a Claude instance given the papers and nothing else". It is the author's reviewing
+    conversation kept open for the whole programme, which saw every draft, proposed the O(1) fix later found false, and
+    missed the assessment's three findings. Corrected everywhere (abstract, §1, §2.2, §6, §8, Appendix B); the case study
+    now has one independent outside assessment, not two outside readers. Found by the reader itself on reading the draft.
+    Same species as F21; recorded as F38. Also from that reading: a base-rate paragraph added to §6, recommendation 4
+    now says what model review does and does not catch, and the paper III item above.
 

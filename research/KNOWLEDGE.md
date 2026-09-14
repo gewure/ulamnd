@@ -187,6 +187,9 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   pairs), the Möbius regrouping (exact). Paper IV 23 pp.
 
 ## 1. Timeline (all 2026)
+- 14 Sep (last). The reviewing conversation read the case study: provenance of its §8 quote wrong (F38, ERRATA 28);
+  paper III prop:windowW restated so thm:u1 invokes it inside its hypotheses (ERRATA 27); base rate paragraph and the
+  scope of model review added. Case study v1.1.
 - 14 Sep (night). Case study finished as version 1 (16 pp, research/case-study/main.pdf, venue arXiv): interview
   Q1–Q12 in two rounds (Appendix A, spelling-corrected), prompt fragments only, the outside reader's limits paragraph
   quoted verbatim with permission, the mathandai.org declaration cited, all independent readings listed (Appendix B),
@@ -194,7 +197,7 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
 - 14 Sep (evening). Case study scaffolded (research/case-study/): 9-pp LaTeX skeleton with §§ set-up, origin,
   guardrails table, prompting stages, error classification, verification, limits, recommendations; 12 interview
   questions (INTERVIEW.md) awaiting the author's answers; process numbers generated from git (record.tex).
-- 14 Sep (later). Outside screening (author's second hostile reader) found the unproved "non-vanishing in a zero-free
+- 14 Sep (later). The author's long-running reviewing Claude conversation (not independent) found the unproved "non-vanishing in a zero-free
   region" in the proof of paper I Thm dirichlet's asymptotic. Replaced by a Perron argument with ζ_K in the numerator;
   error term now O(x^{−1/(6n)+ε}) unconditionally; B_f identified as the Laurent constant. ERRATA 26, F37. Paper I 31 pp.
 - 14 Sep. Last two internal readings applied: paper II Sections 2–4 (7 fixes, ERRATA 24) and paper IV Sections 2–4
@@ -463,6 +466,13 @@ level-1 even lines, the residual regressed on the 8 smallest level-e even newfor
   Kloosterman-fraction route structurally blocked (numerator depends on the modulus through the root). Hence Hypothesis W
   is not the plan for paper IV; the plan is the divisor-problem / Dirichlet-series view of the pieces (route 11).
 
+F38. "A Claude instance given the papers and nothing else" (case study v1, §8) for a reader that was the author's
+long-running reviewing conversation with weeks of context. A statement about PROCESS asserted from memory instead of
+checked with the author; same species as F21 ("submitted"). Rule: every sentence describing who did what, with what
+context, is a claim to be verified like a constant — ask, or look at the record; provenance of a reviewer is part of the
+evidence, and overstating independence is the case-study analogue of overstating a theorem. Found by the reader itself.
+(ERRATA 28)
+
 ## 2. What is proved, conjectured, refuted (status board)
 PROVED (paper I): exact identity; ζ_K(s+1)E_f(s) with residue 1/C; E_f = H_f/L(2s+2,Sym²V) with H_f abs. conv.
 for Re s > −2/3 (H̃_f only for Re s > −3/4 — corrected); quadratic closed formula; Cesàro theorem for linear f;
@@ -660,7 +670,7 @@ Non-vanishing of ζ_K/ζ near σ = 1 is the no-Siegel-zero statement and is NOT 
 Selberg–Delange "usually" comes with G(1) ≠ 0. But the method needs only holomorphy and polynomial growth of G, and here
 the cleaner route puts ζ_K in the NUMERATOR (Perron on ζ_K(s)E_f(s−1)), where its zeros are irrelevant, and gives a
 power saving. Rule: when a factor sits in the numerator, never mention its zeros; when a proof "cites a method", list
-the method's hypotheses and check each one against the object. Caught by an outside reader (14 Sep), after two internal
+the method's hypotheses and check each one against the object. Caught by the author's long-running reviewing conversation (14 Sep), after two internal
 passes and one external assessment had read the same lines. (ERRATA 26)
 
 ## 3e. THE OBSTRUCTION, FINALLY IDENTIFIED EXACTLY (12 Sep, night) -- and it is NOT a tap-in

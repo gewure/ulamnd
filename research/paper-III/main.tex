@@ -7,6 +7,7 @@
 \usepackage[margin=2.5cm]{geometry}
 \linespread{1.06}
 \setlength{\emergencystretch}{3em}
+\hfuzz=2.5pt % warnings only for overruns a reader could see
 \allowdisplaybreaks[1]
 \usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
 \captionsetup{font=small,labelfont=bf}
@@ -587,9 +588,8 @@ For $D$ as in Lemma~\ref{lem:sharp},
 \]
 Together with Lemma~\ref{lem:far} ($u=1$, $L=Y^{\varepsilon}$; the window $(Y,YL]$ is then the only part not
 covered) this gives $\mathcal P_1(Y)=\mathcal W_1(Y;Y^{\varepsilon})+O(Y^{1-\varepsilon})$, and Proposition~\ref{prop:windowW}
-with $(\theta,B)=(\tfrac{11}{12},\tfrac14)$ bounds the window by $Y^{11/12+O(\varepsilon)}$ --- its hypothesis $\theta+B<1$
-fails for these exponents, but the proof uses it only for the frequencies $k>Y/2$, and for $u=1$, $L=Y^\varepsilon$ the
-frequencies run over $k\le K=LY^{\varepsilon}=Y^{2\varepsilon}<Y/2$, so only the first term of its bound occurs. Hence
+with $(\theta,B)=(\tfrac{11}{12},\tfrac14)$, $u=1$, $L=Y^{\varepsilon}$, hence $K=Y^{2\varepsilon}\le Y/2$ and $E=0$, bounds
+the window by $Y^{11/12+O(\varepsilon)}$ (no condition on $\theta+B$ is needed in this case; $\theta+B=\tfrac76$ here). Hence
 $\mathcal P_1(Y)\ll Y^{1-\delta}$ unconditionally.
 \end{theorem}
 \begin{proof}
@@ -599,8 +599,8 @@ $\sum_{k\le K}k^{-2}T_k\ll Y^{12/13+\varepsilon}\sum_{k\le K}k^{-2+1/4+12/13}\ll
 $\sum_{k>K}k^{-2}|T_k|\ll Y/K$. With $K=Y^{1/15}$ the first is $\ll Y^{12/13+9/780+\varepsilon}=Y^{0.9346+\varepsilon}$ and the
 second is $Y^{14/15}$; both are $\ll Y^{1-1/16}$. (The first version of this theorem claimed $Y^{12/13+\varepsilon}$ with
 $K=Y^{1/20}$, for which the tail is $Y^{19/20}$; the optimal $K$ gives $Y^{0.9345}$, so $12/13$ is unattainable by this
-argument. Found by a second reading on 13 September 2026, together with the misapplication of
-Proposition~\ref{prop:windowW} corrected in the statement.)
+argument. Found by a second reading on 13 September 2026, which also found Proposition~\ref{prop:windowW} invoked
+outside its then hypothesis $\theta+B<1$; the proposition has since been restated, see its proof.)
 \end{proof}
 
 
@@ -980,10 +980,15 @@ S_k(t)=\sum_{\substack{d'\le t\\ (d',u)=1,\ d'\ \mathrm{split}}}\lambda(d')\sum_
 \end{hypothesis}
 
 \begin{proposition}[the window from Weyl sums]\label{prop:windowW}
-Assume Hypothesis~W$(\theta,B)$ with $\theta+B<1$. Then for squarefree $u$ with $\omega(u)\ge1$, $Y\ge2$, $L\ge1$ and $\varepsilon>0$,
+Assume Hypothesis~W$(\theta,B)$ with $\theta<1$. For squarefree $u$ with $\omega(u)\ge1$, $Y\ge2$, $L\ge1$ and
+$\varepsilon>0$ put $K=u^2LY^{\varepsilon}$. Then
 \[
-\mathcal W_u(Y;L)\ll_{f,\varepsilon}\bigl(u^{3B}L^{B}+u^{B}Y^{B}\bigr)Y^{\theta+2\varepsilon}+Y^{1-\varepsilon}.
+\mathcal W_u(Y;L)\ll_{f,\varepsilon}u^{3B}L^{B}Y^{\theta+2\varepsilon}+Y^{1-\varepsilon}+E,\qquad
+E=\begin{cases}0&(K\le Y/2),\\ u^{B}Y^{1+\varepsilon}\bigl(Y^{B+\theta-1}+K^{B+\theta-1}\log K\bigr)&(K>Y/2).\end{cases}
 \]
+In particular, if $\theta+B<1$ then $E\ll u^{B}Y^{B+\theta+\varepsilon}$ and
+$\mathcal W_u(Y;L)\ll\bigl(u^{3B}L^{B}+u^{B}Y^{B}\bigr)Y^{\theta+2\varepsilon}+Y^{1-\varepsilon}$; if $K\le Y/2$ no condition on
+$\theta+B$ is needed.
 \end{proposition}
 \begin{proof}
 By Lemma~\ref{lem:finfourier} (all $d'$ are odd, $R^{(u)}_{d'}$ is symmetric and avoids $0$), applied at $\lfloor Y\rfloor$
@@ -1022,8 +1027,13 @@ $\ll(uk)^BY^{\theta+\varepsilon}k^{-1}$ if $2k\le Y$ and $\ll(uk)^BYk^{\theta-2+
 \Bigl|\sum_{d'>\max(Y,2k)}\lambda\rho_kg_k\Bigr|\ \ll\ u^BY^{\theta+\varepsilon}k^{B-1}\qquad(2k\le Y),\qquad\qquad
 \ll\ u^BY^{1+\varepsilon}k^{B+\theta-2}\qquad(2k>Y).
 \]
-Summing over $k\le\min(K,Y/2)$ gives $\ll u^BY^{\theta+\varepsilon}(K^B\log K)\ll u^{3B}L^BY^{\theta+2\varepsilon}$, and over
-$Y/2<k\le K$ (using $B+\theta<1$) $\ll u^BY^{1+\varepsilon}Y^{B+\theta-1}=u^BY^{B+\theta+\varepsilon}$.
+Summing over $k\le\min(K,Y/2)$ gives $\ll u^BY^{\theta+\varepsilon}(K^B\log K)\ll u^{3B}L^BY^{\theta+2\varepsilon}$. The range
+$Y/2<k\le K$ is empty when $K\le Y/2$; otherwise it contributes
+$\ll u^BY^{1+\varepsilon}\sum_{Y/2<k\le K}k^{B+\theta-2}\ll u^BY^{1+\varepsilon}\bigl(Y^{B+\theta-1}+K^{B+\theta-1}\log K\bigr)$, which
+is $E$; when $B+\theta<1$ the sum is $\ll Y^{B+\theta-1}$ and $E\ll u^BY^{B+\theta+\varepsilon}$. (The first version stated the
+proposition under $\theta+B<1$ only, and Theorem~\ref{thm:u1} then invoked it at $(\tfrac{11}{12},\tfrac14)$, where
+$\theta+B=\tfrac76$, with a remark that the hypothesis was not used in that case. The statement now says exactly what
+the proof gives, so that no invocation needs such a remark.)
 \end{proof}
 
 \begin{theorem}[A]\label{thm:A}
@@ -1059,7 +1069,7 @@ $\sum_{u\le U_0}|w(u)|\mathcal P^\le_u(H/u)\ll H^{1/(2-\theta)+\varepsilon}\sum_
 and the exponent is $<1$ exactly when $2B(2-\theta)<1-\theta$, which follows from~\eqref{eq:expcond} since
 $(1-\theta)/6<(1-\theta)/(2(2-\theta))$.
 
-\emph{Window.} Proposition~\ref{prop:windowW} with $Y=H/u$:
+\emph{Window.} Proposition~\ref{prop:windowW} with $Y=H/u$, in its ``in particular'' form ($\theta+B<1$ holds by~\eqref{eq:expcond}):
 \[
 \begin{aligned}
 \sum_{u\le U_0}|w(u)|\,\mathcal W_u\Bigl(\frac Hu;L\Bigr)&\ll H^{\theta+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{3B-\theta}+H^{\theta+B+O(\varepsilon)}\sum_{u\le U_0}|w(u)|u^{-\theta}\\

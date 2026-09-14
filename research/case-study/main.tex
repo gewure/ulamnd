@@ -35,7 +35,8 @@ Between \FirstDay{} and \LastDay{} a software engineer with no background in ana
 large language model, which did most of the mathematical, computational and textual work, on a series of four
 draft papers about the pair singular series of prime values of polynomials. Whether that mathematics is correct or
 worth anything is not settled and is not the subject of this paper; the drafts have been read adversarially by
-model instances and by two outside readers, not yet by a specialist. The subject is the process: a test-driven
+fresh model instances, by one independent outside assessment, and by a reviewing model instance that had followed the
+whole programme, not yet by a specialist. The subject is the process: a test-driven
 engineering habit and a small set of written guardrails (a knowledge file of state and known fallacies, a
 project-wide errata file that is never shortened, readings by fresh model instances, outside assessments archived
 with the revision they read, two independent routes for every constant, a stopping criterion) that were meant to
@@ -61,8 +62,9 @@ this paper is the reading of that record.
 (i) a body of work in which every statement is labelled proved, conditional, conjectural or open, (ii) a record of
 every error found, by whom, and how it was fixed, and (iii) numbers that can be regenerated from the repository. We
 do \emph{not} claim that the mathematics is important, nor that it is correct beyond what its errata say; as of
-this writing the four papers have been read adversarially by model instances without session context and by two
-outside readers, and not yet by a specialist in the field (\S\ref{sec:limits}). The case study has $n=1$.
+this writing the four papers have been read adversarially by model instances without session context, by one
+independent outside assessment, and by a reviewing model instance in long dialogue with the author, and not yet by a
+specialist in the field (\S\ref{sec:limits}). The case study has $n=1$.
 
 \paragraph{The subject programme in one paragraph.} For an irreducible polynomial $f$, the pair singular series
 $S_f(h)$ is the explicit weight that, under the Hardy--Littlewood conjecture, governs simultaneous primality of
@@ -101,8 +103,12 @@ Opus~5 for simpler tasks, as the disclosure sections of the four papers state. F
 (\S\ref{sec:guardrails}); the cheaper model was used for such readings when rate limits made this necessary. The
 author reviewed the output with models of other vendors, mostly OpenAI's GPT and Google's Gemini, instructing them
 to take a hostile position; one such assessment (ChatGPT, 12~September) is archived as a PDF against the revision
-it read, and a second outside screening (a separate Claude instance, 14~September) found the defect recorded as
-ERRATA~26. For orientation the author used ChatGPT, Gemini, web search, Mathematics Stack Exchange and the arXiv;
+it read. A second reviewing instance, a Claude conversation the author kept open for the whole programme and to
+which he gave every draft, is \emph{not} independent: it had weeks of context, had proposed one fix that later turned
+out to be false (the $O(1)$ form of the sharp conjecture), and had reviewed the same papers without finding the
+assessment's three findings; on 14~September it found the defect recorded as ERRATA~26. The first version of this
+case study described it as ``an instance given the papers and nothing else''; that was wrong, and the reader itself
+corrected it (\S\ref{sec:limits}). For orientation the author used ChatGPT, Gemini, web search, Mathematics Stack Exchange and the arXiv;
 a good part of the background knowledge came from popular mathematics videos (Numberphile).
 \evidence{Interview Q2; \file{research/reviews/}; ERRATA 11--15, 26}
 
@@ -139,7 +145,7 @@ assessment. The phases, from the commit log and the knowledge base:
   found not to close and said so; the smooth-window theorem proved and confirmed on three spectral lines; six
   adversarial readings in one day, errors in five of them.
 \item[14 Sep] The last two internal readings applied (ERRATA 24--25); the internal phase declared finished by the
-  criterion set the day before; a second outside reader finds an unproved non-vanishing claim in paper~I
+  criterion set the day before; the long-running reviewing instance finds an unproved non-vanishing claim in paper~I
   (ERRATA~26), fixed the same day.
 \end{description}
 \evidence{\texttt{git log}; \file{KNOWLEDGE.md} \S1 Timeline}
@@ -303,7 +309,7 @@ type and by who caught them, is ours and is one of several possible; the items t
 class & examples & caught by\\
 \midrule
 Borrowed theorem outside its hypotheses & DFI range (F11, F13); Kurokawa's class (KB \S5); Selberg--Delange
-non-vanishing (F37) & literature check; outside reader\\
+non-vanishing (F37) & literature check; long-running reviewing instance\\
 Over-claiming in prose & ``proved'' for a conjecture (F7); $o(1)$ then $O(1)$ for a sum with no bounded remainder
 (F15, F26); ``submitted'' when it had not been (F21) & external assessment; self\\
 Algebraic slips with structural consequences & pole orders in a ``same proof'' generalisation (F27); orbit
@@ -318,11 +324,22 @@ Convergence and mode-of-convergence errors & absolute vs.\ paired convergence; i
 \end{center}
 
 \paragraph{Who caught what.} Internal readings (the model re-reading its own work in a fresh instance) caught
-algebraic slips, convergence errors and inconsistencies between sections, reliably and in quantity. The two outside
-readers caught what internal readings did not: a claim that is true in the special case and false in general (the
+algebraic slips, convergence errors and inconsistencies between sections, reliably and in quantity. The independent
+assessment and the long-running reviewing instance caught what internal readings did not: a claim that is true in the special case and false in general (the
 assessment's finding on paper~II), a sum rewritten as an orbit sum over a set that is not an orbit (paper~IV), and a
-method invoked with a hypothesis it does not have (paper~I, ERRATA~26). The second outside reader's own assessment of
-this asymmetry is quoted in \S\ref{sec:limits}. \evidence{ERRATA 11--15, 18, 22, 24--26}
+method invoked with a hypothesis it does not have (paper~I, ERRATA~26). The reviewing instance's own assessment of
+this asymmetry is quoted in \S\ref{sec:limits}.
+
+\paragraph{What the count means.} Thirty-seven fallacies and twenty-six errata items in six days reads as
+catastrophic, and the reader should know what it is being compared with, which is nothing: we know of no published
+count of the errors in a human first draft before referee reports, because such errors are corrected silently and
+never recorded. The number here is a property of the recording, not a measured error rate. Every slip is on the
+list, including those caught within the hour by the same instance that made them, those in prose rather than in
+mathematics, and those in bookkeeping (``submitted'' when it had not been, F21). What can be compared is the shape:
+two retractions of stated results, one repair that changed an object, and the rest expository or local. We would
+expect a specialist's first draft of a programme of this size to contain errors of the local kinds in comparable
+number and to record none of them; whether it would contain the two retractions is the question the process cannot
+answer about itself. \evidence{KNOWLEDGE \S3; ERRATA} \evidence{ERRATA 11--15, 18, 22, 24--26}
 
 \paragraph{Two retractions.} The programme retracted two statements it had believed: the sharp form of
 Conjecture~1 (there is no bounded remainder at all, F26) and the level-one form of paper~IV's theorem (the object
@@ -351,9 +368,12 @@ worked against the pace at times: the model asked for human input more often tha
 
 \section{What the process cannot do}\label{sec:limits}
 
-The second outside reader, after finding the paper~I defect, wrote an assessment of the limits of such readings
-that we adopt as the honest statement of the limits of this whole process. Verbatim, with the author's
-permission (the reader is a Claude instance given the papers and nothing else, 14~September):
+The reviewing instance that found the paper~I defect wrote, in the same conversation, an assessment of the limits of
+such readings that we adopt as the honest statement of the limits of this whole process. It is quoted verbatim with
+the author's permission. The reader is not a cold read: it is a Claude conversation that the author kept open
+throughout the programme, that saw every draft, that proposed one fix later found false, and that had missed the
+three findings of the independent assessment. That makes its statement stronger, not weaker: these are the limits of
+a reader with weeks of context, not of one given the papers and nothing else.
 \begin{quote}\small
 ``I'm one reader, working from outside the field, with the same blind spots I've had all along --- I proposed the
 O(1) fix that turned out to be false, and my numerical check couldn't detect log log growth. The last external
@@ -371,7 +391,22 @@ week ago. And the specific thing that would settle it --- someone who knows whet
 Katok--Sarnak are being used correctly --- still hasn't happened, and is still the only move on the board.''
 \end{quote}
 The reader's diagnosis of line~395 was itself only half right (Dedekind's conjecture was not needed; the unproved
-non-vanishing claim was, and was also unnecessary; ERRATA~26), which illustrates the point it makes.
+non-vanishing claim was, and was also unnecessary; ERRATA~26), which illustrates the point it makes. So does the
+history of this paragraph: the first version of this case study described the same reader as ``an instance given the
+papers and nothing else''. The reader corrected the attribution on reading the draft. A statement about process,
+asserted rather than checked, in the section where accuracy matters most, is the species of error recorded as F21
+in the programme's own log, and it is now F38.
+
+\paragraph{A case where the process met its own bar and the error survived.} The verification checklist requires
+every theorem to be read by an instance that did not write it. Paper~III's Theorem on the first piece was so read on
+13~September, and the reading found that the theorem invoked the window proposition with exponents
+$(\theta,B)=(\tfrac{11}{12},\tfrac14)$, outside the proposition's hypothesis $\theta+B<1$. The fix applied that day was
+a remark in the theorem's statement explaining that the hypothesis is used in the proof only for a range of
+frequencies that is empty in this case. That is true, and a hostile reader stops at the violation anyway, as one did
+on reading this case study. Only then was the proposition restated so that its hypothesis is exactly what its proof
+uses, and the theorem now invokes it inside that hypothesis (ERRATA~27). The lesson is structural: when an invocation
+needs a remark that the hypothesis is not really needed, the statement being invoked is wrong, not the remark.
+\evidence{ERRATA 18, 27; paper III, Proposition \texttt{prop:windowW}}
 
 Consequently, the state of the mathematics is: every statement has survived at least two adversarial passes and,
 for the core of papers~I--II, one external assessment; the class of error that remains possible is known and
@@ -388,8 +423,11 @@ the record's additions marked.
   notes of its own work.
 \item A computational check for everything, and a written record of the way of thought.
 \item Ask for excellence, simplicity and humility, and for explanations at the level at which you can decide.
-\item Route what you cannot check through hostile outside review: other models, instructed to attack; compress the
-  findings, annotate them, return them to the working agent, and discuss again.
+\item Route what you cannot check through hostile model review: other models, instructed to attack; compress the
+  findings, annotate them, return them to the working agent, and discuss again. Know what this catches and what it
+  does not: algebra, convergence, internal inconsistency and misreadings of the paper's own definitions, reliably and
+  in quantity; a borrowed theorem invoked outside its hypotheses only when the theorem is famous enough (\S\ref{sec:limits}).
+  It is a filter before the specialist's reading, not a substitute for it.
 \item Press on effort estimates in both directions: demand the attempt when the model says ``weeks''; record it when
   the model says ``a day'' and is wrong.
 \item (From the record.) Decide the repair principle before the repair: correct, or leave open; never a weaker claim
@@ -523,8 +561,11 @@ independent re-derivation; one retraction, one repair (ERRATA 11--15)\\
 expository fixes (ERRATA 22)\\
 14 Sep & Claude Opus (fresh) & paper II, \S\S2--4 & seven fixes, no statement changed (ERRATA 24)\\
 14 Sep & Claude Opus (fresh) & paper IV, \S\S2--4 & ten findings: nine fixed, one rejected with reason (ERRATA 25)\\
-14 Sep & Claude (outside, papers only) & papers I--IV, hostile screening & one finding, paper I Thm 3's proof; fixed
-(ERRATA 26)\\
+14 Sep & Claude, reviewing instance with the whole programme in context (not independent) & papers I--IV, hostile
+screening & one finding, paper I Thm 3's proof; fixed (ERRATA 26)\\
+14 Sep & the same instance & this case study, version 1 & provenance of the \S\ref{sec:limits} quote wrong (F38); base
+rate missing; recommendation 4 over-promising; a surviving hypothesis violation in paper III (ERRATA 27); all four
+applied\\
 \bottomrule
 \end{tabular}
 \end{center}
