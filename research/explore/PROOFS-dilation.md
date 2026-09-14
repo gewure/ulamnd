@@ -85,6 +85,15 @@ with `u | a` (excluded above) contribute the additional `u · Per_D`, giving `λ
 
 ## 1'. Lemmas A and B: the proof (15 Sep, 08:00; replaces the sketches above)
 
+**CORRECTION (09:00, before any outside reading):** in Lemma B below the Hecke coset of `αγ⁻¹z₀` is determined by the SECOND
+column line `ℓ₂`, not the first: `Γαγ₁⁻¹ = Γαγ₂⁻¹` iff `α(γ₂⁻¹γ₁)α⁻¹ ∈ Γ`, and `α(a b; c d)α⁻¹ = (a, b/u; uc, d)` is integral iff
+`u | b`, i.e. `γ₂⁻¹γ₁ ∈ Γ⁰(u)`; right multiplication by `Γ⁰(u)` preserves `⟨γe₂⟩` and moves `⟨γe₁⟩`. (Check: `γ = (1 −k; 0 1)`,
+`ℓ₁ = ⟨e₁⟩` fixed, `ℓ₂ = ⟨(−k,1)⟩` varies, and `αγ⁻¹z = (z+k)/u` are `u` DIFFERENT neighbours.) Correspondingly `u²τ = α'γ⁻¹z₀`
+depends on `ℓ₁`. Read `ℓ₂` for `ℓ₁` (and `N(ℓ₂) = #{ℓ₁ ≠ ℓ₂ : ⊥}`) throughout the proof of Lemma B; by the symmetry of `B` the
+counts, hence all values, are unchanged. The isotropic lines are then the `ℓ₂` with `Q₀(ℓ₂) = 0`: for `γ = (1 −k; 0 1)` the
+neighbour `(z+k)/u` has form `[u²a, u(b−2ak), Q₀(−k,1)]`, of content divisible by `u` iff `Q₀(−k, 1) ≡ 0`, i.e. iff `ℓ₂` is
+isotropic — consistent.
+
 **Setting.** `u` an odd prime, `D<0`, `u ∤ D` or `u ∥ D` with `u` not dividing the conductor of `D` (the case `u | conductor`
 is excluded; the direct computation still applies there). Right action `(Q∘γ)(v) = Q(γv)`; `C = Q₀∘Γ` a class, `Γ = SL₂(Z)`,
 `S = Stab_Γ(Q₀)` (finite; sizes 1, 2, 3 in PSL). Let `B` be the bilinear form of `Q₀`: `Q₀(v) = B(v,v)`,
@@ -189,6 +198,36 @@ involution `W_{u²}: τ ↦ −1/(u²τ)` normalises `Γ₀(u²)` and maps the f
 For level-1 `f`: `f(W_{u²}τ) = f(u²τ)`, hence `Per(f_0) = Per(f_2)`. For a level-`u` newform: `W_{u²}τ = W_u(uτ)`, so
 `v(W_{u²}τ) = ε v(uτ)` and `Per(v) = ε Per(v(u·))` (observed: equal, with ε = +1). The vanishing of `Per_{W_u}(v)` for inert `u`
 is NOT explained by this; it needs the level-`u` analogue of the isotropic-line argument (open; the reader has been asked).
+
+## 5'. Lemma D: the newform periods, and the vanishing for inert u (15 Sep, 09:00) — PROVED
+
+Let `v` be a Hecke–Maass newform of level `u` (odd prime) with Fricke eigenvalue `ε` (`v(−1/(uz)) = ε v(z)`), `a_v(u) = −ε u^{-1/2}`,
+and `U_u v(z) = u^{-1/2} Σ_{k mod u} v((z+k)/u) = a_v(u) v(z)`. Hypotheses on `(u, D)` as in Lemmas A, B.
+
+**(i) The value at a family point depends only on `ℓ₂`.** For fixed `ℓ₂` the `u` choices of `ℓ₁` are `γ ↦ γ(1 0; c 1)`, `c mod u`
+(right cosets of `G_u` inside `γΓ⁰(u)`), and `α(1 0; −c 1)α⁻¹ = (1 0; −uc 1) ∈ Γ₀(u)`; so the points `αγ⁻¹z₀` for the `u` values
+of `ℓ₁` are `Γ₀(u)`-equivalent and `v` takes the same value on them: `v(αγ⁻¹z₀) =: V(ℓ₂)`.
+
+**(ii) The `u+1` points as points of `X₀(u)`.** `ℓ₂ = ⟨(−k,1)⟩` gives `(z₀+k)/u` (`k mod u`); `ℓ₂ = ⟨e₁⟩` gives
+`α S⁻¹ z₀ = −1/(u z₀) = W_u z₀`. Hence
+    Σ_{ℓ₂ ∈ P¹(F_u)} V(ℓ₂) = Σ_k v((z₀+k)/u) + v(W_u z₀) = √u a_v(u) v(z₀) + ε v(z₀) = (−ε + ε) v(z₀) = 0.       (N)
+(The level-1 analogue of (N) is `Σ_ℓ f(h_ℓ) = √u λ f(z₀)`; for a newform the Hecke term and the Fricke term cancel exactly.)
+
+**(iii) The period.** By the mass formula (M) with `φ = v(αγ⁻¹z₀)·1[ℓ₁ ⊥ ℓ₂]`,
+    Per_{W_u}(v) = Σ_C (1/|S_C|) Σ_{ℓ₂} N(ℓ₂) V_C(ℓ₂),     N(ℓ₂) = #{ℓ₁ ≠ ℓ₂ : ℓ₁ ⊥ ℓ₂}.
+- `u` inert: no isotropic lines, `N ≡ 1`, so `Per_{W_u}(v) = Σ_C (1/|S_C|) Σ_{ℓ₂} V_C(ℓ₂) = 0` by (N).  ∎  (Observed: 1e-17.)
+- `u` split: `N(ℓ₂) = 1 − 1[ℓ₂ isotropic]`, so `Per_{W_u}(v) = −Σ_C (1/|S_C|) Σ_{ℓ₂ iso} V_C(ℓ₂)` = minus the sum of `v` over the
+  two level-`u` Heegner points of discriminant `4D` above each class (the neighbours `z_{𝔭C}`, `z_{𝔭̄C}` taken as points of
+  `X₀(u)`) — a genuine level-`u` Heegner period in the sense of Gross–Kohnen–Zagier.
+- `u ∥ D` (prime to the conductor): `N(r) = u`, `N = 1` otherwise, so `Per_{W_u}(v) = (u−1) Σ_C (1/|S_C|) V_C(r)`, `(u−1)` times the
+  level-`u` Heegner period over the ramified neighbour.
+- `Per_{W_u}(v(u·)) = ε Per_{W_u}(v)` by the divisor involution (§3'(iv)).
+So Theorem 3's coefficient is `√u·[P_v, εP_v]·(G_v)⁻¹·(L~_v, L~_v/u)ᵀ` with the 2×2 Gram matrix `⟨v,v⟩·[[1, −ε/u],[−ε/u, 1]]`, and
+it vanishes for inert `u`. Numerically confirmed at `D = −8, −11, −20` (split), `−3, −15` (ramified), `−4, −7` (inert): STATE §8.
+
+**Consequence for the u-problem.** Every line of piece `u` that we can name is now a period over level-`u` Heegner points (or the
+level-1 period times a local factor): the level-1 lines by Lemma B, the level-`u` newform lines by Lemma D. What remains
+unnamed are the lines of the cycloidal-group forms of level `u²` (Strömberg), for which no analogue of (N) is available to us.
 
 ## 4. Theorem (the level-1 lines of the dilated pieces; conditional on Lemmas A–C, which are numerically certain)
 
