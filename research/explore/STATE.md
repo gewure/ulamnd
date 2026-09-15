@@ -392,3 +392,11 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - The bad half is precisely the Kloosterman-sum structure (moduli ≡ 0 mod u²) that Ngo/DFI handle spectrally: the level-u²
   spectral theory with the level tracked is the next tool; the elementary range is u ≤ X^{1/5} (→ u ≤ H^{1/6} for Theorem A′).
 - Not yet done: the rigorous write-up (3.1), the λ-weight (3.2), and any spectral bound. Numerical truth (N2): no u-dependence.
+
+## 16. End of 15 Sep (21:00): elementary route downgraded, structural route identified
+- PROOFS-uniform §5: the Hooley/Weil sketch (§4) over-claimed — reduced representatives bring a phase e(kφ(p,r′)/u²), unreduced
+  ones a twist of size ≍ ku²; rigorous elementary range ≈ u ≤ X^{1/8}. No draft states the X^{3/4}u^{5/4} bound.
+- PROOFS-uniform §6: piece u = Σ_C Σ_γ w_C(γ) seed(αγ⁻¹z_C) with w_C the indicator of the graph of the orthogonal involution
+  σ_C ∈ PGL₂(F_u); its trivial SL₂(F_u)-component is (u−χ)/(u(u+1))·√u·T_u P[Ψ_{uY}] — the Hecke operator on the LEVEL-ONE
+  Poincaré series, uniformly O(u^{-1/2+7/64+ε}); Steinberg = level u, principal series = level u². Next: hecke-components.py test.
+- Numerical facts N1–N5 in PLAN §4; scripts sharp-sum-u.py, weyl-dilated.py, orbit-minima.py, two-halves.py, weyl-uaverage.py.

@@ -150,7 +150,18 @@ Kloosterman sums with moduli u²r′) = a level-ONE Kloosterman sum over all mod
 spectral form of part III's "bilinear hybrid" (RESEARCH-USES 1c) and of the Type-II averaging; it is the candidate mechanism
 for the whole range, and it should be tested numerically first: compare Σ_u w(u) T^{(u)}_k against Σ_u |T^{(u)}_k|.
 
+## 8. Status of the two routes at the end of 15 Sep (21:00)
+- Elementary (Hooley/Weil with u tracked): the sketch of PROOFS-uniform §4 does not survive scrutiny as written (§5: reduced
+  representatives introduce a phase mod u², unreduced ones a large twist); a rigorous version would reach only u ≲ X^{1/8}.
+  Not worth a draft. What it taught: the bad half = Kloosterman sums of Γ₀(u²); the good half's mod-u² phase is the same object.
+- Structural (PROOFS-uniform §6): decompose the orthogonality indicator w_C on SL₂(F_u)/T (graph of the orthogonal involution σ_C)
+  into SL₂(F_u)-components: trivial part = (u−χ)/(u(u+1))·√u·T_u applied to the LEVEL-ONE Poincaré series — uniformly
+  O(u^{-1/2+7/64+ε}) by Hecke theory alone; Steinberg part = level u; principal series = level u². This puts the whole
+  spectrum on the footing Lemmas B and D established for single lines. To be TESTED numerically first (hecke-components.py).
+- Conjecture U stands numerically (N1–N5). The gap is between "true for all u" and "provable for u ≤ Y^{1/5}".
+
 ## 4′. Log
+- 15 Sep 21:00: §5 correction of the elementary sketch; §6 representation-theoretic decomposition (trivial component = Hecke translate of the u=1 object); PLAN §8 status.
 - 15 Sep 19:30: N5 (u-averages: random signs only; the 0.05 block was a fluctuation).
 - 15 Sep 18:50: N4 (two halves cancel separately); §7 the bad half as Γ₀(u²) Kloosterman sums, the X^{1/5} warning, averaging over u as candidate mechanism.
 - 15 Sep 16:30: regime map corrected (III starts at u ≍ X/√|D|; orbit-minima and isolation tests: orbit-minima.py); reciprocity/Hecke-label form; window-specific map.

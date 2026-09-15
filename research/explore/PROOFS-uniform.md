@@ -117,3 +117,45 @@ tracked (DI/Pitt bound with q = u² explicit, Ngo Thm 2.5). The good half's X^{1
 Consequence for the window if the RESULT holds with the λ-weight and admissibility (Task 3.2, via Prop. windowW of part III with
 θ = 3/4, u-loss u^{5/4}, no loss in k beyond k^{1/2}... note Prop. windowW's Hypothesis W has (uk)^B with a single B; a two-exponent
 version is needed): Σ_{u ≤ H^{θ₀}} w(u) 𝒲_u(H/u; log H) ≪ H^{1−δ} for θ₀ < 1/6 (from u^{5/4}(H/u)^{3/4} summed with |w(u)| ≪ 1 against u^{1/2}).
+
+## 5. Correction to §4 (15 Sep, 20:30): the representative problem — the elementary theorem is NOT yet a proposition
+Two things in §4 were too quick.
+(a) "Q̃_j may be taken reduced." The family orbit is the Γ⁰(u²)-orbit of Q̃_j (matrices γ̃ = (p, u²q′; r′, s)), i.e. the set of forms
+in the SL₂(Z)-class of Q̃_j with (ã, u) = 1 and b̃ ≡ 0 (mod 2u²), one translate out of u² for each first column. This description
+IS representative-free, so Q̃_red may be used — but then the second column is pinned by the family congruence, and in Hooley's
+identity b̃/(2u²ã) = q/(u²p) + twist the entry q modulo u²p is: q ≡ −\bar{r′} (mod p) and q ≡ q_{u²}(p, r′) (mod u²) with
+q_{u²} the solution of the linear congruence (coefficient ã(Q̃)/p, a unit mod u² iff (ã, u) = 1 — that is why the family needs it).
+By CRT, e(kq/(u²p)) = e(−k \overline{u² r′}/p) · e(k φ(p, r′)/u²), with φ a rational function of (p, r′) modulo u². The second factor
+oscillates with (p, r′) mod u²; splitting into progressions costs a factor u² in the number of incomplete Kloosterman sums
+(bound ≍ u² X^{3/4} per class instead of X^{3/4}), or — better — it is itself a Kloosterman-type sum modulo u², which is where the
+spectral theory of Γ₀(u²) enters even for the good half.
+(b) With the unreduced representative (a_j ≤ 2u√(|D|/3), |b_j| ≤ u a_j, c_j ≲ u² a_j/4 after G_u-reduction) the mod-u² phase is
+absent but the twist is ≍ k c̃/(u³ p² |D|^{1/2}) ≍ k u a_j/p² — of size up to k u² for small p, so Hooley's smooth-twist step fails
+for p ≲ (k u²)^{1/3}, and the range of the method shrinks accordingly.
+So the clean statement "T^{(u)}_k(X) ≪ X^{3/4+ε} u^{5/4} k^{1/2} for u ≤ X^{1/5}" is a PLAUSIBLE TARGET, not a derived bound; the
+honest elementary range after either fix is smaller (≈ u ≤ X^{1/8} with the u² loss). The numerical thresholds of §2 (Weil-effective
+orbits up to u ≍ X^{1/5}) describe the sizes of the parametrisation, not what the Weil-bound proof delivers. Recorded so that no
+draft states more than this. The elementary route is therefore NOT the way to a power range worth writing; the spectral route is.
+
+## 6. The representation-theoretic decomposition of the family (15 Sep, 21:00; structural, from Prop. classwise) — TO TEST FIRST
+Prop. classwise writes piece u as Σ_C |S_C|^{-1} Σ_{γ ∈ Γ/G_u} w_C(γ) · seed_{uY}(α γ^{-1} z_C), with w_C(γ) = 1[ℓ₁(γ) ⊥_{B_C} ℓ₂(γ)] the
+indicator, on the u(u+1) pairs of distinct lines = SL₂(F_u)/T, of the graph of the orthogonal involution σ_C : ℓ ↦ ℓ^⊥ of B_C mod u
+(σ_C ∈ PGL₂(F_u) is the image of the non-trivial element of the normaliser of the torus attached to the order at u; its fixed
+points are the 1+χ isotropic lines). Decompose w_C under SL₂(F_u) acting on functions on pairs (Ind_T^G 1 = 1 ⊕ St ⊕ principal series):
+  * trivial component w̄ = (u−χ)/(u(u+1)): its contribution is w̄ · Σ_{γ∈Γ/G_u} seed(αγ^{-1}z_C) = w̄ · Σ_{M ∈ Γ_∞\Δ_u} seed(M z_C)
+    = w̄ · √u · (T_u P[Ψ_{uY}])(z_C) — the Hecke operator T_u applied to the LEVEL-ONE Poincaré series of the seed, so its spectral
+    expansion is Σ_j λ_j(u)⟨P[Ψ],u_j⟩u_j(z_C) + Eisenstein, and |λ_j(u)| ≤ τ(u) u^{7/64} gives a bound uniform in u of relative size
+    u^{-1/2+7/64+ε} against the u = 1 object. This is the λ_j(u)√u term of Lemma B, now for the WHOLE spectrum at once.
+  * Steinberg component (functions on P¹(F_u) of mean zero, dimension u): the level-u part — the newform lines of Theorem 3 /
+    Lemma D (the isotropic-line correction −(1+χ) of Lemma B lives here and in the trivial part).
+  * principal-series components (dimension u+1 each, (u−3)/2 of them): the genuinely level-u² part (Γ₀(u²)-new forms, the
+    cycloidal lines of Strömberg).
+The point: the trivial component is uniformly controlled by Hecke theory alone; the question becomes the size of the
+non-trivial components of the twisted Poincaré series Σ_γ w⁰_C(γ) seed(αγ^{-1} z_C), w⁰_C = w_C − w̄. Since w_C is the indicator of
+the graph of σ_C, its non-trivial components have explicit coefficients (characters of SL₂(F_u) evaluated on σ_C); the Steinberg
+part is a Γ₀(u)-Poincaré series and the principal-series parts are Γ(u)-vector-valued Poincaré series — all at level u, not u².
+FIRST TEST (F24, before anything is believed): compute numerically, for D = −4 or −8 and u = 3, 5, 7, (i) the actual smooth piece
+√Y S^w_u(Y) on the existing grids, (ii) the "trivial component" w̄·√u·Per_D(T_u P[Ψ_{uY}]) — i.e. w̄ times the FULL Hecke-translate sum
+Σ over all u(u+1) cosets — from the same divisor data (all forms of discriminant 4D, all b, evaluated at (z_Q + j)/u and u z_Q), and
+(iii) their difference. If the non-trivial part is the dominant one and grows with u, the decomposition is a bookkeeping device;
+if it is smaller than the trivial part or decays, it is the mechanism. Script to write: hecke-components.py.
