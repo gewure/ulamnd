@@ -973,3 +973,9 @@ O1's reduction to bounded costs is supported numerically.
 and reciprocity back turns Σ_x e(−k(r d̄_x − r′d̄′_x)/x) into Σ_x e_d(krx̄)e_{d′}(−kr′x̄) — Poisson in x modulo [d, d′] ≈ Y², i.e. §9's dispersion over u, which needs U > Y.
 So the band needs genuinely spectral input at the level x (Poincaré series at Heegner points with the twist e(k r d̄/x), averaged over x with bilinear coefficients),
 not an elementary switch. Not pursued further until the literature follow-up (round 7) reports.
+§26(2) LITERATURE ROUND 7 (16 Sep): no known result gives a power saving at x ≈ Y^{1/2} for the twist e(c r d̄/x), (d, x) = 1, averaged over x. Closest tools:
+de la Bretèche–Drappeau §8 (Lemmas 8.2–8.4: roots and moduli in progressions, but the progression modulus must divide the root modulus; single-level useful range
+≈ x ≤ Y^{2/13}; §8.1.2 is exactly a modulus switch via binary forms with Kloosterman sums at cusps of Γ₀(qd)); Deshouillers–Iwaniec Theorems 5–7 (level averaging needs
+cusp ∞ for all q and level-independent coefficients — both fail for our twist); Iwaniec 1987 Thm 3 / Duke 1988 (moduli divisible by the level); Pascadi's remark on
+levels with a divisor ≍ √q (exceptional spectrum only). STATUS: the band needs a new spectral input (a DI-type level-averaged large sieve at cusp 0 / Γ(x)-type
+twists with level-dependent frequencies), which does not exist in the literature as far as the search reaches.

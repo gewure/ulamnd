@@ -1020,3 +1020,165 @@ Sources:
 - https://link.springer.com/article/10.1007/s11854-008-0044-2 (Bourgain 2008)
 - https://www.sciencedirect.com/science/article/pii/S1631073X04004194 (Bourgain–Chang)
 - https://www.mathnet.ru/eng/sm8648 (Korolev 2016)
+
+## Literature round 7 (16 Sep 2026; side agent; the H^{1/3} band after reciprocity; verbatim; VERIFY BEFORE CITING)
+# Report 4 (16 Sep 2026): roots of quadratic congruences twisted mod a small modulus, averaged over the modulus
+
+Problem. Find a power saving in
+  T = Σ_{x∼X} α_x Σ_{d∼Y} φ(d/Y) Σ_{r²≡D (d)} e(c·r·\bar d/x),
+where
+  - (d,x) = 1 and \bar d is the inverse of d mod x;
+  - X ≈ Y^{1/2};
+  - α_x is bilinear: x = n1n2, n_i ≈ Y^{1/4}, coefficients 1 and χ_D.
+
+Verification tags: [PDF] = statement read in the PDF; [via X] = quoted from paper X, which I read; [abs] = abstract only;
+[ours] = our reading or computation.
+
+## VERDICT: PARTIAL, and NO for the problem as posed
+No known result gives cancellation in T at X ≈ Y^{1/2}. What exists:
+ (a) Single-modulus equidistribution of roots with both the modulus and the root in progressions (de la Bretèche–Drappeau,
+     Lemmas 8.2–8.4). The progression modulus there DIVIDES the root modulus (d | q | mq), the errors are polynomial in
+     the modulus, and the useful level is tiny: about x ≤ Y^{2/13}, by our computation.
+ (b) Large sieves / sums of Kloosterman sums averaged over the LEVEL (Deshouillers–Iwaniec Thms 6–7; Iwaniec 1987 Thm 3 via
+     Duke; de la Bretèche–Drappeau Lemma 8.3(3)). All are at the cusp ∞, i.e. for moduli d ≡ 0 (mod level), with scaling
+     matrices independent of the level and (for DI Thm 6) coefficients independent of the level. Drappeau states explicitly
+     that the DI "switch q and c" trick is specific to a = ∞ with level-independent scaling.
+ Our twist e(c r \bar d/x) with (d,x) = 1 is a cusp-0 / principal-congruence (Γ(x)-type) condition. It is not covered by
+ (b), and (a) is far too weak at X ≈ Y^{1/2}. No Bombieri–Vinogradov / Barban–Davenport–Halberstam theorem for roots of
+ quadratic congruences, or for τ(n²+1) in progressions, with level beyond the square root was found.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## 1. R. de la Bretèche, S. Drappeau — Niveau de répartition des polynômes quadratiques et crible majorant pour les entiers friables. arXiv:1703.03197, JEMS 22 (2020) [PDF §5, §8]
+
+### Lemma 8.2 (roots with modulus AND root in progressions)
+Setup: (q,r,d) ∈ N³, (q,2Dr) = 1, d | q, λ mod d invertible, ω² ≡ D (mod d), M ≫ qd, f smooth. Count
+  P_f = Σ over pairs (m,Ω) with (m,qr) = 1, m ≡ λ (mod d), Ω² ≡ D (mod mq), Ω ≡ ω (mod d),
+        α ≤ Ω/(mq) < β, weighted by f(m/M).
+Result:
+  P_f = (β−α) M \hat f(0) C_D A(qr) ρ(q/(q,d^∞))/φ(d) + O((qrM)^ε d^{3/4} (qd)^{1/2−θ} M^{1/2+θ}).
+
+### Lemma 8.3 (Weyl sums behind Lemma 8.2)
+(8.5) For 1 ≤ |h| ≤ q√d:
+  Σ_{(m,Ω)} f(m/M) e(hΩ/(mq)) ≪ |h|(qr)^ε + (rM)^ε d^{3/4} (qd,h)^θ (qd)^{1/2−θ} M^{1/2+θ}.
+(8.6) is the h-averaged version.
+(8.7) With d = 1, averaged over the level q ∈ (Q,2Q] and over h ∈ I ⊂ [H,2H]:
+  (1/Q) Σ_q (1/H) Σ_h e(th) Σ f_q(m/M) e(hΩ/(mq)) ≪ H(Qr)^ε + (rM)^ε {M^{1/2} + H^{−1/2} Q^{1/2−θ} M^{1/2+θ}}.
+  This uses DI's weighted large sieve over levels, [DI83] Theorem 7, to temper θ.
+Remark (read): for d = 1 and θ ≤ 1/4 this recovers DFI95 (25) and Tóth (15).
+
+### §8.1.2 Gauss correspondence — the "switching modulus" step (read)
+Let Q_D = {AX² + 2BXY + CY² : B² − AC = D}. Then
+  S = Σ_{Q∈Γ\Q_D} Σ_{σ∈Γ∞\Γ/Γ_Q} [P(σ)] f(C(σQ)/(qM)) e(h B(σQ)/C(σQ)),
+with C(σQ) = Q(γ,δ) for σ = (α β; γ δ). The progression conditions become
+  P(σ): C(σQ) ≡ λq (mod qd), B(σQ) ≡ ω (mod d),
+i.e. conditions on σ modulo qd. This is the switch from the modulus C ≍ Y to the bottom row (γ,δ) ≍ Y^{1/2}.
+Lemma 8.4: the relevant classes σ ∈ Γ0(qd)\Γ number O(dτ(q)); their cusps a ~ u/v satisfy v | q and v = O_Q(1); the
+Kloosterman sums S_{∞a}(h,n;γ) live on moduli γ ∈ C(∞,a) = {w_a^{1/2} v m : (m, qd/v) = 1}, with w_a ≍ qd.
+
+### Level of distribution for divisibility (not progressions)
+Prop 8.1 / Thm 5.2: a mean square over moduli m ∼ M with bilinear b_n, giving level x^{1+25/178} (Thm 1.1).
+The text records the history: Iwaniec 1978 got 1+1/15 for D = −4; Lemke Oliver 2012 extended this to general quadratics;
+Hooley's R* would give 1+1/9; Selberg's conjecture would give 1+1/6.
+
+### Assessment [ours]
+- Put q = d = x (progression modulus x dividing the root modulus mx, M ≈ Y/x). Per class the main term is ≈ Y/x² and the
+  error is ≈ x^{5/4−3θ} Y^{1/2+θ}, so a single class is nontrivial only for x < Y^{2/13} (θ = 0).
+- Our case needs (d,x) = 1 and the twist \bar d mod x. That is formally q = 1 with a progression modulus ≠ 1, which Lemma
+  8.2 excludes (d | q). The cusp-pair machinery of Lemma 8.4 looks like it should extend, but it is not stated.
+- The only level average (8.7) is at d = 1 (no progression) and saves only in the θ-aspect.
+
+## 2. Deshouillers–Iwaniec (Invent. Math. 70, 1982), Theorems 5–7: large sieve for exceptional forms, single level and averaged over the level
+The original is a GDZ scan only and was not read. The statements below are Drappeau's reproductions, arXiv:1504.05549
+(PLMS 2017), Lemmas 4.8–4.10, with his commentary [via Drappeau].
+- Thm 5 analogue (single level q, any cusp a):
+    E_{q,a}(Y,(a_n)) := Σ_{f∈B(q,χ), t_f∈iR} Y^{2|t_f|} |Σ_{N<n≤2N} a_n n^{1/2} ρ_{fa}(n)|²
+      ≪ (1 + (μ(a)NY)^{1/2})(1 + (q0 μ(a)N)^{1/2+ε}) ||a||².
+- Thm 6 analogue (averaged over q ≤ Q with q0 | q; cusp a = ∞; scaling matrices independent of q):
+    Σ_q E_{q,∞}(Y,(a_n)) ≪ (QN)^ε (Q/q0 + N + NY^{1/2}) ||a||².
+  So Y can go up to (Q/N)² at no cost. Drappeau: "Deshouillers and Iwaniec make use of the very nice idea that with the
+  choice a = ∞ for each q, the roles of q and c can be swapped in the Kuznetsov formula … This switching technique is
+  specific to the choice a = ∞ for all q, with scaling matrices independent of q."
+- Thm 7 analogue (a_n = indicator of an interval): Σ_q E_{q,∞} ≪ (QN)^ε (Q/q0 + N + (NY)^{1/2}) N.
+- Pascadi, arXiv:2511.08445 [PDF §1.3]: DI Thm 5's loss (q/N)^{2θ} is improved when q has a divisor d ≍ √q (Cor 1.6: factor
+  q^{6θ_j/5}). The remark after it says that with averaging over levels q ≤ Q, d | q, d ≍ √Q, "the sequence (α_n) inside the
+  large sieve may depend on q in this case, unlike in [DI, Theorem 6]".
+- Blomer–Pascadi 2607.24311, Thm 1.6 (Report 1): level-uniform improvement of X in DI Thm 5.
+Assessment [ours]:
+- The level-averaged gains (Thms 6–7) are for moduli c ≡ 0 (mod level) at the cusp ∞, which corresponds to x | d. Our phase
+  e(c r \bar d/x) with (d,x) = 1 is a condition at the cusp 0 of Γ0(x), or, including r mod x, a Γ(x)-type condition,
+  whose scaling matrices depend on x.
+- Conjugating Γ(x) by z ↦ xz lands in Γ0(x²) ∩ Γ1(x) at ∞, but with frequencies c/x that depend on the level. That is
+  exactly the "coefficients depend on the level" situation DI Thm 6 excludes.
+- Pascadi's composite-level variant (levels q = x², d = x ≍ √q) has the right shape, but it controls only the exceptional
+  spectrum. Speculative pointer, not a tool.
+
+## 3. Iwaniec, Invent. Math. 87 (1987), Theorem 3, and Duke, Invent. Math. 92 (1988), §5
+Iwaniec's original was not accessible (GDZ scan); the statement below is as used by Duke [PDF].
+- Levels 𝒬 = {pN : P < p ≤ 2P, p ∤ n}, p prime.
+- Iwaniec's Thm 3 bounds Σ_{Q∈𝒬} |Σ_{c≡0 (Q)} c^{−1} K(n,n;c) J_{9/2}(4πn/c)|.
+- Combined with Proskurin–Kuznetsov (half-integral weight) this gives
+    n|ρ(n)|² ≪ λ^{(5−k)/2} ch(πt) [(n/P)^{3/2} + (nP)^{3/8} + n^{3/7}] n^ε,
+  and with P = n^{1/7}, ρ(n) ≪ n^{−2/7+ε}.
+Assessment: again cusp ∞ with moduli c ≡ 0 (mod Q) and prime-times-fixed levels. It is the template for "gain by averaging
+  over the level", but not for a coprime twist. The exact form of Iwaniec's Thm 3 is unverified.
+
+## 4. Counting integral points on quadrics / orbits in congruence classes uniformly in the modulus
+- **A. Nevo, P. Sarnak, "Prime and almost prime integral points on principal homogeneous spaces", Acta Math. 205 (2010)** [PDF §3].
+  Thm 3.2: #{w ∈ Γ(q)y : ||w|| ≤ T}/vol{||g|| ≤ T} = 1/[Γ:Γ(q)] + O_η(T^{−θ/(1+dim G)+η}), uniformly over all q and all
+  cosets y. Here θ = a/(2 n_e(G,Γ)) comes from bounds towards Ramanujan.
+  Assessment: the relative error has no q-loss but only a tiny power of T. The main term is ≍ 1/[Γ:Γ(q)] ≍ q^{−3}, so the
+  level of distribution is q ≤ T^{small}. Useless at X ≈ Y^{1/2}.
+- **J. Liu, P. Sarnak, "Integral points on quadrics in three variables whose coordinates have few prime factors", Israel J. Math. 178 (2010)**
+  [abs + Sarnak's "Equidistribution and Primes" notes]. It gives a "sharp level of distribution" for F(x) = t with F an
+  indefinite ANISOTROPIC ternary form, via spectral methods, with r0 ≤ 26. Our quadric r² − de = D is ISOTROPIC, so it is not
+  covered; the exact level was not verified.
+- **Gorodnik–Nevo (Compositio 2012)** [abs]. General uniform counting in congruence cosets; same limitation as Nevo–Sarnak.
+
+## 5. Heegner points on the level-x spectrum with D fixed ("large sieve for Heegner points")
+- **Michel–Ramakrishnan (2007); Feigon–Whitehouse (Duke 2009); P. D. Nelson, arXiv:1202.6313 (JNT 2013)** [abs].
+  Exact ("stable") formulas for Σ_{f of level N} L(1/2, f × θ_χ)/⟨f,f⟩ with fixed imaginary quadratic θ_χ, for N large
+  compared with |D|. Via Waldspurger/Gross–Zagier, this is an exact second moment over the level-N spectrum of Weyl sums
+  over the Heegner points of discriminant D.
+  Assessment: holomorphic forms (fixed weight), one level at a time, no averaging over N. It could supply the Heegner side
+  of a Cauchy–Schwarz after spectrally expanding T_x on level x, but not the needed gain from averaging over x.
+  Speculative.
+- **Liu–Masri–Young 1206.3208, Humphries–Nordentoft 2211.05890** (Report 1): the level must be a small power of the
+  discriminant, and our discriminant is fixed. Not applicable.
+
+## 6. Other items checked
+- **S. Baier, E. A. Molla, "A Bombieri–Vinogradov theorem for sectors in real quadratic number fields", arXiv:2509.03657** [abs].
+  Primes/ideals in sectors, averaged over moduli. Different objects; the level was not stated in the abstract.
+- **Bykovskii (1984)** [search only]. Spectral expansion for additive divisor / zeta functions; no progression result with a
+  level found.
+- **Lemke Oliver, Acta Arith. 151 (2012); Iwaniec, Invent. Math. 47 (1978)** [via dlB–D]. Divisibility levels for quadratic
+  polynomials; the switching is the Gauss correspondence plus Hooley-type short Kloosterman/Salié sums (R*). No
+  small-modulus progression averaging.
+- **BV/BDH for τ(n²+1) or ρ_D in progressions n ≡ a (q) averaged over q beyond x^{1/2}:** nothing found beyond Blomer's
+  IMRN 2008 and Templier–Tsimerman (Report 1), which are not progression averages.
+
+## Ranked usefulness for T
+1. **de la Bretèche–Drappeau, Lemmas 8.2–8.4.** The only explicit statement with roots in progressions (for the modulus and for
+   the root) and the Gauss-correspondence switch to Γ0(qd) at general cusps. Useful for reproducing T_x per x at levels
+   x ≤ Y^{small}, and as the skeleton for a cusp-0 version.
+2. **DI Thms 6–7 (Drappeau's Lemmas 4.9–4.10), Iwaniec 1987 Thm 3 via Duke.** The only level-averaging mechanisms. They need
+   cusp ∞, level-independent scaling and (Thm 6) level-independent coefficients. Our cusp-0 / Γ(x) twist violates all three.
+3. **Pascadi 2511.08445, Thm 9.4 remark.** Level averaging over q = x² with d = x ≍ √q and q-dependent coefficients, but only
+   for the exceptional spectrum.
+4. **Stable averages (Michel–Ramakrishnan / Feigon–Whitehouse / Nelson).** Heegner-side second moment on a fixed level, D
+   fixed. Speculative.
+
+Sources:
+- https://arxiv.org/abs/1703.03197 (de la Bretèche–Drappeau)
+- https://arxiv.org/abs/1504.05549 (Drappeau)
+- https://arxiv.org/abs/2511.08445 (Pascadi)
+- https://arxiv.org/abs/2607.24311 (Blomer–Pascadi)
+- https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf (Duke 1988)
+- https://eudml.org/doc/143426 (Iwaniec 1987)
+- https://eudml.org/doc/142975 (Deshouillers–Iwaniec 1982)
+- https://web.math.princeton.edu/sarnak/NS-final-Oct-08.pdf (Nevo–Sarnak)
+- https://link.springer.com/article/10.1007/s11856-010-0069-y (Liu–Sarnak)
+- https://mathtube.org/sites/default/files/lecture-notes/Sarnak.pdf (Sarnak notes)
+- https://arxiv.org/abs/1202.6313 (Nelson)
+- https://arxiv.org/abs/2509.03657 (Baier–Molla)
+- https://eudml.org/doc/279604 (Lemke Oliver)
