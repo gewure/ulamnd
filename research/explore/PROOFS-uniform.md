@@ -969,3 +969,7 @@ step), O6 (S1 with explicit exponents).
 §29 O1 numerics (gm-kernel-count-amul.ts, data/gm-kernel-count-a3u2-h1.txt; a = 3u′², h = 1, the D = −3-type normalisation with p = 3 | (u, D)): diagonal
 2, 2, 4, 8, 8, 8, 12, 16, 16 for u′ = 1, 2, 4, 5, 7, 8, 10, 11, 13 (≍ u′); (K₂ − c_d)/√T at T = 64: 15.0, 3.7, 3.8, 10.8, 5.9, 3.8, 2.8, 11.4, 8.2 — no growth in u′.
 O1's reduction to bounded costs is supported numerically.
+§26(2) ADDENDUM (16 Sep): the reciprocity switch by itself is CIRCULAR. With x = n₁n₂ outside and T(x) := Σ_{d∼Y}β(d)Σ_r e(−kr d̄/x)e(kr/(xd)), Cauchy over x gives Σ_x|T(x)|²,
+and reciprocity back turns Σ_x e(−k(r d̄_x − r′d̄′_x)/x) into Σ_x e_d(krx̄)e_{d′}(−kr′x̄) — Poisson in x modulo [d, d′] ≈ Y², i.e. §9's dispersion over u, which needs U > Y.
+So the band needs genuinely spectral input at the level x (Poincaré series at Heegner points with the twist e(k r d̄/x), averaged over x with bilinear coefficients),
+not an elementary switch. Not pursued further until the literature follow-up (round 7) reports.
