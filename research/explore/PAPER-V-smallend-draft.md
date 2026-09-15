@@ -52,3 +52,18 @@ O1: δ conjugates Γ₀(pu′²) to Γ₀(p) ∩ Γ₀⁰(u′); G mod p is rank
 O2: ω(2) = 2 cannot occur; either u is odd or w is supported on even u with (a, h) = ((u/2)², |D|/4).
 Numerics: restrict to admissible u′ (support of w) and use stabiliser weights; on admissible u′ ≤ 43 the off-diagonal is flat.
 STILL MISSING (reading's list): written (a″) and O5; the two-scale main-term matching; the admissibility Möbius with p | h; GM's δ^{−O(1)}; the bookkeeping fixes.
+
+## S2′ (two-scale main-term matching) — written out after §33(1)
+Fix a box (L, K) and a level q = a·q₀ (q₀ = lcm(j, e, m²)). Let ψ₂ be the smooth x-weight of the box (support |ℓ| ∈ [L, 2L], mass ∫ψ₂ = 1 after normalisation) and put, following
+GM §5, ψ₂^{(1)}(v) := ψ₂(v/L)/L and ψ₂^{(2)}(v) := ψ(v/X₂)/X₂ with X₂ := K^{1+η} and ψ a fixed smooth bump of mass 1. Both have mass 1, so
+  Σ_{k≡0 (q₀)}ψ₁(k/K)[Σ_{aℓ²+h≡0 (k)}ψ₂^{(1)}(ℓ) − ϱ(k)/k] = 𝒜₁ − 𝒜₂ + Σ_{k≡0 (q₀)}ψ₁(k/K)[Σ ψ₂^{(2)}(ℓ) − ϱ(k)/k],
+where 𝒜_i := ⟨I|Δ_q F_i|α_{q₀,a,h}⟩ with F_i built from (ψ₁, ψ₂^{(i)}) as in GM §5 — the volume terms of 𝒜₁ and 𝒜₂ are identical (equal masses), which is exactly why GM take the
+difference. The last sum is evaluated trivially: for k ∼ K the ℓ-range X₂ = K^{1+η} exceeds k by K^{η}, so Poisson modulo k gives Σ_ℓ ψ₂^{(2)}(ℓ) = ϱ(k)/k + O_A(ϱ(k)K^{−A}) for every A,
+uniformly in u (the dual frequencies are ≥ K^{η}); summing over k ∼ K with the weights λμ²/k gives O(K^{−A+1+ε}). So the box equals 𝒜₁ − 𝒜₂ + negligible, and Theorem 8.1 applies to
+each 𝒜_i (for 𝒜₂ the skew is X₂u|D|^{−1/2}, and its bound is smaller by the factor L/X₂ ≤ K^{−η}). [This replaces S2's one-scale identity; PROOFS §33(1).]
+
+## S1′ (admissibility) — written out after §33(3)
+The moduli of the piece are squarefree, split, coprime to 2Du. Write the indicator as 1_{(k, 2D)=1} = Σ_{j | (k, rad 2D)} μ(j) and λμ²(k) = Σ_{e|k}κ(e)·Σ_{m²|k}μ(m); the primes of k are
+automatically split or ramified (a root exists mod k) and (k, u) = 1 holds after the content removal of §29/O1 for fundamental D and, in general, from the same Möbius factor. This adds
+O_D(1) values of j, i.e. levels q = a·lcm(j, e, m²), and at the primes p | j (so p | 2D, p | h) the local counts of §17 Step 3 and the resultant step of §16 must use the trivial bound
+p + 1 instead of the Hensel/≤ 2 bound (the assumption there is p ∤ ah). Since j ≤ rad(2D) = O_D(1), this costs O_D(1).

@@ -923,8 +923,8 @@ and by the symmetry h ↦ −h of the roots, Σ_{h≥1}(Y − h)^+ = ½Σ_{h∈Z
 (T the tent, ℓ = 0 a root only for k | h′) — exactly GM's "count minus ϱ(k)X∫ψ/k" shape. No separate Ḡ-term arises at the small end.
 CAUTION (conversion, not yet done): GM's Theorem 8.1 needs dyadic support in x; a dyadic decomposition of the tent in |ℓ| destroys the cancellation that makes P_u = O(Y)
 (boxes with ℓ ≤ u² have trivial size ≈ Y·L^{O(η)} each). The part |ℓ| ≤ Δ must be kept whole: Y·[#{|ℓ| ≤ Δ: k | Q} − 2Δρ/k] − (the linear part) — a sharp-start
-window, i.e. paper III's Lemma sharp / Hooley's T_k with u tracked. For boxes (L, K) with L ≥ Y^{1−η′}: GM Type I with skew R = L/K ∈ [u^{−2}Y^{−η}, Y^{η}] is covered by the
-K₁ lemma (term 1/(qR) ≤ Y^{O(η)}) up to K ≤ u²L^{1+η}; beyond, complementary divisor + Poisson modulo m ≈ u²L²/K. Per box ≪ (Y/K)·L^{1/2}u·H^{o(1)} against the trivial (Y/K)L.
+window, i.e. paper III's Lemma sharp / Hooley's T_k with u tracked. For boxes (L, K) with L ≥ Y^{1−η′}: GM with the K₁ lemma of §22/§25 (term 1/(qR) = K/(u²q₀L) ≤ Y^{3δ+η}/u² for ALL u, so no complementary-divisor
+reduction is needed; §33(9) deleted the earlier claim that K ≤ u²L^{1+η} was required and the appeal to GM (5.2)/(5.3)/Theorem 1.4, which §25 withdrew). Per box ≪ (Y/K)·L^{1/2}u·H^{o(1)} against the trivial (Y/K)L.
 So the small-end conversion = GM for the bulk + a sharp-start estimate with u tracked; the latter is the real remaining work there.
 (2) THE BAND AT u = H^{1/3} — a direction. At a = 1/3 the §12 residual is Σ_d β(d)Σ_{r}Σ_{n₁,n₂}αβ e_d(k r (n₁n₂)*), atoms ≈ d^{1/4}, x := n₁n₂ ≈ U ≈ Y^{1/2}. Reciprocity
 x*/d ≡ −d̄/x + 1/(xd) (mod 1) gives e_d(k r x*) = e_x(−k r d̄)·e(kr/(xd)): the LARGE modulus d becomes the SMALL modulus x ≈ Y^{1/2}, the sum over (d, r) (Heegner forms
