@@ -630,3 +630,14 @@ TO CHECK BEFORE ANY OF THIS IS TRUSTED: (i) §12's Type I/II and residual analys
 Σ_{n₁,n₂} α β e(a\overline{n₁n₂}/d) with a = k r ē-type constants coprime to d after removing (k,d), with the G°-mean subtraction and the Fourier
 coefficients ξ_k(d,N) carried along (they depend on N(u) = ⌊H/(n₁n₂)⌋ — separation of variables needed, as Step 4b(iii)); (iii) re-derive the
 (MN/q)^{1/8} bound from Bourgain–Garaev Theorems 1 and 3; (iv) the exceptional sizes q^{1/(2j)} in Corollary 1.
+§15 CHECK (iii) DONE + CORRECTION of the exceptional set. Bourgain–Garaev arXiv 1309.1124 Theorem 3 read (pdftotext): for I_i = [1, N_i], |α_i| ≤ 1,
+(a, m) = 1, all k₁, k₂ ≥ 1: |Σ α₁α₂ e_m(a x₁*x₂*)| < C_{k₁,k₂}(log m)^{2(k₁/k₂ + k₂/k₁)} [N₁^{k₁−1}/m^{1/2} + m^{1/2}/N₁^{k₁}]^{1/(2k₁k₂)}
+[N₂^{k₂−1}/m^{1/2} + m^{1/2}/N₂^{k₂}]^{1/(2k₁k₂)} N₁N₂; Corollary 1: saving m^{−δ(ε)} as soon as ONE of N₁, N₂ avoids ∪_j [m^{1/(2j)−ε}, m^{1/(2j)+ε}].
+With k₁ = k₂ = 2 and m^{1/3} ≤ N_i ≤ m^{1/2} the bound is (N₁N₂/m)^{1/8}N₁N₂(log m)^{O(1)} — the agent's computation is right.
+EXCEPTIONAL SET, corrected: the §12 residual (both smooth atoms in (U/Y^{1/2}, Y^{1/2}), modulus d ≍ Y) escapes Bourgain–Garaev only if BOTH atoms are
+within d^{±ε} of powers d^{1/(2j)}. With N₁N₂ = U ∈ (d^{1/2}, d) this forces N₁ ≈ d^{1/2} and N₂ ≈ d^{1/(2j)} (or swapped), U ≈ d^{1/2+1/(2j)}, i.e.
+a = a_j := (j+1)/(3j+1): j = 1: 1/2; j = 2: 3/7; j = 3: 2/5; j = 4: 5/13; … → 1/3. So the heuristic picture of the middle is: power saving for every
+u = H^a with a ∈ (1/3, 1/2) OUTSIDE bands around the points a_j, and inside each band only the case "one atom at the Pólya–Vinogradov size d^{1/2}"
+(where Type I also just fails). In a band: q-van der Corput handles moduli d with a divisor in [d^ε, d^{1/2−ε}]; prime d are handled for j ≤ 3 by
+Bourgain–Garaev Izvestiya 2014 Theorem 9 (p^{1/8}(N₁N₂)^{3/4}(N₁³/p + 1)^{1/16}(N₂³/p + 1)^{1/16} < N₁N₂ iff j < 4 at N₁ = p^{1/2}, N₂ = p^{1/(2j)};
+statement from the agent, unchecked); d = p₁p₂ with p₁ ≍ p₂ ≍ d^{1/2} (and d = small·prime, j ≥ 4) are open. The bands accumulate at a = 1/3.
