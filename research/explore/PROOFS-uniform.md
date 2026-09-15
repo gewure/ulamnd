@@ -675,3 +675,15 @@ OTHER FINDINGS (adopted):
    zero-frequency terms (U₁/d)φ(g), summing to diagonal size — to be written out. §12.4: the n₃ truncation H^{δ₃} must shrink as a → 1/3.
    §12.5: q-vdC omits a term N·q₂^{−1/4} and needs N ≥ q₁ (harmless). §12.0: H^{1/2+2ε} → H^{1/2+ε+ε′}.
  • §15 (Bourgain–Garaev) was NOT part of this reading; it builds on §12 (sound) and must be read next.
+§16 FOLLOW-UP: hypothesis (a′) REDUCED to the single level e = 1 (rigorous, short; to be read).
+By CRT, P¹(Z/u²e) = P¹(Z/u²) × P¹(Z/e) and α(τ.g) factors as [conditions mod a] × ∏_{p|e}[Q_g(c₀,d₀) ≡ 0 mod p], Q_g(c₀,d₀) = Ac₀² + 2Bc₀d₀ + Cd₀².
+For g₁ ≠ g₂ of the same determinant ah, the definite forms Q_{g₁}, Q_{g₂} have no common complex root (a common root forces the conjugate root too,
+hence proportionality, hence equality at equal determinant), so Res(Q_{g₁}, Q_{g₂}) ≠ 0, |Res| ≤ H^{O(1)}. For p ∤ ah neither form vanishes mod p
+(content p would give p² | ah), so each has ≤ 2 projective roots mod p, and a common root mod p forces p | Res. Hence for every pair
+Σ_{e≤E, (e,2uh)=1} ∏_{p|e} |R_p(g₁) ∩ R_p(g₂)| ≤ Σ_{e | Res} 2^{ω(e)} ≤ τ₃(Res) ≪ H^{o(1)}, uniformly in E, while the diagonal sums to ≍ uE.
+So Σ_{e≤E} off(u, e; Z₂) ≪ H^{o(1)} off(u, 1; Z₂), and (a′) is equivalent to the SINGLE-LEVEL statement
+    (a″)  off(u, 1; Z₂) ≪ H^{o(1)}(1 + Z₂)   uniformly in u   [pairs of family points at level u² at distance ≤ Z₂², counted modulo Γ₀(u²)].
+Numerics (gm-kernel-levels.ts, data/gm-kernel-levels-T16.txt, h = 1, T = 16, integer distance test): E = 1, 10, 30, 60 —
+u = 3: diag 2, 6, 18, 30; off 24.6, 42.0, 46.4, 51.2 | u = 5: diag 2, 2, 14, 26; off 6.9, 6.9, 17.6, 17.6 | u = 7: diag 4, 12, 36, 60; off 23.9, 36.8, 49.0, 55.8.
+The diagonal grows like E, the off-diagonal like a divisor average (×2 over E = 1…60), as the reduction predicts.
+(a″) is supported numerically for prime u ≤ 43 (reader's fast.ts) and u ≤ 13 (ours); its proof is THE open step for H^{1/3} at the small end.
