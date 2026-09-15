@@ -877,3 +877,22 @@ from the cap k ≤ 12 (with k ≤ 60 positive at a = 0.3353); near 1/3 the savin
  Y^{1/2}H^{2δ}, rest to the residual), with ε₀ against §9 to be fixed.
 CONDITIONAL READING: "the H^{1/2} threshold is crossed, u ∈ [H^{1/3+c}, H]" holds at exponent level GIVEN §12 with the §16/§19 gaps filled, the J₄ transfer with
 FIX 1, and the a > 1/2 step. Nothing in the J₄ or saving-map layer is fatal.
+
+## 24. The Type I/II step for u just above H^{1/2} (gap of §23) — SKETCH, NOT READ
+Block U ≥ Y (moduli d ∈ [Y^{1−δ}, YH^η], frequencies k ≤ Y^{2η}).
+Type I (smooth atom n of length N, cofactor ≤ U/N): Lemma kloost gives ≪ H^ε(1 + N/d)d^{1/2}; the N/d part sums to (U/N)·N·Σ_d|β|d^{−1/2} ≪ H^ε UY^{1/2} (always fine), the
+d^{1/2} part to (U/N)Y^{3/2}: power saving iff N ≥ Y^{1/2}H^{2δ} — unchanged from U ≤ Y.
+Type II (Cauchy over (d, u₁), u₂ inside): for U₁ > d the non-degenerate u₁-sums are ≪ H^ε(1 + U₁/d)d^{1/2}(num, d)^{1/2}: the extra term gives off-diagonal
+≪ H^ε U₂²U₁Y^{1/2}, hence |B| ≪ (YU₁·U₂²U₁Y^{1/2})^{1/2} = UY^{3/4}; the zero-frequency (Poisson h = 0) terms (U₁/d)c_d(numerator), |c_d(n)| ≤ (n, d), average over pairs
+to ≪ H^ε(U₁/d)·U₂² per d, giving |B| ≪ H^ε UY^{1/2}; fully degenerate pairs (d | D(u₂′² − u₂²)) are of diagonal size as long as U₂ ≤ Y. The d^{1/2} term is as before,
+so the Type II window stays [H^{2δ}, UY^{−1/2}H^{−2δ}] (∩ U₂ ≤ Y) — nonempty and ⊇ [H^{2δ}, Y^{1/2}H^{−2δ}] for U ≥ Y.
+Covering: if no smooth atom exceeds Y^{1/2}H^{2δ} and no sub-product lies in the window, both atoms lie in (UY^{−1/2}H^{−2δ}, Y^{1/2}H^{2δ}) with product ≍ U/n₃ — possible
+only for U ≤ Y·H^{4δ+δ₃}. So: for U ≥ YH^{4δ+δ₃} Types I/II cover everything with saving ≍ H^{−δ}; for Y ≤ U < YH^{4δ+δ₃} the residual is the balanced band
+ν₁, ν₂ = 1/2 + O(δ + η + δ₃), covered by Bourgain–Garaev with the new J₄ (§23: saving ≈ 0.031 in H-exponent at a = 0.505 with widening τ = 0.02) — ≫ the
+margins. Hence, at sketch level and given §12/§16/§19, the pieces with u ∈ [H^{1/2}, H^{2/3}] have a power saving with UNIFORM δ (no ε₀-dependence), and
+§9 is not needed for uniformity there (Type II's U₂ ≤ Y holds for the choice U₂ near the bottom of the window).
+CONSOLIDATED HEURISTIC MAP (all D for the middle; D < 0 for the small end):
+  u ≤ H^{1/3−c}: GM with a = u² (§14–§22; conversion §18, special primes, p = 2 open)   |   H^{1/3+c} ≤ u ≤ H^{1/2}: §12 + BG + J₄ (§15, §19, §20, §23)   |
+  u ≥ H^{1/2}: §12 + BG + J₄ + §24, and §9 (proved) for u > H^{1/2+ε}.   OPEN: the band |log u/log H − 1/3| < c (both methods lose there), and the small end for D > 0.
+  The band contributes ≍ c·H·log H trivially (≍ c·H(log H)^{1−c′} with Theorem E's saving), so even the full map would give neither A_f nor Off* = c_off H + o(H)
+  without the band. The band needs J₆ at N ≈ m^{1/4} below N⁴ (open even for primes) or a GM-type argument beyond the diagonal ≍ u.

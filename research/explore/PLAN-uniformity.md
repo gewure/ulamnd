@@ -283,3 +283,10 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
  CORRECTION (PROOFS §16, after a reading): the small end via GM is u < H^{0.305} with provable inputs (H^{1/3} under Selberg or hypothesis (a′));
  the "θ-free H^{1/3}" of the previous update was a bookkeeping error. Next: (a′) via a mass-formula count, and a reading of §15.
 
+## 15. Consolidated heuristic map (15 Sep, late night; PROOFS §12–§24, readings §16, §19, §21, §23; nothing written as a proof yet)
+ u ≤ H^{1/3−c}: Grimmelt–Merikoski with a = u² (D < 0) | H^{1/3+c} ≤ u ≤ H^{2/3}: Weil Type I/II in u + Bourgain–Garaev + J₄ energy for all moduli (all D) |
+ u > H^{1/2+ε}: proved (paper III). OPEN: the band around u = H^{1/3} (J₆ at m^{1/4}, or beyond the GM diagonal), the small end for D > 0.
+ The band alone blocks A_f (contributes ≍ cH log H trivially). Next rigorous steps, in order of value: (1) write §12 + BG + J₄ for a fixed range, e.g.
+ u ∈ [H^{0.45}, H^{0.55}] — a rigorous extension of paper III's range BELOW H^{1/2} (a paper-V result); (2) the small end u ≤ H^{0.3} via GM (D < 0);
+ (3) the band.
+
