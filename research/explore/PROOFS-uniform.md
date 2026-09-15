@@ -319,3 +319,8 @@ CHECKS REQUESTED FROM THE READERS: (1) Henriot Cor. 2's hypotheses for G_u and Q
 (2) Prop. KSw and Theorem small at t ∈ [Y, Y(log Y)^{11}] with the stated uniformity in u ≤ H^{2/3+ε}; (3) Koksma's inequality with the
 representative convention and the sign/boundary conventions of B; (4) the use of part I Theorem 6; (5) any proved statement of parts I–III
 this contradicts (part III's "a logarithmic saving is not enough" is an assertion about its window, not a theorem).
+NUMERICAL SANITY CHECK OF STEP (iii) (gu-average.ts, f = t²+t+1, H = 10⁷; log in logs/gu-average-D3.log): (1/Y) Σ_{x≤Y} G_u(Q_u(x)) over up to
+400 admissible u per range: Y = 100: 3.8 (u ≤ 10), 6.3 (u ≤ 10²), 9.4 (u ≤ 10⁴), 11.3 (u ≤ 10⁵); Y = 1000: 6.4, 9.5, 11.1 (u ≤ 10⁶ = Y²);
+Y = 3000: 7.6, 11.0, 11.9 (u ≤ 9·10⁶ ≈ Y²); maximum over all u tested 15.0 = 0.71 (log Y)². The average saturates at the global mean of G
+(12.7) as u grows, as it must once u²x² − D behaves like a generic integer of its size: uniform polylogarithmic size, as step (iii) needs.
+(The first version of the script sampled only even u, all inadmissible for D = −3; fixed before these numbers.)
