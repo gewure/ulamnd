@@ -614,3 +614,19 @@ sums; for fractions with smooth variables the problem may be easier.
 rms |S|/√(#terms) = 0.90, 0.92, 0.83 and max |S|/#terms = 0.053, 0.045, 0.027 for β = 0.40, 0.45, 0.49 (N² = d^{0.8…0.98}). The smooth bilinear
 Kloosterman fractions below the completion threshold show square-root cancellation, like random signs; no arithmetic obstruction — only
 a missing proof, as for every other threshold so far.
+§15 AFTER LITERATURE ROUND 5 (heuristic, not read). Bourgain–Garaev, Acta Arith. 164 (2014), arXiv 1309.1124, Theorems 1 and 3 (ANY modulus m, intervals
+from 1, bounded coefficients, (a,m) = 1), give for M, N ∈ [q^{1/3}, q^{1/2}]: Σ_{m≤M,n≤N} α_mβ_n e(a\overline{mn}/q) ≪ MN(MN/q)^{1/8}(log q)^{O(1)} (agent's
+computation with k₁ = k₂ = 2, to be re-derived). Consequence for the band U = YH^{−η} (η > 0 fixed): the §12 residual (n₁ ≈ n₂ ≈ U^{1/2}) at moduli
+d ≥ U·H^{c} saves (U/d)^{1/8}; with the free cutoff d ≥ Y^{1−δ} (δ < η) every relevant modulus has d/U ≥ H^{η}Y^{−δ}, so the residual saves H^{−(η−δ)/8}
+and u ∈ (H^{1/3}, H^{1/2}) up to the band near H^{1/2}… would be covered where §12's residual was the only gap — NO: the residual exists for every
+U ∈ (H^{1/3}, H^{1/2}), and there MN = U vs moduli d ≍ Y ≥ U·(Y/U): the ratio Y/U = H^{1−2a} is a POWER for a < 1/2, so Bourgain–Garaev saves
+(U/Y)^{1/8} = H^{−(1−2a)/8} on the residual throughout the middle, provided M, N ≥ q^{1/3}, i.e. U^{1/2} ≥ Y^{1/3}, i.e. a ≥ 2/5 (for a < 2/5 use
+k₁ = k₂ = 3 etc.: Corollary 1 saves unless N₁, N₂ both lie near some q^{1/(2j)}). SO THE WHOLE MIDDLE (H^{1/3}, H^{1/2}) MAY BE COVERED BY
+§12 + BOURGAIN–GARAEV, with savings that tend to 0 only at the two ends a → 1/2 (U/Y → 1) and near the exceptional sizes N ≈ q^{1/(2j)}.
+REMAINING AT a = 1/2 exactly (U ≈ Y ≈ d): the critical M ≈ N ≈ q^{1/2}: prime q — Bourgain–Garaev Izvestiya 2014 Theorem 9 (intervals anywhere,
+η = 0 allowed); q with a divisor in [q^ε, q^{1/2−ε}] — q-van der Corput; q = (small)·(prime) — Theorem 9 after CRT (unchecked); q = p₁p₂ with
+p₁ ≍ p₂ ≍ q^{1/2} — OPEN (λ-weighted proportion of such moduli is not power-small).
+TO CHECK BEFORE ANY OF THIS IS TRUSTED: (i) §12's Type I/II and residual analysis (under reading); (ii) that the residual sum really is
+Σ_{n₁,n₂} α β e(a\overline{n₁n₂}/d) with a = k r ē-type constants coprime to d after removing (k,d), with the G°-mean subtraction and the Fourier
+coefficients ξ_k(d,N) carried along (they depend on N(u) = ⌊H/(n₁n₂)⌋ — separation of variables needed, as Step 4b(iii)); (iii) re-derive the
+(MN/q)^{1/8} bound from Bourgain–Garaev Theorems 1 and 3; (iv) the exceptional sizes q^{1/(2j)} in Corollary 1.

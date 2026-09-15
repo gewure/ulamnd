@@ -686,3 +686,183 @@ Not found (honest negatives):
 - https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf (Duke, Invent. Math. 92, 1988)
 - https://link.springer.com/article/10.1007/s002220100126 (Clozel–Oh–Ullmo)
 - https://users.renyi.hu/~gharcos/burgess.pdf (Blomer–Harcos–Michel)
+
+## Literature round 5 (15 Sep 2026, night; side agent follow-up on bilinear Kloosterman fractions at MN ≈ q; verbatim; VERIFY BEFORE CITING)
+# Report 2 (15 Sep 2026): double Kloosterman fractions below the completion threshold
+
+Target:
+  S = Σ_{m∼M} Σ_{n∼N} α_m β_n e(a·\overline{mn}/q),
+with the following data:
+  - q squarefree, q ≈ Y, all prime factors split;
+  - M ≈ N ≈ q^{1/2−η}, so MN ≈ q^{1−2η};
+  - a = k·r with r² ≡ D (mod q);
+  - α_m = 1 on an interval and β_n = χ_D(n).
+We want any bound ≪ MN q^{−c}.
+
+Verification tags: [PDF] means the statement was read in the arXiv PDF (pdftotext). [ours] means our own computation from a
+stated theorem.
+
+## VERDICT
+
+YES, for every modulus q (prime or composite, no factorisation needed), whenever η > 0 is fixed. The saving is (MN/q)^{1/8}.
+The result is Bourgain–Garaev, "Kloosterman sums in residue rings", Theorem 3 (§1 below). It allows arbitrary
+coefficients bounded by 1, the variables have to lie in initial intervals [1,N] (dyadic m ∼ M is fine), and the bound is
+uniform in a with (a,q) = 1. Averaging over q or over roots is therefore not needed.
+
+What it does NOT cover:
+  - the window M, N ∈ [q^{1/2−ε}, q^{1/2+ε}], i.e. η → 0, where the saving (MN/q)^{1/8} degenerates;
+  - (a,q) > 1 (reduce the modulus first).
+For prime moduli the window is also closed: Bourgain–Garaev (Izvestiya), Theorem 9 gives a saving p^{−(1−2η)/16} for
+intervals in arbitrary position, including η = 0. For composite moduli, the window can be treated by q-van der Corput when q
+has a divisor in a suitable range (§5).
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## 1. J. Bourgain, M. Z. Garaev — Kloosterman sums in residue rings. arXiv:1309.1124, Acta Arith. 164 (2014) 43–64 [PDF]
+
+### The statements
+General modulus m. Throughout, x* denotes the inverse mod m and variables are coprime to m.
+
+Thm 1 (reciprocal energy). For I = [1,N] and any m, the number J_{2k} of solutions of
+  x1* + … + xk* ≡ x_{k+1}* + … + x_{2k}* (mod m),  x_i ∈ [1,N],
+satisfies
+  J_{2k} < (2k)^{90k³} (log N)^{4k²} (N^{2k−1}/m + 1) N^k.
+(The proof uses geometry of numbers / lattices and holds for arbitrary m.)
+
+Thm 3 (bilinear Kloosterman fractions). Let I1 = [1,N1], I2 = [1,N2], and |α_i| ≤ 1 arbitrary. Uniformly in k1, k2 ≥ 1
+and in gcd(a,m) = 1,
+  Σ_{x1∈I1} Σ_{x2∈I2} α1(x1) α2(x2) e_m(a x1* x2*)
+    < (2k1)^{45k1²/k2} (2k2)^{45k2²/k1} (log m)^{2(k1/k2 + k2/k1)}
+      × (N1^{k1−1}/m^{1/2} + m^{1/2}/N1^{k1})^{1/(2k1k2)}
+      × (N2^{k2−1}/m^{1/2} + m^{1/2}/N2^{k2})^{1/(2k1k2)} · N1N2.
+
+The key inequality in the proof (§4.1, read) is
+  |S|^{2k1k2} ≤ m · N1^{2k1k2−2k1} · N2^{2k1k2−2k2} · J_{2k1}(N1) · J_{2k2}(N2).
+
+Cor 1. Suppose that for i = 1 or i = 2, N_i ∉ ∪_{j≥1} [m^{1/(2j)−ε}, m^{1/(2j)+ε}]. Then
+  max_{(a,m)=1} |S| < m^{−δ(ε)} N1N2.
+
+### Application to our range [ours]
+Take k1 = k2 = 2. For m^{1/3} ≤ N_i ≤ m^{1/2} we have J_4(N_i) ≪ N_i^5/m · log^{16}. Hence
+  |S|^8 ≤ m·M^4·N^4·(M^5/m)(N^5/m) = (MN)^9/m,
+  so |S| ≪ MN · (MN/m)^{1/8} · (log m)^{O(1)}.
+With MN = q^{1−2η} this gives |S| ≪ MN · q^{−η/4 + o(1)}.
+For the smaller range q^{1/4} < N < q^{1/3} (i.e. 1/6 ≤ η < 1/4), use J_4 ≪ N²; the saving is then q^{−(1−4η)/8}.
+
+### Fit to our sum
+  - q composite squarefree: allowed (any m).
+  - α_m = 1_{m∼M}: allowed (arbitrary |α| ≤ 1 on [1,2M]).
+  - β_n = χ_D(n): allowed (bounded).
+  - a = k r: need (kr, q) = 1. Since (D,q) = 1, r is a unit; if g = (k,q) > 1, pass to modulus q/g.
+  - The bound is uniform in a, so it holds for every q and every root r individually.
+  - Requirement: m, n in intervals starting near the origin, which holds for dyadic ranges.
+
+## 2. J. Bourgain, M. Z. Garaev — Sumsets of reciprocals in prime fields and multilinear Kloosterman sums. arXiv:1211.4184, Izv. Math. 78:4 (2014) 656–707 [PDF]
+Prime modulus p only. The paper says the composite case is deferred to §1 above, but §1 generalises only the
+initial-interval results (Thms 1, 3), not Thms 7, 9, 10.
+
+- Thm 1 (arbitrary interval I). J_{2k} < (|I|^{2k²/(k+1)} + |I|^{2k}/p)·|I|^{o(1)}.
+- Thm 7 (arbitrary intervals). If |I1| > p^{1/18} and |I2| > p^{5/12+ε}, the bilinear sum is < p^{−δ}|I1||I2|.
+- Thm 8 / Cor 2: the prime version of §1 Thm 3 / Cor 1 (initial intervals).
+- Thm 9 (intervals in ARBITRARY position, arbitrary |α_i| ≤ 1):
+    max_{(a,p)=1} |Σ_{x1∈I1} Σ_{x2∈I2} α1 α2 e_p(a x1* x2*)|
+      ≪ p^{1/8} N1^{3/4} N2^{3/4} (N1³/p + 1)^{1/16} (N2³/p + 1)^{1/16}.
+  [ours] For N1 = N2 = p^{1/2−η} this is ≪ N1N2 · p^{−1/16 + η/8}. It is nontrivial for all 0 ≤ η < 1/2, including the
+  window η = 0 (N = p^{1/2}, bound p^{15/16}).
+- Thm 10 (arbitrary position, N_i < p^{(k_i+1)/(2k_i)}): the bound is
+    (p^{1/(2k1k2)} · N1^{−1/(k2(k1+1))} · N2^{−1/(k1(k2+1))}) · (N1N2)^{1+o(1)}.
+- Thm 11: n ≥ 7 variables of length N with N^n > p^{1/3+ε} give saving p^{−δ}.
+- Thm 13: n-linear sums with |I1|⋯|In| > p^{1/2+ε} give saving p^{−δ}.
+Assessment: for prime q this is complete. Thm 9 is stronger than §1 for primes, and does not need initial intervals or a
+  gap away from q^{1/2}. Our q are generally composite, so §1 is the operative statement.
+
+## 3. Karatsuba / Korolev line
+- The Karatsuba method is exactly §1 Thm 3: Hölder, then the count J_{2k} for [1,N], originally for very short N. Bourgain–Garaev
+  extend its range. The earlier Karatsuba papers were not fetched separately.
+- M. A. Korolev, "On Kloosterman sums with multiplicative coefficients", arXiv:1610.09171 [PDF §1].
+  S_q(x;f) = Σ'_{n≤x} f(n) e_q(an* + bn), f multiplicative with |f| ≤ 1, general q.
+  Thm 1: |S_q| ≤ 562 x · log log q/(ε log q) for q^{1/2+ε} ≤ x ≤ q. Log savings only, and the length is above √q.
+  Not our range.
+- M. A. Korolev, "Short Kloosterman sums to powerful modulus", arXiv:1604.02300 [PDF]. Saving exp(−γ(ln N)³/(ln q)²) for
+  powerful q (small kernel). Not applicable: our q are squarefree.
+- M. A. Korolev, "Kloosterman sums with primes to composite moduli", arXiv:1911.09981 [abs + §1]. Prime variable, nontrivial
+  for q^{3/4+ε} ≤ X ≪ q^{3/2}. Not our shape.
+
+## 4. Trace-function / algebraic-geometry results (prime moduli only)
+- É. Fouvry, E. Kowalski, Ph. Michel, "Algebraic trace functions over the primes", arXiv:1211.6043, Duke 2014 [PDF].
+  Thm 1.16 (Type I2): for an isotypic trace weight K mod p and smooth U, V, W,
+    Σ_{m,n} K(mn)(m/n)^{it} U(m/M) V(n/N) W(mn/X) ≪ (1+|t|)^A (Q_U+Q_V)^B Q_W · X(1 + p/X)^{1/2} p^{−η}, for any η < 1/8.
+  It is nontrivial for MN ≫ p^{3/4+ε}, e.g. M = N ≫ p^{3/8+ε}.
+  K(x) = e(a x̄/p) is a rank-one isotypic Fourier trace weight, so this covers the smooth double sum with saving
+  ≈ p^{−1/8 + η0} at MN = p^{1−2η0}. It needs BOTH weights smooth: β_n = χ_D(n) (splitting n into classes mod |D|) breaks
+  the K(mn) product structure. Primes only.
+  Thm 1.17: the type II version needs N > p^{1/2}, so not our range.
+  Remark 1.19 points to Fouvry–Michel (Ann. ENS 1998), Prop 1.2 / Thm 1.4, for sub-Pólya–Vinogradov bounds with additive
+  characters of rational functions. Not fetched.
+- E. Kowalski, Ph. Michel, W. Sawin, "Bilinear forms with Kloosterman sums and applications", arXiv:1511.01636, Annals 2017 [PDF].
+  Thm 1.3: p prime, 1 ≤ M ≤ N², N < p, MN < p^{3/2}, α bounded, N an interval:
+    B(Kl_k, α, 1_N) ≪ p^ε ||α||_1^{1/2} ||α||_2^{1/2} M^{1/4} N (M²N⁵/p³)^{−1/12};
+  nontrivial for M = N ≥ p^{3/7}.
+  This is for hyper-Kloosterman Kl_k (k ≥ 2), not for e(a x̄) directly. [ours, speculative] Double Poisson turns S into
+  (MN/q)·Σ_{h≤q/M, h'≤q/N} Kl_3(a h h'; q), with dual lengths q^{1/2+η}. Plugging in Thm 1.3 would give nontriviality only for
+  η < ~1/100. This route is strictly worse than §1–2.
+- É. Fouvry, E. Kowalski, Ph. Michel, C. S. Raju, J. Rivat, K. Soundararajan, "On short sums of trace functions",
+  arXiv:1508.00512, Ann. Inst. Fourier 2017 [PDF].
+  Thm 1.1: for √m < |I| ≤ m, |Σ_{n∈I} φ(n)| ≤ c√m log(4e⁸|I|/m^{1/2}), any modulus m.
+  Cor 1.7: φ = e_p(a x^{−k}), k = 1, 2, has logarithmic saving for x ≥ √p (log p)^{−δ}.
+  Only log-size savings at the √q edge, for a single variable. Not a power saving.
+- I. D. Shkredov, "Modular hyperbolas and bilinear forms of Kloosterman sums", arXiv:1905.00291, J. Number Theory 220 (2021) [PDF intro].
+  Incidence bounds for (a+b)(c+d) = λ in F_p, with a combinatorial bound for bilinear forms of complete Kloosterman sums
+  K(n,m) over general sets. It concerns Kloosterman sums, not fractions. Prime p only.
+
+## 5. Factorable composite moduli: q-van der Corput (Heath-Brown; Graham–Ringrose; Polymath 8a; Wu–Xi)
+- J. Wu, P. Xi, "Arithmetic exponent pairs for algebraic trace functions and applications", arXiv:1603.07060, ANT [PDF §1, §4].
+  Thm 4.3 / Cor 4.1: arithmetic exponent pairs (A-process, and A*-process A₁*) for squarefree q all of whose prime factors
+  are ≤ q^η. These give short sums Σ_{n≤N} K(n) of trace functions mod q, including e(a n̄/q), nontrivial down to
+  N = q^{ε}.
+- D.H.J. Polymath, "New equidistribution estimates of Zhang type", arXiv:1402.0811 [PDF, located]. Type I estimates use
+  q-van der Corput for incomplete Kloosterman sums with densely divisible squarefree q.
+- [ours, elementary] One A-process step with q = q1 q2, q1 ≤ N, and Weil mod q2 gives, for each fixed m,
+    |Σ_{n∼N} e(a \overline{mn}/q)|² ≪ q^ε (N q1 + N q2^{1/2}(1 + N/q2)).
+  With N = q^{1/2−η} this is nontrivial as soon as q has a divisor q1 ∈ (q^{2η}, q^{1/2−η}). At q1 ≈ q^{1/3} it gives
+  ≪ N^{1/2} q^{1/6+ε}.
+  Assessment: this is a second route for composite q, with a much larger saving when q has such a divisor, and it survives
+  η → 0 when q has a divisor in (q^ε, q^{1/2−ε}). It fails for q = (small)·prime and for q = p1p2 with p1 ≍ p2 ≍ q^{1/2};
+  for those q, use §1 (η fixed) or §2 (prime part).
+
+## 6. Versions averaged over the modulus
+- Not needed, since §1 is uniform in q and in a.
+- Classical DI/BFI averaging over q (Deshouillers–Iwaniec 1982, Thm 12; Bombieri–Friedlander–Iwaniec) requires a fixed
+  numerator a, whereas ours is a = k r(q). Averaging over q and the roots r reconstructs the original dilated-root Weyl sum
+  with leading coefficient (mn)², so it is circular.
+- Balanced factorisation results of Pascadi 2511.08445 Thm 1.2 type are stated for Kloosterman SUMS; no analogue for
+  fractions was found. The q-van der Corput bound in §5 plays that role for fractions.
+
+---------------------------------------------------------------------------------------------------------------------------
+## Summary answer
+
+Does a known result give a power saving for Σ_{m∼M,n∼N} α_m β_n e(a·\overline{mn}/q) with M ≈ N ≈ q^{1/2−η}?
+
+**YES, for all moduli q, if η > 0 is fixed.**
+- Source: Bourgain–Garaev, Acta Arith. 164 (2014), Theorem 3 / Corollary 1 (arXiv:1309.1124).
+- Bound: |S| ≪ MN·(MN/q)^{1/8}(log q)^{O(1)} for q^{1/3} ≤ M, N ≤ q^{1/2}.
+- Extra structure needed: m and n in intervals near the origin; |α|, |β| ≤ 1; (a,q) = 1. No smoothness, no factorisation,
+  no averaging. The bound is uniform in a.
+
+**YES, for prime q, including η = 0.** Bourgain–Garaev, Izv. Math. 2014, Theorem 9, gives saving p^{−(1−2η)/16} for intervals
+in arbitrary position and arbitrary coefficients.
+
+**PARTIAL, for composite q when η → 0 (M, N within q^ε of q^{1/2}).** No general result was found. q-van der Corput (§5)
+works if q has a divisor in (q^ε, q^{1/2−ε}). It fails for q = (small)·(prime), where Bourgain–Garaev Theorem 9 can be
+applied after CRT with shifted intervals (not checked), and for q = p1p2 with p1 ≍ p2 ≍ q^{1/2}, which stays open.
+
+Sources:
+- https://arxiv.org/abs/1309.1124 (Bourgain–Garaev, residue rings)
+- https://arxiv.org/abs/1211.4184 (Bourgain–Garaev, Izvestiya)
+- https://arxiv.org/abs/1211.6043 (Fouvry–Kowalski–Michel)
+- https://arxiv.org/abs/1511.01636 (Kowalski–Michel–Sawin)
+- https://arxiv.org/abs/1508.00512 (short sums of trace functions)
+- https://arxiv.org/abs/1905.00291 (Shkredov)
+- https://arxiv.org/abs/1603.07060 (Wu–Xi)
+- https://arxiv.org/abs/1402.0811 (Polymath 8a)
+- https://arxiv.org/abs/1610.09171, https://arxiv.org/abs/1604.02300, https://arxiv.org/abs/1911.09981 (Korolev)
