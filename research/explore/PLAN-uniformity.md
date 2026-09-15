@@ -101,6 +101,12 @@ smooth seed and compare with (u − χ)·(mean) as u grows.
 (N3) The smooth-window sums √Y S^w_u(Y) grow mildly with u on the existing grids: std over the grid 0.10–0.14 (u = 1),
      0.07–0.19 (u = 2), 0.21–0.28 (u = 3), 0.21–0.32 (u = 5), 0.29–0.33 (u = 6) — roughly u^{1/2}, far below the crude
      level-u² spectral count u².
+(N4) TWO HALVES SEPARATELY (two-halves.py, D = −4, X = 2·10⁵, k = 1; 15 Sep 18:40): splitting the pairs by |r′| < |p| (good) and
+     |p| < |r′| (bad) in the reduced-class parametrisation of PROOFS-uniform §4, BOTH halves show square-root cancellation
+     on their own for every u = 1, 3, 7, 20, 60, 200, 1000, 5000: max|T_good|/√x ≤ 0.99, max|T_bad|/√x ≤ 0.52 on dyadic blocks.
+     The bad half holds ≈ 30% of the pairs. So the bad half — Kloosterman moduli ≡ 0 (mod u), summation variable of length
+     ≍ 1/u² of the period — cancels by itself far beyond the elementary range u ≤ X^{1/6}: the spectral treatment of the
+     bad half is the right target, and no cancellation between the halves is needed.
 CONJECTURE U (the uniform truth, from N1–N2): T^{(u)}_k(x) ≪_{D,ε} k^{A} x^{1/2+ε} and 𝒫^{(0)}_u(Y) ≪_{D} Y^{1/2+ε}, both
 uniformly in squarefree u ≥ 1 (all u, not only u ≤ Y²). Everything the methods lose in u is an artefact of the method.
 
@@ -127,7 +133,21 @@ Hecke labels j(Q) = −r n̄ mod u (reciprocity), square-root cancellation on av
 For the WINDOW (moduli V ∈ (Y, u²Y log H], u ≤ Y²): u ≤ Y^{1/5} is closable now (partial theorem, u ≤ H^{1/6−δ});
 Y^{1/5} < u ≤ Y^{1/2} needs level-u² spectral theory with uniform constants; u > Y^{1/2} has an isolated-pair part V < u².
 
+## 7. The bad half as level-u² Kloosterman sums, and a warning (15 Sep 18:50; heuristic, to be done properly)
+Poisson in the short variable p (length ≍ 2r′, period u²r′) turns the bad half of a class into
+Σ_{r′ ≤ √(X/c̃)} Σ_{|m| ≲ u²} S(k, m; u² r′)·(Bessel-type weight)/(u²r′): Kloosterman sums of Γ₀(u²) at the cusp ∞ with
+K ≍ u² frequencies and moduli C ≍ u²√(X/c̃) — exactly Ngo's Lemma 3.15 structure. Inserting the Pitt/DI bound (Ngo Thm 2.5)
+with q = K = u² gives a per-class bound ≍ u^{5/2}X^{1/4}ã^{1/4}, which beats the trivial bad-half count Xã/(u²|D|) only for
+u⁶ < Xã, i.e. (ã ≍ u√|D|) u ≲ X^{1/5} — the SAME threshold as Weil. If this heuristic survives a careful computation, the
+generic level-aspect Kloosterman bounds do not extend the range, and the uniformity must come from the specific structure
+(the m-sum is a smooth short Poisson dual, not an arbitrary K-range) or from AVERAGING OVER u: Σ_u w(u)/u · (level-u²
+Kloosterman sums with moduli u²r′) = a level-ONE Kloosterman sum over all moduli c with the squarefull weight
+#{(u, r′): u²r′ = c}·w(u)/u — Kuznetsov for SL₂(Z) — but the Bessel weights depend on u through the length H/u. This is the
+spectral form of part III's "bilinear hybrid" (RESEARCH-USES 1c) and of the Type-II averaging; it is the candidate mechanism
+for the whole range, and it should be tested numerically first: compare Σ_u w(u) T^{(u)}_k against Σ_u |T^{(u)}_k|.
+
 ## 4′. Log
+- 15 Sep 18:50: N4 (two halves cancel separately); §7 the bad half as Γ₀(u²) Kloosterman sums, the X^{1/5} warning, averaging over u as candidate mechanism.
 - 15 Sep 16:30: regime map corrected (III starts at u ≍ X/√|D|; orbit-minima and isolation tests: orbit-minima.py); reciprocity/Hecke-label form; window-specific map.
 - 15 Sep 15:20: regime map §6; PROOFS-uniform.md started (setup verified, elementary bound with u tracked, three regimes).
 - 15 Sep 13:00: file created; literature facts above from arXiv 2107.13301 (Ngo) which quotes Hooley, Bykovskii, DFI, Tóth.
