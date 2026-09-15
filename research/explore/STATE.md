@@ -383,3 +383,12 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   leading coefficient = u² for us = the level of the dilation draft. Kloosterman moduli ≡ 0 mod u².
 - Next: B2 — Hooley's Weil-bound argument for u²X² − D with u explicit (PROOFS-uniform.md), then feed into paper III's
   Hypothesis-W machinery for a partial range of u; the u ≫ √x regime is the new phenomenon to understand.
+
+## 15. Hooley's argument with u tracked (15 Sep, 18:00): the two halves, and where the spectral theory must enter
+- PROOFS-uniform.md §4: per G_u-orbit of H^{(u)} the sum is Hooley's class sum for the form Q̃_j = [a_j, u b_j, u² c_j] of
+  discriminant 4u²D (reduced representatives allowed; identity b/(2a) = q/p + ((b_j/2)p + c_j r)/(p a) verified). Good half
+  (|r′| < |p|, modulus p coprime to u): Weil works up to u ≤ X^{1/4}. Bad half (modulus u r′ ≡ 0 mod u): Weil useless for
+  r′ < u², which is all of it once u ≥ X^{1/6}; for u ≤ X^{1/5} the result is T^{(u)}_k(X) ≪ X^{3/4+ε}u^{5/4}k^{1/2} + u^{5}.
+- The bad half is precisely the Kloosterman-sum structure (moduli ≡ 0 mod u²) that Ngo/DFI handle spectrally: the level-u²
+  spectral theory with the level tracked is the next tool; the elementary range is u ≤ X^{1/5} (→ u ≤ H^{1/6} for Theorem A′).
+- Not yet done: the rigorous write-up (3.1), the λ-weight (3.2), and any spectral bound. Numerical truth (N2): no u-dependence.

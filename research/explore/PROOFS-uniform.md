@@ -83,3 +83,35 @@ moduli d ≤ Y are done by Theorem small uniformly (log saving). So regime (III)
 3.3 Regime (III): test numerically whether cancellation for individual u ≫ X comes with the "Kloosterman-fraction" structure
     (compare T^{(u)} for u and for u' ≡ u mod lcm of small n — if the sums agree closely, the small moduli dominate the
     structure); read DFI 1997 "Bilinear forms with Kloosterman fractions" for the individual-u bounds available.
+
+## 4. Hooley's argument for the dilated roots, u tracked — the two halves (15 Sep, 17:00–18:00; identity verified numerically)
+Conventions of the dilation draft (right action (Q∘γ)(v) = Q(γv)). Pairs (n, x), u²x² ≡ D (n), x mod n  ↔  forms
+Q = [n, 2ux, (u²x²−D)/n] ∈ H^{(u)} = {disc 4D, 2u | b} modulo translations by u (Γ_∞^{(u)} = {(1 um; 0 1)} ⊂ G_u);
+Weyl phase e(kx/n) = e(k b(Q)/(2u a(Q))). Orbits H^{(u)} = ⊔_j Q_j∘G_u (N_u ≪ u^{1+ε} h(4D) of them, Prop. classwise).
+For γ = (p q; r s) ∈ G_u (u | q, u | r): a(Q_j∘γ) = Q_j(p, r), and (Hooley's identity, CHECKED on 311 random cases)
+    b(Q_j∘γ)/(2a(Q_j∘γ)) = q/p + ((b_j/2) p + c_j r)/(p · Q_j(p, r)).
+Here q ≡ −r̄ (mod p) and u | q, so q = u q′ with q′ ≡ −\overline{u r} (mod p): e(k b/(2ua)) = e(−k \overline{u r}/p) · e(k((b_j/2)p + c_j r)/(u p Q_j(p,r))).
+Write r = u r′. Then Q_j(p, u r′) = Q̃_j(p, r′) with Q̃_j := [a_j, u b_j, u² c_j] of discriminant 4u²D, the Kloosterman phase is
+e(−k \overline{u²} \overline{r′}/p), and the twist is k((b̃_j/2)p + c̃_j r′)/(u² p Q̃_j(p, r′)) — Hooley's setting for the form Q̃_j,
+with the twist divided by u² and the sum over primitive (p, r′) with (p, u) = 1 (automatic: a prime of u dividing n kills the roots).
+KEY: the family orbit of Q_j is the SL₂(Z)-class of Q̃_j (restricted to (p,u) = 1), and the phase e(k b̃/(2u² ã)) depends on the
+form Q̃ alone; so Q̃_j may be taken REDUCED: |b̃| ≤ ã ≤ c̃, ã ≤ 2u√(|D|/3), c̃ ≤ 2u²|D|/ã. Per class ≍ πX/(u|D|^{1/2}) pairs.
+Twist size: |(b̃/2)p + c̃ r′| ≤ √(c̃ Q̃) (positive definite), so |twist| ≤ k√c̃/(u² p √Q̃).
+GOOD HALF |r′| < |p| (modulus p): Q̃ ≥ ã p²/2, |twist| ≤ k√(2c̃/ã)/(u² p²) ≤ 2k|D|^{1/2}/(u ã p²) — bounded variation, uniformly.
+  Incomplete Kloosterman sum over r′ (length L_p = min(2p, 2√(X/c̃))) to modulus p: ≪ min(L_p, p^{1/2+ε}(k,p)^{1/2}).
+  Fully Weil-effective iff X/c̃ ≥ √(2X/ã) iff ã ≥ a₀ := (2u⁴|D|²/X)^{1/3}; then the half is ≪ (X/ã)^{3/4+ε}(k-factor).
+  Sum over classes (≪ a^{ε} classes with reduced first coefficient a): ≪ X^{3/4+ε}(u|D|^{1/2})^{1/4}. Classes with ã < a₀ are
+  bounded trivially: ≪ a₀^{1+ε} X/(u|D|^{1/2}) = X^{2/3+ε} u^{1/3}|D|^{1/6}. Nontrivial for u ≤ X^{1/4−δ}.   ← the good half alone would give u ≤ X^{1/4}.
+BAD HALF |p| < |r′| (modulus must be r = u r′, i.e. ≡ 0 mod u): Weil gives (u²r′)^{1/2+ε} per r′, useful only when the p-range
+  2r′ exceeds it, i.e. r′ ≥ u²/4. Pairs of the bad half with r′ < u²: per class min(u⁴, X/c̃); the bad half holds about HALF of all
+  pairs (Σ_a ρ(a) X a/(u²|D|) ≈ X/2), so for u ≥ X^{1/6} essentially all of them have r′ < u² and the elementary method fails.
+  For u ≤ X^{1/5−δ}: the untreatable part is ≪ u^{5+ε} h(4D) = o(X), and the Weil part is ≪ Σ_classes u (X/c̃)^{3/4} ≪ u^{5/4}X^{3/4+ε}|D|^{1/8}.
+RESULT (to be written rigorously; constants explicit; then outside reading):
+    T^{(u)}_k(X) ≪_{D,ε} X^{3/4+ε} u^{5/4} k^{1/2+ε} + u^{5+ε}          for squarefree u ≤ X^{1/5},  k ≥ 1,
+consistent with the X^{1/5} threshold found numerically (orbit-minima test) and with §2. The bottleneck is the bad half,
+where the Kloosterman modulus carries the factor u² and the summation variable is short: exactly the sums Ngo/DFI treat
+by Poisson + Kuznetsov (Kloosterman sums of Γ₀(u²), moduli c√N″), i.e. the level-u² spectral theory with the level
+tracked (DI/Pitt bound with q = u² explicit, Ngo Thm 2.5). The good half's X^{1/4} shows what the spectral half should reach.
+Consequence for the window if the RESULT holds with the λ-weight and admissibility (Task 3.2, via Prop. windowW of part III with
+θ = 3/4, u-loss u^{5/4}, no loss in k beyond k^{1/2}... note Prop. windowW's Hypothesis W has (uk)^B with a single B; a two-exponent
+version is needed): Σ_{u ≤ H^{θ₀}} w(u) 𝒲_u(H/u; log H) ≪ H^{1−δ} for θ₀ < 1/6 (from u^{5/4}(H/u)^{3/4} summed with |w(u)| ≪ 1 against u^{1/2}).
