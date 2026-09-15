@@ -992,3 +992,28 @@ statements still in the draft body — merged text written. (3) Lemma kloost use
 (9) |u₀| ≤ m/2 (least absolute residue). (10) the log in Lemma S needs the total-variation bound for |t| ≤ T₀; b_k ≤ π²Y/(kd). (11) n₃ tail ≪ H^{1−δ₃/2+ε}.
 STATUS: Theorem M has two independent readings, both "complete after fixes"; the merged text PAPER-V-thmM.md incorporates all fixes. No human check. The merged text
 itself has not been read; a short confirmation reading of the merge is advisable before it goes into a paper.
+
+## 31. THE POINT-VERSUS-BAND ACCOUNTING (16 Sep; prompted by the user's review discussion) — DERIVATION, NOT READ
+Exponent coordinates α = log u/log H. Trivial size of the block u ∼ 2^k is Σ_{u∼2^k} |w(u)|H/u ≍ H, so the trivial total over all blocks is ≍ H log H = the target scale.
+(A) A band of positive width: if no method works on α ∈ [α₀ − δ, α₀ + δ], the cost is ≍ δ·H log H. [Correct.] BUT: paper III Theorem E already gives Off*_f(H) ≪ H(log H)^{1−c}log log H
+with c = c(f) ≈ 0.037 unconditionally, so a statement "Off* ≤ (2δ + o(1))H log H" is WEAKER than what is proved. The band accounting only pays if it improves the POWER of log H
+or reaches O(H).
+(B) A point gap with continuously vanishing savings: if the saving is ≍ e^{−c|log u − (1/3)log H|} (i.e. H^{−c|α−1/3|}) on both sides, then
+Σ_k H·H^{−c|α_k−1/3|} = H Σ_k e^{−c|k log 2 − (1/3)log H|} = O(H/c) — the blocks near 1/3 contribute O(H) in total, not δH log H. [Correct and important.]
+CONSEQUENCE FOR OUR TARGETS. Off*_f(H) = c_off H + (error). (i) Point gap with EFFECTIVE savings on both sides ⇒ error = O(H) ⇒ Off*_f(H) = O(H) — this is HYPOTHESIS (E) of
+paper I (bounded constant term in the Cesàro asymptotic), far stronger than Theorem E, though still not the value A_f. (ii) A_f needs Off* = c_off H + o(H), hence a POSITIVE
+saving at α = 1/3 itself (or savings whose sum over the blocks near 1/3 is o(H) — e.g. s(α) ≫ 1/log log H there). (iii) If the savings near 1/3 are only NON-EFFECTIVE, the
+blocks with |α − 1/3| ≤ f(H) are trivial and the error is ≍ f(H)H log H.
+IS OUR GAP A POINT? Both sides degenerate continuously and neither has a strict cut-off:
+ • Small end (GM with a = u², D < 0): works for u ≤ H^{1/3−c} for every c > 0, saving ≍ c(1 − 2θ) (PROOFS §16, §21, §29; constants q^{o(1)}δ^{−O(1)}, effective).
+ • Middle (§12 + Bourgain–Garaev + the J₄ energy): works for every fixed a > 1/3, saving s(a) > 0 (PROOFS §20, §23; the saving map is positive for a ≥ 0.3424 with k ≤ 12 and
+   at 0.3353 with k ≤ 60), but the constants in BG Theorem 3, (2k₁)^{45k₁²/k₂}(2k₂)^{45k₂²/k₁}(log m)^{2(k₁/k₂+k₂/k₁)}, blow up as k₂ ≈ 1/(2ν₂) → ∞ with ν₂ ≍ (9/4)(a − 1/3).
+ So the gap is a POINT in the limit, with an EFFECTIVE band of width f(H) set by the BG constants: with K ≈ 2/(9ζ), ζ = a − 1/3, a saving H^{s}, s ≈ 1/(8K), beats the constants
+ when log H ≫ 180K³log(2K) + 8K²log log H, i.e. for ζ ≫ (log log H/log H)^{1/3}·(const).
+PROVISIONAL CONSEQUENCES (all conditional on the middle being written out, on the small end (Theorem S), and on effectivity checks):
+ T1. Off*_f(H) ≪ H(log H)^{2/3+o(1)} for monic irreducible f with D < 0 — an improvement of Theorem E's (log H)^{1−0.037}.
+ T2. If the BG side can be made effective near 1/3 (e.g. by a bound that avoids the k → ∞ limit — the J₆-type input of §19, or a different tool at the exceptional sizes),
+     then Off*_f(H) = O(H): paper I's Hypothesis (E), i.e. the Cesàro conjecture with a bounded constant term, for D < 0.
+ T3. A_f needs strictly more: a positive saving at α = 1/3, or savings ≫ 1/log log H there.
+TO DO: (a) verify the two "for every c > 0" claims are really strict-free (they are stated as such in §16/§21 and §20/§23, but the middle is heuristic); (b) make the effective band
+f(H) precise; (c) then state T1/T2 properly. This accounting itself needs a reading.
