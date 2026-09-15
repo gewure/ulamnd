@@ -60,7 +60,7 @@ asymptotic
 \sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)
 \]
 holds unconditionally for linear $f$ and, for general $f$, exactly when the sum over pairs of distinct
-roots is $o(H\log H)$. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
+roots is $o(H\log H)$, which part~III proves for monic quadratics. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
 rather than the second that a naive rescaling predicts; $\exN$ quadratics computed exactly to $H=10^6$
 give the exponent $\exCesAlpha\pm\exCesAlphaSe$ and the coefficient $\exCesK$ against the predicted $\tfrac12$. In plain terms, and conjecturally: primes along any polynomial sequence fluctuate
 less than independent coin flips would, by the mechanism that Montgomery and Soundararajan found for
@@ -178,7 +178,7 @@ symmetric square of the permutation representation on the roots (Theorem~\ref{th
 closed twin-prime-type formula for $S_f(h)$ when $f$ is quadratic (Theorem~\ref{thm:quadratic}), proves
 the Ces\`aro form of~\eqref{eq:conj} for every linear $f$ and reduces it for general $f$ to a bound
 $o(H\log H)$ for the off-diagonal sum over pairs of distinct roots of $f$ modulo $d$
-(Theorem~\ref{thm:smoothed}; the constant term needs the sharper Hypothesis~(E)), tests the conjecture
+(Theorem~\ref{thm:smoothed}; part~III proves that bound for monic quadratics, and the constant term needs the sharper Hypothesis~(E)), tests the conjecture
 numerically for $\sumsN$ polynomials of degree $1$--$4$ up to $H=10^5$ and, exactly and with $C(f)$
 varying over more than a decade, for $\exN$ quadratics up to $H=10^6$ (Tables~\ref{tab:sums},
 \ref{tab:exact}, Figures~\ref{fig:curves}, \ref{fig:exact}), isolates the off-diagonal remainder for
@@ -625,7 +625,7 @@ $\mathrm{Off}_f(H)$ is bounded by $1.3$ to $10^7$ only because $\log\log10^7<3$.
 
 \medskip\noindent
 This is the equidistribution statement of Remark~\ref{rem:two} with a bounded, rather than merely
-$o(H\log H)$, error; we have not proved it. Part~III~\cite{ReichardtIII} shows that $\mathrm{Off}^\ast_f(H)$ is not $o(H)$: the moduli
+$o(H\log H)$, error; we have not proved it (the $o(H\log H)$ form is proved for monic quadratics in part~III). Part~III~\cite{ReichardtIII} shows that $\mathrm{Off}^\ast_f(H)$ is not $o(H)$: the moduli
 $d$ with a large agreeing part of the two roots contribute an explicit main term $c_{\mathrm{off}}(f)H$ with
 $c_{\mathrm{off}}(f)<0$, so that the constant $A_f$ of~\eqref{eq:conj} is the diagonal constant plus $C(f)^2c_{\mathrm{off}}(f)$;
 for $t^2+1$, $c_{\mathrm{off}}=-0.1344$, and the mean of $\mathrm{Off}_f(t)$ is predicted to be $-0.0098$, in agreement with
@@ -1302,7 +1302,7 @@ deficit is $\tfrac12C(f)\log H$, universal in form and linear in $C(f)$.
 \paragraph{What is proved and what is not.} What is proved is Theorems~\ref{thm:expansion}--\ref{thm:smoothed}, \ref{thm:ff} and~\ref{thm:poly}:
 the exact identity, the Dedekind-zeta generating function of the diagonal with residue $1/C(f)$, the
 symmetric-square $L$-function inside it, the closed formula for quadratics, the Ces\`aro form of
-Conjecture~\ref{conj} for linear $f$ and its reduction for general $f$ to $\mathrm{Off}^\ast_f=o(H\log H)$
+Conjecture~\ref{conj} for linear $f$ and its reduction for general $f$ to $\mathrm{Off}^\ast_f=o(H\log H)$, which part~III proves for monic quadratics
 (Hypothesis~(E) for the constant term), and the vanishing of the small-modulus off-diagonal over
 $\F_q[u]$ together with the finite support of what remains (Lemma~\ref{lem:support}). Proposition~\ref{thm:explicit} rests on transplanting the proof of Goldston and Suriajaya,
 which we have sketched but not written out. What is numerical is the rest: for $\exN$ quadratics computed

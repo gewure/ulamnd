@@ -561,6 +561,14 @@ a noisy fit was read as precision. Found when the author's reviewing conversatio
 agreement statement for a fitted amplitude without an error estimate from at least two methods; entries are called outliers only
 in units of that error. (ERRATA 36)
 
+F46. "A logarithmic saving is not enough in the window" (paper III abstract and results, KNOWLEDGE F14, 10–16 Sep). An assertion about one
+bound — Koksma on the whole window (Y, u²Y log H], whose log(u² log H) dyadic ranges swamp a (log Y)^{−c} saving — repeated as a fact about
+the problem for six days. The ranges above Y(log Y)^{13} carry nothing (a divisor average over the values of u²x² − D, uniform in the
+discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suffices: Hypothesis (E) in Cesàro form holds unconditionally
+(paper III Theorem E; two adversarial readings). Found by first measuring where each piece lives (window-truncation.ts: the √Y-oscillation
+sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
+contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
+
 F38. "A Claude instance given the papers and nothing else" (case study v1, §8) for a reader that was the author's
 long-running reviewing conversation with weeks of context. A statement about PROCESS asserted from memory instead of
 checked with the author; same species as F21 ("submitted"). Rule: every sentence describing who did what, with what
@@ -647,6 +655,7 @@ F14. "The twisted phase e(kH/d) is the obstacle" (paper III, first draft, 10 Sep
     every dilation; Shiu instead of the sieve for the weights) makes the small moduli of every piece
     unconditional. The real core is the WINDOW d' ∈ (Y, u²Y] (interval shorter than the period), self-dual
     under Hooley's reflection, empty for u = 1, where a log-saving loses a factor log u. (Paper III §3.2, §5.1.)
+    [16 Sep: the loss is NOT intrinsic — F46; Hypothesis (E) in Cesàro form is proved, paper III Theorem E.]
 F15. "Σ_{h≤H}(S_f(h) − C²) = −½C log H + A_f + o(1)" (paper I, Conjecture 1, v1–v7, SUBMITTED). False for every f with
     a residue class of h where S_f vanishes (t²+1: odd h) — the sharp sum oscillates by C² forever. The Cesàro
     form is what Theorem 6 controls and what was meant. Process lesson: an erratum recorded on 10 Sep as "worth a

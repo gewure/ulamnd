@@ -27,3 +27,12 @@ non-integer Y (correction term added); d' > 1 in the definition of a piece; the 
 in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
 
 13 Sep (night): related-work paragraph; date updated; 27 pp.
+
+## 16 September 2026 (late): Hypothesis (E) in Cesàro form PROVED (Theorem thm:E, §sec:closed)
+- Lemma lem:tail (moduli above Y(log Y)^13 negligible uniformly in u ≤ Y³, via Henriot's uniform Nair–Tenenbaum bound, erratum a*D*),
+  Proposition prop:narrow (the window up to Y(log Y)^13 by Koksma + Proposition KSw), Theorem thm:E: Off*_f(H) ≪ H(log H)^{1−c} log log H,
+  hence Conjecture 1 of part I in Cesàro form with its leading term, unconditionally for monic irreducible quadratics.
+- Argument checked by two adversarial readings (fresh model instances; research/explore/PROOFS-uniform.md §8); a third reading of the
+  paper text is running. No human check. The constant A_f remains conditional (Theorem A).
+- Rewritten: abstract, results list, Koksma paragraph, closing paragraph of §6, "What remains" item 1, Remark rem:exponents, Remark
+  rem:KSwconst's count (ERRATA 37). The claim "a logarithmic saving is not enough" is withdrawn (ERRATA 38, KNOWLEDGE F46). 30 pp.

@@ -509,3 +509,14 @@ route before being applied (the checks are described in the items). We agree wit
     Σ_{p|u split} 2/(p−4) ≤ L + O_f(1) (the worst u is a product of the first split primes, all below ≈ 2 log u; checked numerically), so the
     requirement is log log t ≥ 2L + O_f(1), which t ≥ exp((log log u)^4) gives for u ≥ u₁(f). Conclusion of the remark and of Theorem small
     unchanged; the count in the remark to be rewritten. Not yet applied to paper III.
+
+38. **Paper III: Hypothesis (E) in Cesàro form is proved; the claim that a logarithmic saving cannot close the window is withdrawn
+    (16 Sep; argument research/explore/PROOFS-uniform.md §8, two adversarial readings by fresh model instances, no human check).**
+    New in paper III §sec:closed: Lemma lem:tail (moduli above Y(log Y)^{13} contribute ≪ Y²Z⁻¹(log Y)^{10}(log log Y)^{26}, uniformly in
+    u ≤ Y³, via Henriot's uniform Nair–Tenenbaum bound with the erratum's a*D*), Proposition prop:narrow (the window up to Y(log Y)^{13}
+    is ≪ Y(log Y)^{−c} log log Y by Koksma and Proposition KSw), Theorem thm:E (Off*_f(H) ≪ H(log H)^{1−c} log log H for monic
+    irreducible quadratics without fixed prime divisor, hence Conjecture 1 of part I in Cesàro form with its leading term). Rewritten:
+    the abstract ("a logarithmic saving is not enough" removed; the constant A_f is what remains), the results list, the Koksma paragraph
+    before Corollary smallu, the closing paragraph of §6, "What remains" item 1, Remark rem:exponents (narrow window: Theorem A under
+    2B(2−θ) < 1−θ, not written out), Remark KSwconst's count (ERRATA 37, applied). Paper I: abstract, results paragraph, the paragraph on
+    the bounded form, and "What is proved" now say that part III proves the o(H log H) bound for monic quadratics. KNOWLEDGE F46.
