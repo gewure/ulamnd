@@ -777,3 +777,27 @@ numerically; the missing input is a proof for composite m. (Integer reformulatio
 for fixed x₁, x₂ the (x₃, x₄) lie on (Ax₃ − B)(Ax₄ − B) = Amt + B² (A = x₁+x₂, B = x₁x₂): divisor bound per t gives only N^{3+ε} — the known bound; the
 needed gain is equidistribution of this cubic form's values in residue classes mod m, i.e. a modular-hyperbola count in short boxes with error
 below m^{1/2}.) Literature follow-up on energy bounds for composite moduli running.
+
+## 20. A new energy input and the saving map of the middle (15 Sep, night) — HEURISTIC, NOT READ, NOT A CLAIM
+INPUT (side agent's transfer, unverified; my own check of the steps below agrees). Cilleruelo–Garaev, GAFA 21 (2011), arXiv 1007.1526, Theorem 1(4):
+#{(x, y) ∈ [L+1, L+M]² : xy ≡ λ (mod p)} < M^{3/2+o(1)}p^{−1/2} + M^{o(1)} for λ a unit. The proof (Dirichlet: tL ≡ u₀ (mod m), 1 ≤ t ≤ T, |u₀| ≤ m/T;
+lift (u₀ + tx′)(u₀ + ty′) = t²λ₀ + ms; divisor bound per s; vanishing factors excluded since t² < m and λ is a unit) never uses that p is prime, so
+it holds for every modulus m. Since x* + y* ≡ λ ⇔ (x − λ*)(y − λ*) ≡ λ*² (a hyperbola in a square box with equal shifts), J₂(λ) ≪ m^{o(1)}(N^{3/2}m^{−1/2} + 1)
+for units λ (non-units: gcd g ≤ 2N, same bound mod m/g), and
+    J₄(N) = Σ_λ J₂(λ)² ≤ N² max_λ J₂(λ) ≪ m^{o(1)}(N² + N^{7/2}m^{−1/2})   for EVERY modulus m.
+At N = m^{1/2} this is N^{5/2} (Bourgain–Garaev: N³; numerics: ≈ 2N²). In Bourgain–Garaev's Hölder inequality |S|⁸ ≤ m N₁⁴N₂⁴J₄(N₁)J₄(N₂) it gives
+|S| ≪ m^{o(1)}(N₁N₂)^{15/16} at N₁ = N₂ = m^{1/2}, and at the band corners (N₁ ≈ m^{1/2}, N₂ ≈ m^{1/(2j)}) the pairing k₁ = 2, k₂ = j (with
+J_{2j}(N₂) ≪ N₂^{j+o(1)} from BG Theorem 1, since N₂^{2j−1} ≤ m) gives |S|^{4j} ≤ m·N₁^{4j−4}N₂^{2j}·N₁^{5/2}·N₂^{j} = (N₁N₂)^{4j}·m^{−1/4}: saving m^{−1/(16j)}.
+SAVING MAP (bg-saving-map.py, data/bg-saving-map.txt): minimum over the §12 residual (ν₁ + ν₂ = a/(1−a), ν_i ∈ (θ − 1/2, 1/2); all k₁, k₂ ≤ 12; energy
+bounds BG Theorem 1, the new J₄, and J_{2k} ≤ N^{2k−4}J₄), H-exponent:
+  a = 0.3383: 0 (old 0) | 0.3433: 0.0005 (0) | 0.3583: 0.0047 | 0.3833: 0.0092 | 0.4033: 0.0134 | 0.4283: 0.0178 (old 0.00004, band a₂ = 3/7 GONE) |
+  0.4533: 0.0280 | 0.4833: 0.0302 | 0.4999: 0.0312 (old 0.00002: the a = 1/2 band GONE, saving → 1/32).
+READING. With the new J₄ the bands a_j disappear and the saving is positive for every a ∈ (1/3, 1/2], increasing, and UNIFORM on [1/3 + c, 1/2] for each
+c > 0; at a = 1/2 it is ≈ H^{−1/32}. Above a = 1/2 the §12 residual is empty (U > Y), so Types I/II alone cover u ∈ [H^{1/2}, H^{1/2+ε₀}] with their margin
+savings, and §9 covers u > H^{1/2+ε₀} for a FIXED ε₀. Hence, IF §12 (with the §16/§19 gaps filled: partially degenerate Type II pairs, separation of variables)
+and the J₄ transfer hold, the pieces with u ∈ [H^{1/3+c}, H] have a power saving for every c > 0 — the H^{1/2} threshold is CROSSED — and the only band
+left is a neighbourhood of u = H^{1/3}, where both atoms sit at d^{1/4} (needs J₆ below N⁴ at N = m^{1/4}, open even for primes) and where the GM kernel
+method (§14–§17) also stops. Positive discriminants D > 0 are covered by the §12/§20 route (no GM needed) but NOT by the small end.
+TO CHECK: (1) the J₄ transfer from Cilleruelo–Garaev's proof, line by line, for composite m (including t sharing factors with m, non-unit λ, and
+the "equal shifts" requirement); (2) bg-saving-map.py against the Hölder inequality as printed (bg1309.txt, proof of Theorem 3), the residual
+region, and the conversion of m-exponents to H-exponents with the moduli range d ∈ [Y^{1−δ}, YH^η]; (3) uniformity near a = 1/2 from both sides.

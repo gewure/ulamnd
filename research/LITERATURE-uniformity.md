@@ -866,3 +866,157 @@ Sources:
 - https://arxiv.org/abs/1603.07060 (Wu–Xi)
 - https://arxiv.org/abs/1402.0811 (Polymath 8a)
 - https://arxiv.org/abs/1610.09171, https://arxiv.org/abs/1604.02300, https://arxiv.org/abs/1911.09981 (Korolev)
+
+## Literature round 6 (15 Sep 2026, night; side agent, energy of reciprocals for composite moduli; verbatim; the transferred bound is the agent's own and UNVERIFIED)
+# Report 3 (15 Sep 2026): additive energy of reciprocals of an initial interval, composite moduli
+
+Question. For squarefree m, bound
+  J_{2k}(N) = #{x1* + … + xk* ≡ x_{k+1}* + … + x_{2k}* (mod m) : 1 ≤ x_i ≤ N}.
+Specifically:
+  (i) J_4(N) ≪ m^{o(1)}(N^2 + N^{4−c}) at N ≈ m^{1/2};
+  (ii) J_{2k}(N) below N^{3k−1}/m at N = m^{1/(2j)}, k = j+1.
+
+Verification tags: [PDF] = read in the paper; [abs] = abstract only; [ours] = our derivation, with the ingredient read in a PDF.
+
+## VERDICT
+(i) YES, for every modulus m. The bound is J_4(N) ≪ m^{o(1)}(N^2 + N^{7/2} m^{−1/2}); at N = m^{1/2} it is N^{5/2}, i.e. c = 3/2.
+    - Nobody states it for composite m: we found it in the literature only for primes.
+    - The prime proof (Cilleruelo–Garaev GAFA 2011, Thm 1(4), from Heath-Brown's 1978 lattice idea) uses no primality
+      beyond gcd(λ,m) = 1. Transfer checked line by line; see §1.
+    - Fed into the Bourgain–Garaev Hölder step, it closes the m^{1/2} window of Report 2 for ALL moduli:
+      Σ_{x≤N1, y≤N2} α β e_m(a x* y*) ≪ m^{o(1)}(N1N2)^{15/16} for m^{1/3} ≤ N1, N2 ≤ m (§2).
+(ii) NO. Nothing found for composite m, and nothing even for primes at N = p^{1/(2j)}, j ≥ 2, in bilinear form. The
+    near-optimal prime bounds (Bourgain–Garaev Izvestiya Thms 2–4) require N < p^{3/46}, p^{1/18}, p^{1/(4k²)}. The window at
+    m^{1/4} (and m^{1/6}, …) stays open.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## 1. Key input: concentration on a modular hyperbola in a box with EQUAL shifts
+
+### J. Cilleruelo, M. Z. Garaev — Concentration of points on two and three dimensional modular hyperbolas and applications. arXiv:1007.1526, GAFA 21 (2011) 892–904 [PDF, statement and proof of Thm 1]
+Thm 1 (p prime, gcd(λ,p) = 1). Let I2(M;K,L) = #{K+1 ≤ x ≤ K+M, L+1 ≤ y ≤ L+M : xy ≡ λ (mod p)}. Then:
+  I2(M;K,L) < M^{4/3+o(1)} p^{−1/3} + M^{o(1)};
+  I2(M;L,L) < M^{3/2+o(1)} p^{−1/2} + M^{o(1)}   (K = L).
+
+The proof (read):
+  1. Shift to xy + Kx + Ly ≡ b.
+  2. Dirichlet/pigeonhole gives t ≤ T with tK ≡ u0, |u0| ≤ p/T; for K = L one t serves both.
+  3. Lift to an integer equation (tx+u0)(ty+u0) = n_z, with |z| < T M^2/p + 2M/T + 1/2.
+  4. Apply the divisor bound for n_z ≠ 0.
+  5. If n_z = 0, x or y is fixed, and λ a unit forces the other.
+  6. Choose T ≈ (p/M)^{1/2}.
+  The only arithmetic uses are the pigeonhole step (valid mod any m), the divisor bound (p^{o(1)} → m^{o(1)}), and
+  "λ ≢ 0 ⇒ unique solution when a factor vanishes" (valid when gcd(λ,m) = 1). The M^{o(1)} refinement for M < p^{1/4}
+  uses divisors in short intervals, also modulus-free.
+  The same Heath-Brown idea is BG Izvestiya Lemma 10 / Cor 4, stated for p.
+
+[ours] Lemma A. For ANY m ≥ 1, gcd(μ,m) = 1, M ≤ m, and any L:
+  #{(x,y) ∈ [L+1, L+M]^2 : xy ≡ μ (mod m)} ≪ m^{o(1)}(M^{3/2} m^{−1/2} + 1).
+
+## 2. Consequence for J_4 and for the bilinear sums [ours]
+
+### J_4 bound
+(a) Reduction to J_2. We have J_4 = Σ_λ J_2(λ)^2 ≤ N^2 · max_λ J_2(λ), where J_2(λ) = #{x* + y* ≡ λ}.
+(b) Units λ. For gcd(λ,m) = 1, x* + y* ≡ λ ⇔ (x − λ*)(y − λ*) ≡ λ*^2 (mod m). This is a hyperbola in the box [1,N]^2
+    shifted equally in both coordinates, so Lemma A gives J_2(λ) ≪ m^{o(1)}(N^{3/2} m^{−1/2} + 1).
+(c) Non-units λ, with g = gcd(λ,m) > 1 (m squarefree).
+    - Mod g the condition forces x + y ≡ 0, so J_2(λ) = 0 unless g ≤ 2N.
+    - Lemma A modulo m/g gives J_2(λ) ≪ m^{o(1)}(N^{3/2}(g/m)^{1/2} + 1).
+    - Also Σ_{g|λ} J_2(λ) ≤ N(2N/g + 1).
+    - Summing over the τ(m) divisors g ≤ 2N contributes ≪ m^{o(1)}(N^{7/2}m^{−1/2} + N^2).
+(d) Result: J_4(N) ≪ m^{o(1)}(N^2 + N^{7/2} m^{−1/2}) for all N ≤ m.
+    - Compared with BG Acta Arith. Thm 1 at k = 2, (N^3/m + 1)N^2, it is better exactly when N > m^{1/3}.
+    - At N = m^{1/2}: N^{5/2} instead of N^3.
+    - For primes this is the known |I*+I*| ≫ min(N^2, (pN)^{1/2}) quoted in BG Izvestiya (1).
+
+### Bilinear sums
+Use the inequality from the proof of BG, Acta Arith. 2014, Thm 3 (§4.1, read): for gcd(a,m) = 1 and |α|, |β| ≤ 1,
+  |S|^{2k1k2} ≤ m · N1^{2k1k2−2k1} · N2^{2k1k2−2k2} · J_{2k1}(N1) · J_{2k2}(N2).
+With k1 = k2 = 2:
+  |S|^8 ≪ m^{1+o(1)} N1^4 N2^4 Π_i (N_i^2 + N_i^{7/2} m^{−1/2}).
+  - m^{1/3} ≤ N1, N2 ≤ m: |S| ≪ m^{o(1)} (N1N2)^{15/16}, a saving (N1N2)^{−1/16}, i.e. m^{−1/16} at N1 = N2 = m^{1/2}.
+  - m^{1/4} ≤ N_i ≤ m^{1/3}: |S| ≪ m^{1/8+o(1)} (N1N2)^{3/4}, nontrivial iff N1N2 > m^{1/2+ε}.
+  - Relative to Report 2 at MN = m^{1−2η}: the saving becomes max(m^{−η/4}, m^{−(1−2η)/16}); the new bound is the better
+    one for η < 1/6.
+Remaining window: N1, N2 both near m^{1/4} (and, via k ≥ 3, near m^{1/(2j)}, j ≥ 2). There J_4 ≍ N^2 is already optimal
+  (diagonal), so the gap is exactly (ii): one needs J_6(m^{1/4}) ≪ N^{4−c} against BG's N^4.
+Caution: this is our derivation, checked against the published proofs. It deserves an independent line-by-line check
+  before it is used in a paper.
+
+## 3. Literature checked for (ii) and for composite energy results
+
+- **J. Bourgain, M. Z. Garaev, Izv. Math. 78 (2014), arXiv:1211.4184** [PDF]. Prime p only.
+  - Thm 1 (arbitrary interval I): J_{2k} < N^{2k²/(k+1)+o(1)} + N^{2k+o(1)}/p.
+  - Thm 2: x*+y*+z* = λ has < N^{2/3+o(1)} solutions for N < p^{3/46}.
+  - Thm 3: J_6 < N^{3+o(1)} for N < p^{1/18}.
+  - Thm 4: J_{2k} < N^{k+o(1)} for N < p^{c/k²}, c = 1/4.
+  - Lemma 12: #{xy ≡ zt} with x,z ∈ I1, y,t ∈ I2, |I1||I2| < p, is ≤ (|I1||I2|)^{1+o(1)}. For INITIAL intervals this is
+    trivial for any m, since it lifts to xy = zt over Z.
+  - For (ii) at N = m^{1/(2j)}, k = j+1: Thm 1's exponent 2k²/(k+1) exceeds k+1 for j ≥ 2, so it does not help even for
+    primes; Thms 2–4 are far outside the range. Whether the Thm 1 proof transfers to composite m for [1,N] was not checked,
+    and it would not matter for (ii).
+- **J. Bourgain, M. Z. Garaev, Acta Arith. 164 (2014), arXiv:1309.1124** [PDF]. Thm 1 (any m, I = [1,N]):
+  J_{2k} < (2k)^{90k³}(log N)^{4k²}(N^{2k−1}/m + 1)N^k, proved via geometry of numbers. No composite improvement found since.
+- **I. E. Shparlinski, "Modular hyperbolas", Japan. J. Math. 7 (2012), arXiv:1103.2879** [PDF §3–4].
+  - Thm 13 (any m, completion): points in boxes = XY/m·(φ/m) + O(m^{1/2+o(1)}). Trivial at side m^{1/2}.
+  - §4.4 Thm 30 (Cilleruelo–Garaev, prime): the bounds of §1.
+  - The survey notes (Question 17 and surrounding text) that several ingredients "are not known for composite m". No composite
+    concentration result is listed. The equal-shift case of §1 is not singled out for composite m.
+- **T. H. Chan, I. E. Shparlinski, Acta Arith. 142 (2010)** [via CG and the survey]. I2 ≪ M^2/p + M^{1−η} via Bourgain's
+  sum-product. Prime only, superseded by CG.
+- **B. Kerr, A. Mohammadi, "Points on polynomial curves in small boxes modulo an integer", arXiv:1803.10373, JNT 2020** [PDF].
+  - Thm 3 (ANY q, f of degree d ≥ 2 with leading coefficient coprime to q, cube of side H):
+    #{y ≡ f(x)} ≤ H^{1+2/(d(d+1))+o(1)} q^{−2/(d(d+1))} + H^{1/d+o(1)}.
+  - Thm 4: y^2 ≡ cubic.
+  - These are polynomial curves only; the hyperbola y ≡ μ x* is not covered. Their geometry-of-numbers transference is
+    the right toolkit for composite q.
+- **B. Kerr, "Solutions to polynomial congruences in well shaped sets", arXiv:1210.1623, Bull. Aust. Math. Soc. 88 (2013)**
+  [PDF intro]. Composite m, arbitrary F, via a multidimensional Vinogradov mean value theorem. The bounds are of Shparlinski
+  type (small savings in measure). Not expected to beat N^3 for the 4-variable congruence (x1+x2)x3x4 ≡ (x3+x4)x1x2 at side
+  m^{1/2}; the theorem was not read.
+- **J. Bourgain, "The sum-product theorem in Z_q with q arbitrary", J. Anal. Math. 106 (2008)**; **J. Bourgain, M.-C. Chang,
+  C. R. Acad. Sci. 339 (2004)** [abs].
+  - |A+A| + |A·A| > |A|^{1+ε} for |A| < q^{1−δ} unless A has a large intersection with a translate of a subring.
+  - Exponential sums over multiplicative subgroups for q with few large prime factors.
+  - Qualitative ε only. For m = p1p2 with |A| ≈ m^{1/2} ≈ p_i the subring (ideal) obstruction is live. No usable J_4
+    exponent.
+- **2601.15448 v4 (bilinear sums with modular square roots)** [html via fetch]. Thm 4 gives the additive energy of modular
+  SQUARE ROOTS for arbitrary composite moduli. It says nothing about inverses (t = −1). Its method (also
+  Kerr–Shkredov–Shparlinski–Zaharescu, arXiv:2103.09405, composite q via geometry of numbers) is a pointer for (ii).
+- **V. Blomer, M. S. Risager, I. E. Shparlinski, arXiv:2411.17823, JLMS 2025** [PDF intro]. Discrepancy of modular inverses
+  ab ≡ 1 (mod c) averaged over c ≤ X, via triple sums of Kloosterman sums. It averages over the modulus, so it does not apply.
+- **N. Bag, I. E. Shparlinski, arXiv:2111.07311** [PDF §6]. Mixed energy #{xm ≡ yn (p)}, prime only (Banks–Shparlinski).
+- **M. Z. Garaev, I. E. Shparlinski, arXiv:2304.07953** [abs]. Modular inverses from short intervals, prime only.
+- **Korolev (Sb. Math. 2016, "Karatsuba's method for estimating Kloosterman sums")** [abs via search]. New Karatsuba-method
+  bounds for PRIME moduli under constraints on the number of summands. No composite J_{2k} improvement found.
+- **Item 4 (Σ e(a x*y*/m) with m = p1p2 balanced, below √m, without energy):**
+  - Nothing found. Blomer–Pascadi 2607.24311 and Pascadi 2511.08445 treat Kloosterman SUMS S(am,n;c) with intervals in m, n.
+  - Poisson in y turns fractions into S(a x*, h; m) with the argument over inverses of an interval, not an interval.
+  - Poisson in both variables gives Kl_3 bilinear sums at dual lengths > √m, for which no composite bound strong enough is
+    known.
+  - The route of §2 makes item 4 unnecessary at N ≈ m^{1/2}.
+
+## Summary
+- (i) YES: J_4(N) ≪ m^{o(1)}(N^2 + N^{7/2}m^{−1/2}) for any m. This is the Cilleruelo–Garaev/Heath-Brown equal-shift
+  hyperbola bound, whose proof transfers verbatim to composite m; the transfer is ours and not in print that we found. At
+  N = m^{1/2} it gives N^{5/2}, and hence a saving (N1N2)^{−1/16} for bilinear Kloosterman fractions over initial intervals,
+  for all m^{1/3} ≤ N_i ≤ m. The m^{1/2} window is closed for all squarefree (indeed all) moduli.
+- (ii) NO: no bound J_6 ≪ N^{4−c} at N = m^{1/4} (or J_{2k} below N^{k+1} at m^{1/(2j)}) is known for composite m, nor for
+  primes at those sizes. The windows at m^{1/(2j)}, j ≥ 2, remain.
+- Balanced m = p1p2: no special result was found; (i) does not need it.
+
+Sources:
+- https://arxiv.org/abs/1007.1526 (Cilleruelo–Garaev)
+- https://arxiv.org/abs/1211.4184 (Bourgain–Garaev, Izvestiya)
+- https://arxiv.org/abs/1309.1124 (Bourgain–Garaev, Acta Arith.)
+- https://arxiv.org/abs/1103.2879 (Shparlinski survey)
+- https://arxiv.org/abs/1803.10373 (Kerr–Mohammadi)
+- https://arxiv.org/abs/1210.1623 (Kerr)
+- https://arxiv.org/abs/2411.17823 (Blomer–Risager–Shparlinski)
+- https://arxiv.org/abs/2111.07311 (Bag–Shparlinski)
+- https://arxiv.org/abs/2304.07953 (Garaev–Shparlinski)
+- https://arxiv.org/html/2601.15448v4
+- https://arxiv.org/abs/2103.09405 (Kerr–Shkredov–Shparlinski–Zaharescu)
+- https://link.springer.com/article/10.1007/s11854-008-0044-2 (Bourgain 2008)
+- https://www.sciencedirect.com/science/article/pii/S1631073X04004194 (Bourgain–Chang)
+- https://www.mathnet.ru/eng/sm8648 (Korolev 2016)
