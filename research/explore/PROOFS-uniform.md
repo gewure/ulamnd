@@ -641,3 +641,5 @@ u = H^a with a ∈ (1/3, 1/2) OUTSIDE bands around the points a_j, and inside ea
 (where Type I also just fails). In a band: q-van der Corput handles moduli d with a divisor in [d^ε, d^{1/2−ε}]; prime d are handled for j ≤ 3 by
 Bourgain–Garaev Izvestiya 2014 Theorem 9 (p^{1/8}(N₁N₂)^{3/4}(N₁³/p + 1)^{1/16}(N₂³/p + 1)^{1/16} < N₁N₂ iff j < 4 at N₁ = p^{1/2}, N₂ = p^{1/(2j)};
 statement from the agent, unchecked); d = p₁p₂ with p₁ ≍ p₂ ≍ d^{1/2} (and d = small·prime, j ≥ 4) are open. The bands accumulate at a = 1/3.
+§15: Bourgain–Garaev arXiv 1211.4184 Theorem 9 checked from the paper (prime p, intervals in arbitrary position, |α_i| ≤ 1):
+max_{(a,p)=1} |ΣΣ α₁α₂ e_p(a x₁*x₂*)| ≪ p^{1/8}N₁^{3/4}N₂^{3/4}(N₁³/p + 1)^{1/16}(N₂³/p + 1)^{1/16}. The prime-modulus claim above (bands a_j, j ≤ 3) stands.

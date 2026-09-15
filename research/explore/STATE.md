@@ -457,4 +457,9 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - Path A tested (PROOFS §14, gm-kernel-count.ts): at level u² the Grimmelt–Merikoski kernel has diagonal ≍ u and off-diagonal O(Z₂) uniformly
   in u (h = 1 to T = 256, and h = 3); reason: distances inside the family are quantised with spacing 1/(4h), independent of a = u². Exponent
   count: small end u < H^{1/3−ε} for D < 0, for every θ < 1, pending (a) the orbit count, (b) the neighbour count written out, (c) the weights.
+- Literature rounds 4–5 (side agent) + PROOFS §15: Bourgain–Garaev (Acta Arith. 2014, any modulus; Izvestiya 2014, primes; both checked from
+  the papers) bound bilinear Kloosterman fractions below the completion threshold. Heuristically the §12 residual is then covered for
+  u = H^a, a ∈ (1/3, 1/2), outside bands at a_j = (j+1)/(3j+1) (1/2, 3/7, 2/5, … → 1/3) where one smooth atom sits at the Pólya–Vinogradov size;
+  in the bands only balanced two-prime moduli (and small·prime for j ≥ 4) stay open. kfraction-test.ts: square-root cancellation in truth.
+  All of §12–§15 is unread; a reading of §12–§14 is running.
 
