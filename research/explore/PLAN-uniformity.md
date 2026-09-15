@@ -278,4 +278,6 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
  u > H^{1/2+ε} proved | u < H^{1/3−ε} plausible via Grimmelt–Merikoski (arXiv 2505.00493) with a = u² tracked and averaged over u (D < 0) |
  H^{1/3} < u ≤ H^{1/2}: Weil Type I/II in u except balanced products u = n₁n₂ | shared thresholds at H^{1/3}, H^{1/2} need a power beyond.
  Next rigorous steps: (1) GM Thm 1.4 ⇒ power saving for all pieces with u ≤ H^{o(1)} (D < 0); (2) a-tracking in GM §4–5; (3) balanced products.
+ UPDATE (PROOFS §14): the small end via GM is now counted at u < H^{1/3−ε} unconditionally (θ-free with divisor level E = X^{1/2}); numerics support
+ the key kernel bound. Rigorous tasks (a) orbit count, (b) neighbour count, (c) smoothing of our weights — this is the next proof to write.
 

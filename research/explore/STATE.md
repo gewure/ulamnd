@@ -454,4 +454,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   with factorable moduli (q-van der Corput) a ≥ 2/5 except non-factorable moduli. Heuristic, not read.
 - LITERATURE-uniformity round 3: Grimmelt–Merikoski 2505.00493 — our piece u is their Type I sum with a = u² (D < 0); they need a ≺≺ 1.
   PROOFS-uniform §13: heuristic a-tracking gives u < H^{1/4} per piece, u < H^{1/3} averaged over u. Shared thresholds at H^{1/3} and H^{1/2}.
+- Path A tested (PROOFS §14, gm-kernel-count.ts): at level u² the Grimmelt–Merikoski kernel has diagonal ≍ u and off-diagonal O(Z₂) uniformly
+  in u (h = 1 to T = 256, and h = 3); reason: distances inside the family are quantised with spacing 1/(4h), independent of a = u². Exponent
+  count: small end u < H^{1/3−ε} for D < 0, for every θ < 1, pending (a) the orbit count, (b) the neighbour count written out, (c) the weights.
 

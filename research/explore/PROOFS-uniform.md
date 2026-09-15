@@ -550,3 +550,45 @@ PICTURE (heuristic):
 θ = 7/64 → u < Y^{25/103} (≈ H^{0.195}). Averaged over u ∼ U (Z₁ = U, Z₂ = 1, Z₀ = X): ≈ X^{1/2+θ}U² against UX, nontrivial iff U < X^{1/2−θ}:
 θ = 0 → H^{1/3}, θ = 7/64 → U < Y^{25/64} ≈ H^{0.28}. A larger level D (using more of λ's divisor structure) might remove θ as in GM; not
 examined. So the "H^{1/3} averaged" of §13 holds only under Selberg's conjecture at this level of the count; unconditionally ≈ H^{0.28}.
+
+## 14. Path A tested (15 Sep, night): the kernel counts at level u² — NUMERICS + HEURISTIC EXPONENT COUNT, NOT READ, NOT A CLAIM
+SOURCE. Grimmelt–Merikoski arXiv 2505.00489 Theorem 8.1 (read): Σ_h β(h)⟨α₁|T_{h,1}ΔF|α_{2,h}⟩ ≪ q^{o(1)}δ^{−O(1)}(X/Y)^{1/2+o(1)}H^{1/2}Z₀^θ
+⟨α₁|Δk_{Z₁²,X}|α₁⟩^{1/2}(Σ|β|²⟨α₂|Δk_{Z₂²,1}|α₂⟩)^{1/2}, Z₀Z₁Z₂ ≥ X/Y + 1; the win over the trivial bound comes only from Z₀^θ with θ < 1/2
+("if α₁ = α₂, X₀ = 1, X₁ = X₂ = √(AD) the statement is trivial"). Their Type I proof (2505.00493 §5): level q = ad, functional α_{d,a,h} =
+[c ≡ 0 mod ad][b ≡ 0 mod a] on the Heegner set Λ_{ah}, skewness X/Y ≍ X a^{1/2}h^{−1/2}; K₁ ≤ Σ_q ⟨I|K_q k|I⟩ ≈ (levels)(1 + R) + Z₁/q-type,
+K₂ ≤ Σ_q ⟨α_q|K_q k|α_q⟩ bounded crudely by Prop 4.1 with h → ah: (levels)(ah)^{1/2} + ah·Z₂ — which, taken at face value, loses a = u².
+TEST (gm-kernel-count.ts, data/gm-kernel-count-h1.txt; h = 1 i.e. D = −4, a = u², q = u², T = Z₂²): the exact quantities
+ c_d(u) (diagonal) = 1,1,2,2,2,4,4,4,6,4,6,8,6 for u = 1..13 — ≍ u (the number of Γ₀(u²)-orbits of the family, as in the dilation draft);
+ (K₂ − c_d)/√T at T = 64: 10.6, 3.5, 6.7, 3.6, 3.0, 3.5, 6.6, 3.5, 6.5, 2.1, 6.9, 2.6, 3.8 — O(1), NO GROWTH IN u (odd u ≈ 6.5, even u ≈ 3.5).
+ So K₂ ≈ c·u + O(Z₂) per level, not u + u²Z₂: the congruences mod a on both points of a pair cut the off-diagonal by a.
+CONSISTENCY. With K₁ ≈ 1 + Z₁/u², K₂ ≈ u + Z₂ and Z₀ = 1, Z₁Z₂ = Xu the bound is ≍ X, the trivial size: the normalisation is right.
+EXPONENT COUNT (h ≺≺ 1). Per u, at divisor level E (λ = 1*κ, coefficients eκ(e) bounded, weight 1/E): K₁ ≈ E + Z₁/u², K₂ ≈ Eu + Z₂; Z₁ = Eu²,
+Z₂ = Eu, Z₀ = X/(E²u²): contribution ≈ (1/E)(Xu)^{1/2}(X/(E²u²))^θ·E u^{1/2} = X^{1/2}u(X/(E²u²))^θ; with E = X^{1/2}/u (≥ 1 iff u ≤ X^{1/2}) the
+θ-factor is 1 and the tail e > E is ≪ X/E = X^{1/2}u trivially. Total ≈ X^{1/2}u against X: POWER SAVING FOR u < X^{1/2−ε} = Y^{1/2−ε}, i.e.
+u < H^{1/3−ε}, INDEPENDENT OF θ (GM's level trick). This replaces the §13 estimates (H^{1/4}, H^{0.28}): those used the crude K₂.
+THE H^{1/3} BARRIER is robust in this method: averaging over u ∼ U gives X^{1/2}U² against UX (same threshold), and moving the dilation into a
+Hecke operator (dilation draft: family W_u = restricted Hecke image of the h(4D) level-one points; Theorem 8.1's H^{1/2}(Σ|β|²)^{1/2} with h = u²)
+gives X^{1/2}U² again. The diagonal ≍ u (number of orbits) is the obstruction. A Hecke structure of index ≍ u instead of u² (the restricted
+operator of Prop classwise acts on level-one forms like √u·λ(u), Lemma B) would give X^{1/2}U^{3/2}, i.e. U < H^{1/2} — but that operator is
+not a Hecke operator on the whole level-u² spectrum; idea only.
+UPDATED MAP (heuristic): u < H^{1/3−ε} (D < 0) via GM with a tracked | (H^{1/3}, H^{1/2}] Weil Type I/II except balanced products | u > H^{1/2+ε}
+proved. Shared thresholds H^{1/3} and H^{1/2}. RIGOROUS TASK for the small end: prove K₂(u) ≪ q^{o(1)}(E·u + Z₂) with the mod-a congruences kept
+(adapt GM Prop 4.1: for τ.w₁, τ.z₂ ∈ S_{a,h}(e) write (m, aℓ, ak); u(g₁,g₂) = (a k₁k₂/(4h))(ℓ₁/k₁ − ℓ₂/k₂)² + (k₁k₂/4)(1/k₁ − 1/k₂)²; the
+cross product is ≡ 0 mod a), then check Theorem 8.1's hypotheses (smooth dyadic f, δ, X/Y > δ) for our weights. Running: T up to 256, and h = 3.
+§14 ADDENDUM (same night). (1) Larger radius, h = 1 (data/gm-kernel-count-h1-T256.txt): (K₂ − c_d)/√T at T = 256 is 11.4, 3.7, 7.3, 2.8, 4.5,
+6.6, 7.5, 6.7 for u = 1, 2, 3, 5, 6, 7, 9, 11 — flat in u, slowly growing in T (log-type). (2) h = 3 (data/gm-kernel-count-h3.txt; u = 3 violates
+gcd(a,h) = 1 and is excluded): at T = 64, 57.7, 14.0, 13.8, 45.4, 23.9, 14.5, 16.0, 40.9, 33.4 for u = 1, 2, 4, 5, 7, 8, 10, 11, 13 — no growth in u
+(fluctuating with the splitting of the small primes). The u²-independence of the off-diagonal per level is confirmed for two discriminants.
+(3) WHY (rigorous, elementary). For g = (A, B; B, C) put ⟨g₁, g₂⟩ = A₁C₂ + A₂C₁ − 2B₁B₂. If g_i ∈ S_{a,h}(e) (B ≡ 0 mod a, C ≡ 0 mod ae,
+det = ah) then a | ⟨g₁, g₂⟩, and cosh d(z₁, z₂) = 1 + 2u(z₁,z₂) = ⟨g₁,g₂⟩/(2ah). Hence 2h(1 + 2u) ∈ Z: the distances between points of the family
+take values u ∈ (1/(4h))Z − 1/2 with spacing INDEPENDENT OF a, whereas for general Heegner points of determinant ah the spacing is 1/(4ah).
+Given g₂ = (m₂, aℓ₂, aek₂′) and N = ⟨g₁,g₂⟩/a, the unknown g₁ = (m₁, aℓ₁, aek₁′) satisfies m₁ek₂′ + m₂ek₁′ − 2aℓ₁ℓ₂ = N and m₁ek₁′ − aℓ₁² = h;
+eliminating m₁: a k₂′ℓ₁² − 2aℓ₂ℓ₁k₁′ + m₂e k₁′² − Nk₁′ + hk₂′ = 0, a conic whose quadratic part has discriminant −4ah·(…) < 0 (definite), so after
+completing the square it has ≪ (ahNk₂′)^{o(1)} integer points (representations by a definite binary form ≪ divisor function). Therefore every
+point of the family has ≪ H^{o(1)}(hZ)^{1/2} weighted neighbours within u ≤ Z (sum over N ≤ 2h(1+2Z) against (1+u)^{−1/2}).
+(4) CONSEQUENCE FOR THE COUNT. Even the weaker K₂ ≪ H^{o(1)}·(#orbits)·(1 + Z₂) suffices: with #orbits ≪ H^{o(1)}uE at divisor level E, K₁ ≈ E + Z₁/u²,
+Z₁ = Eu², Z₂ = 1, Z₀ = X/(Eu): contribution ≈ X^{1/2}u(X/(Eu))^θ; with E = X^{1/2} (GM need D ≤ X^{1/2}) this is X^{1/2+θ/2}u^{1−θ} < X exactly when
+u < X^{1/2}, FOR EVERY θ < 1 — and the tail e > E costs X^{1/2}. So the small end u < H^{1/3−ε} (D < 0) needs only: (a) #Γ₀(u²e)\S_{u²,h}(e) ≪ H^{o(1)}ue
+(the diagonal; numerics c_d ≈ u/2 at e = 1; the dilation draft counts ≍ u·h(4D) orbits of W_u); (b) the neighbour count (3) made fully rigorous,
+including the stabiliser weights; (c) GM Theorem 8.1's hypotheses for our weights: smooth dyadic f in (x, y) — our moduli k and the Cesàro/sharp
+cut-off in ℓ must be smoothed (paper III Lemma sharp-type losses), small moduli by Poisson, and λ = 1*κ at level E = X^{1/2}.
