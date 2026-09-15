@@ -66,7 +66,37 @@ unit numerator and smooth weight V(v) = φ(v)v^{−it}·N^{−it}, whose derivat
 d with |β_k(d)| and k: ≪ H^{ε+O(η)}·(U/N)·Σ_d |β_k(d)|(d^{1/2} + N d^{−1/2}) ≪ H^{ε+O(η)}((U/N)Y^{3/2} + UY^{1/2}) ≤ H^{1−3δ+O(ε+η)} + H^{1−a/2… }. □
 (|t| ≤ H^{3η} up to the Mellin tail.)
 
-## Remaining lemmas for (M) (targets; heuristic derivations cited)
+## Lemma R3 (Type II in u) — PROVED given Lemma S and paper III Lemma kloost (to be read)
+Setting as R4; u = u₁u₂ with u_i ∈ (U_i, 2U_i], U₁U₂ ≍ U, coefficients |a(u₁)|, |b(u₂)| ≤ H^ε (convolutions of 1, χ_D, γ, u^{−it}, coprimality to d). If
+H^{3δ} ≤ U₂ ≤ UY^{−1/2}H^{−3δ}, then for each (k, t): B := Σ_d β(d) Σ_{u₁,u₂} a(u₁)b(u₂)1_{(u₁u₂,d)=1}ρ°_k(d; (u₁u₂)*) ≪ H^{O(ε+η)}·(Σ_d|β(d)|/Y)·UY·H^{−3δ/2}.
+Proof. Cauchy–Schwarz over (d, u₁) with weight |β(d)|, u₁ made smooth by positivity (V ≥ 1_{[1,2]}):
+|B|² ≤ S₁S₂, S₁ = Σ_d|β|Σ_{u₁}|a|² ≪ H^{2ε}U₁Σ_d|β|, S₂ = Σ_d|β|Σ_{u₂,u₂′}|b b′|Σ_{r,r′∈R_d}|Σ_{(u₁,d)=1}V(u₁/U₁)[e_d(kr(u₁u₂)*) − ε_d][e_d(−kr′(u₁u₂′)*) − ε_d]|
+(ε_d = c_d(k)/φ(d), |ε_d| ≤ (k,d)/φ(d)). The terms with ε_d are ≪ H^ε Σ_d|β|U₂²((k,d)/φ(d))·(1 + U₁/d)d^{1/2}(k,d)^{1/2} + U₁U₂²(k,d)²/φ(d)²: negligible.
+Main terms: the u₁-sum is Σ V(u₁/U₁)e_d(ν u₁*) with ν ≡ k(ru₂* − r′u₂′*) (mod d); Lemma kloost: ≪ τ(d)(1 + U₁/d)d^{1/2}(ν, d)^{1/2}, and trivially ≤ 3U₁.
+For p | d, p ∤ k: p | ν ⇔ ru₂′ ≡ r′u₂ (mod p). With e := ∏_{p|d, p∤k, ru₂′≡r′u₂ (p)} p one has (ν, d) ≤ (k,d)e, and for fixed (d, r, r′, u₂) the u₂′ with a given e
+satisfy a congruence mod e: ≤ 2U₂/e + 1 of them. Hence
+  Σ_{u₂,u₂′,r,r′} min(U₁, (1 + U₁/d)d^{1/2}(ν,d)^{1/2}) ≪ H^ε(k,d)^{1/2}Σ_{e|d}[U₂(U₂/e)(1 + U₁/d)d^{1/2}e^{1/2} + U₂·U₁] ≪ H^{2ε}(k,d)^{1/2}[U₂²(d^{1/2} + U₁d^{−1/2}) + U₁U₂].
+(The "+1" solutions use the trivial bound U₁; this covers the diagonal and all degenerate pairs.) With Σ_d |β(d)|(k,d)^{1/2}d^{s} ≪ H^{O(ε+η)}Y^{s}Σ_d|β| for
+d ∈ [Y^{1−δ}, YH^η] (|s| ≤ 1/2): S₂ ≪ H^{O(ε+η)}Σ_d|β|·[U₂²Y^{1/2} + U₁U₂²Y^{−1/2} + U₁U₂], so
+|B| ≪ H^{O(ε+η)}Σ_d|β|·[U^{1/2}U₂^{1/2}Y^{1/4} + UY^{−1/4} + UU₂^{−1/2}] = H^{O(ε+η)}(Σ_d|β|/Y)·UY·[(U₂Y^{1/2}/U)^{1/2} + Y^{−1/4} + U₂^{−1/2}]
+≤ H^{O(ε+η)}(Σ_d|β|/Y)·UY·H^{−3δ/2}. No assumption U₁ ≤ d is needed. □
+
+## Lemma R1 (reduction) — collects paper III and PROOFS §9 (to be read)
+For a block U ∈ [H^{0.47}, H^{0.53}]: Σ_{U<u≤2U} w(u)𝒫_u(H/u) = Σ_u w(u)Σ_{d′}(λ/d′)Ḡ_{d′}(H/u) + Σ_{k≤K₁}𝓔′_k(U) + O(H^{1−η+3ε′} + UY^{1−δ}H^ε + U(log H)^C) with:
+Ḡ-part ≪ Σ_u|w|(log Y)^C ≪ U(log H)^C (paper III, after (MH)); moduli d′ > YH^η: paper III Step 3 (valid for every U); moduli d′ ≤ Y^{1−δ}: |(λ/d′)G°| ≤ |λ|ω(1+σ/(8d′φ));
+frequencies k > K₁ = H^{2η}: Step 4b(ii); the real-Y correction and the passage to Lemma S's Mellin form: Lemma S (i)–(ii).
+
+## Lemma R5 (covering) — PROVED (to be read)
+Write w = c_f(1 * χ_D * γ) (paper III, Lemma AP's proof; for ω(2) = 1 the shift u = 2u′ as in paper III), Σ_n |γ(n)|n^{−1/2−ε} < ∞, |γ(n)| ≪ τ(n)^{O(1)}. The n₃ > H^{δ₃}
+part is ≪ UY·H^{−δ₃/3} trivially. Decompose n₁, n₂, n₃ ≤ H^{δ₃} dyadically (N₁, N₂, N₃). Let δ₃ ≤ δ. For a ∈ [0.47, 0.53]:
+ (I) N₁ ≥ Y^{1/2}H^{3δ} or N₂ ≥ Y^{1/2}H^{3δ}: Lemma R2 (cofactor coefficient ≤ τ₃·|γ|).
+ (II) otherwise, if one of N₁, N₂ lies in W := [H^{3δ}, UY^{−1/2}H^{−3δ}]: Lemma R3 with U₂ that atom (times n₃, which moves it by ≤ H^{δ₃}; shrink W by H^{δ₃} if needed).
+ (III) otherwise: if N₂ < H^{3δ} then N₁ ≫ UH^{−3δ−δ₃} ≥ Y^{1/2}H^{3δ} (as U/Y^{1/2} ≥ H^{0.205}), contradicting "otherwise" — so N₂ ≥ UY^{−1/2}H^{−3δ} and likewise N₁;
+     both lie in [UY^{−1/2}H^{−3δ}, Y^{1/2}H^{3δ}]: Lemma R4. (For U ≥ YH^{6δ+δ₃} case (III) is empty.)
+CONCLUSION (Theorem M, modulo the readings): with η = δ/10, δ₃ = δ, δ = 10^{−3}: each block's G°-part is ≪ H^{1−δ} (R2: H^{1−3δ+O(η)}; R3: H^{1−3δ/2+O(η)}; R4: H^{1−1/40};
+losses H^{3η} (Lemma S) and H^{2η} (k-sum) included), and there are O(log H) blocks.
+
+## Original target list (superseded by the lemmas above; kept for reference)
  R1 (reduction). For a block U ∈ [H^{0.47}, H^{0.53}], Y = H/U: Σ_{U<u≤2U} w(u)𝒫_u(H/u) = Σ w(u)Σ_{d′}(λ/d′)Ḡ + 𝓔′(U) + O(H^{1−δ}), with Σ(λ/d′)|Ḡ| ≪ (log Y)^C per piece
      (paper III after (MH)) and 𝓔′ the G°-part restricted to d′ ∈ [Y^{1−δ}, YH^η], k ≤ H^{2η}, with the Fourier coefficients separated from u by a smooth partition /
      Mellin transform at a loss ≤ H^{3η} (PROOFS §19 (A), §9 Step 4′(a)–(c), paper III Step 4b (i)–(iii)).
