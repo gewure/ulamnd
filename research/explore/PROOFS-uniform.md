@@ -324,3 +324,22 @@ NUMERICAL SANITY CHECK OF STEP (iii) (gu-average.ts, f = t²+t+1, H = 10⁷; log
 Y = 3000: 7.6, 11.0, 11.9 (u ≤ 9·10⁶ ≈ Y²); maximum over all u tested 15.0 = 0.71 (log Y)². The average saturates at the global mean of G
 (12.7) as u grows, as it must once u²x² − D behaves like a generic integer of its size: uniform polylogarithmic size, as step (iii) needs.
 (The first version of the script sampled only even u, all inadmissible for D = −3; fixed before these numbers.)
+READER 2 OF 2 ON §8 (16 Sep, fresh instance, focus: decomposition, Koksma, uniformity, part I Thm 6, consistency, structural attack):
+"could not break it"; no fatal error. Gaps and fixes, ADOPTED in the statement below:
+ (1) u ≤ Y³ ⇔ u ≤ H^{3/4}; with U₀ = H^{2/3+ε} this needs ε ≤ 1/12, not ε < 1/10. Also at the lowest block X = Y^{1/2} Henriot's range needs
+     c₀|D|^{1/12} ≤ 1. FIX: take ε < 1/12 and start the dyadic blocks at X = Y^{0.6} (x ≤ Y^{0.6} cost Y^{0.6+o(1)}), δ = 1/13.
+ (2) the exponent: "ρ(p) ≤ 2" alone gives Π(1+12/p) = (log X)^{12}; the true count ρ(p) = 1 + χ_D(p) (0 for p | u) gives ≪ (log X)^5. FIX: say
+     so, or take A = 13 (A enters only as A·log log Y).
+ (3) u < u₁ and u = 1, 2 (log log u undefined) are covered by the t₀(f) clause of Theorem small; say so explicitly.
+ (4) in the display, c_off·H is smaller than the error term; the statement is really Off*_f(H) ≪ H(log H)^{1−c} log log H.
+ Scope: paper III's proofs are for monic f = t² + bt + c without fixed prime divisor (its tables include 2t²+1, its proofs do not treat a ≠ 1);
+ state the theorem for that set-up.
+ Verified by the reader (with scripts): the formula for B at real Y and the cut at d' = Y; absolute convergence of the three parts;
+ representatives ↔ d' | Q_u(x); Koksma (253 random cases, 0 violations, max ratio 0.46); partial summation; disjointness of u ≤ U₀ and
+ typeII's range; the consequence via part I Thm 6; no proved statement of parts I–III contradicted (paper III's "a logarithmic saving is
+ not enough", the Koksma paragraph before Corollary smallu and KNOWLEDGE line ~649 are assertions about the wide window and would need
+ rewriting); no hidden u-dependence in KSw's x₁ or Henriot's constants; no circularity. Not audited by this reader: Henriot's hypotheses
+ (reader 1).
+STATEMENT AS AMENDED: for monic irreducible f = t² + bt + c without fixed prime divisor, Off*_f(H) ≪_f H(log H)^{1−c} log log H, and
+Σ_{h≤H}(1−h/H)(S_f(h) − C(f)²) = −½C(f) log H + O_f((log H)^{1−c} log log H). Proof as above with ε < 1/12, blocks from X = Y^{0.6}, δ = 1/13, A = 13.
+Status: reader 2 passed; reader 1 (Henriot, KSw uniformity) pending.
