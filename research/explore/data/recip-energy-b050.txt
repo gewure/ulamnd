@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/jasp/ulamnd/research/explore/recip-energy.py", line 3, in <module>
+    import numpy as np, sys, math
+ModuleNotFoundError: No module named 'numpy'

@@ -770,3 +770,10 @@ modulo a composite (squarefree) m, e.g. J₄(N) ≪ m^{o(1)}(N² + N^{4−c}) at
 OVERALL (heuristic): power saving for each FIXED a ∈ (1/3, 1/2) ∖ {a_j}, δ(a) ≍ c_j·dist(a, {a_j}), with parameter nesting ε′ < η/3, η, δ₁, δ, δ₃ ≪ δ_BG(a);
 NOT a statement about the whole middle (bands, balanced two-prime moduli, a → 1/3). Weakest links: §12 Type II as left by §16 (partially degenerate pairs,
 β frozen under u = u₁u₂) and the separation of variables in (A).
+§19 LEAD, numerics (recip-energy.ts, data/recip-energy.txt): J₄(N) for N = m^{1/2}: J₄/(2N′² + N′⁴/m) = 1.008–1.017 for primes (10⁶, 4·10⁶), balanced
+p₁p₂ (1009·997, 2003·1999), p·7, 101·9901 and two many-factor moduli (up to 4.9·10⁷); J₄/N′³ = 0.0005–0.003 (Bourgain–Garaev's N³ term overshoots by ≈ N).
+At N = m^{1/4}: ratios 0.96–1.12. So J₄ ≈ diagonal + random for EVERY modulus type, balanced two-prime moduli included: the energy target of §19 is true
+numerically; the missing input is a proof for composite m. (Integer reformulation: x₁* + x₂* ≡ x₃* + x₄* ⇔ (x₁+x₂)x₃x₄ − (x₃+x₄)x₁x₂ = mt with |t| ≤ 2N³/m;
+for fixed x₁, x₂ the (x₃, x₄) lie on (Ax₃ − B)(Ax₄ − B) = Amt + B² (A = x₁+x₂, B = x₁x₂): divisor bound per t gives only N^{3+ε} — the known bound; the
+needed gain is equidistribution of this cubic form's values in residue classes mod m, i.e. a modular-hyperbola count in short boxes with error
+below m^{1/2}.) Literature follow-up on energy bounds for composite moduli running.
