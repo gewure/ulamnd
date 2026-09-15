@@ -597,3 +597,16 @@ c_d(u, e) = c_d(u, 1)·ρ(e) in all eight composite cases tested (e = 5, 13 spli
 for u = 1…13, 17 — for odd primes p: (p − χ₋₄(p))/2 (3→2, 5→2, 7→4, 11→6, 13→6, 17→8), p²: p(p − χ(p))/2 (9→6), a factor 2 per extra power of 2. This is
 the "u − χ of the u(u+1) cosets" count of the dilation draft (Prop classwise) times the class number: task (a) should follow from that proposition.
 Summed over e ≤ E: ≍ u·E·(log)^{O(1)}, as used in (4).
+
+## 15. The H^{1/2} threshold seen from §12 (15 Sep, night) — HEURISTIC, NOT READ
+At U = Y (u ≈ H^{1/2}) the §12 residual set (smooth atoms n₁, n₂ both in (UY^{−1/2}, Y^{1/2})) is EMPTY: Type I needs N ≥ Y^{1/2}H^{2δ}, Type II covers
+U₂ ≤ UY^{−1/2}H^{−2δ} = Y^{1/2}H^{−2δ}. For U = YH^{−η} the residual is the band n₁ ≈ n₂ ≈ Y^{1/2} within H^{O(δ+η)} — of full weight (≍ (δ+η) log H in
+the u-measure), so the H^{1/2} threshold does not close by itself, but the object left there is explicit: for each modulus d ≍ Y and root r,
+    Σ_{n₁∼N₁} Σ_{n₂∼N₂} χ_D(n₂) e(k r \overline{n₁n₂}/d),   N₁ ≈ N₂ ≈ d^{1/2−η/2},  N₁N₂ ≈ d^{1−η}
+— a smooth bilinear Kloosterman-fraction sum just below the completion / Cauchy–Schwarz threshold N₁N₂ ≈ d (two-dimensional Poisson gives
+≈ d via Kl₃-type sums; Cauchy with arbitrary coefficients gives (N₁N₂d)^{1/2}; both trivial there). ANY power saving d^{−c} in this range, on
+average over d ≍ Y and r, would push §12's covering past U = Y, and together with §9 (u > H^{1/2+ε}) remove the H^{1/2} band: the needed saving is
+only H^{O(η)}. Candidate inputs: additive combinatorics for Kloosterman fractions (Bourgain–Garaev 2014, Korolev, Shkredov, Kerr), q-van der Corput
+for composite d (Heath-Brown; saving when d has a factor near d^{1/3}: §12.5), averaging over d. Literature follow-up running. The same shape
+(bilinear Kloosterman fractions at the completion threshold) is what Blomer–Pascadi 2607.24311 and Kerr–Shparlinski–Wu–Xi attack for Kloosterman
+sums; for fractions with smooth variables the problem may be easier.
