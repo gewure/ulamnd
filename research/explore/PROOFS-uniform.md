@@ -740,3 +740,33 @@ Target (small end, D < 0): for u ≤ H^{1/3−ε}, P_u(Y) ≪ Y^{1−δ}·(Y^{1/
 OPEN POINTS for the rigorous write-up: GM Theorem 8.1's constant dependence (q^{o(1)}, δ^{−O(1)}), the stabiliser weights, 2-adic and special
 primes, and whether the level m² (non-squarefree) disturbs §16's CRT reduction (P¹(Z/m²) is not a product of fields; handle by Möbius over
 m ≤ M with M = Y^{η} and trivial bounds at the prime-square factors).
+
+## 19. READING of §15 (15 Sep, night; fresh model instance; scripts reader-bg/sav.py, sav2.py, slope.py, num.py) — CORRECTIONS ADOPTED
+Supersedes the inconsistent paragraphs of §15 ("… would be covered … — NO:", "the residual is EMPTY at U = Y").
+(A) Reduction to Bourgain–Garaev's form: right. The mean term ωc_d(k)/φ(d) is trivially ≪ U(log H)^C; with g = (k,d), m = d/g ≥ d/K₁, a = (k/g)·r·n̄₃ is a unit
+    mod m; coprimality conditions go into the arbitrary coefficients; dyadic supports sit inside initial intervals; the bound is uniform in a. GAP: the
+    frozen ξ_k(d, N_j) and the block cut-off depend on n₁n₂n₃ (hyperbolic region): separate by a smooth partition + Mellin (loses J = H^{δ₁}) or Mellin
+    of ξ_k over the block (loses ≈ 1 + kY/d ≤ H^{2η+δ}); all such losses must be ≪ the BG saving. (Paper III Step 4b(iii)'s "+1 as U ≥ H^{1/2}"
+    becomes Y/U below H^{1/2}: harmless.)
+(B) ERROR: the saving (U/Y)^{1/8} holds only for a ∈ [4/9, 1/2). The residual contains unbalanced splits ν₁ + ν₂ = θ = a/(1−a), ν_i ∈ (θ − 1/2, 1/2);
+    with s(ν,k) = min(1/2 − (k−1)ν, kν − 1/2) the saving is m^{−(s(ν₁,k₁)+s(ν₂,k₂))/(2k₁k₂)}, k_i optimal. Minimum over the residual (H-exponent):
+    a = 0.3925: 0.00085; 0.405: 0.0038; 0.415: 0.0022; 0.435: 0.0056; a ≥ 4/9: (1−2a)/8. Near a = 1/3 the k_i → ∞ and the constants (2k)^{45k²/k′},
+    (log m)^{2(k₁/k₂+k₂/k₁)} blow up: δ(a) > 0 is NON-UNIFORM and non-effective there.
+(C) Band centres a_j = (j+1)/(3j+1) confirmed (a fine scan finds zeros only there); at the corner (ν₁, ν₂) = (1/2, 1/(2j)) the Type I and Type II edges meet,
+    so margins enlarge it. The saving vanishes linearly, ≈ c|a − a_j| (c ≈ 0.16, 0.115, 0.089, 0.074 below a_j for j = 2…5; ≈ 0.8 above), plus a fixed width
+    O(δ + δ₃ + η + ε′). Bands merge for a − 1/3 ≲ (δ + η + δ₃)^{1/2}; at a = 1/3 nothing is covered.
+PRIMES (understatement corrected): Izvestiya Theorem 9 covers primes for a > 5/13; Izvestiya THEOREM 10 (N_i < p^{(k_i+1)/(2k_i)}: bound
+p^{1/(2k₁k₂)}N₁^{−1/(k₂(k₁+1))}N₂^{−1/(k₁(k₂+1))}(N₁N₂)^{1+o(1)}) with k₂ = 1, k₁ ≥ 2j covers every corner, and numerically the whole residual for all
+a ∈ (1/3, 1/2); d = s·p with s small reduces to intervals in arbitrary position mod p (cost s²). Theorem 10 checked only from pdftotext — re-read.
+q-van der Corput for an atom at d^{1/2±τ}: nontrivial iff q₁ ∈ (d^{2τ+c}, d^{1/2−τ−c}); fine with ε ≫ τ.
+WHAT STAYS OPEN in the bands: moduli with no divisor in [d^ε, d^{1/2−ε}] other than s·p, i.e. d = s·p₁p₂ with p₁ ≍ p₂ ≍ d^{1/2}; and the band at a = 1/2
+is shared with §9, so a log-width band around u = H^{1/2} stays open for those moduli. Near a = 1/3: nothing uniform.
+LEAD (the reader's finding 6): the bands come from the ENERGY input, not from Hölder. At N₂ = m^{1/(2j)}, k₂ = j + 1, a saving needs J_{2k₂}(N₂) < m^{1/2+1/j−c};
+Bourgain–Garaev Theorem 1's off-diagonal term N^{3k−1}/m is exactly m^{1/2+1/j}. ANY power improvement of J_{2k}(N) = #{x₁* + … + x_k* ≡ x_{k+1}* + … + x_{2k}* mod m,
+x_i ≤ N} beyond (N^{2k−1}/m + 1)N^k for COMPOSITE m and initial intervals removes band j for all moduli; at k = 2, N = m^{1/2} it would also handle a = 1/2
+including balanced p₁p₂. Numerics (m = 100003 prime, 255255 composite, N = m^{1/2}): J₄/(2N²) = 1.51, 1.08 — the diagonal dominates; Theorem 1's bound
+overshoots by ≈ N. For primes Izvestiya Theorem 1 (N^{2k²/(k+1)}) already does this. TARGET: an energy bound for reciprocals of an initial interval
+modulo a composite (squarefree) m, e.g. J₄(N) ≪ m^{o(1)}(N² + N^{4−c}) at N ≈ m^{1/2}.
+OVERALL (heuristic): power saving for each FIXED a ∈ (1/3, 1/2) ∖ {a_j}, δ(a) ≍ c_j·dist(a, {a_j}), with parameter nesting ε′ < η/3, η, δ₁, δ, δ₃ ≪ δ_BG(a);
+NOT a statement about the whole middle (bands, balanced two-prime moduli, a → 1/3). Weakest links: §12 Type II as left by §16 (partially degenerate pairs,
+β frozen under u = u₁u₂) and the separation of variables in (A).

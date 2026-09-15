@@ -465,4 +465,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - READING of §12–§14 (PROOFS §16): §12 sound (heuristic); §14's exponent count had a FATAL bookkeeping error (divisor-level blocks compared with
   the trivial size of the whole sum). Corrected small end via GM with a = u²: u < H^{(1−2θ)/(3−4θ)} ≈ H^{0.305} with provable inputs; H^{1/3} only
   under θ = 0 or hypothesis (a′) (off-diagonal summed over levels not multiplied by the orbit count). "For every θ" withdrawn. §15 unread.
+- READING of §15 (PROOFS §19): Bourgain–Garaev reduction right; saving (U/Y)^{1/8} only for a ≥ 4/9 (tiny, non-uniform savings below); bands at
+  a_j confirmed; primes covered in all bands by Izvestiya Theorem 10; open in the bands: balanced two-prime moduli; nothing near a = 1/3. LEAD: an
+  energy bound for reciprocals of an initial interval modulo composite m at N ≈ m^{1/2} would remove all bands (numerically J₄ ≈ diagonal).
 
