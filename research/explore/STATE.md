@@ -447,3 +447,11 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - Structure (user, 15 Sep): paper III takes Theorem E + the large-u range and is then frozen; dilation draft stays spectral; the middle → paper V.
 - Next: write the large-u theorem into paper III (Theorem typeII extended, Theorem A per PROOFS §11 after its reading), compile, paper-text reading.
 
+## 21. Paper III large-u text read; middle mapped; literature round 3 (15 Sep, night)
+- Paper-text reading of the large-u extension: "sound, with minor fixes" (10 findings, all applied; verification of the fixes and of one
+  new claim — the Step 5 threshold is not a limit of the method, since Ḡ contributes ≪ (H/u)^{ε′} per piece — running).
+- PROOFS-uniform §12: Weil + Type I/II decomposition of w = 1*χ*γ in u covers (H^{1/3}, H^{1/2}] except balanced products u = n₁n₂;
+  with factorable moduli (q-van der Corput) a ≥ 2/5 except non-factorable moduli. Heuristic, not read.
+- LITERATURE-uniformity round 3: Grimmelt–Merikoski 2505.00493 — our piece u is their Type I sum with a = u² (D < 0); they need a ≺≺ 1.
+  PROOFS-uniform §13: heuristic a-tracking gives u < H^{1/4} per piece, u < H^{1/3} averaged over u. Shared thresholds at H^{1/3} and H^{1/2}.
+

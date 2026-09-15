@@ -249,7 +249,7 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
     d = d_a d_b from the multiplicativity of λ: beyond-Weil bounds for incomplete Kloosterman sums with smooth moduli. Also a small δ₀.
  M3 (from the small end). Average the Grimmelt–Merikoski kernel bound over the levels u² (their key device: averaging over the level with
     divisor switching in physical space), keeping the family congruence; target u ≲ H^{1/3}.
- A SECOND, EASIER OBSTRUCTION below H^{1/2} (from the reading of §9): the main-term remainder of Type II's Step 5 is ≪ Y₀H^{1/2}; it needs
+ [CORRECTED 15 Sep night, PROOFS §12.0: NOT an obstruction to the range — for u ≤ H^{1/2+ε} the part Ḡ is ≪ (H/u)^{ε′} per piece, so Step 5 is only needed above H^{1/2+ε}.] FORMERLY: A SECOND, EASIER OBSTRUCTION below H^{1/2} (from the reading of §9): the main-term remainder of Type II's Step 5 is ≪ Y₀H^{1/2}; it needs
  an error t^{1/3+ε}d′^ε in the mean value of g coprime to d′ (divisor problem for ζ(s)L(s,χ)), or an average over d′ — classical, to be written.
  PROOFS §10: the Poisson-transformed square and the saving needed (Y/U over Weil) with the local Salié structure.
  CONSEQUENCE (PROOFS §11; §9 read twice, §11 itself not yet read): Theorem A of paper III under Hypothesis W with B < (1−θ)/(2−θ) alone
@@ -273,3 +273,9 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
 - 15 Sep 16:30: regime map corrected (III starts at u ≍ X/√|D|; orbit-minima and isolation tests: orbit-minima.py); reciprocity/Hecke-label form; window-specific map.
 - 15 Sep 15:20: regime map §6; PROOFS-uniform.md started (setup verified, elementary bound with u tracked, three regimes).
 - 15 Sep 13:00: file created; literature facts above from arXiv 2107.13301 (Ngo) which quotes Hooley, Bykovskii, DFI, Tóth.
+
+## 14. After the literature round (15 Sep, night): the map of the middle (PROOFS §12, §13; heuristic)
+ u > H^{1/2+ε} proved | u < H^{1/3−ε} plausible via Grimmelt–Merikoski (arXiv 2505.00493) with a = u² tracked and averaged over u (D < 0) |
+ H^{1/3} < u ≤ H^{1/2}: Weil Type I/II in u except balanced products u = n₁n₂ | shared thresholds at H^{1/3}, H^{1/2} need a power beyond.
+ Next rigorous steps: (1) GM Thm 1.4 ⇒ power saving for all pieces with u ≤ H^{o(1)} (D < 0); (2) a-tracking in GM §4–5; (3) balanced products.
+

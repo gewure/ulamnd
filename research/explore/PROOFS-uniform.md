@@ -479,3 +479,68 @@ u ≤ U₀ = H^{1/2+ε}. Re-running the proof of Theorem A with this U₀:
 So Theorem A holds under Hypothesis W(θ, B) with B < (1−θ)/(2−θ) alone — strictly weaker than θ + 6B < 1 (since 2 − θ < 6). At θ = 3/4 this is
 B < 1/5 (paper III: B < 1/24). Note that no (θ, B) at all is known for the dilated roots uniformly in u; DFI's (3/4, 1/4) are for u = 1.
 Not yet in paper III; to be read together with the paper text of the large-u theorem.
+
+## 12. THE MIDDLE, FIRST MAP (15 Sep, night): what Weil plus a decomposition of w in u gives — HEURISTIC EXPONENT COUNT, NOT READ, NOT A CLAIM
+Block u ∼ U = H^a, a ∈ (1/4, 1/2], Y = H/u ≍ H^{1−a}, notation of §9 / paper III Step 4b (G° = G − Ḡ, β(d) ≪ |λ(d)| min(k^{−2}, Y²d^{−2})).
+0. FREE PARTS (rigorous, one line each; to be read):
+ • Ḡ part: Σ_{d′}(λ(d′)/d′)|Ḡ_{d′}(Y)| ≪ Y^{ε′} (paper III, after (MH)), so Σ_{u≤H^{1/2+ε}} |w(u)|·(H/u)^{ε′} ≪ H^{1/2+2ε}. CONSEQUENCE: the
+   "second obstruction" recorded after the first reading of §9 (Step 5′'s remainder Y₀H^{1/2+3ε′} needs Y₀ < H^{1/2}) is NOT an obstruction
+   to extending the range: Step 5 is only needed for u > H^{1/2+ε}; for smaller u the dilation-averaged part is trivially small and only
+   G° matters. [Correct the wording in PLAN §13 and paper III "What remains" item 1 — after the running reading, not during it.]
+ • Small moduli of G°: |(λ/d′)G°_{d′}| ≤ |λ|ω(d′)(1 + σ/(8d′φ)), so the moduli d′ ≤ Y^{1−δ} give ≪ Y^{1−δ} per piece (Shiu).
+ • Moduli d′ > Y^{1+η}: Lemma tail. Frequencies k > Y^{2η}: Step 4b(ii). So what is needed is the G° part with d′ ∈ [Y^{1−δ}, Y^{1+η}], k ≤ Y^{2η}.
+1. w = 1 * χ * γ (Lemma AP's proof), Σ|γ(n)|n^{−1/2−ε} < ∞: the terms with n₃ > H^{δ₃} are ≪ UY·H^{−δ₃/3} trivially. So u = n₁n₂n₃, weights
+   1(n₁), χ(n₂), γ(n₃), n₃ ≤ H^{δ₃}: two smooth(-periodic) atoms and one short arbitrary one.
+2. TYPE I (a smooth atom n of length N, arbitrary cofactor m ≤ U/N): per (d, m) the n-sum is an incomplete Kloosterman sum modulo d; after
+   the mean subtraction (the h = 0 Poisson term against ε_d(k)) it is ≪ H^ε(1 + N/d)d^{1/2}. Total ≪ H^ε(U/N)Y^{3/2}: power saving iff
+   N ≥ Y^{1/2}H^{2δ}. (χ: split n₂ into classes mod |D|.)
+3. TYPE II (u = u₁u₂, u_i ∼ U_i, arbitrary coefficients): Cauchy over (d, u₁) with u₂ inside, u₁ made smooth by positivity. Off-diagonal
+   (u₂,r) ≠ (u₂′,r′): Weil modulo d for Σ_{u₁} e(kū₁(ū₂r − ū₂′r′)/d), ≪ d^{1/2} per term for U₁ ≤ d; fully degenerate pairs need
+   d | D(u₂′² − u₂²) (≤ H^ε moduli per pair) or u₂ = u₂′ with r, r′ agreeing on a divisor of d: both of diagonal size. Result
+   |B| ≪ H^ε(UY·U₂^{−1/2} + U^{1/2}U₂^{1/2}Y^{5/4}): power saving iff H^{2δ} ≤ U₂ ≤ U·Y^{−1/2}H^{−2δ}; the interval is nonempty iff U ≥ Y^{1/2}H^{4δ},
+   i.e. a > 1/3.
+4. COVERING. Type I unless n₁, n₂ < Y^{1/2}H^{2δ}; Type II if some sub-product of (n₁, n₂, n₃) lies in [H^{2δ}, UY^{−1/2}H^{−2δ}]. Residual set:
+   n₁, n₂ both in (UY^{−1/2}, Y^{1/2}) up to H^{O(δ)}, n₁n₂ ≍ U — NONEMPTY for every a ∈ (1/3, 1/2) (e.g. n₁ ≈ n₂ ≈ U^{1/2}), and of full size
+   (Σ over it of |weights| ≍ U·log(Y/U) up to constants). For a ≤ 1/3 Types I/II cover nothing. So Weil alone gives NO new range; it
+   reduces H^{1/3} < u ≤ H^{1/2} to the balanced binary sums Σ_{n₁∼N₁}Σ_{n₂∼N₂} χ(n₂) F(n₁n₂) with N_i ∈ (U/Y^{1/2}, Y^{1/2}), N₁N₂ ≍ U, i.e. to
+   sums over ideals 𝔞 of Q(√D) of norm ≍ U of F(N𝔞), F(u) = Σ_d β(d) ρ°_k(d; ū). Two-dimensional completion (Kl₃-type complete sums, size ≈ d)
+   gives ≈ Y against the trivial U: useless for U < Y.
+5. FACTORABLE MODULI (λ multiplicative): Heath-Brown's q-van der Corput, Σ_{n∈I} e(an̄/q) ≪ q^ε N^{1/2}(q₁^{1/2} + q₂^{1/4}) for q = q₁q₂
+   (Weyl shift by multiples of q₁); q₁ ≈ q^{1/3}: N^{1/2}q^{1/6}. Then Type I needs N ≥ Y^{1/3}, Type II needs U₂ ≤ UY^{−1/3}, and the
+   residual set is empty iff U ≥ Y^{2/3}, i.e. a ≥ 2/5. So u ∈ (H^{2/5+ε}, H^{1/2}] would be covered FOR THE MODULI with a divisor near d^{1/3};
+   the others (a positive λ-proportion: primes, p₁p₂ with p₁ > d^{1/3}, …) get nothing beyond Weil. Prime moduli ≈ Y on average over u ∼ U
+   is the dilated DFI/Tóth problem; not reachable this way.
+6. WHICH SPECTRAL OBJECT. Type II's off-diagonal after Poisson in u₁ is Σ_{d≍Y} β(d) Σ_{0<|h|≤Y/U₁} Σ*_x e(hx/d) ρ_k(d;ū₂x̄) ρ_k(d;ū₂′x̄), locally
+   Σ_± S(k s_p(ū₂ ± ū₂′), h; p): single modulus d ≍ Y, root numerators; saving needed over Weil U₂Y^{1/2} (= H^{1/2} for U₂ = U^{1/2}). §10's
+   dispersion over u (pairs of moduli, q ≈ Y²) needs only Y/U = H^{1−2a}. So §10 is the better spectral target, and on the residual set of 4 the
+   u-variable is a norm of an ideal (two smooth variables), which may help its Poisson step.
+7. HONEST SUMMARY. Weil-type input (with a Type I/II decomposition of w and, optionally, factorable moduli) does not close any part of the middle
+   for all u and all moduli. It localises the difficulty: (i) balanced products u = n₁n₂ (norms of ideals) in (H^{1/3}, H^{1/2}]; (ii) for
+   a ∈ (2/5, 1/2], additionally only the non-factorable moduli. The spectral input (§10: sums over moduli of Kloosterman sums with root
+   numerators, Salié / half-integral weight) is needed for (i); its required saving H^{1−2a} is smallest near a = 1/2. Literature round next:
+   de la Bretèche–Drappeau (level of distribution of quadratic polynomials, Kloosterman sums with root numerators via Deshouillers–Iwaniec),
+   Merikoski and Pascadi (n² + 1), bilinear forms with Salié sums, Iwaniec 1987 / Proskurin.
+
+## 13. Grimmelt–Merikoski with a = u² (15 Sep, night) — HEURISTIC COUNT, NOT READ, NOT A CLAIM
+IDENTIFICATION (exact for D < 0). Piece u counts ℓ ≤ Y with u²ℓ² + |D| ≡ 0 (mod k), (k,u) = 1, weight λ(k) = Σ_{e|k}κ(e): GM's Type I sum
+(Theorem 1.4) with a = u², h = |D|, X = Y, level D = Y^{δ} (the e > Y^δ part is ≪ Y^{1−δ+ε} trivially), smooth ψ₂ in place of the Cesàro/sharp
+weight (conversion as in paper III Lemma sharp). Equivalently: the roots m = uℓ ≤ H of the FIXED congruence m² ≡ D (mod k) in the
+progression m ≡ 0 (mod u) — the dilation is a progression condition on the original roots.
+HOW a ENTERS GM's PROOF (§5): level q = ad; skewness X/Y ≍ X a^{1/2}h^{−1/2}; K₁ ≺≺ (number of levels) + Z₁; K₂ ≺≺ (number of levels)·(ah)^{1/2}
++ ah·Z₂ (Prop 4.1 with h → ah: diagonal = levels × #Λ_{ah}, off-diagonal = pairs of Heegner points of determinant ah in the kernel support,
+the level absorbed by a divisor bound, so it does not grow with the number of levels); Z₁Z₂Z₀ = X(ah)^{−1/2}, Z_i ≥ 1. (GM bound K₁, K₂ by
+sums over all q ≤ aD, which loses a; restricting to q = ad should not.)
+COUNT (h, D ≺≺ 1). Per u: bound ≈ (X u)^{1/2}·(K₁K₂)^{1/2} with K₁ ≈ 1, K₂ ≈ u²(Z₂ ≥ 1): ≈ X^{1/2}u^{3/2}, nontrivial against X iff u < X^{1/3} = Y^{1/3},
+i.e. u < H^{1/4}. Averaged over u ∼ U (Cauchy over (u, d), levels u²d): K₁ ≈ U, K₂ ≈ U·U + U² ≈ U², bound for the block ≈ (XU)^{1/2}U^{3/2} = X^{1/2}U²
+against the trivial UX: nontrivial iff U < X^{1/2} = Y^{1/2}, i.e. U < H^{1/3}. (Consistent with the earlier estimate u ≲ H^{0.26} for the
+unaveraged kernel method, PLAN §13.) The obstruction is the off-diagonal ah·Z₂ with Z₂ ≥ 1: the number of pairs of Heegner points of
+discriminant ≍ u²|D| at bounded hyperbolic distance ≍ u², which the level cannot absorb.
+PICTURE (heuristic):
+ • u > H^{1/2+ε}: proved (§9, paper III Theorem typeII).
+ • u < H^{1/3−ε}: plausible by GM's kernel method with a = u² tracked and an average over u (to be done carefully; D < 0 only).
+ • H^{1/3} < u ≤ H^{1/2}: Type I/II decomposition of w in u with Weil (§12) covers all but the balanced products u = n₁n₂ (norms of ideals).
+ • The thresholds H^{1/3} (GM averaged ↔ §12 Type II window empty) and H^{1/2} (dispersion ↔ §12) are shared: at each, BOTH sides lose
+   their saving, so even with all three pieces a log-width band around u = H^{1/3} and u = H^{1/2} would remain (Σ w(u)/u over a band
+   [H^{c−ε}, H^{c+ε}] is ≍ ε log H, not a power saving). A power beyond one threshold is required at each.
+ NEXT (rigorous order): (1) GM Theorem 1.4 for a ≤ H^{o(1)} ⇒ every piece with u ≤ H^{o(1)} has a power saving (D < 0) — small, citable;
+ (2) track a in GM §4–§5; (3) the balanced-product sums of §12.4 against the spectral input.

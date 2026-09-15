@@ -25,7 +25,7 @@
 
 \title{The pair singular series of a polynomial III:\\ the off-diagonal in Ces\`aro form}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com.}}
-\date{13 September 2026}
+\date{13 September 2026 (revised 15 September 2026)}
 
 \begin{document}
 \maketitle
@@ -38,14 +38,14 @@ Ces\`aro form any unbounded saving over the trivial bound suffices. This paper t
 prove an exact decomposition of the Ces\`aro off-diagonal into pieces indexed by the part $u$ of the modulus on
 which the two roots agree: piece $u$ is the same problem with length $H/u$ and with the roots of
 $x^2\equiv D$ replaced by the roots of $u^2x^2\equiv D$, a dilation by $u^{-1}$, and all pieces carry equal
-weight per unit of $\log u$. The main result is that the off-diagonal is not small: the pieces with $u>H^{1/2}$,
-where the dilations average out along $u$ (for $H^{1/2}<u\le H^{2/3}$ by a dispersion argument with Weil's bound for Kloosterman sums), leave a main term $c_{\mathrm{off}}(f)H$ with an explicit negative
+weight per unit of $\log u$. The main result is that the off-diagonal is not small: the pieces with $u>H^{1/2+\varepsilon}$,
+where the dilations average out along $u$ (for $u\le H^{2/3+\varepsilon}$ by a dispersion argument with Weil's bound for Kloosterman sums), leave a main term $c_{\mathrm{off}}(f)H$ with an explicit negative
 constant, $-\log p/(p-1)$ per split prime modulus, and this constant predicts the mean of the sharp off-diagonal
 to three digits against exact data to $10^7$ for four quadratics. Two further parts are unconditional: the piece
 $u=1$, by the theorem of Duke, Friedlander and Iwaniec on Weyl sums for quadratic roots converted from smooth to
 sharp cut-offs; and the moduli below the length in every piece, by Koksma's inequality and a weighted form of the
 Chinese-remainder equidistribution of Kowalski and Soundararajan, whose local input is the same for every
-dilation. What remains in each piece with $1<u\le H^{1/2}$ are
+dilation. What remains in each piece with $1<u\le H^{1/2+\varepsilon}$ are
 the moduli between the length and $u^2$ times the length, where an interval covers less than a period. We show that
 those more than $(\log H)^{13}$ times the length are negligible, by a bound for divisor functions on the values of $u^2x^2-D$ uniform in the
 discriminant, and that on the rest the Chinese-remainder saving is enough. This proves Hypothesis~(E) in Ces\`aro form,
@@ -278,7 +278,7 @@ Then for every $Y_0\in[1,Y]$,
 \[
 T_k(Y)\ll Y_0\log Y_0+(uk)^B\bigl(Y^\theta+kY\,Y_0^{\theta-1}\bigr)\log Y .
 \]
-In particular, with $Y_0=(kY)^{1/(2-\theta)}$, $T_k(Y)\ll(uk)^B(kY)^{1/(2-\theta)}\log Y$.
+In particular, with $Y_0=(kY)^{1/(2-\theta)}$, $T_k(Y)\ll(uk)^B(kY)^{1/(2-\theta)}\log Y$ (trivially if $(kY)^{1/(2-\theta)}>Y$, since $T_k(Y)\ll Y$).
 \end{lemma}
 \begin{proof}
 The moduli $d'\le Y_0$ contribute at most $2\sum_{d'\le Y_0}\lambda\rho\ll Y_0\log Y_0$ (crudely). On a dyadic block
@@ -798,7 +798,7 @@ and $Z:=Z_U$, and Step~4 fails because it treats each modulus separately. We sho
 \mathcal E(U):=\sum_{U<u\le2U}w(u)\sum_{\substack{d'\le Z\\ (d',u)=1}}\frac{\lambda(d')}{d'}\,G^\circ_{d'}\Bigl(\bar u,\frac Hu\Bigr)\ll H^{1-\varepsilon/10}(\log H)^C,
 \]
 where $G^\circ_{d'}=G_{d'}-\bar G_{d'}$ and the sum is over admissible $d'>1$, by keeping the sum over $d'$ inside a
-Cauchy--Schwarz inequality over $u$. This step uses no property of $w$ beyond $\sum_{u\le2U}|w(u)|^2\ll U(\log U)^C$.
+Cauchy--Schwarz inequality over $u$. This step uses no property of $w$ beyond $\sum_{u\le2U}|w(u)|^2\ll U(\log U)^C$ (hence, by Cauchy--Schwarz, $\sum_{u\le2U}|w(u)|\ll U(\log U)^C$).
 
 (i) \emph{Fourier form.} For admissible $d'$, a unit $a$ and $k\ge1$ put $\rho_k(d';a)=\sum_{r\in R_{d'}}\e(kar/d')$, which is real,
 and $\rho^\circ_k(d';a)=\rho_k(d';a)-\omega(d')c_{d'}(k)/\varphi(d')$, where $c_{d'}(k)$ is the Ramanujan sum; the subtracted term is the
@@ -841,7 +841,7 @@ $|\mathcal B_{k,j}|^2\le\bigl(\sum_{U<u\le2U}|w(u)|^2\bigr)\mathcal S\ll U(\log 
 \end{aligned}
 \]
 $\epsilon_i=c_{d_i}(k)/\varphi(d_i)$, so $|\epsilon_i|\le(k,d_i)/\varphi(d_i)$. We use that $|\lambda(d)|$, $\omega(d)^2$, $\tau(d)\ll H^{\varepsilon''}$ for $d\le H$,
-for every $\varepsilon''>0$, and the elementary bounds, for $k,g\ge1$ and sums over squarefree $d\le Z$,
+for every $\varepsilon''>0$; in (iv) and (v), $H^{O(\varepsilon'')}$ denotes $H^{c\varepsilon''}$ with an absolute constant $c$ that may change at each occurrence. We use the elementary bounds, for $k,g\ge1$ and sums over squarefree $d\le Z$,
 \[
 \begin{gathered}
 \sum_d\frac{b_k(d)(k,d)}{\varphi(d)}\ll\frac{H^{\varepsilon''}}{k^2},\qquad
@@ -849,7 +849,7 @@ for every $\varepsilon''>0$, and the elementary bounds, for $k,g\ge1$ and sums o
 \sum_{d\equiv0\,(g)}\frac{b_k(d)(k,d)^{1/2}}{d^{1/2}}\ll\frac{H^{\varepsilon''}(k,g)^{1/2}Y^{1/2}}{k^{3/2}g},
 \end{gathered}
 \]
-obtained by writing $(k,d)=e$ and splitting at $d=kY$ (for the second, $d=gm$, $(k,d)\le(k,g)(k,m)$, and the split at $m=kY/g$).
+obtained by writing $(k,d)=e$ and splitting at $d=kY$ (for the third, $d=gm$, $(k,d)\le(k,g)(k,m)$, and the split at $m=kY/g$).
 The product of the two constants contributes $\ll U\bigl(\sum_d|\beta(d)|\omega(d)(k,d)/\varphi(d)\bigr)^2\ll H^{\varepsilon''}U/k^4$. In a cross
 term such as $\epsilon_2\sum_{(u,d_1d_2)=1}V(u/U)\e(k\bar ur_1/d_1)$ we remove the condition $(u,d_2/(d_1,d_2))=1$ by M\"obius inversion,
 $u=ev$, and Lemma~\ref{lem:kloost} with $X=U/e$ and $(k\bar er_1,d_1)=(k,d_1)$ bounds the inner sum by
@@ -865,16 +865,16 @@ $(1+U/q)(qg)^{1/2}=(d_1d_2)^{1/2}+Ug\,(d_1d_2)^{-1/2}$. Hence the main term is
 &\ll H^{2\varepsilon''}\Bigl[\frac{Y^3}k+\frac{UY}{k^3}\sum_{g\le Z}\frac{(k,g)}g\Bigr]\ll H^{3\varepsilon''}\Bigl(\frac{Y^3}k+\frac{UY}{k^3}\Bigr).
 \end{aligned}
 \]
-Altogether $\mathcal S\ll H^{3\varepsilon''}(UY/k^3+Y^3/k)$, and $|\mathcal B_{k,j}|\ll H^{2\varepsilon''}(UY^{1/2}k^{-3/2}+U^{1/2}Y^{3/2}k^{-1/2})$.
+Altogether $\mathcal S\ll H^{O(\varepsilon'')}(UY/k^3+Y^3/k)$, and $|\mathcal B_{k,j}|\ll H^{O(\varepsilon'')}(UY^{1/2}k^{-3/2}+U^{1/2}Y^{3/2}k^{-1/2})$.
 
 (v) \emph{Assembly.} Summing over $j\le J$ and $k\le K_1$, with $U=H/Y$,
 \[
 \begin{aligned}
-\sum_{k\le K_1}\sum_{j\le J}|\mathcal B_{k,j}|&\ll H^{2\varepsilon''+\varepsilon/10}\bigl(HY^{-1/2}+H^{1/2}YK_1^{1/2}\bigr)\\
-&\ll H^{2\varepsilon''+\varepsilon/10}\bigl(H^{5/6+\varepsilon/2}+H^{1-\varepsilon/2}\bigr)\ll H^{1-3\varepsilon/10+2\varepsilon''},
+\sum_{k\le K_1}\sum_{j\le J}|\mathcal B_{k,j}|&\ll H^{O(\varepsilon'')+\varepsilon/10}\bigl(HY^{-1/2}+H^{1/2}YK_1^{1/2}\bigr)\\
+&\ll H^{O(\varepsilon'')+\varepsilon/10}\bigl(H^{5/6+\varepsilon/2}+H^{1-\varepsilon/2}\bigr)\ll H^{1-2\varepsilon/5+O(\varepsilon'')},
 \end{aligned}
 \]
-using $H^{1/3-\varepsilon}<Y\le H^{1/2-\varepsilon}$ and $\varepsilon<\tfrac16$. With $\varepsilon''=\varepsilon/20$ and (i)--(iii),
+using $H^{1/3-\varepsilon}<Y\le H^{1/2-\varepsilon}$ and $\varepsilon<\tfrac16$. With $\varepsilon''$ sufficiently small in terms of $\varepsilon$ and (i)--(iii),
 $\mathcal E(U)\ll H^{1-\varepsilon/10}(\log H)^C$, as claimed (note $U(\log H)^C\le H^{2/3+\varepsilon}(\log H)^C$).
 
 Together with Step~3 (where $\eta-3\varepsilon'=\varepsilon/4$), Steps~4 and~4b, and the $O(\log H)$ blocks,
@@ -911,9 +911,11 @@ by the second bound in (a), valid for all $Y$, and by (b),
 $\sum_{u>U_0}w(u)|\bar G_{d'}(H/u)|\ll(\omega\tau/\varphi)\bigl(\sum_{U_0<u\le H}w(u)H/u+\sum_{u>H}w(u)H^2/u^2\bigr)\ll(\omega\tau(d')/\varphi(d'))H\log H$,
 and $M_{d'}H\int_0^{Y_0}|\bar G_{d'}|Y^{-2}dY\ll(\omega\tau/\varphi)H\log H$ as well; summing $(\lambda/d')\cdot$ these over
 $d'>Y_0$ gives $\ll HY_0^{-1+\varepsilon'}\log H=H^{1/2+\varepsilon+\varepsilon'}\log H$. (Here the split is at $Y_0$; the first version split
-at $H^{1/3}$. The remainder $Y_0H^{1/2+3\varepsilon'}$ is what limits this step to $U_0>H^{1/2}$, independently of Step~4b.) Finally the tails of the integrals: by (a), for $d'\le Y_0$,
-$\int_{Y_0}^\infty|\bar G_{d'}|Y^{-2}dY\le\sigma/(8Y_0)$, and for $d'>Y_0$ it is
-$\le\int_{Y_0}^{d'}\frac{\tau\,dY}{2Y}+\int_{d'}^\infty\frac{\sigma\,dY}{8Y^2}\ll\tau(d')\bigl(1+\log(d'/Y_0)\bigr)$, whence
+at $H^{1/3}$. The remainder $Y_0H^{1/2+3\varepsilon'}$ needs $U_0>H^{1/2}$, but this is not a limit of the method: for $u\le H^{1/2+\varepsilon}$ the
+dilation average contributes only $\sum_{d'}(\lambda(d')/d')|\bar G_{d'}(H/u)|\ll(H/u)^{\varepsilon'}$ per piece, as shown after~\eqref{eq:MH},
+so that below $H^{1/2+\varepsilon}$ only the part $G^\circ$ has to be bounded.) Finally the tails of the integrals: by (a), for $d'\le Y_0$,
+$\int_{Y_0}^\infty|\bar G_{d'}|Y^{-2}dY\le\omega\sigma/(8\varphi Y_0)$, and for $d'>Y_0$ it is
+$\le\int_{Y_0}^{d'}\frac{\omega\tau\,dY}{2\varphi Y}+\int_{d'}^\infty\frac{\omega\sigma\,dY}{8\varphi Y^2}\ll\frac{\omega\tau(d')}{\varphi(d')}\bigl(1+\log(d'/Y_0)\bigr)$, whence
 $\sum_{d'}(\lambda M_{d'}/d')\int_{Y_0}^\infty|\bar G_{d'}|Y^{-2}dY\ll Y_0^{-1}\log Y_0+Y_0^{-1+\varepsilon'}$. The same bounds
 with $Y_0$ replaced by $1$, together with (b) below $1$, show that the series defining $c_{\mathrm{off}}$ in~\eqref{eq:coff}
 converges absolutely. Altogether $\mathcal M(H)=c_{\mathrm{off}}(f)H+O(H^{1-\varepsilon+3\varepsilon'}+H^{1/2+\varepsilon+2\varepsilon'}\log H)$, and
@@ -1175,8 +1177,8 @@ bound in the lemma shows what the window is made of: for $d'>Y$ the frequencies 
 $\asymp Y^2/d'$ each, and only beyond $k\asymp d'/Y$ does the $k^{-2}$ decay begin. A modulus $d'\in(Y,u^2YL]$
 therefore has up to $u^2L$ frequencies of full weight, and the proof of Proposition~\ref{prop:windowW} controls the Weyl sums
 $\rho_k(d')$ for $k$ up to $u^2L$, with a loss in $k$ small enough to be paid by the saving in the modulus; with the moduli
-above $Y^{1+\eta}$ removed by Lemma~\ref{lem:tail} only $k\le Y^{2\eta}$ are needed (Remark~\ref{rem:exponents}). This is
-the source of the exponent condition in Theorem~A.
+above $Y^{1+\varepsilon}$ removed by Lemma~\ref{lem:tail} only $k\le Y^{2\varepsilon}$ are needed, and the window then needs only $\theta+B<1$; the
+exponent condition of Theorem~A comes from the small moduli (Remark~\ref{rem:exponents}).
 
 \begin{hypothesis}[W$(\theta,B)$]\label{hyp:W}
 There are $\theta\in(0,1)$ and $B\ge0$ such that for all squarefree $u$ with $\omega(u)\ge1$, all $k\ge1$, $t\ge2$ and
@@ -1198,7 +1200,7 @@ E=\begin{cases}0&(K\le Y/2),\\[2pt] u^{B}Y^{1+\varepsilon}\bigl(Y^{B+\theta-1}+K
 \]
 In particular, if $\theta+B<1$ then $E\ll u^{B}Y^{B+\theta+\varepsilon}$ and
 $\mathcal W_u(Y;L)\ll\bigl(u^{3B}L^{B}+u^{B}Y^{B}\bigr)Y^{\theta+2\varepsilon}+Y^{1-\varepsilon}$; if $K\le Y/2$ no condition on
-$\theta+B$ is needed. More generally, for $Y\le Z\le\exp(Y^{1/2})$ the same bounds hold for the sum over $Y<d'\le Z$ in place of
+$\theta+B$ is needed. More generally, if $B\le1$, then for $Y\le Z\le Y^{C}$ ($C\ge1$ fixed, the implied constants depending also on $C$) the same bounds hold for the sum over $Y<d'\le Z$ in place of
 $Y<d'\le u^2YL$, with $u^2L$ replaced by $Z/Y$ throughout: $K=(Z/Y)Y^{\varepsilon}$, and the first term is $u^B(Z/Y)^BY^{\theta+2\varepsilon}$.
 \end{proposition}
 \begin{proof}
@@ -1542,8 +1544,9 @@ question. A different route avoids the Weyl sums of single moduli: Step~4b of th
 over $u$ with the moduli inside, and it stops at $u=H^{1/2}$ only because Weil's bound for the incomplete Kloosterman sums
 $\sum_{u\sim U}\e(kc\bar u/q)$, $q=[d_1,d_2]\approx Y^2$, is trivial for $U\le q^{1/2}$. Below that, cancellation is needed in the sums of
 these Kloosterman sums over the pairs of moduli and the numerators $c=r_1d_2'-r_2d_1'$ built from pairs of roots, which is the
-regime of the Kuznetsov formula and the spectral large sieve. (Step~5 of that proof has a second threshold at $u=H^{1/2}$, from the
-error term in Lemma~\ref{lem:AP}(i); a better error term there, or an average over $d'$, would remove it.)
+regime of the Kuznetsov formula and the spectral large sieve. (Step~5 of that proof also needs $u>H^{1/2}$, but only for the main term, which the pieces with $u>H^{1/2+\varepsilon}$ supply
+in full: for $u\le H^{1/2+\varepsilon}$ the dilation average $\bar G$ contributes $\ll(H/u)^{\varepsilon'}$ per piece, so below $H^{1/2}$ only the
+Kloosterman sums of the part $G^\circ$ stand in the way.)
 \item The constant: Theorem~\ref{thm:Aprime} identifies $c_{\mathrm{off}}$ only up to the logarithmic loss of the small
 moduli. A power saving in Theorem~\ref{thm:small}, i.e.\ in Proposition~\ref{prop:KSw}, is not available (the
 Kowalski--Soundararajan method saves a power of $\log$ only); so ``$\Off^\ast_f(H)=c_{\mathrm{off}}H+o(H)$''

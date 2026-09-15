@@ -419,3 +419,29 @@ J. Eur. Math. Soc. 25 (2023) 1253–1284; arXiv:1908.08816.
 - Woo: https://arxiv.org/abs/2604.18923
 - Marklof–Welsh: https://arxiv.org/abs/2105.02854
 - Martin–Sitar: https://arxiv.org/abs/0903.1834
+
+## Literature round 3 (15 Sep 2026, night): the middle range — sums over roots with Kloosterman / automorphic-kernel methods
+- **Grimmelt–Merikoski, arXiv 2505.00493 (v2 2025), "On the greatest prime factor and uniform equidistribution of quadratic
+  polynomials".** Read (pdftotext, §1–§5). Polynomials aℓ² + h, negative discriminant (a, h ≥ 1). Theorem 1.4 (Type I):
+  for D ≤ K ≤ X², D ≤ X^{1/2}, h ≺≺ X², a ≺≺ 1:
+  Σ_{d≤D} λ_d Σ_{k≡0(d)} ψ₁(k/K)[Σ_{aℓ²+h≡0(k)} ψ₂(ℓ/X) − ϱ_{a,h}(k)X∫ψ₂/k] ≺≺ D X^{1/2}(D + h^{1/2})^{1/2}(1 + X/(D(D+h^{1/2})))^θ.
+  Theorem 1.5 (Type II in the modulus k = mn). Theorem 1.2: roots mod primes equidistributed uniformly in h ≤ X^{1+o(1)}, a ≤ X^{o(1)}.
+  They remark the Type I/II bounds stay nontrivial for h < X². Method: symmetric matrices / Heegner points of determinant ah
+  (Λ_{ah}, #Λ_{ah} ≤ (ah)^{1/2+o(1)}), level q = ad (Lemma 3.1: c ≡ 0 mod ad, b ≡ 0 mod a), their kernel theorem (Theorem 2.1 =
+  [5, Thm 8.1], arXiv 2505.00489 "Weighted averages of SL₂(R) automorphic kernel I") + Cauchy–Schwarz over the level + divisor bound
+  for the off-diagonal (Prop 4.1: Σ_{q∼Q}⟨α_q|K_q k_Z|α_q⟩ ≺≺ Qh^{1/2} + hZ^{1/2}); independent of Selberg (any spectral gap).
+  RELEVANCE: for D < 0 our piece u IS their Type I sum with a = u², h = |D|, ℓ ≤ Y the window, and (since λ = 1 * κ with
+  Σ_{e>E}κ(e)/e ≪ E^{−1+ε}) a level D = Y^{δ} suffices. They need a ≺≺ 1, i.e. u = H^{o(1)}: this already gives a power saving for
+  every piece with u ≤ H^{o(1)} (smooth weights; paper III has only u = 1 via DFI). The a-dependence is not tracked; in their proof
+  a enters through the level q = ad (their K₁, K₂ are bounded by sums over ALL q ≤ aD — loses a), the Heegner set Λ_{ah}, and the
+  skewness X/Y ≍ X a^{1/2}h^{−1/2}. Heuristic count in PROOFS-uniform §13. Positive discriminant (D > 0) not covered.
+- **Merikoski, arXiv 1908.08816 (JEMS), n² + 1.** Proposition 4 (Type II in the modulus, via Deshouillers–Iwaniec [DI82, Thm 9]
+  for each r): Σ_{m∼M,n∼N} a_m b_n |A_{mn}| = main + O(x^{1−η}) for x^{α−1+η} ≪ N ≪ x^{(2−2θ−α)/3−η}. Moduli structure, h = 1.
+- **de la Bretèche–Drappeau, arXiv 1703.03197 (JEMS 2020).** Théorème 5.2: bilinear (moduli mn) level of distribution of k² − D,
+  error x^{1/2+ε}M^{1/2} + x^{1+ε}N^{1/2−θ}M^{−3/4+θ/2}; level 1 + 25/178 for well-factorable moduli (Théorème 1.1). Fixed D.
+- **Dunn–Kerr–Shparlinski–Zaharescu, arXiv 1908.10143 (Adv. Math. 2020).** Bilinear forms in Weyl sums for modular square roots
+  (Salié sums), fixed prime modulus, power saving in the Pólya–Vinogradov range via additive energy of quadratic residues. Also
+  arXiv 2601.15448 (bilinear sums with modular square roots, averaging over modulus and primes). Structure: roots of an argument
+  n mod p with n in a bilinear set — our ρ_k(d;ū) is a Weyl sum of the modular square roots of Dū²; not yet matched to our ranges.
+- **Runbo Li, arXiv 2406.07575.** Observes GM's work gives x^{1.317} for n² + 1; no uniformity statement.
+- Not found: any treatment of the leading coefficient a (our u²) as a large parameter, or of dilated roots averaged over a.
