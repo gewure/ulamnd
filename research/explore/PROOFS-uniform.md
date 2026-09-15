@@ -933,3 +933,14 @@ of discriminant D with d ∼ Y) is long, twisted by a function of (r d̄ mod x) 
 (spectral large sieve averaged over the level), and Iwaniec 1987 / Duke 1988 (literature round 4) average Kuznetsov over levels exactly to go beyond a fixed level.
 Heuristically averaging over x ∼ U gains a factor up to U against the single-level threshold. Not counted yet; the numerators r d̄ tie x to d, so it is not a plain
 DI sum. Alternative inputs recorded: J₆ at N ≈ m^{1/4} below N⁴ (open even for primes).
+
+## 27. Correction to the CAUTION of §26(1): no sharp-start problem at the small end (15 Sep, night) — SKETCH, NOT READ
+Order the steps: split the moduli FIRST, then decompose the tent. (a) k ≤ Y^{1−δ}: the Cesàro count over a progression is exact up to O(k)
+(Σ_{h≤Y, h≡x (k)}(Y − h) − Y²/(2k) = O(k), elementary; the start h = 1 and the end h = Y are both inside this identity), total ≪ Σ_{k≤Y^{1−δ}}|λ|ρ ≪ Y^{1−δ}H^ε.
+(b) k > Y^{1+η}: Lemma tail. (c) Window k ∈ (Y^{1−δ}, Y^{1+η}]: now decompose the tent T(ℓ) = (Y − |ℓ|)^+ into smooth dyadic boxes |ℓ| ∼ L. The trivial size of a box
+with k ∼ K is (Y/K)·#{(ℓ, k): ℓ ∼ L, k ∼ K, k | Q_u(ℓ)} + density ≪ (Y/K)·L·H^ε ≤ Y^{δ}L H^ε, so ALL boxes with L ≤ Y^{1−3δ} together are ≪ Y^{1−2δ}H^ε — the kink at ℓ = 0
+never matters. Boxes with L ∈ [Y^{1−3δ}, Y]: GM Theorem 8.1 with skew R = L/K ∈ [u^{−2}Y^{−η}·…, Y^{3δ}] (the K₁ lemma needs K ≤ u²L^{1+η}, true for u ≥ Y^{2δ}; smaller u
+by GM's own a ≺≺ 1 range), bound ≪ (Y/K)L^{1/2}u·H^{o(1)} ≤ Y^{1/2+δ}u·H^{o(1)}, fine for u ≤ Y^{1/2−2δ}. The kink at ℓ = Y: smooth at scale Δ = Y^{1−η′}; the weight changes by
+≤ Δ on roots within Δ of Y, costing ≪ (Δ/K)·ΔH^ε ≪ Δ²Y^{δ−1}H^ε; GM's δ^{−O(1)} becomes (L/Δ)^{O(1)} = Y^{O(η′)}.
+So the small-end conversion reduces to GM Theorem 8.1 on the window boxes, with the K₁/K₂ bounds of §17/§21/§22/§25 at the levels u²·lcm(e, m²), m ≤ Y^η.
+REMAINING FOR THE SMALL END (D < 0): special primes p | (u, D) (content), p = 2 (D = −4 and even u), and a write-up + reading. D > 0 not covered.
