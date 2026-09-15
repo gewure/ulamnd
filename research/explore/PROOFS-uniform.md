@@ -801,3 +801,32 @@ method (§14–§17) also stops. Positive discriminants D > 0 are covered by the
 TO CHECK: (1) the J₄ transfer from Cilleruelo–Garaev's proof, line by line, for composite m (including t sharing factors with m, non-unit λ, and
 the "equal shifts" requirement); (2) bg-saving-map.py against the Hölder inequality as printed (bg1309.txt, proof of Theorem 3), the residual
 region, and the conversion of m-exponents to H-exponents with the moduli range d ∈ [Y^{1−δ}, YH^η]; (3) uniformity near a = 1/2 from both sides.
+
+## 21. READING of §16 FOLLOW-UP and §17 (15 Sep, night; fresh model instance; scripts reader-a2/) — CORRECTIONS ADOPTED
+R1 (reduction to e = 1): CORRECT — a direct level-q brute force (no CRT) reproduces gm-kernel-levels exactly; 2000 pairs, no violation. Sharper: Res(Q_{g₁}, Q_{g₂})
+   = ⟨g₁,g₂⟩² − 4 det g₁ det g₂ = u⁴(N² − 4h²), so nonvanishing is N ≠ 2h and the contributing levels satisfy e | N² − 4h²; extends to non-squarefree e
+   (common root mod p^k ⇒ p^k | Res, Hensel ≤ 2 roots); primes p | (e, h) not covered.
+R2 (undilation): CORRECT (undilated count reproduces off(u,1) exactly, u = 3, 5, 7, 11, T = 16, 64).
+R3 (lift to level one): CORRECT. Cleaner P₁ bound: W = 2hG₁ − NG₂ ∈ G₂^⊥ (rank 2) with −det W = h(N² − 4h²): representations by a definite binary lattice
+   ≪ (hN)^{o(1)} uniformly. Kernel weight is (4h/(N+2h))^{1/2}, not (N/2h)^{−1/2} (harmless).
+R4 (local count): CORRECT (25,663 pairs, p ≤ 13, 8 values of h, 0 failures; single-form count p − χ; ≤ 2 non-scalar; c_p = 0 when N² − 4h² is a non-residue;
+   CRT product matches brute force for u = 15, 21, 35). Diagonal factor 2 is |Aut⁺(I)/±I| (3 for (2,1;1,2)); elliptic stabilisers weighted.
+R5 (Step 4): FALSE AS STATED — for d | u there are 2^{ω(d)} classes N² ≡ 4h² mod d, least N ≈ √d in mixed classes; counterexample u = N₀² − 4, M = N₀ (ratios
+   1.9, 12, 50, 124). FIX (adopted): if G₁ ≡ λG₂ mod p then G₁ − λG₂ = pW, so p² | h − λN + λ²h and p² | N² − 4h²; hence ∏c_p ≤ 2^{ω(u)} g₂(N) with
+   g₂ = ∏_{p|u, p²|N²−4h²} p, g₂² | N² − 4h², and Σ_N N^{−1/2} g₂(N) ≤ Σ_{d|u} d Σ_{d²|N²−4h²} N^{−1/2} ≤ 3τ₃(u)M^{1/2} (ρ(d) classes mod d², least N ≥ d).
+   Numerically ≤ 0.19 τ₃(u)M^{1/2}. With the fix (a″) holds for squarefree u, (u, 2h) = 1, all Z₂, uniformly in u.
+R6 ((Hh) count): RIGHT — per block e ∼ E: (X/E)(u²E²/X)^{1/2−θ} against X/E; blocks E ≥ X^{1/2}/u trivially ≪ X^{1/2}u; total ≪ H^{o(1)}(X^{1/2+θ}u^{1−2θ} + X^{1/2}u):
+   nontrivial iff u < X^{1/2} ⇔ u < H^{1/3}, any θ < 1/2 — GIVEN the two gaps below.
+GAPS (new):
+ (G1) K₁. (Hh) uses K₁ ≈ E + Z₁/u²; GM's (5.2) is K₁ ≺≺ D(1 + 𝒳) + 𝒳^{−1} + Z₁ with 𝒳 = X/K (positivity extension to all q ≤ aD, no 1/q saving). Without the
+      1/u² saving only u < X^{1/2−θ} ≈ H^{0.281} (θ = 7/64). Needed LEMMA: for q = u²e and R = 𝒳 ≤ 1, Σ_{γ∈Γ₀(q)} k_{Z²,R}(γ) ≪ H^{o(1)}(1 + Z/q + 1/(qR))
+      (split parabolic/lower-triangular elements; for the rest a′d′ − 1 = b′c′ ≡ 0 mod q and a divisor bound; keep only the levels u²e). The term 1/(qR) =
+      K/(Xu²e) needs K ≤ e u² X^{1+η}: GM's complementary-divisor reduction (K ≤ DX^{1+η}) redone with a = u².
+ (G2) Non-squarefree and even u (D = −4 gives a = (u/2)² with u/2 arbitrary). Numerics flat (off = 28.5, 29.7, 29.9, 32.4 for u = 2, 4, 8, 16; 52.2, 57.4, 35.1 for
+      u = 9, 27, 25, T = 64). Route for odd p^k: c_{p^k} = #{x ∈ P¹(Z/p^k): det(G₁x, G₂x) ≡ 0 mod p^k, x not G₁-isotropic mod p}; the binary form det(G₁x, G₂x) has
+      discriminant exactly N² − 4 det₁ det₂ (checked symbolically + 20,000 cases); suggests c_{p^k} ≪ p^{min(k, ⌊v_p(N²−4h²)/2⌋)} (brute force mod 9, 25, 27, 49:
+      max ≈ 2p^{⌊v/2⌋}). p = 2 separately.
+NUMERICS (reader): off(u,1)/√T at T = 256: h = 1, all 92 primes u ≤ 499: mean ≈ 5.5 in every range, max 7.3; composite u ≤ 1365: ≤ 9; h = 2: 17–28; h = 5: ≈ 80–100
+   for u ≥ 11. No growth in u. Pairs with G₁ ≡ ±G₂ mod p vanish once p² > N² − 4h², as the fix predicts.
+Other u-dependence in Theorem 8.1: none beyond K₁ and the content at p | (u, D) (q^{o(1)} = H^{o(1)}; θ ≤ 7/64 uniform; X/Y > δ automatic; 𝒳 < 1 allowed).
+STATUS OF THE SMALL END (D < 0): u < H^{1/3−ε} for every θ < 1/2 modulo (G1), (G2), §18's conversion, special primes, p = 2. Without (G1): H^{0.281}.

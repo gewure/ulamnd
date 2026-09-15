@@ -468,4 +468,8 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - READING of §15 (PROOFS §19): Bourgain–Garaev reduction right; saving (U/Y)^{1/8} only for a ≥ 4/9 (tiny, non-uniform savings below); bands at
   a_j confirmed; primes covered in all bands by Izvestiya Theorem 10; open in the bands: balanced two-prime moduli; nothing near a = 1/3. LEAD: an
   energy bound for reciprocals of an initial interval modulo composite m at N ≈ m^{1/2} would remove all bands (numerically J₄ ≈ diagonal).
+- READING of §16 FOLLOW-UP + §17 (PROOFS §21): reduction to one level, undilation, lift, local count all correct; Step 4 false as stated, fixed
+  (p² | N² − 4h²); (a″) holds for squarefree u coprime to 2h. New gaps: (G1) a K₁ lemma with the 1/q saving at levels u²e (else H^{0.281}), (G2)
+  non-squarefree/even u. Small end u < H^{1/3} (D < 0) modulo (G1), (G2), conversion.
+- PROOFS §20 (energy J₄ for all moduli via Cilleruelo–Garaev; bands vanish; saving map positive on (1/3, 1/2], H^{−1/32} at 1/2): reading running.
 
