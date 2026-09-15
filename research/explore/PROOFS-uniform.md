@@ -544,3 +544,9 @@ PICTURE (heuristic):
    [H^{c−ε}, H^{c+ε}] is ≍ ε log H, not a power saving). A power beyond one threshold is required at each.
  NEXT (rigorous order): (1) GM Theorem 1.4 for a ≤ H^{o(1)} ⇒ every piece with u ≤ H^{o(1)} has a power saving (D < 0) — small, citable;
  (2) track a in GM §4–§5; (3) the balanced-product sums of §12.4 against the spectral input.
+§13 ADDENDUM (same night) — the spectral-gap factor was left out above. In GM's Theorem 2.1 the bound carries Z₀^θ with Z₀Z₁Z₂ = (X/Y)
+(skewness, ≍ X a^{1/2}h^{−1/2} = Xu for h ≺≺ 1), and in GM's own ranges the θ-dependence disappears because D and h are large. In ours
+(h, D ≺≺ 1) it does not: per u, Z₁ = Z₂ = 1 gives ≈ X^{1/2+θ}u^{3/2+θ}, nontrivial iff u < X^{(1/2−θ)/(3/2+θ)}: θ = 0 → u < Y^{1/3} (H^{1/4}),
+θ = 7/64 → u < Y^{25/103} (≈ H^{0.195}). Averaged over u ∼ U (Z₁ = U, Z₂ = 1, Z₀ = X): ≈ X^{1/2+θ}U² against UX, nontrivial iff U < X^{1/2−θ}:
+θ = 0 → H^{1/3}, θ = 7/64 → U < Y^{25/64} ≈ H^{0.28}. A larger level D (using more of λ's divisor structure) might remove θ as in GM; not
+examined. So the "H^{1/3} averaged" of §13 holds only under Selberg's conjecture at this level of the count; unconditionally ≈ H^{0.28}.

@@ -37,7 +37,7 @@ in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
 - Rewritten: abstract, results list, Koksma paragraph, closing paragraph of §6, "What remains" item 1, Remark rem:exponents, Remark
   rem:KSwconst's count (ERRATA 37). The claim "a logarithmic saving is not enough" is withdrawn (ERRATA 38, KNOWLEDGE F46). 30 pp.
 
-## 15 September 2026 (night): large-u range extended to u > H^{1/2+ε}; Theorem A under B < (1−θ)/(2−θ) — PAPER TEXT UNDER READING
+## 15 September 2026 (night): large-u range extended to u > H^{1/2+ε}; Theorem A under B < (1−θ)/(2−θ) — PAPER TEXT READ (sound, fixes applied and verified)
 - Theorem typeII now covers u > H^{1/2+ε} (Step 4b: dispersion over u + Weil, Lemma lem:kloost; Step 5 split at Y₀ = H^{1/2−ε}).
   The derivation (research/explore/PROOFS-uniform.md §9) passed two independent adversarial readings; the paper text is being read.
 - Theorem A re-proved with Lemma tail and the narrow window: condition B < (1−θ)/(2−θ) (was θ + 6B < 1). ERRATA 40.
@@ -45,4 +45,9 @@ in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
   "What remains" item 1, abstract, results. 32 pp; one pre-existing 5.7pt overfull line (Proposition KSw proof).
 - DECISION (15 Sep): after this change and its reading paper III is FROZEN (only corrections). The middle range u ∈ (H^{0.26}, H^{1/2}]
   and any further uniformity go to a new paper (V), written once there is a result; work in research/explore/PROOFS-uniform.md.
+- Reading of the paper text (fresh model instance, with numerical checks t1–t5: Fourier identity to 3e−12, Lemma kloost ratio ≤ 0.47, the
+  d-sum bounds, the main-term identities, exponent scans for Steps 3–5 and Theorem A): "sound, with minor fixes"; 10 findings applied
+  (stale window paragraph, range of the general-Z statement, ω/φ factors in Step 5's tails, exponent 2ε/5, ε″ convention, Σ|w|, abstract ε,
+  Lemma partial trivial range, date). A verification pass confirmed the fixes and the new remark that Step 5's threshold is not a limit of
+  the method (Ḡ contributes ≪ (log Y)^C per piece below H^{1/2+ε}); two cosmetic points applied. PAPER III IS NOW FROZEN (corrections only).
 

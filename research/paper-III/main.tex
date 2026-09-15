@@ -38,7 +38,7 @@ Ces\`aro form any unbounded saving over the trivial bound suffices. This paper t
 prove an exact decomposition of the Ces\`aro off-diagonal into pieces indexed by the part $u$ of the modulus on
 which the two roots agree: piece $u$ is the same problem with length $H/u$ and with the roots of
 $x^2\equiv D$ replaced by the roots of $u^2x^2\equiv D$, a dilation by $u^{-1}$, and all pieces carry equal
-weight per unit of $\log u$. The main result is that the off-diagonal is not small: the pieces with $u>H^{1/2+\varepsilon}$,
+weight per unit of $\log u$. The main result is that the off-diagonal is not small: for every $\varepsilon>0$ the pieces with $u>H^{1/2+\varepsilon}$,
 where the dilations average out along $u$ (for $u\le H^{2/3+\varepsilon}$ by a dispersion argument with Weil's bound for Kloosterman sums), leave a main term $c_{\mathrm{off}}(f)H$ with an explicit negative
 constant, $-\log p/(p-1)$ per split prime modulus, and this constant predicts the mean of the sharp off-diagonal
 to three digits against exact data to $10^7$ for four quadratics. Two further parts are unconditional: the piece
@@ -1545,8 +1545,8 @@ over $u$ with the moduli inside, and it stops at $u=H^{1/2}$ only because Weil's
 $\sum_{u\sim U}\e(kc\bar u/q)$, $q=[d_1,d_2]\approx Y^2$, is trivial for $U\le q^{1/2}$. Below that, cancellation is needed in the sums of
 these Kloosterman sums over the pairs of moduli and the numerators $c=r_1d_2'-r_2d_1'$ built from pairs of roots, which is the
 regime of the Kuznetsov formula and the spectral large sieve. (Step~5 of that proof also needs $u>H^{1/2}$, but only for the main term, which the pieces with $u>H^{1/2+\varepsilon}$ supply
-in full: for $u\le H^{1/2+\varepsilon}$ the dilation average $\bar G$ contributes $\ll(H/u)^{\varepsilon'}$ per piece, so below $H^{1/2}$ only the
-Kloosterman sums of the part $G^\circ$ stand in the way.)
+in full: for $u\le H^{1/2+\varepsilon}$ the dilation average $\bar G$ contributes $\ll(H/u)^{\varepsilon'}$ per piece, so below $H^{1/2+\varepsilon}$ only the
+Kloosterman sums of the part $G^\circ$ stand in the way; Step~4b(iii) uses $U\ge H^{1/2}$ only through the interval length, which is inessential.)
 \item The constant: Theorem~\ref{thm:Aprime} identifies $c_{\mathrm{off}}$ only up to the logarithmic loss of the small
 moduli. A power saving in Theorem~\ref{thm:small}, i.e.\ in Proposition~\ref{prop:KSw}, is not available (the
 Kowalski--Soundararajan method saves a power of $\log$ only); so ``$\Off^\ast_f(H)=c_{\mathrm{off}}H+o(H)$''
