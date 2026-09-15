@@ -592,3 +592,8 @@ u < X^{1/2}, FOR EVERY θ < 1 — and the tail e > E costs X^{1/2}. So the small
 (the diagonal; numerics c_d ≈ u/2 at e = 1; the dilation draft counts ≍ u·h(4D) orbits of W_u); (b) the neighbour count (3) made fully rigorous,
 including the stabiliser weights; (c) GM Theorem 8.1's hypotheses for our weights: smooth dyadic f in (x, y) — our moduli k and the Cesàro/sharp
 cut-off in ℓ must be smoothed (paper III Lemma sharp-type losses), small moduli by Poisson, and λ = 1*κ at level E = X^{1/2}.
+§14 task (a), numerics (gm-orbit-count.ts, data/gm-orbit-count-h1.txt; h = 1). The diagonal c_d(u, e) at level u²e satisfies
+c_d(u, e) = c_d(u, 1)·ρ(e) in all eight composite cases tested (e = 5, 13 split: ×2; e = 7 inert: 0), and c_d(u, 1) = 1, 1, 2, 2, 2, 4, 4, 4, 6, 4, 6, 8, 6, 8
+for u = 1…13, 17 — for odd primes p: (p − χ₋₄(p))/2 (3→2, 5→2, 7→4, 11→6, 13→6, 17→8), p²: p(p − χ(p))/2 (9→6), a factor 2 per extra power of 2. This is
+the "u − χ of the u(u+1) cosets" count of the dilation draft (Prop classwise) times the class number: task (a) should follow from that proposition.
+Summed over e ≤ E: ≍ u·E·(log)^{O(1)}, as used in (4).

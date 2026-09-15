@@ -445,3 +445,244 @@ J. Eur. Math. Soc. 25 (2023) 1253–1284; arXiv:1908.08816.
   n mod p with n in a bilinear set — our ρ_k(d;ū) is a Weyl sum of the modular square roots of Dū²; not yet matched to our ranges.
 - **Runbo Li, arXiv 2406.07575.** Observes GM's work gives x^{1.317} for n² + 1; no uniformity statement.
 - Not found: any treatment of the leading coefficient a (our u²) as a large parameter, or of dilated roots averaged over a.
+
+## Literature round 4 (15 Sep 2026, night; side agent, full report below verbatim; references reported as read in the PDF unless marked abstract-only; VERIFY BEFORE CITING)
+# Literature round 4 (15 Sep 2026): tools for P_u(Y), u up to H^{1/2}
+
+Scope: six targets from the brief. Items already in research/LITERATURE-uniformity.md (GM 2505.00493/00489/2508.17979,
+2404.08502, Templier–Tsimerman, Blomer IMRN 2008, dlB–D, Merikoski, DFI 1995/2012, Ngo, Tóth, DKSZ, KSSZ, Baier,
+Bettin–Chandee, Trilinear Kloosterman fractions I 2604.25177, LMY, Humphries–Nordentoft, Jetchev–Kane, Marklof–Welsh,
+Kowalski singular series) are NOT repeated.
+
+Verification: [PDF] = statement read in the arXiv/journal PDF via pdftotext; [abs] = abstract only; [unverified] = known
+second-hand. "Assessment" = our reading, not the authors' claim.
+
+Headline: nothing in the literature proves Weyl-sum or Heegner-point equidistribution uniformly at level u^2 with u a power
+of H. The new tools found fall into three groups:
+ (i) bilinear Kloosterman bounds beyond the Pólya–Vinogradov barrier for GENERAL moduli (Blomer–Pascadi 2026, Pascadi
+     2025, KSWX); these are the right shape for the u ≈ H^{1/2} threshold.
+ (ii) Iwaniec's "averaging over the level" device (Invent. 1987, reused by Duke 1988) together with level-uniform
+     half-integral-weight bounds (Waibel; Blomer–Pascadi Thm 1.6 for the exceptional spectrum); these are the right shape for
+     summing pieces u over levels u^2.
+ (iii) trilinear/dispersion technology with congruence-restricted variables and multiplicative weights (Drappeau PLMS
+     2017, Wright 2026, Granville–Shao); these fit the balanced range.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+## 1. V. Blomer, A. Pascadi — Bilinear forms with Kloosterman sums via quadratic characters. arXiv:2607.24311 (27 Jul 2026) [PDF]
+Thm 1.1. c ≥ 1, N ≤ c, intervals I, J of length ≤ N, a ∈ (Z/cZ)^×, arbitrary α, β:
+  Σ_{m∈I,n∈J,(m,n,c)=1} α_m β_n S(am,n;c) ≪ ||α|| ||β|| N c^{1/2+o(1)} ( c^{13/32}/N^{7/8} + c^{5/16}/N^{11/16} + c^{1/9}/N^{1/3} ).
+  At N = c^{1/2} this saves c^{-1/32}. It is nontrivial for N ∈ (c^{13/28+ε}, c^{7/12−ε}), for ALL moduli c (not only primes).
+  Theorem 5.5 covers unequal lengths.
+Thm 1.6 (exceptional-spectrum large sieve, general level q = rs, cusp ~ 1/s):
+  Σ_{λ_j<1/4} X^{2θ_j} |Σ_{n∼N} α_n ρ_{ja}(n)|^2 ≪ (qN)^{o(1)} (1 + N/q) ||α||^2, with
+  X = 1 + q/N + min(q^{18/11}/N^{23/11}, q^{16/13}/N^{18/13}, q^{32/29}/N^{33/29}) + q^2/N^3.
+  Deshouillers–Iwaniec give X = 1 + q/N; at N = q this is X ≍ q^{1/2+1/29}.
+Assessment: (a) After Cauchy–Schwarz our off-diagonal is a sum of S(kc, m; [d1,d2]). Suppose that, for a fixed modulus, it
+  can be arranged as a bilinear form in two arguments of length ≈ modulus^{1/2}, e.g. (u1,u2) or (k, root-numerator) with
+  coefficients free. Then Thm 1.1 is exactly the "beyond Weil at the critical balance" input. Heuristically it lowers the
+  u-threshold from H^{1/2+ε} to roughly H^{1/2−η} with η ~ 1/28-type. This is speculative: our numerators c = r1 d2' − r2 d1'
+  are tied to the modulus, and the Thm needs a fixed modulus with free coefficients in m and n.
+  (b)/(c) Thm 1.6 is level-uniform and holds for any factorisation of q. In a GM-type Heegner/kernel argument at level
+  q = u^2·d it controls the θ-loss (the factor (1+X/(D(D+h^{1/2})))^θ in GM Thm 1.4) without Selberg's conjecture and without
+  coprimality (n,q) = 1.
+
+## 2. A. Pascadi — Non-abelian amplification and bilinear forms with Kloosterman sums. arXiv:2511.08445 (v2 Jun 2026; refereed revision) [PDF]
+Thm 1.1. M, N ≪ c^{1/2+o(1)}: Σ_{m≤M,n≤N,(m,n,c)=1} α_m β_n S(am,n;c) ≪ ||α|| ||β|| c^{1−1/700+o(1)}. If |α_m| ≤ 1 this improves
+  to √M ||β|| c^{1−1/276}.
+Thm 1.2. Let c = d d' e with d'|d and (d,e) = 1, and let f be the largest integer with f^2 | cd. For intervals of length
+  ≪ c^{1/2+o(1)}: the bilinear sum is ≪ ||α|| ||β|| c^{1+o(1)} (f / min(c, d^2))^{1/6}.
+  Example 1.3: if d | c with c/d squarefree and d ≍ √c, the saving is c^{-1/12} (e.g. c = pq with p ≍ q).
+  The method is Fourier analysis on SL2(Z/cZ) plus amplification. Applications include the large sieve for exceptional forms
+  at composite levels (§9).
+Assessment: our moduli [d1,d2] and levels u^2 are composite. The saving grows with a balanced factorisation of the modulus,
+  which is the reverse of the prime case, so this fits (c) (u = n1 n2 balanced) and moduli [d1,d2] with d1 ≍ d2. Thm 1.2
+  also allows square factors via f. Same caveat as §1: the coefficients must be free given the modulus.
+
+## 3. B. Kerr, I. E. Shparlinski, X. Wu, P. Xi — Bounds on bilinear forms with Kloosterman sums. arXiv:2204.05038, J. London Math. Soc. 2023 [PDF]
+Thm 2.1. For any q, J an interval of length N, α on an interval of length M, d = gcd(a,q):
+  Σ_{m,n} α_m K_q(m, an) ≪ ||α||_2 M^{1/2} N q^{1/2+o(1)} Δ1, where Δ1 can be any of
+  (a) M^{-1/4}N^{-1}q^{1/2}d^{-1/4} + q^{1/2}N^{-1}M^{-1/2} + N^{-1/2};
+  (b) M^{-1/2}(N^{-3/4}q^{1/2} + d^{1/2}) + N^{-1/2};
+  (c) M^{-1/2}(N^{-1}q^{1/2} + (qd)^{1/4}) + N^{-1/2}.
+  In the PV range M = N = q^{1/2} with bounded α this gives q^{11/8} (saving 1/8). Cor 2.2: the same for type I K_q(mn, a).
+  Thm 3.2: the divisor function in a family of progressions.
+Assessment: this is "one arbitrary coefficient plus one smooth interval" for general q, which matches a dispersion in which
+  one variable (h or k) stays smooth. It is weaker than §1 for two arbitrary coefficients, but has explicit d = gcd(a,q)
+  dependence, which is useful when numerators share factors with [d1,d2].
+
+## 4. H. Iwaniec — Fourier coefficients of modular forms of half-integral weight. Invent. Math. 87 (1987) 385–401
+## and W. Duke — Hyperbolic distribution problems and half-integral weight Maass forms. Invent. Math. 92 (1988) 73–90 [PDF of Duke; Iwaniec via Duke]
+- Duke §3, Thm 2 (Proskurin): the Kuznetsov formula for weight k ∈ {0,1/2,1,3/2} with multiplier.
+- Duke §5, Thm 5: for a spectral Maass form of weight k = ±1/2 + integer and discriminant D on Γ0(N), N ≡ 0 (mod D),
+  eigenvalue 1/4 + t^2: ρ(n) ≪_{k,D,ε} |λ|^A ch(πt/2) |n|^{−2/7+ε} for n squarefree or a fundamental discriminant, with
+  A = 5/4 − (k/4) sgn n.
+- The proof uses "Iwaniec's device of averaging over the level" (Duke p. 85–86):
+  (1) Take levels Q ∈ 𝒬 = {pN : P < p ≤ 2P, p ∤ n}, p prime.
+  (2) Lift f to each Γ0(Q) with normalisation [Γ0(Q):Γ0(N)]^{−1/2}.
+  (3) Sum the Kuznetsov inequality over Q:
+      n|ρ(n)|^2 ≪ λ^{(5−k)/2} ch(πt) log P · (1/|𝒬|) Σ_{Q∈𝒬} (|S_Q| + |V_3(n,n)|),
+      with S_Q = Σ_{c≡0 (Q)} c^{−1} K(n,n;c) J_{9/2}(4πn/c).
+  (4) Bound Σ_Q |S_Q| by [Iwaniec 1987, Thm 3], a bound for sums of Kloosterman sums over the varying levels. The result is
+      n|ρ(n)|^2 ≪ [(n/P)^{3/2} + (nP)^{3/8} + n^{3/7}] n^ε, with P = n^{1/7}.
+Assessment: this is the closest classical template to "sum the pieces u over their levels u^2 and gain from the level
+  average". Iwaniec's Thm 3 obtains cancellation in Σ_{Q∈𝒬} Σ_{c≡0 (Q)} K(n,n;c)/c beyond Weil by exploiting the averaging
+  over Q (it is essentially a large sieve over the set of c having a divisor in 𝒬).
+  Our sum Σ_u w(u) P_u has levels u^2, multiplicative weights, and D fixed, whereas Iwaniec has levels pN with p prime ∼ P.
+  Two things must be checked in Iwaniec's Thm 3 (not yet read in the original): whether it survives
+  (i) square levels u^2 in place of prime multiples pN, and (ii) weights w(u) not ≥ 0.
+  Most useful for (b) (u ≤ H^{1/3}, where the level set is thin); possibly for (c).
+
+## 5. F. Waibel — Fourier coefficients of half-integral weight cusp forms and Waring's problem. arXiv:1706.09320 (Ramanujan J., 2018) [PDF]
+Thm 1. Take an orthonormal basis {φ_j = Σ a_j(n) e(nz)} of S_{k/2}(N, χ) for odd k ≥ 5, or of U^⊥ (the complement of the
+  theta subspace) for k = 3. Write n = t v^2 w^2 with t squarefree, v | N^∞, (w,N) = 1, χ quadratic. Then
+  Σ_j |a_j(n)|^2 ≪ n^{k/2−1} ( t^{3/7}v^{6/7}(n,N)^{1/7}/N^{2/7} + t^{3/8}v^{3/4}(n,N)^{1/4}/N^{1/8} + v(n,N)/N + 1 ) (nN)^ε.
+  For general χ the third term is multiplied by (c_χ rad c_χ)^{1/4}. The proof extends Iwaniec/Duke with Blomer's
+  (Acta Arith. 114 (2004)) uniform-level treatment of twisted Kloosterman sums at prime-power moduli.
+Assessment: this is an explicit polynomial saving in the level N for half-integral-weight coefficients: the basis sum is
+  ≪ n^{k/2−1}·(... + 1), with the per-level saving N^{−1/8} to N^{−2/7}. In the "θ(z) → θ(u^2 z), level 4u^2" picture (the
+  Templier–Tsimerman/Blomer route) this is the kind of level-uniform input needed.
+  Limitations: holomorphic weight ≥ 3/2 only (not the weight-1/2 Maass forms of the D < 0 Weyl sums); the theta subspace is
+  excluded for k = 3; the index relevant to us, n ~ |D|h^2, is not squarefree (the v, w factors enter).
+  Weight-1/2 Maass analogue uniform in N: NOT found.
+
+## 6. Q. Sun — Uniform bounds for Kloosterman sums of half-integral weight with applications. arXiv:2305.19651, Forum Math. 37 (2025) 75–109 [PDF §1]; companion "same-sign case" arXiv:2309.05233 [abs]
+Setting: "admissible" weight ±1/2 multipliers ν on Γ0(N), which include the theta multiplier and its quadratic twists.
+  Admissibility requires level lifting to (Γ0(M), ν') and an average Weil bound over N | c ∈ [y,x].
+Thm 1.2 (m̃ > 0 > ñ, Bm̃ and Bñ squarefree or coprime to M):
+  Σ_{N|c≤X} S(m,n,c,ν)/c = Σ_{exceptional r_j} τ_j(m,n) X^{2s_j−1}/(2s_j−1) + O_{ν,ε}((|m̃ñ|^{143/588} + X^{1/6}) |m̃ñX|^ε).
+Thm 1.3: ≪ |m̃ñ|^{131/588−θ/2} X^θ + |m̃ñ|^{143/588} + X^{1/6}. Thm 1.4 removes the squarefree condition, at a cost
+  A_u(m,n) with u_m, u_n | M^∞.
+Assessment: the uniformity is in m, n (i.e. h and D) and X, but the implied constant depends on ν and Γ0(N); the level is
+  not tracked. It is useful as the D < 0 (opposite-sign, S(h^2, D)) statement at a FIXED level. To use it for levels u^2 the
+  N-dependence would have to be redone. The companion handles mn > 0 (D > 0).
+
+## 7. N. Andersen, W. Duke — Modular invariants for real quadratic fields and Kloosterman sums. arXiv:1801.08174, Algebra & Number Theory 14 (2020) 1537–1575 [PDF §1]
+Thm 1.3 (Kohnen plus space, level 4). k = ±1/2, (−1)^λ m = v^2 d', (−1)^λ n = w^2 d with d, d' fundamental discriminants,
+  not both 1:
+  Σ_{4|c≤x} S_k^+(m,n,c)/c ≪ (x^{1/6} + (dd')^{2/9}(vw)^{1/3}) (mnx)^ε.
+  The proof uses a Kuznetsov formula for the plus space plus Young's Weyl-type hybrid subconvexity (1405.5457). Under
+  Lindelöf the exponent 2/9 becomes 1/6.
+Assessment: this is the positive-discriminant (D > 0, Salié-type) analogue with explicit polynomial dependence on the
+  square parts v, w, i.e. on frequencies h. That dependence is what the h-sum in P_u needs, and it treats non-fundamental
+  indices. The level is only 4, and the paper notes that DFI's Γ0(4q) version (IMRN 2012, known) saves only n^{−1/1330}.
+  Relevant for positive D at u = O(1), and as a template for tracking square parts.
+
+## 8. S. Drappeau — Sums of Kloosterman sums in arithmetic progressions, and the error term in the dispersion method. arXiv:1504.05549, Proc. London Math. Soc. 114 (2017) [PDF §2]
+Thm 2.1 (Deshouillers–Iwaniec type, with congruences). Let q, c0, d0 with (c0 d0, q) = 1, b_{n,r,s} supported on
+  (0,N] × (R,2R] × (S,2S], and g smooth in (c,d,n,r,s). Then
+  Σ_{c≡c0, d≡d0 (q), (qrd,sc)=1} Σ_{n,r,s} b_{n,r,s} g(c,d,n,r,s) e(n \overline{rd}/(sc))
+    ≪ (qCDNRS)^{ε+O(ε0)} q^{3/2} K ||b||_2,
+  where K^2 = qCS(RS+N)(C+RD) + C^2 DS √((RS+N)R) + D^2 NRS^{-1}.
+  The author notes he made no attempt to optimise q; the loss comes from completing to modulus scq.
+  Theorems 1.1–1.6: a power saving in the Titchmarsh divisor problem under GRH, and explicit Siegel-zero contributions.
+Assessment: this is the canonical tool for dispersion with congruence-restricted smooth variables beyond PV, but the loss q^{3/2}
+  is fatal for q ~ u large. Useful only if the u-congruence can be moved into the coefficients b (it can, at loss
+  ||b||_2) and the remaining congruence modulus is small, e.g. in (c) after factoring u = n1 n2 with the congruence mod a
+  small n1.
+
+## 9. T. Wright — Trilinear Kloosterman fractions II: subdyadic intervals and nearly balanced convolutions. arXiv:2608.27732 (27 Aug 2026) [abs]
+For α_m (m ∼ M) and β_n (n ∼ N) with β equidistributed to small moduli, it bounds sums over moduli q ∼ Q = X^{1/2+ε}
+  (Fouvry–Radziwiłł "nearly balanced convolutions"). With N = X^{1/2+δ} and M = X^{1/2−δ}, the admissible range improves
+  from δ < 1/112 to δ < 1/68. Sharper trilinear Kloosterman-fraction bounds hold on subdyadic intervals.
+Assessment: (c) exactly this "balanced product beyond the square-root barrier" regime, for convolutions averaged over moduli
+  q just above X^{1/2}, with arbitrary coefficients. Our analogue replaces α * β by w(u) with u = n1 n2 and the Kloosterman
+  fraction by e(c ū/q). Matching to root-valued numerators is unverified.
+
+## 10. A. Granville, X. Shao — Bombieri–Vinogradov for multiplicative functions, and beyond the x^{1/2}-barrier. arXiv:1703.06865 (Adv. Math. 2019) [abs]
+Equidistribution of general (1-bounded) multiplicative functions in APs on average over moduli q ≤ x^{20/39−δ} for a fixed
+  residue class. The abstract explains why the prime-number proofs do not transfer.
+Assessment: (a)/(c) the only general "multiplicative weights beyond 1/2" statement found. Our weights w(u) ≈ 1 * χ_D are far
+  more structured (a divisor-type convolution), so this is a benchmark for what a structure-free argument gives, not a tool.
+
+## 11. B. Kerr, I. E. Shparlinski — Bilinear sums of Kloosterman sums, multiplicative congruences and average values of the divisor function over families of APs. arXiv:1811.09329 (Res. Number Theory 2020) [abs]
+Σ_{n≤x, n≡a (q)} τ(n) for q ≥ x^{2/3}, with only minimal averaging over a (an interval of reduced residues or an arbitrary
+  set). Method: Blomer's 2008 Voronoi treatment plus KMS/Shparlinski bilinear Kloosterman bounds plus a second Voronoi,
+  reducing to multiplicative congruences.
+Assessment: (target 2) this is the closest "divisor function in APs beyond the classical level with thin averaging" result,
+  but for τ(n), not τ(n^2 − D). Target 2 proper (τ(n^2 + 1) in APs n ≡ a (q) with q near x^{1/2}): NOTHING found beyond
+  the GM/Blomer/Templier–Tsimerman items already known.
+
+## 12. M. P. Young — Weyl-type hybrid subconvexity bounds for twisted L-functions and Heegner points on shrinking sets. arXiv:1405.5457, JEMS 19 (2017) [abs]
+Weyl-type subconvexity for L(1/2, f ⊗ χ_d), uniform in the spectral parameter and in d. Consequence: explicit counts of
+  Heegner points of large odd discriminant in shrinking sets (level 1).
+Assessment: this is the engine behind Andersen–Duke's explicit dependence (§7). It is level-1 only, so it does not by itself give
+  level u^2. It is relevant if P_u can be reduced to level-1 Heegner points of discriminant 4u^2 D in a u-dependent shrinking
+  region (the region scaled by 1/u). Speculative.
+
+## 13. L. Clozel, H. Oh, E. Ullmo — Hecke operators and equidistribution of Hecke points. Invent. Math. 144 (2001) 327–351 [unverified here; abstract/secondary]
+Effective equidistribution of Hecke points, including CM points of a FIXED CM field with varying order (conductor → ∞) at
+  level 1. The rate comes from Hecke operator norms (≈ n^{−1/2+θ} on L^2_0, modulo Sobolev norms).
+Assessment: Heegner points of discriminant 4u^2 D at level 1 are the conductor-u CM points of Q(√D), i.e. Hecke translates of
+  the fixed CM set. This gives the "unrestricted" equidistribution in u with a power rate. Our pieces add the level u^2 /
+  congruence m ≡ 0 (mod u) selection, which is exactly what COU does not see. Structural remark only.
+
+## 14. P. Humphries, M. Radziwiłł — Optimal small scale equidistribution of lattice points on the sphere, Heegner points, and closed geodesics. arXiv:1910.01360, CPAM 75 (2022) [abs]
+The variance of Heegner-point / closed-geodesic counts in shrinking balls and annuli, on average over discriminants.
+Assessment: a second-moment (variance) statement, averaged over the discriminant, not over the level. It is the right genre
+  for "Σ_u |P_u|^2"-type bounds, but the averaging variable does not match. Low relevance.
+
+## 15. Also checked, set aside
+- Dunn, arXiv:1708.03003 (RNT 2018): uniform sums of half-integral-weight Kloosterman sums, eta multiplier, level 1; improves
+  Ahlgren–Andersen in the mn-aspect [abs]. Level 1, eta multiplier: not our multiplier.
+- Blomer–Harcos–Michel, Forum Math. 19 (2007), Appendix 2 (Mao): a uniform upper bound for Fourier coefficients of holomorphic
+  half-integral-weight cusp forms via Waldspurger + Baruch–Mao [unverified]. A possible level-uniform alternative to §5.
+- Blomer, "Uniform bounds for Fourier coefficients of theta-series with arithmetic applications", Acta Arith. 114 (2004)
+  [unverified]. Used by Waibel for the level uniformity.
+- Musicantov–Zehavi, arXiv:2112.07494: sectorial equidistribution of roots of x^2+1 mod p (non-spherical Poincaré series on
+  Γ\SL2(R)). Fixed polynomial, prime moduli.
+- Bordignon–Bortolotto–Kerr, arXiv:2303.03768 (ANT 2025): Weyl sums with multiplicative coefficients and joint
+  equidistribution of roots and polynomial values [abs]. No level/coefficient uniformity.
+- Kuperberg, arXiv:2301.06095 (IJNT 2025): sums of Hardy–Littlewood singular series along APs and with smooth weights. Only
+  linear k-tuples. Target 6 (polynomial singular series off-diagonal via automorphic methods): still NOTHING found.
+- Fouvry–Ganguly–Kowalski–Michel, arXiv:1301.0214: Gaussian distribution of τ in residue classes mod p. Not relevant.
+- Dunn–Zaharescu, arXiv:1903.03416: short sums of products of Salié sums below √p (prime modulus). Fixed modulus.
+- Kerr–Shparlinski–Wu–Xi Thm 3.2; Motohashi-type averages: τ(n) only.
+
+---------------------------------------------------------------------------------------------------------------------------
+## Ranked lists
+
+(a) u ≈ H^{1/2} threshold (Kloosterman sums after C–S at the critical balance)
+  1. Blomer–Pascadi 2607.24311, Thm 1.1: c^{−1/32} at N = √c for all moduli, nontrivial down to N > c^{13/28}.
+  2. Pascadi 2511.08445, Thm 1.1/1.2: composite moduli, saving from a balanced factorisation of the modulus.
+  3. Kerr–Shparlinski–Wu–Xi 2204.05038, Thm 2.1: one smooth variable, general q, explicit gcd(a,q) dependence.
+  4. Granville–Shao 1703.06865: benchmark only.
+  Caveat for all four: they need the modulus fixed and the coefficients free. Our numerators are built from roots tied to
+  [d1,d2]. The first check is whether the u-dispersion can be written as Σ_{u1,u2} α β S(a u1, u2; c) or with a smooth k.
+
+(b) small end u ≤ H^{1/3} (level-uniform automorphic input on Γ0(u^2))
+  1. Iwaniec 1987 Thm 3 (sums of Kloosterman sums over varying levels), as used in Duke 1988 §5. Next step: read Iwaniec's
+     Thm 3 and check square levels u^2 and signed weights.
+  2. Waibel 1706.09320, Thm 1: explicit N^{−1/8} to N^{−2/7} saving for half-integral coefficients at level N (holomorphic
+     only).
+  3. Blomer–Pascadi 2607.24311, Thm 1.6: level-uniform exceptional-spectrum large sieve, to remove the θ-loss in a GM Type I
+     argument at level u^2 d.
+  4. Sun 2305.19651 (D < 0) and Andersen–Duke 1801.08174 (D > 0): uniform in h and D with explicit square-part dependence,
+     but at a fixed level. They would need redoing in N.
+  5. Young 1405.5457 / Clozel–Oh–Ullmo: level-1 reformulation (conductor-u CM points in shrinking sets). Speculative.
+
+(c) balanced products u = n1 n2 (norms of ideals) in between
+  1. Pascadi 2511.08445, Thm 1.2: the saving is driven by a balanced factorisation of the modulus.
+  2. Wright 2608.27732 (with Bettin–Chandee, known): nearly balanced convolutions over moduli X^{1/2+ε}.
+  3. Drappeau 1504.05549, Thm 2.1: DI quintilinear sums with congruences, usable if the congruence modulus is a small factor n1.
+  4. Iwaniec level-averaging (as in (b)), if the level set {u^2 : u = n1 n2} can play the role of {pN}.
+  5. Kerr–Shparlinski 1811.09329: the method template (Voronoi → bilinear Kloosterman → multiplicative congruences).
+
+Not found (honest negatives):
+- a Weyl-sum bound for quadratic roots uniform in a leading coefficient or level that is a power of H;
+- τ(n^2 − D) in APs to moduli near x^{1/2};
+- a half-integral-weight Kuznetsov bound for Salié sums with the level tracked;
+- a spectral large sieve for Kloosterman sums whose numerators are roots of quadratic congruences;
+- Montgomery–Soundararajan-type off-diagonal results for polynomial singular series.
+
+## Sources
+- https://arxiv.org/abs/2607.24311  https://arxiv.org/abs/2511.08445  https://arxiv.org/abs/2204.05038
+- https://arxiv.org/abs/1706.09320  https://arxiv.org/abs/2305.19651  https://arxiv.org/abs/2309.05233
+- https://arxiv.org/abs/1801.08174  https://arxiv.org/abs/1504.05549  https://arxiv.org/abs/2608.27732
+- https://arxiv.org/abs/1703.06865  https://arxiv.org/abs/1811.09329  https://arxiv.org/abs/1405.5457
+- https://arxiv.org/abs/1910.01360  https://arxiv.org/abs/1708.03003  https://arxiv.org/abs/2112.07494
+- https://arxiv.org/abs/2303.03768  https://arxiv.org/abs/2301.06095  https://arxiv.org/abs/1301.0214
+- https://arxiv.org/abs/1903.03416
+- https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf (Duke, Invent. Math. 92, 1988)
+- https://link.springer.com/article/10.1007/s002220100126 (Clozel–Oh–Ullmo)
+- https://users.renyi.hu/~gharcos/burgess.pdf (Blomer–Harcos–Michel)
