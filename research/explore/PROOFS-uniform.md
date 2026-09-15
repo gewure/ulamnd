@@ -415,3 +415,40 @@ NUMERICAL SANITY TEST OF STEP 4′(d) (dispersion-test.ts, f = t²+t+1, moduli d
 S/(U·Σω) = 0.923, 0.911, 0.899, 0.910, 0.886 for U = K/8, K/2, 2K, 8K, 32K (k = 1) and 0.82–0.91 (k = 3): the dispersion square is its diagonal
 to within 20% at every U, including U = K/8 below the Weil range. No hidden off-diagonal main term (the mean subtraction ε_d(k) = c_d(k)/φ(d) is
 right), and the true off-diagonal is far below the Weil bound K³ — the obstruction at U < H^{1/2} is in the method, not in the arithmetic.
+
+## 10. M1, first task: the dispersion square after Poisson (15 Sep, late) — DERIVATION (heuristic where marked)
+Poisson in u modulo q (u ≡ x mod q, (x,q) = 1): Σ_{(u,q)=1} φ(u/U) e(aū/q) = (U/q) Σ_{m∈Z} φ̂(mU/q) S(a, m; q), S(a,m;q) = Σ*_{x mod q} e((a x̄ + m x)/q).
+Inserting this into the square of §9 and undoing the sum over the roots:
+    S = Σ_{d₁,d₂} β(d₁) β̄(d₂) (U/q) Σ_m φ̂(mU/q) T_m(d₁,d₂),   T_m(d₁,d₂) = Σ*_{x mod q} e(mx/q) ρ°_k(d₁; x̄) \overline{ρ°_k(d₂; x̄)},  q = lcm(d₁,d₂),
+exactly (ρ_k(d; x̄) = Σ_{r∈R_d} e(k x̄ r/d) depends on x mod d only, so the pair lives mod q). Only |m| ≤ M₀ = q H^ε/U matter.
+m = 0: orthogonality over x mod q gives the diagonal d₁ = d₂ (the U N/k³ term of §9) and nothing else after the mean subtraction.
+LOCAL STRUCTURE of T_m (m ≠ 0). By CRT, with ρ_h(d) = Π_{p|d} ρ_{h·\overline{(d/p)}}(p) and ρ_t(p) = e(ts_p/p) + e(−ts_p/p), s_p² ≡ D (mod p):
+ • p | d₁, p ∤ d₂: factor Σ*_x e(m′x/p)(e(k′s_p x̄/p) + e(−k′s_p x̄/p)) = S(k′s_p, m′; p) + S(−k′s_p, m′; p);
+ • p | d₂, p ∤ d₁: the conjugate analogue;
+ • p | g = (d₁,d₂): Σ*_x e(m′x/p) ρ_{k′x̄}(p) \overline{ρ_{k″x̄}(p)} = Σ_{±,±} S((±k′ ∓ k″)s_p, m′; p), where k′ ≡ k″ gives Ramanujan sums (−1).
+ (m′, k′, k″ are the twists by the complementary moduli.) Equivalently ρ_t(p) is a normalised Salié sum (T(a,b;p) = ε_p √p (b/p) Σ_{y²≡4ab} e(y/p)).
+ Weil: |T_m| ≤ 4^{ω(q)} q^{1/2}, which reproduces the N³/k of §9.
+THE SAVING NEEDED. |B_k(I)| ≤ U Y H^{−δ} needs S ≤ U Y² H^{−2δ}; Weil gives S ≈ Y³ (k = 1). So below u = H^{1/2} one needs a saving of Y/U = H^{1−2a}
+(U = H^a) in Σ_{d₁,d₂} β₁β̄₂ (U/q) Σ_{0<|m|≤M₀} φ̂(mU/q) T_m(d₁,d₂) over the Weil bound: H^{0.48} at a = 0.26, → 1 at a = 1/2.
+WHERE IT COULD COME FROM (heuristic). The moduli q = lcm(d₁,d₂) run over a range of size ≈ Y²; Linnik–Selberg-type cancellation for
+Σ_q S(a,m;q)/q (Kuznetsov, spectral large sieve) saves about (moduli range)^{1/2} ≈ Y over Weil, which exceeds the needed Y/U for every U ≥ 1.
+Three things stand in the way, and they are the actual content of M1: (i) the numerators ±k s_p are the square roots of D modulo the prime
+factors, not a fixed integer — this is the half-integral-weight structure (the Weyl sums of roots are Salié sums, and their spectral theory is
+Proskurin's Kuznetsov formula, the input of DFI 2012 for u = 1); (ii) the coefficients are bilinear in (d₁, d₂) with q = lcm(d₁, d₂), not a
+function of q, and the twists k′, m′ couple the factors; (iii) the exceptional spectrum and the large range m ≤ q/U (the Kloosterman sums are
+far from the transition range only when U is large). A reasonable first goal: the case g = (d₁,d₂) = 1, where T_m factors into a product of
+two Salié-type sums over independent moduli d₁, d₂ twisted by d̄₂, d̄₁ — a bilinear form in Kloosterman/Salié sums with the moduli as
+variables.
+ADVERSARIAL READING OF §9 (15 Sep, late; fresh model instance): "the extension to u > H^{1/2+ε} is correct"; no fatal error. Numerical checks by
+the reader: CRT identity (7486 cases, all g > 1 pairs, 0 failures); (c, d₁′d₂′) = 1 and the degenerate claim (no counterexample, d ≤ 300, k < 60);
+Lemma finfourier to 1e−11 including N ≥ d′; real-Y correction ≤ 0.42 ω; mean of ρ_k over units = ω c_{d′}(k)/φ(d′); c_k and ∂_N c_k bounds
+(ratio ≤ 0.993); smooth incomplete Kloosterman ≤ 0.28 (U/q+1) q^{1/2} τ(q)(a,q)^{1/2}; the d-sums; and the dispersion with the REAL weights
+β = λc_k/(4d²) (N = 40, d ≤ 600, U = 200 … 20000): S/diagonal = 0.64–0.77. Gaps (minor), fixes ADOPTED:
+ (1) the factor (k,q)^{1/2} was dropped after (kc,q)^{1/2} ≤ (k,q)^{1/2} g^{1/2}: (k,q) ≤ (k,d₁)(k,d₂) and splitting by e = (k,d) gives
+     Σ_d b_k(d) d^{1/2} (k,d)^{1/2} ≪ τ(k) N^{3/2} k^{−1/2}; same for the g-sum (even the crude k^{1/2} only changes H^{1−ε+η} to H^{1−ε+3η/2}).
+ (2) δ = ½ min(δ₁, η − 3ε′, ε − η − δ₁ − ε″, 1/6 − ε/2 − δ₁ − ε″); with η ≠ ε/2, paper III's Step 4 for U ≥ H^{2/3+ε} gives H^{1−3ε/2+η+3ε′} (fine).
+ (3) after folding, the sums run over d′ ∈ (2k, Z]; the single-exponential and ε₁ε₂ terms carry τ(k), (k,d)^{1/2}, absorbed in H^{ε″}.
+ Cosmetic: Cauchy–Schwarz over the intervals I_j saves J^{1/2}; Step 5′ re-derived, all bounds check ("H/u ≤ Y₀ < d′" true but unnecessary).
+ OVERSTATEMENT CORRECTED: the Weil term is NOT the only obstruction below H^{1/2}; Step 5′'s remainder ≪ Y₀ H^{1/2+3ε′} also needs Y₀ < H^{1/2}.
+ That one is not intrinsic: an error t^{1/3+ε}d′^ε in Lemma AP(i) (the divisor problem for ζ(s)L(s,χ)), or averaging E_{d′}(t) over d′, removes it.
+STATUS OF §9: one adversarial reading passed (model instance). Not yet in paper III.
