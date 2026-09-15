@@ -40,20 +40,39 @@ Case u > 1: orbits with ṽ_j ≤ (X|D|/u²)^{1/3} are in case (a) throughout; p
     RESULT (elementary, u tracked): T^{(u)}_k(X) ≪ X^{1+ε}·min(1, X^{1/3}u^{-5/3}|D|^{-1/6}) + [pairs in orbits with ṽ_j > V]
     — nontrivial only for u ≪ X^{1/5}, and then the saving is X^{-(1/5 − ...)}: for u ≤ X^{1/5−δ} the whole sum is in regime (a)
     up to the orbit count and T^{(u)}_k ≪ X^{3/4+ε}u^{5/4}|D|^{1/8}·(k, u²·)^{1/2}·(1 + kṽ/u³)^{...}.   [bookkeeping to redo cleanly]
-Regime map (the structural conclusion, 15 Sep 15:20):
-  (I)   u ≤ X^{1/5}:   the modular parametrisation (Kloosterman moduli u²c') carries all pairs; Hooley's Weil bound with a
-                       loss u^{5/4}; the spectral (Kuznetsov, level u², DI large sieve) version should replace 3/4 by 2/3 and
-                       reduce the loss — this is regime (I)'s programme (Task B2 proper).
-  (II)  X^{1/5} < u < X^{1/2}: most pairs sit in orbits whose only small element is the pair itself — the modular structure
-                       at level u² is present but the Weil/spectral bounds are worse than trivial there (moduli c ≈ u² ≥ length).
-  (III) u ≥ X^{1/2}:  EVERY pair is its own orbit minimum; no cancellation can come from Γ₀(u²). The Weyl sum is
-                       Σ_{n≤X} Σ_{r²≡D(n)} e(k ū r/n) with ū = u^{-1} mod n: a sum of "Kloosterman fractions" in the modulus
-                       n with the fixed numerator u. Averaging over u ≫ X² (independence of u mod n across coprime n)
-                       gives the square-root size in mean square — that is part III's Type-II regime u > H^{2/3} = Y²·...
-                       seen from here. For individual u in [X^{1/2}, X²] nothing is available; Conjecture U (N2) says the
-                       cancellation is there (u = 10⁶ at X = 3·10⁵ ⇒ T/√X ≤ 0.53).
-The gap X^{1/5} ≲ u ≲ X² is exactly paper III's gap between Theorems small/smallu and typeII, now with its cause named:
-the parametrising group's level u² exceeds the length scale √X of Hooley's parametrisation.
+Regime map — CORRECTED 15 Sep 16:00 after two numerical checks (orbit-isolation and orbit-minima, D = −4, X = 3000):
+  * isolated pairs (no other element of the G_u-orbit with modulus ≤ X): 0% for u ≤ 60, 0.3% at u = 100, 10% at 400, 50% at
+    800, 100% from u = 1600 = X/√|D| on. So regime (III) begins at u ≍ X/|D|^{1/2}, NOT at X^{1/2} (the first draft of this
+    section said √X: it used the Minkowski bound ṽ ≤ u√|D| for ALL orbits, but the relevant orbits have ṽ_j = n ≤ X and
+    C_j = √(Xn/|D|)/u < 1 for all n ≤ X iff u > X/√|D|).
+  * orbit minima: median minimum ≈ u|D|^{1/2}/2; pairs with minimum ≤ V₀ = (X|D|/u²)^{1/3}: 100% (u ≤ 3), 50% (u = 7),
+    4% (u = 15), 0% (u ≥ 30); X^{1/5} = 5. So the Weil-effective range is u ≲ X^{1/5}, as derived. The number of orbits met by
+    the pairs is far below u·h (133 at u = 400): most G_u-orbits have every modulus > X.
+  (I)   u ≤ X^{1/5}:        Hooley on Γ₀(u²) with loss u^{5/4}; spectral version to improve.
+  (II)  X^{1/5} < u < X/√|D|: orbit structure present but Weil-ineffective (Kloosterman moduli u²c' vs interval lengths √(X/ṽ)).
+  (III) u ≥ X/√|D|:        every pair is its own orbit's only small element.
+Reciprocity form of regime (III) (16:10). With ū = u^{-1} (mod n), n̄ = n^{-1} (mod u) and 1/(nu) ≡ n̄/u + ū/n (mod 1):
+    e(k ū r/n) = e(−k r n̄/u) · e(k r/(nu)),
+so  T^{(u)}_k(X) = Σ_{n≤X} Σ_{r²≡D (n)} e(−k (r n̄ mod u)/u) · e(kr/(nu)),  the second factor of phase ≤ k/u·(r/n).
+INTERPRETATION: j(Q) := −r n̄ mod u is the index of the Hecke neighbour (z_Q + j)/u that is the dilated point: x = ū r =
+(r + n j)/u with j ≡ −r n̄ (mod u); so e(kx/n) = e(k j/u) e(kr/(nu)). The regime-(III) Weyl sum is the character sum
+Σ_{level-one pairs, n ≤ X} e(k j(Q)/u) of the "Hecke labels" j(Q) ∈ Z/u — for u prime ≫ X, the reductions mod u of the ≍ X
+Farey-type fractions −r/n of height ≤ X. For individual u ≫ X this is a Kloosterman-type sum with variables ≤ X ≪ √u,
+where no cancellation is known in general (sum-product territory); Conjecture U (N2) says it is there.
+Averaging over u (16:20; heuristic, Weil for incomplete Kloosterman sums mod nn′ over u ∈ [U, 2U]):
+    (1/U) Σ_{u~U} |T^{(u)}_k(X)|² ≪ X + X³/U      (diagonal X; off-diagonal pairs (Q,Q′) give (nn′)^{1/2+ε}/U each when nn′ > U),
+i.e. square-root cancellation on average for U ≥ X², a saving for U > X. This is part III's Type II seen from here.
+WHAT THE WINDOW NEEDS (16:30). In Theorem A′ the window has moduli V ∈ (Y, u²Y log H] at length Y with u ≤ Y²; the small
+moduli d ≤ Y are done by Theorem small uniformly (log saving). So regime (III) (u ≥ V) never occurs for the window moduli
+(V ≥ Y ≥ ... and V ≥ u only fails for V < u, possible only when u > Y). Map for the window:
+  - u ≤ Y^{1/5}: all V ≥ Y ≥ u⁵ are Weil-effective ⇒ Hooley's bound with u tracked closes the window: the partial theorem
+    (Task 3.2, range u ≤ H^{1/6−δ}).
+  - Y^{1/5} < u ≤ Y^{1/2}: u² ≤ Y ≤ V, orbit structure everywhere, Weil-ineffective for V < u⁵: spectral level-u² needed.
+  - u > Y^{1/2}: the bottom of the window (Y < V < u²) has isolated pairs; the top (V ≥ u²) has the structure. Averaging
+    over u helps only for V < u (needs u > Y): E_u|T|² ≪ V + V³/u.
+  The gap Y^{1/5} < u ≤ Y² is the whole difficulty; its two faces are (a) level-u² spectral theory with uniform constants
+  (Kuznetsov for Γ₀(u²), DI large sieve; Ngo/Pitt-type bounds with q = u² explicit) for V ≥ u², and (b) the isolated-pair
+  regime for V < u², where only the mod-u character-sum formulation and averaging over u are available.
 
 ## 3. Next (in order)
 3.1 Redo §2(a) rigorously as a Proposition: T^{(u)}_k(X) ≪_ε X^{3/4+ε} u^{5/4} |D|^{1/8} (k, u²)^{1/2}·(1 + k|D|^{1/2}/u²) for

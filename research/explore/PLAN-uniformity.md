@@ -120,13 +120,14 @@ Deshouillers–Iwaniec/Pitt bound for sums of Kloosterman sums of Γ₀(q), q = 
 (iii) The λ(d)-weight of the pieces is harmless: λ = 1 * g with g(p) = 4/(p−4), so Σ_d λ(d)ρ_k(d) = Σ_e g(e) W_k(x; e) needs the
     Weyl sums with the divisibility e | d, which is DFI's/Ngo's W_h(x, N) with N = e and Σ_e g(e) e^{-1+...} convergent.
 
-## 6. The regime map (15 Sep 15:20; derivation in PROOFS-uniform.md §2)
-(I) u ≤ X^{1/5}: Hooley's parametrisation on Γ₀(u²) carries the pairs; Weil gives X^{3/4}u^{5/4}; spectral version to do.
-(II) X^{1/5} < u < X^{1/2}: modular structure present but the Kloosterman moduli u²c' exceed the interval lengths √(X/ṽ).
-(III) u ≥ X^{1/2}: every pair (n, x) is the minimum of its own Γ₀(u²)-orbit — no cancellation from level u² at all; the sum is
-     a Kloosterman-fraction sum Σ_n Σ_r e(kū r/n) with fixed numerator u; averaging over u ≫ X² gives √X in mean square
-     (= part III's Type II). Conjecture U says individual u work too (N2). The proved-range target for now: (I).
+## 6. The regime map (15 Sep 16:30; derivation and two numerical checks in PROOFS-uniform.md §2)
+For Weyl sums with moduli ≤ X: (I) u ≤ X^{1/5} Hooley/Weil on Γ₀(u²) with loss u^{5/4}; (II) X^{1/5} < u < X/√|D| orbit
+structure present, Weil ineffective; (III) u ≥ X/√|D| every pair isolated in its orbit, Weyl sum = character sum of the
+Hecke labels j(Q) = −r n̄ mod u (reciprocity), square-root cancellation on average over u ≥ X² (Type II), open for individual u.
+For the WINDOW (moduli V ∈ (Y, u²Y log H], u ≤ Y²): u ≤ Y^{1/5} is closable now (partial theorem, u ≤ H^{1/6−δ});
+Y^{1/5} < u ≤ Y^{1/2} needs level-u² spectral theory with uniform constants; u > Y^{1/2} has an isolated-pair part V < u².
 
 ## 4′. Log
+- 15 Sep 16:30: regime map corrected (III starts at u ≍ X/√|D|; orbit-minima and isolation tests: orbit-minima.py); reciprocity/Hecke-label form; window-specific map.
 - 15 Sep 15:20: regime map §6; PROOFS-uniform.md started (setup verified, elementary bound with u tracked, three regimes).
 - 15 Sep 13:00: file created; literature facts above from arXiv 2107.13301 (Ngo) which quotes Hooley, Bykovskii, DFI, Tóth.
