@@ -610,3 +610,7 @@ only H^{O(η)}. Candidate inputs: additive combinatorics for Kloosterman fractio
 for composite d (Heath-Brown; saving when d has a factor near d^{1/3}: §12.5), averaging over d. Literature follow-up running. The same shape
 (bilinear Kloosterman fractions at the completion threshold) is what Blomer–Pascadi 2607.24311 and Kerr–Shparlinski–Wu–Xi attack for Kloosterman
 sums; for fractions with smooth variables the problem may be easier.
+§15 numerics (kfraction-test.ts, data/kfraction-test.txt; D = −4, squarefree d ∈ [2·10⁴, 4·10⁴] with all primes ≡ 1 mod 4, all roots r, N = d^β):
+rms |S|/√(#terms) = 0.90, 0.92, 0.83 and max |S|/#terms = 0.053, 0.045, 0.027 for β = 0.40, 0.45, 0.49 (N² = d^{0.8…0.98}). The smooth bilinear
+Kloosterman fractions below the completion threshold show square-root cancellation, like random signs; no arithmetic obstruction — only
+a missing proof, as for every other threshold so far.

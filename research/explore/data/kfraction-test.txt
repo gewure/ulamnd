@@ -1,0 +1,3 @@
+d in [20000,40000], beta=0.4: samples=156, last N^2-terms=800, rms|S|/sqrt(terms)=0.900, max|S|/terms=0.0526
+d in [20000,40000], beta=0.45: samples=156, last N^2-terms=2178, rms|S|/sqrt(terms)=0.923, max|S|/terms=0.0454
+d in [20000,40000], beta=0.49: samples=156, last N^2-terms=4802, rms|S|/sqrt(terms)=0.833, max|S|/terms=0.0267
