@@ -979,3 +979,16 @@ de la Bretèche–Drappeau §8 (Lemmas 8.2–8.4: roots and moduli in progressio
 cusp ∞ for all q and level-independent coefficients — both fail for our twist); Iwaniec 1987 Thm 3 / Duke 1988 (moduli divisible by the level); Pascadi's remark on
 levels with a divisor ≍ √q (exceptional spectrum only). STATUS: the band needs a new spectral input (a DI-type level-averaged large sieve at cusp 0 / Γ(x)-type
 twists with level-dependent frequencies), which does not exist in the literature as far as the search reaches.
+
+## 30. SECOND READING of Theorem M (16 Sep; fresh model instance; scripts reader-thmM2/book.py, mellin.py, mellin2.py, r3exact.py)
+VERDICT: "complete once some fixes are made" — nothing fatal, no real gap; bookkeeping/write-up errors and imprecisions, each with a local fix. Independently re-derived:
+reduction (k = 0 cancels; (k,d) ≤ K₁ < d), Lemma S sum-first (∫|F̃| ≪ (b_k + Y/(kd))log H; moments with T₀^J; numerics I₀/envelope ≤ 0.05, I₂/(env·T₀²) ≤ 1.9), uniformity in t
+(only R2 depends on t), decomposition (γ Euler factors), covering (margins 0.199, 0.198), R2 (saving 3δ − 4η − 1.5(1−a)δ ≥ 1.805δ), R3 ((ν,d) = (k,d)e; exact S₂ ratio ≤ 0.025),
+R4 (unit numerator; exponents 0.381; saving a/16), Lemma B (eq. (5) for composite m), Lemma E (incl. non-unit squarefree case), bookkeeping (minimum savings: Step 3 5·10⁻⁵,
+k > K₁ 10⁻⁴, small moduli 4.7·10⁻⁴, n₃ 5·10⁻⁴, ramp 5·10⁻⁴, R2 1.8·10⁻³, R3 1.43·10⁻³, R4 0.029), glue to paper III (complementary sharp cut-offs, δ = ε/11 at ε = 0.03).
+FINDINGS (all merged into PAPER-V-thmM.md): (1) Step 3 per block H^{1−η+3ε′} times O(log H) blocks: take ε′ = η/7 (or δ_M < η/2); ceiling δ_M < η from k > K₁. (2) withdrawn
+statements still in the draft body — merged text written. (3) Lemma kloost used with shifted/wider supports and (1+|t|)² — restated as Lemma K. (4) blocks give a ∈ [0.46, 0.54].
+(5) mean terms after Mellin ≪ UY^δ(log H)^C (harmless). (6) ramp cost H^{2κ} (J = 2). (7) R3: s = −1/2 loses Y^{δ/2}. (8) drop H^ε in the small-moduli bound (Shiu).
+(9) |u₀| ≤ m/2 (least absolute residue). (10) the log in Lemma S needs the total-variation bound for |t| ≤ T₀; b_k ≤ π²Y/(kd). (11) n₃ tail ≪ H^{1−δ₃/2+ε}.
+STATUS: Theorem M has two independent readings, both "complete after fixes"; the merged text PAPER-V-thmM.md incorporates all fixes. No human check. The merged text
+itself has not been read; a short confirmation reading of the merge is advisable before it goes into a paper.
