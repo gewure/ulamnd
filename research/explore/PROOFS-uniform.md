@@ -687,3 +687,29 @@ Numerics (gm-kernel-levels.ts, data/gm-kernel-levels-T16.txt, h = 1, T = 16, int
 u = 3: diag 2, 6, 18, 30; off 24.6, 42.0, 46.4, 51.2 | u = 5: diag 2, 2, 14, 26; off 6.9, 6.9, 17.6, 17.6 | u = 7: diag 4, 12, 36, 60; off 23.9, 36.8, 49.0, 55.8.
 The diagonal grows like E, the off-diagonal like a divisor average (×2 over E = 1…60), as the reduction predicts.
 (a″) is supported numerically for prime u ≤ 43 (reader's fast.ts) and u ≤ 13 (ours); its proof is THE open step for H^{1/3} at the small end.
+
+## 17. PROOF SKETCH of (a″): the single-level off-diagonal is u-free (15 Sep, night) — DERIVATION, NOT READ, NOT A CLAIM
+Setting: u squarefree, (u, 2h) = 1, a = u². Family F_u = S_{a,h}(1) = {g = (A, B; B, C): AC − B² = ah, a | B, a | C}, Γ₀(a)-invariant.
+STEP 1 (undilation). With δ = diag(1, 1/u), G := δgδ = (m, uℓ; uℓ, k) for g = (m, aℓ; aℓ, ak): det G = h, and F_u ↔ F′_u := {G ∈ S_h : u | B_G}.
+The point of G is u·z(g) (dilation by u, an isometry), δΓ₀(u²)δ^{−1} = Γ₀⁰(u) := {b ≡ c ≡ 0 mod u}, and ⟨G₁,G₂⟩ = ⟨g₁,g₂⟩/u² = N ∈ Z with
+cosh d = N/(2h). So K₂'s off-diagonal at level u² (e = 1) is Σ_{2h<N≤2h(1+2Z)} (N/2h)^{−1/2} P_u(N), P_u(N) := #{Γ₀⁰(u)-orbits of ordered pairs
+(G₁, G₂) ∈ F′_u², G₁ ≠ G₂, ⟨G₁, G₂⟩ = N}; the diagonal is #Γ₀⁰(u)\F′_u.
+STEP 2 (lift to level one). Every Γ₀⁰(u)-orbit of pairs lies in a unique SL₂(Z)-orbit O of pairs of forms of determinant h with ⟨G₁,G₂⟩ = N
+(stabiliser ±I for distinct points). Hence P_u(N) = Σ_O #{γ ∈ Γ₀⁰(u)\SL₂(Z): u | B(γ.G₁), u | B(γ.G₂)} for any representative (G₁, G₂) of O,
+and #O =: P₁(N) ≪ h^{1/2+o(1)}(hN)^{o(1)} (representatives G₂ ∈ Λ_h, and for each the conic {G₁ : det = h, ⟨G₁,G₂⟩ = N} has ≪ (hN)^{o(1)} integer
+points — §14 addendum (3) with a = 1; nondegenerate for N ≠ 2h).
+STEP 3 (local count). By CRT, Γ₀⁰(u)\SL₂(Z) ≅ ∏_{p|u} T_p\SL₂(F_p) with T_p the diagonal torus, and T_p\SL₂(F_p) ≅ {ordered pairs of distinct lines
+(L₁, L₂) in F_p²} (rows of γ up to (t, t^{−1})). The entry B(γ.G) = (a₀,b₀)G(c₀,d₀)ᵗ is the G-bilinear pairing of the rows, so the condition is
+L₁ ⊥_{G} L₂. For one form (p ∤ h, G nondegenerate mod p): L₂ = x arbitrary, L₁ = (Gx)^⊥, distinct from x unless x is G-isotropic:
+c_p(G) = p + 1 − (1 + χ_{−h}(p)) = p − χ_{−h}(p). [This is the diagonal: ∏_{p|u}(p − χ(p)) per SL₂(Z)-class, matching the numerics (p − χ(p))/2
+with the ±I / class-number factor.] For a pair: L₁ must be orthogonal to both G₁x and G₂x, so G₁x ∥ G₂x, i.e. x is an eigenline of G₂^{−1}G₁ mod p,
+whose characteristic polynomial is det(G₁ − λG₂)/h = λ² − (N/h)λ + 1 (det(G₁ − λG₂) = det G₁ − λ⟨G₁,G₂⟩ + λ² det G₂). If G₂^{−1}G₁ is not scalar mod p
+there are ≤ 2 eigenlines, so c_p(G₁,G₂) ≤ 2. If it is scalar, G₁ ≡ λG₂ mod p with λ² ≡ 1 and N ≡ ⟨λG₂,G₂⟩ = 2λh, so p | N² − 4h², and c_p ≤ p + 1.
+Hence ∏_{p|u} c_p(G₁,G₂) ≤ 2^{ω(u)} ∏_{p | (u, N² − 4h²)} (p + 1)/2 ≤ 2^{ω(u)} gcd(u, N² − 4h²)·(3/2)^{ω(u)}.
+STEP 4 (sum over N). P_u(N) ≪ u^{o(1)} P₁(N) gcd(u, N² − 4h²), and with M = 2h(1 + 2Z):
+Σ_{2h<N≤M} N^{−1/2} gcd(u, N² − 4h²) ≤ Σ_{d|u} d Σ_{2h<N≤M, d | N²−4h²} N^{−1/2} ≪ Σ_{d|u} d·ρ(d)·(M/d)^{1/2}·d^{−1/2}·(1 + …) ≪ τ₃(u)M^{1/2}
+(the N ≡ ±2h mod d with N > 2h have N ≥ d − 2h, so Σ_j (jd)^{−1/2} over j ≤ M/d + 1 is ≪ (M/d)^{1/2}d^{−1/2}·… — to be written carefully, including d > M).
+CONCLUSION (sketch): off(u, 1; Z₂) ≪ H^{o(1)} h^{O(1)} (1 + Z₂) UNIFORMLY IN u — hypothesis (a″) — and with §16's reduction, (a′). The diagonal is
+≍ ∏_{p|u}(p − χ(p)) ≍ u. So the GM small end reaches u < H^{1/3−ε} for D < 0 and every θ < 1/2, modulo: (c) the conversion of G° to GM's smooth
+sums, the special primes p | (u, D) and the 2-adic normalisation (§16), stabiliser weights, and GM Theorem 8.1's hypotheses. The prediction
+"off(u,1) independent of u, with a factor depending on ω(u) and on u mod small primes" matches gm-kernel-count (odd/even u pattern).
