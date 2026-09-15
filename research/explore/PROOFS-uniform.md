@@ -916,3 +916,20 @@ GAP (new, §18.2 vs §16 R6): the blocks must be (E, M) with level q = u²·lcm(
 No hidden obstruction: Cauchy over levels with |κ(e)| ≈ 1/E is right; θ ≤ 7/64 uniform on Γ₀(u²e); §17 bounds ⟨α|Kk|α⟩ ≥ ⟨α|Δk|α⟩ (the subtracted term is ≥ 0);
  moduli k | u²ℓ² + h are coprime to u. The main-term matching (§18.5) is still open.
 SMALL-END STATUS (D < 0): u < H^{1/3−ε} for every θ < 1/2, modulo §18's conversion (incl. the (E, M) blocks with M = Y^η and the main-term matching), p = 2, p | (u, D).
+
+## 26. Two notes while the reading of Theorem M runs (15 Sep, night) — HEURISTIC, NOT READ
+(1) §18.5 MAIN TERMS MATCH EXACTLY. P_u(Y) = Σ_{d′>1 adm}(λ(d′)/d′)[Σ_{1≤h≤Y, d′ | Q_u(h)}(Y − h) − ρ(d′)Y²/(2d′)] (paper III's definition via B^{(Y)}_{d′}; ρ(d′) = |R^{(u)}_{d′}|),
+and by the symmetry h ↦ −h of the roots, Σ_{h≥1}(Y − h)^+ = ½Σ_{h∈Z∖0}(Y − |h|)^+ with ∫_R(Y − |t|)^+dt = Y²: each bracket is ½[Σ_{ℓ∈Z, k|aℓ²+h′}T(ℓ) − ρ(k)∫T/k]
+(T the tent, ℓ = 0 a root only for k | h′) — exactly GM's "count minus ϱ(k)X∫ψ/k" shape. No separate Ḡ-term arises at the small end.
+CAUTION (conversion, not yet done): GM's Theorem 8.1 needs dyadic support in x; a dyadic decomposition of the tent in |ℓ| destroys the cancellation that makes P_u = O(Y)
+(boxes with ℓ ≤ u² have trivial size ≈ Y·L^{O(η)} each). The part |ℓ| ≤ Δ must be kept whole: Y·[#{|ℓ| ≤ Δ: k | Q} − 2Δρ/k] − (the linear part) — a sharp-start
+window, i.e. paper III's Lemma sharp / Hooley's T_k with u tracked. For boxes (L, K) with L ≥ Y^{1−η′}: GM Type I with skew R = L/K ∈ [u^{−2}Y^{−η}, Y^{η}] is covered by the
+K₁ lemma (term 1/(qR) ≤ Y^{O(η)}) up to K ≤ u²L^{1+η}; beyond, complementary divisor + Poisson modulo m ≈ u²L²/K. Per box ≪ (Y/K)·L^{1/2}u·H^{o(1)} against the trivial (Y/K)L.
+So the small-end conversion = GM for the bulk + a sharp-start estimate with u tracked; the latter is the real remaining work there.
+(2) THE BAND AT u = H^{1/3} — a direction. At a = 1/3 the §12 residual is Σ_d β(d)Σ_{r}Σ_{n₁,n₂}αβ e_d(k r (n₁n₂)*), atoms ≈ d^{1/4}, x := n₁n₂ ≈ U ≈ Y^{1/2}. Reciprocity
+x*/d ≡ −d̄/x + 1/(xd) (mod 1) gives e_d(k r x*) = e_x(−k r d̄)·e(kr/(xd)): the LARGE modulus d becomes the SMALL modulus x ≈ Y^{1/2}, the sum over (d, r) (Heegner forms
+of discriminant D with d ∼ Y) is long, twisted by a function of (r d̄ mod x) and a smooth phase of frequency ≈ k/x. That is equidistribution of Heegner points at level ≍ x²
+≈ Y — borderline for one x (the band again: U² = Y), but now with an AVERAGE OVER THE LEVELS x = n₁n₂ with bilinear coefficients — the Deshouillers–Iwaniec regime
+(spectral large sieve averaged over the level), and Iwaniec 1987 / Duke 1988 (literature round 4) average Kuznetsov over levels exactly to go beyond a fixed level.
+Heuristically averaging over x ∼ U gains a factor up to U against the single-level threshold. Not counted yet; the numerators r d̄ tie x to d, so it is not a plain
+DI sum. Alternative inputs recorded: J₆ at N ≈ m^{1/4} below N⁴ (open even for primes).
