@@ -472,4 +472,6 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   (p² | N² − 4h²); (a″) holds for squarefree u coprime to 2h. New gaps: (G1) a K₁ lemma with the 1/q saving at levels u²e (else H^{0.281}), (G2)
   non-squarefree/even u. Small end u < H^{1/3} (D < 0) modulo (G1), (G2), conversion.
 - PROOFS §20 (energy J₄ for all moduli via Cilleruelo–Garaev; bands vanish; saving map positive on (1/3, 1/2], H^{−1/32} at 1/2): reading running.
+- PROOFS §22: (G1) K₁ lemma at level q (numerics: K₁ ≈ const·Z/q) — closed at sketch level, no complementary-divisor step needed in our window;
+  (G2) odd non-squarefree u via zeros of det(G₁x, G₂x) (disc N² − 4h²) — closed at sketch level. p = 2 and conversion remain.
 

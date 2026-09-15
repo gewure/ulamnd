@@ -830,3 +830,23 @@ NUMERICS (reader): off(u,1)/√T at T = 256: h = 1, all 92 primes u ≤ 499: mea
    for u ≥ 11. No growth in u. Pairs with G₁ ≡ ±G₂ mod p vanish once p² > N² − 4h², as the fix predicts.
 Other u-dependence in Theorem 8.1: none beyond K₁ and the content at p | (u, D) (q^{o(1)} = H^{o(1)}; θ ≤ 7/64 uniform; X/Y > δ automatic; 𝒳 < 1 allowed).
 STATUS OF THE SMALL END (D < 0): u < H^{1/3−ε} for every θ < 1/2 modulo (G1), (G2), §18's conversion, special primes, p = 2. Without (G1): H^{0.281}.
+
+## 22. Gaps (G1) and (G2) of §21 (15 Sep, night) — DERIVATIONS + NUMERICS, NOT READ
+(G1) LEMMA (K₁ at level q). For q ≥ 1, 0 < R ≤ H^{O(1)}, Z ≥ 1: K₁(q; Z, R) := Σ_{γ∈Γ₀(q)} k_{Z²,R}(γ) ≪ H^{o(1)}(1 + R + 1/(qR) + Z/q), where
+k_{Z²,R}(g) ≤ 1[u_R(g) ≤ Z²](1 + u_R(g))^{−1/2}, u_R = (a² + (b/R)² + (cR)² + d² − 2)/4.
+Sketch. Support: |a|, |d| ≤ 2Z + 1, |b| ≤ 2ZR, |c| ≤ 2Z/R. c = 0: a = d = ±1, Σ_b (1 + b²/(4R²))^{−1/2} ≪ 1 + R log. b = 0, c ≠ 0: a = d = ±1, c ∈ qZ, Σ (1 + c²R²/4)^{−1/2}
+≪ 1 + (qR)^{−1} log. bc ≠ 0: ad ≡ 1 (mod q), ad ≠ 1, so ad = 1 + jq with 1 ≤ |j| ≪ Z²/q; given (a, d) the pair (b, c) is fixed up to ≪ τ(ad − 1) ≪ H^{o(1)}
+choices, and Σ_{j} Σ_{ad = 1+jq} (1 + |a| + |d|)^{−1} ≪ H^{o(1)} Σ_{j≪Z²/q} (jq)^{−1/2} ≪ H^{o(1)} Z/q (no such j if Z² < q).
+Numerics (k1-lattice.ts, data/k1-lattice.txt; q ∈ {9, 25, 45, 121, 169, 225}, Z ∈ {10, 40, 160}, R ∈ {0.3, 1}): K₁ ≈ (36–46)·Z/q at Z = 160 for every q
+(e.g. q = 9: 637; q = 225: 27.7 at R = 0.3), no growth in q beyond the claimed shape; the ratio to 1 + R + 1/(qR) + Z/q settles at a constant (≈ 20–32).
+CONSEQUENCE. Summed over the levels q = u²e, e ≤ E: K₁ ≪ H^{o(1)}(E(1 + R) + Z₁/u² + 1/(u²R)). In our window the skew is R = X/K with K ≤ Y^{1+η} (moduli above
+by Lemma tail) and X = Y, so 1/(u²R) ≤ Y^{η}u^{−2}: no complementary-divisor reduction is needed, and K₁ ≪ H^{o(1)}(E + Z₁/u²) up to Y^{O(η)}, as (Hh) uses.
+(G1) is closed at the level of a sketch.
+(G2) NON-SQUAREFREE ODD u (sketch). For odd p^k ∥ u with p ∤ h: Γ₀⁰(p^k) mod p^k is the diagonal torus, and Γ₀⁰(p^k)\SL₂(Z/p^k) ↔ pairs of primitive rows up to
+(t, t^{−1}). For a row x, the condition v₁ᵀG_ix ≡ 0 (mod p^k), i = 1, 2, with v₁ primitive forces det(G₁x, G₂x) ≡ 0 (mod p^k) (adjugate), and then v₁ is
+determined up to scalars (G₁x ≢ 0 mod p since p ∤ h). The binary quadratic form x ↦ det(G₁x, G₂x) has discriminant N² − 4h² (reader: checked symbolically), so
+its projective zeros mod p^k number ≤ 2p^{⌊v_p(N²−4h²)/2⌋} (including the content case, whose content c has p^{2c} | disc). Hence ∏_{p^k∥u} c_{p^k} ≤ 2^{ω(u)} g(N),
+g(N) := ∏_{p|u} p^{⌊v_p(N²−4h²)/2⌋} ≤ gcd(u^∞, N² − 4h²)^{1/2}, and Σ_{2h<N≤M} N^{−1/2} g(N) ≪ H^{o(1)}M^{1/2} by Σ_{d|u^∞} d^{−1/2} = ∏_{p|u}(1 − p^{−1/2})^{−1} ≤ H^{o(1)}
+and a Rankin bound for #{d ≤ 2M : d | u^∞}. Diagonal for p^k: #{x non-isotropic mod p} lifted — ≍ p^{k−1}(p − χ(p)). p = 2 (D = −4: u/2 arbitrary) still separate;
+numerics flat (§21). (G2) is closed for odd u at the level of a sketch.
+REMAINING FOR THE SMALL END (D < 0): §18's conversion, special primes p | (u, D), p = 2, stabiliser weights; then a careful write-up and a reading.
