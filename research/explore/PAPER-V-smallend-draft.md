@@ -67,3 +67,32 @@ The moduli of the piece are squarefree, split, coprime to 2Du. Write the indicat
 automatically split or ramified (a root exists mod k) and (k, u) = 1 holds after the content removal of §29/O1 for fundamental D and, in general, from the same Möbius factor. This adds
 O_D(1) values of j, i.e. levels q = a·lcm(j, e, m²), and at the primes p | j (so p | 2D, p | h) the local counts of §17 Step 3 and the resultant step of §16 must use the trivial bound
 p + 1 instead of the Hensel/≤ 2 bound (the assumption there is p ∤ ah). Since j ≤ rad(2D) = O_D(1), this costs O_D(1).
+
+## Lemma A″ (the off-diagonal at one level is u-free) — written out (PROOFS §17 with the §21 Step-4 fix; to be read)
+Let h ≥ 1, u squarefree with (u, 2h) = 1, a = u², and F_u := S_{a,h}(1) = {g = (A B; B C) : AC − B² = ah, a | B, a | C}, a Γ₀(a)-invariant set of positive definite forms. For Z ≥ 1 put
+  off(u; Z) := Σ_{g₂ ∈ Γ₀(a)\F_u} Σ_{g₁ ∈ F_u, g₁ ≠ g₂, u(g₁,g₂) ≤ Z} (1 + u(g₁,g₂))^{−1/2},
+u(·,·) the point-pair invariant (u = (cosh d − 1)/2 for the corresponding points of H), orbits counted with the stabiliser weights |Γ_{g}|^{−1} ≤ 1. Then
+  off(u; Z) ≪_ε (h Z u)^{ε} h^{O(1)} (1 + Z^{1/2})   uniformly in u.
+Proof. (1) Undilation. With δ = diag(1, 1/u), G := δgδ maps F_u bijectively onto F′_u := {G ∈ S_h : u | B_G} (det G = h), δΓ₀(u²)δ^{−1} = Γ₀⁰(u) := {γ : u | b, u | c}, the map is an
+isometry on the associated points, and ⟨g₁,g₂⟩ := A₁C₂ + A₂C₁ − 2B₁B₂ satisfies ⟨g₁,g₂⟩ = u²⟨G₁,G₂⟩ =: u²N with 1 + 2u(g₁,g₂) = cosh d = N/(2h). Hence N ∈ Z, N > 2h for g₁ ≠ g₂, and
+off(u; Z) = Σ_{2h < N ≤ 2h(1+2Z)} (N/(2h) − 1)^{−1/2}·P_u(N)/√2, P_u(N) := #{Γ₀⁰(u)-orbits of ordered pairs (G₁, G₂) ∈ F′_u², ⟨G₁,G₂⟩ = N} (with stabiliser weights).
+(2) Lift to level one. Every such orbit lies in a unique SL₂(Z)-orbit of pairs of forms of determinant h with ⟨G₁,G₂⟩ = N (the stabiliser of a pair of distinct points is ±I), so
+P_u(N) = Σ_{O} #{γ ∈ Γ₀⁰(u)\SL₂(Z) : u | B(γ.G₁), u | B(γ.G₂)} over the P₁(N) := #{such SL₂(Z)-orbits} classes, with any representative. P₁(N) ≪ (hN)^{o(1)}h^{1/2}: take G₂ ∈ Λ_h
+(≪ h^{1/2+o(1)} reduced forms); for each, W := 2hG₁ − NG₂ lies in the rank-2 lattice G₂^⊥ with −det W = h(N² − 4h²), and representations of a fixed integer by a definite binary
+lattice are ≪ (hN)^{o(1)}.
+(3) Local count. For squarefree u, Γ₀⁰(u)\SL₂(Z) ≅ ∏_{p|u} T_p\SL₂(F_p) ≅ ∏_p {ordered pairs of distinct lines (L₁, L₂) ⊂ F_p²} (rows of γ up to (t, t^{−1})), and u | B(γ.G) reads
+L₁ ⊥_G L₂. For one form (p ∤ h): c_p(G) = p + 1 − (1 + χ_{−h}(p)) = p − χ_{−h}(p). For a pair: L₁ must be ⊥ to G₁L₂ and G₂L₂, so L₂ is an eigenline of G₂^{−1}G₁, whose characteristic
+polynomial is λ² − (N/h)λ + 1; if G₂^{−1}G₁ is not scalar mod p there are ≤ 2 such lines, so c_p(G₁,G₂) ≤ 2. If it is scalar, G₁ ≡ λG₂ (mod p) with λ ≡ ±1, and then G₁ ∓ G₂ = pW, so
+p² | det(G₁ − λG₂) = h − λN + λ²h and hence p² | N² − 4h²; in that case c_p ≤ p + 1 ≤ 2p. Therefore ∏_{p|u} c_p ≤ 4^{ω(u)}·g₂(N), g₂(N) := ∏_{p | u, p² | N²−4h²} p, and g₂(N)² | N² − 4h².
+(4) Summation. With M := 2h(1 + 2Z) and d running over divisors of u:
+Σ_{2h<N≤M}(N/(2h) − 1)^{−1/2}g₂(N) ≤ (2h)^{1/2}Σ_{d|u} d Σ_{N ≤ M, d² | N²−4h²}(N − 2h)^{−1/2} ≤ (2h)^{1/2}Σ_{d|u} d·ρ(d²)·(d^{−1/2} + 2M^{1/2}/d²) ≪ h^{1/2}τ₃(u)M^{1/2},
+since for each of the ρ(d²) ≤ 2^{ω(d)}·O(1) classes N mod d² with d² | N² − 4h² and N > 2h one has N ≥ d (as N² − 4h² ≥ d²), so the least term is ≤ d^{−1/2} and the rest ≪ M^{1/2}/d².
+Combining (1)–(4): off(u; Z) ≪ (hZu)^{ε}h^{O(1)}(1 + Z^{1/2}). □
+[Checked numerically: the diagonal is exactly ∏_{p^k∥u}p^{k−1}(p − χ_{−h}(p)) and off(u; Z)/√Z is flat in u for h = 1, 2, 5 and all primes u ≤ 499 (PROOFS §21, §25).]
+
+## O5 (levels q₀ = lcm(j, e, m²)) — written out
+(i) Diagonal: the functional at level a·q₀ has ⟨1⟩ ≍ c_d(u)·ρ*(q₀), ρ*(q₀) = #{projective zeros of Q_z mod q₀} ≤ 2^{ω(q₀)}∏_{p | (q₀, 2D)}(p + 1) ≪_D 2^{ω(q₀)} (for p ∤ ah the
+discriminant −4ah is a unit mod p and Hensel gives ≤ 2 zeros; at the O_D(1) primes p | 2D use the trivial p + 1).
+(ii) Summing over levels: for a pair g₁ ≠ g₂ of family points, a common projective zero of Q_{g₁}, Q_{g₂} mod p^k forces p^k | Res(Q_{g₁}, Q_{g₂}) = ⟨g₁,g₂⟩² − 4 det g₁ det g₂ = u⁴(N² − 4h²)
+(because x³Res, y³Res ∈ (Q_{g₁}, Q_{g₂})), and each form has ≤ 2 zeros mod p^k for p ∤ ah (Hensel), ≤ p^k + p^{k−1} otherwise. Hence Σ_{q₀ ≤ Q} ∏_{p^k ∥ q₀}|R_{p^k}(g₁) ∩ R_{p^k}(g₂)|
+≪_D τ₃(u⁴(N² − 4h²)) ≪ (uhZ)^{o(1)}, uniformly in Q — the level sum costs a divisor factor, not a factor Q. [The same statement with the p | h exception of §33(3).]

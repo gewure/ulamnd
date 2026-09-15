@@ -480,4 +480,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - READING of §22 (PROOFS §25): G1 correct (= GM kernel paper §1.2 Example), G2 correct for odd p ∤ h; new gap (μ²-levels in the block count) with a fix (M = Y^η);
   H^{0.281} fallback withdrawn. Small end u < H^{1/3} (D < 0) modulo conversion/main-term matching, p = 2, p | (u, D).
 - PAPER-V-draft.md: complete draft of Theorem M (pieces with H^{0.47} < u ≤ H^{0.53}) — Lemmas E, B′, S, R1–R5; to be read.
+- 16 Sep: Theorem M merged text (PAPER-V-thmM.md) after two readings; confirming read running. Theorem S outline read (PROOFS §33): main-term matching now written as S2′ (GM's
+  two-scale difference), admissibility as S1′, Lemma A″ and O5 written out. The decisive open task is the o(1) audit (PROOFS §32 F10): whether every H^{o(1)} in the chain is
+  polylog decides between Off* = O(H) (paper I's Hypothesis (E)) and something weaker than Theorem E. Audit running.
 
