@@ -750,7 +750,7 @@ Supersedes the inconsistent paragraphs of §15 ("… would be covered … — NO
     becomes Y/U below H^{1/2}: harmless.)
 (B) ERROR: the saving (U/Y)^{1/8} holds only for a ∈ [4/9, 1/2). The residual contains unbalanced splits ν₁ + ν₂ = θ = a/(1−a), ν_i ∈ (θ − 1/2, 1/2);
     with s(ν,k) = min(1/2 − (k−1)ν, kν − 1/2) the saving is m^{−(s(ν₁,k₁)+s(ν₂,k₂))/(2k₁k₂)}, k_i optimal. Minimum over the residual (H-exponent):
-    a = 0.3925: 0.00085; 0.405: 0.0038; 0.415: 0.0022; 0.435: 0.0056; a ≥ 4/9: (1−2a)/8. Near a = 1/3 the k_i → ∞ and the constants (2k)^{45k²/k′},
+    a = 0.3925: 0.00085; 0.405: 0.0038; 0.415: 0.0022; 0.435: 0.0056; a ≥ 4/9: (1−2a)/8. Near a = 1/3 the k_i → ∞ and the constants (2k₁)^{45k₁²/k₂}(2k₂)^{45k₂²/k₁},
     (log m)^{2(k₁/k₂+k₂/k₁)} blow up: δ(a) > 0 is NON-UNIFORM and non-effective there.
 (C) Band centres a_j = (j+1)/(3j+1) confirmed (a fine scan finds zeros only there); at the corner (ν₁, ν₂) = (1/2, 1/(2j)) the Type I and Type II edges meet,
     so margins enlarge it. The saving vanishes linearly, ≈ c|a − a_j| (c ≈ 0.16, 0.115, 0.089, 0.074 below a_j for j = 2…5; ≈ 0.8 above), plus a fixed width
@@ -867,7 +867,7 @@ CLAIM 2 (saving map): BOOKKEEPING SOUND. BG's Hölder inequality holds exactly a
 valid; formulas re-derived exactly (rationals): on the edge ν₂ = 1/2 with k₁ = k₂ = 2 the m-saving is θ/16 (ν₁ ≥ 1/3) or (2θ − 1.25)/8 (ν₁ < 1/3), giving H-exponent
 1/56 at a = 3/7, 0.026562 at 0.45, 0.030625 at 0.49, 1/32 at 1/2 — matching the data. Corner computation (k₁ = 2, k₂ = j: m^{−1/(16j)}) and (N₁N₂)^{15/16} correct.
 No missed zeros (Lipschitz ≤ 2.5; 4000-step scan, 1000 values of a): minimum strictly monotone in a, positive for a ≥ 0.3424 with k ≤ 12; the zeros near 1/3 come
-from the cap k ≤ 12 (with k ≤ 60 positive at a = 0.3353); near 1/3 the saving ≈ ν₁/4 − 1/(16k₁) with k₁ ≈ 1/(2(θ − 1/2)) → ∞, constants (2k)^{90k³}(log m)^{4k²}.
+from the cap k ≤ 12 (with k ≤ 60 positive at a = 0.3353); near 1/3 the saving ≈ 1/(16k₁) in the m-exponent (§32; the earlier ν₁/4 − 1/(16k₁) was wrong) with k₁ ≈ 1/(2(θ − 1/2)) → ∞, constants (2k₁)^{45k₁²/k₂}(2k₂)^{45k₂²/k₁}(log m)^{2(k₁/k₂+k₂/k₁)} [corrected in §32; the earlier quotation was wrong].
  GAP (margins): the minimum sits on ν₂ = 1/2, exactly where Type I fails; the real residual is wider (Type I/II margins H^{O(δ)}, n₃ ≤ H^{δ₃}, moduli in
  [Y^{1−δ−2η}, YH^η]). Widening by τ = 0.02: saving at a = 1/2 0.0312 → 0.0306, at 0.4 0.0125 → 0.0100, at 0.35 NEGATIVE. So δ, η, δ₃, ε′ and the separation losses
  must be ≪ saving(a) ≍ (a − 1/3)/8 near 1/3: "for every c > 0" only with parameters depending on c.
@@ -1017,3 +1017,37 @@ PROVISIONAL CONSEQUENCES (all conditional on the middle being written out, on th
  T3. A_f needs strictly more: a positive saving at α = 1/3, or savings ≫ 1/log log H there.
 TO DO: (a) verify the two "for every c > 0" claims are really strict-free (they are stated as such in §16/§21 and §20/§23, but the middle is heuristic); (b) make the effective band
 f(H) precise; (c) then state T1/T2 properly. This accounting itself needs a reading.
+
+## 32. READING of §31 (16 Sep; fresh model instance; scripts reader-band/) — CORRECTIONS ADOPTED
+VERDICT: "correct with fixes". The two mechanisms are sound and the point-gap geometric sum is right; four corrections and one severe new point.
+F1. Trivial block size ≍_f H (the constant is f-dependent: Σ_{u∼2^k}|w|/u settles at 0.52 (D = −3), 0.49 (−4), 0.54 (−8), 0.20 (−7), 1.27 (−11); early blocks are wild). Never write it as 2δ.
+F2 (IMPORTANT, improves §31). Inside a band one still has Theorem E's PER-PIECE bound (thm:small + prop:narrow + lem:tail): P_u(H/u) ≪ (H/u)(log H)^{−c}log log H uniformly for u ≤ H^{1−ε}.
+ So a band of width 2δ costs ≪_f δ·H(log H)^{1−c}log log H, NOT δH log H: ANY band width δ(H) → 0 already beats Theorem E by the factor δ(H). §31's "only pays if it improves the power
+ of log H" was too pessimistic.
+F3. Σ_{k} e^{−c|k log2 − (1/3)log H|} = 1 + 2/(e^{c log 2} − 1) + O(H^{−2c/3}) ≤ 1 + 2.885/c (4-digit numerical agreement): the cost is O(1 + 1/c)·H, not O(1/c)·H.
+F5. No other block is ≫ H: the Ḡ-part is ≪ H^{1/2+ε+ε′}, Theorem typeII errs by H^{1−δ}, Lemma far H/L, Lemma tail H^{1−ε/3}. Constant in "O(H)": with the small-end rate 3(1/2−θ) ≈ 1.17
+ and the middle rate 3/16 the block sum is ≈ 9. RESIDUAL RISK: §18.5's main-term matching — a spurious per-piece main term of relative size 1/log H already costs H.
+F6. The very small end does NOT fail: Corollary smallu + Theorem small give Σ_{u≤exp((log H)^{c/3})}|w||P_u| ≪ H(log H)^{c/3−c} = o(H) with log savings alone. What is needed is a power
+ saving on exp((log H)^{c/3}) ≤ u ≤ H^{1/3−f(H)}, and GM's saving there is 3(1/2−θ)(1/3−α) — ≈ 0.39 at α = 0, vanishing linearly at rate 1.17 as α ↗ 1/3 (§31's "≍ c(1−2θ)" was off by 3/2).
+F7. Off* = O(H) IS paper I's Hypothesis (E) (paper I, line 617), giving Σ(1−h/H)(S_f − C²) = −½C log H + O_f(1): a BOUNDED second-order term, not the existence of A_f. Paper III §1's
+ "which gives the constant term" is loose wording.
+F8. Small end: strict-free ("u < H^{1/3−ε} for every θ < 1/2"), no c-dependent blow-up; the open items are structural.
+F9. Middle: three arithmetic errors in §31/§23 — (i) it is the SMALL atom ν₁ = θ − 1/2 ≍ (9/4)ζ that carries k₁ ≈ 1/(2ν₁) = K, the other sits at ν = 1/2 with k = 2 (numerically confirmed);
+ (ii) the m-exponent saving is σ = 1/(16K) exactly (symbolic check K = 3…100), and the modulus is m ≍ Y = H^{1−a} ≈ H^{2/3}: the condition is (2/3)log H > 540K³log(2K) + 24K²log log H,
+ three times §31's; (iii) §23 MISQUOTED Bourgain–Garaev's constant as (2k)^{90k³}(log m)^{4k²} — the true one is (2k₁)^{45k₁²/k₂}(2k₂)^{45k₂²/k₁}(log m)^{2(k₁/k₂+k₂/k₁)} (both corrected above).
+ Corrected effective band: ζ_min ≈ 1.15(log log H/log H)^{1/3}. The saving map values (positive at a = 0.3424 with k ≤ 12, at 0.3353 with k ≤ 60) and the near-1/3 slope 3/16 (in the
+ H-exponent) are confirmed.
+F10 (SEVERE, the real second failure point). At |α − 1/3| ≍ (log log H/log H)^{1/3} the saving factor is exp(−c(log H)^{2/3}(log log H)^{1/3}), which is SMALLER than the unquantified
+ H^{o(1)} factors already used in both routes (e.g. at log H = 10⁶: log(1/saving) = 5.2·10³ against log max τ = 5.0·10⁴ and the §25 Rankin loss exp(2.7·10⁵)). So the honest effective
+ band is f(H) = max over the losses L of log L/(rate·log H):
+  • if every o(1) is really (log H)^{O(1)}: f(H) ≍ log log H/log H, band cost ≍ H(log log H)²(log H)^{−c} = o(H), and the TOTAL is then O(H) (the outside-band geometric sum) — i.e. T2;
+  • if any loss is of divisor size exp(c log H/log log H): f(H) ≫ 1/log log H and the band cost ≫ H log H/log log H — WORSE than Theorem E, and T1 is vacuous.
+CORRECTED STATEMENTS. T1 (conditional, unproved): assuming the whole map and all o(1)'s quantified as (log H)^{O(1)}, Off*_f(H) ≪_f f(H)·H(log H)^{1−c}log log H with
+ f(H) = 1.15(log log H/log H)^{1/3} from the BG constants alone — i.e. H(log H)^{0.63+o(1)} — and O(H) if the losses are polylog. T2 (correct): if the middle is made effective at 1/3 with
+ savings vanishing linearly at rate 3/16, then Off* = c_off H + O(H), hence Off* = O(H) = paper I's Hypothesis (E) (implied constant ≈ 9 c_f·mean|g|). T3 (corrected): A_f needs a saving
+ FACTOR ≫ log H uniformly on |α − 1/3| ≪ log log H/log H, i.e. s(α)log H − log log H → ∞ there; a fixed positive power saving at α = 1/3 suffices. §31's "s ≫ 1/log log H" was stronger
+ than needed by an exponential.
+NEXT (the decisive task): the o(1) AUDIT. Every H^{o(1)} in the chain must be classified as (a) polylog, (b) pointwise divisor-size but appearing under an average (hence polylog on average),
+or (c) genuinely divisor-size. Candidates: Lemma K's τ(q) (averaged over d ⇒ (b)); ω(d), Σ_r (averaged ⇒ (b)); Lemma E's τ(|n_z|) per z (pointwise ⇒ (c) unless averaged over z);
+§16's τ₃(Res) (pointwise ⇒ (c)?); §25's Rankin factor for #{d ≤ M : d | u^∞} (currently exp(O(log H/(log log H)^{1/2})) ⇒ worse than (c)); GM Theorem 8.1's q^{o(1)} and δ^{−O(1)} (unknown —
+must be read out of arXiv 2505.00489). Until this audit is done, T1 is not a statement.
