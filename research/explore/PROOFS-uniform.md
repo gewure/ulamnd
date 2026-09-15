@@ -230,3 +230,35 @@ BY-PRODUCT 2 (Fricke refinement of Lemma newperiod, PROVED and checked). The Fri
     enumerated independently, v by reduction + coset decomposition): 5.0.1.5.1 (R 5.4362, ε = −1) Per/Σ|terms| ≤ 10⁻⁹ at D = −4, −11
     (split), −15 (ramified), −3, −8 (inert); 5.0.1.7.1 and 5.0.1.3.1 (ε = +1): 0.03–1.0 for split/ramified, ≤ 3·10⁻⁹ inert;
     Per(v(u·))/Per(v) = +1.000000 = ε in all nonzero cases. Matches (e): the ε = −1 lines are absent from the data.
+
+## 7. The narrow window (16 Sep 2026) — PROVED (elementary) and checked; to be read before it enters paper III
+LEMMA. For squarefree u with ω(u) ≥ 1, Y ≥ 2, K0 ≥ Y and every ε > 0,
+    Σ_{d' > K0 admissible} (λ(d')/d') Σ_{x ∈ R^{(u)}_{d'}} B^{(Y)}_{d'}(x)  ≪_{f,ε}  Y² (uY)^ε / K0,
+uniformly in u. PROOF. For d' > K0 ≥ Y, B^{(Y)}_{d'}(x) = (Y − x)^+ − Y²/(2d'). The second terms give ≤ Y² Σ_{d'>K0} |λ(d')|ρ(d')/(2d'²)
+≪ Y² K0^{−1+ε}. The first terms give Σ_{h≤Y} (Y−h) Σ_{d' | Q_u(h), d' > K0} |λ(d')|/d' ≤ Y · Σ_{h≤Y} τ(Q_u(h)) max|λ| / K0 ≪ Y² (uY)^ε / K0,
+since Q_u(h) ≤ u²Y² + |D|, τ(n) ≪ n^ε and |λ(d)| ≤ Π_{p|d} p/|p−4| ≪ d^ε. Both series converge absolutely, so the split by d' is legitimate. ∎
+CONSEQUENCE 1 (Theorem A′ of part III, sharpened). With K0 = Y^{1+η}, the moduli above Y^{1+η} in the pieces with u ≤ H^{2/3+ε} contribute
+Σ_u |w(u)| (H/u)^{1−η} H^{o(1)} ≪ H^{1−η/3+o(1)}. So the Cesàro conjecture holds iff Σ_{u ≤ H^{2/3+ε}} w(u) 𝒲′_u(H/u) = o(H log H) with the
+NARROW window 𝒲′_u(Y) = Σ_{Y < d' ≤ Y^{1+η}}, for any fixed η > 0 — instead of the window (Y, u²Y log H] of paper III.
+CONSEQUENCE 2 (the exponent condition). In the proof of Proposition windowW the frequencies k > K = Y^{2η} now cost Σ_{d' ≤ Y^{1+η}} λω(d')/K ≪ Y^{1−η}
+(there are no moduli above Y^{1+η} left), and k ≤ K cost u^B Y^{θ+ε} K^B = u^B Y^{θ+O(η)} under Hypothesis W(θ, B). Summing with the weights,
+Σ_{u ≤ H^{2/3+ε}} |w(u)| u^B (H/u)^θ ≍ H^{2/3 + θ/3 + 2B/3 + O(ε)}, so the Cesàro conjecture follows from Hypothesis W with θ + 2B < 1, not θ + 6B < 1.
+(Theorem A's power-saving version additionally needs the small moduli with a power saving, 2B(2−θ) < 1−θ; the conjecture itself does not,
+since Theorem small gives a log saving unconditionally.) Duke–Friedlander–Iwaniec's (3/4, 1/4) still fails: 3/4 + 1/2 > 1; B < 1/8 would do at θ = 3/4.
+The loss (uk)^{3B} of paper III Remark exponents came from the frequency range u²L forced by moduli up to u²YL; only u^B is intrinsic.
+NUMERICAL CHECK (window-truncation.ts, f = t² + t + 1, H = 10⁶, exact divisor enumeration): the tail of P_u(Y) beyond K0 = Y·2^j, divided by √Y:
+    u = 7 (Y = 1.4·10⁵): j = 0: 0.047, j = 2: 0.072, j = 4: 0.005, j = 6: 0.000
+    u = 31 (Y = 3.2·10⁴): 0.164, −0.017, −0.021, 0.000;   u = 91: −0.094, −0.015, −0.006, −0.000
+    u = 1009 (Y = 991): −0.090, −0.038, 0.003, −0.001;   u = 10009 (Y = 100, u ≈ 100Y): 0.290, 0.092, 0.011, −0.001
+  and tail/(Y²/K0) between 10⁻⁴ and 5·10⁻²: the divisor bound is far from sharp, and the √Y-oscillation of every piece lives in the moduli
+  between about Y and 16Y, for u both below and far above Y.
+THE CORE, RESTATED. Uniformly in squarefree u ≤ Y², bound with any saving (a power saving gives Theorem A)
+    Σ_{Y < d' ≤ Y^{1+η}} (λ(d')/d') Σ_{x ∈ R^{(u)}_{d'}} B^{(Y)}_{d'}(x),
+i.e. the roots x ≤ Y of u²x² ≡ D (mod d') for moduli just above the length, weighted by (Y − x) and λ(d')/d'. Equivalently (Möbius on λ = 1 * g,
+g(p) = 4/(p−4)) Type I sums Σ_e g(e)/e Σ_{k ≡ 0 (e), k ~ K} Σ_{u²ℓ²+|D| ≡ 0 (k)} ψ(ℓ/Y) with K ∈ [Y, Y^{1+η}] — precisely the shape of Grimmelt–Merikoski's
+Theorem 1.4 (arXiv 2505.00493) with a = u², h = |D|, D = e (their notation), which they prove only for a ≤ X^{o(1)}.
+ROUGH a-TRACKING OF GRIMMELT–MERIKOSKI §5 (heuristic, to be done properly). In their Theorem 2.1 applied as in §5 the scale ratio is
+X/Y = (length)·a^{1/2}/h^{1/2} ≈ Y·u, and the diagonal term K₂ counts the ≈ u family points (the sparse family: about u points on area u²).
+Keeping the congruence b ≡ 0 (mod a) instead of dropping it by positivity, the bound is of the order Y^{1/2+θ} u^{1+θ}, non-trivial against Y for
+u ≲ Y^{(1/2−θ)/(1+θ)} ≈ Y^{0.35} (θ = 7/64), i.e. u ≲ H^{0.26} in Theorem A′. This covers the lower end only; the loss is the sparsity (u points on
+area u²) and the factor u^{1/2} in the scale ratio.

@@ -426,3 +426,6 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - Review pass on the dilation draft (ERRATA 36, F45): multiplicativity generalised to all squarefree u (exceptional primes kept
   together), corollary covers all squarefree u, precision claims replaced by measured errors (ratio-noise-audit.py,
   ratio-halves-audit.py: 0.01–0.7; D = −7 at 0.4 of an error), caption and provenance fixed.
+- Narrow window (PROOFS-uniform §7, PLAN §11): moduli above Y^{1+η} contribute Y^{1−η+o(1)} to every piece, uniformly in u (divisor bound);
+  numerically the oscillation lives in moduli Y … 16Y. Cesàro conjecture ⇐ Hypothesis W with θ + 2B < 1 (paper III had θ + 6B < 1). The core
+  is one Type I estimate for u²ℓ² + |D| ≡ 0 (mod k), k ≍ Y, uniform in u ≤ Y² (Grimmelt–Merikoski Thm 1.4 with a = u²). window-truncation.ts.

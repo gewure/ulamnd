@@ -195,7 +195,22 @@ Literature round (research/LITERATURE-uniformity.md, 16 Sep; top entries being v
 Grimmelt–Merikoski arXiv 2508.17979 (divisor function in progressions past the Weil barrier by averaging over a small factor of the
 modulus); Templier–Tsimerman arXiv 1106.1139 (non-split sums uniform in the discriminant).
 
+## 11. The narrow window (16 Sep; PROOFS-uniform §7): the core is the moduli just above the length
+An elementary divisor-bound lemma removes all moduli above Y^{1+η} from every piece at cost Y^{1−η+o(1)}, uniformly in u; numerically the
+√Y-oscillation of every piece sits in moduli between Y and 16Y (u = 7 … 10009). Consequences: (i) Theorem A′ holds with the window (Y, Y^{1+η}]
+instead of (Y, u²Y log H]; (ii) the Cesàro conjecture follows from Hypothesis W with θ + 2B < 1 instead of θ + 6B < 1; (iii) with step 1 (no
+u-growth, no averaging needed) the core is ONE uniform Type I estimate: roots of u²ℓ² + |D| ≡ 0 (mod k), ℓ ~ Y, k ~ K ∈ [Y, Y^{1+η}], k ≡ 0 (mod e)
+for small e, with any saving uniform in u ≤ Y² — Grimmelt–Merikoski's Theorem 1.4 with a = u², which they prove for a ≤ X^{o(1)}.
+Three regimes for that estimate (to be developed in this order):
+ A. u ≤ Y^{c}: redo Grimmelt–Merikoski §5 with a = u² tracked and the congruence b ≡ 0 (mod a) kept (rough count: c ≈ 0.35, i.e. u ≲ H^{0.26}).
+ B. u ≥ Y^{c'} with c' < 2: extend Type II (averaging the dilations along u) using that the moduli are now only ≍ Y; unconditional
+    Bombieri–Vinogradov level 1/2 for λω gives nothing new (u > Y²), level 2/3 would give u > Y^{3/2} (u > H^{3/5}); Grimmelt–Merikoski
+    arXiv 2508.17979 (divisor function, almost all moduli of exponent 2/3, via two small factors) is the template to check.
+ C. the middle: the genuinely new part, where neither the spectral method nor averaging over u reaches.
+Paper III is not edited until the lemma and consequence (ii) have had a reading.
+
 ## 4′. Log
+- 16 Sep (evening): narrow-window lemma (§11, PROOFS §7), condition θ + 2B < 1, core restated as one uniform Type I estimate.
 - 16 Sep (later): step 1 done (§10): no u-growth, core sum tiny, c_off validated to 7e-4; literature round.
 - 16 Sep: component test finished (STATE §17); §9 where the non-uniformity lives; the additive-twist formulation of R.
 - 15 Sep 21:00: §5 correction of the elementary sketch; §6 representation-theoretic decomposition (trivial component = Hecke translate of the u=1 object); PLAN §8 status.
