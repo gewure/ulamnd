@@ -944,3 +944,10 @@ by GM's own a ≺≺ 1 range), bound ≪ (Y/K)L^{1/2}u·H^{o(1)} ≤ Y^{1/2+δ}u
 ≤ Δ on roots within Δ of Y, costing ≪ (Δ/K)·ΔH^ε ≪ Δ²Y^{δ−1}H^ε; GM's δ^{−O(1)} becomes (L/Δ)^{O(1)} = Y^{O(η′)}.
 So the small-end conversion reduces to GM Theorem 8.1 on the window boxes, with the K₁/K₂ bounds of §17/§21/§22/§25 at the levels u²·lcm(e, m²), m ≤ Y^η.
 REMAINING FOR THE SMALL END (D < 0): special primes p | (u, D) (content), p = 2 (D = −4 and even u), and a write-up + reading. D > 0 not covered.
+
+## 28. READING of PAPER-V-draft.md (Theorem M) (16 Sep; fresh model instance; scripts reader-thmM/exps.py, r3count.py)
+VERDICT: "the proof is complete once the fixes are made" — nothing fatal or false; one gap (sharp endpoints), three errors in the loss accounting, and the exponent is
+δ_M ≈ η/2 ≈ 10^{−4}·(1/2), not 10^{−3}. Per lemma: E correct (unit case; non-unit fixable, trivial for squarefree m — restricted to squarefree); B/B′ correct; S error (per-term
+Mellin loss false; sum-first form fixes it, separation costs H^ε in R3/R4); R1 correct (error terms mis-sized); R2 correct after fixes (t-range; saving ≈ H^{−1.8δ});
+R3 correct (count verified); R4 correct (losses over-counted); R5 correct and exhaustive (smooth partitions, endpoints). All fixes applied in PAPER-V-draft.md
+"REVISION 1". A second reading of the revised text is due before Theorem M is called proved.

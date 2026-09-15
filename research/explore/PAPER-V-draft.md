@@ -5,19 +5,21 @@ Notation as in paper III (f monic irreducible quadratic without fixed prime divi
 G°_{d′} = G_{d′} − Ḡ_{d′}; x* the inverse of x modulo the modulus in question; e_m(z) = e(z/m)).
 
 ## Target theorem (M): the pieces around u = H^{1/2}
-For every f as in paper III there is δ > 0 with Σ_{H^{0.47} < u ≤ H^{0.53}} w(u) 𝒫_u(H/u) = c_off(f)·H·ι + O(H^{1−δ}), where ι is the part of the main term
-carried by these u (≪ H^{1/2+ε}, see PROOFS §12.0; equivalently the pieces with u ∈ (H^{0.47}, H^{1/2+ε}] contribute O(H^{1−δ}) and paper III Theorem typeII
-covers the rest). Consequence (with paper III): Σ_{u > H^{0.47}} w(u)𝒫_u(H/u) = c_off H + O(H^{1−δ}).
+For every f as in paper III there is δ_M > 0 (δ_M ≈ 10^{−4} with the parameters below) with
+    Σ_{H^{0.47} < u ≤ H^{0.53}} w(u) 𝒫_u(H/u) = O(H^{1−δ_M})
+(the Ḡ-part of these pieces is ≪ U(log H)^C per block, PROOFS §12.0, and is included in the O). Consequence, with paper III Theorem typeII at ε = 0.03:
+Σ_{u > H^{0.47}} w(u)𝒫_u(H/u) = c_off(f)H + O(H^{1−δ}). [Statement corrected after the reading, PROOFS §28.]
 [Heuristic basis: PROOFS §12, §15, §19, §20, §23, §24. Readings: §16, §19, §21, §23.]
 
 ## Lemma E (energy of reciprocals, every modulus) — PROVED (Cilleruelo–Garaev's argument; checked by a reading, PROOFS §23)
-Let m ≥ 2, 1 ≤ N ≤ m, J₄(N) = #{(x₁,…,x₄) ∈ [1,N]⁴ : (x_i, m) = 1, x₁* + x₂* ≡ x₃* + x₄* (mod m)}. Then for every ε > 0, J₄(N) ≪_ε m^ε(N² + N^{7/2}m^{−1/2}).
+Let m ≥ 2 be SQUAREFREE (all that R4 uses: m = d/g), 1 ≤ N ≤ m, J₄(N) = #{(x₁,…,x₄) ∈ [1,N]⁴ : (x_i, m) = 1, x₁* + x₂* ≡ x₃* + x₄* (mod m)}. Then for every ε > 0,
+J₄(N) ≪_ε m^ε(N² + N^{7/2}m^{−1/2}). (The bound holds for every m — PROOFS §23 fix — but only the squarefree case is needed.)
 Step 1 (hyperbola in a square box, unit λ). For (λ, m) = 1, K ∈ Z, 1 ≤ M ≤ m: I(λ; K, M) := #{(x, y) ∈ (K, K+M]² : xy ≡ λ (mod m)} ≪_ε m^ε(M^{3/2}m^{−1/2} + 1).
  Proof. Write x = K + x′, y = K + y′, 1 ≤ x′, y′ ≤ M: x′y′ + Kx′ + Ky′ ≡ b := λ − K² (mod m). Let T = ⌊(m/M)^{1/2}⌋ ≥ 1. By Dirichlet there are 1 ≤ t ≤ T and
  u₀ ∈ Z with tK ≡ u₀ (mod m), |u₀| ≤ m/T. Multiplying by t: tx′y′ + u₀x′ + u₀y′ ≡ b₀ (mod m) with b₀ ≡ tb, |b₀| < m/2; so tx′y′ + u₀x′ + u₀y′ = b₀ + zm with
  |z| ≤ TM²/m + 2M/T + 1/2 ≤ 5M^{3/2}m^{−1/2} + 1/2 (using T ≤ (m/M)^{1/2} and T ≥ (m/M)^{1/2}/2). For each z: (tx′ + u₀)(ty′ + u₀) = n_z := t(b₀ + zm) + u₀².
  Here n_z ≡ t²(x′ + K)(y′ + K) = t²xy ≡ t²λ (mod m); since λ is a unit and 1 ≤ t² ≤ m/M < m (if M ≥ 2; M = 1 is trivial), m ∤ t²λ, so n_z ≠ 0. As
- |n_z| ≤ TM²·T + … ≤ 4m² (say), the number of factorisations, hence of (x′, y′), is ≪_ε m^ε for each z. Summing over the ≪ M^{3/2}m^{−1/2} + 1 values of z gives the claim. □
+ |n_z| ≤ T(|b₀| + |z|m) + u₀² ≤ 5mM + Tm + m²/4 ≤ 7m², the number of factorisations, hence of (x′, y′), is ≪_ε m^ε for each z. Summing over the ≪ M^{3/2}m^{−1/2} + 1 values of z gives the claim. □
 Step 2 (from energy to hyperbolas). J₄(N) = Σ_λ J₂(λ)², J₂(λ) := #{x, y ≤ N : x* + y* ≡ λ}, Σ_λ J₂(λ) = N′² (N′ = #{x ≤ N: (x,m) = 1}), so J₄ ≤ N′² max_λ J₂(λ).
  Unit λ: x* + y* ≡ λ ⇔ x + y ≡ λxy ⇔ (x − λ*)(y − λ*) ≡ λ*² (mod m) — a unit hyperbola in the square box (−λ*, N − λ*]² with equal shifts; Step 1 gives
  J₂(λ) ≪ m^ε(N^{3/2}m^{−1/2} + 1).
@@ -108,3 +110,24 @@ losses H^{3η} (Lemma S) and H^{2η} (k-sum) included), and there are O(log H) b
      (N₁N₂)^{−1/16}H^{O(η)} ≤ H^{−(0.47/16)+O(δ+η+δ₃)}.
  R5 (covering). w = 1 * χ_D * γ with Σ|γ(n)|n^{−1/2−ε} < ∞ (paper III Lemma AP proof) and the three cases above exhaust the blocks (PROOFS §12.4, §24).
  With δ = η = δ₃ = 10^{−4}, all savings exceed the losses; δ(M) ≍ 10^{−4}.
+
+## REVISION 1 (16 Sep, after the reading of the draft — PROOFS §28). The following SUPERSEDE the corresponding text above.
+E (non-unit λ, squarefree m): if p | (λ, m) then x ≡ −y (mod p); with g = gcd(λ, m), Step 1 modulo m/g (or J₂ ≤ N when N > m/g) gives J₂(λ) ≪ m^ε(g^{1/2}N^{3/2}m^{−1/2} + 1),
+ and Σ_{g≤2N}Σ_{gcd(λ,m)=g}J₂(λ)² ≤ Σ_g max J₂·N(2N/g + 1) closes the bound. □
+S (ii) CORRECTED: the per-term statement "∫|F̃| ≪ b_k(d)H^{3η}" is false (F̃ lives at |t| ≍ kY/d, up to H^{2η}Y^{δ}). Correct form: ∫|F̃_{k,d}(it)|dt ≪ (b_k(d) + Y/(kd))·log H,
+ and ∫|F̃_{k,d}(it)|(1 + |t|)^J dt ≪ (b_k(d) + Y/(kd))·T₀^J·log H with T₀ = 1 + kY/d + H^κ. RULE: never use a per-term loss — sum first:
+ Σ_{k≤K₁}Σ_d |λ|ω(d)∫|F̃_{k,d}| ≪ H^ε Y log²H. R3 and R4 depend on d only through bounds uniform in d, so for them the separation costs H^ε.
+ Also: factor 4 in U·H/v² (v ≥ U/2), the 1/(2π) in the consequence; b_k(d) (with 2Y) majorises sup|F| for all d.
+ENDPOINTS: use the smooth partition from R1 on (d-cutoffs per j, H/u ∈ [Y/2, 2Y]); at u = H^{0.47} and H^{0.53} use a ramp of relative width H^{−κ}, κ ≤ δ/2; the transition
+ zone is trivially ≪ H^{1−κ}(log H)^C; inside F this gives T₀ ≤ max(kY/d, H^κ): R2 loses H^{3κ}, R3/R4 only logs.
+R2 CORRECTED: with (1 + |t|)² from Lemma kloost and the moment above, the d ≤ kY part gives k·Y^{3/2+3δ/2}; summed over k ≤ K₁: (U/N)K₁²Y^{3/2}Y^{3δ/2}, i.e. a saving
+ H^{−3δ+4η+1.5(1−a)δ} ≈ H^{−1.8δ} at a = 0.47 (plus H^{3κ}). Typos: H^{1−a/2} → H^{1−(1−a)/2}; N·m^{−1/2} ≤ N k^{1/2}d^{−1/2}.
+R3: "+1" made precise: for e ≤ 2U₂ the u₂′ count is ≤ 4U₂/e; for e > 2U₂ there are ≤ 2τ(d) values, each bounded by 3U₁ (this includes the diagonal and degenerate pairs, as
+ d > 2U₂). Loss (k,d)^{1/2} ≤ H^η; the d^{−1/2} term loses Y^{δ/2} (harmless). Numerically (reader): ratio ≤ 0.28 over 40 random cases incl. U₁ > d, (k,d) > 1.
+R4: Σ_{d≤kY}|β_k|ω ≪ H^ε Y/k (total H^εY/k; the k-sum costs log H). Boxes (N₁, N₂, N₃) with N₁N₂N₃ ≉ U are dropped before absolute values (they vanish); N₃ dyadic.
+ Exponents checked numerically over a ∈ [0.47, 0.53]: log N_i/log m ≥ 0.381, 2N_i ≤ m, saving a/16 ≥ 0.0294 > 1/40 + O(ε + η + δ₃).
+R5: smooth dyadic partitions for n₁, n₂ (R2 needs smoothness); "times n₃" in (II) unnecessary; for non-fundamental D use the primitive character mod the conductor and put
+ the difference into γ; ω(2) = 1: u = 2u′, 2* into the numerator, 2^{−it} factors out, the Euler factor at 2 into γ; |γ(n)| ≤ 20^{ω(n)}.
+CONCLUSION CORRECTED: losses are Step 3 H^{1−η+3ε′}; k > K₁: H^{1−η}; moduli d′ ≤ Y^{1−δ}: H^{1−(1−a)δ+ε} ≤ H^{1−0.47δ}; n₃ > H^{δ₃}: H^{1−δ₃/3}; savings R2 ≈ H^{−1.8δ}, R3 ≈ H^{−1.5δ+0.75η},
+ R4 H^{−1/40}. With δ = 10^{−3}, η = δ/10, δ₃ = δ, ε′ = η/6, κ = δ/2: δ_M = η/2 = 5·10^{−5}. All savings exceed all losses. □ (Theorem M: complete after these fixes,
+ per the reading; a second reading of the revised text is due.)
