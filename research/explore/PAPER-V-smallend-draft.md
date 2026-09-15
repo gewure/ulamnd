@@ -3,7 +3,7 @@
 ## Target theorem (S)
 Let f be as in paper III with discriminant D < 0. For every c > 0 there is δ = δ(c) > 0 with
     Σ_{u ≤ H^{1/3−c}} w(u) 𝒫_u(H/u) = O(H^{1−δ}),
-[FIRST VERSION: restricted to u with (u, 2D) = 1; the special primes p | (u, D) and p = 2 are listed below as open items.]
+[w is supported on squarefree u; p = 2 and p | (u, D) cost O_D(1) by PROOFS §29 (sketch): for p | (u, D) use (a, h) = (pu′², |D|/p); for t² + 1 use (a, h) = ((u/2)², 1).]
 
 ## Structure (dependencies)
 S1 (conversion, PROOFS §26(1), §27). For u ≤ Y^{1/2−2δ} (Y = H/u): 𝒫_u(Y) = Σ over window moduli k ∈ (Y^{1−δ}, Y^{1+η}] and window boxes |ℓ| ∼ L ≥ Y^{1−3δ} of
@@ -24,7 +24,6 @@ S7 (exponents, PROOFS §16 (Hh), §21 R6): per block (E, M): (X/(EM))·(u²E²M�
 S8 (summation over boxes, moduli blocks and u): O(log^C H) boxes; Σ_{u ≤ H^{1/3−c}}|w(u)|·(H/u)^{1−c″} ≪ H^{1−c″/2}.
 
 ## Open items before a reading
- (O1) p | (u, D): content of the family forms; GM Prop 4.1's gcd step; local counts at p | h. (O2) p = 2 (D = −4 with even u; local counts mod 2^k).
- (O3) Stabiliser weights |Γ_z| in the functional (factor ≤ 3). (O4) GM Theorem 8.1's hypotheses for F_L: f ∈ C^{10}_δ(X, Y) with δ^{−O(1)} = Y^{O(η′)}; X/Y > δ.
+ (O1), (O2), (O3): sketched in PROOFS §29 (bounded costs); to be checked in the reading (numerics for D = −3, u = 3u′). (O4) GM Theorem 8.1's hypotheses for F_L: f ∈ C^{10}_δ(X, Y) with δ^{−O(1)} = Y^{O(η′)}; X/Y > δ.
  (O5) The (E, M) level structure q₀ = lcm(e, m²) inside GM Lemma 3.1 (non-squarefree levels) and in S6's resultant step (extends: common root mod p^k ⇒ p^k | Res).
  (O6) Writing S1 with explicit exponents (δ, η, η′, δ′).

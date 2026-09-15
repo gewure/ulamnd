@@ -951,3 +951,18 @@ VERDICT: "the proof is complete once the fixes are made" — nothing fatal or fa
 Mellin loss false; sum-first form fixes it, separation costs H^ε in R3/R4); R1 correct (error terms mis-sized); R2 correct after fixes (t-range; saving ≈ H^{−1.8δ});
 R3 correct (count verified); R4 correct (losses over-counted); R5 correct and exhaustive (smooth partitions, endpoints). All fixes applied in PAPER-V-draft.md
 "REVISION 1". A second reading of the revised text is due before Theorem M is called proved.
+
+## 29. Small-end open items O1 (p | (u, D)) and O2 (p = 2) (16 Sep) — SKETCH, NOT READ
+KEY OBSERVATION: w is supported on SQUAREFREE u (paper III set-up). For t² + 1 (D = −4) the normalisation is a = (u/2)², h = 1 with u/2 odd squarefree. So the
+non-squarefree case (G2, §22) is needed only for the levels m² from μ² (O5), never for u itself.
+O2 (p = 2). For D ≡ 1 mod 8 (ω(2) = 2) an even squarefree u has 2 ∥ u, a = u² with 4 ∥ a; for D ≡ 5 mod 8 (ω(2) = 0) u is odd; for t² + 1 see above. In the undilated
+count (§17) the prime 2 contributes a local factor at most |P¹(Z/2)| = 3 (resp. the diagonal-torus cosets mod 2: ≤ 6), bounded; the resultant/divisor steps are unaffected.
+So p = 2 costs O(1). [To check: the GM Lemma 3.1 parametrisation at 2-power levels, and D ≡ 1 mod 8 with a even: gcd(a, h) = 1 holds since D is odd.]
+O1 (odd p | (u, D), squarefree u = p·u′, p ∥ D for fundamental D; non-fundamental D: finitely many p with bounded exponent). Q_u(x) = u²x² − D has content p;
+Q_u/p = p u′²x² − D/p =: a x² + h with a = pu′², h = |D|/p, gcd(a, h) = 1. The count over moduli k | Q_u(ℓ) with (k, u) = 1 is the count for Q_u/p (p ∤ k). GM Lemma 3.1
+applies with this (a, h); the undilation uses δ = diag(1, 1/u′): G = (m, u′ℓ… ) with det G = p·h and u′ | B_G — the same argument as §17 with h replaced by ph = |D|
+(bounded) and the level-one Heegner set Λ_{|D|}; the local counts at primes of u′ are unchanged (p ∤ u′), and the factor p appears only through a = pu′² (skew X·(pu′²)^{1/2}h^{−1/2}
+= X·u·|D|^{−1/2}, the same as before). So O1 costs O_D(1). [To check numerically: off-diagonal flatness for D = −3, u = 3u′ with (a, h) = (3u′², 1).]
+O3 (stabiliser weights): |Γ_z| ≤ 6 (≤ 3 in PSL): O(1).
+Remaining before a reading of Theorem S: O4 (GM Theorem 8.1's smoothness hypotheses for the boxes, Y^{O(η′)} loss), O5 (non-squarefree levels m² in Lemma 3.1 and the resultant
+step), O6 (S1 with explicit exponents).
