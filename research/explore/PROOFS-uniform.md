@@ -102,7 +102,9 @@ GOOD HALF |r′| < |p| (modulus p): Q̃ ≥ ã p²/2, |twist| ≤ k√(2c̃/ã)/
   Fully Weil-effective iff X/c̃ ≥ √(2X/ã) iff ã ≥ a₀ := (2u⁴|D|²/X)^{1/3}; then the half is ≪ (X/ã)^{3/4+ε}(k-factor).
   Sum over classes (≪ a^{ε} classes with reduced first coefficient a): ≪ X^{3/4+ε}(u|D|^{1/2})^{1/4}. Classes with ã < a₀ are
   bounded trivially: ≪ a₀^{1+ε} X/(u|D|^{1/2}) = X^{2/3+ε} u^{1/3}|D|^{1/6}. Nontrivial for u ≤ X^{1/4−δ}.   ← the good half alone would give u ≤ X^{1/4}.
-BAD HALF |p| < |r′| (modulus must be r = u r′, i.e. ≡ 0 mod u): Weil gives (u²r′)^{1/2+ε} per r′, useful only when the p-range
+BAD HALF |p| < |r′| (modulus must be r = u r′, i.e. ≡ 0 mod u). Identity (CHECKED, 235/235 random cases):
+    b(Q_j∘γ)/(2a(Q_j∘γ)) = s/r − (a_j p + (b_j/2) r)/(r · Q_j(p, r)),      s ≡ p̄ (mod r),
+  so e(kb/(2ua)) = e(k p̄_r/(u r))·twist = e(k p̄/(u² r′))·twist with modulus u²r′ and the variable p in |p| < |r′|, (p, u) = 1: Weil gives (u²r′)^{1/2+ε} per r′, useful only when the p-range
   2r′ exceeds it, i.e. r′ ≥ u²/4. Pairs of the bad half with r′ < u²: per class min(u⁴, X/c̃); the bad half holds about HALF of all
   pairs (Σ_a ρ(a) X a/(u²|D|) ≈ X/2), so for u ≥ X^{1/6} essentially all of them have r′ < u² and the elementary method fails.
   For u ≤ X^{1/5−δ}: the untreatable part is ≪ u^{5+ε} h(4D) = o(X), and the Weil part is ≪ Σ_classes u (X/c̃)^{3/4} ≪ u^{5/4}X^{3/4+ε}|D|^{1/8}.

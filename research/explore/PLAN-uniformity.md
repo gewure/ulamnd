@@ -107,6 +107,10 @@ smooth seed and compare with (u − χ)·(mean) as u grows.
      The bad half holds ≈ 30% of the pairs. So the bad half — Kloosterman moduli ≡ 0 (mod u), summation variable of length
      ≍ 1/u² of the period — cancels by itself far beyond the elementary range u ≤ X^{1/6}: the spectral treatment of the
      bad half is the right target, and no cancellation between the halves is needed.
+(N5) AVERAGING OVER u (weyl-uaverage.py, D = −4, X = 10⁵; 15 Sep 19:30): over M consecutive u the ratio |Σ_u T^{(u)}|/√(Σ|T^{(u)}|²)
+     is 1.45 (u ∈ [1000,1200)), 0.86 (u ∈ [300000,300200)), 0.75 (k = 2, u ∈ [200000,200060)), 2.2 and 1.4 for two 30-value
+     blocks — i.e. consecutive u behave like independent random signs (one block gave 0.05, a fluctuation, not structure).
+     Averaging over u gives the generic √M and nothing more at this scale; the individual sums are already ≍ √X (N2).
 CONJECTURE U (the uniform truth, from N1–N2): T^{(u)}_k(x) ≪_{D,ε} k^{A} x^{1/2+ε} and 𝒫^{(0)}_u(Y) ≪_{D} Y^{1/2+ε}, both
 uniformly in squarefree u ≥ 1 (all u, not only u ≤ Y²). Everything the methods lose in u is an artefact of the method.
 
@@ -147,6 +151,7 @@ spectral form of part III's "bilinear hybrid" (RESEARCH-USES 1c) and of the Type
 for the whole range, and it should be tested numerically first: compare Σ_u w(u) T^{(u)}_k against Σ_u |T^{(u)}_k|.
 
 ## 4′. Log
+- 15 Sep 19:30: N5 (u-averages: random signs only; the 0.05 block was a fluctuation).
 - 15 Sep 18:50: N4 (two halves cancel separately); §7 the bad half as Γ₀(u²) Kloosterman sums, the X^{1/5} warning, averaging over u as candidate mechanism.
 - 15 Sep 16:30: regime map corrected (III starts at u ≍ X/√|D|; orbit-minima and isolation tests: orbit-minima.py); reciprocity/Hecke-label form; window-specific map.
 - 15 Sep 15:20: regime map §6; PROOFS-uniform.md started (setup verified, elementary bound with u tracked, three regimes).

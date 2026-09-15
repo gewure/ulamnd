@@ -1,0 +1,6 @@
+D=-4 X=100000 k=1 u in [100,160) (30 values): mean|T|/sqrt X = 0.428, |Σ_u T| = 2129.7, sqrt(Σ|T|²) = 968.6, ratio = 2.20 (random-sign ≈ 1, coherent ≈ 5.5);  Σ_u T/(sqrt(X)·#u) = +0.2245
+D=-4 X=100000 k=1 u in [1000,1060) (30 values): mean|T|/sqrt X = 0.494, |Σ_u T| = 1008.6, sqrt(Σ|T|²) = 1044.4, ratio = 0.97 (random-sign ≈ 1, coherent ≈ 5.5);  Σ_u T/(sqrt(X)·#u) = +0.1063
+D=-4 X=100000 k=1 u in [200000,200060) (30 values): mean|T|/sqrt X = 0.445, |Σ_u T| = 49.6, sqrt(Σ|T|²) = 1025.0, ratio = 0.05 (random-sign ≈ 1, coherent ≈ 5.5);  Σ_u T/(sqrt(X)·#u) = +0.0052
+D=-4 X=100000 k=1 u in [10000,10060) (30 values): mean|T|/sqrt X = 0.361, |Σ_u T| = 1251.0, sqrt(Σ|T|²) = 872.0, ratio = 1.43 (random-sign ≈ 1, coherent ≈ 5.5);  Σ_u T/(sqrt(X)·#u) = -0.1319
+D=-4 X=100000 k=1 u in [300000,300200) (100 values): mean|T|/sqrt X = 0.444, |Σ_u T| = 1515.3, sqrt(Σ|T|²) = 1754.0, ratio = 0.86 (random-sign ≈ 1, coherent ≈ 10.0);  Σ_u T/(sqrt(X)·#u) = +0.0479
+D=-4 X=100000 k=1 u in [1000,1200) (100 values): mean|T|/sqrt X = 0.427, |Σ_u T| = 2456.7, sqrt(Σ|T|²) = 1699.9, ratio = 1.45 (random-sign ≈ 1, coherent ≈ 10.0);  Σ_u T/(sqrt(X)·#u) = +0.0777
