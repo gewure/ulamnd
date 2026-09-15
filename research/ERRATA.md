@@ -536,3 +536,16 @@ route before being applied (the checks are described in the items). We agree wit
     "c < 3", \S\ref). Paper I: "What is proved" and consequence (ii) rewritten accordingly. DATE ERROR: this session labelled its entries
     of 15 September (ERRATA 35–38, KNOWLEDGE F42–F46, the notes, two paper passages) "16 Sep"; the commits and the system clock say
     15 September; all labels corrected.
+
+40. **Paper III: Theorem typeII extended from u > H^{2/3+ε} to u > H^{1/2+ε}; Theorem A now under B < (1−θ)/(2−θ) instead of
+    θ + 6B < 1 (15 Sep; derivation research/explore/PROOFS-uniform.md §9 and §11; §9 passed two independent adversarial readings
+    by fresh model instances; the paper text is UNDER READING; no human check).** Not a correction of an error: the range 2/3 came from
+    Step 4 treating each modulus separately (Pólya–Vinogradov + Parseval), not from a barrier. New in paper III: Lemma lem:kloost (smooth
+    incomplete Kloosterman sums, Poisson + Weil, h = 0 term via |c_q(a)| ≤ (a,q)); Step 4b of the proof of Theorem typeII (dispersion over
+    u with the moduli inside, blocks H^{1/2+ε} ≤ U < H^{2/3+ε}); Step 5 split at Y₀ = H^{1/2−ε} (its remainder Y₀H^{1/2+3ε′} is a second,
+    non-intrinsic threshold at H^{1/2}); δ = ε/11. Consequences: Theorem A′ and Corollary smallu with u ≤ H^{1/2+ε}; Theorem E's proof with
+    U₀ = H^{1/2+ε}; Proposition windowW stated for a general upper end Z; Theorem A re-proved with Lemma tail (moduli above Y^{1+ε}) and the
+    narrow window, condition B < (1−θ)/(2−θ) (at θ = 3/4: B < 1/5; DFI's (3/4, 1/4) still fails); Remark exponents, "What remains" item 1
+    (the dispersion stops where Weil's bound for Σ_{u∼U} e(kcū/q), q ≈ Y², becomes trivial), abstract, results list. Paper IV (four passages:
+    range H^{1/2+ε}, threshold A < 1/2 instead of 1/4, the exponent condition) and the dilation draft (one passage) updated. Decision of
+    15 Sep: paper III is frozen after this change and its reading; the middle range goes to a new paper.

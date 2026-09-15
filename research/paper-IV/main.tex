@@ -104,7 +104,7 @@ F_u(n)=\sum_{\substack{d\mid n,\ d>1\\ d\ \mathrm{admissible}}}\frac{\lambda(d)}
 \end{gathered}
 \]
 admissible meaning squarefree, all primes split, coprime to $2Du$. Part~III, Theorem~A$'$:
-$\Off^\ast_f(H)=c_{\mathrm{off}}(f)H+\sum_{u\le H^{2/3+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)+O(H(\log H)^{1-c})$, and the
+$\Off^\ast_f(H)=c_{\mathrm{off}}(f)H+\sum_{u\le H^{1/2+\varepsilon}}w(u)\mathcal W_u(H/u;\log H)+O(H(\log H)^{1-c})$ (the range $H^{1/2+\varepsilon}$ since 15 September 2026; $H^{2/3+\varepsilon}$ before), and the
 Ces\`aro form of Conjecture~1 of part~I is equivalent to the windows being $o(H\log H)$.
 
 \paragraph{Results.}
@@ -131,9 +131,9 @@ and observed to $0.035$ radians.
 variance of $\mathcal P_u(Y)/\sqrt Y$ at the $92$nd--$100$th percentile among random frequency sets, the odd ones at the
 $12$th--$66$th; the dominant line $t_1=13.7798$ has stable amplitude and phase over two decades of $\log Y$; the two
 polynomials with exponentially small periods ($D=-8,-163$) show nothing.
-\item \emph{What the Ces\`aro conjecture needs} (\S\ref{sec:uniformity}): the sum of the pieces over $u\le H^{2/3}$
+\item \emph{What the Ces\`aro conjecture needs} (\S\ref{sec:uniformity}): the sum of the pieces over $u\le H^{1/2+\varepsilon}$
 converges to $c_{\mathrm{off}}H+o(H)$ provided the spectral formula holds with an error $O((H/u)^{1/2+\varepsilon}u^{A})$,
-$A<\tfrac14$; the level dependence of the Kuznetsov formula is therefore the whole remaining problem.
+$A<\tfrac12$ (with part~III's earlier range $u\le H^{2/3+\varepsilon}$ this was $A<\tfrac14$); the level dependence of the Kuznetsov formula is therefore the whole remaining problem.
 \end{itemize}
 
 \section{The piece as a twisted Walfisz sum}\label{sec:walfisz}
@@ -278,8 +278,8 @@ Dirichlet series
 W_k(s)=\sum_{d\ \mathrm{admissible}}\frac{\lambda(d)\rho_k(d)}{d^{s}}\qquad(\Re s>1),
 \end{equation}
 one for each $k$. Second, the weight $1/k$ in front decays only like $k^{-1}$, so a bound for $W_k$ that loses a power
-of $k$ is expensive: this is the same phenomenon that forced the condition $\theta+6B<1$ in part~III,
-Theorem~A, and it is the reason we do not bound the $\rho_k(d)$ one frequency at a time. The route of this paper is
+of $k$ is expensive: this is the same phenomenon that forces the exponent condition in part~III,
+Theorem~A ($B<(1-\theta)/(2-\theta)$; $\theta+6B<1$ in its first version), and it is the reason we do not bound the $\rho_k(d)$ one frequency at a time. The route of this paper is
 instead to continue $W_k(s)$ analytically, where the dependence on $k$ appears as a Fourier coefficient of an
 automorphic form and therefore \emph{decays} on average.
 \end{remark}
@@ -1608,7 +1608,7 @@ Table~\ref{tab:periods} are stable across the halves of the present range and do
 \section{Uniformity in $u$, and what the Ces\`aro conjecture would need}\label{sec:uniformity}
 
 Theorem~\ref{thm:main} is for one piece, $u=1$. Part~III reduces the Ces\`aro form of Conjecture~1 of part~I to the
-windows of \emph{all} the pieces with $u\le H^{2/3+\varepsilon}$, so what is wanted is Theorem~\ref{thm:main} uniformly
+windows of \emph{all} the pieces with $u\le H^{1/2+\varepsilon}$ ($H^{2/3+\varepsilon}$ before 15 September 2026), so what is wanted is Theorem~\ref{thm:main} uniformly
 in $u$, with an error that survives summation against the weight $w(u)$ over that range. This section records what
 that requires, and why the proof above does not supply it.
 
@@ -1671,10 +1671,10 @@ $1$st--$5$th percentile (\texttt{research/explore/freq-set-test.ts}). For $u=5$ 
 genuinely new forms and that the forms of the cycloidal group $\Gamma^5$ appear with multiplicity two, so we predict
 $2.625$ to be the first eigenvalue of $\Gamma^5$, which we have not been able to check. A phase or amplitude test at
 level $9$ needs the Fourier coefficients of the $\Gamma^3$-type forms, which we do not have. Data and peak tables:
-\texttt{research/explore/STATE.md}.} Summing $\lambda\omega(u)$ times an error $(H/u)^{1/2}u^{A}$ over $u\le H^{2/3}$ is
-$O(H^{1-\delta})$ exactly when $A<\tfrac14$, so a bound $u^{1/4-\varepsilon}$ for that factor would settle the Ces\`aro
-conjecture for quadratics. This is the same wall part~III meets from the other side, in the guise of the exponent
-condition $\theta+6B<1$: there, no Weyl-sum bound is uniform enough in the frequency; here, no bound is known for the
+\texttt{research/explore/STATE.md}.} Summing $\lambda\omega(u)$ times an error $(H/u)^{1/2}u^{A}$ over $u\le H^{1/2+\varepsilon}$ is
+$O(H^{1-\delta})$ when $A<\tfrac12$ and $\varepsilon$ is small, so a bound $u^{1/2-\varepsilon}$ for that factor would settle the Ces\`aro
+conjecture for quadratics (with part~III's first range $u\le H^{2/3}$ the threshold was $u^{1/4}$). This is the same wall part~III meets from the other side, in the guise of the exponent
+condition of its Theorem~A: there, no Weyl-sum bound is uniform enough in the frequency; here, no bound is known for the
 restricted period. We regard the two as one open problem seen from two directions, but the present formulation is
 sharper, because the object to be bounded is now a specific sum of a Maass form over a specific set of Heegner
 points, rather than an error term.

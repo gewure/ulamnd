@@ -36,3 +36,13 @@ in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
   paper text is running. No human check. The constant A_f remains conditional (Theorem A).
 - Rewritten: abstract, results list, Koksma paragraph, closing paragraph of §6, "What remains" item 1, Remark rem:exponents, Remark
   rem:KSwconst's count (ERRATA 37). The claim "a logarithmic saving is not enough" is withdrawn (ERRATA 38, KNOWLEDGE F46). 30 pp.
+
+## 15 September 2026 (night): large-u range extended to u > H^{1/2+ε}; Theorem A under B < (1−θ)/(2−θ) — PAPER TEXT UNDER READING
+- Theorem typeII now covers u > H^{1/2+ε} (Step 4b: dispersion over u + Weil, Lemma lem:kloost; Step 5 split at Y₀ = H^{1/2−ε}).
+  The derivation (research/explore/PROOFS-uniform.md §9) passed two independent adversarial readings; the paper text is being read.
+- Theorem A re-proved with Lemma tail and the narrow window: condition B < (1−θ)/(2−θ) (was θ + 6B < 1). ERRATA 40.
+- Consequential: Theorem A′, Corollary smallu, Theorem E's proof, Proposition windowW (general upper end Z), Remark exponents,
+  "What remains" item 1, abstract, results. 32 pp; one pre-existing 5.7pt overfull line (Proposition KSw proof).
+- DECISION (15 Sep): after this change and its reading paper III is FROZEN (only corrections). The middle range u ∈ (H^{0.26}, H^{1/2}]
+  and any further uniformity go to a new paper (V), written once there is a result; work in research/explore/PROOFS-uniform.md.
+
