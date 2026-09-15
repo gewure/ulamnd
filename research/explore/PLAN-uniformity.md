@@ -160,7 +160,26 @@ for the whole range, and it should be tested numerically first: compare Σ_u w(u
   spectrum on the footing Lemmas B and D established for single lines. To be TESTED numerically first (hecke-components.py).
 - Conjecture U stands numerically (N1–N5). The gap is between "true for all u" and "provable for u ≤ Y^{1/5}".
 
+## 9. After the component test (16 Sep): where the non-uniformity lives
+The piece splits exactly into T = w̄·S^w_1(uY) (the u = 1 object: uniform in u for free, relative size ≍ u^{-3/2}), a marginal
+part L of level u (functions of one line: the Hecke/Fricke neighbours, i.e. Γ₀(u)-Poincaré series of the seed evaluated at
+level-u Heegner points) and a remainder R of genuinely level u² (Steinberg's third copy and the principal series). On the data
+R is the largest part and is everything for inert u. Consequences for the route:
+- The level-u part L is a MILDER problem than the level-u² problem: its spectral expansion runs over Γ₀(u) (volume ≍ u, not u²),
+  and its periods are level-u Heegner periods, for which Liu–Masri–Young's level-aspect equidistribution is stated.
+- R is the hard core. Arithmetically (inert u) R = Σ_{h'} w(h'/(uY))(1[u|h'] − 1/u)(σ₋₁(h'²−D) − mean) = (1/u)Σ_{t≢0 (u)} of the
+  additive twists e(th'/u) of the u = 1 sum at length uY: the u-aspect of R is an additive twist of conductor u of a FIXED object.
+  That is a cleaner formulation of the whole problem than the level-u² picture: bound Σ_{h'} w(h'/X) e(th'/u) σ₋₁(h'² − D) with a
+  saving uniform in u ≤ X^{2/3}. The Poisson dual pairs the frequency t/u with the fractions b′/a of the roots, so the problem is
+  the equidistribution of the roots of x² ≡ D (mod a) against the rationals t/u — a shifted-convolution/Kloosterman question with
+  a fixed quadratic and a varying rational shift, the natural input being a large sieve for roots of quadratic congruences
+  (Fouvry–Iwaniec) averaged over t.
+- Next: (1) measure the u-scaling of rms(L) and rms(R) at u = 3, 5, 7, 11, 13 on Y ≤ 10⁶ (cheap); (2) write the additive-twist
+  formulation of R for split u (the marginal correction adds the u | a and u | n/a restrictions); (3) literature for sums of
+  σ₋₁(h² − D) twisted by e(th/u) uniformly in u.
+
 ## 4′. Log
+- 16 Sep: component test finished (STATE §17); §9 where the non-uniformity lives; the additive-twist formulation of R.
 - 15 Sep 21:00: §5 correction of the elementary sketch; §6 representation-theoretic decomposition (trivial component = Hecke translate of the u=1 object); PLAN §8 status.
 - 15 Sep 19:30: N5 (u-averages: random signs only; the 0.05 block was a fluctuation).
 - 15 Sep 18:50: N4 (two halves cancel separately); §7 the bad half as Γ₀(u²) Kloosterman sums, the X^{1/5} warning, averaging over u as candidate mechanism.

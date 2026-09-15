@@ -43,9 +43,11 @@ $\Q(\sqrt D)$ and not by the Hecke eigenvalue: the ratio is exactly $u^{-3/2}$ w
 when $u$ splits, and $u^{-1/2}(1-\lambda_j(u)u^{-1/2}+O(u^{-1}))$ when $u$ is ramified; the ratio is multiplicative in squarefree
 $u$, and at $u=2$ the local constants depend on the class through the bilinear form modulo~$2$; so the main terms of the level-one lines
 are uniformly summable over $u$. The same formula with a newform $v$ of level $u$ gives its line in piece $u$, and the
-period that drives it vanishes when $u$ is inert, because the Hecke and Fricke contributions cancel. Both predictions carry
-no free parameter. Where the line is resolved in the data ($|r|\gtrsim0.1$ on grids to $Y=10^7$) they hold to a few percent
-in amplitude and a few hundredths of a radian in phase --- $13$ of the $21$ pairs $(u,D)$ tested for the first level-one line,
+period that drives it vanishes when $u$ is inert, because the Hecke and Fricke contributions cancel, and for every $u$ when the
+Fricke sign is $-1$. The piece splits into the $u=1$ object at length $uY$, a part of level $u$ and a part of genuinely level $u^2$;
+this explains the inert identity, and in the data each named line lies in the part the splitting assigns it. Both predictions carry
+no free parameter. Where the line is resolved in the data ($|r|\gtrsim0.1$ on grids to $Y=10^7$) they hold to a few percent at $u=2$ and to within the systematic uncertainty of the data, about $0.04$ in the ratio, at $u=3$,
+and to a few hundredths of a radian in phase --- $13$ of the $21$ pairs $(u,D)$ tested for the first level-one line,
 with one unexplained outlier, and five of the seven discriminants for the first newform of level~$3$, the other two being the
 inert cases, where the line is observed at the noise level as predicted. The error term uniform in $u$, the open core of the
 conjecture of part~III, is not touched.
@@ -118,7 +120,8 @@ the implied constants absolute, and the inert identity exact for every $\lambda_
 \end{theorem}
 \status{proved (Section~\ref{sec:lemmas}); the asymptotics are read off~\eqref{eq:r} as a rational function of $\lambda$ and $\sqrt u$.
 The inert identity has a one-line reason: for $\chi=-1$, $P=(\lambda\sqrt u,\,u+1,\,\lambda\sqrt u)=(u+1)(g,1,g)$ is $(u+1)$ times the
-middle column of $G$, so $G^{-1}P=(u+1)e_2$ and $P^{\mathsf T}G^{-1}L=(u+1)/u$, whence $r=\sqrt u\,(u+1)/(u\cdot u(u+1))=u^{-3/2}$. The first version of this draft stated the asymptotic as
+middle column of $G$, so $G^{-1}P=(u+1)e_2$ and $P^{\mathsf T}G^{-1}L=(u+1)/u$, whence $r=\sqrt u\,(u+1)/(u\cdot u(u+1))=u^{-3/2}$. A reason that uses no Gram matrix is Remark~\ref{rem:components}: for inert $u$ the
+level-one lines of piece $u$ are exactly those of $\bar w\,S^w_1(uY)$ with $\bar w=1/u$. The first version of this draft stated the asymptotic as
 $\lambda_j(u)/u$ for $u\nmid D$; that was wrong --- the $\lambda_j(u)\sqrt u$ terms of $p_0$ and $p_1L_2$ cancel exactly --- and was
 caught by an outside reading that evaluated~\eqref{eq:r} at large $u$. The values of~\eqref{eq:r} agree with the direct
 spectral computation to four digits and with the data to the noise (Table~\ref{tab:ratios}).}
@@ -134,12 +137,14 @@ A_v(uY)=\Gamma(-it_v)W_c\bigl(\tfrac32+it_v\bigr)\Bigl(\frac{\pi\sqrt{|D|}}{uY}\
 \]
 i.e.\ an amplitude $2\sqrt u|D|^{-1/4}|\sum_k\Per(v_k)\tilde L(v_k)|\,|\Gamma(-it_v)W_c(\tfrac32+it_v)|$ and a phase shifted by $-t_v\log u$;
 $\{v_1,v_2\}$ the orthonormalisation of $\{v(z),v(uz)\}$ on $\Gamma_0(u^2)\backslash\HH$, whose Gram matrix has off-diagonal
-entry $a_v(u)\sqrt u/u=-\varepsilon/u$ relative to $\langle v,v\rangle$. If $u$ is inert in $\Q(\sqrt D)$ then
+entry $a_v(u)\sqrt u/u=-\varepsilon/u$ relative to $\langle v,v\rangle$. If $u$ is inert in $\Q(\sqrt D)$, or if $\varepsilon=-1$, then
 $\Per_{\mathcal W_u}(v)=\Per_{\mathcal W_u}(v(u\,\cdot))=0$ and the line is absent.
 \end{theorem}
 \status{proved: the formula is Theorem~\ref{thm:pieceu} restricted to the two-dimensional oldspace, the Gram entry is
 Lemma~\ref{lem:gram}(iii), and the vanishing is Lemma~\ref{lem:newperiod}. Tested on seven discriminants (Table~\ref{tab:newform}):
-the period vanishes identically for inert $u$ in the computation, and in the data the line is at the noise level there.}
+the period vanishes identically for inert $u$ in the computation, and in the data the line is at the noise level there. At $u=5$
+the two even newforms with $\varepsilon=-1$ below $R=8.6$ are absent from the data and the three with the largest lines have
+$\varepsilon=+1$ (Section~\ref{sec:numerics}).}
 
 \begin{corollary}[uniform summability of the level-one main terms]\label{cor:sum}
 In Theorem~A$'$ of part~III the piece with dilation $u$ enters at length $H/u$, so its level-one main terms are of size
@@ -159,12 +164,12 @@ untouched. What has changed is that the main-term side of the $u$-problem is Hec
 decays.
 \end{remark}
 
-\paragraph{Method and checks.} Section~\ref{sec:seed} proves Theorem~\ref{thm:pieceu}. Section~\ref{sec:lemmas} states
+{\sloppy\paragraph{Method and checks.} Section~\ref{sec:seed} proves Theorem~\ref{thm:pieceu}. Section~\ref{sec:lemmas} states
 the three lemmas behind Theorem~\ref{thm:level1} with what is proved of each. Section~\ref{sec:numerics} reports the
 tests: the ratio~\eqref{eq:r} against a direct computation of the oldform projection with the Maass forms' values (no
 closed form used), and both against the pieces computed to $Y=10^7$; then the newform of level~$3$; then the case $u=2$
-and the composite $u=6$. Section~\ref{sec:open} lists what is open. Scripts and data are in the repository
-(\texttt{research/explore/}, \texttt{hecke-oldform-predict.py}, \texttt{hecke-classwise.py}, \texttt{hecke-newform-u3.py}, \texttt{hecke-ratio-sharp.py}).
+and the composite $u=6$; then the components of the piece and the precision of the data. Section~\ref{sec:open} lists what is open. Scripts and data are in the repository
+(\texttt{research/explore/}, \texttt{hecke-oldform-predict.py}, \texttt{hecke-classwise.py}, \texttt{hecke-newform-u3.py}, \texttt{hecke-ratio-sharp.py}, \texttt{hecke-components.ts}, \texttt{newform-fricke-check.py}).\par}
 
 \section{The seed identity and the family $\mathcal W_u$}\label{sec:seed}
 
@@ -413,7 +418,8 @@ $\Per_{\mathcal W_u}(v(u\,\cdot))=\varepsilon\Per_{\mathcal W_u}(v)$, and
 (u-1)\sum_C|S_C|^{-1}v(h_r(z_C))&\text{$u\parallel D$,}\end{cases}
 \]
 where the $h_\ell(z_C)$ are taken as points of $X_0(u)$: the sums on the right are periods of $v$ over the Heegner points of
-level $u$ and discriminant $4D$ above each class, in the sense of Gross--Kohnen--Zagier.
+level $u$ and discriminant $4D$ above each class, in the sense of Gross--Kohnen--Zagier. In particular
+$\Per_{\mathcal W_u}(v)=0$ whenever $\varepsilon=-1$, whatever the splitting of $u$.
 \end{lemma}
 \begin{proof}
 For fixed $\ell_2$ the $u$ choices of $\ell_1$ are $\gamma\mapsto\gamma\left(\begin{smallmatrix}1&0\\ c&1\end{smallmatrix}\right)$, and
@@ -425,8 +431,36 @@ term cancel. By~\eqref{eq:mass}, $\Per_{\mathcal W_u}(v)=\sum_C|S_C|^{-1}\sum_{\
 for inert $u$, $N\equiv1$ and the sum vanishes; for split $u$, $N=1-\mathbf 1[\text{isotropic}]$; for $u\parallel D$, $N(r)=u$ and
 $N=1$ otherwise. The relation between $v$ and $v(u\,\cdot)$ is the Fricke involution of $\Gamma_0(u^2)$ acting on $\mathcal W_u$ as the
 divisor pairing, since $v(-1/(u^2\tau))=\varepsilon v(u\tau)$. Numerically the split and ramified formulas reproduce the direct orbit
-sums to all computed digits at $D=-8,-11,-20$ and $D=-3,-15$ ($u=3$).
+sums to all computed digits at $D=-8,-11,-20$ and $D=-3,-15$ ($u=3$). For the last sentence: the Fricke involution
+$z\mapsto-1/(uz)$ of $\Gamma_0(u)$ maps the Heegner point of $[ua,b,c]$ to that of $[uc,-b,a]$, a bijection between the classes with
+$b\equiv\beta$ and $b\equiv-\beta\pmod{2u}$ that preserves stabilisers. In the split case the isotropic lines give the two root classes,
+which it exchanges, so the sum is $(1+\varepsilon)$ times the sum over one of them. In the ramified case it fixes the class
+$b\equiv0$, so the sum equals $\varepsilon$ times itself. Numerically, for the even newform of level $5$ with $R=5.4362$ and
+$\varepsilon=-1$ (LMFDB 5.0.1.5.1) the family period computed from the orbits of $\mathcal W_5$ is below $10^{-9}$ times the sum of the
+absolute values of its terms at $D=-4,-11$ (split), $-15$ (ramified) and $-3,-8$ (inert); for the forms with $R=4.1324$ and $6.0540$
+($\varepsilon=+1$) that ratio is between $0.03$ and $1$ in the split and ramified cases, and $\Per_{\mathcal W_5}(v(5\,\cdot))/\Per_{\mathcal W_5}(v)=+1$
+(\texttt{newform-fricke-check.py}).
 \end{proof}
+
+\begin{remark}[the components of the family, and the inert identity explained]\label{rem:components}
+Let $u$ be an odd prime with $u\nmid D$. By~\eqref{eq:mass} the piece over a class $C$ is a sum over the cosets $\gamma$ of the
+seed at $\alpha\gamma^{-1}z_C$, weighted by $w_C(\gamma)=\mathbf 1[\ell_1\perp\ell_2]$. On the $u(u+1)$ ordered pairs of distinct lines, with the
+uniform measure, write
+\[
+w_C=\bar w+\tfrac u{u-1}\bigl(n(\ell_1)+n(\ell_2)\bigr)+R_C,\qquad \bar w=\frac{u-\chi}{u(u+1)},\qquad n(\ell)=\frac{N(\ell)}u-\bar w,
+\]
+with $R_C$ orthogonal to every function of a single line. (i) Replacing $w_C$ by $\bar w$ sums the seed over all cosets, which
+is Atkin's operator $U_u$ followed by the level-one Poincar\'e series; since the Fourier coefficients of the seed are homogeneous,
+$\sum_{j\bmod u}\Psi^w_{Y'}((z+j)/u)=u^{-1}\Psi^w_{Y'}(z)$ exactly, and the trivial part of piece $u$ is $\bar w\,S^w_1(uY)$. It gives
+the level-one lines the ratio $\bar w\,u^{-1/2}$ for every splitting type. (ii) By the proofs of Lemmas~\ref{lem:period}
+and~\ref{lem:newperiod}, the values of $f_0,f_1,f_2$ and of the level-$u$ newforms at the coset points depend on at most one
+line. So $R_C$ contributes no level-one and no level-$u$ line, and the marginal part carries $r_j(u;D)-\bar w\,u^{-1/2}$ and
+all level-$u$ newform lines. (iii) For inert $u$ no line is isotropic, $N\equiv1=u\bar w$, the marginal part vanishes, and
+$r_j(u;D)=\bar w\,u^{-1/2}=u^{-3/2}$. Arithmetically, piece $u$ is the restriction of the $u=1$ sum at length $uY$ to
+$h'\equiv0\pmod u$; for a divisor $a$ of $h'^2-D$, $\ell_1$ is isotropic iff $u\mid a$ and $\ell_2$ iff $u\mid(h'^2-D)/a$. The three
+parts are therefore computable from $\sigma_{-1}(h'^2-D)$ and $\sigma_{-1}((h'^2-D)/u)$, and they are tested on the data in
+Section~\ref{sec:numerics}.
+\end{remark}
 
 \begin{proof}[Proof of Theorem~\ref{thm:level1} from the lemmas]
 Theorem~\ref{thm:pieceu} restricted to the span of $f_0,f_1,f_2$ gives the coefficient $\sqrt u\sum_k\Per_{\mathcal W_u}(v_k)\tilde L(v_k)$
@@ -442,7 +476,7 @@ when $\chi=-1$, and the expansions in $u^{-1/2}$ stated in the theorem when $\ch
 \section{Numerical confirmation}\label{sec:numerics}
 
 All data are the pieces of part~IV computed to $Y=10^7$ (\texttt{piece-divset.ts}, unrestricted object), sharp Riesz means
-on $4096$ log-spaced points and smooth windows on $401$; amplitudes and phases by joint least squares at the level-one
+on $4096$ log-spaced points and smooth windows on $400$; amplitudes and phases by joint least squares at the level-one
 lines with the dominant level-$u^2$ lines as nuisance frequencies (Str\"omberg's $\Gamma_0(9)$ eigenvalues at $u=3$
 \cite{Stromberg2012}, the six strongest data-driven peaks at $u=5$). The predictions of Theorem~\ref{thm:level1} were
 computed twice: from~\eqref{eq:r}, and directly by evaluating the Maass form at the orbit representatives of $\mathcal W_u$,
@@ -509,9 +543,33 @@ $-0.449,-0.320,-0.295,+0.111,+0.549$ against $-0.264,-0.264,-0.237,+0.163,+0.657
 which Str\"omberg attributes to forms of the cycloidal group $\Gamma^3$~\cite{Stromberg2012}; their coefficients are not
 tabulated and their amplitudes in piece $3$ cannot be predicted here.
 
+\paragraph{The components of the piece.} Remark~\ref{rem:components} was tested on the same grids for $u=3$ ($D=-8,-11,-20$ split,
+$-4,-7$ inert) and $u=5$ ($D=-4,-11$ split, $-8$ inert), with the three parts computed from $\sigma_{-1}(h'^2-D)$ and
+$\sigma_{-1}((h'^2-D)/u)$ (\texttt{hecke-components.ts}); their sum reproduces the grids of part~IV. For inert $u$ the marginal part
+vanishes identically. At $u=3$ the level-$3$ newform line $5.0987$ lies entirely in the marginal part: amplitudes $0.143$, $0.138$,
+$0.191$ there against $0.141$, $0.136$, $0.192$ in the piece, and at most $0.007$, at the noise, in $R$. The cycloidal lines $3.536$
+and $6.647$ lie entirely in $R$ (for example $0.2009$ against $0.2010$ at $D=-4$), with at most $0.008$ in the marginal part. The
+trivial part carries $t_1$ with the ratio $\bar w\,u^{-1/2}$: observed $+0.100$, $+0.090$, $+0.083$ against $+0.096$ (split) and
+$+0.193$, $+0.188$ against $+0.192$ (inert). In the marginal part and in $R$ the line $t_1$ is at or below the noise of these grids,
+which is consistent with the prediction but does not test it. At $u=5$ the marginal part carries the even level-$5$ newforms
+$4.1324$, $6.0540$ and $8.2947$, all with $\varepsilon=+1$ in the LMFDB, at $9$ to $27$ times its noise for $D=-4$ and $4$ to $12$ times
+for $D=-11$; the forms $5.4362$ and $7.9865$ with $\varepsilon=-1$ are absent from it, as Lemma~\ref{lem:newperiod} requires. $R$
+carries lines at $2.64$--$2.71$, at $5.22$--$5.28$ and near $10.8$, none at a level-$5$ newform. By size the trivial part is negligible
+(root mean square $0.007$--$0.022$) against the marginal part ($0.08$--$0.17$) and $R$ ($0.15$--$0.32$): what is not uniform in $u$
+lives at the levels $u$ and $u^2$.
+
+\paragraph{Precision of the subtracted means.} The means $\mathbb E\sigma^*_{-1}$ subtracted in all grids are floating-point Euler
+products over $10^6$ primes or more. Against a log-sum their rounding and tail errors lie between $10^{-12}$ and $4\cdot10^{-11}$. An
+error $\delta$ adds about $-0.111\,\delta\,Y^{3/2}$ to $\sqrt Y\,S^w_u(Y)$, up to $0.16$ at $Y=10^7$, and polynomial detrending in $\log Y$
+does not remove it; the components above were fitted with a $Y^{3/2}$ term. Refitting Table~\ref{tab:ratios} with such terms moves
+the $u=2$ entries by at most $0.015$, the $u=3$ entries by at most $0.04$ (split $-0.315$, $-0.353$, $-0.354$; ramified $+0.618$,
+$+0.707$; inert $+0.177$) and the $u=5$ ramified entry to $+0.445$. The amplitudes of Table~\ref{tab:newform} move by at most $2\%$
+and the phases by at most $0.02$ rad. The tables keep the original fits, and the agreement at $u=3$ is to be read with this
+systematic uncertainty.
+
 \section{What is open}\label{sec:open}
 \begin{enumerate}
-\item A proof of the inert identity $r=u^{-3/2}$ that explains it rather than verifies it; and closed forms for the
+\item Closed forms for the
 class-dependent entries of Proposition~\ref{prop:classwise} (at $u=2$, and for $u^2\mid D$) in terms of $\lambda_j(u)$ and the
 periods of the discriminants $D/u^{2k}$, via the Hecke relations.
 \item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect

@@ -159,3 +159,74 @@ FIRST TEST (F24, before anything is believed): compute numerically, for D = −4
 Σ over all u(u+1) cosets — from the same divisor data (all forms of discriminant 4D, all b, evaluated at (z_Q + j)/u and u z_Q), and
 (iii) their difference. If the non-trivial part is the dominant one and grows with u, the decomposition is a bookkeeping device;
 if it is smaller than the trivial part or decays, it is the mechanism. Script to write: hecke-components.py.
+
+## 6′. CORRECTION of §6 (16 Sep 2026): the trivial component is w̄·S^w_1(uY), not a Hecke translate; the inert identity explained
+§6 said the trivial SL₂(F_u)-component of piece u is "w̄·√u·T_u P[Ψ_{uY}]". That is wrong. Derivation:
+- Class C, S_C acting freely on Γ/T^{uZ} (finite order against infinite order): the piece over C is
+  |S_C|⁻¹ Σ_{γ∈Γ/T^{uZ}} w_C(γ) seed(γ⁻¹z_C),  seed(z) = uΨ_{uY}(z/u),  w_C(γ) = 1[ℓ₁(γ) ⊥ ℓ₂(γ)] right-G_u-invariant.
+- Replace w_C by its uniform average w̄ = m/(u(u+1)) (m = u − χ for u ∤ D): Σ_{γ∈Γ/T^{uZ}} seed(γ⁻¹z) = Σ_{γ∈Γ/Γ_∞} Σ_{j mod u} uΨ_{uY}((γ⁻¹z − j)/u)
+  = Σ_{γ∈Γ/Γ_∞} u·(U_uΨ_{uY})(γ⁻¹z), with Atkin's U_u (only the u matrices (1 j; 0 u); the matrix (u 0; 0 1) of T_u is absent).
+  The seed is homogeneous: ψ_k(y) = (Y′y²/|D|)ŵ(kY′y/√|D|), so ψ_{uk}(y/u) = u⁻²ψ_k(y) and U_uΨ_{Y′} = u⁻¹Ψ_{Y′} EXACTLY.
+  Hence the trivial component of piece u is w̄·Σ_C|S_C|⁻¹P_Γ[Ψ_{uY}](z_C) = w̄·S^w_1(uY): the u = 1 object at length uY.
+- Arithmetic form: piece u = Σ_{h′≡0 (u)} w(h′/(uY))(σ_{-1}(h′²−D) − E_u), a restriction of the u = 1 sum at length uY. For the pair
+  (divisor a of n = h′²−D, h′ mod ua): ℓ₁ isotropic ⇔ u | a; ℓ₂ isotropic ⇔ u | n/a; w = 1[u | h′].
+- Decomposition of L²(ordered pairs of distinct lines) = Ind_T^G 1: the trivial representation once, Steinberg THREE times
+  (dim St^T = #T-orbits on P¹(F_u) − 1 = 3: the orbits are {0}, {∞} and the two square classes of F_u^×, since diag(a,a⁻¹)
+  acts by x ↦ a²x; an earlier line of this section said "twice", corrected the same day). Two of the copies are the
+  mean-zero functions of ℓ₁ and those of ℓ₂; the third lies in the remainder R below. The two one-line copies are NOT orthogonal:
+  ⟨φ(ℓ₁), ψ(ℓ₂)⟩ = −⟨φ, ψ⟩_{P¹}. Projecting w − w̄ onto their sum (conditions E[·|ℓ₁] = E[·|ℓ₂] = 0 on the remainder):
+  the marginal part is (u/(u−1))·(n(ℓ₁) + n(ℓ₂)), n(ℓ) = N(ℓ)/u − w̄, N(ℓ) = #{ℓ′ ≠ ℓ : ℓ′ ⊥ ℓ}; the remainder R is orthogonal to
+  every function of a single line.
+- By the proofs of Lemmas B and D, the values at the coset points of the level-one oldforms f₀, f₁, f₂ depend on ℓ₂, on
+  nothing, on ℓ₁ respectively, and those of the level-u newforms on one line. Hence R contributes to NO level-one and NO
+  level-u line; the trivial component carries the level-one lines with ratio w̄·u^{-1/2} for every splitting type; the
+  marginal part carries r_j(u;D) − w̄·u^{-1/2} and all level-u newform lines.
+  Checked against the closed form of Theorem 2: P_triv = w̄·(u√uλ, u(u+1), u√uλ) = w̄u(u+1)·(middle column of G) gives
+  r_triv = w̄u^{-1/2} for all χ ∈ {−1, 0, 1}, u ∈ {3,…,1009}, λ ∈ [−1.9, 1.99] (max deviation 3.9e−16).
+- THE INERT IDENTITY, EXPLAINED: for inert u no line is isotropic, N ≡ 1 = uw̄, so n ≡ 0 and the marginal part vanishes
+  identically; the level-one lines of piece u are those of w̄·S^w_1(uY), and r = w̄·u^{-1/2} = ((u+1)/(u(u+1)))·u^{-1/2} = u^{-3/2}.
+  No Gram matrix is needed. (Split u=3: r = −0.3105 = trivial +0.0962 + marginal −0.4068; u=5: −0.0763 = +0.0596 − 0.1360.)
+- For the uniformity problem: the trivial component is the u = 1 object at length uY (Theorem smooth, no uniformity issue),
+  of relative size w̄u^{-1/2} ≍ u^{-3/2}. Everything non-uniform in u sits in the marginal (level-u) part and in R (level u²).
+- TEST (running 16 Sep): hecke-components.ts computes P, T, L1, L2, R on the paper's smooth grids for u = 3 (D = −8, −4, −11, −7,
+  −20) and u = 5 (D = −4, −8, −11); hecke-components-fit.py checks P against the paper's grids, fits the lines in each component
+  and compares with the predictions above. The smoke test (Y = 2·10⁵) confirmed the four local-factor means to six digits.
+
+## 6″. RESULTS of the component test (16 Sep 2026) — the decomposition is confirmed; two by-products
+Scripts: hecke-components.ts (grids research/explore/data/components-D*-U*-grid.dat, Y ≤ 10⁷, the paper's 400-point smooth grid),
+hecke-components-fit.py (v2), hecke-components-u5.py, newform-fricke-check.py, mean-precision.py. Every fit has the design
+1, x, (Y/Ymax)^{3/2}, cos/sin (see by-product 1). Amplitudes; "noise" = mean amplitude at off-line probe frequencies.
+(a) Exact identities. The four local-factor means (A, B, C, A on u | h′) match the empirical means to six digits; for inert u
+    L1 ≡ L2 ≡ 0 to machine precision (u = 3: D = −4, −7; u = 5: D = −8), as derived.
+(b) u = 3, level-3 newform t = 5.0987 (ε = +1). D = −8 / −11 / −20: P 0.141 / 0.136 / 0.192; L 0.143 / 0.138 / 0.191; R 0.004 / 0.004 /
+    0.007 (noise 0.018 / 0.009 / 0.022); T ≤ 0.0003. ENTIRELY in the marginal (level-u) part. ✓
+(c) u = 3, Strömberg's cycloidal Γ³ lines. 3.536: R = P in all five D (e.g. D = −4: 0.2009 vs 0.2010), L ≤ 0.003; 6.647: R ≈ P
+    (0.175 vs 0.182, 0.252 vs 0.255, …), L ≤ 0.007. ENTIRELY in R. ✓  (The pair 8.698/8.778 is collinear at the resolution
+    2π/9.2 ≈ 0.68 and shows opposite-phase inflation even in T; no statement is made about it.)
+(d) Level-one line t₁ in T: signed ratio +0.100, +0.090, +0.083 (split, pred +0.096), +0.193, +0.188 (inert, pred +0.192), u = 5:
+    +0.060 (pred +0.060), +0.061, +0.088 (pred +0.089); phases within 0.12 rad. In L and R the t₁ line is at or below the noise
+    at Y ≤ 10⁷ (L split u = 3: −0.49, −0.53, −0.32 against −0.407 at 1–1.4σ with the predicted phase; R at < 1σ in all eight
+    pairs): consistent with the prediction, not a test of it.
+(e) u = 5 against the LMFDB level-5 even newforms (fetched 16 Sep): L carries 4.1324 (ε=+1), 6.0540 (+1), 8.2947 (+1) — D = −4:
+    0.030 / 0.086 / 0.046 at L-noise 0.003; D = −11: 0.048 / 0.075 / 0.129 at 0.011; the ε = −1 forms 5.4362 and 7.9865 are ABSENT
+    from L (0.0003 / 0.0020 and 0.0011 / 0.0024). T carries none. R's own lines (2.64–2.71, 5.22–5.28 in all three D, ≈10.8) are
+    at no level-5 newform: the genuinely level-25 part (2.64 is the line predicted in part IV to be the first eigenvalue of Γ⁵).
+(f) Sizes (rms over the grid, after the base columns): T 0.007–0.022; L 0.08–0.17; R 0.15–0.32; P 0.21–0.32. The part that is
+    uniformly controlled (T, the u = 1 object) is negligible; the non-uniformity sits in L (level u) and R (level u²), with R
+    the larger — for inert u R is everything.
+BY-PRODUCT 1 (data precision; affects numbers in the papers at the percent level, ERRATA 35). The subtracted means E are float64
+    Euler products over ~10⁶ primes; their rounding error is 10⁻¹²–2·10⁻¹¹ (mean-precision.py: against a log-sum reference, the
+    paper's split u = 3 grids are off by 5–14·10⁻¹², u = 5 by up to 4·10⁻¹¹; this session's script is not systematically better),
+    and the shared tail formula is good to ~10⁻¹². An error δ in E adds −δ·√Y·Σ_h w(h/Y) ≈ −0.111·δ·Y^{3/2} to √Y·S^w (and a Y^{3/2}
+    and a Y^{1/2} term to the sharp grids): 0.02–0.16 at Y = 10⁷, which a degree-1 or degree-3 detrend in log Y does not remove.
+    With a Y^{3/2} column the regression P ↔ paper grid is 6·10⁻⁷ for all eight pairs. Audit of published fits with the column added:
+    dilation tab:ratios u = 2 ≤ 0.015, u = 3 ≤ 0.037 (split −0.285/−0.320/−0.332 → −0.315/−0.353/−0.354; ramified 0.655/0.726 →
+    0.618/0.707), u = 5 ramified 0.431 → 0.445; tab:newform ≤ 2% in amplitude, ≤ 0.02 rad; paper IV tab:dsweep ≤ 2.6% for |D| ≤ 39
+    (D = −23: ratio 0.97 → 0.95). Rule for all future fits: include the mean-error columns.
+BY-PRODUCT 2 (Fricke refinement of Lemma newperiod, PROVED and checked). The Fricke involution W_u maps the level-u Heegner forms
+    [ua, b, c] of discriminant 4D to [uc, −b, a], so it swaps the root classes b ≡ ±β (mod 2u) (split) and fixes the root-0 class
+    (u ∥ D), preserving stabilisers; with v∘W_u = εv the split period is −(1+ε)·(one root class) and the ramified one is
+    ε·itself. Hence Per_{W_u}(v) = 0 whenever ε = −1, for EVERY splitting type. Direct check (newform-fricke-check.py, orbits of W_u
+    enumerated independently, v by reduction + coset decomposition): 5.0.1.5.1 (R 5.4362, ε = −1) Per/Σ|terms| ≤ 10⁻⁹ at D = −4, −11
+    (split), −15 (ramified), −3, −8 (inert); 5.0.1.7.1 and 5.0.1.3.1 (ε = +1): 0.03–1.0 for split/ramified, ≤ 3·10⁻⁹ inert;
+    Per(v(u·))/Per(v) = +1.000000 = ε in all nonzero cases. Matches (e): the ε = −1 lines are absent from the data.

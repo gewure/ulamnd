@@ -1,0 +1,3 @@
+D=-8 U=3 (chi=1) Y=10000000: E1=1.820477134259 E_u=1.456381707407 wbar=0.166667 mean(L1)=2.7307e-1 mean(L2)=-9.1024e-2, 19607395 large cofactors (22 s)
+empirical means over h' ≤ 30000000: A 1.820477 (E1 1.820477), B 0.364095 (0.364095), C 1.092286 (1.092286), A on u|h' 1.456382 (E_u 1.456382)
+wrote research/explore/data/components-D8-U3-grid.dat; rms over grid: P 0.2058 T 0.0127 L1 0.0318 L2 0.1014 R 0.1515 (83 s)

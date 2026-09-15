@@ -536,6 +536,23 @@ EVALUATE the closed form at a large argument (two lines of numpy at u = 1009) an
 an oscillating factor (λ), check whether it survives at all. Same species as F26/F39/F40: local steps right, one global magnitude
 relation dropped. (ERRATA 33)
 
+F42. "The sharp sum S_u(Y) tends to zero uniformly in u" (PLAN-uniformity (T″), first version, 15 Sep). At integer t the sharp
+sum has the offset E_u/2 (the mean of ψ((t−x)/d) over integer t is 1/(2d)) and is O(1) noise; only its Cesàro mean vanishes.
+Found within the hour by the first numerical test (sharp-sum-u.py). Rule: before replacing a Cesàro statement by a pointwise
+one, compute the pointwise object at a few arguments.
+
+F43. "The trivial SL₂(F_u)-component of piece u is w̄·√u·T_u applied to the level-one Poincaré series" (PROOFS-uniform §6,
+15 Sep). Summing the seed over all u(u+1) cosets gives Atkin's U_u (the matrices (1 j; 0 u)), not T_u, which also contains
+(u 0; 0 1); on the homogeneous seed U_u is the scalar 1/u, so the trivial component is w̄·S^w_1(uY), the u = 1 object at length
+uY. Found by re-deriving before the test was run (16 Sep). The corrected form explains the inert identity (dilation draft,
+Remark components). Rule: when an averaged coset sum is identified with a Hecke operator, write down the matrices summed.
+
+F44. Float64 Euler products as subtracted means (all piece grids, 13–15 Sep). Rounding and tail errors of 10⁻¹²–4·10⁻¹¹ give
+a Y^{3/2} drift of 0.02–0.16 at Y = 10⁷ that polynomial detrending in log Y leaves in the data; published ratios at u = 3 move
+by up to 0.04 when the drift is fitted. Found by the regression check of a new script against the paper's grids, where the
+two codes disagreed only for split u (the new one multiplied one extra factor, which changed the rounding path). Rule: every
+fit of a piece grid includes the mean-error columns, and a new mean is checked against a log-sum. (ERRATA 35)
+
 F38. "A Claude instance given the papers and nothing else" (case study v1, §8) for a reader that was the author's
 long-running reviewing conversation with weeks of context. A statement about PROCESS asserted from memory instead of
 checked with the author; same species as F21 ("submitted"). Rule: every sentence describing who did what, with what
@@ -913,6 +930,9 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 - Any novelty claim: Kurokawa 1986, Moroz 1988, Alberts 2024 (Euler products); Hooley 1963/64, DFI 1995/2012,
   Marklof–Welsh 2023 (roots of congruences); Goldston–Suriajaya 2021, KRR 2022 (singular-series averages).
 - Any asymptotic read off a closed form: evaluate the closed form at a large argument and compare (F41).
+- Any fit of a grid with a subtracted mean: include the mean-error shape (Y^{3/2} for smooth windows, Y^{3/2} and Y^{1/2} for
+  sharp Riesz means) in the design matrix; check the mean itself against a log-sum (F44). Any coset average identified with
+  a Hecke operator: list the matrices actually summed (F43).
 - Any named constant or exponent chosen in a proof: list its constraints, check the set is non-empty (F39). Any Mellin/
   Perron/Laplace transform in a display: recompute it, never copy the pattern; list the singularities of every object the
   proof itself introduces (F40).

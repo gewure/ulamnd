@@ -1300,7 +1300,11 @@ fitted amplitude on smooth-window data to $Y=10^7$ for fifteen discriminants
 $1$ and the phase within $0.1$ rad, with class numbers up to $6$; beyond the turning point $|D|\approx19$ of the
 threshold paragraph the predicted amplitude falls to the noise floor of a single line on these grids (about
 $0.003$--$0.005$) and the ratios scatter accordingly, at $D=-43$ the prediction ($0.0006$) being below it, as that
-paragraph anticipated. Adding four further level-one lines to the fit changes the ratios by at most $5\%$.
+paragraph anticipated. Adding four further level-one lines to the fit changes the ratios by at most $5\%$. The subtracted
+mean $\mathbb E\sigma^*_{-1}$ is a floating-point Euler product over about $3\cdot10^5$ primes, with a rounding and tail error of order
+$10^{-12}$; such an error adds a multiple of $Y^{3/2}$ to $\sqrt Y\,S^w(Y)$, which the linear detrending does not remove. Including
+that term in the fit changes the amplitudes by at most $2.6\%$ for $|D|\le39$ and the phases by at most $0.05$ rad; the ratio at
+$D=-23$ becomes $0.95$ (\texttt{research/explore/PROOFS-uniform.md}, \S6$''$).
 \begin{table}[htbp]
 \centering\footnotesize
 \caption{The line $t_1$ across discriminants, unrestricted object, smooth window, $Y\le10^7$: predicted amplitude

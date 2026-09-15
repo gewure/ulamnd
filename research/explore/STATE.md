@@ -400,3 +400,20 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   σ_C ∈ PGL₂(F_u); its trivial SL₂(F_u)-component is (u−χ)/(u(u+1))·√u·T_u P[Ψ_{uY}] — the Hecke operator on the LEVEL-ONE
   Poincaré series, uniformly O(u^{-1/2+7/64+ε}); Steinberg = level u, principal series = level u². Next: hecke-components.py test.
 - Numerical facts N1–N5 in PLAN §4; scripts sharp-sum-u.py, weyl-dilated.py, orbit-minima.py, two-halves.py, weyl-uaverage.py.
+
+## 17. The component test, finished (16 Sep; Opus 5 continuing the session after Fable's usage limit)
+- PROOFS-uniform §6′: §6's "trivial component = w̄·√u·T_u(Poincaré)" was wrong (F43). The coset average is U_u, a scalar 1/u on the
+  homogeneous seed, so the trivial component is w̄·S^w_1(uY). Decomposition of the orthogonality indicator on the pairs of lines:
+  trivial + (u/(u−1))(n(ℓ₁)+n(ℓ₂)) + R, R ⊥ one-line functions (Steinberg occurs three times in Ind_T^G 1; two copies are the
+  one-line functions). Level-one and level-u newform values depend on one line ⇒ R has none of those lines; inert u ⇒
+  marginal part ≡ 0 ⇒ r = w̄u^{-1/2} = u^{-3/2}: the inert identity explained (closed-form check to 4e−16).
+- hecke-components.ts (arithmetic form: u | a ↔ ℓ₁ isotropic, u | n/a ↔ ℓ₂ isotropic; σ₋₁(n), σ₋₁(n/u)) on u = 3 (D = −8, −11, −20,
+  −4, −7) and u = 5 (D = −4, −11, −8), Y ≤ 10⁷. Results PROOFS-uniform §6″: level-3 newform entirely in L, cycloidal Γ³ lines
+  entirely in R, T carries t₁ at the predicted ratio, u = 5: L = the ε = +1 level-5 newforms, ε = −1 ones absent, R at no
+  level-5 newform (2.64–2.71, 5.22–5.28, ≈10.8). Sizes: T 0.007–0.022 ≪ L 0.08–0.17 < R 0.15–0.32.
+- Fricke refinement (dilation Lemma newperiod, Theorem 3): Per_{W_u}(v) = 0 for ε = −1, every splitting type; newform-fricke-check.py
+  on LMFDB 5.0.1.5.1 (ε = −1): ≤ 1e−9 at five D; 5.0.1.7.1, 5.0.1.3.1 (ε = +1): nonzero split/ramified, Per(v(u·))/Per = +1.
+- Data precision (ERRATA 35, F44): float64 means off by 1e−12–4e−11 ⇒ Y^{3/2} drift 0.02–0.16 at Y = 10⁷. Audits: tab:ratios u = 3
+  moves ≤ 0.04, tab:newform ≤ 2%, paper IV tab:dsweep ≤ 2.6%. Dilation draft abstract/numerics and paper IV D-sweep paragraph
+  updated; all new fits carry the Y^{3/2} column (hecke-components-fit.py v2, drift-audit-run.py).
+- New data files: research/explore/data/components-D*-U*-grid.dat; LMFDB coefficients maass-5.0.1.{3,5,7}.1 in paper-IV/data.

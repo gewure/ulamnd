@@ -466,3 +466,18 @@ route before being applied (the checks are described in the items). We agree wit
     mass formula, both local constants, eq. (r) against every table entry, Lemma C's entries, the −ε/u entry, and the ramified
     asymptotic. Draft 9 pp, 0 overfull.
 
+
+35. **Data precision: the subtracted means of all piece grids carry float64 errors of 10⁻¹²–4·10⁻¹¹ (16 Sep; found by the
+    regression check of a new script, not by a reader).** The means E are Euler products over 3·10⁵–1.5·10⁶ primes computed as
+    float64 products (piece-divset.ts), with a shared tail formula good to ~10⁻¹². Against a log-sum reference
+    (research/explore/mean-precision.py) the paper's split u = 3 grids are off by 5–14·10⁻¹² and the u = 5 grids by up to
+    4·10⁻¹¹. An error δ adds −0.111·δ·Y^{3/2} to √Y·S^w (and Y^{3/2}, Y^{1/2} terms to the sharp grids), i.e. 0.02–0.16 at Y = 10⁷,
+    which the degree-1 and degree-3 detrends in log Y do not remove. Audit with a Y^{3/2} (and Y^{1/2}) column added to the fits:
+    dilation draft Table tab:ratios, u = 2 entries change by ≤ 0.015, u = 3 by ≤ 0.037 (split −0.285, −0.320, −0.332 → −0.315, −0.353,
+    −0.354; ramified +0.655, +0.726 → +0.618, +0.707; inert +0.196 → +0.177), u = 5 ramified +0.431 → +0.445; Table tab:newform
+    amplitudes ≤ 2%, phases ≤ 0.02 rad; paper IV Table tab:dsweep amplitudes ≤ 2.6% for |D| ≤ 39, phases ≤ 0.05 rad (ratio at
+    D = −23: 0.97 → 0.95). No qualitative statement changes. Applied: the dilation draft's abstract no longer says "a few percent"
+    for u = 3 (it says within the data's systematic uncertainty, about 0.04 in the ratio) and its numerics section has a paragraph
+    on the precision of the means with these numbers; paper IV's D-sweep paragraph has a sentence with the audit numbers. The
+    tables keep the published fits. Rule (KNOWLEDGE F44): every fit of a piece grid includes the mean-error columns, and a
+    new grid's mean is checked against a log-sum.
