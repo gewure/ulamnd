@@ -96,3 +96,15 @@ discriminant −4ah is a unit mod p and Hensel gives ≤ 2 zeros; at the O_D(1) 
 (ii) Summing over levels: for a pair g₁ ≠ g₂ of family points, a common projective zero of Q_{g₁}, Q_{g₂} mod p^k forces p^k | Res(Q_{g₁}, Q_{g₂}) = ⟨g₁,g₂⟩² − 4 det g₁ det g₂ = u⁴(N² − 4h²)
 (because x³Res, y³Res ∈ (Q_{g₁}, Q_{g₂})), and each form has ≤ 2 zeros mod p^k for p ∤ ah (Hensel), ≤ p^k + p^{k−1} otherwise. Hence Σ_{q₀ ≤ Q} ∏_{p^k ∥ q₀}|R_{p^k}(g₁) ∩ R_{p^k}(g₂)|
 ≪_D τ₃(u⁴(N² − 4h²)) ≪ (uhZ)^{o(1)}, uniformly in Q — the level sum costs a divisor factor, not a factor Q. [The same statement with the p | h exception of §33(3).]
+
+## O6′ (parameters and bookkeeping) — corrected after §33(4)
+Parameters: c (range u ≤ H^{1/3−c}); δ (small-moduli cut k ≤ Y^{1−δ}); η (top cut k ≤ Y^{1+η}, μ²-cut M = Y^{η}, admissibility j ≪_D 1); η′ (tent smoothing Δ = Y^{1−η′});
+C_GM := the exponent in Grimmelt–Merikoski Theorem 8.1's δ^{−O(1)} (to be extracted; the audit of PROOFS §32 covers it); θ ≤ 7/64.
+Order of operations (§33(4)(i)): remove the m > Y^{η} tail and the k-cuts BEFORE decomposing the tent; then all box comparisons are against the box's own trivial size (Y/K)L.
+Losses per box: K₁'s Y^{O(δ+η)}; the level structure lcm(j, e, m²) costs M² = Y^{2η} (§33(4)(iv)); GM's smoothness loss δ^{−O(1)} = Y^{C_GM η′}; the kink Y^{1+δ−2η′} (needs δ < 2η′);
+the m-tail Y^{1−η+ε}; the small moduli Y^{1−δ+ε}; the small boxes Y^{1−2δ+ε}.
+Saving per box (S7, corrected): the block E = M = 1 dominates and the box total is ≪ X^{1/2+θ}u^{1−2θ} + X^{1/2}u against X = L ≍ Y, i.e. a relative saving (u/X^{1/2})^{1−2θ}
+= (u³/H)^{(1−2θ)/2}·Y^{O(η+η′+δ)} ≤ H^{−3c(1−2θ)/2 + O(η+η′+δ) + C_GM η′}.
+Admissible choice: η′ = c/(100 C_GM), η = c/100, δ = c/1000 — then C_GM η′ + 2η + O(δ) < 3c(1−2θ)/2 = 1.336c (θ = 7/64), δ < η, δ < 2η′ all hold, and
+  Σ_{u ≤ H^{1/3−c}} |w(u)| (H/u)(u³/H)^{(1−2θ)/2} ≪ H^{1 − 3c(1−2θ)/2 + O(c/100)} ≪ H^{1−c},
+so δ_S(c) ≍ c (the constant (1−2θ)/2·3 − O(1/100) is explicit once C_GM is known; before that, only δ_S(c) ≍_{GM} c is justified — §33(5)).
