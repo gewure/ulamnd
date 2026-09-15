@@ -553,6 +553,14 @@ by up to 0.04 when the drift is fitted. Found by the regression check of a new s
 two codes disagreed only for split u (the new one multiplied one extra factor, which changed the rounding path). Rule: every
 fit of a piece grid includes the mean-error columns, and a new mean is checked against a log-sum. (ERRATA 35)
 
+F45. "They hold to a few percent at u = 2 and within about 0.04 at u = 3" (dilation draft abstract, 15–16 Sep), and a "(+0.341)"
+entry called an unexplained outlier. No error bar had been measured for any fitted ratio. Two estimates (amplitude at off-line probe
+frequencies; half the difference of fits on the two halves of the range) give errors 0.04–0.5 at u = 3 and up to 0.7 at u = 5: every
+entry, the "outlier" included (0.4 of an error), is consistent with the prediction, and none is "a few percent". Close agreement in
+a noisy fit was read as precision. Found when the author's reviewing conversation asked to re-audit the outlier. Rule: no
+agreement statement for a fitted amplitude without an error estimate from at least two methods; entries are called outliers only
+in units of that error. (ERRATA 36)
+
 F38. "A Claude instance given the papers and nothing else" (case study v1, §8) for a reader that was the author's
 long-running reviewing conversation with weeks of context. A statement about PROCESS asserted from memory instead of
 checked with the author; same species as F21 ("submitted"). Rule: every sentence describing who did what, with what
@@ -933,6 +941,8 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 - Any fit of a grid with a subtracted mean: include the mean-error shape (Y^{3/2} for smooth windows, Y^{3/2} and Y^{1/2} for
   sharp Riesz means) in the design matrix; check the mean itself against a log-sum (F44). Any coset average identified with
   a Hecke operator: list the matrices actually summed (F43).
+- Any fitted amplitude or ratio quoted as agreement: give its error from two methods (probe frequencies, split halves) and state
+  the agreement in units of that error (F45).
 - Any named constant or exponent chosen in a proof: list its constraints, check the set is non-empty (F39). Any Mellin/
   Perron/Laplace transform in a display: recompute it, never copy the pattern; list the singularities of every object the
   proof itself introduces (F40).

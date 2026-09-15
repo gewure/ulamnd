@@ -481,3 +481,24 @@ route before being applied (the checks are described in the items). We agree wit
     on the precision of the means with these numbers; paper IV's D-sweep paragraph has a sentence with the audit numbers. The
     tables keep the published fits. Rule (KNOWLEDGE F44): every fit of a piece grid includes the mean-error columns, and a
     new grid's mean is checked against a log-sum.
+
+36. **Dilation draft, second pass of the author's reviewing conversation (16 Sep; not an independent reading, F38): five items,
+    all checked, four confirmed, one premise corrected.** (1) The abstract said "the ratio is multiplicative in squarefree u"
+    without the hypothesis of Proposition prop:mult (p² ∤ D for odd p | u), and the proof needed at most one prime with a
+    class-dependent operator. Checked: correct. Fixed by generalising the proposition — the extraction of a non-exceptional prime
+    only needs that prime to be a unit modulo the others, so for every squarefree u, r(u;D) = r(u_e;D)·Π_{p | u/u_e} r(p;D) with u_e
+    the product of the exceptional primes (2 and p with p² | D) — and the abstract now names the exceptional primes. (2) The
+    STATUS file called the class-dependent constants cosmetic, while r₁(3;−27) = 4.22 > 1 and Corollary cor:sum excluded those u
+    although part III's sum does not. Checked: correct. The corollary now covers all squarefree u (finitely many values of
+    r(u_e;D) for fixed D enter through a constant); the open list says why the entries matter. (3) The reviewer asked whether the
+    u = 3, D = −7 entry (+0.341 against the exact inert value +0.1925) contradicts the identity. Audited
+    (research/explore/ratio-noise-audit.py, ratio-halves-audit.py): its error estimate is 0.37 (probe frequencies) or 0.36 (split
+    halves), so it is 0.4 of an error away — not a disagreement. The same audit shows the ratio errors are 0.01–0.04 for the u = 2
+    inert rows, 0.04–0.3 for the other u = 2 rows, 0.04–0.5 at u = 3 and 0.02–0.7 at u = 5; all 21 entries lie within about one error
+    of the prediction. The abstract's "hold to a few percent at u = 2 and within about 0.04 at u = 3 … 13 of 21 … one unexplained
+    outlier" was therefore not supported by the data's precision and is replaced; the parentheses around +0.341 are removed; the
+    numerics paragraph says the table shows consistency within those errors, not agreement to a few percent (F45). (4) The caption
+    "Predicted |r| < 0.1 is below the noise" contradicted the u = 2 inert rows (predicted −0.068, errors 0.01–0.04, fits −0.065,
+    −0.061, −0.071). Checked: correct; the caption now states the errors. (5) STATUS counted this conversation as one of two
+    outside readings (the category error of ERRATA 28); reworded, and Theorem 2's status now credits both readings that found the
+    asymptotic error. ERRATA 33's heading also calls this conversation an "outside reading"; it is not independent.

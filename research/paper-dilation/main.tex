@@ -41,15 +41,15 @@ $\sqrt u$ and $\chi_D(u)$: the Gram matrix of the oldforms (Iwaniec--Luo--Sarnak
 Hecke neighbours of Heegner points (Gross--Kohnen--Zagier). The decay in $u$ is set by the splitting type of $u$ in
 $\Q(\sqrt D)$ and not by the Hecke eigenvalue: the ratio is exactly $u^{-3/2}$ when $u$ is inert, $-u^{-3/2}(1-2\lambda_j(u)u^{-1/2}+O(u^{-1}))$
 when $u$ splits, and $u^{-1/2}(1-\lambda_j(u)u^{-1/2}+O(u^{-1}))$ when $u$ is ramified; the ratio is multiplicative in squarefree
-$u$, and at $u=2$ the local constants depend on the class through the bilinear form modulo~$2$; so the main terms of the level-one lines
+$u$ away from $2$ and the primes whose square divides $D$, which contribute one joint factor, and at $u=2$ the local constants depend on the class through the bilinear form modulo~$2$; so the main terms of the level-one lines
 are uniformly summable over $u$. The same formula with a newform $v$ of level $u$ gives its line in piece $u$, and the
 period that drives it vanishes when $u$ is inert, because the Hecke and Fricke contributions cancel, and for every $u$ when the
 Fricke sign is $-1$. The piece splits into the $u=1$ object at length $uY$, a part of level $u$ and a part of genuinely level $u^2$;
 this explains the inert identity, and in the data each named line lies in the part the splitting assigns it. Both predictions carry
-no free parameter. Where the line is resolved in the data ($|r|\gtrsim0.1$ on grids to $Y=10^7$) they hold to a few percent at $u=2$ and to within the systematic uncertainty of the data, about $0.04$ in the ratio, at $u=3$,
-and to a few hundredths of a radian in phase --- $13$ of the $21$ pairs $(u,D)$ tested for the first level-one line,
-with one unexplained outlier, and five of the seven discriminants for the first newform of level~$3$, the other two being the
-inert cases, where the line is observed at the noise level as predicted. The error term uniform in $u$, the open core of the
+no free parameter. On grids to $Y=10^7$ all $21$ pairs $(u,D)$ tested for the first level-one line agree with the prediction within
+about one error estimate, the errors ranging from $0.01$ to about $0.7$ in the ratio, smallest at $u=2$ and largest at $u=5$, where
+the level-$u^2$ spectrum is dense. The first newform of level~$3$ agrees to a few percent in amplitude and a few hundredths of a
+radian in phase at the five discriminants where it is predicted, and is at the noise level at the two inert ones. The error term uniform in $u$, the open core of the
 conjecture of part~III, is not touched.
 \end{abstract}
 
@@ -123,7 +123,7 @@ The inert identity has a one-line reason: for $\chi=-1$, $P=(\lambda\sqrt u,\,u+
 middle column of $G$, so $G^{-1}P=(u+1)e_2$ and $P^{\mathsf T}G^{-1}L=(u+1)/u$, whence $r=\sqrt u\,(u+1)/(u\cdot u(u+1))=u^{-3/2}$. A reason that uses no Gram matrix is Remark~\ref{rem:components}: for inert $u$ the
 level-one lines of piece $u$ are exactly those of $\bar w\,S^w_1(uY)$ with $\bar w=1/u$. The first version of this draft stated the asymptotic as
 $\lambda_j(u)/u$ for $u\nmid D$; that was wrong --- the $\lambda_j(u)\sqrt u$ terms of $p_0$ and $p_1L_2$ cancel exactly --- and was
-caught by an outside reading that evaluated~\eqref{eq:r} at large $u$. The values of~\eqref{eq:r} agree with the direct
+caught by the author's reviewing conversation, and independently by a fresh model instance, both evaluating~\eqref{eq:r} at large $u$. The values of~\eqref{eq:r} agree with the direct
 spectral computation to four digits and with the data to the noise (Table~\ref{tab:ratios}).}
 
 \begin{theorem}[the newform lines]\label{thm:newform}
@@ -149,9 +149,10 @@ $\varepsilon=+1$ (Section~\ref{sec:numerics}).}
 \begin{corollary}[uniform summability of the level-one main terms]\label{cor:sum}
 In Theorem~A$'$ of part~III the piece with dilation $u$ enters at length $H/u$, so its level-one main terms are of size
 $(H/u)^{1/2}|r_j(u;D)|$ times the $u=1$ amplitude. For a fixed level-one form $u_j$ and bounded weights $w(u)$,
-$\sum_{u}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll_{D,\varepsilon} H^{1/2}$ over the squarefree $u$ with $p^2\nmid D$ for the odd $p\mid u$: by
-Proposition~\ref{prop:mult} and Theorem~\ref{thm:level1}, $|r_j(u;D)|\le\prod_{p\mid u}|r_j(p;D)|\ll_\varepsilon u^{-3/2+\varepsilon}\prod_{p\mid(u,D)}p$, and
-$\sum_uu^{-2+\varepsilon}$ converges. (The weights of part~III are
+$\sum_{u}|w(u)|\,(H/u)^{1/2}\,|r_j(u;D)|\ll_{D,\varepsilon} H^{1/2}$ over all squarefree $u$. By
+Proposition~\ref{prop:mult}, $|r_j(u;D)|=|r_j(u_e;D)|\prod_{p\mid u/u_e}|r_j(p;D)|$, where $u_e$ divides the product of $2$ and the primes
+whose square divides $D$, so $|r_j(u_e;D)|$ takes finitely many values; they can exceed $1$ (Remark~\ref{rem:classwise}). By
+Theorem~\ref{thm:level1} the product is $\ll_{D,\varepsilon}u^{-3/2+\varepsilon}\prod_{p\mid(u,D)}p$, and $\sum_uu^{-2+\varepsilon}$ converges. (The weights of part~III are
 $w(u)=\lambda(u)\omega(u)\ll u^{\varepsilon}$; the conclusion is unchanged.)
 \end{corollary}
 
@@ -352,17 +353,19 @@ level one; with $w=uz$, $\mathrm{Tr}\,v(u\,\cdot)=-v(-1/(uz))=-\varepsilon v(z)$
 \end{proof}
 
 \begin{proposition}[multiplicativity in $u$]\label{prop:mult}
-Let $u$ be squarefree and $D<0$ with $p^2\nmid D$ for every odd prime $p\mid u$. Write $\{f_d(z)=u_j(dz):d\mid u^2\}$ for the
+Let $u$ be squarefree and $D<0$. Call a prime $p\mid u$ \emph{exceptional} if $p=2$ or $p^2\mid D$, and let $u_e$ be the product of
+the exceptional primes dividing $u$. Write $\{f_d(z)=u_j(dz):d\mid u^2\}$ for the
 oldform space of $u_j$ at level $u^2$, $d=\prod_pp^{a_p}$ with $a_p\in\{0,1,2\}$, and $\mathbf P_d=\Per_{\mathcal W_u}(f_d)$,
 $\mathbf G_{dd'}=\langle f_d,f_{d'}\rangle_{\Gamma_0(u^2)}$, $\mathbf L_d=\tilde L_{f_d}=\tilde L_j/d$. Then
-\[
-\frac{\mathbf P_d}{\Per_D(u_j)}=\prod_{p\mid u}p^{(p)}_{a_p},\qquad
+\begin{gather*}
+\frac{\mathbf P_d}{\Per_D(u_j)}=\frac{\Per_{\mathcal W_{u_e}}(f_{d_e})}{\Per_D(u_j)}\prod_{p\mid u/u_e}p^{(p)}_{a_p},\\
 \frac{\mathbf G_{dd'}}{\langle f_1,f_1\rangle}=\prod_{p\mid u}\hat G^{(p)}_{a_pa'_p},\qquad
 \langle f_1,f_1\rangle=\prod_{p\mid u}p(p+1)\,\|u_j\|^2,
-\]
-where $(p^{(p)}_0,p^{(p)}_1,p^{(p)}_2)=(p_0,p_1,p_0)$ is the vector $P$ of Theorem~\ref{thm:level1} at the prime $p$ (for $p=2$
-the class-by-class vector of Proposition~\ref{prop:classwise}) and $\hat G^{(p)}$ is the normalised $3\times3$ Gram matrix
-of Lemma~\ref{lem:gram} at $p$. Consequently $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$.
+\end{gather*}
+where $d_e=\prod_{p\mid u_e}p^{a_p}$, $(p^{(p)}_0,p^{(p)}_1,p^{(p)}_2)=(p_0,p_1,p_0)$ is the vector $P$ of Theorem~\ref{thm:level1} at the
+non-exceptional prime $p$, and $\hat G^{(p)}$ is the normalised $3\times3$ Gram matrix of Lemma~\ref{lem:gram} at $p$. Consequently
+$r_j(u;D)=r_j(u_e;D)\prod_{p\mid u/u_e}r_j(p;D)$. In particular $r_j(u;D)=\prod_{p\mid u}r_j(p;D)$ when $u$ has at most one exceptional
+prime, whose factor is given by Proposition~\ref{prop:classwise}.
 \end{proposition}
 \begin{proof}
 \emph{The periods.} Steps 1--4 of the proof of Lemma~\ref{lem:mult} hold verbatim for squarefree $u$: $G_u=\Gamma_0(u)\cap\Gamma^0(u)$
@@ -378,7 +381,7 @@ sublattices of coprime index intersect). The mass formula~\eqref{eq:mass} thus g
 \Per_{\mathcal W_u}(f_d)=\sum_C\frac1{|S_C|}\prod_{a_p=1}m_p(C)\ \sum_{(\ell^{(p)})_{a_p\ne1}}\prod_{a_p\ne1}N^{(p)}_C(\ell^{(p)})\;
 u_j\Bigl(\prod_{a_p\ne1}h^{(p)}_{\ell^{(p)}}z_C\Bigr),
 \]
-with $m_p$, $N^{(p)}_C$ as in Proposition~\ref{prop:classwise}. For an odd $p\mid u$ the inner operator is, as in the proof of
+with $m_p$, $N^{(p)}_C$ as in Proposition~\ref{prop:classwise}. For a non-exceptional $p\mid u$ the inner operator is, as in the proof of
 Lemma~\ref{lem:period}, $\sqrt p\lambda_j(p)-\mathrm{Iso}_p$ ($p\nmid D$) or $\sqrt p\lambda_j(p)+(p-1)\mathrm{Ram}_p$ ($p\parallel D$),
 where $\mathrm{Iso}_p$ and $\mathrm{Ram}_p$ replace $z_C$ by $z_{\mathfrak pC}$ for the primes $\mathfrak p\mid p$ of the order.
 The operator $\sqrt p\lambda_j(p)$ (the Hecke operator $T_p$) commutes with everything; and $C\mapsto\mathfrak pC$ is a permutation of
@@ -386,9 +389,11 @@ the classes preserving $|S_C|$ under which every other prime's operator is trans
 for $q\ne p$, since $[L_C:\mathfrak pL_C]=p$ is prime to $q$ and $Q_{\mathfrak pC}=Q_C/p$ with $p$ a unit modulo $q$; under this
 isomorphism the index-$q$ sublattice $M\subset L_C$ corresponds to $\mathfrak pM=M\cap\mathfrak pL_C$, so
 $N^{(q)}_{\mathfrak pC}(\mathfrak pM)=N^{(q)}_C(M)$ and $h^{(q)}_Mh^{(p)}_{\mathfrak p}z_C=z_{\mathfrak pM}=h^{(q)}_{\mathfrak pM}z_{\mathfrak pC}$.
-Summing over $C$ one prime at a time therefore extracts the factor $p^{(p)}_{a_p}$ for each odd $p$, leaving
-$\sum_C|S_C|^{-1}\,\mathrm{Op}^{(2)}_{C,a_2}u_j(z_C)=p^{(2)}_{a_2}\Per_D(u_j)$ if $u$ is even and $\Per_D(u_j)$ otherwise.
-(Only one prime may carry a class-dependent operator; for squarefree $u$ under the hypothesis this is at most $p=2$.)
+Summing over $C$ one prime at a time therefore extracts the factor $p^{(p)}_{a_p}$ for each non-exceptional $p$. The transport uses only
+that $p$ is a unit modulo the other primes, not that their operators are class-independent, so what is left is
+$\sum_C|S_C|^{-1}\prod_{q\mid u_e}\mathrm{Op}^{(q)}_{C,a_q}u_j(z_C)$, which is $\Per_{\mathcal W_{u_e}}(f_{d_e})$ by the same mass formula at
+level $u_e^2$. An exceptional prime cannot be extracted this way, because its counts depend on the class and its operator is not a
+Hecke operator plus a permutation of the classes; so the exceptional primes stay together.
 
 \emph{The Gram matrix.} For $a,b\ge1$ put $g=(a,b)$, $a'=a/g$, $b'=b/g$. Unfolding against the Eisenstein series of
 $\Gamma_0(u^2)$ at $\infty$ (Rankin--Selberg), $\langle u_j(a\,\cdot),u_j(b\,\cdot)\rangle_{\Gamma_0(u^2)}$ is a constant depending
@@ -405,8 +410,8 @@ Lemma~\ref{lem:gram} (take $u=p$): $p^{-1/2}R_p(1)=\lambda_j(p)\sqrt p/(p+1)$ an
 numerically from the Hecke relations at $p=2,3,5$; \texttt{hecke-classwise.py}.) The normalisation is $[\Gamma:\Gamma_0(u^2)]=\prod p(p+1)$.
 
 \emph{The ratio.} $\mathbf L=\bigotimes_p(1,p^{-1},p^{-2})\tilde L_j$, so $\sqrt u\,\mathbf P^{\mathsf T}\mathbf G^{-1}\mathbf L$ factors
-as $\prod_p\sqrt p\,P^{(p)\mathsf T}(p(p+1)\hat G^{(p)})^{-1}L^{(p)}\cdot\Per_D(u_j)\tilde L_j/\|u_j\|^2$, and dividing by the $u=1$
-coefficient gives $\prod_pr_j(p;D)$.
+into the same expression at level $u_e^2$ times $\prod_{p\mid u/u_e}\sqrt p\,P^{(p)\mathsf T}(p(p+1)\hat G^{(p)})^{-1}L^{(p)}$, and dividing by the
+$u=1$ coefficient $\Per_D(u_j)\tilde L_j/\|u_j\|^2$ gives $r_j(u_e;D)\prod_{p\mid u/u_e}r_j(p;D)$.
 \end{proof}
 
 
@@ -486,7 +491,10 @@ the direct route also checks $\langle f_0,f_0\rangle/\|u_j\|^2=u(u+1)$ and the I
 \begin{table}[htbp]\centering\small
 \caption{The first even line $t_1=13.7798$: signed ratio of its amplitude in piece $u$ to piece $1$ (sign $-$ when the
 phase is shifted by $\pi$ beyond $-t_1\log u$). ``pred'' from~\eqref{eq:r}, with the class-by-class $P$ of
-Proposition~\ref{prop:classwise} for $u=2$; ``obs'' from the sharp grids. Predicted $|r|<0.1$ is below the noise of these grids.}\label{tab:ratios}
+Proposition~\ref{prop:classwise} for $u=2$; ``obs'' from the sharp grids. Errors of the observed ratios, estimated in two ways (the amplitude fitted at off-line probe
+frequencies, and half the difference of the fits on the two halves of the range; \texttt{ratio-noise-audit.py},
+\texttt{ratio-halves-audit.py}): $0.01$--$0.04$ for the $u=2$ inert rows, $0.04$--$0.3$ for the other rows at $u=2$, $0.04$--$0.5$ at
+$u=3$ and $0.02$--$0.7$ at $u=5$, where the level-$u^2$ spectrum is dense. Every entry lies within about one error of its prediction.}\label{tab:ratios}
 \begin{tabular}{@{}lrrrl@{}}
 \toprule
 $u$, type of $u$ in $\Q(\sqrt D)$ & pred & obs & $D$\\
@@ -497,7 +505,7 @@ $2$, split ($D\equiv1\ (8)$) & $-0.341$ & $-0.353,\ -0.379,\ -0.428$ & $-7,-15,-
 $2$, inert ($D\equiv5\ (8)$) & $-0.068$ & $-0.065,\ -0.061,\ -0.071$ & $-3,-11,-19$\\
 $3$, ramified & $+0.695$ & $+0.655,\ +0.726$ & $-3,-15$\\
 $3$, split & $-0.311$ & $-0.285,\ -0.320,\ -0.332$ & $-8,-11,-20$\\
-$3$, inert & $+0.192$ & $+0.196,\ (+0.341)$ & $-4,-7$\\
+$3$, inert & $+0.192$ & $+0.196,\ +0.341$ & $-4,-7$\\
 $5$, ramified & $+0.421$ & $+0.431$ & $-15$\\
 $5$, split & $-0.076$ & (noise) & $-4,-11$\\
 $5$, inert & $+0.089$ & (noise) & $-3,-8$\\
@@ -564,14 +572,16 @@ error $\delta$ adds about $-0.111\,\delta\,Y^{3/2}$ to $\sqrt Y\,S^w_u(Y)$, up t
 does not remove it; the components above were fitted with a $Y^{3/2}$ term. Refitting Table~\ref{tab:ratios} with such terms moves
 the $u=2$ entries by at most $0.015$, the $u=3$ entries by at most $0.04$ (split $-0.315$, $-0.353$, $-0.354$; ramified $+0.618$,
 $+0.707$; inert $+0.177$) and the $u=5$ ramified entry to $+0.445$. The amplitudes of Table~\ref{tab:newform} move by at most $2\%$
-and the phases by at most $0.02$ rad. The tables keep the original fits, and the agreement at $u=3$ is to be read with this
-systematic uncertainty.
+and the phases by at most $0.02$ rad. The tables keep the original fits. These systematic shifts are smaller than the statistical errors in the caption
+of Table~\ref{tab:ratios}, which are $0.04$--$0.5$ at $u=3$: the table shows consistency with~\eqref{eq:r} within those errors, not
+agreement to a few percent.
 
 \section{What is open}\label{sec:open}
 \begin{enumerate}
 \item Closed forms for the
 class-dependent entries of Proposition~\ref{prop:classwise} (at $u=2$, and for $u^2\mid D$) in terms of $\lambda_j(u)$ and the
-periods of the discriminants $D/u^{2k}$, via the Hecke relations.
+periods of the discriminants $D/u^{2k}$, via the Hecke relations. These entries can exceed $1$ (Remark~\ref{rem:classwise}); for
+fixed $D$ they enter Corollary~\ref{cor:sum} only through a constant, and for such $u$ the decay comes from the other primes.
 \item The lines of the cycloidal-group forms, and any bound for the newform lines uniform in the newform: the level-aspect
 equidistribution of \cite{LiuMasriYoung2013,HumphriesNordentoft2025}, route 1b of the knowledge base.
 \item The error term uniform in $u$ (part~IV, Remark~\textsc{gaps}), which is the conjecture of part~III itself.

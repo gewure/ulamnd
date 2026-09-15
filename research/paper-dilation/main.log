@@ -479,7 +479,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 [2]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-72.
+73.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -488,7 +488,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--172
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 \T1/lmtt/m/n/10.95 hecke-oldform-predict.py\T1/lmr/m/n/10.95 , \T1/lmtt/m/n/10.
 95 hecke-classwise.py\T1/lmr/m/n/10.95 , \T1/lmtt/m/n/10.95 hecke-newform-u3.py
 \T1/lmr/m/n/10.95 ,
@@ -497,35 +497,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--172
 [3]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 174.
+(hyperref)                removing `math shift' on input line 175.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 174.
+(hyperref)                removing `subscript' on input line 175.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 174.
+(hyperref)                removing `math shift' on input line 175.
 
 [4]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 263
+LaTeX Font Info:    Trying to load font information for U+euf on input line 264
 .
  (ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-) [5] [6] [7]
-Underfull \hbox (badness 1231) in paragraph at lines 407--410
-[]\T1/lmr/m/it/10.95 The ra-tio. $\OT1/cmr/bx/n/10.95 L \OT1/cmr/m/n/10.95 = []
-[](1\OML/cmm/m/it/10.95 ; p[]; p[]\OT1/cmr/m/n/10.95 )[]$\T1/lmr/m/n/10.95 , so
- $[] \OT1/cmr/bx/n/10.95 P[]G[]L$ \T1/lmr/m/n/10.95 fac-tors as $[][] [] \OML/c
-mm/m/it/10.95 P[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\
-OML/cmm/m/it/10.95 p \OT1/cmr/m/n/10.95 +
- []
-
-[8] [9] [10] [11] (main.bbl) [12] (main.aux)
+) [5] [6] [7] [8] [9] [10] [11] (main.bbl) [12]
+(main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C04E5766FDF776CA1A4EEDE9ECBAB7C9;733.
  )
-Output written on main.xdv (12 pages, 107980 bytes).
+Output written on main.xdv (12 pages, 111088 bytes).

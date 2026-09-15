@@ -178,7 +178,25 @@ R is the largest part and is everything for inert u. Consequences for the route:
   formulation of R for split u (the marginal correction adds the u | a and u | n/a restrictions); (3) literature for sums of
   σ₋₁(h² − D) twisted by e(th/u) uniformly in u.
 
+## 10. STEP 1 DONE (16 Sep): every piece of Theorem A′, exactly, for f = t² + t + 1 at H = 10⁷ (pieces-all-u.ts)
+One sieve of n² − D over n ≤ H gives all pieces: F_u(h) = F(uh). 964,962 pieces (all squarefree u ≤ H with ω(u) ≥ 1), 7 s.
+VALIDATION: Σ_{u≤H} w(u)P_u(H/u) = −0.030291·H, plus the u > H tail −(c_f/2)H(E·m′ − m) = −0.019601·H, total −0.049892·H against
+paper III's c_off(t²+t+1) = −c_f·m·Σ_{p split} log p/((p−2)(p−1)) = −0.049928 (Type II theorem; relative agreement 7·10⁻⁴).
+(M1) NO GROWTH IN u. rms over u of P_u(H/u)/√(H/u), dyadic bins: 0.087–0.149 for every bin from u ≈ 16 (Y ≈ 6·10⁵) to u ≈ 4·10⁶
+     (Y ≈ 2.4), median of the per-u rms over 16 lengths 0.09–0.13. The amplitude A(u) is O(1): exponent a ≈ 0, far below 1/4.
+(M2) THE CORE SUM IS TINY. Σ_{u ≤ H^{2/3}} w(u)P_u(H/u) = −940 against Σ|w·P| = 5.6·10⁴, √Σ(w·P)² = 1.8·10³, H log H = 1.6·10⁸:
+     −6·10⁻⁶ of the trivial size, and no larger than random signs would give. Partial sums at U = H^{k/12}, k ≤ 8, stay within ±1100.
+     The negative mean of P_u/√Y at Y ≲ 20 is the c_off main term emerging in the large-u pieces, as Theorem typeII says.
+Consequence: without any cancellation across u, a uniform bound P_u(Y) ≪ Y^{1/2+ε} (true numerically) already gives Theorem A with a
+power saving (Σ_{u≤H^{2/3}} √(H/u) ≍ H^{5/6}). The needed input is exactly: SQUARE-ROOT (or any power) CANCELLATION IN EACH PIECE,
+UNIFORMLY IN u ≤ Y² — no averaging over u required, and none visible to be exploited.
+Literature round (research/LITERATURE-uniformity.md, 16 Sep; top entries being verified): Grimmelt–Merikoski arXiv 2505.00493
+(roots of aℓ² + h ≡ 0 (mod k), k ≡ 0 (mod d), Heegner points on Γ₀(ad) with b ≡ 0 (mod a) — our family — but a ≤ X^{o(1)});
+Grimmelt–Merikoski arXiv 2508.17979 (divisor function in progressions past the Weil barrier by averaging over a small factor of the
+modulus); Templier–Tsimerman arXiv 1106.1139 (non-split sums uniform in the discriminant).
+
 ## 4′. Log
+- 16 Sep (later): step 1 done (§10): no u-growth, core sum tiny, c_off validated to 7e-4; literature round.
 - 16 Sep: component test finished (STATE §17); §9 where the non-uniformity lives; the additive-twist formulation of R.
 - 15 Sep 21:00: §5 correction of the elementary sketch; §6 representation-theoretic decomposition (trivial component = Hecke translate of the u=1 object); PLAN §8 status.
 - 15 Sep 19:30: N5 (u-averages: random signs only; the 0.05 block was a fluctuation).

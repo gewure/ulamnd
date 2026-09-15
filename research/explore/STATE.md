@@ -417,3 +417,12 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   moves ≤ 0.04, tab:newform ≤ 2%, paper IV tab:dsweep ≤ 2.6%. Dilation draft abstract/numerics and paper IV D-sweep paragraph
   updated; all new fits carry the Y^{3/2} column (hecke-components-fit.py v2, drift-audit-run.py).
 - New data files: research/explore/data/components-D*-U*-grid.dat; LMFDB coefficients maass-5.0.1.{3,5,7}.1 in paper-IV/data.
+
+## 18. Step 1 of the attack (16 Sep): all pieces measured exactly; a review pass on the draft
+- pieces-all-u.ts (D = −3, H = 10⁷, 964,962 pieces, 7 s): no growth of P_u(H/u)/√Y in u (rms 0.09–0.15 in every dyadic bin up to
+  u ≈ 4·10⁶); Σ_{u≤H^{2/3}} w·P = −940 (−6e−6 of H log H); total with the u > H tail reproduces c_off = −0.049928 to 7e−4. PLAN §10.
+- Literature (general-purpose agent, report research/LITERATURE-uniformity.md): nothing uniform in a leading coefficient of size u²;
+  Grimmelt–Merikoski 2505.00493 is the closest (our family on Γ₀(ad), a ≤ X^{o(1)}); being verified.
+- Review pass on the dilation draft (ERRATA 36, F45): multiplicativity generalised to all squarefree u (exceptional primes kept
+  together), corollary covers all squarefree u, precision claims replaced by measured errors (ratio-noise-audit.py,
+  ratio-halves-audit.py: 0.01–0.7; D = −7 at 0.4 of an error), caption and provenance fixed.
