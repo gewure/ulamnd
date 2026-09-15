@@ -717,3 +717,26 @@ sums, the special primes p | (u, D) and the 2-adic normalisation (§16), stabili
 53.3, 92.2, 115.8, 128.8 (u = 7); 55.5, 103.4, 136.4, 143.7 (u = 11), against diag 2→30, 2→26, 4→60, 6→90. Over E = 1…60 the off-diagonal grows by ≤ 2.5
 (divisor-like) while the diagonal grows ×15; at fixed E the off-diagonal does not grow with u (u = 3, 7, 11 agree within 12%). Consistent with §16 FOLLOW-UP
 and §17. A reading of both is running.
+
+## 18. Item (c): our pieces as Grimmelt–Merikoski Type I sums (15 Sep, night) — PLAN WITH ESTIMATES, NOT READ
+Target (small end, D < 0): for u ≤ H^{1/3−ε}, P_u(Y) ≪ Y^{1−δ}·(Y^{1/2}/u)^{−c} uniformly, Y = H/u.
+1. Reduction of the polynomial. (u, D) = 1: Q_u(x) = u²x² − D = a x² + h with a = u², h = |D|. t² + 1: w lives on even u = 2u′, Q_u/4 = u′²x² + 1
+   (a = u′², h = 1, odd moduli). Special odd p | (u, D) with p² ∤ D: Q_u/p = p u′²x² + |D|/p (a = p u′², h = |D|/p, gcd(a, h) = 1); the undilation
+   of §17 uses δ = diag(1, 1/u′) and determinant p·h — finitely many p, absorbed in constants. D > 0 is NOT covered (GM need a, h ≥ 1).
+2. Moduli weights. The admissible weight is λ(k)μ²(k) on k | aℓ² + h (such k are automatically coprime to u, and their primes split or ramify);
+   λ = 1 * κ with κ(p) = 4/(p−4) (so eκ(e) ≤ 4^{ω(e)}·O(1), divisor-bounded), μ² = Σ_{m²|k} μ(m). So λμ²(k) = Σ_{e|k, m²|k} κ(e)μ(m): Type I with level
+   lcm(e, m²); the part m > M costs ≪ Y/M, the part e > E costs ≪ Y/E (block trivial sizes; cf. KNOWLEDGE F48 — every block compared with its own
+   trivial size).
+3. Moduli ranges. k ≤ Y^{1−η}: the Cesàro count over a progression has error ≤ k, total ≪ Y^{1−η}·H^{o(1)} — free. k > Y^{1+η}: Lemma tail — free.
+   Window Y^{1−η} < k ≤ Y^{1+η}: smooth dyadic partition ψ₁(k/K) with the factor K/k absorbed.
+4. The ℓ-weight. For k > Y (and after a trivial adjustment for k ≤ Y), Σ_{roots ℓ ∈ [1,k]} (Y − ℓ)^+ = ½ Σ_{roots ℓ ∈ Z∖{0}} (Y − |ℓ|)^+ by the symmetry ℓ ↦ −ℓ
+   (0 is a root only for k | |D|). The tent (Y − |ℓ|)^+ is smoothed at scale Δ = Y^{1−η′} near its three kinks; the change is ≪ Δ per root in intervals of
+   length Δ, i.e. ≪ Σ_{k∼K} k^{−1}(ρ(k)Δ²/k + Δ·#{ℓ ≤ Δ : k | aℓ² + h}) ≪ H^{o(1)}Δ²/K — a power saving for K ≍ Y. The smoothed tent is ψ₂(ℓ/Y) with
+   ψ₂^{(J)} ≪ (Y/Δ)^J = Y^{Jη′}: GM's δ^{−O(1)} loss is Y^{O(η′)} — to be balanced against the saving.
+5. Main terms. GM subtract ϱ(k)X∫ψ₂/k per k; paper III's piece subtracts the mean E_u (and has the nuisance term (E_u − 1)Y/2): the two main terms
+   agree up to the smoothing errors of 4 and the small-moduli bookkeeping of Prop pieces — to be checked line by line.
+6. Then Theorem 8.1 with q = ae·m²-type levels, the corrected count §16 (Hh) with §17's off-diagonal, and the diagonal ≍ u·(level count) give, per
+   dyadic block (K, E, M), a bound X^{1/2+θ}u^{1−2θ}·Y^{O(η′)}·H^{o(1)} against the block's trivial size — nontrivial for u < Y^{1/2−O(η′)}.
+OPEN POINTS for the rigorous write-up: GM Theorem 8.1's constant dependence (q^{o(1)}, δ^{−O(1)}), the stabiliser weights, 2-adic and special
+primes, and whether the level m² (non-squarefree) disturbs §16's CRT reduction (P¹(Z/m²) is not a product of fields; handle by Möbius over
+m ≤ M with M = Y^{η} and trivial bounds at the prime-square factors).
