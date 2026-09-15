@@ -39,3 +39,16 @@ Y^{1−2δ}H^ε; m > M tail Y^{1−η}; kink smoothing Δ²Y^{δ−1}H^ε = Y^{1
 — from S7 the box total is ≪ H^{o(1)}Y^{O(η+η′)}(L^{1/2+θ}u^{1−2θ} + L^{1/2}u)·(Y/K)·(K/L)… normalised to the box's trivial size (Y/K)L: saving (u/L^{1/2})^{min(1, 1−2θ)}·Y^{O(η+η′)}
 ≤ (u²/Y^{1−3δ})^{(1−2θ)/2}Y^{O(η+η′)}. For u ≤ H^{1/3−c}: u²/Y ≤ H^{−3c+O(c²)}·…, saving H^{−(3c/2)(1−2θ)(1−O(c))+O(η+η′+δ)}. Choose δ = η = η′ = c/100: δ_S(c) ≍ c(1−2θ)
 with θ = 7/64. [To be redone carefully in the write-up, including the E, M block trivial sizes (KNOWLEDGE F48).]
+
+## REVISION 1 (16 Sep, after the reading — PROOFS §33). The following supersede the text above.
+S1: the Cesàro progression error O(k) holds for the SYMMETRIC root sum (pair x ↔ k − x), not per residue. The m > M tail must be removed BEFORE the tent decomposition. The cuts at
+ k = Y^{1−δ}, Y^{1+η} are smooth (bottom: per-k identity; top: partial summation against Lemma tail). Moduli: insert Σ_{j|(k, rad 2D)}μ(j) for the admissibility (split, coprime to 2D)
+ and run at levels a·lcm(j, e, m²); at primes p | h use the trivial local factor p + 1 instead of the resultant/Hensel bound.
+S2: NOT an identity with ⟨I|ΔF|α⟩ — use GM's two-scale difference (X₂ = K^{1+η}, count(T_{X₂}) by Poisson mod k), or match the ϱ-mean to the volume term to (uq₀/K)^{1/2+ε}.
+S3/O4: C^{10}_δ needs dyadic support in x (split into O(1) smooth pieces); δ^{−1} ≍ Y^{η′}; GM's δ^{−O(1)} exponent must be extracted before any δ_S(c) is claimed.
+S7/O6: box trivial size (Y/K)L; with levels lcm(e, m²) the per-block bound is X^{1/2}uM(X/(u²E²M³))^θ (S7 loses M², absorbed only if 2η < saving); parameter constraints δ < η,
+ δ < 2η′; S8 in the form Σ_u|w|(H/u)(u³/H)^{κ} ≪ H^{1−3cκ}, κ = (1−2θ)/2.
+O1: δ conjugates Γ₀(pu′²) to Γ₀(p) ∩ Γ₀⁰(u′); G mod p is rank one, so the local factor at p | (u, D) is 1 and the diagonal is ≍ u/p.
+O2: ω(2) = 2 cannot occur; either u is odd or w is supported on even u with (a, h) = ((u/2)², |D|/4).
+Numerics: restrict to admissible u′ (support of w) and use stabiliser weights; on admissible u′ ≤ 43 the off-diagonal is flat.
+STILL MISSING (reading's list): written (a″) and O5; the two-scale main-term matching; the admissibility Möbius with p | h; GM's δ^{−O(1)}; the bookkeeping fixes.

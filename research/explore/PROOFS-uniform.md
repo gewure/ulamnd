@@ -1051,3 +1051,33 @@ NEXT (the decisive task): the o(1) AUDIT. Every H^{o(1)} in the chain must be cl
 or (c) genuinely divisor-size. Candidates: Lemma K's τ(q) (averaged over d ⇒ (b)); ω(d), Σ_r (averaged ⇒ (b)); Lemma E's τ(|n_z|) per z (pointwise ⇒ (c) unless averaged over z);
 §16's τ₃(Res) (pointwise ⇒ (c)?); §25's Rankin factor for #{d ≤ M : d | u^∞} (currently exp(O(log H/(log log H)^{1/2})) ⇒ worse than (c)); GM Theorem 8.1's q^{o(1)} and δ^{−O(1)} (unknown —
 must be read out of arXiv 2505.00489). Until this audit is done, T1 is not a statement.
+
+## 33. READING of the small-end outline (Theorem S) (16 Sep; fresh model instance; scripts reader-thmS/) — CORRECTIONS ADOPTED
+VERDICT: "sound with fixes" — the architecture is coherent and the exponent count does give "nontrivial ⇔ u < X^{1/2} ⇔ u < H^{1/3}"; three errors, several imprecisions, nothing fatal.
+(1) ERROR, S2/§26(1): "the counting sum equals ⟨I|Δ_{u²q₀}F|α⟩" is not an identity — Δ subtracts a VOLUME term, S1's bracket subtracts ϱ(k)∫T_L/k per k. GM avoid this by the TWO-SCALE
+ difference (X₁ = X, X₂ = K^{1/(1−η)}). FIX: per box use count(T_L) − (L/X₂)count(T_{X₂}) = ⟨I|ΔF₁|α⟩ − ⟨I|ΔF₂|α⟩ with X₂ = K^{1+η} and evaluate count(T_{X₂}) by Poisson mod k;
+ or show Σ_{k≡0(q₀)}ψ₁(k/K)ϱ(k)/k² matches the volume term to (uq₀/K)^{1/2+ε}. §26(1) matched paper III's bracket with GM's count-shape, NOT with Δ's volume term — this is the part of
+ §18.5 that remains open. The rest of §26(1) is correct (symmetrisation exact; ℓ = 0 never a root in the window; k = 1 excluded; no nuisance term).
+(2) ERROR, S1/§27: the Cesàro progression error is O(k) only AFTER pairing x ↔ k − x (per residue it is Y(1/2 − x/k) + O(k)); legitimate since R^{(u)}_k is symmetric (paper III Prop pieces).
+(3) GAP: the moduli are squarefree SPLIT k coprime to 2Du; λμ² does not encode 1_{(k,2D)=1} ((1*κ)(p) = 1 at ramified p and at 2, and such k occur). FIX: insert Σ_{j | (k, rad 2D)}μ(j)
+ and run at levels a·lcm(j, e, m²) (O_D(1) extra levels); at those levels p | h, so §16's resultant/Hensel steps (which assume p ∤ ah) must be replaced by the trivial p + 1.
+ Also (k, u) = 1 is automatic only for fundamental D after content removal; otherwise it comes from the same Möbius factor.
+(4) ERRORS in O6: (i) box trivial size is (Y/K)L ≤ Y^{δ}L, so the m > M tail must be removed BEFORE the boxes (else Y^{1+δ−η}: no saving with δ = η); (ii) the kink term needs δ < 2η′;
+ (iii) K₁ losses are Y^{O(δ+η)}; (iv) with levels lcm(e, m²) the honest per-block bound is X^{1/2}uM(X/(u²E²M³))^θ — S7 loses M² (it survives only inside Y^{O(η)}: 2η must be below the
+ saving); (v) the factor (Y/K)(K/L) is spurious — normalise by (Y/K)L; (vi) u²/Y = u³/H ≤ H^{−3c} exactly. Otherwise E = M = 1 dominates, the saving is (u/X^{1/2})^{1−2θ}, and
+ S8 is better stated as Σ_u|w|(H/u)(u³/H)^{κ} ≪ H^{1−3cκ}, κ = (1−2θ)/2.
+(5) O4: C^{10}_δ(X, Y) requires dyadic support in x too (split the box by a smooth x-partition into O(1) pieces); δ^{−1} ≍ Y^{η′}; X/Y = Lu|D|^{−1/2}; q^{o(1)} fine; Theorem 8.1 is
+ uniform in α₁, α₂ hence in a = u². BUT GM's δ^{−O(1)} exponent is unquantified: "δ_S(c) ≍ c(1 − 2θ)" is an overstatement until it is extracted.
+(6) O2 (p = 2) case analysis corrected: ω(2) = 2 is impossible (fixed prime divisor). Either b odd ⇒ D odd ⇒ ω(2) = 0 ⇒ u odd, or b even ⇒ ω(2) = 1 ⇒ w supported on even u with
+ (a, h) = ((u/2)², |D|/4) for every such f (h need not be squarefree — harmless, Lemma 3.1 needs only gcd(a,h) = 1). So a is always odd; the only 2-adic work is excluding even k (finding 3).
+(7) O1 (§29) corrected: δ conjugates Γ₀(pu′²) to Γ₀(p) ∩ Γ₀⁰(u′), and G = (m, pu′ℓ; pu′ℓ, pk) has p | B, p | C. Since p ∥ |D|, G mod p is rank one, so C(τG) ≡ 0 (p) FORCES B(τG) ≡ 0 (p):
+ the local factor at p is 1, the diagonal is ≍ u/p, det G = |D|, and the non-square level pu′² is harmless. Verified numerically (weighted diagonal exactly (4/3)∏_{p|u′}(p − χ_{−3}(p))).
+(8) The O1 numerics reproduce independently to three decimals except at u′ = 1 (our script ignores the elliptic stabiliser weight); most rows of our file are outside the support of w
+ (for D = −3 only u′ with primes ≡ 1 mod 3), and on admissible u′ = 7, 13, 19, 31, 37, 43 the off-diagonal is flat (5.9–11).
+(9) Dead text in §27 to delete ("the K₁ lemma needs K ≤ u²L^{1+η}…" — unnecessary and unusable since §25 withdrew GM (5.2)/(5.3)/Thm 1.4); the cuts at k = Y^{1−δ}, Y^{1+η} must be smooth
+ (bottom free by the per-k identity; top by partial summation against Lemma tail).
+(10) No Ḡ main term at the small end, for the right reason: Σ_{m unit mod k}B^{(Y)}_k(m) = O(σ(k)) uniformly in Y, so the dilation average is O(1) per piece and only reaches H after
+ summing over u ≍ H; c_off comes from u > H^{1/2+ε} only.
+STILL MISSING for Theorem S: (a) written proofs of (a″) (§17 with §21's Step-4 fix) and of O5 (non-squarefree levels; with the p | h exception of (3)); (b) the two-scale main-term
+matching of (1); (c) the admissibility Möbius with p | h local counts; (d) an explicit exponent for GM's δ^{−O(1)}, then the parameter inequalities δ < η, δ < 2η′,
+C_GM η′ + 2η + O(δ) < 3c(1−2θ)/2; (e) the bookkeeping fixes of (4). Scope: D < 0, u squarefree, δ(c) non-uniform as c → 0.
