@@ -432,3 +432,10 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - CANDIDATE THEOREM (PROOFS-uniform §8, PLAN §12): Hypothesis (E) in Cesàro form unconditionally for monic irreducible quadratics,
   Off*_f(H) ≪ H(log H)^{1−c} log log H, hence the leading term −½C(f) log H of Conjecture 1 in Cesàro form. Two independent adversarial
   readings (model instances) passed with small repairs; ERRATA 37 (paper III Remark KSwconst count). Papers not yet edited.
+
+## 19. Power ranges (15 Sep, late): large end to H^{1/2}, middle identified
+- Paper III Theorem E written in (reading of the text passed with fixes; ERRATA 38–39, F46–F47; date labels corrected to 15 Sep).
+- PROOFS-uniform §9 (derivation, reading launched): Σ_{u>H^{1/2+ε}} w P_u(H/u) = c_off H + O(H^{1−δ}) by dispersion over u + Weil (paper III: 2/3).
+  dispersion-test.ts: the dispersion square is its diagonal (ratio ≈ 0.9) for u from K/8 to 32K.
+- PLAN §13: small end rigorous only for u = 1; middle candidates M1 (BFI/DI averaging of the Kloosterman sums with Heegner-pair numerators,
+  well-factorable λ), M2 (q-van der Corput / two small factors), M3 (Grimmelt–Merikoski averaged over levels u², target u ≲ H^{1/3}).

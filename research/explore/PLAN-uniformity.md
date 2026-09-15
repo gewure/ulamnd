@@ -216,7 +216,43 @@ with error O((log H)^{1−c} log log H). Mechanism: moduli above Y(log Y)^{11} r
 factor is only log log Y. Nothing about the constant A_f (that is Theorem A's power saving, still conditional). Status (15 Sep, late): BOTH adversarial readings passed with small repairs (PROOFS §8: ε < 1/12, Henriot erratum a*D*, blocks from Y^{0.6},
 monic scope, Remark KSwconst count, ERRATA 37). Checked only by model instances. Parts I and III not yet edited: the author decides the form.
 
+## 13. Power ranges and the middle (15 Sep, late): where things stand after Theorem E
+TARGET: Off*_f(H) = c_off H + O(H^{1−δ}) (the constant A_f of Conjecture 1). With Lemma tail (Z = Y^{1+η}) the moduli above Y^{1+η} are free;
+what is needed is a power saving, uniformly in u ≤ H^{2/3+ε}, for the moduli d' ≤ Y^{1+η} (small moduli AND window) of every piece.
+LARGE u (PROOFS §9, derivation, to be read): u > H^{1/2+ε} by dispersion over u — Cauchy–Schwarz over u with the sum over moduli inside,
+the square expanded into incomplete Kloosterman sums Σ_{u∼U} e(kcū/q), q = lcm(d₁,d₂) ≈ Y², bounded by Weil. Paper III's Type II had 2/3
+because it bounded each modulus separately (Pólya–Vinogradov + Parseval). The main-term evaluation (Step 5) survives with U₀ = H^{1/2+ε}.
+SMALL u: rigorous today only u = 1 (paper III Theorem u1, DFI 2012, fundamental D). The dispersion over the MODULI instead of over u gives back
+Weyl sums of dilated roots (dilation u₁u₂, frequency k(u₂ − u₁)) — no progress; twists by additive characters mod u lead to Weyl sums at
+frequencies ≈ d'/u — no progress. The small end needs Weyl sums of dilated roots with a power saving and polynomial dependence on u: the
+spectral route (Grimmelt–Merikoski's kernel method on Γ₀(u²) with the family congruence kept; rough count u ≲ H^{0.26} unconditionally,
+H^{1/3} under Selberg). Not written; it is the next rigorous task for the small end.
+THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
+ M1 (the natural one). At U = H^{1/2} the dispersion meets incomplete Kloosterman sums exactly at length √q. Below: Poisson in u gives complete
+    Kloosterman sums S(kc, m; q) with m ≲ q/U, summed over moduli q = lcm(d₁,d₂) and numerators c = r₁d₂′ − r₂d₁′ built from pairs of roots, i.e.
+    from pairs of Heegner points of discriminant 4D. Averaging Kloosterman sums over the moduli is the Deshouillers–Iwaniec / Bombieri–
+    Friedlander–Iwaniec regime (Kuznetsov, spectral large sieve), and our weights λ(d) are multiplicative, hence well-factorable (d = d_a d_b in
+    any ranges), which is the structure BFI need to pass level 1/2. Expected: u > H^{1/2−δ₀} for a small δ₀ > 0. Obstacle to check first: the
+    numerators c depend on (d₁, d₂) through the roots, so the Kloosterman sums are not over a "free" numerator; in DFI 1995 exactly such
+    root-numerators become Poincaré series at Heegner points, which is how the spectral large sieve enters.
+    Refinement (15 Sep, late): after Poisson in u the square contains Σ_{m≠0} S(kc, m; q) with c = r₁d₂′ − r₂d₁′; by twisted multiplicativity
+    S(kc, m; g d₁′d₂′) factors over g, d₁′, d₂′, and at d₁′ the argument is k r₁ x (x a unit fixed by d₂′, g); summing over the roots r₁ turns
+    Σ_{r₁} S(k r₁ x, m; d₁′) into Σ_y e(mȳ/d₁′) ρ_{kxy}(d₁′), i.e. Kloosterman sums with numerators ±k x √D: Salié-type sums (paper IV §sec:salie
+    relates the Weyl sums of roots to Salié sums). So M1 is concretely: half-integral-weight Kuznetsov (Proskurin) / spectral large sieve for
+    the sums over moduli of products of Salié sums that the dispersion square produces — the input of DFI 2012 for u = 1, now inside a
+    bilinear form in (u, d). First task: write the Poisson-transformed square exactly and identify the Salié-sum moduli and their lengths.
+ M2. q-van der Corput (Heath-Brown) on the factorable modulus q = d₁d₂, or Grimmelt–Merikoski's "two small factors" (arXiv 2508.17979), with
+    d = d_a d_b from the multiplicativity of λ: beyond-Weil bounds for incomplete Kloosterman sums with smooth moduli. Also a small δ₀.
+ M3 (from the small end). Average the Grimmelt–Merikoski kernel bound over the levels u² (their key device: averaging over the level with
+    divisor switching in physical space), keeping the family congruence; target u ≲ H^{1/3}.
+ The honest picture: M1/M2 push the large end below 1/2 by a small power, M3 pushes the small end towards 1/3; between about H^{1/3} and
+ H^{1/2−δ₀} no method is identified. Numerically (step 1) there is no obstruction anywhere in u.
+ A structural reformulation worth keeping: Off*(H) = Σ_{N≤H}(H−N)·[Σ_{u|N} w(u)/u]·[Σ_{d|N²−D} λ(d)/d] − (means): a correlation of a
+ multiplicative function of N with a divisor-type function of N² − D, i.e. a weighted count of integer points on the quadric N² − de = D
+ (Heegner forms [d, 2N, e]) with multiplicative weights in N and d. The middle is where both factors of N = u·m and d are powers of H.
+
 ## 4′. Log
+- 15 Sep (late): §13 power ranges: large end u > H^{1/2+ε} by dispersion (PROOFS §9, to be read); middle candidates M1–M3.
 - 15 Sep (late): both readings of §12 passed; ERRATA 37 (Remark KSwconst count).
 - 15 Sep (late): §12 candidate theorem — Hypothesis (E) in Cesàro form unconditionally (PROOFS §8); readings launched.
 - 15 Sep (evening): narrow-window lemma (§11, PROOFS §7), condition θ + 2B < 1, core restated as one uniform Type I estimate.

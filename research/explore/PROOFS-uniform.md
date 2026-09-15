@@ -362,3 +362,56 @@ BOTH READINGS PASSED (15 Sep, late). FINAL STATEMENT: for monic irreducible f = 
     Off*_f(H) ≪_f H (log H)^{1−c} log log H,   Σ_{h≤H}(1−h/H)(S_f(h) − C(f)²) = −½ C(f) log H + O_f((log H)^{1−c} log log H).
 Proof: §8 with ε < 1/12, dyadic blocks from X = Y^{0.6} (δ = 1/13), A = 13, Henriot Cor. 2 as corrected by the erratum (a*D*), Remark KSwconst's
 count repaired. Both readings were by model instances; no human has checked it. Parts I and III are not yet edited.
+
+## 9. LARGE-u POWER RANGE: u > H^{1/2+ε} by dispersion over u and Weil (15 Sep, late) — DERIVATION, NOT YET READ
+CLAIM. For f as in paper III §1 and every ε ∈ (0, 1/10) there is δ = δ(ε) > 0 with
+    Σ_{u > H^{1/2+ε}} w(u) P_u(H/u) = c_off(f)·H + O_{f,ε}(H^{1−δ})        (paper III Theorem typeII: u > H^{2/3+ε}).
+It suffices to treat the dyadic blocks U ∈ [H^{1/2+ε}, H^{2/3+ε}] (Type II covers the rest) and to show, in the notation of the proof of
+Theorem typeII (G°_{d'}(a,Y) = G_{d'}(a,Y) − Ḡ_{d'}(Y)), that for each such block
+    𝓔(U) := Σ_{U<u≤2U} w(u) Σ_{d' ≤ Z, (d',u)=1} (λ(d')/d') G°_{d'}(ū, H/u) ≪ H^{1−δ},   Z = Z_U = Y H^η, Y = Y_U = H/U ∈ [H^{1/3−ε}, H^{1/2−ε}],
+together with Step 3 (moduli d' > Z_U: ≪ H^{1−η+3ε′}, unchanged) and Step 5 (the main term) with U₀ = H^{1/2+ε}. Parameters: ε′ ≪ η ≪ ε,
+K₁ = H^{2η}, J = H^{δ₁} with δ₁ ≪ ε.
+WHY TYPE II STOPS AT 2/3. Its Step 4 treats each d' separately: Pólya–Vinogradov for Σ_u w(u)ψ(u) (≪ U^{1/2}d'^{1/2}) and Parseval (√φ(d'))
+give U^{1/2} Y Z per block, < H^{1−δ} iff Y < H^{1/3}. The dispersion below keeps the sum over d' inside a Cauchy–Schwarz over u.
+STEP 4′(a) FOURIER. For admissible d' (odd, R_{d'} symmetric, 0 ∉ R_{d'}) and integer N, paper III Lemma finfourier gives
+Σ_{r∈R_{d'}} B^{(N)}_{d'}(ar) = (1/(4d')) Σ_{0<k<d'} c_k(d',N) ρ_k(d';a), c_k = (1−cos(2πkN/d'))/sin²(πk/d'), ρ_k(d';a) = Σ_{r∈R_{d'}} e(kar/d').
+The mean over units a is ρ̄_k(d') = ω(d') ε_{d'}(k), ε_d(k) := c_d(k)/φ(d) (Ramanujan sum; each r is a unit), so
+G°_{d'}(a,N) = (1/(4d')) Σ_k c_k ρ°_k(d';a) with ρ° = ρ − ρ̄. Real Y = H/u: B^{(Y)} − B^{(N)} = ϑ(N_{d'}(m) − (2Y−ϑ)/(2d')) (paper III, proof of
+Prop. windowW) contributes O(ω(d')) per modulus, hence ≪ Σ_u |w| Σ_{d'≤Z} λω/d' ≪ U log Z per block: negligible.
+Bounds: sin(πk/d') ≥ 2k/d' for k ≤ d'/2 (use the symmetry k ↔ d'−k) gives |c_k|/(4d'²) ≤ b_k(d') := min(1/(8k²), π²N²/(8d'²)); and
+|∂_N c_k|/(4d'²) ≤ π/(8k d').
+STEP 4′(b) HIGH FREQUENCIES k > K₁: ≤ Σ_u |w| Σ_{d'≤Z} (λ/d')·(d'ω/(4K₁))·2 ≪ U Z/K₁ = H^{1−η}.
+STEP 4′(c) SEPARATION OF u AND d'. For k ≤ K₁ split (U, 2U] into J intervals I_j with base points u_j; |N(u) − N(u_j)| ≤ Y/J + 1, so replacing
+c_k(d', N(u)) by c_k(d', N(u_j)) costs ≪ Σ_u |w| Σ_{d'} λω (π/(8kd'))(Y/J + 1) ≪ U Y log Z/(kJ); summed over k ≤ K₁: ≪ H^{1−δ₁} log² H.
+What remains is Σ_j B_k(I_j) with B_k(I) := Σ_{u∈I} w(u) Σ_{d'≤Z,(d',u)=1} β(d') ρ°_k(d';ū), β(d') = λ(d')c_k(d',N(u_j))/(4d'²), |β| ≤ |λ| b_k.
+STEP 4′(d) DISPERSION. Cauchy–Schwarz: |B_k(I)|² ≤ (Σ_{u∈I} |w(u)|²)·S, Σ|w|² ≪ U (log U)^C, and with a smooth φ ≥ 1_{[1,2]} supported in [1/2, 3],
+S := Σ_u φ(u/U) |Σ_{d'} β(d') 1_{(u,d')=1} ρ°_k(d';ū)|² = Σ_{d₁,d₂} β(d₁)β̄(d₂) Σ_{r₁,r₂} Σ_{(u,d₁d₂)=1} φ(u/U) [e(kūr₁/d₁) − ε₁][e(−kūr₂/d₂) − ε₂].
+ • The ε₁ε₂ terms: ≪ U (Σ_d |β| ω (k,d)/φ(d))² ≪ U τ(k)² (log H)^C k^{−4}.
+ • The single-exponential terms: Weil for incomplete Kloosterman sums (with Möbius for (u, d₂) = 1): Σ_{(u,d₁d₂)=1} φ(u/U) e(kūr₁/d₁)
+   ≪ τ(d₂)(U/d₁ + 1) d₁^{1/2+ε″}(k,d₁)^{1/2}; with |ε₂| ≤ (k,d₂)/φ(d₂) the total is ≪ H^{ε″}(U N^{1/2} k^{−7/2} + N^{3/2} k^{−5/2}).
+ • The main terms. With g = (d₁,d₂), d_i = g d_i′, q = g d₁′d₂′ and c = r₁d₂′ − r₂d₁′: for (u,q) = 1, ū_{d₁}r₁/d₁ − ū_{d₂}r₂/d₂ ≡ ū_q c/q (mod 1), so the
+   inner sum is Σ_{(u,q)=1} φ(u/U) e(kcū/q) ≪ (U/q + 1) q^{1/2+ε″} (kc, q)^{1/2} (Weil), unless kc ≡ 0 (mod q). Since (r_i, d_i′) = 1 and
+   (d₁′, d₂′) = 1, (c, d₁′d₂′) = 1; so kc ≡ 0 (mod q) forces d₁′, d₂′ | k and k c ≡ 0 (mod g). Degenerate terms (d₁′, d₂′ | k): ≤ U Σ_g Σ_{d₁′,d₂′|k}
+   |β(gd₁′)β(gd₂′)| ω² ≪ U τ(k)² Σ_g |β(g)|² ω(g)² ≪ U N τ(k)² (log H)^C / k³  (Σ_d b_k(d)² ≪ N/k³).
+   Non-degenerate, using (kc,q)^{1/2} ≤ (k,q)^{1/2} g^{1/2} and q^{1/2} g^{1/2} = (d₁d₂)^{1/2}, U q^{−1/2} g^{1/2} = U g (d₁d₂)^{−1/2}:
+   ≪ H^{ε″} [ (Σ_{d≤Z} |β(d)| d^{1/2})² + U Σ_g g Σ_{d₁,d₂ ≡ 0 (g)} |β₁β₂|(d₁d₂)^{−1/2} ] ≪ H^{ε″} [ N³/k + U N (log H)/k³ ],
+   from Σ_d b_k(d) d^{1/2} ≪ N^{3/2} k^{−1/2} and Σ_{d ≡ 0 (g)} b_k(d) d^{−1/2} ≪ (kN)^{1/2}/(g k²).
+ Hence S ≪ H^{ε″}(U N/k³ + N³/k) and |B_k(I)| ≪ H^{ε″}(U N^{1/2} k^{−3/2} + U^{1/2} N^{3/2} k^{−1/2}).
+STEP 4′(e) ASSEMBLY. With N ≤ Y and U = H/Y:
+ 𝓔(U) ≪ H^{ε″} J Σ_{k≤K₁} (U Y^{1/2} k^{−3/2} + U^{1/2} Y^{3/2} k^{−1/2}) + H^{1−δ₁} log² H + H^{1−η}
+      ≪ H^{ε″+δ₁} (H Y^{−1/2} + H^{1/2} Y K₁^{1/2}) + H^{1−δ₁} log² H + H^{1−η}.
+ For Y ∈ [H^{1/3−ε}, H^{1/2−ε}]: H Y^{−1/2} ≤ H^{5/6+ε/2} and H^{1/2} Y K₁^{1/2} ≤ H^{1−ε+η}. So 𝓔(U) ≪ H^{1−δ} with δ = min(δ₁, η, ε − η − δ₁ − ε″)/2.
+STEP 5′ MAIN TERM with U₀ = H^{1/2+ε}, Y₀ = H^{1/2−ε}: as in Theorem typeII, with the split of the d'-sum at D₁ = Y₀ (not H^{1/3}):
+ Σ_{d'≤Y₀} (λ/d')|R_{d'}| ≪ (log Y₀ + Y₀) H^{1/2+3ε′} ≪ H^{1−ε+3ε′}; for d' > Y₀, H/u ≤ Y₀ < d' for all u > U₀, and the separate bounds give
+ ≪ H log H · Σ_{d'>Y₀} λωτ/(d'φ) ≪ H^{1/2+ε+2ε′}; the tails of the integrals ≪ Y₀^{−1+ε′}. So M(H) = c_off H + O(H^{1−ε+3ε′}).
+CONCLUSION: Σ_{u > H^{1/2+ε}} w(u)P_u(H/u) = c_off H + O(H^{1−δ}). ∎ (pending reading)
+WHERE THE ARGUMENT STOPS, AND WHY (the middle). The only term that needs U > H^{1/2} is the Weil term (Σ_d |β(d)| d^{1/2})² ≈ N³/k: incomplete
+Kloosterman sums Σ_{u∼U} e(kcū/q) to moduli q = lcm(d₁,d₂) ≈ Y², nontrivial by Weil only for U > q^{1/2} ≈ Y, i.e. u > H^{1/2}. Below that one needs
+cancellation in the sum over the moduli pairs (d₁,d₂) and the root numerators c = r₁d₂′ − r₂d₁′ of these incomplete Kloosterman sums — after
+Poisson in u, sums of complete Kloosterman sums S(kc, m; q) averaged over q = lcm(d₁,d₂) with numerators from pairs of roots: the
+Bombieri–Friedlander–Iwaniec / Deshouillers–Iwaniec regime (spectral large sieve for sums of Kloosterman sums), with λ(d) multiplicative hence
+well-factorable. See PLAN §13.
+NUMERICAL SANITY TEST OF STEP 4′(d) (dispersion-test.ts, f = t²+t+1, moduli d ∈ (1500, 3000] squarefree all-split, 141 moduli, Σω = 388):
+S/(U·Σω) = 0.923, 0.911, 0.899, 0.910, 0.886 for U = K/8, K/2, 2K, 8K, 32K (k = 1) and 0.82–0.91 (k = 3): the dispersion square is its diagonal
+to within 20% at every U, including U = K/8 below the Weil range. No hidden off-diagonal main term (the mean subtraction ε_d(k) = c_d(k)/φ(d) is
+right), and the true off-diagonal is far below the Weil bound K³ — the obstruction at U < H^{1/2} is in the method, not in the arithmetic.
