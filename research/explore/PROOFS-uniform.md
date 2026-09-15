@@ -850,3 +850,30 @@ g(N) := ∏_{p|u} p^{⌊v_p(N²−4h²)/2⌋} ≤ gcd(u^∞, N² − 4h²)^{1/2}
 and a Rankin bound for #{d ≤ 2M : d | u^∞}. Diagonal for p^k: #{x non-isotropic mod p} lifted — ≍ p^{k−1}(p − χ(p)). p = 2 (D = −4: u/2 arbitrary) still separate;
 numerics flat (§21). (G2) is closed for odd u at the level of a sketch.
 REMAINING FOR THE SMALL END (D < 0): §18's conversion, special primes p | (u, D), p = 2, stabiliser weights; then a careful write-up and a reading.
+
+## 23. READING of §20 (15 Sep, night; fresh model instance; scripts reader-energy/) — CORRECTIONS ADOPTED
+CLAIM 1 (J₄ ≪ m^{o(1)}(N² + N^{7/2}m^{−1/2}) for all m): SOUND WITH FIXES. Cilleruelo–Garaev Theorem 1(4) read line by line (1007.1526 §2): for unit λ it transfers to
+any modulus — t sharing factors with m is harmless (only an injection into the integer equation is needed); a vanishing factor cannot occur (n_z ≡ t²λ, 1 ≤ t² ≤
+m/M < m); equal shifts ARE needed (unequal shifts give only M^{4/3}m^{−1/3}) and (b) supplies them; no L-dependence; the o(1) is uniform (|n_z| ≤ 4m²). T must be
+≤ (m/M)^{1/2} exactly. Step (c) correct.
+ FIX 1 (gap): non-unit λ for NON-squarefree m (e.g. m = 4p, λ ≡ 2 mod 4; for every even m all attainable λ are non-units). Checked fix: for p | m with v_p(λ) = f
+ < e = v_p(m), x + y ≡ λxy (mod p^e) ⇔ (p^f x − μ*)(p^f y − μ*) ≡ μ*² (mod p^{e+f}); primes with f ≥ e force x + y ≡ 0 (mod p^e); CRT gives one equal-shift hyperbola
+ (box side g′N, modulus m g′/g″). Result J₂(λ) ≪ m^{o(1)}((gg′)^{1/2}N^{3/2}m^{−1/2} + 1) for N ≤ m/g″ (else J₂ ≤ N); with Σ_{gcd(λ,m)=g} J₂ ≤ N(2N/g + 1) and g ≤ 2N the J₄
+ bound survives for ALL m. Imprecisions: N > m/g case (J₂ ≤ N closes it); "non-units: same bound" false for J₂ (extra g^{1/2}; numerically 6.7× at m = 1296000,
+ g = 5400), J₄ unaffected; the "+1" is really m^{o(1)} (smooth λ*).
+ Numerics (m ≈ 10⁶–4·10⁶, N = m^{0.4…0.7}, 20 modulus types incl. prime powers, balanced p₁p₂, 720720, 2^20): J₄/(N′² + N′^{3.5}m^{−1/2}) ≤ 1.5 (≤ 0.7 for N ≥ m^{1/2});
+ J₄/(2N′² + N′⁴/m) = 1.00–1.07 for odd m, up to 2.8 for highly even m (structural). No abnormal J₂(λ).
+CLAIM 2 (saving map): BOOKKEEPING SOUND. BG's Hölder inequality holds exactly as quoted (J counts all tuples of units; k ≥ 1 allowed, J₂ = N′); J_{2k} ≤ N^{2k−4}J₄
+valid; formulas re-derived exactly (rationals): on the edge ν₂ = 1/2 with k₁ = k₂ = 2 the m-saving is θ/16 (ν₁ ≥ 1/3) or (2θ − 1.25)/8 (ν₁ < 1/3), giving H-exponent
+1/56 at a = 3/7, 0.026562 at 0.45, 0.030625 at 0.49, 1/32 at 1/2 — matching the data. Corner computation (k₁ = 2, k₂ = j: m^{−1/(16j)}) and (N₁N₂)^{15/16} correct.
+No missed zeros (Lipschitz ≤ 2.5; 4000-step scan, 1000 values of a): minimum strictly monotone in a, positive for a ≥ 0.3424 with k ≤ 12; the zeros near 1/3 come
+from the cap k ≤ 12 (with k ≤ 60 positive at a = 0.3353); near 1/3 the saving ≈ ν₁/4 − 1/(16k₁) with k₁ ≈ 1/(2(θ − 1/2)) → ∞, constants (2k)^{90k³}(log m)^{4k²}.
+ GAP (margins): the minimum sits on ν₂ = 1/2, exactly where Type I fails; the real residual is wider (Type I/II margins H^{O(δ)}, n₃ ≤ H^{δ₃}, moduli in
+ [Y^{1−δ−2η}, YH^η]). Widening by τ = 0.02: saving at a = 1/2 0.0312 → 0.0306, at 0.4 0.0125 → 0.0100, at 0.35 NEGATIVE. So δ, η, δ₃, ε′ and the separation losses
+ must be ≪ saving(a) ≍ (a − 1/3)/8 near 1/3: "for every c > 0" only with parameters depending on c.
+ GAP (unwritten step, a just above 1/2): the residual is empty only for U ≥ Y·H^{4δ+δ₃+O(η)}; for Y ≤ U below that the balanced band remains (BG with the new J₄
+ covers it: a = 0.505, τ = 0.02, saving 0.031), but §12's Type I/II bounds were derived for U ≤ Y only (Type II's Weil step assumes U₁ ≤ d; Type I's (1 + N/d)
+ untracked for N > d). "Types I/II alone cover [H^{1/2}, H^{1/2+ε₀}]" is asserted, not derived; likely closes (Type I or U₂ = n₂ whenever an atom exceeds
+ Y^{1/2}H^{2δ}, rest to the residual), with ε₀ against §9 to be fixed.
+CONDITIONAL READING: "the H^{1/2} threshold is crossed, u ∈ [H^{1/3+c}, H]" holds at exponent level GIVEN §12 with the §16/§19 gaps filled, the J₄ transfer with
+FIX 1, and the a > 1/2 step. Nothing in the J₄ or saving-map layer is fatal.

@@ -474,4 +474,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - PROOFS §20 (energy J₄ for all moduli via Cilleruelo–Garaev; bands vanish; saving map positive on (1/3, 1/2], H^{−1/32} at 1/2): reading running.
 - PROOFS §22: (G1) K₁ lemma at level q (numerics: K₁ ≈ const·Z/q) — closed at sketch level, no complementary-divisor step needed in our window;
   (G2) odd non-squarefree u via zeros of det(G₁x, G₂x) (disc N² − 4h²) — closed at sketch level. p = 2 and conversion remain.
+- READING of §20 (PROOFS §23): J₄ energy bound for all moduli SOUND with a fix for non-unit λ at non-squarefree m (checked); saving map bookkeeping sound
+  (1/32 at a = 1/2 exact); gaps: parameters must be ≪ saving(a) (so "every c" only with c-dependent parameters), and the Type I/II step for u just above
+  H^{1/2} is unwritten (likely closes).
 
