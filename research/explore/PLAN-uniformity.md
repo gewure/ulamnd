@@ -248,6 +248,8 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
  A SECOND, EASIER OBSTRUCTION below H^{1/2} (from the reading of §9): the main-term remainder of Type II's Step 5 is ≪ Y₀H^{1/2}; it needs
  an error t^{1/3+ε}d′^ε in the mean value of g coprime to d′ (divisor problem for ζ(s)L(s,χ)), or an average over d′ — classical, to be written.
  PROOFS §10: the Poisson-transformed square and the saving needed (Y/U over Weil) with the local Salié structure.
+ CONSEQUENCE (PROOFS §11, conditional on §9's second reading): Theorem A of paper III under Hypothesis W with B < (1−θ)/(2−θ) alone
+ (paper III: θ + 6B < 1); at θ = 3/4, B < 1/5 against paper III's 1/24.
  The honest picture: M1/M2 push the large end below 1/2 by a small power, M3 pushes the small end towards 1/3; between about H^{1/3} and
  H^{1/2−δ₀} no method is identified. Numerically (step 1) there is no obstruction anywhere in u.
  A structural reformulation worth keeping: Off*(H) = Σ_{N≤H}(H−N)·[Σ_{u|N} w(u)/u]·[Σ_{d|N²−D} λ(d)/d] − (means): a correlation of a

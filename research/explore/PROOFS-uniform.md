@@ -452,3 +452,15 @@ Lemma finfourier to 1e−11 including N ≥ d′; real-Y correction ≤ 0.42 ω;
  OVERSTATEMENT CORRECTED: the Weil term is NOT the only obstruction below H^{1/2}; Step 5′'s remainder ≪ Y₀ H^{1/2+3ε′} also needs Y₀ < H^{1/2}.
  That one is not intrinsic: an error t^{1/3+ε}d′^ε in Lemma AP(i) (the divisor problem for ζ(s)L(s,χ)), or averaging E_{d′}(t) over d′, removes it.
 STATUS OF §9: one adversarial reading passed (model instance). Not yet in paper III.
+
+## 11. Consequence for paper III's Theorem A (15 Sep, late) — conditional on §9 (second reading running)
+With §9 (pieces u > H^{1/2+ε} unconditional with a power saving) and Lemma tail (moduli above Y^{1+η} free), Hypothesis W is needed only for
+u ≤ U₀ = H^{1/2+ε}. Re-running the proof of Theorem A with this U₀:
+ • small moduli: H^{1/(2−θ)} Σ_{u≤U₀}|w| u^{B−1/(2−θ)} ≪ H^{1/2 + 1/(2(2−θ)) + B/2 + O(ε)}, < 1 iff B < (1−θ)/(2−θ); the k-sum converges under the same
+   condition (exponent −2 + B + 1/(2−θ) < −1);
+ • narrow window (frequencies k ≤ Y^{2η}, so the E-term of Prop. windowW vanishes): H^θ Σ_{u≤U₀}|w| u^{B−θ} ≪ H^{1/2 + θ/2 + B/2 + O(ε+η)}, < 1 iff
+   θ + B < 1, implied by the first since (1−θ)/(2−θ) ≤ 1 − θ; plus Σ(H/u)^{1−η} ≪ H^{1−η/2};
+ • moduli above Y^{1+η}: Lemma tail, ≪ H^{1−η/2+o(1)}.
+So Theorem A holds under Hypothesis W(θ, B) with B < (1−θ)/(2−θ) alone — strictly weaker than θ + 6B < 1 (since 2 − θ < 6). At θ = 3/4 this is
+B < 1/5 (paper III: B < 1/24). Note that no (θ, B) at all is known for the dilated roots uniformly in u; DFI's (3/4, 1/4) are for u = 1.
+Not yet in paper III: waits for the second reading of §9.
