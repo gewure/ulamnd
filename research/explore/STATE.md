@@ -429,3 +429,6 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - Narrow window (PROOFS-uniform §7, PLAN §11): moduli above Y^{1+η} contribute Y^{1−η+o(1)} to every piece, uniformly in u (divisor bound);
   numerically the oscillation lives in moduli Y … 16Y. Cesàro conjecture ⇐ Hypothesis W with θ + 2B < 1 (paper III had θ + 6B < 1). The core
   is one Type I estimate for u²ℓ² + |D| ≡ 0 (mod k), k ≍ Y, uniform in u ≤ Y² (Grimmelt–Merikoski Thm 1.4 with a = u²). window-truncation.ts.
+- CANDIDATE THEOREM (PROOFS-uniform §8, PLAN §12): Hypothesis (E) in Cesàro form unconditionally for monic irreducible quadratics,
+  Off*_f(H) ≪ H(log H)^{1−c} log log H, hence the leading term −½C(f) log H of Conjecture 1 in Cesàro form. Two independent adversarial
+  readings (model instances) passed with small repairs; ERRATA 37 (paper III Remark KSwconst count). Papers not yet edited.

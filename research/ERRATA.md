@@ -502,3 +502,10 @@ route before being applied (the checks are described in the items). We agree wit
     −0.061, −0.071). Checked: correct; the caption now states the errors. (5) STATUS counted this conversation as one of two
     outside readings (the category error of ERRATA 28); reworded, and Theorem 2's status now credits both readings that found the
     asymptotic error. ERRATA 33's heading also calls this conversation an "outside reading"; it is not independent.
+
+37. **Paper III, Remark rem:KSwconst: the count of the removed primes is off by a factor 2 (16 Sep; found by an adversarial reader of a new
+    argument).** The remark charges the primes dividing u about 2·log log log u in the density sum and concludes β = ½ for t ≥ exp((log log u)^4);
+    with that charge the inequality needed is log log t ≥ 4L + O_f(1), L = log log log u, which the hypothesis does not supply. The true loss is
+    Σ_{p|u split} 2/(p−4) ≤ L + O_f(1) (the worst u is a product of the first split primes, all below ≈ 2 log u; checked numerically), so the
+    requirement is log log t ≥ 2L + O_f(1), which t ≥ exp((log log u)^4) gives for u ≥ u₁(f). Conclusion of the remark and of Theorem small
+    unchanged; the count in the remark to be rewritten. Not yet applied to paper III.

@@ -343,3 +343,22 @@ READER 2 OF 2 ON §8 (16 Sep, fresh instance, focus: decomposition, Koksma, unif
 STATEMENT AS AMENDED: for monic irreducible f = t² + bt + c without fixed prime divisor, Off*_f(H) ≪_f H(log H)^{1−c} log log H, and
 Σ_{h≤H}(1−h/H)(S_f(h) − C(f)²) = −½C(f) log H + O_f((log H)^{1−c} log log H). Proof as above with ε < 1/12, blocks from X = Y^{0.6}, δ = 1/13, A = 13.
 Status: reader 2 passed; reader 1 (Henriot, KSw uniformity) pending.
+READER 1 OF 2 ON §8 (16 Sep, fresh instance, focus: Henriot and KSw inputs; obtained the published ERRATUM, Math. Proc. Camb. Phil. Soc. 157
+(2014) 375–377): (A) correct with two gaps, (B) correct with a slip in Remark KSwconst; nothing breaks steps (ii) or (iii).
+ (A1) same as reader 2's (1): ε < 1/12 (Henriot's ‖Q‖ is the sum of |coefficients|, ‖Q*‖ ≤ u² + |D|); or δ = 1/24, or x ≤ Y^{2/3} trivially.
+ (A2) the ERRATUM replaces D* by a*D* in Corollaries 1–2 (a* = leading coefficient of Q*, here u²/κ): the Δ-factor runs over p | uD and is still
+      ≤ Π(1+1/p)^C with C ≤ 2·13 = 26 independent of u (uses only (2.9) and ρ(p^ν) ≤ g p^{ν−1} for primitive Q*); so Δ ≪ (log log(u|D|))^{26}.
+      Cite a*D*. The corrected Theorem 5 keeps: Q primitive, ε < α/(50g(g+1/δ)), x ≥ C₀‖Q‖^δ, x^α < y ≤ x, constants depending on g, α, δ, A, B.
+ Verified: G_u ∈ M₁(6, B_ε, ε) with B_ε independent of u; content κ = gcd(u², D) with G_u(κm) = G_u(m) exactly; Q* primitive irreducible (r = 1),
+ no fixed-divisor hypothesis needed; (1−ρ/p)(1+6ρ/p) ≤ 1 + 10/p; |𝒜_Z| ≤ (Y/Z)ΣG_u; ℰ_Z ≪ Y²/Z uniformly (Shiu); numerically
+ Σ_{x≤1500} G_u(Q_u(x))/(Y log Y) = 0.66, 0.75, 0.97, 1.14 for u = 7, 1729, 1.98·10⁶ (≈ 0.9Y²), 5.2·10⁹ (≈ 2300Y²).
+ (B) KSw: every "x ≥ x₁" in its proof depends only on β, γ, C₀, except P ≥ β(1−2^{−1/2}) log log x at t = x, where t₀ enters: x₁ = max(t₀, x₁′(β,γ,C₀)),
+     no hidden u-dependence; KS Lemmas 3.5/3.7 (arXiv 2003.12965) hold for arbitrary sets. SLIP in Remark KSwconst (paper III): charging the removed
+     primes 2·log log log u, β = ½ needs log log t ≥ 4L + O_f(1) (L = log log log u), which t ≥ exp((log log u)^4) does not give; the true loss is
+     Σ_{p|u split} 2/(p−4) ≤ L + O_f(1) (checked: 2.24 against L = 2.38 at log u ≈ 10⁵), so the requirement is log log t ≥ 2L + O_f(1), which holds
+     for u ≥ u₁(f). Fix: redo the count (or take β = ¼, halving c). This also repairs paper III's Theorem small itself (ERRATA to be filed).
+     At t ∈ [Y, Z]: KSw applies for all squarefree u ≤ H^{2/3+ε}; Koksma and partial summation verified.
+BOTH READINGS PASSED (16 Sep, late). FINAL STATEMENT: for monic irreducible f = t² + bt + c without fixed prime divisor there is c = c(f) > 0 with
+    Off*_f(H) ≪_f H (log H)^{1−c} log log H,   Σ_{h≤H}(1−h/H)(S_f(h) − C(f)²) = −½ C(f) log H + O_f((log H)^{1−c} log log H).
+Proof: §8 with ε < 1/12, dyadic blocks from X = Y^{0.6} (δ = 1/13), A = 13, Henriot Cor. 2 as corrected by the erratum (a*D*), Remark KSwconst's
+count repaired. Both readings were by model instances; no human has checked it. Parts I and III are not yet edited.
