@@ -439,3 +439,11 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   dispersion-test.ts: the dispersion square is its diagonal (ratio ≈ 0.9) for u from K/8 to 32K.
 - PLAN §13: small end rigorous only for u = 1; middle candidates M1 (BFI/DI averaging of the Kloosterman sums with Heegner-pair numerators,
   well-factorable λ), M2 (q-van der Corput / two small factors), M3 (Grimmelt–Merikoski averaged over levels u², target u ≲ H^{1/3}).
+
+## 20. Second reading of the large-u proof passed; publication structure decided (15 Sep, late)
+- PROOFS-uniform §9 (u > H^{1/2+ε}): second independent reading "sound"; its new points (w irrelevant to the G° part, explicit sizes of the
+  degenerate / d₁|d₂ / h = 0 terms, dispersion alone reaches almost to u ≈ H) recorded; §10's "m = 0 gives only the diagonal" was false
+  (T₀(5,65) = 10 for D = −4) and is corrected — the extra terms are of diagonal size, §9 unaffected.
+- Structure (user, 15 Sep): paper III takes Theorem E + the large-u range and is then frozen; dilation draft stays spectral; the middle → paper V.
+- Next: write the large-u theorem into paper III (Theorem typeII extended, Theorem A per PROOFS §11 after its reading), compile, paper-text reading.
+

@@ -363,7 +363,7 @@ BOTH READINGS PASSED (15 Sep, late). FINAL STATEMENT: for monic irreducible f = 
 Proof: §8 with ε < 1/12, dyadic blocks from X = Y^{0.6} (δ = 1/13), A = 13, Henriot Cor. 2 as corrected by the erratum (a*D*), Remark KSwconst's
 count repaired. Both readings were by model instances; no human has checked it. Parts I and III are not yet edited.
 
-## 9. LARGE-u POWER RANGE: u > H^{1/2+ε} by dispersion over u and Weil (15 Sep, late) — DERIVATION, NOT YET READ
+## 9. LARGE-u POWER RANGE: u > H^{1/2+ε} by dispersion over u and Weil (15 Sep, late) — TWO ADVERSARIAL READINGS PASSED (fixes adopted, see end of §10)
 CLAIM. For f as in paper III §1 and every ε ∈ (0, 1/10) there is δ = δ(ε) > 0 with
     Σ_{u > H^{1/2+ε}} w(u) P_u(H/u) = c_off(f)·H + O_{f,ε}(H^{1−δ})        (paper III Theorem typeII: u > H^{2/3+ε}).
 It suffices to treat the dyadic blocks U ∈ [H^{1/2+ε}, H^{2/3+ε}] (Type II covers the rest) and to show, in the notation of the proof of
@@ -421,7 +421,10 @@ Poisson in u modulo q (u ≡ x mod q, (x,q) = 1): Σ_{(u,q)=1} φ(u/U) e(aū/q) 
 Inserting this into the square of §9 and undoing the sum over the roots:
     S = Σ_{d₁,d₂} β(d₁) β̄(d₂) (U/q) Σ_m φ̂(mU/q) T_m(d₁,d₂),   T_m(d₁,d₂) = Σ*_{x mod q} e(mx/q) ρ°_k(d₁; x̄) \overline{ρ°_k(d₂; x̄)},  q = lcm(d₁,d₂),
 exactly (ρ_k(d; x̄) = Σ_{r∈R_d} e(k x̄ r/d) depends on x mod d only, so the pair lives mod q). Only |m| ≤ M₀ = q H^ε/U matter.
-m = 0: orthogonality over x mod q gives the diagonal d₁ = d₂ (the U N/k³ term of §9) and nothing else after the mean subtraction.
+m = 0: [CORRECTED after the second reading of §9] T₀ is NOT only the diagonal. The mean is subtracted over all units mod d, not prime by
+prime, so T₀(d₁,d₂) ≠ 0 in general when g = (d₁,d₂) > 1 and d₁ ≠ d₂: the reader computed, for D = −4, k = 1, T₀(5,65) = 10, T₀(5,85) = 10,
+T₀(65,85) = 20, and for k = 3, T₀(17,1105) = −17. These terms are of diagonal size in total, ≪ U N/k³ (§9's degenerate and d₁ | d₂ bounds;
+|c_q(a)| ≤ (a,q) ≤ q^{1/2}(a,q)^{1/2}), so the m = 0 part of S is ≪ H^{ε″} U N/k³ and the needed saving below concerns m ≠ 0 only.
 LOCAL STRUCTURE of T_m (m ≠ 0). By CRT, with ρ_h(d) = Π_{p|d} ρ_{h·\overline{(d/p)}}(p) and ρ_t(p) = e(ts_p/p) + e(−ts_p/p), s_p² ≡ D (mod p):
  • p | d₁, p ∤ d₂: factor Σ*_x e(m′x/p)(e(k′s_p x̄/p) + e(−k′s_p x̄/p)) = S(k′s_p, m′; p) + S(−k′s_p, m′; p);
  • p | d₂, p ∤ d₁: the conjugate analogue;
@@ -451,9 +454,21 @@ Lemma finfourier to 1e−11 including N ≥ d′; real-Y correction ≤ 0.42 ω;
  Cosmetic: Cauchy–Schwarz over the intervals I_j saves J^{1/2}; Step 5′ re-derived, all bounds check ("H/u ≤ Y₀ < d′" true but unnecessary).
  OVERSTATEMENT CORRECTED: the Weil term is NOT the only obstruction below H^{1/2}; Step 5′'s remainder ≪ Y₀ H^{1/2+3ε′} also needs Y₀ < H^{1/2}.
  That one is not intrinsic: an error t^{1/3+ε}d′^ε in Lemma AP(i) (the divisor problem for ζ(s)L(s,χ)), or averaging E_{d′}(t) over d′, removes it.
-STATUS OF §9: one adversarial reading passed (model instance). Not yet in paper III.
+SECOND ADVERSARIAL READING OF §9 (15 Sep, late; fresh model instance, independent of the first): verdict "sound" — "the extension to
+u > H^{1/2+ε} stands; the 2/3 in paper III came from an un-optimised Step 4, not from a real barrier." Numerical checks by the reader: the
+Fourier identity for G°(a,N) to 5e−10 (d′ = 5…377, Y = 3…501, including d′ < N); real-Y correction ≤ 0.39 ω; the m = 0 terms of §10.
+Agrees with the first reader's fixes (1)–(3) and the overstatement correction; disagrees with nothing. New points, recorded:
+ (a) the G° part uses neither Lemma AP nor any property of w: it bounds Σ_u a_u X_u for any bounded a_u (Lemma AP enters only in Step 5′);
+ (b) explicit sizes: ε₁ε₂ terms ≪ U τ(k)² log²/k⁴ (|c_d(k)| ≤ (k,d) < d/2); degenerate pairs ≪ U N τ(k)²/k³; non-degenerate pairs with
+     d₁ | d₂ ≪ U N/k³; the h = 0 Poisson term (U/q)c_q(kc) is absorbed only via |c_q(a)| ≤ (a,q) ≤ q^{1/2}(a,q)^{1/2} — to be written out;
+ (c) the dispersion bound H^{1+δ₁+ε″}Y^{−1/2} alone works for Y > H^{3δ₁}, i.e. almost up to u ≈ H; one common dyadic grid can be used;
+ (d) Step 3 needs ε′ < η/3; paper III's Step 4 for U ≥ H^{2/3+ε} gives H^{1−3ε/2+η+3ε′}; admissible choice ε′ = ε/100, η = ε/4, δ₁ = ε″ = ε/10;
+ (e) no published barrier is beaten: U ≈ q^{1/2} is the standard dispersion-plus-Weil threshold;
+ (f) the §10 m = 0 statement was false (corrected above); §9 unaffected.
+STATUS OF §9: two independent adversarial readings passed (model instances; no human check). To go into paper III as the extension of
+Theorem typeII (decision 15 Sep: paper III takes Theorem E and the large-u range, then is frozen; the middle goes to a new paper V).
 
-## 11. Consequence for paper III's Theorem A (15 Sep, late) — conditional on §9 (second reading running)
+## 11. Consequence for paper III's Theorem A (15 Sep, late) — §9 has passed two readings; this derivation itself NOT YET READ
 With §9 (pieces u > H^{1/2+ε} unconditional with a power saving) and Lemma tail (moduli above Y^{1+η} free), Hypothesis W is needed only for
 u ≤ U₀ = H^{1/2+ε}. Re-running the proof of Theorem A with this U₀:
  • small moduli: H^{1/(2−θ)} Σ_{u≤U₀}|w| u^{B−1/(2−θ)} ≪ H^{1/2 + 1/(2(2−θ)) + B/2 + O(ε)}, < 1 iff B < (1−θ)/(2−θ); the k-sum converges under the same
@@ -463,4 +478,4 @@ u ≤ U₀ = H^{1/2+ε}. Re-running the proof of Theorem A with this U₀:
  • moduli above Y^{1+η}: Lemma tail, ≪ H^{1−η/2+o(1)}.
 So Theorem A holds under Hypothesis W(θ, B) with B < (1−θ)/(2−θ) alone — strictly weaker than θ + 6B < 1 (since 2 − θ < 6). At θ = 3/4 this is
 B < 1/5 (paper III: B < 1/24). Note that no (θ, B) at all is known for the dilated roots uniformly in u; DFI's (3/4, 1/4) are for u = 1.
-Not yet in paper III: waits for the second reading of §9.
+Not yet in paper III; to be read together with the paper text of the large-u theorem.

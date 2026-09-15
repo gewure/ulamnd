@@ -79,6 +79,10 @@ Task B (the sharp sum). Prove S_u(Y) → 0 uniformly for u in the widest range p
 
 Task C (bookkeeping): every proved statement goes into a new section of the dilation draft or a separate note
    (research/paper-uniform/?) — decide after A; ERRATA/KNOWLEDGE/STATE as usual; outside reading before any claim.
+   DECIDED 15 Sep (user, after discussing the usual practice: one paper = one coherent result with one set of methods):
+   paper III takes Theorem E and the large-u range u > H^{1/2+ε} (same question, same elementary/Weil tools, improves its own
+   Theorem typeII) and is then FROZEN; the dilation draft stays spectral; the middle range and any full uniformity (new method:
+   half-integral-weight Kuznetsov) go to a new paper V, written only once there is a result; until then PROOFS-uniform.md.
 
 ## 3. A structural remark to exploit (from the dilation draft)
 By Prop. classwise/mult, the family sum Σ_{Q∈W_u} Φ(z_Q) of ANY Γ₀(u²)-invariant Φ equals Σ_C |S_C|^{-1} Σ_{(ℓ₁⊥ℓ₂)} Φ(αγ⁻¹z_C):
@@ -219,7 +223,7 @@ monic scope, Remark KSwconst count, ERRATA 37). Checked only by model instances.
 ## 13. Power ranges and the middle (15 Sep, late): where things stand after Theorem E
 TARGET: Off*_f(H) = c_off H + O(H^{1−δ}) (the constant A_f of Conjecture 1). With Lemma tail (Z = Y^{1+η}) the moduli above Y^{1+η} are free;
 what is needed is a power saving, uniformly in u ≤ H^{2/3+ε}, for the moduli d' ≤ Y^{1+η} (small moduli AND window) of every piece.
-LARGE u (PROOFS §9; one adversarial reading passed with minor fixes): u > H^{1/2+ε} by dispersion over u — Cauchy–Schwarz over u with the sum over moduli inside,
+LARGE u (PROOFS §9; two independent adversarial readings passed, minor fixes adopted): u > H^{1/2+ε} by dispersion over u — Cauchy–Schwarz over u with the sum over moduli inside,
 the square expanded into incomplete Kloosterman sums Σ_{u∼U} e(kcū/q), q = lcm(d₁,d₂) ≈ Y², bounded by Weil. Paper III's Type II had 2/3
 because it bounded each modulus separately (Pólya–Vinogradov + Parseval). The main-term evaluation (Step 5) survives with U₀ = H^{1/2+ε}.
 SMALL u: rigorous today only u = 1 (paper III Theorem u1, DFI 2012, fundamental D). The dispersion over the MODULI instead of over u gives back
@@ -248,7 +252,7 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
  A SECOND, EASIER OBSTRUCTION below H^{1/2} (from the reading of §9): the main-term remainder of Type II's Step 5 is ≪ Y₀H^{1/2}; it needs
  an error t^{1/3+ε}d′^ε in the mean value of g coprime to d′ (divisor problem for ζ(s)L(s,χ)), or an average over d′ — classical, to be written.
  PROOFS §10: the Poisson-transformed square and the saving needed (Y/U over Weil) with the local Salié structure.
- CONSEQUENCE (PROOFS §11, conditional on §9's second reading): Theorem A of paper III under Hypothesis W with B < (1−θ)/(2−θ) alone
+ CONSEQUENCE (PROOFS §11; §9 read twice, §11 itself not yet read): Theorem A of paper III under Hypothesis W with B < (1−θ)/(2−θ) alone
  (paper III: θ + 6B < 1); at θ = 3/4, B < 1/5 against paper III's 1/24.
  The honest picture: M1/M2 push the large end below 1/2 by a small power, M3 pushes the small end towards 1/3; between about H^{1/3} and
  H^{1/2−δ₀} no method is identified. Numerically (step 1) there is no obstruction anywhere in u.
