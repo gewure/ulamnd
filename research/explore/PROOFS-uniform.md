@@ -262,3 +262,60 @@ X/Y = (length)·a^{1/2}/h^{1/2} ≈ Y·u, and the diagonal term K₂ counts the 
 Keeping the congruence b ≡ 0 (mod a) instead of dropping it by positivity, the bound is of the order Y^{1/2+θ} u^{1+θ}, non-trivial against Y for
 u ≲ Y^{(1/2−θ)/(1+θ)} ≈ Y^{0.35} (θ = 7/64), i.e. u ≲ H^{0.26} in Theorem A′. This covers the lower end only; the loss is the sparsity (u points on
 area u²) and the factor u^{1/2} in the scale ratio.
+ADVERSARIAL READING OF §7 (16 Sep, a fresh model instance given §7, paper III §§2 and 6 and the script; independent of this session's
+reasoning): no mathematical error; L, C1, C2, N all correct with three small gaps, fixes adopted:
+ (1) the mean term: |λ| ≪ d^ε gives Y²K0^{−1+ε}, not uniform for K0 ≫ Y^{O(1)}; use Σ_{d≤t}|λ|ω(d) ≪_f t (Shiu, as in Lemma far) and partial
+     summation: Σ_{d'>K0} |λ|ρ/d'² ≪ 1/K0, so the second term is ≪ Y²/K0 with no ε.
+ (2) the ε in U0 = H^{2/3+ε} must be small in terms of η (εη + ε′ < η/3; in particular ε < 1/3).
+ (3) for u ≤ Y^{η/2}(log H)^{−1/2} the window (Y, Y^{1+η}] is WIDER than paper III's (Y, u²Y log H], and Corollary smallu would pick up a
+     factor η log Y; define the window as (Y, min(Y^{1+η}, u²Y log H)] (Lemma far or the lemma on the rest).
+ Sharpening supplied by the reader: with the narrow window, paper III's POWER-SAVING Theorem A holds under 2B(2−θ) < 1−θ alone (the
+ small-moduli condition, which implies θ + 2B < 1 and the k-convergence condition); strictly weaker than θ + 6B < 1. DFI still fails.
+ Boundary term of the truncated partial summation: controlled, since Hypothesis W bounds S_k(t) at every t. Script N: computes exactly
+ the bounded tail; the only numerical sensitivity (E times Y²/2) is ≈ 5·10⁻⁴ in tail/√Y at u = 7.
+
+## 8. CANDIDATE THEOREM (16 Sep 2026, evening): Hypothesis (E) in Cesàro form holds unconditionally — UNDER ADVERSARIAL READING, NOT A CLAIM
+STATEMENT. For every irreducible quadratic f there is c = c(f) > 0 such that
+    Off*_f(H) = c_off(f)·H + O_f( H (log H)^{1−c} log log H ),
+and hence, by part I, Theorem 6 (Σ_{h≤H}(1−h/H)(S_f(h)−C²) = −½C log H + O_f(1) + (C²/H)·Off*_f(H)),
+    Σ_{h≤H} (1 − h/H)(S_f(h) − C(f)²) = −½ C(f) log H + O_f( (log H)^{1−c} log log H ).
+This is Conjecture 1 of part I in Cesàro form with its leading term (part I Thm 6(ii)), NOT the constant A_f, which needs Off* − c_off H = o(H).
+INPUTS. Part III: Proposition pieces (Off* = Σ_u w(u) P_u(H/u), Σ_{u≤t}|w(u)|/u ≪ log t); Theorem typeII (u > H^{2/3+ε}); Theorem small and
+Proposition KSw with Remark KSwconst (uniform for t ≥ max(exp((log log u)^4), Y₁(f))); the identity (eq:Pgt) for moduli above the length.
+External: Koksma's inequality; Shiu's theorem; Henriot, "Nair–Tenenbaum bounds uniform with respect to the discriminant", Math. Proc. Camb.
+Phil. Soc. 152 (2012), Corollary 2 of Theorem 5 (arXiv 1102.1643; hypotheses read 16 Sep: Q primitive, F ∈ M_k(A,B,ε) with ε < α/(50g(g+1/δ)),
+uniformly in x ≥ c₀‖Q‖^δ and x^α ≤ y ≤ x, bound ≪ Δ_{D*} y Π_{g<p≤x}(1−ρ(p)/p) Π_{p≤x, p∤D*}(1 + G(p)ρ(p)/p), Δ_{D*} ≤ Π_{p|D*}(1+1/p)^C,
+constants depending only on g, α, δ, A, B; no fixed-prime-divisor hypothesis in Theorem 5).
+PROOF. Fix ε ∈ (0, 1/10). Let u ≤ U₀ := H^{2/3+ε} be squarefree with ω(u) ≥ 1 and Y := H/u ≥ H^{1/3−ε}; then u ≤ Y³ and log Y ≍ log H.
+Split P_u(Y) at d' = Y and at d' = Z := Y(log Y)^A (A fixed below): P_u(Y) = P^≤_u(Y) + W_u(Y) + T_u(Y).
+(i) Small moduli. P^≤_u(Y) ≪_f Y(log Y)^{−c} by Theorem small (Y ≥ exp((log log u)^4) for H ≥ H₀).
+(ii) Window. W_u(Y) = Σ_{Y<d'≤Z} (λ(d')/d') I(d'), I(d') = Σ_{x∈R'_{d'}} B^{(Y)}_{d'}(rep x). For d' > Y and m ∈ [1, d'],
+   B^{(Y)}_{d'}(m) = (Y−m)^+ − Y²/(2d') (paper III §sec:far). With θ_x = rep x/d' ∈ (0,1) and f(θ) = (Y − θd')^+ on [0,1]: ∫₀¹ f = Y²/(2d'),
+   f is monotone with total variation Y, so Koksma gives |I(d')| ≤ ω(d')·Y·D*(θ_x) ≤ ω(d')·Y·disc(Δ^{(u)}_{d'}).
+   With w = |λω|·1_{(·,2Du)=1} (as in Theorem small) and S(t) = Σ_{q≤t} w(q) disc(Δ_q) ≤ t(log t)^{−c} for t ≥ Y (Prop. KSw), partial summation:
+   |W_u(Y)| ≤ Y Σ_{Y<d'≤Z} w(d') disc/d' = Y[S(Z)/Z − S(Y)/Y + ∫_Y^Z S(t) t^{−2} dt] ≤ Y[(log Z)^{−c} + (log Y)^{−c} log(Z/Y)]
+            ≪ A·Y (log Y)^{−c} log log Y.
+(iii) Tail. By (eq:Pgt) T_u(Y) = 𝒜_Z − ℰ_Z. First ℰ_Z = (Y²/2) Σ_{d'>Z} λρ(d')/d'² ≪ Y²/Z, since Σ_{d≤t}|λ|ρ(d) ≪_f t (Shiu).
+   Next |𝒜_Z| ≤ Σ_{x≤Y} (Y−x) Σ_{d' | Q_u(x), d' > Z} |λ(d')|/d' ≤ (Y/Z) Σ_{x≤Y} G_u(Q_u(x)), where
+   G_u(n) := Σ_{d | n, d squarefree, all p | d split, p ∤ 2Du} |λ(d)| = Π_{p | n, p split, p ∤ 2Du} (1 + |λ(p)|) ≤ 6^{ω(n)}   (|λ(p)| ≤ 5).
+   CLAIM: Σ_{x≤Y} G_u(Q_u(x)) ≪_f Y (log Y)^{10} (log log Y)^{C} uniformly for u ≤ Y³.
+   Proof of claim: x ≤ Y^{1/2} contribute ≤ Y^{1/2+o(1)} (G ≤ 6^ω ≪ n^{o(1)}). For X ∈ [Y^{1/2}, Y] dyadic, write Q_u = κ·Q* with κ the content
+   (κ | gcd(u², D)·const, so κ ≪_f 1) and Q* primitive irreducible quadratic with ‖Q*‖ ≤ u²|D|; G_u(κm) ≤ 6^{ω(κ)} G_u(m) ≪_f G_u(m).
+   G_u is multiplicative, G_u(m) ≤ 6^{Ω(m)} and ≤ B_ε m^ε, so G_u ∈ M_1(6, B_ε, ε). Henriot Cor. 2 with k = 1, g = 2, α = 1/2, δ = 1/12:
+   the range condition X ≥ c₀‖Q*‖^{1/12} holds since X ≥ Y^{1/2} ≥ c₀(u²|D|)^{1/12} for u ≤ Y³ and Y ≥ Y₀. It gives
+   Σ_{X<x≤2X} G_u(|Q*(x)|) ≪ Δ_{D*} X Π_{2<p≤X}(1 − ρ(p)/p) Π_{p≤X}(1 + 6ρ(p)/p) ≪ Δ_{D*} X (log X)^{10},
+   with ρ(p) ≤ 2 and Δ_{D*} ≤ Π_{p | D*}(1+1/p)^C ≪ (log log(u|D|))^C, D* dividing a fixed multiple of disc(Q*) ≍ u²D. Sum over dyadic X. ∎
+   Hence |T_u(Y)| ≪_f Y (log Y)^{10−A} (log log Y)^C + Y(log Y)^{−A}.
+(iv) Conclusion. With A = 11, P_u(Y) ≪_f Y (log Y)^{−c} log log Y uniformly for u ≤ U₀, H ≥ H₀(f, ε). So
+   Σ_{u≤U₀} |w(u)| |P_u(H/u)| ≪ H (log H)^{−c} log log H · Σ_{u≤H} |w(u)|/u ≪ H (log H)^{1−c} log log H,
+   and Theorem typeII gives Σ_{u>U₀} w(u) P_u(H/u) = c_off H + O(H^{1−δ}). Proposition pieces sums the two. ∎
+WHAT IS NEW AGAINST PART III. Part III bounded the moduli above u²Y log H trivially (Lemma far) and left the window (Y, u²Y log H], where the
+harmonic sum over moduli is log(u² log H) ≍ log H and a log-saving in the discrepancy is swamped — hence its statement "a logarithmic saving is
+not enough". An average of the divisor-type function G_u over the values of u²x² − D, uniform in the discriminant (Henriot), removes all moduli
+above Y(log Y)^{11}; on the remaining log-power range the harmonic sum is only O(log log Y), and part III's own unconditional log-saving
+(Koksma + weighted Kowalski–Soundararajan) suffices. No spectral theory, no level-u² input, no averaging over u.
+CONSISTENCY WITH THE NUMERICS: at H = 10⁷ (f = t²+t+1), Σ_{u≤H^{2/3}} w·P = −940 (−6·10⁻⁶ of H log H); the tails beyond 16Y are ≤ 0.02√Y.
+CHECKS REQUESTED FROM THE READERS: (1) Henriot Cor. 2's hypotheses for G_u and Q* (primitive; class M; the range; the D*-factor; the content);
+(2) Prop. KSw and Theorem small at t ∈ [Y, Y(log Y)^{11}] with the stated uniformity in u ≤ H^{2/3+ε}; (3) Koksma's inequality with the
+representative convention and the sign/boundary conventions of B; (4) the use of part I Theorem 6; (5) any proved statement of parts I–III
+this contradicts (part III's "a logarithmic saving is not enough" is an assertion about its window, not a theorem).

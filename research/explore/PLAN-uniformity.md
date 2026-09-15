@@ -209,7 +209,15 @@ Three regimes for that estimate (to be developed in this order):
  C. the middle: the genuinely new part, where neither the spectral method nor averaging over u reaches.
 Paper III is not edited until the lemma and consequence (ii) have had a reading.
 
+## 12. CANDIDATE (16 Sep, evening; PROOFS-uniform §8, under adversarial reading): Hypothesis (E) in Cesàro form, unconditionally
+Off*_f(H) = c_off H + O(H(log H)^{1−c} log log H) for every irreducible quadratic f, hence the leading term −½C(f) log H of Conjecture 1 in Cesàro form
+with error O((log H)^{1−c} log log H). Mechanism: moduli above Y(log Y)^{11} removed by a Nair–Tenenbaum average uniform in the discriminant
+(Henriot 2012, Cor. 2); on the remaining window part III's own Koksma + weighted Kowalski–Soundararajan log-saving suffices because the harmonic
+factor is only log log Y. Nothing about the constant A_f (that is Theorem A's power saving, still conditional). Status: not a claim until two
+independent adversarial readings pass; parts I and III are not edited before that.
+
 ## 4′. Log
+- 16 Sep (late): §12 candidate theorem — Hypothesis (E) in Cesàro form unconditionally (PROOFS §8); readings launched.
 - 16 Sep (evening): narrow-window lemma (§11, PROOFS §7), condition θ + 2B < 1, core restated as one uniform Type I estimate.
 - 16 Sep (later): step 1 done (§10): no u-growth, core sum tiny, c_off validated to 7e-4; literature round.
 - 16 Sep: component test finished (STATE §17); §9 where the non-uniformity lives; the additive-twist formulation of R.
