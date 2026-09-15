@@ -27,3 +27,15 @@ S8 (summation over boxes, moduli blocks and u): O(log^C H) boxes; Σ_{u ≤ H^{1
  (O1), (O2), (O3): sketched in PROOFS §29 (bounded costs); to be checked in the reading (numerics for D = −3, u = 3u′). (O4) GM Theorem 8.1's hypotheses for F_L: f ∈ C^{10}_δ(X, Y) with δ^{−O(1)} = Y^{O(η′)}; X/Y > δ.
  (O5) The (E, M) level structure q₀ = lcm(e, m²) inside GM Lemma 3.1 (non-squarefree levels) and in S6's resultant step (extends: common root mod p^k ⇒ p^k | Res).
  (O6) Writing S1 with explicit exponents (δ, η, η′, δ′).
+
+## O5 (non-squarefree levels q₀ = lcm(e, m²)) — sketch
+GM Lemma 3.1 has no squarefreeness assumption on d (q = ad, gcd(a, h) = 1). In S5 the diagonal at level u²q₀ is c_d(u)·ρ*(q₀) with ρ*(q₀) the number of projective roots of
+Q_z mod q₀ — ≤ 2^{ω(q₀)}·∏ p^{⌊v_p(disc)/2⌋} = 2^{ω(q₀)} for p ∤ ah (disc −4ah a unit at such p). In S6 the resultant step extends verbatim: a common projective root mod p^k
+of Q_{g₁}, Q_{g₂} forces p^k | Res = ⟨g₁,g₂⟩² − 4 det g₁ det g₂ (x³Res, y³Res ∈ (Q₁, Q₂)), and each form has ≤ 2 roots mod p^k by Hensel (p ∤ ah); so
+Σ_{q₀ ≤ EM², q₀ ∈ levels}∏_{p^k∥q₀}|R_{p^k}(g₁) ∩ R_{p^k}(g₂)| ≤ τ₃(Res)·τ(Res) ≪ H^{o(1)} (checked for p^k by the reader of §21).
+## O6 (explicit exponents) — first pass
+Parameters: δ (small moduli cut), η (large moduli Y^{1+η}; μ²-cut M = Y^η), η′ (tent smoothing Δ = Y^{1−η′}), boxes L ≥ Y^{1−3δ}. Losses: small moduli Y^{1−δ}H^ε; small boxes
+Y^{1−2δ}H^ε; m > M tail Y^{1−η}; kink smoothing Δ²Y^{δ−1}H^ε = Y^{1−2η′+δ}H^ε; GM δ^{−O(1)} = Y^{O(η′)}; K₁'s Y^{O(η)}. Gain per window box: GM bound (Y/K)·L^{1/2}u·(u²E²M²/L)^{…}
+— from S7 the box total is ≪ H^{o(1)}Y^{O(η+η′)}(L^{1/2+θ}u^{1−2θ} + L^{1/2}u)·(Y/K)·(K/L)… normalised to the box's trivial size (Y/K)L: saving (u/L^{1/2})^{min(1, 1−2θ)}·Y^{O(η+η′)}
+≤ (u²/Y^{1−3δ})^{(1−2θ)/2}Y^{O(η+η′)}. For u ≤ H^{1/3−c}: u²/Y ≤ H^{−3c+O(c²)}·…, saving H^{−(3c/2)(1−2θ)(1−O(c))+O(η+η′+δ)}. Choose δ = η = η′ = c/100: δ_S(c) ≍ c(1−2θ)
+with θ = 7/64. [To be redone carefully in the write-up, including the E, M block trivial sizes (KNOWLEDGE F48).]

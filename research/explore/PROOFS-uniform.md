@@ -966,3 +966,6 @@ applies with this (a, h); the undilation uses δ = diag(1, 1/u′): G = (m, u′
 O3 (stabiliser weights): |Γ_z| ≤ 6 (≤ 3 in PSL): O(1).
 Remaining before a reading of Theorem S: O4 (GM Theorem 8.1's smoothness hypotheses for the boxes, Y^{O(η′)} loss), O5 (non-squarefree levels m² in Lemma 3.1 and the resultant
 step), O6 (S1 with explicit exponents).
+§29 O1 numerics (gm-kernel-count-amul.ts, data/gm-kernel-count-a3u2-h1.txt; a = 3u′², h = 1, the D = −3-type normalisation with p = 3 | (u, D)): diagonal
+2, 2, 4, 8, 8, 8, 12, 16, 16 for u′ = 1, 2, 4, 5, 7, 8, 10, 11, 13 (≍ u′); (K₂ − c_d)/√T at T = 64: 15.0, 3.7, 3.8, 10.8, 5.9, 3.8, 2.8, 11.4, 8.2 — no growth in u′.
+O1's reduction to bounded costs is supported numerically.
