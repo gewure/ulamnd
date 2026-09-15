@@ -569,6 +569,12 @@ discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suff
 sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
 contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
 
+F48. "With E = X^{1/2} the θ-factor is 1 and the bound X^{1/2}u beats the trivial X" (PROOFS-uniform §14, 15 Sep night).
+A dyadic block of a weighted decomposition (divisor level e ∼ E with weights κ(e) ≍ 1/e) was compared with the trivial size of the WHOLE sum
+(X) instead of its own (X/E); the dominant block e ≈ 1 was never examined, and a "θ-free" range H^{1/3} was announced. Found by a reading.
+Rule: after splitting a sum into weighted blocks, compute each block's own trivial size before comparing bounds, and check the block that
+carries the most weight first. (PROOFS §16)
+
 F47. "…exactly when Off* is o(H log H), which part III proves" appended to paper I's abstract under a display ending in +O_f(1) (15 Sep).
 The added clause credited the o(H log H) theorem to a display whose error term needs Off* = O(H), a different and unproved statement.
 Same species as F7/F15 (a headline drifting from its theorem). Found by a reading of the paper text. Rule: when a clause credits a

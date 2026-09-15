@@ -462,4 +462,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   u = H^a, a ∈ (1/3, 1/2), outside bands at a_j = (j+1)/(3j+1) (1/2, 3/7, 2/5, … → 1/3) where one smooth atom sits at the Pólya–Vinogradov size;
   in the bands only balanced two-prime moduli (and small·prime for j ≥ 4) stay open. kfraction-test.ts: square-root cancellation in truth.
   All of §12–§15 is unread; a reading of §12–§14 is running.
+- READING of §12–§14 (PROOFS §16): §12 sound (heuristic); §14's exponent count had a FATAL bookkeeping error (divisor-level blocks compared with
+  the trivial size of the whole sum). Corrected small end via GM with a = u²: u < H^{(1−2θ)/(3−4θ)} ≈ H^{0.305} with provable inputs; H^{1/3} only
+  under θ = 0 or hypothesis (a′) (off-diagonal summed over levels not multiplied by the orbit count). "For every θ" withdrawn. §15 unread.
 

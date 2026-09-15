@@ -280,4 +280,6 @@ THE MIDDLE (H^{0.26}, H^{1/2}], candidate methods, ranked:
  Next rigorous steps: (1) GM Thm 1.4 ⇒ power saving for all pieces with u ≤ H^{o(1)} (D < 0); (2) a-tracking in GM §4–5; (3) balanced products.
  UPDATE (PROOFS §14): the small end via GM is now counted at u < H^{1/3−ε} unconditionally (θ-free with divisor level E = X^{1/2}); numerics support
  the key kernel bound. Rigorous tasks (a) orbit count, (b) neighbour count, (c) smoothing of our weights — this is the next proof to write.
+ CORRECTION (PROOFS §16, after a reading): the small end via GM is u < H^{0.305} with provable inputs (H^{1/3} under Selberg or hypothesis (a′));
+ the "θ-free H^{1/3}" of the previous update was a bookkeeping error. Next: (a′) via a mass-formula count, and a reading of §15.
 

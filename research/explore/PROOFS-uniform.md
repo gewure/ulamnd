@@ -643,3 +643,35 @@ Bourgain–Garaev Izvestiya 2014 Theorem 9 (p^{1/8}(N₁N₂)^{3/4}(N₁³/p + 1
 statement from the agent, unchecked); d = p₁p₂ with p₁ ≍ p₂ ≍ d^{1/2} (and d = small·prime, j ≥ 4) are open. The bands accumulate at a = 1/3.
 §15: Bourgain–Garaev arXiv 1211.4184 Theorem 9 checked from the paper (prime p, intervals in arbitrary position, |α_i| ≤ 1):
 max_{(a,p)=1} |ΣΣ α₁α₂ e_p(a x₁*x₂*)| ≪ p^{1/8}N₁^{3/4}N₂^{3/4}(N₁³/p + 1)^{1/16}(N₂³/p + 1)^{1/16}. The prime-modulus claim above (bands a_j, j ≤ 3) stands.
+
+## 16. READING of §12–§14 (15 Sep, night; fresh model instance, independent brute-force scripts) — CORRECTIONS ADOPTED
+Verdicts: §12 sound as a heuristic map (all exponents re-derived; the negative conclusion stands; minor gaps below). §13: counts wrong in
+places. §14: numerics correct (reproduced by an independent brute force, u = 2–7, and a fast version for prime u ≤ 43 to T = 256), derivation
+WRONG in the exponent count.
+FATAL for the claim as derived (§14 EXPONENT COUNT and addendum (4)): each divisor-level block e ∼ E was compared with the trivial size X of the
+whole sum, but with κ(e) ≍ e^{−1+o(1)} its trivial size is X/E; the block e ≈ 1 (κ(1) = 1) dominates and no choice of E removes Z₀^θ there. The
+"level trick" does nothing here; "independent of θ" and "for every θ < 1" are FALSE (Theorem 8.1 is useless for θ ≥ 1/2 anyway).
+CORRECTED COUNT (per piece, X = H/u, h ≍ 1, skewness Xu; re-derived here and agreeing with the reader):
+ (R) with the proved inputs — diagonal ≍ uE, off-diagonal ≪ H^{o(1)}·(diagonal)·(1 + hZ₂) (§14 addendum (3)): Z₁ = u², Z₂ = 1, Z₀ = X/u gives
+     X^{1/2+θ}u^{1−θ}, nontrivial iff u < X^{(1−2θ)/(2−2θ)}, i.e. u < H^{(1−2θ)/(3−4θ)}: H^{1/3} at θ = 0, H^{25/82} ≈ H^{0.305} at θ = 7/64.
+ (Hh) under hypothesis (a′) — the off-diagonal summed over the levels e ∼ E is ≪ H^{o(1)}Z₂, NOT multiplied by the number of orbits (supported by
+     the numerics at e = 1 only): Z₁ = u², Z₂ = u, Z₀ = X/u² gives X^{1/2+θ}u^{1−2θ}, nontrivial iff u < X^{1/2} for every θ < 1/2, i.e. u < H^{1/3}.
+ So: unconditionally (with the inputs we can prove) u < H^{0.305}; H^{1/3} needs θ = 0 or (a′). (a′) is the weakest link: an equidistribution-type
+ count of Γ₀(u²e)-orbits of pairs of family points with ⟨g₁, g₂⟩ = aN, averaged over e; route to try: representations of the binary Gram matrix
+ (2ah, aN; aN, 2ah) by the ternary lattice of level-q symmetric matrices (mass formula / Siegel), averaged over e.
+§13 ERRORS: Z₀Z₁Z₂ ≥ Xa^{1/2}h^{−1/2} + 1 (= Xu), not X(ah)^{−1/2}; the averaged K₂ "U·U + U²" is wrong (off-diagonal ≈ u²Z₂ per u, different
+determinants, total ≈ U³Z₂); "H^{1/3} averaged" in §13 and its PICTURE is WITHDRAWN (replaced by (R)/(Hh) above).
+OTHER FINDINGS (adopted):
+ • Normalisation: for t² + 1 (D = −4) w lives on even u; the right GM parameters are a = (u/2)², h = 1 (odd moduli) — gm-kernel-count.ts's "u" is u/2.
+   For odd special primes p | (u, D) the family forms have content p and GM's Prop 4.1 step gcd(a₂,b₂,c₂,q) = 1 fails (cost O_D(1), but GM cannot
+   be cited as stated; visible in the h = 3, u = 3 row). GM's sign "b² − ac = ah" is a slip; ac − b² = ah is right. The conversion of G° (Cesàro
+   weights, frequencies, Ḡ) to GM's smooth counting sums is unwritten.
+ • §14 (3): the quadratic part has discriminant exactly −4ah; the weighted neighbour count is ≪ H^{o(1)}·h·Z^{1/2} (Σ_{N≤4hZ}(N/4h)^{−1/2}); the
+   conic is nondegenerate iff N ≠ 2h; the per-N count uses no congruence — the only gain is N ∈ aZ; so (3) gives K₂ ≪ H^{o(1)}·diag·(1 + hZ₂), no more.
+ • §14 (4)(a): orbit count per level = orb(u²)·∏_{p|e}(1 + χ(p)) (0 if p | (u,e)), orb(p²) = (p − χ₋₄(p))/2 for all p ≤ 53: ≍ uρ(e), sum over e ≤ E ≍ uE.
+ • gm-kernel-count.ts undercounts pairs at exactly u = T_max (quantised distances, float window): ≤ 3%; e.g. u = 1, 2, 4, 7 at T = 64 brute force
+   86.62, 29.50, 31.70, 57.33 vs 86.12, 29.00, 30.83, 56.58. No conclusion changes; fix: integer test N ≤ 2ah(1+2T).
+ • §12.2–12.3: freezing β on intervals while u = u₁u₂ needs a smooth partition / Mellin separation (H^ε); partially degenerate Type II pairs give
+   zero-frequency terms (U₁/d)φ(g), summing to diagonal size — to be written out. §12.4: the n₃ truncation H^{δ₃} must shrink as a → 1/3.
+   §12.5: q-vdC omits a term N·q₂^{−1/4} and needs N ≥ q₁ (harmless). §12.0: H^{1/2+2ε} → H^{1/2+ε+ε′}.
+ • §15 (Bourgain–Garaev) was NOT part of this reading; it builds on §12 (sound) and must be read next.
