@@ -34,6 +34,38 @@ verified in PROOFS §23): |Σ_{x₁≤N₁} Σ_{x₂≤N₂} α₁(x₁)α₂(x�
 Corollary B′. For m^{1/3} ≤ N₁, N₂ ≤ m: |Σ α₁α₂ e_m(a x₁*x₂*)| ≪_ε m^ε(N₁N₂)^{15/16}.
  Proof: k₁ = k₂ = 2 and Lemma E: N_i^{7/2}m^{−1/2} ≥ N_i² for N_i ≥ m^{1/3}, so |S|⁸ ≪ m^{1+4ε}(N₁N₂)⁴(N₁N₂)^{7/2}m^{−1} = m^{4ε}(N₁N₂)^{15/2}. □
 
+## Lemma S (separation of u from the Fourier coefficients) — PROVED (sketch-level details marked)
+Setting of R1: block U, Y = H/U, admissible d ∈ [Y^{1−δ}, YH^η], 1 ≤ k < d/2, β_k(d, N) := λ(d)ξ_k(d, N)/(2d²), ξ_k(d,N) = (1 − cos(2πkN/d))/sin²(πk/d) (real N).
+(i) For u ∈ (U, 2U], replacing G°_d(ū, H/u) by its Fourier form at N(u) = ⌊H/u⌋ costs O(ω(d)) (paper III Step 4b(i)), and replacing ξ_k(d, N(u)) by ξ_k(d, H/u) costs
+    ≤ |∂_Nξ_k|/(2d²) ≤ π/(4kd) per term; summed over u ∼ U, d ≤ YH^η, k ≤ K₁: ≪ U(log H)^C.
+(ii) Let φ be a fixed smooth bump with Σ_j φ(u/2^j) = 1 on (0, ∞) and F_{k,d}(v) := ξ_k(d, H/v)φ(v/U)/(2d²). Then F_{k,d}(v) = (2π)^{−1}∫ F̃(it)v^{−it}dt with
+    ∫|F̃(it)|dt ≪ b_k(d)·(1 + U·sup|F′|/sup|F|)·log H ≪ b_k(d)·H^{3η}, since U·|∂_v ξ_k(d,H/v)|/(2d²) ≤ Y·π/(4kd) and Y/(kd·b_k(d)) ≤ kY^δ + H^η (split d ≤ kY / d > kY),
+    k ≤ K₁ = H^{2η}. [Mellin inversion for a C² compactly supported function; the tail in t is controlled by two integrations by parts — standard.]
+Consequence: 𝓔′(U) = ∫ Σ_k Σ_d λ(d)F̃_{k,d}(it) Σ_u w(u)u^{−it}1_{(u,d)=1}ρ°_k(d; ū) dt + O(U(log H)^C), and u^{−it} = n₁^{−it}n₂^{−it}n₃^{−it} factors over any
+factorisation u = n₁n₂n₃. All later bounds are uniform in t, so the separation costs H^{3η}·log H.
+
+## Lemma R4 (the residual) — PROVED given Lemmas E, B′, S (to be read)
+Let a ∈ [0.47, 0.53] (U = H^a), δ, η, δ₃ ≤ 10^{−3}, H ≥ H₀. Let 𝓡 be the part of the u-sum in Lemma S's consequence with u = n₁n₂n₃, weights 1(n₁)χ_D(n₂)γ(n₃),
+n₃ ≤ H^{δ₃}, n₁ ∈ (N₁, 2N₁], n₂ ∈ (N₂, 2N₂] with N₁, N₂ ∈ [UY^{−1/2}H^{−3δ}, Y^{1/2}H^{3δ}] (dyadic). Then, uniformly in t,
+  Σ_{k≤K₁} Σ_{d} |β_k(d)|·|Σ_{n₁,n₂,n₃} γ(n₃)χ_D(n₂)(n₁n₂n₃)^{−it}1_{(n₁n₂n₃,d)=1} [ρ_k(d; (n₁n₂n₃)*) − ω(d)c_d(k)/φ(d)]| ≪ H^{1−1/40}.
+Proof. The mean term: Σ_u |w|·Σ_d |β_k(d)|ω(d)(k,d)/φ(d) ≪ U(log H)^C. Main term: expand ρ_k(d; x*) = Σ_{r∈R_d} e_d(k r x*); with g = (k, d), m = d/g ≥ Y^{1−δ}H^{−2η},
+e_d(k r x*) = e_m(a x₁* x₂*) where x₁ = n₁, x₂ = n₂, inverses mod m, and a := (k/g)·r·n₃* (mod m) is a unit ((k/g, m) = 1, r and n₃ units; the condition
+(n_i, d) = 1 is put into the coefficients). For fixed (k, d, r, n₃, t) the double sum is Σ_{x₁≤2N₁}Σ_{x₂≤2N₂} α₁(x₁)α₂(x₂)e_m(a x₁*x₂*) with |α_i| ≤ 1
+(α₁ = x₁^{−it}1_{x₁>N₁}1_{(x₁,d)=1}, α₂ = χ_D(x₂)x₂^{−it}1_{x₂>N₂}1_{(x₂,d)=1}). Exponents: log N_i/log m ≥ (a − (1−a)/2 − 3δ)/((1−a)(1+η)) ≥ 0.38 > 1/3 and
+2N_i ≤ 2Y^{1/2}H^{3δ} ≤ m for a ∈ [0.47, 0.53] and small parameters. Corollary B′: ≪ m^ε(N₁N₂)^{15/16}. Since N₁N₂ ≍ U/n₃ ≥ H^{0.47−δ₃−1}… more precisely
+N₁N₂ ≫ U H^{−δ₃}, the double sum is ≪ H^ε(N₁N₂)·(UH^{−δ₃})^{−1/16}. Summing: Σ_{n₃}|γ(n₃)|(U/n₃) ≪ U; Σ_r ≤ ω(d) ≪ H^ε; Σ_d |β_k(d)|ω(d) ≪ H^ε Y/k² (d ≤ kY) + Y
+(d > kY) ≪ H^ε Y; Σ_{k≤K₁} ≪ H^{2η}; dyadic boxes ≪ log² H. Total ≪ H^{O(ε+η+δ₃)}·UY·U^{−1/16} ≤ H^{1−0.47/16+O(ε+η+δ₃)} ≤ H^{1−1/40}. □
+[Check in the reading: the β_k sum with ω(d); that Corollary B′'s implied constant is uniform in a; the dyadic cut-offs 1_{x_i > N_i} are allowed (α arbitrary).]
+
+## Lemma R2 (Type I in u) — PROVED given Lemma S (to be read)
+Setting as R4, with u = n·m′, n ∈ (N, 2N] carrying the smooth weight 1 (or χ_D(n), split into classes mod |D|), |c(m′)| ≤ τ₃(m′) arbitrary, N ≥ Y^{1/2}H^{3δ}. Then uniformly
+in t the corresponding part of the u-sum is ≪ H^{1−δ+O(η+ε)}.
+Proof. For fixed (k, d, r, m′): Σ_n φ(n/N)n^{−it}1_{(n,d)=1}e_d(k r (nm′)*) with φ smooth; with g = (k,d), m = d/g, it is an incomplete Kloosterman sum modulo m with
+unit numerator and smooth weight V(v) = φ(v)v^{−it}·N^{−it}, whose derivatives are ≪ (1+|t|)^J; Lemma kloost of paper III (constants ≪ (1+|t|)²) gives
+≪ H^{ε}(1+|t|)²(1 + N/m)m^{1/2} after removing (n, g) by Möbius. The mean term is again trivial (U(log H)^C). Summing over m′ ≤ 4U/N (Σ τ₃ ≪ H^ε U/N), roots,
+d with |β_k(d)| and k: ≪ H^{ε+O(η)}·(U/N)·Σ_d |β_k(d)|(d^{1/2} + N d^{−1/2}) ≪ H^{ε+O(η)}((U/N)Y^{3/2} + UY^{1/2}) ≤ H^{1−3δ+O(ε+η)} + H^{1−a/2… }. □
+(|t| ≤ H^{3η} up to the Mellin tail.)
+
 ## Remaining lemmas for (M) (targets; heuristic derivations cited)
  R1 (reduction). For a block U ∈ [H^{0.47}, H^{0.53}], Y = H/U: Σ_{U<u≤2U} w(u)𝒫_u(H/u) = Σ w(u)Σ_{d′}(λ/d′)Ḡ + 𝓔′(U) + O(H^{1−δ}), with Σ(λ/d′)|Ḡ| ≪ (log Y)^C per piece
      (paper III after (MH)) and 𝓔′ the G°-part restricted to d′ ∈ [Y^{1−δ}, YH^η], k ≤ H^{2η}, with the Fourier coefficients separated from u by a smooth partition /
