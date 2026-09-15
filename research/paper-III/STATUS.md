@@ -50,4 +50,5 @@ in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
   (stale window paragraph, range of the general-Z statement, ω/φ factors in Step 5's tails, exponent 2ε/5, ε″ convention, Σ|w|, abstract ε,
   Lemma partial trivial range, date). A verification pass confirmed the fixes and the new remark that Step 5's threshold is not a limit of
   the method (Ḡ contributes ≪ (log Y)^C per piece below H^{1/2+ε}); two cosmetic points applied. PAPER III IS NOW FROZEN (corrections only).
-
+- 15 Sep (late night), completeness addition after the freeze: related-work sentence citing Grimmelt–Merikoski arXiv 2505.00489 and 2505.00493
+  (uniform in the constant term h, leading coefficient a ≤ X^{o(1)}; piece u is their Type I sum with a = u², h = |D| for D < 0). No claim changed.
