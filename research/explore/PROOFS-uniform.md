@@ -896,3 +896,23 @@ CONSOLIDATED HEURISTIC MAP (all D for the middle; D < 0 for the small end):
   u ≥ H^{1/2}: §12 + BG + J₄ + §24, and §9 (proved) for u > H^{1/2+ε}.   OPEN: the band |log u/log H − 1/3| < c (both methods lose there), and the small end for D > 0.
   The band contributes ≍ c·H·log H trivially (≍ c·H(log H)^{1−c′} with Theorem E's saving), so even the full map would give neither A_f nor Off* = c_off H + o(H)
   without the band. The band needs J₆ at N ≈ m^{1/4} below N⁴ (open even for primes) or a GM-type argument beyond the diagonal ≍ u.
+
+## 25. READING of §22 (15 Sep, night; fresh model instance; scripts reader-g12/) — CORRECTIONS ADOPTED
+(G1): CORRECT — it is Grimmelt–Merikoski 2505.00489 §1.2 Example (b = 0: ≪ 1 + (Rq)^{−1}; c = 0: ≪ 1 + R; bc ≠ 0: ≪ X^{o(1)}(1 + X_i/q)): cite, don't re-derive.
+ Fixes: support |b| ≤ R(4Z² + 2)^{1/2} (same for c); "no such j if Z² < q" false (terms exist while q ≤ 2Z² + 2, bound survives since q^{−1/2} ≤ 2Z/q there).
+ Numerics overstated: the ratio to 1 + R + 1/(qR) + Z/q grows like log Z (13 → 40 for Z = 10 … 2560; extended runs q ≤ 40000, R ∈ [0.1, 10]: ≤ 51); the Z = 10,
+ R = 1 values for q ≥ 45 are pure c = 0 terms. State "ratio ≪ log(ZR)".
+ CONSEQUENCE checked: R is the x-range ℓ/k ≍ Y/K ∈ [Y^{−η}, Y^{η}] (from GM §5), so K₁ ≪ H^{o(1)}Y^{η}(E + Z₁/u² + u^{−2}) — provided Lemma tail's cut on k comes before
+ the λμ² decomposition.
+ §21's fallback "without (G1): H^{0.281}" is WITHDRAWN (GM (5.2) is for a ≺≺ 1; with a = u² the crude term is u²E(1 + 𝒳)). The small end must use GM Theorem 8.1
+ + Lemma 3.1 directly (neither restricts a) with our own K₁/K₂ — never GM (5.2), (5.3) or Theorem 1.4.
+GAP (new, §18.2 vs §16 R6): the blocks must be (E, M) with level q = u²·lcm(e, m²) and coefficients κ(e)μ(m); μ(m) has no 1/m decay while the block's trivial size is
+ Y/M; the count gives Y^{1/2}uM(Y/(u²M³))^θ against Y/M (loss M²). FIX: M = Y^{η}, tail m > M trivial (≪ Y^{1−η}); needs the K₁ lemma at those levels (fine), §21 R1
+ for non-squarefree levels (extends), diagonal ≍ u·ρ(lcm). η must be below the saving.
+(G2), odd p ∤ h: CORRECT — torus, coset bijection, adjugate argument, zero count ≤ 2p^{⌊v/2⌋} for all k and non-primitive forms (exhaustive mod 9, 25, 27, 49, 81, 121, 125;
+ bound attained), diagonal exactly p^{k−1}(p − χ_{−h}(p)); ≈ 23,000 integer pairs, coset brute force = adjugate formula. The final sum's write-up was sloppy; correct
+ route: Σ_N N^{−1/2}g(N) ≤ Σ_{d|u^∞, d≤M} d Σ_{d²|N²−4h²} N^{−1/2} ≪ Σ_{d≤M, d|u^∞} 2^{ω(d)}(d^{1/2} + M^{1/2}/d), with Rankin at σ = (log log H)^{−1/2}:
+ #{d ≤ M : d | u^∞} ≤ H^{o(1)} honestly (a fixed-σ count would give H^1 when ω(u) ≍ log H/log log H); numerics sum/√M ≤ 10.5. Open: p = 2, p | (u, h).
+No hidden obstruction: Cauchy over levels with |κ(e)| ≈ 1/E is right; θ ≤ 7/64 uniform on Γ₀(u²e); §17 bounds ⟨α|Kk|α⟩ ≥ ⟨α|Δk|α⟩ (the subtracted term is ≥ 0);
+ moduli k | u²ℓ² + h are coprime to u. The main-term matching (§18.5) is still open.
+SMALL-END STATUS (D < 0): u < H^{1/3−ε} for every θ < 1/2, modulo §18's conversion (incl. the (E, M) blocks with M = Y^η and the main-term matching), p = 2, p | (u, D).

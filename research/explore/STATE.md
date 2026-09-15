@@ -477,4 +477,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - READING of §20 (PROOFS §23): J₄ energy bound for all moduli SOUND with a fix for non-unit λ at non-squarefree m (checked); saving map bookkeeping sound
   (1/32 at a = 1/2 exact); gaps: parameters must be ≪ saving(a) (so "every c" only with c-dependent parameters), and the Type I/II step for u just above
   H^{1/2} is unwritten (likely closes).
+- READING of §22 (PROOFS §25): G1 correct (= GM kernel paper §1.2 Example), G2 correct for odd p ∤ h; new gap (μ²-levels in the block count) with a fix (M = Y^η);
+  H^{0.281} fallback withdrawn. Small end u < H^{1/3} (D < 0) modulo conversion/main-term matching, p = 2, p | (u, D).
+- PAPER-V-draft.md: complete draft of Theorem M (pieces with H^{0.47} < u ≤ H^{0.53}) — Lemmas E, B′, S, R1–R5; to be read.
 
