@@ -713,3 +713,7 @@ CONCLUSION (sketch): off(u, 1; Z₂) ≪ H^{o(1)} h^{O(1)} (1 + Z₂) UNIFORMLY 
 ≍ ∏_{p|u}(p − χ(p)) ≍ u. So the GM small end reaches u < H^{1/3−ε} for D < 0 and every θ < 1/2, modulo: (c) the conversion of G° to GM's smooth
 sums, the special primes p | (u, D) and the 2-adic normalisation (§16), stabiliser weights, and GM Theorem 8.1's hypotheses. The prediction
 "off(u,1) independent of u, with a factor depending on ω(u) and on u mod small primes" matches gm-kernel-count (odd/even u pattern).
+§16/§17 numerics at T = 64 (data/gm-kernel-levels-T64.txt, h = 1): E = 1, 10, 30, 60 — off = 53.6, 87.2, 121.3, 128.7 (u = 3); 23.7, 23.7, 48.7, 50.9 (u = 5);
+53.3, 92.2, 115.8, 128.8 (u = 7); 55.5, 103.4, 136.4, 143.7 (u = 11), against diag 2→30, 2→26, 4→60, 6→90. Over E = 1…60 the off-diagonal grows by ≤ 2.5
+(divisor-like) while the diagonal grows ×15; at fixed E the off-diagonal does not grow with u (u = 3, 7, 11 agree within 12%). Consistent with §16 FOLLOW-UP
+and §17. A reading of both is running.
