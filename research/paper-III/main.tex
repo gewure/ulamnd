@@ -31,7 +31,7 @@
 \maketitle
 
 \begin{abstract}
-For an irreducible quadratic $f$ with pair singular series $S_f(h)$ and Bateman--Horn constant $C(f)$,
+For a monic irreducible quadratic $f$ without fixed prime divisor, with pair singular series $S_f(h)$ and Bateman--Horn constant $C(f)$,
 parts~I and~II reduced the conjecture $\sum_{h\le H}(1-h/H)(S_f(h)-C(f)^2)=-\tfrac12C(f)\log H+A_f+o(1)$ to a statement
 about the pairs of distinct roots of $f$ modulo squarefree $d$ (``Hypothesis~(E)''), and showed that in
 Ces\`aro form any unbounded saving over the trivial bound suffices. This paper takes Hypothesis~(E) apart. We
@@ -47,10 +47,10 @@ sharp cut-offs; and the moduli below the length in every piece, by Koksma's ineq
 Chinese-remainder equidistribution of Kowalski and Soundararajan, whose local input is the same for every
 dilation. What remains in each piece with $1<u\le H^{2/3}$ are
 the moduli between the length and $u^2$ times the length, where an interval covers less than a period. We show that
-those above $Y(\log Y)^{13}$ are negligible, by a bound for divisor functions on the values of $u^2x^2-D$ uniform in the
+those more than $(\log H)^{13}$ times the length are negligible, by a bound for divisor functions on the values of $u^2x^2-D$ uniform in the
 discriminant, and that on the rest the Chinese-remainder saving is enough. This proves Hypothesis~(E) in Ces\`aro form,
 and with it Conjecture~1 of part~I in Ces\`aro form with its leading term $-\tfrac12C(f)\log H$, unconditionally. For the
-constant $A_f$ a power saving is needed: we give the exact Fourier form of the window, show that a Weyl-sum hypothesis
+constant $A_f$ more than a logarithmic saving is needed, and a power saving suffices: we give the exact Fourier form of the window, show that a Weyl-sum hypothesis
 (Hypothesis~W, a bound $(uk)^Bt^{\theta}$ for the Weyl sums of the dilated roots at frequency $k$ over moduli up to $t$)
 gives it when $\theta+6B<1$, so that any power saving in the modulus suffices but the loss in the frequency and the
 dilation must be almost nil, and prove the Ces\`aro form of Conjecture~1, constant included, under that hypothesis. Over $\F_q[u]$ we prove that the off-diagonal has a main term:
@@ -70,8 +70,8 @@ of the modulus; that the copies are of equal importance; that the first copy is 
 and Iwaniec; that in every copy the moduli shorter than the length are handled by a general mixing property
 of the Chinese remainder theorem; that the copies with a large agreeing part average out to an explicit main
 term, which we compute and confirm numerically; and that what is left is, in each copy, the moduli just above
-the length, where an interval covers less than one period, and where a genuinely stronger estimate is needed.
-We state that estimate precisely and say what strength it must have. Over polynomial rings the same object has an
+the length, where an interval covers less than one period, and that there, too, the moduli more than a power of $\log$ above the length are negligible and the Chinese remainder
+theorem suffices for the leading term; for the constant term a stronger estimate is needed, which we state precisely. Over polynomial rings the same object has an
 explicit main term too, which we compute.
 
 \paragraph{Set-up.} Let $f=t^2+bt+c\in\Z[t]$ be irreducible, without fixed prime divisor, with discriminant
@@ -96,7 +96,7 @@ $w(u)=0$ for odd $u$, if $\omega(2)=1$. We write $\lambda\omega$ for $g$ when th
 below is either a sum of $g$ or, in the second case, the same sum over $u'=u/2$; since the moduli $d'$ are odd, the
 two cases differ only by the constant $c_f$ and the normalisation of the mean value, and we treat the first case in the
 proofs. One sign deserves notice: $\lambda(3)=-3$ and $P_3=-3$ when
-$\omega(3)=2$ (as for $t^2+2$ or $2t^2+1$), so the weights are not always positive. All upper bounds below are
+$\omega(3)=2$ (as for $t^2+2$; also for $2t^2+1$, which is not monic and appears here only in the numerics), so the weights are not always positive. All upper bounds below are
 bounds for absolute values and use $|\lambda|$, $|w|$; Proposition~\ref{prop:KSw} is applied to $|w|$; and the mean
 value $m$ of $g$ in~\eqref{eq:md} is nonzero but may be negative. Nothing else depends on the sign. For $d$ coprime to $2D$ let $R_d=\{r\bmod d:\ r^2\equiv D\}$ (so $|R_d|=\omega(d)$),
 the roots of $f$ being $s=(r-b)/2$. Write $\rep xd\in[1,d]$ for the representative of $x\bmod d$, and, for a length
@@ -113,7 +113,7 @@ Part~I, Theorem~6, proved that with $C=C(f)$
 \end{equation}
 the series converging absolutely, and that $\Off^\ast_f(H)\ll H\log H$ trivially. \emph{Hypothesis~(E) in
 Ces\`aro form} is $\Off^\ast_f(H)=o(H\log H)$; it implies Conjecture~1 of part~I in Ces\`aro form with the leading
-term $-\tfrac12C(f)\log H$ (part~I, Theorem~6(ii) and Remark~7, since the Galois group $S_2$ is $2$-transitive).
+term $-\tfrac12C(f)\log H$ (part~I, Theorem~6(ii) and Remark~7, since the Galois group $S_2$ is $2$-transitive). (This is weaker than Hypothesis~(E) of part~I, $\Off^\ast_f(H)=O(H)$, which gives the constant term and is not proved here.)
 
 \paragraph{Results.}
 \begin{itemize}
@@ -144,7 +144,7 @@ where the
 window $\mathcal W_u$ collects the moduli $d'\in(Y,u^2Y\log H]$ of piece $u$, on which the interval $[1,Y]$ is shorter
 than the period. The moduli above $Y(\log Y)^{13}$ contribute $o(Y)$ (Lemma~\ref{lem:tail}), and on the rest Koksma's
 inequality and Proposition~\ref{prop:KSw} give a logarithmic saving (Proposition~\ref{prop:narrow}), which proves
-Hypothesis~(E) in Ces\`aro form unconditionally (Theorem~\ref{thm:E}). For the constant term a power saving is needed. We give its
+Hypothesis~(E) in Ces\`aro form unconditionally (Theorem~\ref{thm:E}). For the constant term more than a logarithmic saving is needed. We give its
 exact finite Fourier expansion (Lemma~\ref{lem:finfourier}), which has $u^2\log H$ frequencies of full weight per
 modulus, and prove (Theorem~\ref{thm:A}) that Hypothesis~W$(\theta,B)$, a Weyl-sum bound $\ll(uk)^Bt^{\theta}$ for the
 dilated roots, gives $\Off^\ast_f(H)=c_{\mathrm{off}}H+O(H^{1-\delta})$, hence the Ces\`aro form of Conjecture~1 with
@@ -353,7 +353,7 @@ $\rho(p)\ge1$, and suppose that for some $\beta,\gamma>0$ and $t_0\ge3$
 \sum_{\substack{p\le t\\ \rho(p)\ge2}}\frac{w(p)}{p}\ \ge\ \beta\log\log t\quad(t\ge t_0),\qquad\qquad
 \sum_{p\le t}\frac{w(p)}{p}\ \le\ \log\log t+\gamma\quad(t\ge3).
 \end{equation}
-Then there are $c=c(\beta)>0$ and $x_1=x_1(\beta,\gamma,C_0,t_0)$ such that for $x\ge x_1$
+Then there are $c=c(\beta)>0$ and $x_1'=x_1'(\beta,\gamma,C_0)$ such that for $x\ge x_1:=\max(t_0,x_1')$
 \[
 \sum_{\substack{q\le x\\ q\in Q}}w(q)\,\mathrm{disc}(\Delta_q)\ \le\ x\,(\log x)^{-c}.
 \]
@@ -433,7 +433,8 @@ Dickman-type decay of Lemma~\ref{lem:rankin}, with $u\asymp\log\log x$, beats ev
 analogue of the counting argument of \cite[Lemma~3.2]{KowalskiSoundararajan2021} is needed.
 
 \emph{Conclusion.} Adding the two cases, $\sum_{q\le x,\ q\in Q}w(q)\mathrm{disc}(\Delta_q)\ll_{\gamma,C_0}x\,P^{2C_0+1}e^{-P}$, and
-since $P\ge\beta(1-2^{-1/2})\log\log x$, this is $\le x(\log x)^{-c}$ with $c=\beta(1-2^{-1/2})/4$ for $x\ge x_1$.
+since $P\ge\beta(1-2^{-1/2})\log\log x$, this is $\le x(\log x)^{-c}$ with $c=\beta(1-2^{-1/2})/4$ for $x\ge x_1$. Every largeness condition on $x$ in this proof, except the use of the first
+condition in~\eqref{eq:dens} at $t=x$, depends only on $\beta,\gamma,C_0$; so $x_1=\max(t_0,x_1')$ with $x_1'=x_1'(\beta,\gamma,C_0)$ indeed.
 \end{proof}
 
 \emph{In words.} Kowalski and Soundararajan's theorem says that a set defined prime by prime through the
@@ -450,15 +451,15 @@ $\beta=1-o(1)$ and some $\gamma=\gamma(f)$ by the prime number theorem for the c
 ($\sum_{p\le t\ \mathrm{split}}1/p=\tfrac12\log\log t+O_D(1)$). Removing in addition the primes dividing a squarefree $u$
 (where $R^{(u)}_p=\emptyset$) lowers the first sum in~\eqref{eq:dens} by
 $\sum_{p\mid u\ \mathrm{split}}2/(p-4)\le\log\log\log u+O_f(1)$, the extreme case being $u$ the product of the first split
-primes, all below $2\log u$, and can only lower the second. So~\eqref{eq:dens} holds with $\beta=\tfrac12$ and the same
+primes, all below $(2+o(1))\log u$, and can only lower the second. So~\eqref{eq:dens} holds with $\beta=\tfrac12$ and the same
 $\gamma$ as soon as $\tfrac12\log\log t\ge\log\log\log u+O_f(1)$, in particular uniformly for $t\ge\exp((\log\log u)^4)$,
 $u\ge u_1(f)$. (The first version charged the removed primes $2\log\log\log u$ and argued from
-$\log\log t\ge4\log\log\log u$, which does not absorb the $O(1)$; corrected 16 September 2026.) The resulting exponent is $c=(1-2^{-1/2})/8\approx0.037$; no attempt has been made to
+$\log\log t\ge4\log\log\log u$, which does not absorb the $O(1)$; corrected 15 September 2026.) The resulting exponent is $c=(1-2^{-1/2})/8\approx0.037$; no attempt has been made to
 optimise it, and none is needed for the Ces\`aro form.
 \end{remark}
 
 \begin{theorem}[small moduli, unconditional]\label{thm:small}
-For every irreducible quadratic $f$ there is $c=c(f)>0$ such that, uniformly for squarefree $u$ with $\omega(u)\ge1$
+For every $f$ as in \S\ref{sec:intro} there is $c=c(f)>0$ such that, uniformly for squarefree $u$ with $\omega(u)\ge1$
 and $Y\ge\max(\exp((\log\log u)^4),Y_1(f))$,
 \[
 \mathcal P^{\le}_u(Y)=\sum_{d'\le Y}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\rep x{d'})\ll_fY(\log Y)^{-c}.
@@ -903,7 +904,7 @@ $L=1$, and its trivial size is $O(Y)$ (Proposition~\ref{prop:pieces}, whose boun
 moduli above $Y$). Summarising:
 
 \begin{theorem}[A$'$: unconditional reduction]\label{thm:Aprime}
-For every irreducible quadratic $f$ and every $\varepsilon>0$ there is $c=c(f)>0$ such that
+For every $f$ as in \S\ref{sec:intro} and every $\varepsilon>0$ there is $c=c(f)>0$ such that
 \[
 \Off^\ast_f(H)=c_{\mathrm{off}}(f)\,H+\sum_{u\le H^{2/3+\varepsilon}}w(u)\,\mathcal W_u\Bigl(\frac Hu;\log H\Bigr)+O_{f,\varepsilon}\bigl(H(\log H)^{1-c}\bigr).
 \]
@@ -917,7 +918,7 @@ with Theorem~\ref{thm:small} (applicable since $Y\ge\exp((\log\log u)^4)$) and L
 $\sum_{u\le H^{2/3+\varepsilon}}w(u)\bigl[(H/u)(\log H)^{-c}+H/(u^3\log H)\bigr]\ll H(\log H)^{1-c}$.
 \end{proof}
 
-The window is where the two mechanisms of this paper both fail, except at the two ends of the range of $u$.
+Applied to the window as a whole, neither mechanism of this paper is enough, except at the two ends of the range of $u$.
 Koksma's inequality with the function $(Y-\theta d')^+$, of variation $Y$, gives
 $|\mathcal W_u(Y;L)|\ll Y\sum_{Y<d'\le u^2YL}|\lambda|\omega(d')\,\mathrm{disc}(\Delta^{(u)}_{d'})/d'\ll Y\,(1+\log(u^2L))\,(\log Y)^{-c}$
 by Proposition~\ref{prop:KSw} and partial summation, which is a saving only while $\log u\ll(\log Y)^{c}$: summed
@@ -956,7 +957,7 @@ $\sum_{d\le t}|\lambda|\rho(d)\ll_ft$ uniformly in $u$ by Shiu's theorem. Next,
 \[
 |\mathcal A_Z|\le\sum_{x\le Y}(Y-x)\sum_{\substack{d'\mid Q_u(x)\\ d'>Z}}\frac{|\lambda(d')|}{d'}\le\frac YZ\sum_{x\le Y}G_u(Q_u(x)).
 \]
-The $x\le Y^{3/5}$ contribute $\ll Y^{3/5+o(1)}$, since $G_u(n)\le6^{\omega(n)}\ll n^{o(1)}$ and $Q_u(x)\le u^2Y^2+|D|$. For a dyadic
+The $x\le Y^{3/5}$ contribute $\ll Y^{3/5+o(1)}$, since $G_u(n)\le6^{\omega(n)}\ll n^{o(1)}$ and $|Q_u(x)|\le u^2Y^2+|D|$. For a dyadic
 range $X<x\le2X$ with $Y^{3/5}\le X\le Y$ write $Q_u=\kappa Q^\ast$ with $\kappa=\gcd(u^2,D)$ the content; $Q^\ast$ is primitive and
 irreducible, its coefficients have absolute values summing to $\|Q^\ast\|\le u^2+|D|$, and $G_u(\kappa m)=G_u(m)$ because every
 prime of $\kappa$ divides $u$. The function $G_u$ is multiplicative with $G_u(a)\le6^{\Omega(a)}$ and $G_u(a)\le B_\epsilon a^\epsilon$
@@ -968,7 +969,7 @@ $Y^{3/5}\ge c_0(2Y^6)^{1/13}$ for $Y\ge Y_2$. It gives
 \sum_{X<x\le2X}G_u(Q^\ast(x))\ll\Delta\,X\prod_{2<p\le X}\Bigl(1-\frac{\rho(p)}p\Bigr)\prod_{p\le X}\Bigl(1+\frac{6\rho(p)}p\Bigr)\ll\Delta\,X(\log X)^{10},
 \]
 with $\rho(p)\le2$ the number of roots of $Q^\ast$ modulo $p$, $(1-\rho/p)(1+6\rho/p)\le1+10/p$, and
-$\Delta\le\prod_{p\mid uD}(1+1/p)^{26}\ll(\log\log(u|D|))^{26}\ll_f(\log\log Y)^{26}$. Summing over the dyadic ranges gives the claim.
+$\Delta\le\prod_{p\mid 2uD}(1+1/p)^{26}\ll(\log\log(u|D|))^{26}\ll_f(\log\log Y)^{26}$. Summing over the dyadic ranges gives the claim.
 \end{proof}
 
 \begin{proposition}[the narrow window]\label{prop:narrow}
@@ -983,7 +984,8 @@ For $d'>Y$ and $m\in[1,d']$, $B^{(Y)}_{d'}(m)=(Y-m)^+-Y^2/(2d')$ (\S\ref{sec:far
 monotone with total variation $Y$ and $\int_0^1\phi=Y^2/(2d')$, so Koksma's inequality applied to the points $\rep x{d'}/d'$ gives
 $|\sum_xB^{(Y)}_{d'}(\rep x{d'})|\le\omega(d')\,Y\,\mathrm{disc}(\Delta^{(u)}_{d'})$. With $w=|\lambda\omega|\cdot\mathbf 1_{(\cdot,2Du)=1}$ and
 $S(t)=\sum_{q\le t}w(q)\,\mathrm{disc}(\Delta^{(u)}_q)$, Proposition~\ref{prop:KSw} and Remark~\ref{rem:KSwconst} give $S(t)\le t(\log t)^{-c}$ for
-every $t\ge Y$, uniformly in $u$, and partial summation gives
+every $t\ge Y$, uniformly in $u$, since $Y\ge\max(t_0,x_1')$ (for the finitely many $u<u_1(f)$, $u=1$ included, with $t_0=t_0(f)$ as in
+the proof of Theorem~\ref{thm:small}); and partial summation gives
 \[
 \begin{aligned}
 \sum_{Y<d'\le Z}\frac{w(d')\,\mathrm{disc}(\Delta^{(u)}_{d'})}{d'}&\le\frac{S(Z)}Z+\int_Y^Z\frac{S(t)}{t^2}\,dt\\
@@ -992,8 +994,8 @@ every $t\ge Y$, uniformly in $u$, and partial summation gives
 \]
 \end{proof}
 
-\begin{theorem}[E: Hypothesis~(E) in Ces\`aro form]\label{thm:E}
-For every $f$ as in \S1 there is $c=c(f)>0$ such that
+\begin{theorem}[E: the leading term; Hypothesis~(E) in Ces\`aro form]\label{thm:E}
+For every $f$ as in \S\ref{sec:intro} there is $c=c(f)>0$ such that
 \[
 \Off^\ast_f(H)\ll_fH(\log H)^{1-c}\log\log H,
 \]
@@ -1007,7 +1009,7 @@ Let $\varepsilon=\tfrac1{20}$ and $U_0=H^{2/3+\varepsilon}$. By Proposition~\ref
 Theorem~\ref{thm:typeII} the pieces with $u>U_0$ contribute $c_{\mathrm{off}}H+O(H^{1-\delta})$. For $u\le U_0$ put $Y=H/u\ge H^{1/3-\varepsilon}$, so that
 $u\le Y^3$, $\log Y\asymp\log H$ and $Y\ge\max(\exp((\log\log u)^4),Y_1,Y_2)$ for $H\ge H_0(f)$. Split $\mathcal P_u(Y)$ at $d'=Y$ and
 $d'=Z=Y(\log Y)^{13}$: by Theorem~\ref{thm:small}, Proposition~\ref{prop:narrow} and Lemma~\ref{lem:tail} the three parts are
-$\ll Y(\log Y)^{-c}$, $\ll Y(\log Y)^{-c}\log\log Y$ and $\ll Y(\log Y)^{-3}(\log\log Y)^{26}$. Hence
+$\ll Y(\log Y)^{-c}$, $\ll Y(\log Y)^{-c}\log\log Y$ and $\ll Y(\log Y)^{-3}(\log\log Y)^{26}$, the last smaller than the second as $c<3$. Hence
 \[
 \sum_{u\le U_0}|w(u)|\,|\mathcal P_u(H/u)|\ll H(\log H)^{-c}\log\log H\sum_{u\le H}\frac{|w(u)|}u\ll H(\log H)^{1-c}\log\log H,
 \]
@@ -1017,11 +1019,12 @@ and $c_{\mathrm{off}}H$ is absorbed. The consequence follows from~\eqref{eq:cesa
 \emph{In words.} The window has $\log(u^2\log H)$ dyadic ranges of moduli, and a logarithmic saving per range cannot pay for
 that many. But the ranges above $Y(\log Y)^{13}$ carry nothing: a modulus that large can only divide a value $Q_u(x)$ with
 $x\le Y$ if its complementary divisor is small, and the number of divisors of the values of a quadratic polynomial is, on
-average over $x$, a power of $\log$, uniformly in its coefficients. That leaves $O(\log\log Y)$ ranges, and the
+average over $x$, a power of $\log$, uniformly in its coefficients as long as they are at most a power of the length. That leaves $O(\log\log Y)$ ranges, and the
 Chinese-remainder saving of the small moduli pays for them. The first version of this paper said that a logarithmic
 saving in the window is not enough; that was true of the Koksma bound on the whole window, and not of the window itself
-(corrected 16 September 2026). What remains open is the constant $A_f$, which needs $\Off^\ast_f(H)=c_{\mathrm{off}}H+o(H)$ and
-hence a power saving in the window; the rest of this section is about that.
+(corrected 15 September 2026). What remains open is the constant $A_f$, which needs $\Off^\ast_f(H)=c_{\mathrm{off}}H+o(H)$, that is, more than a
+logarithmic saving both in the window and in the small moduli; a power saving in both suffices (Theorem~\ref{thm:A}), and
+the rest of this section is about that.
 
 \subsection{The window in Fourier form}
 
@@ -1060,8 +1063,9 @@ contribute $-|R|Y/(2d')+|R|Y/(2d')=0$, which is the first equality. The second i
 For $d'\le Y$, \eqref{eq:finfourier} is \eqref{eq:fourier} with the frequencies folded modulo $d'$. The
 bound in the lemma shows what the window is made of: for $d'>Y$ the frequencies $k\le d'/Y$ carry the flat weight
 $\asymp Y^2/d'$ each, and only beyond $k\asymp d'/Y$ does the $k^{-2}$ decay begin. A modulus $d'\in(Y,u^2YL]$
-therefore has up to $u^2L$ frequencies of full weight, and any Fourier-side treatment must control the Weyl sums
-$\rho_k(d')$ for $k$ up to $u^2L$, with a loss in $k$ small enough to be paid by the saving in the modulus. This is
+therefore has up to $u^2L$ frequencies of full weight, and the proof of Proposition~\ref{prop:windowW} controls the Weyl sums
+$\rho_k(d')$ for $k$ up to $u^2L$, with a loss in $k$ small enough to be paid by the saving in the modulus; with the moduli
+above $Y^{1+\eta}$ removed by Lemma~\ref{lem:tail} only $k\le Y^{2\eta}$ are needed (Remark~\ref{rem:exponents}). This is
 the source of the exponent condition in Theorem~A.
 
 \begin{hypothesis}[W$(\theta,B)$]\label{hyp:W}
@@ -1133,7 +1137,7 @@ the proof gives, so that no invocation needs such a remark.)
 \end{proof}
 
 \begin{theorem}[A]\label{thm:A}
-Let $f$ be an irreducible quadratic and assume Hypothesis~W$(\theta,B)$ with
+Let $f$ be as in \S\ref{sec:intro} and assume Hypothesis~W$(\theta,B)$ with
 \begin{equation}\label{eq:expcond}
 \theta+6B<1 .
 \end{equation}
@@ -1188,14 +1192,14 @@ frequency and on the dilation, not the exponent in the modulus. The reason is th
 (Lemma~\ref{lem:finfourier}): at a modulus $d'\in(Y,u^2YL]$ the frequencies $k\le d'/Y$ carry equal weight, so the
 Weyl sums must be summed over $k$ up to $u^2L$ with the loss $k^B$, and $\sum_{k\le u^2L}k^{B-1}\asymp(u^2L)^B$ is then
 multiplied by the trivial-in-$u$ factor $u^B$; the total loss $u^{3B}$ against a gain $Y^{-(1-\theta)}=(H/u)^{-(1-\theta)}$
-is affordable up to $u\le H^{2/3}$ exactly when $\theta+6B<1$. The range $2/3$ of Theorem~\ref{thm:typeII} enters through
+is affordable up to $u\le H^{2/3}$ exactly when $\theta+6B<1$ (for the window as defined in~\eqref{eq:window}; see the end of this remark). The range $2/3$ of Theorem~\ref{thm:typeII} enters through
 the factor $\tfrac23$; with an averaging argument valid for $u>H^{1/2+\varepsilon}$ the condition would be $\theta+3B<1$.
 A Weyl-sum bound with $B=0$, i.e.\ uniform in the frequency and the dilation, is a strong statement: for $u=1$ and
 $k$ large it is the assertion that the roots of $x^2\equiv D\pmod{d'}$, averaged over $d'\le t$, are equidistributed at
 scales $1/k$ down to $t^{-(1-\theta)}$ with no loss, which is beyond \cite{DFI2012} but is what the numerics of
 Remark~\ref{rem:piecesize} suggest is true. With the moduli above $Y^{1+\eta}$ removed by Lemma~\ref{lem:tail}, only the
-frequencies $k\le Y^{2\eta}$ remain in the proof of Proposition~\ref{prop:windowW}, and the argument of Theorem~\ref{thm:A} then goes
-through under $2B(2-\theta)<1-\theta$ alone, a strictly weaker condition; we have not written this out, and the exponents
+frequencies $k\le Y^{2\eta}$ need to be treated in the proof of Proposition~\ref{prop:windowW}, and the argument of Theorem~\ref{thm:A} then goes
+through under $2B(2-\theta)<1-\theta$ alone, a strictly weaker condition (for $\varepsilon<1/12$, so that $u\le Y^3$; the window alone needs $\theta+2B<1$, which it implies); we have not written this out, and the exponents
 of \cite{DFI2012} still fail it.
 \end{remark}
 
@@ -1224,11 +1228,12 @@ Theorem~\ref{thm:Aprime} needs, $o(Y)$ per piece on average, is very far from th
 
 \emph{In words.} Two mechanisms are in place, and they meet with a gap between them. For pieces with a large
 agreeing part the dilations average out along $u$, leaving the main term $c_{\mathrm{off}}H$; for small moduli in
-every piece the Chinese remainder theorem alone equidistributes the dilated roots. Neither reaches the window: the
+every piece the Chinese remainder theorem alone equidistributes the dilated roots. Neither reaches the whole window, although, with the moduli above $Y(\log Y)^{13}$ removed, the second closes it
+to a logarithmic saving (Theorem~\ref{thm:E}): the
 moduli just above the length, where an interval covers a fraction between $u^{-2}$ and $1$ of a period. Hypothesis~W
 closes the window provided its exponents satisfy~\eqref{eq:expcond}, and the numerics for $t^2+1$ (the mean of the
 sharp off-diagonal agrees with $c_{\mathrm{off}}+(1-D_f(1))/2$ to three digits) say that for that polynomial the
-windows are indeed $o(H)$. Theorem~\ref{thm:E} proves the logarithmic part of this. The power saving that gives the constant is not proved, and
+windows are indeed $o(H)$. Theorem~\ref{thm:E} proves that the windows are $o(H\log H)$ in total. The power saving that gives the constant is not proved, and
 for that the window is not a technical remainder: it is the off-diagonal problem itself, stated precisely, with
 everything else removed.
 
@@ -1411,10 +1416,10 @@ $u\asymp H$); over $\F_q[u]$ it sits at degree $N+1$.
 \section{What remains}\label{sec:remains}
 
 \begin{enumerate}
-\item A power saving in the window $\mathcal W_u(Y;L)$ for $1<u\le H^{2/3}$, which gives the constant $A_f$ (Theorem~\ref{thm:A});
+\item A power saving in the window $\mathcal W_u(Y;L)$ for $1<u\le H^{2/3}$, which together with item~2 gives the constant $A_f$ (Theorem~\ref{thm:A});
 Theorem~\ref{thm:E} settles the leading term only. Through Hypothesis~W this asks
 for a power saving in the Weyl sums of the dilated roots $u^2x^2\equiv D$ on average over the modulus with a loss
-below $(uk)^{(1-\theta)/6}$ in the frequency $k\le u^2\log H$ and the dilation $u$ (Remark~\ref{rem:exponents}); the route
+below $(uk)^{(1-\theta)/6}$ in the frequency $k\le u^2\log H$ and the dilation $u$ (Remark~\ref{rem:exponents}), or only $2B(2-\theta)<1-\theta$ with the narrow window of Lemma~\ref{lem:tail}; the route
 is Hooley's parametrisation with the discriminant $4u^2D$, or the half-integral-weight Kuznetsov formula for
 $\Gamma_0(4u^2)$ as in \cite{DFI2012}, and in either case the dependence on the frequency and the level is the whole
 question. A different route would avoid Weyl sums altogether: the pieces are divisor-type sums

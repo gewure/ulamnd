@@ -467,7 +467,7 @@ route before being applied (the checks are described in the items). We agree wit
     asymptotic. Draft 9 pp, 0 overfull.
 
 
-35. **Data precision: the subtracted means of all piece grids carry float64 errors of 10⁻¹²–4·10⁻¹¹ (16 Sep; found by the
+35. **Data precision: the subtracted means of all piece grids carry float64 errors of 10⁻¹²–4·10⁻¹¹ (15 Sep; found by the
     regression check of a new script, not by a reader).** The means E are Euler products over 3·10⁵–1.5·10⁶ primes computed as
     float64 products (piece-divset.ts), with a shared tail formula good to ~10⁻¹². Against a log-sum reference
     (research/explore/mean-precision.py) the paper's split u = 3 grids are off by 5–14·10⁻¹² and the u = 5 grids by up to
@@ -482,7 +482,7 @@ route before being applied (the checks are described in the items). We agree wit
     tables keep the published fits. Rule (KNOWLEDGE F44): every fit of a piece grid includes the mean-error columns, and a
     new grid's mean is checked against a log-sum.
 
-36. **Dilation draft, second pass of the author's reviewing conversation (16 Sep; not an independent reading, F38): five items,
+36. **Dilation draft, second pass of the author's reviewing conversation (15 Sep; not an independent reading, F38): five items,
     all checked, four confirmed, one premise corrected.** (1) The abstract said "the ratio is multiplicative in squarefree u"
     without the hypothesis of Proposition prop:mult (p² ∤ D for odd p | u), and the proof needed at most one prime with a
     class-dependent operator. Checked: correct. Fixed by generalising the proposition — the extraction of a non-exceptional prime
@@ -503,7 +503,7 @@ route before being applied (the checks are described in the items). We agree wit
     outside readings (the category error of ERRATA 28); reworded, and Theorem 2's status now credits both readings that found the
     asymptotic error. ERRATA 33's heading also calls this conversation an "outside reading"; it is not independent.
 
-37. **Paper III, Remark rem:KSwconst: the count of the removed primes is off by a factor 2 (16 Sep; found by an adversarial reader of a new
+37. **Paper III, Remark rem:KSwconst: the count of the removed primes is off by a factor 2 (15 Sep; found by an adversarial reader of a new
     argument).** The remark charges the primes dividing u about 2·log log log u in the density sum and concludes β = ½ for t ≥ exp((log log u)^4);
     with that charge the inequality needed is log log t ≥ 4L + O_f(1), L = log log log u, which the hypothesis does not supply. The true loss is
     Σ_{p|u split} 2/(p−4) ≤ L + O_f(1) (the worst u is a product of the first split primes, all below ≈ 2 log u; checked numerically), so the
@@ -511,7 +511,7 @@ route before being applied (the checks are described in the items). We agree wit
     unchanged; the count in the remark to be rewritten. Not yet applied to paper III.
 
 38. **Paper III: Hypothesis (E) in Cesàro form is proved; the claim that a logarithmic saving cannot close the window is withdrawn
-    (16 Sep; argument research/explore/PROOFS-uniform.md §8, two adversarial readings by fresh model instances, no human check).**
+    (15 Sep; argument research/explore/PROOFS-uniform.md §8, two adversarial readings by fresh model instances, no human check).**
     New in paper III §sec:closed: Lemma lem:tail (moduli above Y(log Y)^{13} contribute ≪ Y²Z⁻¹(log Y)^{10}(log log Y)^{26}, uniformly in
     u ≤ Y³, via Henriot's uniform Nair–Tenenbaum bound with the erratum's a*D*), Proposition prop:narrow (the window up to Y(log Y)^{13}
     is ≪ Y(log Y)^{−c} log log Y by Koksma and Proposition KSw), Theorem thm:E (Off*_f(H) ≪ H(log H)^{1−c} log log H for monic
@@ -520,3 +520,19 @@ route before being applied (the checks are described in the items). We agree wit
     before Corollary smallu, the closing paragraph of §6, "What remains" item 1, Remark rem:exponents (narrow window: Theorem A under
     2B(2−θ) < 1−θ, not written out), Remark KSwconst's count (ERRATA 37, applied). Paper I: abstract, results paragraph, the paragraph on
     the bounded form, and "What is proved" now say that part III proves the o(H log H) bound for monic quadratics. KNOWLEDGE F46.
+
+39. **Reading of the paper text of Theorem E (15 Sep, a fresh model instance): one error introduced by ERRATA 38, eleven imprecisions,
+    all applied; and a date error in this session's records.** ERROR: paper I's abstract displays the Cesàro asymptotic with +O_f(1) and
+    the new clause said part III proves it; Theorem E gives O((log H)^{1−c} log log H), and the O_f(1) form is equivalent to Off* = O(H),
+    part I's Hypothesis (E), which is not proved. The abstract now separates the two (o(log H) iff Off* = o(H log H), proved for monic
+    quadratics; O_f(1) iff Off* = O(H)). IMPRECISIONS fixed in paper III: scope (abstract "monic, without fixed prime divisor"; Theorems A′,
+    small, A now "f as in §1"; 2t²+1 marked as numerical only); naming (Theorem E retitled "the leading term; Hypothesis (E) in Cesàro form",
+    and a sentence that it is weaker than part I's Hypothesis (E)); "a power saving is needed" → "more than a logarithmic saving is needed,
+    a power saving suffices" (abstract, results, In words), including that the small moduli also need it; Proposition KSw states
+    x₁ = max(t₀, x₁′(β,γ,C₀)) and its proof says why; Proposition narrow covers u < u₁(f) and u = 1 explicitly; "In words" says Henriot's
+    uniformity holds for coefficients up to a power of the length; the passages in "In plain terms", before Corollary smallu, the Fourier
+    paragraph, the closing "In words" and "What remains" item 1 no longer describe the window as open or the frequency range u²L as
+    forced; Remark rem:exponents marks θ + 6B < 1 as belonging to the wide window; cosmetic (Π over p | 2uD, |Q_u(x)|, "(2+o(1)) log u",
+    "c < 3", \S\ref). Paper I: "What is proved" and consequence (ii) rewritten accordingly. DATE ERROR: this session labelled its entries
+    of 15 September (ERRATA 35–38, KNOWLEDGE F42–F46, the notes, two paper passages) "16 Sep"; the commits and the system clock say
+    15 September; all labels corrected.

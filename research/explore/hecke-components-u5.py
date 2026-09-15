@@ -1,4 +1,4 @@
-"""hecke-components-u5.py — the component test at u = 5 against the LMFDB list of Maass newforms of level 5 (fetched 16 Sep
+"""hecke-components-u5.py — the component test at u = 5 against the LMFDB list of Maass newforms of level 5 (fetched 15 Sep
 2026, lmfdb.org/ModularForm/GL2/Q/Maass/?level=5; even forms with R < 8.6 and their Fricke signs listed below).
 Predictions: level-5 newform lines only in L = L1 + L2 (none in T, none in R); by Lemma D with the Fricke involution swapping the
 two isotropic lines (split u), the family period is -(1+ε)·(period over one isotropic line), so forms with ε = -1 are ABSENT

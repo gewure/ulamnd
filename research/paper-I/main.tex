@@ -59,8 +59,9 @@ asymptotic
 \[
 \sum_{h\le H}\Bigl(1-\frac hH\Bigr)\bigl(S_f(h)-C(f)^2\bigr)=-\tfrac12\,C(f)\log H+O_f(1)
 \]
-holds unconditionally for linear $f$ and, for general $f$, exactly when the sum over pairs of distinct
-roots is $o(H\log H)$, which part~III proves for monic quadratics. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
+holds unconditionally for linear $f$; for general $f$ the same holds with $o(\log H)$ in place of $O_f(1)$ exactly when the
+sum over pairs of distinct roots is $o(H\log H)$, which part~III proves for monic quadratics, and with $O_f(1)$ exactly when
+that sum is $O(H)$. We conjecture the asymptotic for every $f$, with the \emph{first} power of $C(f)$
 rather than the second that a naive rescaling predicts; $\exN$ quadratics computed exactly to $H=10^6$
 give the exponent $\exCesAlpha\pm\exCesAlphaSe$ and the coefficient $\exCesK$ against the predicted $\tfrac12$. In plain terms, and conjecturally: primes along any polynomial sequence fluctuate
 less than independent coin flips would, by the mechanism that Montgomery and Soundararajan found for
@@ -1303,7 +1304,7 @@ deficit is $\tfrac12C(f)\log H$, universal in form and linear in $C(f)$.
 the exact identity, the Dedekind-zeta generating function of the diagonal with residue $1/C(f)$, the
 symmetric-square $L$-function inside it, the closed formula for quadratics, the Ces\`aro form of
 Conjecture~\ref{conj} for linear $f$ and its reduction for general $f$ to $\mathrm{Off}^\ast_f=o(H\log H)$, which part~III proves for monic quadratics
-(Hypothesis~(E) for the constant term), and the vanishing of the small-modulus off-diagonal over
+(the constant term needs Hypothesis~(E), which is not proved), and the vanishing of the small-modulus off-diagonal over
 $\F_q[u]$ together with the finite support of what remains (Lemma~\ref{lem:support}). Proposition~\ref{thm:explicit} rests on transplanting the proof of Goldston and Suriajaya,
 which we have sketched but not written out. What is numerical is the rest: for $\exN$ quadratics computed
 exactly to $H=10^6$ with $C$ spanning more than a decade the slope of the Ces\`aro sum $\Sigma^\ast_f$ scales as
@@ -1321,9 +1322,9 @@ smoothed diagonal gives $A_f$ in terms of the constant $B_f$ of Theorem~\ref{thm
 $E_f'(0)/E_f(0)$ and the residue of $\zeta_K$, up to the $O(1)$ contribution of the off-diagonal.
 (ii)~Proving the leading term of Conjecture~\ref{conj} for a $2$-transitive Galois group is now the
 problem of saving an unbounded factor over the trivial bound for $\mathrm{Off}^\ast_f$
-(Remark~\ref{rem:two}); the constant term needs Hypothesis~(E). For quadratics the roots modulo $d$ are
-controlled by Kloosterman sums (Hooley; Duke, Friedlander and Iwaniec), and this is the case to attempt
-first; over $\F_q[u]$ Theorem~\ref{thm:ff} reduces everything to the moduli of degree $>N$, where
+(Remark~\ref{rem:two}); for monic quadratics this is done in part~III (Koksma's inequality, the Kowalski--Soundararajan
+mixing and a Nair--Tenenbaum bound uniform in the discriminant). The constant term needs Hypothesis~(E), for which the
+roots modulo $d$ are controlled by Kloosterman sums (Hooley; Duke, Friedlander and Iwaniec); over $\F_q[u]$ Theorem~\ref{thm:ff} reduces everything to the moduli of degree $>N$, where
 Deligne's theorem applies as $q\to\infty$. (iii)~The Dedekind zeta function. For $f(t)=t$ the
 error term in the Riesz means of $\sum_{h\le x}\Sig(h)$ is an explicit formula over the zeros of
 $\zeta$~\cite{GoldstonSuriajaya2021}, the zeros entering through the factor $1/\zeta(2s)$ that the

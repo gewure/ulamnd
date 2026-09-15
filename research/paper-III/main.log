@@ -737,23 +737,23 @@ b-a-bil-ity mea-sure $\OML/cmm/m/it/10.95 !\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
 [6] [7] [8] [9] [10]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 561.
+(hyperref)                removing `math shift' on input line 562.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 561.
+(hyperref)                removing `math shift' on input line 562.
 
 [11]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 614.
+(hyperref)                removing `math shift' on input line 615.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 614.
+(hyperref)                removing `math shift' on input line 615.
 
 [12] [13] [14]
-Underfull \hbox (badness 2080) in paragraph at lines 747--750
+Underfull \hbox (badness 2080) in paragraph at lines 748--751
 \T1/lmr/m/n/10.95 For fixed $\OML/cmm/m/it/10.95  $\T1/lmr/m/n/10.95 , par-tial
  sum-ma-tion against $\OML/cmm/m/it/10.95 S[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/
 10.95 t\OT1/cmr/m/n/10.95 ) = [][] \OML/cmm/m/it/10.95 w\OT1/cmr/m/n/10.95 (\OM
@@ -763,7 +763,7 @@ L/cmm/m/it/10.95 u\OT1/cmr/m/n/10.95 )[](\OML/cmm/m/it/10.95 u\OT1/cmr/m/n/10.9
 
 [15] [16]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 8
-55.
+56.
  (t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -774,10 +774,10 @@ Package microtype Info: Loading generic protrusion settings for font family
  [17] [18] [19]
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 990.
+ut line 992.
 
-
-Underfull \hbox (badness 1430) in paragraph at lines 1041--1043
+[20]
+Underfull \hbox (badness 1430) in paragraph at lines 1044--1046
 []\T1/lmr/m/n/10.95 Let $\OML/cmm/m/it/10.95 F\OT1/cmr/m/n/10.95 (\OML/cmm/m/it
 /10.95 m\OT1/cmr/m/n/10.95 ) = \OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/
 cmm/m/it/10.95 m\OT1/cmr/m/n/10.95 )$\T1/lmr/m/n/10.95 , a func-tion on $\U/msb
@@ -785,12 +785,12 @@ cmm/m/it/10.95 m\OT1/cmr/m/n/10.95 )$\T1/lmr/m/n/10.95 , a func-tion on $\U/msb
 cients $[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 ) =
  []
 
-[20] [21] [22] [23] [24] [25]
+[21] [22] [23] [24] [25]
 PGFPlots: reading {data/offq-N1.dat}
 PGFPlots: reading {data/offq-N2.dat}
 PGFPlots: reading {data/offq-N3.dat}
  [26] [27]
-Underfull \hbox (badness 1910) in paragraph at lines 1442--1449
+Underfull \hbox (badness 1910) in paragraph at lines 1447--1454
 \T1/lmr/m/n/10.95 The script \T1/lmtt/m/n/10.95 offq.ts \T1/lmr/m/n/10.95 in $\
 T1/lmtt/m/n/10.95 research / paper-[]III / scripts/$ \T1/lmr/m/n/10.95 com-pute
 s $\OML/cmm/m/it/10.95 T[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n
@@ -799,7 +799,7 @@ L/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )$
  []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 1442--1449
+Underfull \hbox (badness 1024) in paragraph at lines 1447--1454
 \T1/lmr/m/n/10.95 ex-actly from the roots mod-ulo ev-ery square-free $\OML/cmm/
 m/it/10.95 d$ \T1/lmr/m/n/10.95 of de-gree in $\OT1/cmr/m/n/10.95 (\OML/cmm/m/i
 t/10.95 N; M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )]$ \T1
@@ -810,4 +810,4 @@ t/10.95 N; M\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 N\OT1/cmr/m/n/10.95 )]$ \T1
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8CD4A8F8F9C21188F986DAE23B7C702E;3902.
  )
-Output written on main.xdv (30 pages, 279380 bytes).
+Output written on main.xdv (30 pages, 283424 bytes).

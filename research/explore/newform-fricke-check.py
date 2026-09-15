@@ -1,4 +1,4 @@
-"""newform-fricke-check.py — direct numerical check of the Fricke refinement of Lemma newperiod (dilation draft), 16 Sep 2026.
+"""newform-fricke-check.py — direct numerical check of the Fricke refinement of Lemma newperiod (dilation draft), 15 Sep 2026.
 
 Claim (derived): for an even newform v of prime level u with Fricke eigenvalue ε, the family period Per_{W_u}(v) is
     0                                        (u inert, Lemma D),

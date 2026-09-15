@@ -160,7 +160,7 @@ for the whole range, and it should be tested numerically first: compare Σ_u w(u
   spectrum on the footing Lemmas B and D established for single lines. To be TESTED numerically first (hecke-components.py).
 - Conjecture U stands numerically (N1–N5). The gap is between "true for all u" and "provable for u ≤ Y^{1/5}".
 
-## 9. After the component test (16 Sep): where the non-uniformity lives
+## 9. After the component test (15 Sep): where the non-uniformity lives
 The piece splits exactly into T = w̄·S^w_1(uY) (the u = 1 object: uniform in u for free, relative size ≍ u^{-3/2}), a marginal
 part L of level u (functions of one line: the Hecke/Fricke neighbours, i.e. Γ₀(u)-Poincaré series of the seed evaluated at
 level-u Heegner points) and a remainder R of genuinely level u² (Steinberg's third copy and the principal series). On the data
@@ -178,7 +178,7 @@ R is the largest part and is everything for inert u. Consequences for the route:
   formulation of R for split u (the marginal correction adds the u | a and u | n/a restrictions); (3) literature for sums of
   σ₋₁(h² − D) twisted by e(th/u) uniformly in u.
 
-## 10. STEP 1 DONE (16 Sep): every piece of Theorem A′, exactly, for f = t² + t + 1 at H = 10⁷ (pieces-all-u.ts)
+## 10. STEP 1 DONE (15 Sep): every piece of Theorem A′, exactly, for f = t² + t + 1 at H = 10⁷ (pieces-all-u.ts)
 One sieve of n² − D over n ≤ H gives all pieces: F_u(h) = F(uh). 964,962 pieces (all squarefree u ≤ H with ω(u) ≥ 1), 7 s.
 VALIDATION: Σ_{u≤H} w(u)P_u(H/u) = −0.030291·H, plus the u > H tail −(c_f/2)H(E·m′ − m) = −0.019601·H, total −0.049892·H against
 paper III's c_off(t²+t+1) = −c_f·m·Σ_{p split} log p/((p−2)(p−1)) = −0.049928 (Type II theorem; relative agreement 7·10⁻⁴).
@@ -190,12 +190,12 @@ paper III's c_off(t²+t+1) = −c_f·m·Σ_{p split} log p/((p−2)(p−1)) = �
 Consequence: without any cancellation across u, a uniform bound P_u(Y) ≪ Y^{1/2+ε} (true numerically) already gives Theorem A with a
 power saving (Σ_{u≤H^{2/3}} √(H/u) ≍ H^{5/6}). The needed input is exactly: SQUARE-ROOT (or any power) CANCELLATION IN EACH PIECE,
 UNIFORMLY IN u ≤ Y² — no averaging over u required, and none visible to be exploited.
-Literature round (research/LITERATURE-uniformity.md, 16 Sep; top entries being verified): Grimmelt–Merikoski arXiv 2505.00493
+Literature round (research/LITERATURE-uniformity.md, 15 Sep; top entries being verified): Grimmelt–Merikoski arXiv 2505.00493
 (roots of aℓ² + h ≡ 0 (mod k), k ≡ 0 (mod d), Heegner points on Γ₀(ad) with b ≡ 0 (mod a) — our family — but a ≤ X^{o(1)});
 Grimmelt–Merikoski arXiv 2508.17979 (divisor function in progressions past the Weil barrier by averaging over a small factor of the
 modulus); Templier–Tsimerman arXiv 1106.1139 (non-split sums uniform in the discriminant).
 
-## 11. The narrow window (16 Sep; PROOFS-uniform §7): the core is the moduli just above the length
+## 11. The narrow window (15 Sep; PROOFS-uniform §7): the core is the moduli just above the length
 An elementary divisor-bound lemma removes all moduli above Y^{1+η} from every piece at cost Y^{1−η+o(1)}, uniformly in u; numerically the
 √Y-oscillation of every piece sits in moduli between Y and 16Y (u = 7 … 10009). Consequences: (i) Theorem A′ holds with the window (Y, Y^{1+η}]
 instead of (Y, u²Y log H]; (ii) the Cesàro conjecture follows from Hypothesis W with θ + 2B < 1 instead of θ + 6B < 1; (iii) with step 1 (no
@@ -209,19 +209,19 @@ Three regimes for that estimate (to be developed in this order):
  C. the middle: the genuinely new part, where neither the spectral method nor averaging over u reaches.
 Paper III is not edited until the lemma and consequence (ii) have had a reading.
 
-## 12. CANDIDATE (16 Sep, evening; PROOFS-uniform §8, under adversarial reading): Hypothesis (E) in Cesàro form, unconditionally
+## 12. CANDIDATE (15 Sep, evening; PROOFS-uniform §8, under adversarial reading): Hypothesis (E) in Cesàro form, unconditionally
 Off*_f(H) = c_off H + O(H(log H)^{1−c} log log H) for every irreducible quadratic f, hence the leading term −½C(f) log H of Conjecture 1 in Cesàro form
 with error O((log H)^{1−c} log log H). Mechanism: moduli above Y(log Y)^{11} removed by a Nair–Tenenbaum average uniform in the discriminant
 (Henriot 2012, Cor. 2); on the remaining window part III's own Koksma + weighted Kowalski–Soundararajan log-saving suffices because the harmonic
-factor is only log log Y. Nothing about the constant A_f (that is Theorem A's power saving, still conditional). Status (16 Sep, late): BOTH adversarial readings passed with small repairs (PROOFS §8: ε < 1/12, Henriot erratum a*D*, blocks from Y^{0.6},
+factor is only log log Y. Nothing about the constant A_f (that is Theorem A's power saving, still conditional). Status (15 Sep, late): BOTH adversarial readings passed with small repairs (PROOFS §8: ε < 1/12, Henriot erratum a*D*, blocks from Y^{0.6},
 monic scope, Remark KSwconst count, ERRATA 37). Checked only by model instances. Parts I and III not yet edited: the author decides the form.
 
 ## 4′. Log
-- 16 Sep (late): both readings of §12 passed; ERRATA 37 (Remark KSwconst count).
-- 16 Sep (late): §12 candidate theorem — Hypothesis (E) in Cesàro form unconditionally (PROOFS §8); readings launched.
-- 16 Sep (evening): narrow-window lemma (§11, PROOFS §7), condition θ + 2B < 1, core restated as one uniform Type I estimate.
-- 16 Sep (later): step 1 done (§10): no u-growth, core sum tiny, c_off validated to 7e-4; literature round.
-- 16 Sep: component test finished (STATE §17); §9 where the non-uniformity lives; the additive-twist formulation of R.
+- 15 Sep (late): both readings of §12 passed; ERRATA 37 (Remark KSwconst count).
+- 15 Sep (late): §12 candidate theorem — Hypothesis (E) in Cesàro form unconditionally (PROOFS §8); readings launched.
+- 15 Sep (evening): narrow-window lemma (§11, PROOFS §7), condition θ + 2B < 1, core restated as one uniform Type I estimate.
+- 15 Sep (later): step 1 done (§10): no u-growth, core sum tiny, c_off validated to 7e-4; literature round.
+- 15 Sep: component test finished (STATE §17); §9 where the non-uniformity lives; the additive-twist formulation of R.
 - 15 Sep 21:00: §5 correction of the elementary sketch; §6 representation-theoretic decomposition (trivial component = Hecke translate of the u=1 object); PLAN §8 status.
 - 15 Sep 19:30: N5 (u-averages: random signs only; the 0.05 block was a fluctuation).
 - 15 Sep 18:50: N4 (two halves cancel separately); §7 the bad half as Γ₀(u²) Kloosterman sums, the X^{1/5} warning, averaging over u as candidate mechanism.

@@ -160,7 +160,7 @@ FIRST TEST (F24, before anything is believed): compute numerically, for D = −4
 (iii) their difference. If the non-trivial part is the dominant one and grows with u, the decomposition is a bookkeeping device;
 if it is smaller than the trivial part or decays, it is the mechanism. Script to write: hecke-components.py.
 
-## 6′. CORRECTION of §6 (16 Sep 2026): the trivial component is w̄·S^w_1(uY), not a Hecke translate; the inert identity explained
+## 6′. CORRECTION of §6 (15 Sep 2026): the trivial component is w̄·S^w_1(uY), not a Hecke translate; the inert identity explained
 §6 said the trivial SL₂(F_u)-component of piece u is "w̄·√u·T_u P[Ψ_{uY}]". That is wrong. Derivation:
 - Class C, S_C acting freely on Γ/T^{uZ} (finite order against infinite order): the piece over C is
   |S_C|⁻¹ Σ_{γ∈Γ/T^{uZ}} w_C(γ) seed(γ⁻¹z_C),  seed(z) = uΨ_{uY}(z/u),  w_C(γ) = 1[ℓ₁(γ) ⊥ ℓ₂(γ)] right-G_u-invariant.
@@ -188,11 +188,11 @@ if it is smaller than the trivial part or decays, it is the mechanism. Script to
   No Gram matrix is needed. (Split u=3: r = −0.3105 = trivial +0.0962 + marginal −0.4068; u=5: −0.0763 = +0.0596 − 0.1360.)
 - For the uniformity problem: the trivial component is the u = 1 object at length uY (Theorem smooth, no uniformity issue),
   of relative size w̄u^{-1/2} ≍ u^{-3/2}. Everything non-uniform in u sits in the marginal (level-u) part and in R (level u²).
-- TEST (running 16 Sep): hecke-components.ts computes P, T, L1, L2, R on the paper's smooth grids for u = 3 (D = −8, −4, −11, −7,
+- TEST (running 15 Sep): hecke-components.ts computes P, T, L1, L2, R on the paper's smooth grids for u = 3 (D = −8, −4, −11, −7,
   −20) and u = 5 (D = −4, −8, −11); hecke-components-fit.py checks P against the paper's grids, fits the lines in each component
   and compares with the predictions above. The smoke test (Y = 2·10⁵) confirmed the four local-factor means to six digits.
 
-## 6″. RESULTS of the component test (16 Sep 2026) — the decomposition is confirmed; two by-products
+## 6″. RESULTS of the component test (15 Sep 2026) — the decomposition is confirmed; two by-products
 Scripts: hecke-components.ts (grids research/explore/data/components-D*-U*-grid.dat, Y ≤ 10⁷, the paper's 400-point smooth grid),
 hecke-components-fit.py (v2), hecke-components-u5.py, newform-fricke-check.py, mean-precision.py. Every fit has the design
 1, x, (Y/Ymax)^{3/2}, cos/sin (see by-product 1). Amplitudes; "noise" = mean amplitude at off-line probe frequencies.
@@ -207,7 +207,7 @@ hecke-components-fit.py (v2), hecke-components-u5.py, newform-fricke-check.py, m
     +0.060 (pred +0.060), +0.061, +0.088 (pred +0.089); phases within 0.12 rad. In L and R the t₁ line is at or below the noise
     at Y ≤ 10⁷ (L split u = 3: −0.49, −0.53, −0.32 against −0.407 at 1–1.4σ with the predicted phase; R at < 1σ in all eight
     pairs): consistent with the prediction, not a test of it.
-(e) u = 5 against the LMFDB level-5 even newforms (fetched 16 Sep): L carries 4.1324 (ε=+1), 6.0540 (+1), 8.2947 (+1) — D = −4:
+(e) u = 5 against the LMFDB level-5 even newforms (fetched 15 Sep): L carries 4.1324 (ε=+1), 6.0540 (+1), 8.2947 (+1) — D = −4:
     0.030 / 0.086 / 0.046 at L-noise 0.003; D = −11: 0.048 / 0.075 / 0.129 at 0.011; the ε = −1 forms 5.4362 and 7.9865 are ABSENT
     from L (0.0003 / 0.0020 and 0.0011 / 0.0024). T carries none. R's own lines (2.64–2.71, 5.22–5.28 in all three D, ≈10.8) are
     at no level-5 newform: the genuinely level-25 part (2.64 is the line predicted in part IV to be the first eigenvalue of Γ⁵).
@@ -231,7 +231,7 @@ BY-PRODUCT 2 (Fricke refinement of Lemma newperiod, PROVED and checked). The Fri
     (split), −15 (ramified), −3, −8 (inert); 5.0.1.7.1 and 5.0.1.3.1 (ε = +1): 0.03–1.0 for split/ramified, ≤ 3·10⁻⁹ inert;
     Per(v(u·))/Per(v) = +1.000000 = ε in all nonzero cases. Matches (e): the ε = −1 lines are absent from the data.
 
-## 7. The narrow window (16 Sep 2026) — PROVED (elementary) and checked; to be read before it enters paper III
+## 7. The narrow window (15 Sep 2026) — PROVED (elementary) and checked; to be read before it enters paper III
 LEMMA. For squarefree u with ω(u) ≥ 1, Y ≥ 2, K0 ≥ Y and every ε > 0,
     Σ_{d' > K0 admissible} (λ(d')/d') Σ_{x ∈ R^{(u)}_{d'}} B^{(Y)}_{d'}(x)  ≪_{f,ε}  Y² (uY)^ε / K0,
 uniformly in u. PROOF. For d' > K0 ≥ Y, B^{(Y)}_{d'}(x) = (Y − x)^+ − Y²/(2d'). The second terms give ≤ Y² Σ_{d'>K0} |λ(d')|ρ(d')/(2d'²)
@@ -262,7 +262,7 @@ X/Y = (length)·a^{1/2}/h^{1/2} ≈ Y·u, and the diagonal term K₂ counts the 
 Keeping the congruence b ≡ 0 (mod a) instead of dropping it by positivity, the bound is of the order Y^{1/2+θ} u^{1+θ}, non-trivial against Y for
 u ≲ Y^{(1/2−θ)/(1+θ)} ≈ Y^{0.35} (θ = 7/64), i.e. u ≲ H^{0.26} in Theorem A′. This covers the lower end only; the loss is the sparsity (u points on
 area u²) and the factor u^{1/2} in the scale ratio.
-ADVERSARIAL READING OF §7 (16 Sep, a fresh model instance given §7, paper III §§2 and 6 and the script; independent of this session's
+ADVERSARIAL READING OF §7 (15 Sep, a fresh model instance given §7, paper III §§2 and 6 and the script; independent of this session's
 reasoning): no mathematical error; L, C1, C2, N all correct with three small gaps, fixes adopted:
  (1) the mean term: |λ| ≪ d^ε gives Y²K0^{−1+ε}, not uniform for K0 ≫ Y^{O(1)}; use Σ_{d≤t}|λ|ω(d) ≪_f t (Shiu, as in Lemma far) and partial
      summation: Σ_{d'>K0} |λ|ρ/d'² ≪ 1/K0, so the second term is ≪ Y²/K0 with no ε.
@@ -274,7 +274,7 @@ reasoning): no mathematical error; L, C1, C2, N all correct with three small gap
  Boundary term of the truncated partial summation: controlled, since Hypothesis W bounds S_k(t) at every t. Script N: computes exactly
  the bounded tail; the only numerical sensitivity (E times Y²/2) is ≈ 5·10⁻⁴ in tail/√Y at u = 7.
 
-## 8. CANDIDATE THEOREM (16 Sep 2026, evening): Hypothesis (E) in Cesàro form holds unconditionally — UNDER ADVERSARIAL READING, NOT A CLAIM
+## 8. CANDIDATE THEOREM (15 Sep 2026, evening): Hypothesis (E) in Cesàro form holds unconditionally — UNDER ADVERSARIAL READING, NOT A CLAIM
 STATEMENT. For every irreducible quadratic f there is c = c(f) > 0 such that
     Off*_f(H) = c_off(f)·H + O_f( H (log H)^{1−c} log log H ),
 and hence, by part I, Theorem 6 (Σ_{h≤H}(1−h/H)(S_f(h)−C²) = −½C log H + O_f(1) + (C²/H)·Off*_f(H)),
@@ -283,7 +283,7 @@ This is Conjecture 1 of part I in Cesàro form with its leading term (part I Thm
 INPUTS. Part III: Proposition pieces (Off* = Σ_u w(u) P_u(H/u), Σ_{u≤t}|w(u)|/u ≪ log t); Theorem typeII (u > H^{2/3+ε}); Theorem small and
 Proposition KSw with Remark KSwconst (uniform for t ≥ max(exp((log log u)^4), Y₁(f))); the identity (eq:Pgt) for moduli above the length.
 External: Koksma's inequality; Shiu's theorem; Henriot, "Nair–Tenenbaum bounds uniform with respect to the discriminant", Math. Proc. Camb.
-Phil. Soc. 152 (2012), Corollary 2 of Theorem 5 (arXiv 1102.1643; hypotheses read 16 Sep: Q primitive, F ∈ M_k(A,B,ε) with ε < α/(50g(g+1/δ)),
+Phil. Soc. 152 (2012), Corollary 2 of Theorem 5 (arXiv 1102.1643; hypotheses read 15 Sep: Q primitive, F ∈ M_k(A,B,ε) with ε < α/(50g(g+1/δ)),
 uniformly in x ≥ c₀‖Q‖^δ and x^α ≤ y ≤ x, bound ≪ Δ_{D*} y Π_{g<p≤x}(1−ρ(p)/p) Π_{p≤x, p∤D*}(1 + G(p)ρ(p)/p), Δ_{D*} ≤ Π_{p|D*}(1+1/p)^C,
 constants depending only on g, α, δ, A, B; no fixed-prime-divisor hypothesis in Theorem 5).
 PROOF. Fix ε ∈ (0, 1/10). Let u ≤ U₀ := H^{2/3+ε} be squarefree with ω(u) ≥ 1 and Y := H/u ≥ H^{1/3−ε}; then u ≤ Y³ and log Y ≍ log H.
@@ -324,7 +324,7 @@ NUMERICAL SANITY CHECK OF STEP (iii) (gu-average.ts, f = t²+t+1, H = 10⁷; log
 Y = 3000: 7.6, 11.0, 11.9 (u ≤ 9·10⁶ ≈ Y²); maximum over all u tested 15.0 = 0.71 (log Y)². The average saturates at the global mean of G
 (12.7) as u grows, as it must once u²x² − D behaves like a generic integer of its size: uniform polylogarithmic size, as step (iii) needs.
 (The first version of the script sampled only even u, all inadmissible for D = −3; fixed before these numbers.)
-READER 2 OF 2 ON §8 (16 Sep, fresh instance, focus: decomposition, Koksma, uniformity, part I Thm 6, consistency, structural attack):
+READER 2 OF 2 ON §8 (15 Sep, fresh instance, focus: decomposition, Koksma, uniformity, part I Thm 6, consistency, structural attack):
 "could not break it"; no fatal error. Gaps and fixes, ADOPTED in the statement below:
  (1) u ≤ Y³ ⇔ u ≤ H^{3/4}; with U₀ = H^{2/3+ε} this needs ε ≤ 1/12, not ε < 1/10. Also at the lowest block X = Y^{1/2} Henriot's range needs
      c₀|D|^{1/12} ≤ 1. FIX: take ε < 1/12 and start the dyadic blocks at X = Y^{0.6} (x ≤ Y^{0.6} cost Y^{0.6+o(1)}), δ = 1/13.
@@ -343,7 +343,7 @@ READER 2 OF 2 ON §8 (16 Sep, fresh instance, focus: decomposition, Koksma, unif
 STATEMENT AS AMENDED: for monic irreducible f = t² + bt + c without fixed prime divisor, Off*_f(H) ≪_f H(log H)^{1−c} log log H, and
 Σ_{h≤H}(1−h/H)(S_f(h) − C(f)²) = −½C(f) log H + O_f((log H)^{1−c} log log H). Proof as above with ε < 1/12, blocks from X = Y^{0.6}, δ = 1/13, A = 13.
 Status: reader 2 passed; reader 1 (Henriot, KSw uniformity) pending.
-READER 1 OF 2 ON §8 (16 Sep, fresh instance, focus: Henriot and KSw inputs; obtained the published ERRATUM, Math. Proc. Camb. Phil. Soc. 157
+READER 1 OF 2 ON §8 (15 Sep, fresh instance, focus: Henriot and KSw inputs; obtained the published ERRATUM, Math. Proc. Camb. Phil. Soc. 157
 (2014) 375–377): (A) correct with two gaps, (B) correct with a slip in Remark KSwconst; nothing breaks steps (ii) or (iii).
  (A1) same as reader 2's (1): ε < 1/12 (Henriot's ‖Q‖ is the sum of |coefficients|, ‖Q*‖ ≤ u² + |D|); or δ = 1/24, or x ≤ Y^{2/3} trivially.
  (A2) the ERRATUM replaces D* by a*D* in Corollaries 1–2 (a* = leading coefficient of Q*, here u²/κ): the Δ-factor runs over p | uD and is still
@@ -358,7 +358,7 @@ READER 1 OF 2 ON §8 (16 Sep, fresh instance, focus: Henriot and KSw inputs; obt
      Σ_{p|u split} 2/(p−4) ≤ L + O_f(1) (checked: 2.24 against L = 2.38 at log u ≈ 10⁵), so the requirement is log log t ≥ 2L + O_f(1), which holds
      for u ≥ u₁(f). Fix: redo the count (or take β = ¼, halving c). This also repairs paper III's Theorem small itself (ERRATA to be filed).
      At t ∈ [Y, Z]: KSw applies for all squarefree u ≤ H^{2/3+ε}; Koksma and partial summation verified.
-BOTH READINGS PASSED (16 Sep, late). FINAL STATEMENT: for monic irreducible f = t² + bt + c without fixed prime divisor there is c = c(f) > 0 with
+BOTH READINGS PASSED (15 Sep, late). FINAL STATEMENT: for monic irreducible f = t² + bt + c without fixed prime divisor there is c = c(f) > 0 with
     Off*_f(H) ≪_f H (log H)^{1−c} log log H,   Σ_{h≤H}(1−h/H)(S_f(h) − C(f)²) = −½ C(f) log H + O_f((log H)^{1−c} log log H).
 Proof: §8 with ε < 1/12, dyadic blocks from X = Y^{0.6} (δ = 1/13), A = 13, Henriot Cor. 2 as corrected by the erratum (a*D*), Remark KSwconst's
 count repaired. Both readings were by model instances; no human has checked it. Parts I and III are not yet edited.

@@ -1,6 +1,6 @@
 # Literature search: uniformity in the dilation u (pieces P_u, dilated roots, level u^2)
 
-**Date:** 16 September 2026
+**Date:** 15 September 2026
 **Scope:** the six topics set out in the brief: uniform non-split sums, the divisor function of a quadratic in progressions, uniform Weyl sums for quadratic roots, bilinear forms with Kloosterman fractions and modular roots, level-aspect Heegner points, and averages of polynomial singular series.
 **Verification rule:** every statement quoted below was read either in the arXiv PDF (converted with `pdftotext`) or on the abstract page.
 - Some statements are known only second-hand, through another paper that quotes them. Those are marked **(quoted in X)**.

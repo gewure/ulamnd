@@ -1,5 +1,5 @@
 /**
- * window-truncation.ts — test of the "narrow window" reduction (16 Sep 2026). Claim: in piece u at length Y, the moduli
+ * window-truncation.ts — test of the "narrow window" reduction (15 Sep 2026). Claim: in piece u at length Y, the moduli
  * d' > K0 contribute at most Y²·Y^{o(1)}/K0 (divisor bound for the root counts plus the tail of the mean), uniformly in u, so for
  * K0 = Y^{1+ε} the window of Theorem A' can be cut from (Y, u²Y log H] to (Y, Y^{1+ε}] at cost Y^{1-ε+o(1)}.
  * Exact computation: P_u^{≤K0}(Y) = Σ_{h≤Y}(Y-h) Σ_{d | Q_u(h), 1<d≤K0 admissible} λ(d)/d - (Y²/2) Σ_{1<d≤K0} λ(d)ρ(d)/d²,

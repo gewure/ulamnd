@@ -1,4 +1,4 @@
-"""ratio-halves-audit.py — second, independent error estimate for Table tab:ratios (16 Sep 2026): fit the t_1 line separately on the
+"""ratio-halves-audit.py — second, independent error estimate for Table tab:ratios (15 Sep 2026): fit the t_1 line separately on the
 lower and the upper half of the log-Y range (same procedure as ratio-noise-audit.py, published variant, detrend inside each half,
 C_1 and the reference phase from the full u = 1 grid). SE_half = |r_lower - r_upper| / 2 estimates the standard error of the
 full-range ratio; pooled per u as an rms. Also prints the probe-noise estimate for comparison.   python research/explore/ratio-halves-audit.py

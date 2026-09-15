@@ -1,5 +1,5 @@
 /**
- * hecke-components.ts — F24 test of PROOFS-uniform.md §6 (corrected form, 15/16 Sep 2026).
+ * hecke-components.ts — F24 test of PROOFS-uniform.md §6 (corrected form, 15/15 Sep 2026).
  *
  * For an odd prime u with u ∤ D, piece u (smooth window, object "all") is the restriction of the u = 1 sum at length uY to
  * h' ≡ 0 (mod u):  S_u(Y) = Σ_{h'≡0 (u)} w(h'/(uY)) (σ_{-1}(h'^2 - D) - E_u).  In the coset picture (Prop. classwise of the

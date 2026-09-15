@@ -1,5 +1,5 @@
 /**
- * pieces-all-u.ts — step 1 of the attack on the core (16 Sep 2026): EVERY piece of Theorem A' of part III, exactly.
+ * pieces-all-u.ts — step 1 of the attack on the core (15 Sep 2026): EVERY piece of Theorem A' of part III, exactly.
  *
  * For squarefree u whose primes all have ω(p) ≥ 1, the piece of part III at length Y is (paper IV §2, exact for real Y)
  *     P_u(Y) = Σ_{1≤h≤Y} (Y - h)(F(u h) - 1) - (E_u - 1) Y²/2,

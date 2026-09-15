@@ -544,7 +544,7 @@ one, compute the pointwise object at a few arguments.
 F43. "The trivial SL₂(F_u)-component of piece u is w̄·√u·T_u applied to the level-one Poincaré series" (PROOFS-uniform §6,
 15 Sep). Summing the seed over all u(u+1) cosets gives Atkin's U_u (the matrices (1 j; 0 u)), not T_u, which also contains
 (u 0; 0 1); on the homogeneous seed U_u is the scalar 1/u, so the trivial component is w̄·S^w_1(uY), the u = 1 object at length
-uY. Found by re-deriving before the test was run (16 Sep). The corrected form explains the inert identity (dilation draft,
+uY. Found by re-deriving before the test was run (15 Sep). The corrected form explains the inert identity (dilation draft,
 Remark components). Rule: when an averaged coset sum is identified with a Hecke operator, write down the matrices summed.
 
 F44. Float64 Euler products as subtracted means (all piece grids, 13–15 Sep). Rounding and tail errors of 10⁻¹²–4·10⁻¹¹ give
@@ -553,7 +553,7 @@ by up to 0.04 when the drift is fitted. Found by the regression check of a new s
 two codes disagreed only for split u (the new one multiplied one extra factor, which changed the rounding path). Rule: every
 fit of a piece grid includes the mean-error columns, and a new mean is checked against a log-sum. (ERRATA 35)
 
-F45. "They hold to a few percent at u = 2 and within about 0.04 at u = 3" (dilation draft abstract, 15–16 Sep), and a "(+0.341)"
+F45. "They hold to a few percent at u = 2 and within about 0.04 at u = 3" (dilation draft abstract, 15–15 Sep), and a "(+0.341)"
 entry called an unexplained outlier. No error bar had been measured for any fitted ratio. Two estimates (amplitude at off-line probe
 frequencies; half the difference of fits on the two halves of the range) give errors 0.04–0.5 at u = 3 and up to 0.7 at u = 5: every
 entry, the "outlier" included (0.4 of an error), is consistent with the prediction, and none is "a few percent". Close agreement in
@@ -561,13 +561,18 @@ a noisy fit was read as precision. Found when the author's reviewing conversatio
 agreement statement for a fitted amplitude without an error estimate from at least two methods; entries are called outliers only
 in units of that error. (ERRATA 36)
 
-F46. "A logarithmic saving is not enough in the window" (paper III abstract and results, KNOWLEDGE F14, 10–16 Sep). An assertion about one
+F46. "A logarithmic saving is not enough in the window" (paper III abstract and results, KNOWLEDGE F14, 10–15 Sep). An assertion about one
 bound — Koksma on the whole window (Y, u²Y log H], whose log(u² log H) dyadic ranges swamp a (log Y)^{−c} saving — repeated as a fact about
 the problem for six days. The ranges above Y(log Y)^{13} carry nothing (a divisor average over the values of u²x² − D, uniform in the
 discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suffices: Hypothesis (E) in Cesàro form holds unconditionally
 (paper III Theorem E; two adversarial readings). Found by first measuring where each piece lives (window-truncation.ts: the √Y-oscillation
 sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
 contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
+
+F47. "…exactly when Off* is o(H log H), which part III proves" appended to paper I's abstract under a display ending in +O_f(1) (15 Sep).
+The added clause credited the o(H log H) theorem to a display whose error term needs Off* = O(H), a different and unproved statement.
+Same species as F7/F15 (a headline drifting from its theorem). Found by a reading of the paper text. Rule: when a clause credits a
+result to an existing display or statement, re-read that display's error term and hypotheses against the result's, word by word. (ERRATA 39)
 
 F38. "A Claude instance given the papers and nothing else" (case study v1, §8) for a reader that was the author's
 long-running reviewing conversation with weeks of context. A statement about PROCESS asserted from memory instead of
@@ -655,7 +660,7 @@ F14. "The twisted phase e(kH/d) is the obstacle" (paper III, first draft, 10 Sep
     every dilation; Shiu instead of the sieve for the weights) makes the small moduli of every piece
     unconditional. The real core is the WINDOW d' ∈ (Y, u²Y] (interval shorter than the period), self-dual
     under Hooley's reflection, empty for u = 1, where a log-saving loses a factor log u. (Paper III §3.2, §5.1.)
-    [16 Sep: the loss is NOT intrinsic — F46; Hypothesis (E) in Cesàro form is proved, paper III Theorem E.]
+    [15 Sep: the loss is NOT intrinsic — F46; Hypothesis (E) in Cesàro form is proved, paper III Theorem E.]
 F15. "Σ_{h≤H}(S_f(h) − C²) = −½C log H + A_f + o(1)" (paper I, Conjecture 1, v1–v7, SUBMITTED). False for every f with
     a residue class of h where S_f vanishes (t²+1: odd h) — the sharp sum oscillates by C² forever. The Cesàro
     form is what Theorem 6 controls and what was meant. Process lesson: an erratum recorded on 10 Sep as "worth a

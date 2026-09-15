@@ -401,7 +401,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   Poincaré series, uniformly O(u^{-1/2+7/64+ε}); Steinberg = level u, principal series = level u². Next: hecke-components.py test.
 - Numerical facts N1–N5 in PLAN §4; scripts sharp-sum-u.py, weyl-dilated.py, orbit-minima.py, two-halves.py, weyl-uaverage.py.
 
-## 17. The component test, finished (16 Sep; Opus 5 continuing the session after Fable's usage limit)
+## 17. The component test, finished (15 Sep; Opus 5 continuing the session after Fable's usage limit)
 - PROOFS-uniform §6′: §6's "trivial component = w̄·√u·T_u(Poincaré)" was wrong (F43). The coset average is U_u, a scalar 1/u on the
   homogeneous seed, so the trivial component is w̄·S^w_1(uY). Decomposition of the orthogonality indicator on the pairs of lines:
   trivial + (u/(u−1))(n(ℓ₁)+n(ℓ₂)) + R, R ⊥ one-line functions (Steinberg occurs three times in Ind_T^G 1; two copies are the
@@ -418,7 +418,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   updated; all new fits carry the Y^{3/2} column (hecke-components-fit.py v2, drift-audit-run.py).
 - New data files: research/explore/data/components-D*-U*-grid.dat; LMFDB coefficients maass-5.0.1.{3,5,7}.1 in paper-IV/data.
 
-## 18. Step 1 of the attack (16 Sep): all pieces measured exactly; a review pass on the draft
+## 18. Step 1 of the attack (15 Sep): all pieces measured exactly; a review pass on the draft
 - pieces-all-u.ts (D = −3, H = 10⁷, 964,962 pieces, 7 s): no growth of P_u(H/u)/√Y in u (rms 0.09–0.15 in every dyadic bin up to
   u ≈ 4·10⁶); Σ_{u≤H^{2/3}} w·P = −940 (−6e−6 of H log H); total with the u > H tail reproduces c_off = −0.049928 to 7e−4. PLAN §10.
 - Literature (general-purpose agent, report research/LITERATURE-uniformity.md): nothing uniform in a leading coefficient of size u²;

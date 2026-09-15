@@ -1,4 +1,4 @@
-"""hecke-components-fit.py (v2, 16 Sep 2026) — analysis of research/explore/data/components-D<|D|>-U<u>-grid.dat.
+"""hecke-components-fit.py (v2, 15 Sep 2026) — analysis of research/explore/data/components-D<|D|>-U<u>-grid.dat.
 
 Design matrix of every fit: 1, (x - mean)/5, (Y/Ymax)^{3/2}, and cos/sin at the frequencies. The Y^{3/2} column is the exact
 shape of an error δ in a subtracted mean (δ·√Y·Σ_h w(h/Y), Σ w ≈ 0.111·Y): the float64 means of the scripts differ at the

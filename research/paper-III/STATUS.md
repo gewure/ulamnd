@@ -28,7 +28,7 @@ in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
 
 13 Sep (night): related-work paragraph; date updated; 27 pp.
 
-## 16 September 2026 (late): Hypothesis (E) in Cesàro form PROVED (Theorem thm:E, §sec:closed)
+## 15 September 2026 (late): Hypothesis (E) in Cesàro form PROVED (Theorem thm:E, §sec:closed)
 - Lemma lem:tail (moduli above Y(log Y)^13 negligible uniformly in u ≤ Y³, via Henriot's uniform Nair–Tenenbaum bound, erratum a*D*),
   Proposition prop:narrow (the window up to Y(log Y)^13 by Koksma + Proposition KSw), Theorem thm:E: Off*_f(H) ≪ H(log H)^{1−c} log log H,
   hence Conjecture 1 of part I in Cesàro form with its leading term, unconditionally for monic irreducible quadratics.

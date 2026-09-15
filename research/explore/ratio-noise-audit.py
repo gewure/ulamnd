@@ -1,4 +1,4 @@
-"""ratio-noise-audit.py — noise floor of every entry of the dilation draft's Table tab:ratios (16 Sep 2026, after an outside review
+"""ratio-noise-audit.py — noise floor of every entry of the dilation draft's Table tab:ratios (15 Sep 2026, after an outside review
 asked whether the u = 3 inert outlier D = -7 (+0.341) disagrees with the exact identity r = u^{-3/2}).
 Fit procedure of hecke-ratio-sharp.py (sharp grids, degree-3 detrend, nuisance lines: t_2, 19.42, 21.32; Strömberg's Γ_0(9) even set
 at u = 3; the six strongest data-driven peaks in [2,12] at u = 5), in two variants: as published, and with the mean-error columns
