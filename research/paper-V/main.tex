@@ -57,18 +57,60 @@ $\log H$, then the blocks near the point contribute $O(H)$ in total, which would
 second-order term in the Ces\`aro asymptotic. The constant $A_f$ needs strictly more: a saving at the point itself.
 
 \section{Notation}
-We follow part~III~\cite{ReichardtIII} throughout. \todo{to import: $\lambda(p)=p/(p-2\omega(p))$, $P(1)$, $w(u)=P(1)\lambda(u)\omega(u)$ supported on squarefree $u$; admissible
-moduli $d'$ (squarefree, split, coprime to $2Du$); $R^{(u)}_{d'}$, $\rho_k$, $B^{(Y)}_{d'}$, $\mathcal P_u$, $G_{d'}(a,Y)$, $\bar G_{d'}$, $G^\circ=G-\bar G$, the finite Fourier
-expansion and its coefficients $\xi_k(d',N)$, Lemma~kloost, Lemma~tail, Theorem~small.}
-
+We follow part~III~\cite{ReichardtIII}. For a prime $p$ let $\omega(p)$ be the number of roots of $f$ modulo $p$, $\lambda(p)=p/(p-2\omega(p))$, $P_p=1-\omega(p)^2/(p-\omega(p))^2$,
+$P(1)=\prod_pP_p$ and $w(u)=P(1)\lambda(u)\omega(u)$; $w$ is supported on squarefree $u$ and $\sum_{u\le t}|w(u)|\ll t$. A modulus $d'$ is \emph{admissible} if it is squarefree,
+all its prime factors are split, and $(d',2Du)=1$; $R^{(u)}_{d'}=\{x\bmod d':u^2x^2\equiv D\}$, $\rho_k(d';a)=\sum_{r\in R_{d'}}\e(kar/d')$, and $\langle x\rangle_{d'}\in[1,d']$ is
+the representative of $x$. With $B^{(Y)}_{d'}(m)=\sum_{h\le Y,\,h\equiv m\,(d')}(Y-h)-Y^2/(2d')$, the piece is
+\[
+\mathcal P_u(Y)=\sum_{d'>1\ \mathrm{admissible}}\frac{\lambda(d')}{d'}\sum_{x\in R^{(u)}_{d'}}B^{(Y)}_{d'}(\langle x\rangle_{d'}),\qquad Y=H/u .
+\]
+We write $G_{d'}(a,Y)=\sum_{r\in R_{d'}}B^{(Y)}_{d'}(\langle ar\rangle_{d'})$, $\bar G_{d'}(Y)$ for its mean over the units $a$, $G^\circ=G-\bar G$, and $\xi_k(d',N)=(1-\cos(2\pi
+kN/d'))/\sin^2(\pi k/d')$ for the coefficients of the finite Fourier expansion of $B^{(N)}$ (part~III, Lemma~finfourier). Throughout, $x^\ast$ denotes the inverse of $x$ modulo the
+modulus at hand, $e_m(z)=\e(z/m)$, and $\varepsilon>0$ is arbitrarily small. Parameters: $\delta=10^{-3}$, $\eta=\delta/10$, $\delta_3=\delta$, $\varepsilon'=\eta/7$,
+$\kappa=\delta/2$, $K_1=H^{2\eta}$.
 \section{The energy of reciprocals and bilinear Kloosterman fractions}
-\begin{lemma}[energy of reciprocals]\label{lem:E}\todo{PAPER-V-thmM.md Lemma E; proof written, two readings.}\end{lemma}
-\begin{lemma}[Bourgain--Garaev]\label{lem:B}\todo{cite \cite{BourgainGaraev2014}; Corollary B$'$.}\end{lemma}
+\begin{lemma}[energy of reciprocals, every squarefree modulus]\label{lem:E}
+Let $m\ge2$ be squarefree, $1\le N\le m$, and $J_4(N)=\#\{x\in[1,N]^4:(x_i,m)=1,\ x_1^\ast+x_2^\ast\equiv x_3^\ast+x_4^\ast\ (\mathrm{mod}\ m)\}$. Then for every $\varepsilon>0$,
+\[
+J_4(N)\ll_\varepsilon m^{\varepsilon}\bigl(N^2+N^{7/2}m^{-1/2}\bigr).
+\]
+\end{lemma}
+\todo{Proof written in PAPER-V-thmM.md (Cilleruelo--Garaev's argument, transferred to composite moduli); two readings recorded in PROOFS-uniform.md §28, §30.}
+
+\begin{corollary}\label{cor:B}
+For squarefree $m$, $(a,m)=1$, $m^{1/3}\le N_1,N_2\le m$ and coefficients $|\alpha_i|\le1$ supported on units,
+$\sum_{x_1\le N_1}\sum_{x_2\le N_2}\alpha_1(x_1)\alpha_2(x_2)e_m(ax_1^\ast x_2^\ast)\ll_\varepsilon m^{\varepsilon}(N_1N_2)^{15/16}$.
+\end{corollary}
+\todo{From \cite{BourgainGaraev2014}, proof of Theorem~3, together with Lemma~\ref{lem:E}.}
 \section{The pieces around $u=H^{1/2}$}
-\begin{theorem}\label{thm:M}\todo{Theorem M; proof = Lemmas K, E, B$'$, S and Steps R1--R5.}\end{theorem}
+\begin{theorem}\label{thm:M}
+Let $f$ be as above. There is $\delta_M>0$ (any $\delta_M<4\eta/7$ with the parameters above, so $\delta_M=5\cdot10^{-5}$ is admissible) such that
+\[
+\sum_{H^{0.47}<u\le H^{0.53}}w(u)\,\mathcal P_u(H/u)\ \ll_f\ H^{1-\delta_M}.
+\]
+Consequently, with part~III's Theorem on the range $u>H^{1/2+\varepsilon}$ applied at $\varepsilon=0.03$,
+$\sum_{u>H^{0.47}}w(u)\mathcal P_u(H/u)=c_{\mathrm{off}}(f)H+O(H^{1-\delta_M})$.
+\end{theorem}
+\todo{Proof in PAPER-V-thmM.md: Lemma~K (smooth incomplete Kloosterman sums), Lemma~\ref{lem:E}, Corollary~\ref{cor:B}, Lemma~S (Mellin separation) and Steps R1--R5
+(reduction, Type~I, Type~II, residual, covering). Two readings; a confirming read of the merged text is running.}
 \section{The small dilations}
-\begin{lemma}[the off-diagonal at one level does not grow with the dilation]\label{lem:Aoff}\todo{Lemma A$''$ of PAPER-V-smallend-draft.md.}\end{lemma}
-\begin{theorem}\label{thm:S}\todo{Theorem S ($D<0$); proof = S1--S8 with Lemma~\ref{lem:Aoff}, S1$'$, S2$'$, O5, O6$'$.}\end{theorem}
+\begin{lemma}[the off-diagonal at one level does not grow with the dilation]\label{lem:Aoff}
+Let $h\ge1$, $u$ squarefree with $(u,2h)=1$, $a=u^2$, and let $F_u$ be the set of positive definite forms $g=\bigl(\begin{smallmatrix}A&B\\B&C\end{smallmatrix}\bigr)$ with
+$AC-B^2=ah$, $a\mid B$, $a\mid C$. For $Z\ge1$,
+\[
+\sum_{g_2\in\Gamma_0(a)\backslash F_u}\ \sum_{\substack{g_1\in F_u,\ g_1\ne g_2\\ u(g_1,g_2)\le Z}}\bigl(1+u(g_1,g_2)\bigr)^{-1/2}\ \ll_\varepsilon\ (hZu)^{\varepsilon}h^{O(1)}\bigl(1+Z^{1/2}\bigr),
+\]
+uniformly in $u$, where $u(\cdot,\cdot)$ is the point-pair invariant.
+\end{lemma}
+\todo{Proof in PAPER-V-smallend-draft.md (undilation to $\Gamma_0^0(u)$, lift to level one, a local count of common orthogonal lines, and a sum over the quantised distances);
+under reading.}
+
+\begin{theorem}\label{thm:S}
+Let $f$ be as above with $D<0$. For every $c>0$ there is $\delta_S(c)>0$ with
+$\sum_{u\le H^{1/3-c}}w(u)\mathcal P_u(H/u)\ll_f H^{1-\delta_S(c)}$.
+\end{theorem}
+\todo{Proof outline S1--S8 in PAPER-V-smallend-draft.md, resting on \cite{GrimmeltMerikoski2025kernel} Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1, with
+Lemma~\ref{lem:Aoff} and the diagonal count; $\delta_S(c)\asymp c$ once the exponent in the kernel theorem's $\delta^{-O(1)}$ is named. Under reading.}
 \section{What remains}\todo{the band at $u=H^{1/3}$: the two mechanisms degenerate there; the accounting of PROOFS §31--§34; what a positive saving at the point would give
 ($A_f$), and what a point gap with polylog losses would give (part~I's Hypothesis~(E)).}
 \bibliographystyle{plain}\bibliography{refs}
