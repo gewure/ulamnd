@@ -1266,3 +1266,27 @@ in every reading, merely not tight. CITATION (adopted): "Following the proof of 
 ℓ₂ = 0 so that the second K-type sum is absent and the α₂-side majorant may be taken at L = 1, and δ₁ = δ since X ≥ Y — one may take δ^{−6}; we do not optimise this and use only
 that the exponent is absolute." Keep choosing η′ AFTER C.
 CONSEQUENCE for the small end: with C = 6 the optimised parameters are δ = η = η′ = t with 9t = 1.171875c, t = 0.1302c, giving δ_S(c) = (2/3)t ≈ 0.0868c ≈ c/12 (against c/29 at C = 20).
+
+## 43. READING of S6 and the K₂ dictionary (16 Sep; fresh model instance; scripts reader-s6/arith.py, dict2.py, loc2.py, cs.py, vp.py) — CORRECTIONS ADOPTED
+VERDICTS: S5′ complete with fixes EXCEPT its last sentence, which was the load-bearing one and was a hand-wave; S6 a gap — architecture correct and conclusion true, but one false
+route, one mis-assigned Hölder, a wrong log exponent, and a pull-out resting on a restriction the draft's own S1(6) did not deliver. All repaired in PAPER-V-smallend-draft.md as
+S5″ and S6′ (FINAL), one of them by DELETING material.
+ (1) THE BRIDGE, now written: unfold a second time as in GM Prop 4.1 to off = Σ_{(w₁,z₂)} k(u(w₁,z₂))·n_{aq₀}(w₁,z₂), then CRT n_{aq₀} = n_a·n_{q₀} for (a,q₀) = 1 (128 tests, 0
+   failures), and Σ over SL₂(Z)-orbits of n_a is exactly Lemma A″'s P_u(N). Without this, S6 step (1) and S5′ were bounding different objects.
+ (2) The stabiliser weights in the unfolding must be the SL₂(Z)-stabilisers: with Γ₀(q)-stabilisers the identity is FALSE by a factor 2 at (a,h,q₀) = (1,3,2) (12.165 vs 6.083);
+   with SL₂(Z) it is exact in all 11 configurations tested.
+ (3) Positivity is legitimate (Theorem 8.1 itself asserts ⟨α|Δk|α⟩ ≥ 0); added: α ≥ 0 for the majorant replacement, χ = 1, A, C > 0 in the family, and a note on GM's sign slip.
+ (4) The Cauchy–Schwarz route in N is FALSE: Σ_N N^{−1/2}g₂² ≍ u^{1/2}M^{1/2}, costing u^{1/4} ≤ H^{1/12}. Deleted.
+ (5) The Hölder exponents were the wrong way round (g₂ must take 1 + ε, τ₃ the conjugate); even corrected it leaves a genuine u^{ε}. Deleted in favour of the one-line route.
+ (6) The log exponent for Σ_{N≤M}τ₃(N²−4h²)^A is 2(3^A − 1), not 3^A − 1 (N² − 4h² splits) — consistent with §36's exponent 4 at A = 1; measured bounded against (log M)^4, unbounded
+   against (log M)².
+ (7) The claim follows in ONE LINE from the pointwise τ₃ ≪ M^ε and Lemma A″ step (4); no Nair–Tenenbaum is needed for the stated claim.
+ (8) The pull-out of the primes p | 2D needs (e m, 2D) = 1 imposed in S1(6) (the draft's expansion did not deliver it); independently, at odd p | D the levels with p² | q₀ are EMPTY
+   (v_p(u²ℓ² + h) ≤ 1), while at p = 2 the counts are bounded but nonzero — which is exactly why O2's normalisation is needed.
+ (9) The level sum must be over (q₀, u) = 1 (automatic) and carry the multiplicity τ(q₀)² of (j, e, m) with lcm = q₀.
+ (10) S6 is scoped to a = u²; the O1 case a = p u′² needs Lemma A″ restated at determinant p h, which is not written — O1 is carried separately.
+ (11) The u-factor is 6^{ω(u)}, averaging to (log U)^5 per dyadic block (not (log U)^6/6!, which is the value over u ≤ U); with the deleted Hölder route it would have been worse.
+ (12)–(13) Nair–Tenenbaum hypotheses if ever retained (apply to the two linear factors; discriminant 16h² = O_f(1), so Henriot's uniformity is decoration); the h-dependence
+   h^{3/2+o(1)} should be stated; the kernel definitions are in arXiv 2505.00489 §1; the "[TO CHECK]" brackets are discharged by this reading.
+STATUS OF THEOREM S after §40 + §43: the chain is complete in writing for a = u² (u squarefree, (u,2h) = 1, D < 0), modulo (i) Lemma A″ at determinant p h for the O1 case, and
+(ii) a reading of the final S5″/S6′ text. δ_S(c) ≈ c/12 with C = 6 (§42).

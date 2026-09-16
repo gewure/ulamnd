@@ -286,3 +286,44 @@ C = 7 and C = 14 are the conservative readings, and the earlier C = 24 remains s
 all constraints (δ < η is an equality — replace by δ = 0.99η if strictness is wanted; δ < 2η′ ✓; Cη′ + 2η + O(δ) < 1.171875c ✓) holding. The citation of C enters only through the
 choice of η′, and the theorem's shape δ_S(c) ≍ c does not depend on its value.
 
+
+## S5″ and S6′ (FINAL forms) — after the reading of S5′/S6 (PROOFS §43). These SUPERSEDE S5′ and S6 above.
+
+### S5″ (the K₂ dictionary, with the bridge written)
+Let χ = 1, q = a q₀ with (a, q₀) = 1, and let α_q(g) = 1{c(g) ≡ 0 mod q}1{b(g) ≡ 0 mod a} ≥ 0 be GM's functional on the Heegner set Λ_{ah} (GM Lemma 3.1; the family is
+S_{a,h}(q₀) = {g = (A B; B C) : AC − B² = ah, A, C > 0, a | B, a q₀ | C} — the positivity A, C > 0 is part of the definition, and GM's printed "b² − ac = ah" is a slip for ac − b² = ah).
+Since Δ_q F = K_q F − 1{χ principal}|Γ\G|^{−1}∫F and the subtracted term is (∫k/|Γ\G|)·|Σ_τ α_q(τσ)|² ≥ 0, and since α_q ≥ 0 permits replacing GM's smooth kernel by the majorant
+1{u ≤ Z₂²}(1 + u)^{−1/2}, we have ⟨α_q|Δ_q k|α_q⟩ ≤ ⟨α_q|K_q k|α_q⟩ (the definitions of Δ and K are in arXiv 2505.00489 §1, not in the companion). Unfolding the γ-sum ONCE gives the
+orbit form diag(q) + off(q; Z₂) of S5/S6, with the weights |Γ_{σ i}|^{−1} being the SL₂(Z)-STABILISER weights (this is what makes the identity exact; with Γ₀(q)-stabilisers it fails —
+brute force at (a,h,q₀) = (1,3,2) gives 12.165 against 6.083), the g₂-side carrying |Γ₀(q)_{g₂}|^{−1} and the g₁-side running over the full family unweighted.
+THE BRIDGE (this is what was missing). Unfold a SECOND time, as in GM Prop 4.1 ("since gz₁ = w₁ ranges over the entire set S_h"):
+  off(a q₀; Z₂) = Σ_{(w₁, z₂) ∈ S_{ah} × Λ_{ah}, w₁ ≠ z₂} k(u(w₁, z₂))·n_{a q₀}(w₁, z₂),  n_q(w₁,z₂) := #{τ ∈ Γ₀(q)\SL₂(Z) : α_q(τ⋄w₁) = α_q(τ⋄z₂) = 1}.
+For (a, q₀) = 1 the Chinese remainder theorem gives n_{a q₀} = n_a·n_{q₀} with n_{q₀} = #{(c₀ : d₀) ∈ P¹(Z/q₀) : q₀ | Q_{w₁}(c₀,d₀), q₀ | Q_{z₂}(c₀,d₀)} (verified: 128 tests, 0
+failures), and summing n_a over the SL₂(Z)-orbits of pairs with invariant N is exactly P_u(N) of Lemma A″ steps (2)–(3). So "Lemma A″ at q₀ = 1 together with the level sum" is a
+theorem, not a hope: the a-part is Lemma A″ and the q₀-part is S6′(1).
+
+### S6′ (the level-summed off-diagonal, final)
+CLAIM. For a = u² with u squarefree, (u, 2h) = 1, h = O_f(1), levels q₀ = lcm(j, e, m²) as in S1′ with (e m, 2D) = 1, and Z₂ ≥ 1:
+  Σ_{q₀ ≤ EM², (q₀, u) = 1} off(a q₀; Z₂) ≪_{f,ε} H^{ε}(1 + Z₂).
+(For a = p u′² — the case p | (u, D) of O1 — the same proof applies once Lemma A″ is restated at determinant p h; that restatement is not written here, so the claim is scoped to
+a = u² and O1 is carried separately by §33(7) and the O1 section.)
+(1) THE LEVEL SUM. Restrict e, m to (e m, 2D) = 1 already in the decomposition of S1(6) (legitimate, since on (k, 2D) = 1 only such e, m occur); then v_p(q₀) ≤ 1 for every p | 2D.
+For a fixed pair (w₁, z₂) of distinct family points with invariant N, a common projective zero of Q_{w₁}, Q_{z₂} mod p^k forces p^k | Res = u⁴(N² − 4h²) (x³Res, y³Res ∈ (Q_{w₁}, Q_{z₂});
+Hensel gives ≤ 2 zeros mod p^k when p ∤ a h), so, pulling out the O_D(1) primes p | 2D with the trivial factor ≤ max_{p | 2D}(p + 1) = O_D(1) and using (q₀, u) = 1 (which holds because
+q₀ | k | u²ℓ² + h and (u, h) = 1), so that the u⁴ is inert:
+  Σ_{q₀ ≤ EM², (q₀,u)=1} n_{q₀}(w₁, z₂) ≪_D τ₃(N² − 4h²)·τ(q₀-multiplicity),
+where the multiplicity is the number of (j, e, m) with lcm(j, e, m²) = q₀, at most τ(q₀)² = H^{o(1)}. [Measured: Σ_{q₀≤40,(q₀,u)=1} n_{q₀}/τ₃(N²−4h²) ≤ 0.33 over 88 pairs, and no
+violation of "n_{q₀} > 0 ⇒ q₀ | N² − 4h²". Moreover at odd p | D the levels with p² | q₀ are EMPTY, since v_p(u²ℓ² + h) ≤ v_p(D) = 1 (checked for h = 3, 7, 15, 20, ℓ < 4000); at p = 2
+the counts are bounded but nonzero, which is why O2's normalisation is needed.]
+(2) THE PAIR PARAMETRISATION is Lemma A″ (undilation, lift to level one, local counts): pairs at distance ≤ Z₂² are indexed by N = ⟨G₁,G₂⟩ ∈ (2h, M], M := 2h(1 + 2Z₂²), with weight
+(4h/(N + 2h))^{1/2} ≍ h^{1/2}N^{−1/2}, and Σ_{SL₂(Z)-orbits, invariant N} n_a ≤ P₁(N)·2^{ω(u)}g₂(N) with P₁(N) ≪ (hN)^{o(1)}h^{1/2} and g₂(N)² | N² − 4h².
+(3) CONCLUSION, in one line. Since M ≍ h Z₂² ≤ H^{2+o(1)}, the pointwise divisor bound τ₃(N² − 4h²) ≪_ε M^{ε} and Lemma A″ step (4), Σ_{2h<N≤M} N^{−1/2}g₂(N) ≤ 3τ₃(u)M^{1/2}, give
+  Σ_{q₀} off(a q₀; Z₂) ≪_{f,ε} H^{ε}·2^{ω(u)}τ₃(u)·h^{O(1)}M^{1/2} ≪_{f,ε} H^{ε}(1 + Z₂),
+the u-factor being 6^{ω(u)} ≪_ε H^{ε} pointwise, averaged in the application by Σ_{u∼U}6^{ω(u)}/u ≍ (log U)^5 per dyadic block. The h-dependence as proved is h^{3/2+o(1)} (matching
+the measurement of §37), hidden in ≪_f. [DELETED, and not to be reinstated: (a) the Cauchy–Schwarz route in N — Σ_N N^{−1/2}g₂(N)² ≍ u^{1/2}M^{1/2}, which costs u^{1/4} ≤ H^{1/12},
+catastrophic; (b) the Hölder with Nair–Tenenbaum — its exponents were assigned the wrong way round (g₂ must take 1 + ε, using g₂ | u so that g₂^{1+ε} ≤ u^{ε}g₂, and τ₃ the conjugate),
+and even correctly assigned it produces a genuine u^{ε} that averaging does not remove. If a polylog is ever wanted for the class-(b) bookkeeping of §36, the route is divisor
+switching as in Lemma A″ step (4), which needs Nair–Tenenbaum in progressions to moduli d² uniformly — an extra citation burden — and inflates the u-factor to ≈ 12^{ω(u)}–24^{ω(u)};
+note also that the correct log exponent for Σ_{N≤M}τ₃(N² − 4h²)^A is 2(3^A − 1), not 3^A − 1, since N² − 4h² splits (measured: the ratio to M^{1/2}(log M)^4 is bounded and decreasing,
+to (log M)² unbounded), and that N² − 4h² is reducible so Nair–Tenenbaum must be applied to the two linear factors, with discriminant 16h² = O_f(1) — Henriot's uniformity is then
+decoration.] Numerically the truth is better than any of these routes: Σ_N N^{−1/2}τ₃(N²−4h²)g₂(N) ≤ 0.09·τ₃(u)M^{1/2}(log M)^4 in every case tested, decreasing in u.
