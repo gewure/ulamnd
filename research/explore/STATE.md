@@ -494,4 +494,8 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   against a saving 0.1875ζ). Grimmelt–Merikoski's constants traced: δ^{−20}, (log AD)^{O(1)}, and q^{o(1)} = 1 in our use; hence C_GM = 20 in the small-end O6′ (to apply once
   the small-end reading lands). The binding item is Bourgain–Garaev's Hölder constant as k₁ ≍ 2/(9ζ) → ∞: band width 1.15(log log H/log H)^{1/3}, T1 = H(log H)^{0.63+o(1)}
   supported, T2 (Off* = O(H), part I's Hypothesis (E)) blocked solely by a J₆-type input at N ≈ m^{1/4}.
+- 16 Sep: the small-end reading landed (PROOFS §37): S2′ sound; Lemma A″'s kernel weight and step-(4) restriction d ≤ M fixed; S1′, O5, O6′ corrected (δ tied to η′ = 2δ, since
+  C_GM = 20 would otherwise break δ < 2η′; rate 1.172c; δ_S(c) ≈ c/1000). Lemma A″ is u-free only up to 6^{ω(u)}, which averages to (log U)^6/6! — class (b). S1 is now written out;
+  still unwritten: S3/O4, the K₁ lemma at composite levels, the K₂ diagonal over levels, the Cauchy–Schwarz over levels, O1/O2 in full, and C_GM as a citable statement.
+  J₆ numerics (data/j6-energy-b025.txt): at N = m^{1/4} the truth is the diagonal (J₆/N⁴ = 0.21–0.39), so Bourgain–Garaev's N⁴ is a proof artefact; literature search running.
 

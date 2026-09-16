@@ -137,3 +137,22 @@ O6′. (a) 3c(1 − 2θ)/2 = 1.172c at θ = 7/64 (not 1.336c). (b) The parameter
 STILL NOT WRITTEN (the reading's list): S1 itself with the smooth cuts and the symmetrised root sum; S3/O4 (f ∈ C^{10}_δ for the box weights); the K₁ lemma at the levels
 u²lcm(j,e,m²); the K₂ diagonal summed over levels; the Cauchy–Schwarz over levels with the coefficients κ(e)μ(m) and the per-block choice of Z₀, Z₁, Z₂; O1/O2 beyond §29's sketch;
 and C_GM itself (§36 traces C = 20 but that is our trace, not Grimmelt–Merikoski's statement).
+
+## S1 (the reduction), written out — after §33(2) and §37
+Fix u squarefree with u ≤ H^{1/3−c}, Y = H/u, and recall 𝒫_u(Y) = Σ_{k>1 adm}(λ(k)/k)Σ_{x∈R^{(u)}_k}B^{(Y)}_k(⟨x⟩_k), the moduli k admissible (squarefree, split, coprime to 2Du).
+(1) SYMMETRISED FORM. R^{(u)}_k is symmetric and 0 ∉ R^{(u)}_k, so pairing x ↔ k − x,
+    Σ_{x∈R_k}B^{(Y)}_k(⟨x⟩_k) = ½Σ_{ℓ∈Z∖{0},\,k|Q_u(ℓ)}T(ℓ) − ½ϱ(k)∫_ℝT,  T(t) := (Y − |t|)^+,  ∫_ℝT = Y²,  ϱ(k) = |R^{(u)}_k|,
+    an identity (paper III's proof of Proposition pieces; ℓ = 0 is a root only if k | |D|, excluded since k is coprime to 2D). This is GM's "count minus density × mass" shape.
+(2) SMALL MODULI k ≤ Y^{1−δ}. For each pair {x, k−x} the bracket B^{(Y)}_k(m) + B^{(Y)}_k(k−m) lies in [−k/4, k/4] (paper III, loc. cit.), so the contribution is
+    ≪ Σ_{k≤Y^{1−δ}}|λ(k)|ϱ(k) ≪_f Y^{1−δ}(log Y)^{O(1)} by Shiu's theorem. No smoothing is needed here: the cut is free because the identity is exact for each k.
+(3) LARGE MODULI k > Y^{1+η}. Paper III's Lemma tail gives ≪ Y^{1−η}(log Y)^{10}(log log Y)^{26}, uniformly in u ≤ Y³. The cut at Y^{1+η} is sharp there; to hand a SMOOTH weight to
+    Theorem 8.1 we insert a smooth ψ₁ supported on [Y^{1−δ}/2, 2Y^{1+η}], equal to 1 on [Y^{1−δ}, Y^{1+η}], and remove the two transition ranges by partial summation against Lemma tail
+    at the top and by (2) at the bottom, at a cost ≪ Y^{1−δ}(log Y)^{O(1)} + Y^{1−η}(log Y)^{11}.
+(4) THE WINDOW. What remains is Σ_{k}(λμ²(k)/k)ψ₁(k/K), dyadically in K ∈ [Y^{1−δ}, Y^{1+η}], of the symmetrised bracket of (1). Decompose T into smooth dyadic boxes in |ℓ| ∼ L,
+    smoothing the two kinks of T at ℓ = ±Y at scale Δ = Y^{1−η′}: the change is ≪ (Δ/K)·Δ·H^{ε} per box, i.e. ≪ Y^{1+δ−2η′+ε} in total, and the resulting weights satisfy
+    ψ₂^{(J)} ≪ (Y/Δ)^J = Y^{Jη′}, i.e. δ^{−1} ≍ Y^{η′} in GM's C^{10}_δ.
+(5) SMALL BOXES. A box (L, K) has trivial size ≪ (Y/K)·L·H^{ε} (each ℓ ∼ L has ≪ H^{ε} divisors in a dyadic range, and the density term is of the same size), so all boxes with
+    L ≤ Y^{1−3δ} contribute ≪ Y^{1−2δ+ε} together: the kink of T at ℓ = 0 never matters, and only the boxes with Y^{1−3δ} ≤ L ≤ Y need an estimate.
+(6) MODULI WEIGHTS. On the window write λμ²(k)·1_{(k,2D)=1} = Σ_{j|(k,rad 2D)}μ(j)·Σ_{e|k}κ(e)·Σ_{m²|k}μ(m) (in this order — S1′), truncate at e ≤ E, m ≤ M = Y^{η} BEFORE the box
+    decomposition (§33(4)(i)), the tails costing ≪ Y^{1−η+ε} each, and run the rest at the levels q = a·lcm(j, e, m²).
+The output of S1 is: 𝒫_u(Y) = Σ over O(log²H) boxes (L, K) and levels of the GM-shaped discrepancy sums of (1), plus O(Y^{1−min(2δ/3, η, 2η′−δ)+ε}).
