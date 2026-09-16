@@ -1107,3 +1107,14 @@ Theorems M and S are unaffected. TO REQUEUE when the rate limit resets: (1) the 
 So Σ_{z≤Z}τ(|n_z|) ≪ τ(g₀)·Z·log is the right shape, the smaller ratios coming from the ∏_{p|tm}(1 + 1/p)-type factors: the ONLY pointwise loss in Lemma E's divisor step is
 τ(g₀) ≤ τ(t)τ(m), and of these τ(m) is averaged over the moduli in the application. τ(t) (t the Dirichlet denominator) remains the single class-(c) item; it is harmless for
 Theorems M and S and matters only inside the band.
+§34, AUDIT OF GRIMMELT–MERIKOSKI'S OWN CONSTANTS (16 Sep, read from arXiv 2505.00489 by hand; the subagent audit was cut off):
+ • δ^{−O(1)} (Theorems 7.1, 8.1): traced to the kernel derivative bounds (7.1), ∂^{J₀}_c∂^{J₁}_a∂^{J₂}_d k_Y ≤ δ^{−O(J₀+J₁+J₂)}|a|^{−J₀}|c|^{−J₁}|d|^{−J₂}(1+u)^{−1/2}, with J ≥ 10 fixed.
+   So it is an EXPLICIT power δ^{−C} with an absolute (unstated) exponent C ≤ O(J), not an ineffective ε-constant. In our use δ^{−1} = Y^{η′}, so the loss is Y^{Cη′} — a power of H,
+   but one we control by choosing η′ small (class (a) once C is named; this is the C_GM of the small-end draft's O6′).
+ • (AD)^{o(1)} (Theorem 7.1 and the sketch after (2.13)): two sources — the "wiggle room in the left and right K-types up to height (AD)^{o(1)}" (§1.4) and the ℓ₁, ℓ₂-sums against
+   log(1 + AD)(1 + ℓ₁)(1 + ℓ₂)/(1 + (δ₁|ν|)² + (δ₁ℓ_i)²)^{J′}, J′ = J/2 ≥ 5 (Prop. 5.1). Both are log-type: they should reduce to (log AD)^{O(1)} once written out, but the paper states
+   only o(1).
+ • q^{o(1)} (Theorem 8.1): comes from the Rankin–Selberg bound (2.25), Σ_{h≤H, (h,q)=1}|λ_V(h)|² ≤ ((1+|ν_V|)q)^{o(1)}H. In OUR application the Hecke variable is trivial (β supported
+   on h = 1, H = 1), so the Hecke divisor bounds |λ_{c,ν}(h)| ≤ d(h) of (2.24) never enter; what remains is the q^{o(1)} of (2.25) itself, again plausibly (log q)^{O(1)} but not stated.
+ CONCLUSION: for Theorems M and S all of this is harmless (fixed power savings). For the BAND, the audit's open question reduces to: (i) name C in δ^{−C}; (ii) show the two
+ (AD)^{o(1)} sources and the q^{o(1)} of (2.25) are (log)^{O(1)}. None of these is an obstruction in principle; they are write-up work in someone else's paper.
