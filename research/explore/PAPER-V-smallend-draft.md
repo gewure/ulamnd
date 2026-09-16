@@ -156,3 +156,40 @@ Fix u squarefree with u ≤ H^{1/3−c}, Y = H/u, and recall 𝒫_u(Y) = Σ_{k>1
 (6) MODULI WEIGHTS. On the window write λμ²(k)·1_{(k,2D)=1} = Σ_{j|(k,rad 2D)}μ(j)·Σ_{e|k}κ(e)·Σ_{m²|k}μ(m) (in this order — S1′), truncate at e ≤ E, m ≤ M = Y^{η} BEFORE the box
     decomposition (§33(4)(i)), the tails costing ≪ Y^{1−η+ε} each, and run the rest at the levels q = a·lcm(j, e, m²).
 The output of S1 is: 𝒫_u(Y) = Σ over O(log²H) boxes (L, K) and levels of the GM-shaped discrepancy sums of (1), plus O(Y^{1−min(2δ/3, η, 2η′−δ)+ε}).
+
+## S3, S4, S5, O4 written out — after §37
+Throughout: a = u² (or pu′², O1), h = |D| (or |D|/p), q₀ = lcm(j, e, m²) with j | rad 2D, e ≤ E, m ≤ M = Y^{η}, and the level is q = a q₀. Box (L, K) as in S1(4)–(5),
+X := L, R := L/K ∈ [Y^{−η}, Y^{3δ}], skew X/Y ≍ L u |D|^{−1/2} (GM §5).
+
+### O4 (the hypotheses of Theorem 8.1 for the box weights)
+The weight of a box is F(g) = f(x, y) with x = ℓ/k, y = √h/(u k) in Iwasawa coordinates, f(x, y) = ψ₂(ℓ/L)ψ̃₁(k/K)/K, ψ₂ the smoothed dyadic piece of the tent and ψ̃₁(t) = ψ₁(t)/t.
+Then f is supported on |x| ≍ L/K, y ≍ √h/(uK), and ∂^{J₁}_x∂^{J₂}_y f ≪ (δ^{-1})^{J₁+J₂}(L/K)^{−J₁}(√h/(uK))^{−J₂} with δ^{−1} ≍ Y^{η′}, because the only non-dyadic scale in ψ₂ is the
+kink smoothing at Δ = Y^{1−η′} (S1(4)). To meet Definition 2 of arXiv 2505.00489 (dyadic support in x as well) split the x-range, of ratio ≤ 4, into O(1) smooth pieces with the same
+δ. The remaining hypotheses: X/Y = Lu|D|^{−1/2} > δ holds for L ≥ Y^{1−3δ}, u ≥ 1; J = 10 derivatives suffice; q^{o(1)} = (u²q₀)^{o(1)} = H^{o(1)}; the Hecke variable is trivial
+(β supported on h = 1), so Rankin–Selberg (2.25) is not invoked (§36). The only δ-loss is the prefactor δ^{−C} = Y^{Cη′} with C = 20 by the trace of §36.
+
+### S4 (the K₁ lemma at the levels q = a q₀)
+LEMMA (= arXiv 2505.00489 §1.2 Example, restated at our levels). For q ≥ 1, Z ≥ 1 and 0 < R ≤ H^{O(1)},
+  K₁(q; Z, R) := Σ_{γ∈Γ₀(q)} k_{Z²,R}(γ) ≪ H^{o(1)}(1 + R + 1/(qR) + Z/q),
+with k_{Z²,R}(g) ≤ 1{u_R(g) ≤ Z²}(1 + u_R(g))^{−1/2}, u_R = (a² + (b/R)² + (cR)² + d² − 2)/4. (Cases c = 0, b = 0, bc ≠ 0; PROOFS §22 (G1), numerics data/k1-lattice.txt, confirmed
+by the reading of §25.) Summed over the levels of a block, with q = u²q₀ and R = L/K ∈ [Y^{−η}, Y^{3δ}]:
+  Σ_{j,e≤E,m≤M} K₁(u²lcm(j,e,m²); Z₁, R) ≪_D H^{o(1)}Y^{3δ+η}(EM + Z₁/u²),
+since Σ_{e≤E,m≤M}1 = EM, Σ 1/(u²lcm(j,e,m²)R) ≪ Y^{3δ}/u² and Σ Z₁/(u²lcm) ≪ Z₁ log/u². No complementary-divisor reduction is needed (§33(9)).
+
+### S5 (the K₂ diagonal summed over the levels)
+The functional is α_q(g) = 1{c(g) ≡ 0 mod q}·1{b(g) ≡ 0 mod a} on the Heegner set Λ_{ah} (GM Lemma 3.1). Its diagonal is the number of Γ₀(q)-orbits of the family, weighted by
+1/|Γ_g| ≤ 1:
+  diag(q) = c_d(u)·ρ*(q₀),  c_d(u) = ∏_{p^k∥u}p^{k−1}(p − χ_{−h}(p)) ≍ u  (PROOFS §21, §25; exact),  ρ*(q₀) = #{projective zeros of Q_z mod q₀} ≤ 2^{ω(q₀)}∏_{p|(q₀,2D)}(p+1) ≪_D 2^{ω(q₀)},
+valid when gcd(a, q₀) = 1 (the case p | (u, D) is the open item O1 of REVISION 2). Hence Σ_{j,e≤E,m≤M} diag ≪_D H^{o(1)}·u·EM. [Numerics: c_d(u, e) = c_d(u,1)ρ(e) for squarefree e,
+data/gm-orbit-count-h1.txt; the p² | q₀ case is not yet checked numerically — O5(c).]
+
+### S3 (Theorem 8.1 per block, and the Cauchy–Schwarz over the levels)
+For a box (L, K) and a block (E, M) of levels, apply Theorem 8.1 to each level with the SAME Z₀, Z₁, Z₂ (Z₀Z₁Z₂ ≥ Lu|D|^{−1/2} + 1), pull the coefficients out by |κ(e)μ(m)| ≪ H^{o(1)}/E
+(κ(e) ≍ e^{−1+o(1)}; no ℓ²-gain is claimed from them), and apply Cauchy–Schwarz over the levels:
+  Σ_{levels} |⟨I|Δ_q F|α_q⟩| ≪ H^{o(1)}Y^{Cη′}(Lu)^{1/2}Z₀^{θ}(Σ_{levels}K₁)^{1/2}(Σ_{levels}K₂)^{1/2},
+with Σ K₁ from S4, Σ K₂ ≪ H^{o(1)}(uEM + Z₂) from S5 and Lemma A″ (the off-diagonal, u-free after summing over levels: §16 FOLLOW-UP). Choosing Z₁ = u²EM, Z₂ = uEM and
+Z₀ = Lu/(Z₁Z₂) — admissible since Z₀ ≥ 1 for u ≤ L^{1/2} — gives the per-block bound (X = L)
+  ≪ H^{o(1)}Y^{Cη′+3δ+η}·(X/(EM))·(u²E²M²/X)^{1/2−θ},
+i.e. the block's own trivial size X/(EM) times (u²E²M²/X)^{1/2−θ} (KNOWLEDGE F48: each block is compared with its own trivial size; the level count is EM and the level size u²EM²,
+so the M-dependence is the one recorded in O6′(c)). Summing over the O(log²H) boxes and blocks and over u ≤ H^{1/3−c} as in S8 gives Theorem S with
+δ_S(c) = min(2δ/3, η, 2η′ − δ, 1.172c − Cη′ − 2η − O(δ)) and the parameters of O6′(b).
