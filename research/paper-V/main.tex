@@ -153,9 +153,15 @@ The constant of Conjecture~1 of part~I requires $\Off^\ast_f(H)=c_{\mathrm{off}}
 fixed positive power saving at $\alpha=1/3$ itself suffices. A linearly vanishing saving, however small the rate, gives $O(H)$ but never $o(H)$.
 \end{remark}
 
-\todo{Also to record here: the two candidate inputs for the point itself --- an energy bound $J_6$ at $N\asymp m^{1/4}$ for composite moduli, and a level-averaged spectral bound
-for the twist $\mathrm{e}(c\,r\bar d/x)$ with $x\asymp Y^{1/2}$ (a Deshouillers--Iwaniec-type large sieve at the cusp $0$), neither of which is in the literature; and the audit of
-the implied constants on which the second remark depends (research/explore/PROOFS-uniform.md §31--§34).}
+\begin{remark}[what is actually binding]
+An audit of every implied constant in the chain (research/explore/PROOFS-uniform.md §36) shows that no divisor-size loss constrains the argument: the divisor factors all occur
+under sums and average to powers of $\log H$, the kernel theorem's $\delta^{-O(1)}$ is $\delta^{-20}$, its $(AD)^{o(1)}$ is $(\log AD)^{O(1)}$, and its $q^{o(1)}$ is $1$ in the
+present application. What binds is the constant in Bourgain and Garaev's H\"older step, which grows as $k_1\asymp 2/(9|\alpha-1/3|)\to\infty$: the band on which the estimate is
+effective has width $\asymp(\log\log H/\log H)^{1/3}$. With the in-band fallback on part~III's Theorem~E this gives, once the map is written out,
+$\Off^\ast_f(H)\ll H(\log H)^{0.63+o(1)}$ for $D<0$, while everything outside the band sums to $O(H)$. The step from there to $\Off^\ast_f(H)=O(H)$ therefore needs one thing only:
+an estimate that survives at the exceptional sizes $N\asymp m^{1/4}$ --- an energy bound $J_6$ below $N^4$ for composite moduli, or a different tool there. A level-averaged
+spectral bound for the twist $\mathrm{e}(cr\bar d/x)$ with $x\asymp Y^{1/2}$ would serve the same purpose; neither is in the literature.
+\end{remark}
 
 \bibliographystyle{plain}\bibliography{refs}
 \end{document}

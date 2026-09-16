@@ -680,7 +680,9 @@ By CRT, P¹(Z/u²e) = P¹(Z/u²) × P¹(Z/e) and α(τ.g) factors as [conditions
 For g₁ ≠ g₂ of the same determinant ah, the definite forms Q_{g₁}, Q_{g₂} have no common complex root (a common root forces the conjugate root too,
 hence proportionality, hence equality at equal determinant), so Res(Q_{g₁}, Q_{g₂}) ≠ 0, |Res| ≤ H^{O(1)}. For p ∤ ah neither form vanishes mod p
 (content p would give p² | ah), so each has ≤ 2 projective roots mod p, and a common root mod p forces p | Res. Hence for every pair
-Σ_{e≤E, (e,2uh)=1} ∏_{p|e} |R_p(g₁) ∩ R_p(g₂)| ≤ Σ_{e | Res} 2^{ω(e)} ≤ τ₃(Res) ≪ H^{o(1)}, uniformly in E, while the diagonal sums to ≍ uE.
+Σ_{e≤E, (e,2uh)=1} ∏_{p|e} |R_p(g₁) ∩ R_p(g₂)| ≤ Σ_{e | Res} 2^{ω(e)} ≤ τ₃(N² − 4h²) ≪ H^{o(1)}, uniformly in E, while the diagonal sums to ≍ uE.
+[§36: the factor u⁴ in Res = u⁴(N² − 4h²) is inert because (e, 2uh) = 1, so there is NO pointwise u-dependence; and this τ₃ sits under Σ_N N^{−1/2}, where
+Σ_{2h<N≤M} N^{−1/2}τ₃(N² − 4h²) ≪ M^{1/2}(log M)^4 — class (b), polylog.]
 So Σ_{e≤E} off(u, e; Z₂) ≪ H^{o(1)} off(u, 1; Z₂), and (a′) is equivalent to the SINGLE-LEVEL statement
     (a″)  off(u, 1; Z₂) ≪ H^{o(1)}(1 + Z₂)   uniformly in u   [pairs of family points at level u² at distance ≤ Z₂², counted modulo Γ₀(u²)].
 Numerics (gm-kernel-levels.ts, data/gm-kernel-levels-T16.txt, h = 1, T = 16, integer distance test): E = 1, 10, 30, 60 —
@@ -911,8 +913,10 @@ GAP (new, §18.2 vs §16 R6): the blocks must be (E, M) with level q = u²·lcm(
  for non-squarefree levels (extends), diagonal ≍ u·ρ(lcm). η must be below the saving.
 (G2), odd p ∤ h: CORRECT — torus, coset bijection, adjugate argument, zero count ≤ 2p^{⌊v/2⌋} for all k and non-primitive forms (exhaustive mod 9, 25, 27, 49, 81, 121, 125;
  bound attained), diagonal exactly p^{k−1}(p − χ_{−h}(p)); ≈ 23,000 integer pairs, coset brute force = adjugate formula. The final sum's write-up was sloppy; correct
- route: Σ_N N^{−1/2}g(N) ≤ Σ_{d|u^∞, d≤M} d Σ_{d²|N²−4h²} N^{−1/2} ≪ Σ_{d≤M, d|u^∞} 2^{ω(d)}(d^{1/2} + M^{1/2}/d), with Rankin at σ = (log log H)^{−1/2}:
- #{d ≤ M : d | u^∞} ≤ H^{o(1)} honestly (a fixed-σ count would give H^1 when ω(u) ≍ log H/log log H); numerics sum/√M ≤ 10.5. Open: p = 2, p | (u, h).
+ route: Σ_N N^{−1/2}g(N) ≤ Σ_{d|u^∞, d≤M} d Σ_{d²|N²−4h²} N^{−1/2} ≪ Σ_{d≤M, d|u^∞} 2^{ω(d)}(d^{1/2} + M^{1/2}/d), [§36: THE RANKIN STEP IS NOT NEEDED. It arises only in the non-squarefree-u branch (G2), which §29 deletes: w is supported on squarefree u, and then §21 R5's fix gives
+ ∏c_p ≤ 2^{ω(u)}g₂(N) with g₂ | u squarefree, so Σ_N N^{−1/2}g₂(N) ≤ 3τ₃(u)M^{1/2} with τ₃(u) = 3^{ω(u)} averaged by Σ_{u∼U}3^{ω(u)}/u ≍ (log U)³/6 — class (b).
+ WARNING: never re-enter the d | u^∞ branch — even averaged over u its factor is exp(Θ(√(log M/log log M))), not polylog (measured 85–467 for M = 10⁴…4·10⁶).]
+ Open: p = 2, p | (u, h).
 No hidden obstruction: Cauchy over levels with |κ(e)| ≈ 1/E is right; θ ≤ 7/64 uniform on Γ₀(u²e); §17 bounds ⟨α|Kk|α⟩ ≥ ⟨α|Δk|α⟩ (the subtracted term is ≥ 0);
  moduli k | u²ℓ² + h are coprime to u. The main-term matching (§18.5) is still open.
 SMALL-END STATUS (D < 0): u < H^{1/3−ε} for every θ < 1/2, modulo §18's conversion (incl. the (E, M) blocks with M = Y^η and the main-term matching), p = 2, p | (u, D).
@@ -1130,3 +1134,24 @@ end to end, including the N > m/g branch and Step 1's constants; R1(e)'s summed 
 the covering; k = 0 cancellation; (k,d) ≤ K₁ < d; R3's e-dichotomy.
 STATUS OF THEOREM M: three independent readings (§28, §30, §35), the last confirming that the merged text is correct after these bookkeeping fixes. Binding constraint Step 3,
 δ_M < 4η/7 = 5.7·10^{−5}. No human check. Ready to be written into paper V once the small-end reading and the o(1) audit are in.
+
+## 36. THE o(1) AUDIT, completed (16 Sep; fresh model instance; scripts reader-audit/avg3.py, res_avg.py, tdist2.py, rankin.py, band.py) — CORRECTIONS ADOPTED
+RESULT: no divisor-size loss survives as a constraint; §34's dichotomy is a FALSE dichotomy, because the binding loss is not of divisor type at all.
+ • τ₃(Res) (§16 FOLLOW-UP): the u⁴ is inert ((e, 2uh) = 1), so it is τ₃(N² − 4h²), and it sits under Σ_N N^{−1/2}: Σ_{2h<N≤M}N^{−1/2}τ₃(N²−4h²) ≪ M^{1/2}(log M)^4 (exponent
+   4 = 2(3−1), Nair–Tenenbaum/Henriot; measured S/√M/(log M)^4 = 0.30, 0.56, 0.59 at M = 10³…10⁵). With §17 Step 2's P₁(N) folded in the exponent is ≤ 10 (measured ≈ 5.3). Class (b).
+ • §25's Rankin factor: NOT NEEDED — it belongs to the non-squarefree-u branch that §29 deletes (w lives on squarefree u); what remains is τ₃(u) = 3^{ω(u)} under Σ_u w(u)(H/u),
+   averaging to (log U)³/6. Class (b). (Had it been needed: even the u-average is exp(Θ(√(log M/log log M))), not polylog — do not re-enter that branch.)
+ • Lemma E's τ(t) (Dirichlet denominator): genuinely class (c) and NOT removable — Cilleruelo–Garaev's divisor-free branch (their Lemma 1) applies only when M < p^{1/4}/4;
+   every admissible t is a multiple of the convergent denominator q_j, so min τ(t) ≥ τ(q_j); and the λ-average cannot be used because Step 2 needs max_λ J₂(λ) (both Cauchy–Schwarz
+   and level-set splitting lose). BUT IT IS HARMLESS: Λ = τ(g₀) enters |Σ| as Λ^{1/(k₁k₂)}, and with the band-optimal k₁ ≍ 2/(9ζ), k₂ = 2 the loss exponent is Λ^{9ζ/4} ≤
+   0.52ζ/log log H against the saving 0.1875ζ — the same linear rate in ζ, smaller by log log H (measured ratio 0.79, 0.48, 0.22, 0.14 at log H = 10², 10³, 10⁶, 10⁹).
+ • Grimmelt–Merikoski's constants, traced through §7 of arXiv 2505.00489: δ^{−C} with C = 20 (δ₁ = δ², then δ₁^{−2} from the ℓ₂-sum and δ₁^{−8} from the dyadic (L,T) sum; C does
+   not improve with larger J; safe value C ≤ 24); their (AD)^{o(1)} is (log AD)^{O(1)} provided Prop 6.2's c₀(η) ≍ η^{−10} (the printed inequality reads correctly only as
+   ηc₀^{1/10} ≫ 1 — an apparent typo); their q^{o(1)} is 1 in our use (β on h = 1, H = 1, so Rankin–Selberg (2.25) is never invoked). Our parameter inequality becomes
+   20η′ + 2η + O(δ) < 3c(1−2θ)/2 (small end), i.e. C_GM = 20 in the draft's O6′.
+CONSEQUENCE FOR THE BAND: the binding item is Bourgain–Garaev's Hölder constant with k₁ ≍ 2/(9ζ) → ∞, giving f(H) = 1.15(log log H/log H)^{1/3} — wider than the polylog branch,
+narrower than the divisor branch. With §32 F2's in-band fallback on Theorem E, the band costs ≍ H(log H)^{0.63}(log log H)^{4/3} and everything outside sums to O(H). So:
+ T1 STANDS and is now supported: Off*_f(H) ≪ H(log H)^{0.63+o(1)} for D < 0, conditional only on the map being written out (Theorems M, S and the middle).
+ T2 (Off* = O(H) = paper I's Hypothesis (E)) is blocked SOLELY by the Bourgain–Garaev k → ∞ constant — i.e. by the J₆-type input at N ≈ m^{1/4}, or a different tool at the
+ exceptional sizes — not by any divisor bookkeeping.
+TO APPLY after the small-end reading lands: C_GM = 20 in PAPER-V-smallend-draft.md O6′.
