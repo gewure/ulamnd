@@ -483,4 +483,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - 16 Sep: Theorem M merged text (PAPER-V-thmM.md) after two readings; confirming read running. Theorem S outline read (PROOFS §33): main-term matching now written as S2′ (GM's
   two-scale difference), admissibility as S1′, Lemma A″ and O5 written out. The decisive open task is the o(1) audit (PROOFS §32 F10): whether every H^{o(1)} in the chain is
   polylog decides between Off* = O(H) (paper I's Hypothesis (E)) and something weaker than Theorem E. Audit running.
+- 16 Sep: three readings (o(1) audit, merged Theorem M, small-end pieces) were killed by a session rate limit; requeue after reset. Hand audit (PROOFS §34): the o(1)'s matter only
+  for the band, not for Theorems M/S; corrected dichotomy — polylog losses ⇒ Off* = O(H); divisor-size losses ⇒ fall back on Theorem E (no loss, no gain). One genuinely pointwise
+  item found: τ(t) in Lemma E's Dirichlet denominator.
 

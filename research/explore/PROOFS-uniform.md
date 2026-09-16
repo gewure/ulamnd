@@ -1081,3 +1081,24 @@ VERDICT: "sound with fixes" — the architecture is coherent and the exponent co
 STILL MISSING for Theorem S: (a) written proofs of (a″) (§17 with §21's Step-4 fix) and of O5 (non-squarefree levels; with the p | h exception of (3)); (b) the two-scale main-term
 matching of (1); (c) the admissibility Möbius with p | h local counts; (d) an explicit exponent for GM's δ^{−O(1)}, then the parameter inequalities δ < η, δ < 2η′,
 C_GM η′ + 2η + O(δ) < 3c(1−2θ)/2; (e) the bookkeeping fixes of (4). Scope: D < 0, u squarefree, δ(c) non-uniform as c → 0.
+
+## 34. The o(1) audit, first pass done by hand (16 Sep; the three subagent readings were cut off by a session rate limit and must be requeued) — NOT READ
+WHERE THE AUDIT MATTERS. Theorem M (saving H^{−5·10^{−5}}, fixed) and Theorem S (saving H^{−δ_S(c)}, fixed for each c) are UNAFFECTED by divisor-size losses: any H^{o(1)} is ≪ H^{δ/2}
+for H large. The audit matters only for the BAND analysis of §31/§32, where the saving itself tends to 0.
+CORRECTED DICHOTOMY (fixing §32 F10's phrasing). Inside the band one may always fall back on Theorem E's per-piece bound (§32 F2). So, with f(H) the width where the band's methods
+are effective:
+ • all losses (log H)^{O(1)} ⇒ f(H) ≍ log log H/log H ⇒ band cost ≍ H(log log H)²(log H)^{−c} = o(H) ⇒ TOTAL O(H) (paper I's Hypothesis (E));
+ • some loss of divisor size exp(C log H/log log H) ⇒ f(H) ≍ 1/log log H ⇒ band cost ≍ (1/log log H)·H(log H)^{1−c}log log H = H(log H)^{1−c} — i.e. EXACTLY Theorem E again:
+   no improvement, but nothing is lost. (§32's "worse than Theorem E" was wrong: the fallback is always available.)
+FIRST-PASS CLASSIFICATION (mine; to be checked when the readings resume):
+ (b) averaged, hence polylog: τ(q) in Lemma K, ω(d), τ(d), (k,d)^{1/2}, 2^{ω(d)} and the root sums in R2–R4 — all appear under Σ_d with the weights |β(d)| (or under Σ_{d≤t} with Shiu),
+     where Σ_{d ≤ Z}τ(d)^{C}|β(d)| ≪ (log H)^{O_C(1)}; |γ(n)| ≤ 20^{ω(n)} under Σ_n |γ(n)|n^{−1/2−ε} < ∞; Henriot/Nair–Tenenbaum in Lemma tail (already (log Y)^{10}(log log Y)^{26}).
+ (c) candidates, pointwise: (i) Lemma E Step 1's divisor count per z. Summing over z first improves it: n_z = (tb₀ + u₀²) + (tm)z runs over an arithmetic progression, so
+     Σ_{z≤Z}τ(|n_z|) ≪ τ(g₀)·Z·log m with g₀ = gcd(tb₀ + u₀², tm) (Shiu in progressions) — the loss is τ(g₀) ≤ τ(t)τ(m). Here τ(m) is averaged over the moduli in the application
+     (class (b)), but τ(t), t the Dirichlet denominator ≤ (m/M)^{1/2}, is not controlled — this is the one genuinely pointwise item I found, exactly as the audit agent's note said.
+     (ii) §16's τ₃(Res) (per pair of family points) and (iii) §25's Rankin factor #{d ≤ M : d | u^∞} (per u). Both are pointwise in the band analysis.
+ UNKNOWN (needs the sources): GM Theorem 8.1's q^{o(1)} and δ^{−O(1)} (their Prop 6.1/6.2, Lemma 4.3 and Rankin–Selberg (2.25)); Bourgain–Garaev's (log N)^{4k²} (explicit, polylog for
+ bounded k, but k → ∞ in the band); paper III's Prop KSw constants.
+CONSEQUENCE FOR THE PROGRAMME: T2 (Off* = O(H)) requires removing or averaging the three (c) items near the band; T1 as stated in §32 should be replaced by the dichotomy above.
+Theorems M and S are unaffected. TO REQUEUE when the rate limit resets: (1) the audit (GM's exponents; the τ(t) item; the Rankin step), (2) the confirming read of PAPER-V-thmM.md,
+(3) the reading of the small-end pieces (S1′, S2′, Lemma A″, O5, O6′).
