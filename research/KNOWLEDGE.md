@@ -569,6 +569,16 @@ discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suff
 sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
 contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
 
+F50. "Steps (1), (2) and (4) are Lemma A″'s verbatim" (PAPER-V-O1-lemmaA3.md, Lemma A‴, 16 Sep).
+The sentence was TRUE, and that was the fault. Lemma A″'s BODY in the working file predates its own REVISION 2/3, so copying it verbatim into the
+generalisation re-imported two errors the project had already found and fixed there: a wrong kernel weight ((N/2h₀ − 1)^{−1/2}/√2 in place of
+(4h₀/(N + 2h₀))^{1/2}) and a missing restriction d ≤ M, without which step (4) is unbounded against τ₃(u′)M^{1/2} (measured ratios 4.01, 12.24, 39.58,
+46.09). Neither changed the stated bound, because the generalisation's h₀ = O_D(1) absorbed both — which is precisely why they survived my own check:
+the absorption hid them. Found by a reading (PROOFS §46); the numerics I had run tested the NEW step and never touched the imported ones.
+Rule: a working file's body is not its current state — its corrections live in REVISION blocks appended below it. Never copy a step "verbatim" from
+such a document; restate it from the revised text or re-derive it. And when a generalisation absorbs a discrepancy, that absorption conceals imported
+errors rather than excusing them: test the imported steps too, not only the new one.
+
 F49. "A band where no method works costs δ·H log H, so it would be worse than Theorem E" (PROOFS-uniform §32 F10 phrasing, 16 Sep).
 Inside such a band the already-proved per-piece bound (paper III Theorem E: 𝒫_u(H/u) ≪ (H/u)(log H)^{−c}log log H, uniform in u ≤ H^{1−ε}) still applies, so the band costs
 δ·H(log H)^{1−c}log log H: a method that degenerates can never make the total worse than what is already proved. Found by a reading of §31 and confirmed in §34.
@@ -974,6 +984,8 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
 - Any partial-sum asymptotic with O(1): difference it first (F26). Any "same proof" generalisation: recompute every
   pole order and multiplicity the special case fixed by accident (F27). Any rewrite of an arithmetic sum as an orbit
   sum: list every condition on the summation variables and check its invariance under the group (F28).
+- Any step imported "verbatim" from another document: read that document's REVISION/errata blocks first, and re-derive rather than copy whenever
+  a generalisation would absorb the difference — absorption hides imported errors (F50).
 - Files: research/paper-I/STATUS.md, research/ERRATA.md (project-wide, incl. the external assessment items 11–15),
   research/reviews/ (external assessments, archived with the revision assessed), research/paper-II/ROADMAP.md (plan,
   historical), LITERATURE*.md (surveys).
