@@ -502,4 +502,10 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   per block, K₁ at the composite levels, the K₂ diagonal over levels, the smoothness hypotheses), O1/O2, O5, O6′. One inherited open item: gcd(a, q₀) > 1 when p | (u, D), with a
   proposed way out (absorb p into a). Two readings launched: a full reading of Theorem S, and an independent derivation of C_GM (the exponent in Grimmelt–Merikoski's δ^{−O(1)},
   traced to 20 in §36), which decides the parameter admissibility δ < 2η′.
+- 16 Sep: literature round 8 on the J₆ obstruction (PROOFS §38). NEGATIVE: no bound below N⁴ at N ≈ m^{1/4} exists for any modulus; the barrier is named in print (Bourgain–Garaev's
+  Corollary 1 excises exactly the lengths m^{1/(2j)}), the prime case has a hard lattice-dimension ceiling at p^{1/6}, and the archimedean truth is a theorem (Konyagin–Korolev).
+  POSITIVE LEAD: a PAIRED system (both the reciprocals and the arguments congruent) is reported to satisfy Jp ≪ Y²q^{o(1)} for any composite q and any Y ≤ q, with no threshold.
+  Our own numerics (data/paired-energy.txt) confirm it is essentially trivial — Jp/Y² = 1.93–2.04 at both m^{1/4} and m^{1/2}, every modulus type. If our residual sum can be
+  rearranged so the paired system appears in place of J₆, the band at u ≈ H^{1/3} closes and §36's T2 (Off* = O(H), part I's Hypothesis (E)) becomes a theorem. Source verification
+  of Korolev's exact statement, and of whether such a substitution is known, is running.
 
