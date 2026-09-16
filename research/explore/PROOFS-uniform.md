@@ -1118,3 +1118,15 @@ Theorems M and S and matters only inside the band.
    on h = 1, H = 1), so the Hecke divisor bounds |λ_{c,ν}(h)| ≤ d(h) of (2.24) never enter; what remains is the q^{o(1)} of (2.25) itself, again plausibly (log q)^{O(1)} but not stated.
  CONCLUSION: for Theorems M and S all of this is harmless (fixed power savings). For the BAND, the audit's open question reduces to: (i) name C in δ^{−C}; (ii) show the two
  (AD)^{o(1)} sources and the q^{o(1)} of (2.25) are (log)^{O(1)}. None of these is an obstruction in principle; they are write-up work in someone else's paper.
+
+## 35. CONFIRMING READING of the merged Theorem M text (16 Sep; fresh model instance; script reader-merge/chk.py)
+VERDICT: "needs the listed fixes — no gap, no false statement". All §28/§30 fixes are present and no superseded statement remains (greps for 1/40, [0.47,0.53], b_k·H^{3η}, δ₃/3,
+ε′ = η/6, 0.205 return nothing). Eight bookkeeping items + one proof-detail item, all applied as PAPER-V-thmM.md REVISION 2: R2's numeric (1.79δ, not 1.19δ, after splitting the T₀²
+branches), a stale bracket, an intermediate typo, R3's Y^{δ/2} placement (1.45δ vs 1.36δ), R4's exponent ratio on the merged range (0.3462, margin 0.013), the header δ_M < 4η/7,
+R5's margin 0.183, and R1(e)'s integration-by-parts justification in the ramp-dominated regime (use that the ramp's derivatives live on measure ≪ H^{−κ}).
+VERIFIED BY THE READER, no action: Lemma K's hypotheses suffice (and are what R2/R3 use; the lemma is in fact stronger — T suffices where T² is claimed); Lemma E Step 2 (non-unit λ)
+end to end, including the N > m/g branch and Step 1's constants; R1(e)'s summed bound ≪ Y(log H)³ (Shiu with the inert primes, as in paper III after (eq:MH)); the glue to paper III
+(thm:typeII at ε = 0.03 covers u > H^{0.53} including u > H, with δ = 2.7·10^{−3} ≫ δ_M; complementary sharp cut-offs; the ramp overhang is inside the trivial transition zone);
+the covering; k = 0 cancellation; (k,d) ≤ K₁ < d; R3's e-dichotomy.
+STATUS OF THEOREM M: three independent readings (§28, §30, §35), the last confirming that the merged text is correct after these bookkeeping fixes. Binding constraint Step 3,
+δ_M < 4η/7 = 5.7·10^{−5}. No human check. Ready to be written into paper V once the small-end reading and the o(1) audit are in.

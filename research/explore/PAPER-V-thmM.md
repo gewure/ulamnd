@@ -81,3 +81,19 @@ log N_i/log m ≥ 0.38 > 1/3 and 2N_i ≤ m, so Corollary B′ gives ≪ m^ε(N�
 ## Conclusion
 Per block the errors are: R1(b) H^{1−4η/7}; R1(d) H^{1−η}; R1(c) UY^{1−δ} ≤ H^{1−0.46δ}; mean terms UY^δ; n₃-tail H^{1−δ₃/2+ε}; ramp H^{1−κ}(log H)^C; R2 ≤ UY·H^{−1.19δ};
 R3 ≤ UY·H^{−1.43δ}; R4 ≤ UY·H^{−0.028}. With O(log H) blocks, the total is ≪ H^{1−4η/7}log H ≪ H^{1−δ_M} for every δ_M < 4η/7 (in particular δ_M = η/2 = 5·10^{−5}). □
+
+## REVISION 2 (16 Sep, after the confirming reading — PROOFS §35). These SUPERSEDE the corresponding lines above.
+(1) R2, numeric. Split the two branches of T₀² ≪ 1 + (kY/d)² + H^{2κ}: the contribution is ≪ UY(H^{−3δ+4η+1.5(1−a)δ} + H^{−3δ+η/2+2κ}), whose minimum over a ∈ [0.46, 0.54] is
+    H^{−1.79δ} (branch 2 gives 1.95δ). The earlier "≥ H^{−δ}" and the conclusion's "R2 ≤ UY·H^{−1.19δ}" were the same expression with the 4η term dropped: read R2 ≤ UY·H^{−1.79δ}.
+(2) Delete the bracket "[Second reading: ≥ 1.45δ with J = 2 ramp cost]" in R2 — 1.45δ is R3's refinement, not R2's.
+(3) R2, intermediate line: Y^{3δ/2+2κ} should be Y^{3δ/2}·H^{2κ} (the ramp cost is H^{2κ}); the final exponent already has +2κ.
+(4) R3: the Y^{δ/2} loss attaches ONLY to the term U₁U₂²Y^{−1/2} (the negligible one, carrying Y^{−1/4}), not globally. With it inside the bracket the saving is 3δ/2 − η/2 = 1.45δ;
+    if kept global, state R3 ≤ UY·H^{−1.36δ}.
+(5) R4: on the merged range a ∈ [0.46, 0.54] the exponent ratio is min_a (a − (1−a)/2 − 3δ)/((1−a) + η) = 0.3462 at a = 0.46 (0.3811 at 0.47) — still > 1/3, but the margin is 0.013,
+    not 0.047; and min_a a/16 = 0.02875, so H^{−0.028} leaves only 7.5·10^{−4} for the O(ε + δ₃).
+(6) The header should read δ_M < 4η/7 (= η − 3ε′ with ε′ = η/7), matching the conclusion; "δ_M < η/2" is weaker but consistent.
+(7) R5: the covering margin is 0.183 after subtracting 6δ + δ₃ (0.19 is the bare exponent of U/Y^{1/2} at a = 0.46).
+(8) R1(e), proof detail: "J + 2 integrations by parts beyond T₀" is not enough in the ramp-dominated regime kY/d < H^{κ}; use that the ramp ψ's derivatives live on a set of
+    x-measure ≪ H^{−κ}, so ∫|∂ₓⁿF| ≪ sup|F|·H^{(n−1)κ} and the moment is T₀^J as stated (in the oscillatory regime kY/d ≥ 1 the extra T₀ is absorbed by sup|F| ≍ b_k).
+(9) Lemma K is in fact stronger than stated: Poisson gives Σ_h|Ŵ(h/q)| ≪ X + Tq, hence ≪ τ(q)(X/q + T)q^{1/2}(a,q)^{1/2} — T suffices where T² is claimed.
+With these, the binding constraint is Step 3 at 4η/7 = 5.714·10^{−5}; every other saving is ≥ 4.6·10^{−4}.
