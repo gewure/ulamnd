@@ -143,21 +143,60 @@ $\sum_{u>H^{0.47}}w(u)\mathcal P_u(H/u)=c_{\mathrm{off}}(f)H+O(H^{1-\delta_M})$.
 \todo{Full proof in research/explore/PAPER-V-thmM.md (with REVISION 1 and REVISION 2 merged); three independent readings, recorded in PROOFS-uniform.md §28, §30, §35, the last
 confirming the merged text. What follows is the skeleton to be expanded into the paper text.}
 
-\paragraph{Structure of the proof.} Fix a smooth dyadic partition of the range of $u$, with ramps of relative width $H^{-\kappa}$ at the two ends; the transition zones are
-$\ll H^{1-\kappa}(\log H)^C$ by the trivial bound $\mathcal P_u(Y)\ll Y$. For one block $U\in[H^{0.47}/4,2H^{0.53}]$, $Y=H/U$, $a=\log U/\log H\in[0.46,0.54]$:
+\paragraph{Notation for the proof.} Put $\delta=10^{-3}$, $\eta=\delta/10$, $\delta_3=\delta$, $\varepsilon'=\eta/7$, $\kappa=\delta/2$ and $K_1=H^{2\eta}$; all implied constants
+depend on $f$ and on these parameters. For an admissible modulus $d'$ and a unit $a$ let $G_{d'}(a,Y)=\sum_{r\in R_{d'}}B^{(Y)}_{d'}(\langle ar\rangle_{d'})$, let $\bar G_{d'}(Y)$ be
+its mean over the units and $G^\circ=G-\bar G$; let $\rho_k(d';a)=\sum_{r\in R_{d'}}\e(kar/d')$, $\epsilon_{d'}(k)=c_{d'}(k)/\varphi(d')$ and
+$\xi_k(d',N)=(1-\cos(2\pi kN/d'))/\sin^2(\pi k/d')$, and set $b_k(d')=\min\bigl(1/(4k^2),\pi^2(2Y)^2/(4d'^2)\bigr)$.
+
+\paragraph{Step R1: reduction to a Mellin-separated form.} Partition the range of $u$ smoothly into dyadic blocks, with ramps of relative width $H^{-\kappa}$ at the two endpoints;
+the transition zones contain $\ll H^{0.53-\kappa}$ values of $u$ and contribute $\ll H^{1-\kappa}(\log H)^C$ by $\mathcal P_u(Y)\ll Y$. Fix a block, $U\in[H^{0.47}/4,2H^{0.53}]$,
+$Y=H/U$, $a=\log U/\log H\in[0.46,0.54]$. Then:
 \begin{enumerate}
-\item[R1.] \emph{Reduction.} The dilation average contributes $\ll U(\log H)^C$; the moduli $d'>YH^{\eta}$ are part~III's Step~3, $\ll H^{1-\eta+3\varepsilon'}$; the moduli
-$d'\le Y^{1-\delta}$ are $\ll UY^{1-\delta}$ by Shiu's theorem; on the remaining range the finite Fourier expansion applies, the frequencies $k>K_1$ cost $H^{1-\eta}$, and a
-Mellin transform separates the coefficients $\xi_k(d',H/u)$ from $u$, at a cost of $\ll Y(\log H)^3$ after summing over $k$ and $d'$.
-\item[R5.] \emph{Decomposition.} $w=c_f(1*\chi_D*\gamma)$ with $\sum_n|\gamma(n)|n^{-1/2-\varepsilon}<\infty$; the factor $n_3>H^{\delta_3}$ is removed trivially; the atoms
-$n_1$ (weight $1$) and $n_2$ (weight $\chi_D$) are split into smooth dyadic boxes. Three cases exhaust the boxes.
-\item[R2.] \emph{Type I:} an atom of length $N\ge Y^{1/2}H^{3\delta}$ gives, by Lemma~K applied for each modulus and cofactor, a saving $H^{-1.79\delta}$.
-\item[R3.] \emph{Type II:} an atom of length $U_2\in[H^{3\delta},UY^{-1/2}H^{-3\delta}]$ gives, by Cauchy--Schwarz over $(d',u_1)$ and Weil's bound for the resulting incomplete
-Kloosterman sums, a saving $H^{-1.45\delta}$.
-\item[R4.] \emph{The residual:} both atoms of size between $UY^{-1/2}H^{-3\delta}$ and $Y^{1/2}H^{3\delta}$. Then both exceed $m^{1/3}$ for $m=d'/(k,d')$, and
-Corollary~\ref{cor:B} gives a saving $H^{-0.028}$.
+\item[(a)] the dilation average contributes $\ll U(\log H)^C$, since $\sum_{d'}(\lambda(d')/d')|\bar G_{d'}(H/u)|\ll(\log Y)^C$ for every $u$;
+\item[(b)] the moduli $d'>YH^{\eta}$ contribute $\ll H^{1-\eta+3\varepsilon'}$ by part~III's Step~3, which is valid for every $U$;
+\item[(c)] the moduli $d'\le Y^{1-\delta}$ contribute $\ll UY^{1-\delta}$, by $|(\lambda/d')G^\circ|\le|\lambda|\omega(1+\sigma/(8d'\varphi))$ and Shiu's theorem~\cite{Shiu1980};
+\item[(d)] on the remaining range the finite Fourier expansion of part~III applies at $N(u)=\lfloor H/u\rfloor$, the frequency $k=0$ cancelling exactly because $R_{d'}$ is symmetric
+and $0\notin R_{d'}$; the frequencies $k>K_1$ contribute $\ll H^{1-\eta}$, and replacing $\xi_k(d',N(u))$ by $\xi_k(d',H/u)$ costs $\ll U(\log H)^C$. Note $d'\ge Y^{1-\delta}>2K_1$,
+so $(k,d')\le K_1<d'$;
+\item[(e)] with $F_{k,d'}(v)=\lambda(d')\xi_k(d',H/v)\phi(v/U)\psi(v)/(2d'^2)$ one has, for $T_0=1+kY/d'+H^{\kappa}$ and $J\in\{0,1,2\}$,
+$\int|\widetilde F_{k,d'}(it)|(1+|t|)^J\,dt\ll|\lambda(d')|\,(Y/(kd'))\,T_0^J\log H$, by the total-variation bound for $|t|\le T_0$ and $J+2$ integrations by parts beyond it, using
+that the ramp's derivatives are supported on a set of relative measure $\ll H^{-\kappa}$; summing, $\sum_{k\le K_1}\sum_{d'}|\lambda|\omega\int|\widetilde F_{k,d'}|\ll Y(\log H)^3$.
 \end{enumerate}
-Summing the three savings against the $O(\log H)$ blocks, the binding constraint is part~III's Step~3, which yields $\delta_M<4\eta/7$.
+The block therefore equals $(2\pi)^{-1}\int\sum_{k\le K_1}\sum_{d'}\widetilde F_{k,d'}(it)\,\mathcal S_{k,d'}(t)\,dt$ plus the errors above, where
+$\mathcal S_{k,d'}(t)=\sum_uw(u)u^{-it}\mathbf 1_{(u,d')=1}\bigl[\rho_k(d';u^\ast)-\omega(d')\epsilon_{d'}(k)\bigr]$, and $u^{-it}$ factors over any factorisation of $u$. The mean
+terms contribute $\ll UY^{\delta}(\log H)^C$.
+
+\paragraph{Step R5: decomposition and covering.} Write $w=c_f(1*\chi_D*\gamma)$ with $\chi_D$ the primitive character of the field, $\gamma$ multiplicative with $\gamma(p)\ll1/p$,
+$|\gamma(n)|\le20^{\omega(n)}$ and $\sum_n|\gamma(n)|n^{-1/2-\varepsilon}<\infty$ (for $\omega(2)=1$ put $u=2u'$ and absorb the Euler factor at $2$ into $\gamma$). The part with
+$n_3>H^{\delta_3}$ is $\ll UYH^{-\delta_3/2+\varepsilon}$. Decompose $n_1,n_2,n_3$ into smooth dyadic boxes $N_1,N_2,N_3$, discarding boxes with $N_1N_2N_3\not\asymp U$, which
+vanish. For $a\in[0.46,0.54]$ the boxes split into three cases: either some atom has $N_i\ge Y^{1/2}H^{3\delta}$ (Step~R2); or some atom lies in
+$W=[H^{3\delta},UY^{-1/2}H^{-3\delta}]$ (Step~R3); or both $N_1,N_2\in[UY^{-1/2}H^{-3\delta},Y^{1/2}H^{3\delta}]$ (Step~R4). Indeed if $N_2<H^{3\delta}$ then
+$N_1\gg UH^{-3\delta-\delta_3}\ge Y^{1/2}H^{3\delta}$, because $U/Y^{1/2}\ge H^{0.19}$ on the block; the covering is exhaustive with margin $0.183$.
+
+\paragraph{Step R2 (Type I).} Let an atom of length $N\ge Y^{1/2}H^{3\delta}$ carry the weight $1$ (or $\chi_D$ restricted to a class modulo the conductor), the cofactor $m'$ carrying
+arbitrary coefficients $\ll\tau_3(m')20^{\omega}$. For fixed $k,d',r,m',t$, with $g=(k,d')$ and $m=d'/g$, the atom sum is $\sum_nW(n)e_m\bigl((k/g)r(nm')^\ast\bigr)$ with
+$W(n)=\phi(n/N)n^{-it}$ after removing $(n,g)=1$ by M\"obius, so Lemma~\ref{lem:K} with $T=1+|t|$ applies and gives $\ll H^{\varepsilon}(1+|t|)^2(1+N/m)m^{1/2}$. Summing over
+$m'\ll U/N$, the roots, the moduli against $\int|\widetilde F|(1+|t|)^2$ and $k\le K_1$, and splitting the two branches of $T_0^2\ll1+(kY/d')^2+H^{2\kappa}$, the contribution is
+$\ll UY\bigl(H^{-3\delta+4\eta+1.5(1-a)\delta}+H^{-3\delta+\eta/2+2\kappa}\bigr)+UY^{1/2+O(\delta)}\ll UY\,H^{-1.79\delta}$.
+
+\paragraph{Step R3 (Type II).} Let $u=u_1u_2$ with $|a(u_1)|,|b(u_2)|\ll H^{\varepsilon}$ and $U_2\in W$. Apply Cauchy--Schwarz over $(d',u_1)$ with weight $|\beta(d')|$,
+$\beta=\widetilde F_{k,d'}(it)$, replacing the $u_1$-range by a smooth majorant. The diagonal gives $S_1\ll H^{2\varepsilon}U_1\sum_{d'}|\beta|$. In $S_2$ the terms carrying
+$\epsilon_{d'}$ are negligible, and the main $u_1$-sums are $\sum V(u_1/U_1)e_{d'}(\nu u_1^\ast)$ with $\nu\equiv k(ru_2^\ast-r'u_2'^\ast)$; Lemma~\ref{lem:K} bounds each by
+$\tau(d')(1+U_1/d')d'^{1/2}(\nu,d')^{1/2}$, and trivially by $3U_1$. Writing $(\nu,d')=(k,d')e$ with $e=\prod_{p\mid d',\,p\nmid k,\,ru_2'\equiv r'u_2\,(p)}p$, for fixed
+$(d',r,r',u_2)$ there are at most $4U_2/e$ values of $u_2'$ with that $e$ when $e\le2U_2$, and at most one when $e>2U_2$ — the latter case containing the diagonal and all degenerate
+pairs, since $d'/(k,d')>2U_2$. Hence $S_2\ll H^{O(\varepsilon+\eta)}\sum_{d'}|\beta|\bigl[U_2^2Y^{1/2}+U_1U_2^2Y^{-1/2}+U_1U_2\bigr]$, the middle term alone carrying the loss
+$Y^{\delta/2}$, and therefore the contribution is $\ll UY\,H^{-1.45\delta}$.
+
+\paragraph{Step R4 (the residual).} Here both atoms lie in $[UY^{-1/2}H^{-3\delta},Y^{1/2}H^{3\delta}]$. For fixed $k,d',r,n_3,t$, with $g=(k,d')$ and $m=d'/g$ squarefree,
+$m\ge Y^{1-\delta}H^{-2\eta}$, the numerator $(k/g)rn_3^\ast$ is a unit modulo $m$ and the double sum is of the shape treated in Corollary~\ref{cor:B}, with the coprimality
+conditions and the dyadic cut-offs absorbed into the coefficients. On the block, $\log N_i/\log m\ge0.3462>1/3$ and $2N_i\le m$, so Corollary~\ref{cor:B} applies and gives
+$\ll m^{\varepsilon}(N_1N_2)^{15/16}$. Since $N_1N_2\asymp U/n_3$, summing over $n_3$ against $|\gamma|$, over the roots, over the moduli against $\int|\widetilde F|$ and over
+$k\le K_1$ gives $\ll UY\,H^{-0.028}$.
+
+\paragraph{Conclusion.} Per block the errors are $H^{1-4\eta/7}$ from R1(b), $H^{1-\eta}$ from R1(d), $UY^{1-\delta}$ from R1(c), $UY^{\delta}$ from the mean terms,
+$H^{1-\delta_3/2+\varepsilon}$ from the $n_3$-tail, $H^{1-\kappa}(\log H)^C$ from the ramps, and the three savings above. With $O(\log H)$ blocks the binding constraint is R1(b), and
+Theorem~\ref{thm:M} follows for every $\delta_M<4\eta/7$.
+
 \section{The small dilations}
 \begin{lemma}[the off-diagonal at one level does not grow with the dilation]\label{lem:Aoff}
 Let $h\ge1$, $u$ squarefree with $(u,2h)=1$, $a=u^2$, and let $F_u$ be the set of positive definite forms $g=\bigl(\begin{smallmatrix}A&B\\B&C\end{smallmatrix}\bigr)$ with
