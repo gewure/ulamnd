@@ -513,4 +513,8 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   Their (AD)^{o(1)} is (log AD)^{O(1)} (our "apparent typo" in Prop 6.2 was a pdftotext superscript artifact — corrected in §36), and their q^{o(1)} is not invoked at all in our use.
   Consequence: the small-end parameters are final (O6″), δ_S(c) = c/14400. Citation wording recorded in §39: never cite the number as the paper's own.
   Still running: the full reading of Theorem S, and the source verification of Korolev's paired-system bound (the lead that would close the band at H^{1/3}).
+- 16 Sep: the paired-system lead is WITHDRAWN (PROOFS §41). Korolev's Lemma 3 is real and threshold-free, and our numerics matched it, but it cannot replace J₆: the second
+  congruence exists only when the phase carries an additive term (ours is the b = 0 case), the four-variable energy was never the obstruction at N ≈ m^{1/4}, and the mechanism has
+  no six-variable analogue. The band at H^{1/3} is back to needing a J₆ bound (named barrier) or a different mechanism.
+- 16 Sep: Theorem S — S6 (level-summed off-diagonal) and S5′ (the K₂ dictionary) are now written out; C_GM for Theorem 8.1 specifically is being re-derived (§40 M3).
 

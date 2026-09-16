@@ -1237,3 +1237,13 @@ O1 CLOSED CLEANLY: for p | (u, D), p ∥ |D|, one has p ∤ h after content remo
 δ_S(c) ≈ 0.034c ≈ c/29. That is the honest headline; c/1000 and c/14400 were artefacts of a bad choice.
 STILL MISSING: (M1) S6, the level-summed off-diagonal — the crux, on which the theorem rests; (M2) the K₂ dictionary from GM's kernel quantity to the orbit-pair count at level a·q₀,
 including Lemma A″ at q₀ > 1; (M3) C_GM for Theorem 8.1 specifically (§39 traced Theorem 7.1; 8.1's proof says only "by similar arguments"); (M4) the scope caveats in the statement.
+
+## 41. THE PAIRED-SYSTEM LEAD IS WITHDRAWN (16 Sep; source verification; scratchpad/reader-korolev/report.md)
+Korolev's paired bound is real and correctly quoted (arXiv 1911.09981 §2 Lemma 3 = Res. Number Theory 6 (2020) art. 24: I_q(N) < (2c)³2^{ω(q)}τ₃(q)N² for any q ≥ q₀, dyadic block
+N < x_i, y_i ≤ N₁ ≤ min(cN, q), explicit constant, no threshold), our numerics matched it (§38), and the twists a(y₁+y₂) ≡ a(y₃+y₄) and y₁y₂ ≡ y₃y₄ are free. But it CANNOT replace
+J₆ in our sum, for three independent reasons (details in PAIRED-IDEA.md): the second congruence is generated only by an additive term b·mn in the phase, and our residual sum is the
+b = 0 case; at N ≈ q^{1/4} the four-variable energy was never the obstruction (Heath-Brown already gives the optimal N²q^{o(1)} there) — the obstruction is the SIX-variable J₆, and
+the paired mechanism (two symmetric functions pinning two roots) has no six-variable analogue; and Korolev's own bilinear output needs M ≈ N > q^{1/3}. Also recorded: our report of
+the lemma had three inaccuracies (dyadic block not [1,Y]; q need not be composite; in the paper I_q is the paired count and J_q the plain energy — the names are swapped).
+STATUS OF THE BAND, unchanged from §38: it needs a J₆-type bound below N⁴ at N ≈ m^{1/4} (none exists; the barrier is named in print) or a genuinely different mechanism. The
+consequences stand as in §36: T1 (Off* ≪ H(log H)^{0.63+o(1)} for D < 0, once the map is written out) is supported; T2 (Off* = O(H), part I's Hypothesis (E)) is blocked.
