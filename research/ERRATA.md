@@ -549,3 +549,14 @@ route before being applied (the checks are described in the items). We agree wit
     (the dispersion stops where Weil's bound for Σ_{u∼U} e(kcū/q), q ≈ Y², becomes trivial), abstract, results list. Paper IV (four passages:
     range H^{1/2+ε}, threshold A < 1/2 instead of 1/4, the exponent condition) and the dilation draft (one passage) updated. Decision of
     15 Sep: paper III is frozen after this change and its reading; the middle range goes to a new paper.
+
+41. **Part V opened (16 Sep): the dilated pieces below H^{1/2}.** Not a correction to any paper; a record of where the new results live and of what they supersede in the
+    reading of paper III's open list. Theorem M (pieces with H^{0.47} < u ≤ H^{0.53} are O(H^{1−δ_M}), δ_M < 4η/7 ≈ 5.7·10^{−5}) is proved in research/explore/PAPER-V-thmM.md
+    (REVISION 1 and 2 merged) from: Lemma E (additive energy of reciprocals for every squarefree modulus, transferred from Cilleruelo–Garaev GAFA 2011), Bourgain–Garaev's
+    bilinear bound for Kloosterman fractions (Acta Arith. 164 (2014)), a Mellin separation, and Type I/II/residual estimates over a decomposition w = c_f(1 * χ_D * γ).
+    Three independent adversarial readings (PROOFS-uniform.md §28, §30, §35), no human check. Theorem S (D < 0, u ≤ H^{1/3−c}) is drafted (PAPER-V-smallend-draft.md) and under
+    reading; it runs Grimmelt–Merikoski's automorphic kernel method (arXiv 2505.00489, 2505.00493) with the leading coefficient u² tracked, the new input being that the
+    off-diagonal kernel count does not grow with u (Lemma A″). Paper III stays frozen; paper V is research/paper-V/. The band at u ≈ H^{1/3} is open, and PROOFS-uniform.md
+    §31–§35 record its accounting: a band of width 2δ costs δ·H(log H)^{1−c} log log H (Theorem E applies inside it), a point gap with polylog losses would give Off* = O(H)
+    (part I's Hypothesis (E)), and A_f needs a saving at the point itself.
+

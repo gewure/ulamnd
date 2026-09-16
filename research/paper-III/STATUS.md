@@ -52,3 +52,11 @@ in Theorem A's window display; (log log u)^3 → ^4 in three places. 26 pp.
   the method (Ḡ contributes ≪ (log Y)^C per piece below H^{1/2+ε}); two cosmetic points applied. PAPER III IS NOW FROZEN (corrections only).
 - 15 Sep (late night), completeness addition after the freeze: related-work sentence citing Grimmelt–Merikoski arXiv 2505.00489 and 2505.00493
   (uniform in the constant term h, leading coefficient a ≤ X^{o(1)}; piece u is their Type I sum with a = u², h = |D| for D < 0). No claim changed.
+
+## 16 September 2026: what part V takes over (paper III itself unchanged and frozen)
+- Theorem M (research/explore/PAPER-V-thmM.md, three readings: PROOFS-uniform.md §28, §30, §35): the pieces with H^{0.47} < u ≤ H^{0.53} are O(H^{1−δ_M}), δ_M ≈ 5.7·10^{−5}.
+  With paper III's Theorem typeII at ε = 0.03 this gives Σ_{u > H^{0.47}} w(u)P_u(H/u) = c_off(f)H + O(H^{1−δ_M}) — the first range below H^{1/2}, which paper III's
+  "What remains" item 1 lists as open. Paper III is NOT edited for this: the result belongs to part V (decision of 15 Sep; paper III is frozen).
+- Theorem S (small end, D < 0, u ≤ H^{1/3−c}) is drafted in research/explore/PAPER-V-smallend-draft.md and under reading.
+- The band around u = H^{1/3} remains open; see PROOFS-uniform.md §31–§35 for what it costs and what would close it.
+
