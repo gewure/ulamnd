@@ -48,6 +48,9 @@ Riemann Hypothesis (`research/paper-II/LITERATURE.md`, §0, has the sentence we 
 - `research/reviews/` — external assessments, archived with the revision they assessed
 - `src/` — the Ulam-nD web workbench (Next.js), a visual companion that imports the library from `research/lib`;
   nothing in the papers depends on it
+- `researchtemplate/` — the *method* of this repository with the mathematics removed: an empty research
+  programme (governance files, claim harness, prompts, paper skeleton) for anyone who wants to reproduce the
+  process rather than the result; see `researchtemplate/README.md`
 
 ## Commands (from the repository root)
 ```

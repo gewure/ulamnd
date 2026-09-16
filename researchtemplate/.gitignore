@@ -1,0 +1,20 @@
+# TeX build artefacts
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# keep main.log: page counts and overfull-line checks are read from it
+
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.DS_Store
+
+# large regenerable outputs: keep the script and the summary, not the raw dump
+research/**/data/*.raw

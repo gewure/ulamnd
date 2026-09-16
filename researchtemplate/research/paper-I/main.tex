@@ -1,0 +1,109 @@
+% {{Document title}} — skeleton from the research template.
+% Compile: tectonic main.tex   (TeX Live 2023+ also works)
+% Every number in this file comes from a script in scripts/, with its output in data/. Nothing is typed
+% by hand. If you cannot name the script next to a number, the number does not go in.
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,microtype,xcolor,booktabs}
+\usepackage[margin=2.5cm]{geometry}\linespread{1.06}\setlength{\emergencystretch}{3em}\hfuzz=2.5pt
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+
+% Markers. \todo is visible in the PDF on purpose: a draft should look like a draft.
+\newcommand{\todo}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
+% Every number that comes from a script carries its provenance in the source.
+\newcommand{\num}[2]{#1\footnote{Computed by \texttt{#2}; output in \texttt{data/}.}}
+
+\title{{{Title}}}
+\author{{{Author}}\thanks{{{Affiliation. Correspondence: ...}}}}
+\date{{{date}} --- \todo{working draft, not for circulation until the readings of \S\ref{sec:status} are recorded}}
+
+\begin{document}\maketitle
+
+\begin{abstract}
+\todo{The abstract is the most frequent site of drift between what is claimed and what is proved. After
+every rewrite of a theorem, re-read this paragraph against the statement.}
+{{What object, what is proved about it, under what hypothesis, and what is left open --- in that order.
+The open part belongs in the abstract, not only in the last section.}}
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+\paragraph{The problem.} {{The object, defined, and why the question is the question. A reader from a
+neighbouring field should get this far.}}
+
+\paragraph{Results.} {{Each result in one sentence, with its label: proved; proved under a stated
+hypothesis; conjectured with numerical support. The list must agree with \texttt{../KNOWLEDGE.md} \S2 and
+with the theorem statements below --- check all three against each other, every revision.}}
+
+\paragraph{What is not claimed.} {{The honest framing, stated here and not buried. What this does not
+show, which standard question it does not touch, and what would be needed for the claim a reader might
+otherwise infer. This paragraph is part of the result.}}
+
+\paragraph{Related work.} {{What is known, what is ours, and what was checked against which source}}
+(\texttt{../LITERATURE.md}), e.g.~\cite{Example2026}. {{A novelty claim without a named check does not
+appear in this paper.}}
+
+\section{Notation and set-up}\label{sec:setup}
+{{Every object used later, defined once, in the normalisation the field uses. Where our normalisation
+differs from a cited source's, say so here rather than in a footnote at the point of use.}}
+
+\section{{{The main result}}}\label{sec:main}
+
+\begin{theorem}\label{thm:main}
+{{Self-contained: a reader who opens the paper at this page can tell what the object is and what the
+hypotheses are. No forward references in a statement.}}
+\end{theorem}
+
+\begin{proof}
+{{Structured in steps, each doing one thing. Every borrowed result is cited with its hypotheses checked
+against the object here --- explicitly, in the text, not in the author's head. Every parameter introduced
+is accompanied by its constraints, and the admissible set is shown non-empty.}}
+\end{proof}
+
+\section{Numerical verification}\label{sec:numerics}
+{{What was computed, at what scale, with which script, and what the agreement is --- in units of an error
+estimated two ways. A table of two independent routes for every constant. Say what the computation does
+not and cannot distinguish: no finite computation separates a bounded quantity from one growing like
+$\log\log$.}}
+
+\begin{table}[htbp]\centering\small
+\caption{{{What is compared.}} Regenerate with \texttt{python3 scripts/{{script}}.py}; output in
+\texttt{data/{{file}}}.}
+\begin{tabular}{@{}lrrr@{}}\toprule
+{{quantity}} & route 1 & route 2 & digits agreeing\\\midrule
+{{...}} & {{...}} & {{...}} & {{...}}\\
+\bottomrule\end{tabular}\end{table}
+
+\section{What remains}\label{sec:open}
+{{The open points, stated exactly: what is missing, what strength of input would suffice, what the known
+obstruction is, and what has been tried. ``We expect'' is not a statement; ``an estimate of the form X
+with exponent below Y would give Z, and the best available is W'' is. Do not describe an open problem as
+a lack of rigour, and do not call a technicality anything that has not been carried out.}}
+
+\section{Status of this document}\label{sec:status}
+\todo{Delete this section only when the document leaves the repository. Until then it is the honest
+summary: which statements have been read by whom, and which have been read by nobody.}
+{{Readings: who read what, at which revision. Which statements have had an adversarial reading by a reader
+with no session context, and which have not. See \texttt{STATUS.md} for the dated record and
+\texttt{../ERRATA.md} for every correction.}}
+
+\section*{Disclosure}
+\todo{Keep this section. Adapt it to what actually happened; do not soften it.}
+{{How this work was produced: which tools, used how, by whom, with what checked by a human and what not.
+State the class of error the process is known not to catch (see \texttt{../../METHOD.md}). If an AI system
+was used, say so plainly, here, and not only in an acknowledgement.}}
+
+\section*{Reproducibility}
+Every number in this paper is produced by a script in \texttt{scripts/}, named at the point of use, with
+its output in \texttt{data/}. {{The commands, in full, with runtimes.}} The state of the programme is
+\texttt{../KNOWLEDGE.md} \S0b; every correction ever applied is \texttt{../ERRATA.md}.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+\end{document}
