@@ -21,15 +21,54 @@ Kloosterman fractions of Bourgain and Garaev together with a bound for the addit
 Cilleruelo and Garaev. For negative discriminants we prove a second result at the other end: the pieces with $u\le H^{1/3-c}$ contribute $O(H^{1-\delta(c)})$, by running the
 automorphic kernel method of Grimmelt and Merikoski with the leading coefficient $u^2$ tracked. What remains is a neighbourhood of $u=H^{1/3}$.
 \end{abstract}
-\section{Introduction}\todo{to write: the picture in exponent coordinates; what part III leaves open; the two ends; the band at $H^{1/3}$ and what it would take (PROOFS §31--§34).}
-\section{Notation}\todo{import from part III §1--§2: $w$, $\lambda$, $\omega$, admissible moduli, $\mathcal P_u$, $G_{d'}$, $\bar G_{d'}$, $G^\circ$, $\rho_k$, $\xi_k$.}
+\section{Introduction}
+\todo{Working draft: the proofs are in research/explore/PAPER-V-thmM.md and PAPER-V-smallend-draft.md and are under adversarial reading.}
+
+\paragraph{The problem.} Let $f=t^2+bt+c\in\Z[t]$ be monic, irreducible, without fixed prime divisor, of discriminant $D$. Part~III~\cite{ReichardtIII} wrote the Ces\`aro
+off-diagonal of the pair singular series as a sum of \emph{pieces},
+\[
+\Off^\ast_f(H)=P(1)\sum_{u}\lambda(u)\omega(u)\,\mathcal P_u(H/u),
+\]
+one for each squarefree \emph{dilation} $u$, the piece $\mathcal P_u(Y)$ being the same problem at length $Y=H/u$ with the roots of $x^2\equiv D$ replaced by those of
+$u^2x^2\equiv D$. Each piece is $O(Y)$, and the weights satisfy $\sum_{u\le H}|w(u)|/u\asymp\log H$: the trivial bound for the whole sum is $H\log H$, which is exactly the size
+of the statement to be proved. Every piece must therefore be small, and the difficulty is uniformity in $u$.
+
+\paragraph{Exponent coordinates.} Write $u=H^{\alpha}$. Each method available for the pieces gives a saving $H^{-s(\alpha)}$ over the trivial bound on an interval of $\alpha$,
+and degenerates at the ends of that interval. In these coordinates part~III proves $s>0$ for $\alpha>2/3$ (averaging the dilations along $u$), and the present author's
+extension of that theorem, recorded in the revised part~III, gives $s>0$ for $\alpha>1/2$ by a dispersion argument with Weil's bound. Below $1/2$ both mechanisms fail: the
+incomplete Kloosterman sums that dispersion produces have modulus $[d_1,d_2]\asymp Y^2$, and Weil's bound is trivial once the range of $u$ is shorter than the square root of
+that modulus. This paper supplies two further mechanisms, one on each side of $\alpha=1/3$.
+
+\paragraph{Results.} Theorem~\ref{thm:M} treats $\alpha$ near $1/2$: the weight $w$ is decomposed as $1*\chi_D*\gamma$, and the resulting bilinear forms in $u$ are estimated by
+Weil's bound when one factor is long (Type~I) or short (Type~II), and, in the remaining balanced case, by the bilinear bound of Bourgain and Garaev~\cite{BourgainGaraev2014}
+for Kloosterman fractions. That bound needs an estimate for the additive energy of reciprocals; the one in~\cite{BourgainGaraev2014} is too weak at the sizes that occur here,
+and Lemma~\ref{lem:E} supplies a stronger one, valid for every modulus, by transferring an argument of Cilleruelo and Garaev~\cite{CilleruelooGaraev2011} for points on modular
+hyperbolas. Theorem~\ref{thm:S} treats small $\alpha$ for negative discriminants: piece $u$ is, after removing the content, a Type~I sum for the polynomial $u^2\ell^2+|D|$ in
+the sense of Grimmelt and Merikoski~\cite{GrimmeltMerikoski2025quadratic}, and their automorphic kernel theorem~\cite{GrimmeltMerikoski2025kernel} applies at level $u^2e$ once
+the two kernel quantities are estimated with the dilation tracked. The diagonal is the number of orbits of the family, $\asymp u$; the off-diagonal, which their general bound
+would give as $\asymp u^2$, is in fact bounded independently of $u$ (Lemma~\ref{lem:Aoff}), because the distances inside the family are quantised in steps of $1/(4h)$ whatever
+the dilation.
+
+\paragraph{What remains.} Both mechanisms degenerate at $\alpha=1/3$, from opposite sides and for unrelated reasons: there the balanced Type~II atoms sit at $d^{1/4}$, where the
+energy input is not strong enough, and the kernel method's diagonal $\asymp u$ meets the trivial bound. The final section explains what the residual band costs. Two points are
+worth recording. A band of width $2\delta$ in $\alpha$ costs $\delta\cdot H(\log H)^{1-c}\log\log H$, not $\delta H\log H$, because part~III's Theorem~E applies piece by piece
+inside it; so a failing method never makes the total worse. And if the savings on both sides vanish only \emph{at} $\alpha=1/3$, with implied constants that are powers of
+$\log H$, then the blocks near the point contribute $O(H)$ in total, which would give $\Off^\ast_f(H)=O(H)$ --- Hypothesis~(E) of part~I~\cite{ReichardtI}, a bounded
+second-order term in the Ces\`aro asymptotic. The constant $A_f$ needs strictly more: a saving at the point itself.
+
+\section{Notation}
+We follow part~III~\cite{ReichardtIII} throughout. \todo{to import: $\lambda(p)=p/(p-2\omega(p))$, $P(1)$, $w(u)=P(1)\lambda(u)\omega(u)$ supported on squarefree $u$; admissible
+moduli $d'$ (squarefree, split, coprime to $2Du$); $R^{(u)}_{d'}$, $\rho_k$, $B^{(Y)}_{d'}$, $\mathcal P_u$, $G_{d'}(a,Y)$, $\bar G_{d'}$, $G^\circ=G-\bar G$, the finite Fourier
+expansion and its coefficients $\xi_k(d',N)$, Lemma~kloost, Lemma~tail, Theorem~small.}
+
 \section{The energy of reciprocals and bilinear Kloosterman fractions}
 \begin{lemma}[energy of reciprocals]\label{lem:E}\todo{PAPER-V-thmM.md Lemma E; proof written, two readings.}\end{lemma}
 \begin{lemma}[Bourgain--Garaev]\label{lem:B}\todo{cite \cite{BourgainGaraev2014}; Corollary B$'$.}\end{lemma}
 \section{The pieces around $u=H^{1/2}$}
 \begin{theorem}\label{thm:M}\todo{Theorem M; proof = Lemmas K, E, B$'$, S and Steps R1--R5.}\end{theorem}
 \section{The small dilations}
-\begin{theorem}\label{thm:S}\todo{Theorem S ($D<0$); proof = S1--S8 with Lemma A$''$, S1$'$, S2$'$, O5, O6$'$.}\end{theorem}
+\begin{lemma}[the off-diagonal at one level does not grow with the dilation]\label{lem:Aoff}\todo{Lemma A$''$ of PAPER-V-smallend-draft.md.}\end{lemma}
+\begin{theorem}\label{thm:S}\todo{Theorem S ($D<0$); proof = S1--S8 with Lemma~\ref{lem:Aoff}, S1$'$, S2$'$, O5, O6$'$.}\end{theorem}
 \section{What remains}\todo{the band at $u=H^{1/3}$: the two mechanisms degenerate there; the accounting of PROOFS §31--§34; what a positive saving at the point would give
 ($A_f$), and what a point gap with polylog losses would give (part~I's Hypothesis~(E)).}
 \bibliographystyle{plain}\bibliography{refs}
