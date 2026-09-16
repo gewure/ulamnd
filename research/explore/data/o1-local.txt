@@ -6,3 +6,8 @@
 #   (v)  <= 1 for an ordered pair.
 forms tested: 2421, pairs tested: 9114, FAILURES: 0
 # omega(P) = 1: |D| = 3, 7, 11.   omega(P) = 2: |D| = 15, 35, 51.
+# COVERAGE CAVEAT (PROOFS 46): this run hardcodes P = |D| and h0 = |D|, hence h = 1 and s = 1 always.
+# It does NOT test P a proper divisor of |D|, nor non-fundamental D, nor even D. The forms are a
+# truncated sample (first 60, |B| <= C) and the pairs use the first 12; "all of SL2(F_p)" refers to tau.
+# The missing cases are covered by the independent run recorded in PROOFS 46 (9340 forms, 22218 pairs,
+# 0 failures, |D| = 12, 15, 20, 35, 60, 84, 99, 115, 135, 175).

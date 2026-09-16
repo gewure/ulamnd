@@ -211,10 +211,19 @@ under reading.}
 
 \begin{theorem}\label{thm:S}
 Let $f$ be as above with $D<0$. For every $c>0$ there is $\delta_S(c)>0$ with
-$\sum_{u\le H^{1/3-c}}w(u)\mathcal P_u(H/u)\ll_f H^{1-\delta_S(c)}$.
+\[\sum_{\substack{u\le H^{1/3-c}\\ (u,D)=1}}w(u)\mathcal P_u(H/u)\ \ll_f\ H^{1-\delta_S(c)}.\]
 \end{theorem}
-\todo{Proof in research/explore/PAPER-V-smallend-draft.md (S1, S1$'$, S2$'$, S3--S5, O1, O2, O4--O6$''$, Lemma~\ref{lem:Aoff}), resting on \cite{GrimmeltMerikoski2025kernel}
-Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1. Under reading.}
+\begin{remark}[on the coprimality restriction]\label{rem:uD}
+The restriction $(u,D)=1$ is not expected to be necessary, and it is not present in Theorem~\ref{thm:M}. It is there because the off-diagonal input, Lemma~\ref{lem:Aoff}, is proved
+at determinant $h$ after undilation, whereas a dilation $u$ divisible by a prime of $D$ leads, after removing the content of $Q_u$, to a family of determinant $Ph$ with $P\mid D$.
+The corresponding restatement of Lemma~\ref{lem:Aoff} is available, and behaves better than the case treated here: the undilated determinant is then $O_D(1)$, and the primes
+of $P$ contribute a local factor $1$ rather than a factor $\asymp P$, because the form is of rank one modulo each of them. What is not yet in place is the corresponding restatement
+of the \emph{level sum} at the undilated determinant, and it is for that reason, not for want of the off-diagonal bound, that we state Theorem~\ref{thm:S} with the restriction.
+The prime $2$ is already normalised away and requires no hypothesis.
+\end{remark}
+\todo{Proof in research/explore/PAPER-V-smallend-draft.md (S1, S1$'$, S2$'$, S3--S5, O1, O2, O4--O6$''$, S5$''$, S6$'$, Lemma~\ref{lem:Aoff}), resting on
+\cite{GrimmeltMerikoski2025kernel} Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1. S5$''$/S6$'$ read (PROOFS \S43, \S45); the removal of $(u,D)=1$ waits on the
+reading of Lemma A$'''$ (PROOFS \S44).}
 
 \begin{remark}[on the implied constant imported from the kernel theorem]\label{rem:CGM}
 Theorem~8.1 of~\cite{GrimmeltMerikoski2025kernel} is stated with an unspecified factor $\delta^{-O(1)}$, where $\delta$ is the smoothness parameter of the input function. Following

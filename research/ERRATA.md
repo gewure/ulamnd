@@ -560,3 +560,18 @@ route before being applied (the checks are described in the items). We agree wit
     §31–§35 record its accounting: a band of width 2δ costs δ·H(log H)^{1−c} log log H (Theorem E applies inside it), a point gap with polylog losses would give Off* = O(H)
     (part I's Hypothesis (E)), and A_f needs a saving at the point itself.
 
+
+42. **The O1 case of Theorem S closed, and Theorem S given its honest scope (16 Sep; two adversarial readings by fresh model instances, PROOFS-uniform.md §45 and §46; no human
+    check).** Two things, one of them a correction of my own draft. (a) LEMMA A‴ (research/explore/PAPER-V-O1-lemmaA3.md): Lemma A″ restated at the determinant produced by
+    removing the content of Q_u, in a normal form c = gcd(u²,|D|) = P·s², a = P·u′², h₀ = |D|/s² = O_D(1), which subsumes Lemma A″ (P = s = 1), the prime-2 case O2 (P = 1, s = 2)
+    and both cases O1 had left unwritten (ω(P) ≥ 2; non-fundamental D with p² | D — such a prime enters s, leaves a entirely, and never appears in the local count). The one new
+    step is the local count at p | P: the form is of rank one there, so its only projective zero is its kernel line, on which the second congruence is automatic, and the local
+    factor is 1 rather than ≍ P. Brute-forced over all of SL₂(F_p) — 5942 forms and 13680 ordered pairs over 141 normal forms, nine of them non-fundamental, zero failures
+    (research/explore/o1-local2.ts). (b) CORRECTIONS the readings forced: steps (1) and (4) of my first draft of Lemma A‴ were copied from the SUPERSEDED, pre-REVISION body of
+    Lemma A″ and re-imported two errors already fixed there — a wrong kernel weight ((N/2h₀−1)^{−1/2}/√2 for (4h₀/(N+2h₀))^{1/2}) and a missing restriction d ≤ M, without which
+    step (4) is unbounded (measured ratios up to 46). Neither changed the stated bound (h₀ = O_D(1) absorbs both), both are repaired. In S5″/S6′ (paper V's Theorem S): the bridge
+    display was false as an identity without the SL₂(Z)-stabiliser weight (overshoot by 4 in brute force), the level-sum display was not well formed, the justification for
+    imposing (em,2D) = 1 was a non sequitur with a correct replacement, and the ε in the claim is an M^ε, so the H^ε form needs Z₂ ≤ H^{O(1)} — which holds in the application
+    only after S3's dichotomy. (c) SCOPE: Theorem S in research/paper-V/main.tex now carries the restriction (u,D) = 1, with a remark saying why. The reason is NOT Lemma A‴,
+    which is proved and read, but its consumer: S6′'s level sum must be restated at (u′,h₀), including its claim that levels with p² | q₀ are empty, which rests on
+    v_p(u²ℓ²+h) ≤ v_p(D) = 1 and can fail when v_p(h) = v_p(D) − 2 > 0. Until that is redone the restriction stands.

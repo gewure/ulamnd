@@ -293,34 +293,52 @@ choice of η′, and the theorem's shape δ_S(c) ≍ c does not depend on its va
 Let χ = 1, q = a q₀ with (a, q₀) = 1, and let α_q(g) = 1{c(g) ≡ 0 mod q}1{b(g) ≡ 0 mod a} ≥ 0 be GM's functional on the Heegner set Λ_{ah} (GM Lemma 3.1; the family is
 S_{a,h}(q₀) = {g = (A B; B C) : AC − B² = ah, A, C > 0, a | B, a q₀ | C} — the positivity A, C > 0 is part of the definition, and GM's printed "b² − ac = ah" is a slip for ac − b² = ah).
 Since Δ_q F = K_q F − 1{χ principal}|Γ\G|^{−1}∫F and the subtracted term is (∫k/|Γ\G|)·|Σ_τ α_q(τσ)|² ≥ 0, and since α_q ≥ 0 permits replacing GM's smooth kernel by the majorant
-1{u ≤ Z₂²}(1 + u)^{−1/2}, we have ⟨α_q|Δ_q k|α_q⟩ ≤ ⟨α_q|K_q k|α_q⟩ (the definitions of Δ and K are in arXiv 2505.00489 §1, not in the companion). Unfolding the γ-sum ONCE gives the
+1{u ≤ Z₂²}(1 + u)^{−1/2}, we have ⟨α_q|Δ_q k|α_q⟩ ≤ ⟨α_q|K_q k|α_q⟩ (the definitions of Δ and K are in arXiv 2505.00489 §1, not in the companion — they are the only two steps of S5″ that cannot be checked against anything in this repository, so
+when this is written up the definitions must be QUOTED, not cited: §45 flags exactly this). Unfolding the γ-sum ONCE gives the
 orbit form diag(q) + off(q; Z₂) of S5/S6, with the weights |Γ_{σ i}|^{−1} being the SL₂(Z)-STABILISER weights (this is what makes the identity exact; with Γ₀(q)-stabilisers it fails —
 brute force at (a,h,q₀) = (1,3,2) gives 12.165 against 6.083), the g₂-side carrying |Γ₀(q)_{g₂}|^{−1} and the g₁-side running over the full family unweighted.
 THE BRIDGE (this is what was missing). Unfold a SECOND time, as in GM Prop 4.1 ("since gz₁ = w₁ ranges over the entire set S_h"):
-  off(a q₀; Z₂) = Σ_{(w₁, z₂) ∈ S_{ah} × Λ_{ah}, w₁ ≠ z₂} k(u(w₁, z₂))·n_{a q₀}(w₁, z₂),  n_q(w₁,z₂) := #{τ ∈ Γ₀(q)\SL₂(Z) : α_q(τ⋄w₁) = α_q(τ⋄z₂) = 1}.
+  off(a q₀; Z₂) = Σ_{z₂ ∈ Λ_{ah}} |Γ_{z₂}|^{−1} Σ_{w₁ ∈ S_{ah}, w₁ ≠ z₂} k(u(w₁, z₂))·n_{a q₀}(w₁, z₂),  n_q(w₁,z₂) := #{τ ∈ Γ₀(q)\SL₂(Z) : α_q(τ⋄w₁) = α_q(τ⋄z₂) = 1}.
+[§45(1). The weight |Γ_{z₂}|^{−1} on the z₂-side is NOT optional: it is the SL₂(Z)-stabiliser weight the previous sentence insists on, and without it the display is FALSE as an
+identity — brute force overshoots by 4 at (a,h,q₀,Z₂) = (1,1,1,1) (6.4061 against 1.6015), by 4.0 at (1,3,2,1) (24.3308 against 6.0827) and by 2.94 at (1,3,1,1). Downstream nothing
+changes (the weights are ≤ 1 and only ≤ is used), but this is the very step the bridge advertises, so it must be stated correctly. NOTATION: S_{ah} is the set of ALL forms of
+determinant ah, S_{a,h}(q₀) the family — they differ by a comma and are used three lines apart; w₁ here ranges over the former.]
 For (a, q₀) = 1 the Chinese remainder theorem gives n_{a q₀} = n_a·n_{q₀} with n_{q₀} = #{(c₀ : d₀) ∈ P¹(Z/q₀) : q₀ | Q_{w₁}(c₀,d₀), q₀ | Q_{z₂}(c₀,d₀)} (verified: 128 tests, 0
 failures), and summing n_a over the SL₂(Z)-orbits of pairs with invariant N is exactly P_u(N) of Lemma A″ steps (2)–(3). So "Lemma A″ at q₀ = 1 together with the level sum" is a
 theorem, not a hope: the a-part is Lemma A″ and the q₀-part is S6′(1).
 
 ### S6′ (the level-summed off-diagonal, final)
 CLAIM. For a = u² with u squarefree, (u, 2h) = 1, h = O_f(1), levels q₀ = lcm(j, e, m²) as in S1′ with (e m, 2D) = 1, and Z₂ ≥ 1:
-  Σ_{q₀ ≤ EM², (q₀, u) = 1} off(a q₀; Z₂) ≪_{f,ε} H^{ε}(1 + Z₂).
-(For a = p u′² — the case p | (u, D) of O1 — the same proof applies once Lemma A″ is restated at determinant p h; that restatement is not written here, so the claim is scoped to
-a = u² and O1 is carried separately by §33(7) and the O1 section.)
-(1) THE LEVEL SUM. Restrict e, m to (e m, 2D) = 1 already in the decomposition of S1(6) (legitimate, since on (k, 2D) = 1 only such e, m occur); then v_p(q₀) ≤ 1 for every p | 2D.
+  Σ_{q₀ ≤ EM², (q₀, u) = 1} off(a q₀; Z₂) ≪_{f,ε} (h Z₂)^{ε}(1 + Z₂),  and hence ≪_{f,ε} H^{ε}(1 + Z₂) PROVIDED Z₂ ≤ H^{O(1)}.
+[§45(4). Every ε-power in the proof is an M^{ε} — τ₃(N²−4h²), the (hN)^{o(1)} inside P₁(N), and τ(q₀)² — and M ≍ hZ₂². So the H^{ε} form is not a statement about all Z₂ ≥ 1; it needs
+Z₂ ≤ H^{O(1)}, which the sentence "M ≍ hZ₂² ≤ H^{2+o(1)}" in (3) was silently assuming. In the application the hypothesis does hold, but only AFTER the REVISION-3 dichotomy in S3:
+blocks with uEM > L^{1/2} are discarded trivially, leaving Z₂ = uEM ≤ L^{1/2} ≤ H^{1/2}.]
+(For a = P u′² — the case p | (u, D) of O1 — the same proof applies with Lemma A″ restated at determinant P h. That restatement is now WRITTEN, in general form and for ω(P) ≥ 1, as
+Lemma A‴ in PAPER-V-O1-lemmaA3.md (PROOFS §44), and brute-forced; it is NOT YET READ. Until it is read, this claim is scoped to a = u², i.e. to (u, D) = 1 after O2's 2-adic
+normalisation, and Theorem S in the paper carries that restriction.)
+(1) THE LEVEL SUM. Restrict e, m to (e m, 2D) = 1 already in the decomposition of S1(6); then v_p(q₀) ≤ 1 for every p | 2D. [§45(3). This is legitimate, but NOT for the reason first
+written here ("on (k,2D) = 1 only such e, m occur"), which is a non sequitur: after the j-Möbius the k-sum is not restricted to (k,2D) = 1 — that is what the j-sum is FOR — so in the
+j > 1 terms k, and hence e and m, may be divisible by primes of 2D. The correct reason: the inner (e,m)-sum does not depend on j, so Σ_{j | (k, rad 2D)} μ(j) = 1_{(k,2D)=1}
+annihilates every k with (k,2D) > 1 whatever the inner sum is, and on (k,2D) = 1 the restricted inner sum is still λμ²(k). Verified for D = −3, all k ≤ 400: 0 mismatches. The step is
+robust in any case: without the restriction, μ(m) forces m squarefree and κ is supported on split e, so v_p(q₀) ≤ 2 for p | 2D and the local factor is still O_D(1).]
 For a fixed pair (w₁, z₂) of distinct family points with invariant N, a common projective zero of Q_{w₁}, Q_{z₂} mod p^k forces p^k | Res = u⁴(N² − 4h²) (x³Res, y³Res ∈ (Q_{w₁}, Q_{z₂});
-Hensel gives ≤ 2 zeros mod p^k when p ∤ a h), so, pulling out the O_D(1) primes p | 2D with the trivial factor ≤ max_{p | 2D}(p + 1) = O_D(1) and using (q₀, u) = 1 (which holds because
-q₀ | k | u²ℓ² + h and (u, h) = 1), so that the u⁴ is inert:
-  Σ_{q₀ ≤ EM², (q₀,u)=1} n_{q₀}(w₁, z₂) ≪_D τ₃(N² − 4h²)·τ(q₀-multiplicity),
-where the multiplicity is the number of (j, e, m) with lcm(j, e, m²) = q₀, at most τ(q₀)² = H^{o(1)}. [Measured: Σ_{q₀≤40,(q₀,u)=1} n_{q₀}/τ₃(N²−4h²) ≤ 0.33 over 88 pairs, and no
+Hensel gives ≤ 2 zeros mod p^k when p ∤ a h), so, pulling out the O_D(1) primes p | 2D with the trivial factor ≤ max_{p | 2D}(p + 1) = O_D(1) and using (q₀, u) = 1 (which holds for a reason
+needing no reference to S1: the family S_{u²,h}(q₀) is EMPTY when p | (q₀, u), since A q₀ C′ − u²B′² = h would force p | h — §45), so that the u⁴ is inert:
+  Σ_{(j,e,m): e ≤ E, m ≤ M} n_{lcm(j,e,m²)}(w₁, z₂) ≤ ∏_{p | 2D}(p + 1) · (max_{q₀ ≤ EM²} τ(q₀))² · Σ_{q₀' | N²−4h², (q₀', 2Dah) = 1} 2^{ω(q₀')} ≪_D H^{o(1)}·τ₃(N² − 4h²),
+the middle factor because the number of (j, e, m) with lcm(j, e, m²) = q₀ is at most τ(q₀)² = H^{o(1)}, and the last step by Σ_{d | n} 2^{ω(d)} ≤ τ₃(n) (equality for squarefree n;
+in general 1 + 2k ≤ (k+1)(k+2)/2 at each prime). [§45(2). The earlier form of this display was not well formed — it summed over q₀ and then used τ(q₀) on the right, with q₀ bound —
+and the pull-out factor is ∏_{p | 2D}(p + 1), not max_{p | 2D}(p + 1). Both are O_D(1); the conclusion is unchanged.] [Measured: Σ_{q₀≤40,(q₀,u)=1} n_{q₀}/τ₃(N²−4h²) ≤ 0.667 over the reading's larger sample (the earlier 0.33 was sample-dependent and must not be printed as the truth), and no
 violation of "n_{q₀} > 0 ⇒ q₀ | N² − 4h²". Moreover at odd p | D the levels with p² | q₀ are EMPTY, since v_p(u²ℓ² + h) ≤ v_p(D) = 1 (checked for h = 3, 7, 15, 20, ℓ < 4000); at p = 2
 the counts are bounded but nonzero, which is why O2's normalisation is needed.]
 (2) THE PAIR PARAMETRISATION is Lemma A″ (undilation, lift to level one, local counts): pairs at distance ≤ Z₂² are indexed by N = ⟨G₁,G₂⟩ ∈ (2h, M], M := 2h(1 + 2Z₂²), with weight
 (4h/(N + 2h))^{1/2} ≍ h^{1/2}N^{−1/2}, and Σ_{SL₂(Z)-orbits, invariant N} n_a ≤ P₁(N)·2^{ω(u)}g₂(N) with P₁(N) ≪ (hN)^{o(1)}h^{1/2} and g₂(N)² | N² − 4h².
-(3) CONCLUSION, in one line. Since M ≍ h Z₂² ≤ H^{2+o(1)}, the pointwise divisor bound τ₃(N² − 4h²) ≪_ε M^{ε} and Lemma A″ step (4), Σ_{2h<N≤M} N^{−1/2}g₂(N) ≤ 3τ₃(u)M^{1/2}, give
+(3) CONCLUSION, in one line. Since M ≍ h Z₂² (and Z₂ ≤ H^{O(1)} by the dichotomy just quoted), the pointwise divisor bound τ₃(N² − 4h²) ≪_ε M^{ε}, the ORBIT COUNT
+P₁(N) ≪ (hN)^{o(1)}h^{1/2} of Lemma A″ step (2) — named here because it is otherwise invisible: it is the middle h^{1/2} of the honest h^{3/2}, the three being the weight
+h^{1/2}N^{−1/2}, then P₁ ≪ h^{1/2}, then M^{1/2} ≍ h^{1/2}Z₂ — and Lemma A″ step (4), Σ_{2h<N≤M} N^{−1/2}g₂(N) ≤ 3τ₃(u)M^{1/2}, give
   Σ_{q₀} off(a q₀; Z₂) ≪_{f,ε} H^{ε}·2^{ω(u)}τ₃(u)·h^{O(1)}M^{1/2} ≪_{f,ε} H^{ε}(1 + Z₂),
 the u-factor being 6^{ω(u)} ≪_ε H^{ε} pointwise, averaged in the application by Σ_{u∼U}6^{ω(u)}/u ≍ (log U)^5 per dyadic block. The h-dependence as proved is h^{3/2+o(1)} (matching
-the measurement of §37), hidden in ≪_f. [DELETED, and not to be reinstated: (a) the Cauchy–Schwarz route in N — Σ_N N^{−1/2}g₂(N)² ≍ u^{1/2}M^{1/2}, which costs u^{1/4} ≤ H^{1/12},
+the measurement of §37), hidden in ≪_f. [DELETED, and not to be reinstated — a LAB NOTE, not paper text: when S6′ is written up this bracket becomes a short remark, since as a paragraph it mixes withdrawn routes with live
+facts and is unreadable (§45): (a) the Cauchy–Schwarz route in N — Σ_N N^{−1/2}g₂(N)² ≍ u^{1/2}M^{1/2}, which costs u^{1/4} ≤ H^{1/12},
 catastrophic; (b) the Hölder with Nair–Tenenbaum — its exponents were assigned the wrong way round (g₂ must take 1 + ε, using g₂ | u so that g₂^{1+ε} ≤ u^{ε}g₂, and τ₃ the conjugate),
 and even correctly assigned it produces a genuine u^{ε} that averaging does not remove. If a polylog is ever wanted for the class-(b) bookkeeping of §36, the route is divisor
 switching as in Lemma A″ step (4), which needs Nair–Tenenbaum in progressions to moduli d² uniformly — an extra citation burden — and inflates the u-factor to ≈ 12^{ω(u)}–24^{ω(u)};

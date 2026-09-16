@@ -1314,6 +1314,10 @@ nothing to the pair count, and the coset bound is A″(3)'s with u′ in place o
 
 (5) BRUTE FORCE (o1-local.ts, data/o1-local.txt). Claims (i)-(v) of (4) checked over ALL of SL₂(F_p) for every p | P: 2421 forms and 9114 ordered pairs,
 |D| = 3, 7, 11 (ω(P) = 1) and |D| = 15, 35, 51 (ω(P) = 2), u′ ≤ 43 coprime to 2D. ZERO FAILURES.
+   [COVERAGE CORRECTED after §46: this run hardcodes P = |D| and h₀ = |D|, i.e. h = 1 and s = 1 ALWAYS. It therefore never tested P a proper divisor of |D|, never tested
+   non-fundamental D, and never tested even D — so R2's second advertised case, "non-fundamental D with p² | D", had NO numerical cover here. §46's independent run supplies it
+   (9340 forms, 22218 pairs, 0 failures, including |D| = 12, 20, 60, 84, 99, 135, 175). Also "2421 forms" is a truncated sample (F.slice(0,60), |B| ≤ C), and pairs use only the
+   first 12 forms: "over ALL of SL₂(F_p)" is true of τ, not of the forms.]
 
 (6) INDEPENDENT CONFIRMATION from the kernel count (gm-kernel-count-amul.ts). For a = 3u′², h = 1 the diagonal is c_d(u′) = (4/3)∏_{p|u′}(p − χ_{−3}(p)) exactly
 for u′ = 5, 7, 11, 13 (the u′ = 1 entry differs only because the script drops the stabiliser weight of the elliptic point of determinant 3). For a = 15u′², h = 1
@@ -1326,3 +1330,95 @@ local count of (3) throughout, and the level sum is unchanged because gcd(a, q�
 so j never runs over p — an argument that uses only p ∥ h₀, hence covers ω(P) ≥ 2 as well).
 
 STILL TO BE READ: (C1) the conjugation δΓ₀(a)δ^{−1} = Γ₀(P) ∩ Γ₀⁰(u′) with surjectivity (an identity, checked symbolically only); (C2)-(C4) are covered by (5)-(6).
+
+## 45. READING of the FINAL S5″/S6′ text (16 Sep; fresh model instance; scripts reader-s6b/lemA4.py, bridge.py, t1.py–t6.py) — CORRECTIONS ADOPTED
+
+VERDICT: "correct modulo the following repairs". The mathematics is sound — the second unfolding is an identity, the CRT split is exact, the stabiliser bookkeeping is the one §43
+claims, Lemma A″ step (4) is true with the stated constant 3, and the chain is neither circular nor missing a loss. What was wrong was written, not structural. All five repairs and
+all five "merely unclear" items are now in PAPER-V-smallend-draft.md, each marked [§45(n)].
+
+REPAIRS ADOPTED:
+ (1) S5″'s BRIDGE display was FALSE as an identity: the z₂-side must carry the SL₂(Z)-stabiliser weight |Γ_{z₂}|^{−1}, the very weight the preceding sentence insists on. Unweighted
+   it overshoots by 4 at (a,h,q₀,Z₂) = (1,1,1,1) (6.4061 vs 1.6015), by 4.0 at (1,3,2,1), by 2.94 at (1,3,1,1). Harmless downstream (weights ≤ 1, only ≤ used) but it is the step the
+   bridge advertises. Also: S_{ah} (all forms of determinant ah) and S_{a,h}(q₀) (the family) differ by a comma and are used three lines apart — said explicitly now.
+ (2) S6′(1)'s level-sum display was NOT WELL FORMED (it summed over q₀ and then used τ(q₀) on the right, q₀ bound). Rewritten as a sum over the level TRIPLES (j,e,m), with
+   Σ_{d|n}2^{ω(d)} ≤ τ₃(n) supplied, and the pull-out factor corrected to ∏_{p|2D}(p+1) rather than max_{p|2D}(p+1). All O_D(1); conclusion unchanged.
+ (3) S6′(1)'s justification for imposing (em,2D) = 1 was a NON SEQUITUR ("on (k,2D)=1 only such e,m occur" — after the j-Möbius the k-sum is not so restricted; that is what the
+   j-sum is for). The restriction is legitimate for a different reason: the inner (e,m)-sum does not depend on j, so Σ_{j|(k,rad 2D)}μ(j) = 1_{(k,2D)=1} annihilates every k with
+   (k,2D) > 1 whatever the inner sum is (verified D = −3, all k ≤ 400, 0 mismatches). And the step is robust without the restriction at all: μ(m) forces m squarefree and κ is
+   supported on split e, so v_p(q₀) ≤ 2 for p | 2D and the local factor is still O_D(1).
+ (4) THE ε IS IN M, NOT IN H. Every ε-power is an M^{ε} and M ≍ hZ₂², so what is proved is ≪_{f,ε}(hZ₂)^{ε}(1+Z₂); the H^{ε} form needs Z₂ ≤ H^{O(1)}, which the sentence
+   "M ≍ hZ₂² ≤ H^{2+o(1)}" was silently assuming. In the application it holds, but only after S3's REVISION-3 dichotomy (blocks with uEM > L^{1/2} discarded trivially, leaving
+   Z₂ = uEM ≤ L^{1/2}). The claim now carries the hypothesis.
+ (5) P₁(N) HAD VANISHED from the "one line" of S6′(3): the passage from Σ_{orbits}n_a to 2^{ω(u)}g₂(N) needs the orbit count of Lemma A″ step (2), hidden inside h^{O(1)}. It is now
+   named — it is the middle h^{1/2} of the honest h^{3/2} (weight h^{1/2}N^{−1/2}, then P₁ ≪ h^{1/2}, then M^{1/2} ≍ h^{1/2}Z₂).
+ (6) THE SCOPE HOLE (a = Pu′², the O1 case) the reading calls load-bearing is exactly what §44's Lemma A‴ supplies. Until Lemma A‴ is read, S6′ and Theorem S are scoped to
+   (u,D) = 1, and paper V's Theorem~\ref{thm:S} now carries that restriction with a remark saying why and what removes it. (§40's "O1 CLOSED CLEANLY" closes a DIFFERENT issue —
+   that j never runs over p, so gcd(a,q₀) = 1 — not this one. Noted so the two are not confused again.)
+
+ALSO ADOPTED, from the "merely unclear" list: (q₀,u) = 1 now has the clean reason (S_{u²,h}(q₀) is EMPTY for p | (q₀,u), since Aq₀C′ − u²B′² = h forces p | h — no reference to S1);
+the measured constant is 0.667, not the sample-dependent 0.33; the DELETED bracket is labelled a lab note that becomes a short remark on write-up; and the two steps resting on GM's
+definitions of Δ and K (arXiv 2505.00489 §1) are flagged to be QUOTED, not cited, since nothing in this repository can check them.
+
+CONFIRMED BY THE READING (each brute-forced): the second unfolding, in all 10 nonzero configurations; that Γ₀(q)-stabilisers give exactly twice the truth at (a,h,q₀) = (1,3,2),
+reproducing §43's numbers to four decimals; CRT n_{aq₀} = n_a·n_{q₀}, 2112 configurations, 0 failures; n_{q₀} > 0 ⇒ q₀ | N²−4h², 0 violations, with the level sum saturating (a divisor
+factor, not a factor EM²); n_{p^k} ≤ 2 for p ∤ ah; a | ⟨w₁,z₂⟩ so N ∈ Z, 732 pairs; the N = 2h boundary is vacuous (distinct points ⇒ N > 2h ⇒ N²−4h² ≥ 4h+1, so τ₃(0) never occurs);
+Lemma A″ step (4) with constant 3 — worst ratio 0.663 over h ∈ {1,2,3,5,7,15}, u ≤ 4849845, M ≤ 10⁵, the constant near-sharp (ratio → 2/3 at u = 1) and d ≤ M automatic from
+d² | N²−4h² < M², and ESSENTIAL: without it the first half is ≍ u^{1/2} (865541 against 21870 at u = 4849845, M = 100); n_a ≤ 2^{ω(u)}g₂(N) pointwise at level u², 5424 pairs, 0
+violations — the non-trivial one, since n_a counts Γ₀(u²)-cosets while step (3) counts Γ₀⁰(u)-cosets and δ-conjugation does not preserve SL₂(Z); P₁(N) ≪ h^{1/2+o(1)} for h ≤ 199;
+and the level-summed off-diagonal growing like Z₂·polylog, not Z₂^{1+c}.
+
+STATUS OF THEOREM S after §44 + §45: the chain is complete and read for a = u² (u squarefree, (u,2D) = 1, D < 0), with δ_S(c) ≈ c/12 at θ = 7/64 and C = 6. The only item still
+unread is Lemma A‴ (§44), whose reading would remove the (u,D) = 1 restriction from the paper's Theorem~\ref{thm:S}.
+
+## 46. READING of LEMMA A‴ (16 Sep; fresh model instance; scripts reader-A3/t1b.py–t9.py) — CORRECTIONS ADOPTED
+
+VERDICT: "correct modulo the following repairs". The one genuinely NEW step, (3)(b), is correct, and so are the normal form §0 and the undilation/conjugation of step (1) — all three
+verified independently. What was wrong was everything the document imported "VERBATIM": steps (1) and (4) were copied from the SUPERSEDED, pre-REVISION-2 body of Lemma A″, re-importing
+two errors this project had already found and fixed there (§37, §40). Neither changed the stated bound, because h₀ = O_D(1) absorbs both. THE LESSON, and it is a general one:
+"verbatim from A″" is not a safe phrase in a file where A″'s body predates its own revisions — copy from the REVISED text or restate.
+
+REPAIRS ADOPTED (all now in PAPER-V-O1-lemmaA3.md):
+ (1) STEP (1)'s WEIGHT WAS WRONG. The draft carried (N/(2h₀) − 1)^{−1/2}/√2; the definition of off gives (1 + u)^{−1/2} = (4h₀/(N + 2h₀))^{1/2}, since 1 + 2u = N/(2h₀). The ratio
+   is (1/2)√((N+2h₀)/(N−2h₀)) — 3.905 at (h₀,N) = (15,31), 0.866 at N = 60, 0.5001 at N = 150000 — bounded between 1/2 and √h₀, so ≪_D was never in danger; but "=" was false.
+ (2) STEP (4) WAS MISSING d ≤ M, again as in the pre-REVISION A″. Without it the d-sum runs past the point where the inner N-sum is empty and the bound is UNBOUNDED against
+   τ₃(u′)M^{1/2}: ratios 4.01, 12.24, 39.58 at u′ = 15015, 255255, 4849845 with M = 200, and 46.09 at h₀ = 3, u′ = 1616615. It is automatic in one line (d² | N²−4h₀² < M²).
+ (3) STEP (4)'s JUSTIFICATION was a non sequitur against the draft's own weight: "N ≥ d ⇒ least term ≤ d^{−1/2}" bounds N^{−1/2}, not (N − 2h₀)^{−1/2} (h₀ = 11, d = 3: smallest
+   N in class is 23, so the term is 1 > 3^{−1/2}). With (1) repaired the argument becomes the right one — (1) and (3) are the same repair.
+ (4) §0(i): (u′, 2) = 1 is NOT a fact about the normal form but an EXTERNAL HYPOTHESIS imported from O2, and the lemma now carries it. Swept over all 54717 pairs (|D|, u) with
+   D ≡ 0,1 (mod 4), |D| < 600, u < 300 squarefree: everything in §0 holds WITHOUT EXCEPTION, non-fundamental D included — gcd(a,h) = 1 does not need fundamental D — and the only
+   failures are 2 | u′, 9150 of them, every one with D odd and u even, exactly O2's excluded branch. The cheap reason 2 | D ⇒ 4 | D (discriminants are ≡ 0,1 mod 4) is now given.
+ (5) Minor: v_p(c) = min(2, v_p(D)) only for p | u; the "0 otherwise" branch of c_p(G₁,G₂) is vacuous (every G ∈ F′ has kernel exactly L₀); F omitted the positivity A, C > 0;
+   4^{ω(u′)} should not sit in print next to A″'s corrected 2^{ω(u′)}; "uniformly in u" is §37(e)'s mild overstatement (the honest factor is 12^{ω(u′)}); and "no factor h^{O(1)}"
+   is true of the display only — the h₀-powers moved into the D-constant.
+ (6) R4 OVERSTATED and is corrected. Lemma A‴ does supply the off-diagonal input at a = Pu′², and R3's reason for gcd(a,q₀) = 1 is correct and prime-by-prime, so it survives
+   ω(P) ≥ 2 (the reading confirms this: v_p(h) = v_p(D) − v_p(Ps²) = 0 for p | P, so k | aℓ² + h ≡ h (mod p) forces p ∤ k). But S6′(1) is NOT "unchanged": the resultant becomes
+   u′⁴(N² − 4h₀²), the clause "(q₀,u) = 1 so the u⁴ is inert" becomes "(q₀,u′) = 1 and p ∤ q₀ for p | P", and — the real item — S6′(1)'s claim that at odd p | D the levels with
+   p² | q₀ are EMPTY rests on v_p(u²ℓ² + h) ≤ v_p(D) = 1, whereas under the normal form v_p(h) = v_p(D) − 2 can be POSITIVE for p | s. THAT SUB-CLAIM MUST BE REDONE before the
+   O1 parenthesis in S6′ may be deleted. Until then Theorem S keeps (u, D) = 1.
+
+CONFIRMED BY THE READING:
+ - (C1) THE CONJUGATION δΓ₀(a)δ^{−1} = Γ₀(P) ∩ Γ₀⁰(u′) IS CORRECT, INCLUDING SURJECTIVITY — the one step that had no numerical cover now has it: forward over 1288 elements of
+   Γ₀(a), backward over 1016 elements of Γ₀(P) ∩ Γ₀⁰(u′), ten (P,u′) pairs, 0 failures. The F ↔ F′ bijection, det G = h₀, ⟨g₁,g₂⟩ = u′²N, cosh d = N/(2h₀), N ∈ Z, N > 2h₀:
+   1002 forms, 2184 pairs, 0 failures.
+ - (3)(b) IS CORRECT AND NOT CIRCULAR. "p | B(τ.G)" alone is indeed not a function of the coset Γ₀(p)τ — left multiplication moves L₁ — but the CONJUNCTION is, by a two-case check
+   that assumes nothing: if p | C then L₂ = L₀ and p | B for every representative; if not, the conjunction fails for every representative. And F′ is group-invariant a priori.
+   Verified: 210 pairs, the indicator constant on every coset, 0 exceptions.
+ - (3)(b) ON THE CASES OUR OWN SCRIPT DID NOT COVER: 9340 forms, 22218 pairs, 0 failures for (i)–(v), including P a PROPER divisor of |D| (|D| = 15, 35, 115, 135), s > 1 and
+   NON-FUNDAMENTAL D (|D| = 12, 20, 60, 84, 99, 135, 175), and even D. End-to-end, the full CRT coset count over (Γ₀(P) ∩ Γ₀⁰(u′))\SL₂(Z/Pu′) matches ∏_{p|u′}c_p with the P-primes
+   contributing exactly 1: 210 pairs, 0 mismatches. (Our o1-local.ts hardcodes P = |D|, h = 1, s = 1; see the caveat now in §44(5).)
+ - STEP (2) is fine and is the one place A‴ is genuinely STRONGER than A″: REVISION 2(f)'s caveat that the representation bound is uniform only for bounded discriminant is
+   SATISFIED here (h₀ | |D|), not tolerated. Representative-independence: 120 pairs × 8 changes of representative, 0 mismatches. Step (3)(a) at the new determinant also checks:
+   c_p(G) = p − χ_{−h₀}(p) over 1440 single-form counts, c_p ≤ 2 in 11798 non-scalar pairs, p² | N² − 4h₀² in all 159562 scalar pairs.
+
+WHAT LEMMA A‴ IS PROVED FOR, after the repairs: every fixed D < 0 with D ≡ 0,1 (mod 4) and every squarefree u with u′ odd — i.e. every u when D is even, every odd u when D is odd,
+that restriction imported from O2 rather than proved — covering ALL (a,h) = (Pu′², |D|/(Ps²)) with ω(P) arbitrary and D non-fundamental, which is strictly more than A″ + O1 + O2 gave.
+The bound is off(a;Z) ≪_{D,ε}(Zu)^{ε}(1 + Z^{1/2}), the D-dependence polynomial in |D| and the u-dependence the divisor factor 12^{ω(u′)}.
+
+STATUS OF THEOREM S after §44 + §45 + §46: read and complete for a = u², i.e. (u, D) = 1 after O2's normalisation, with δ_S(c) ≈ c/12. The remaining item is NOT Lemma A‴ — that is
+now read — but §46(6): S6′(1) restated at (u′, h₀), including the p² | q₀ emptiness claim, which is what would let Theorem S drop the (u, D) = 1 restriction.
+
+ADDENDUM to §46 (same day): the coverage gap the reading found in our own script is now closed IN THE REPOSITORY, not only in the reader's scratch. o1-local2.ts computes the normal
+form from (D, u) instead of hardcoding it, and additionally tests §0 itself — c = Ps², a = u²/c, gcd(a,h) = 1, P ∥ h₀, (u′,h₀) = 1 — alongside (i)–(v). Result: 141 configurations
+with P > 1, |D| ∈ {3,7,11,12,15,20,24,35,40,51,55,60,84,99,115,135,175,235} of which NON-FUNDAMENTAL (s > 1) are {12,20,24,40,60,84,99,135,175}, 5942 forms and 13680 ordered pairs,
+ZERO FAILURES. Data: data/o1-local2.txt. o1-local.ts is kept, with its caveat, as the record of what §44 actually rested on when it was written.
