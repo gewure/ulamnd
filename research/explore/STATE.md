@@ -508,4 +508,9 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   Our own numerics (data/paired-energy.txt) confirm it is essentially trivial — Jp/Y² = 1.93–2.04 at both m^{1/4} and m^{1/2}, every modulus type. If our residual sum can be
   rearranged so the paired system appears in place of J₆, the band at u ≈ H^{1/3} closes and §36's T2 (Off* = O(H), part I's Hypothesis (E)) becomes a theorem. Source verification
   of Korolev's exact statement, and of whether such a substitution is known, is running.
+- 16 Sep: C_GM settled (PROOFS §39). Following Grimmelt–Merikoski's proof (§7.2–§7.4 of arXiv 2505.00489, with [8] = arXiv 2404.08502 §7.3 giving δ₁ = min{δ, δ·AD}) one may take
+  δ^{−10} when AD ≥ 1 — our case — and δ^{−20} unconditionally; we use C = 24 as the safe value, and the parameters are chosen so that nothing depends on the exact number.
+  Their (AD)^{o(1)} is (log AD)^{O(1)} (our "apparent typo" in Prop 6.2 was a pdftotext superscript artifact — corrected in §36), and their q^{o(1)} is not invoked at all in our use.
+  Consequence: the small-end parameters are final (O6″), δ_S(c) = c/14400. Citation wording recorded in §39: never cite the number as the paper's own.
+  Still running: the full reading of Theorem S, and the source verification of Korolev's paired-system bound (the lead that would close the band at H^{1/3}).
 
