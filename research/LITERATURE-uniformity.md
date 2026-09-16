@@ -1182,3 +1182,230 @@ Sources:
 - https://arxiv.org/abs/1202.6313 (Nelson)
 - https://arxiv.org/abs/2509.03657 (Baier–Molla)
 - https://eudml.org/doc/279604 (Lemke Oliver)
+
+## Literature round 8 (16 Sep 2026; side agent; the J6 obstruction at N ≈ m^{1/4}; verbatim; VERIFY BEFORE CITING)
+# Report 5 (16 Sep 2026): J_6 of reciprocals of [1,N] at N ≈ m^{1/4} — is anything below N^4 known?
+
+Target. For k = 3, N ≈ m^{1/4}: any bound J_6(N) ≪ m^{o(1)} N^{4−c}, c > 0 fixed, for any moduli (prime included).
+Equivalently J_{2k}(N) below N^{3k−1}/m at N = m^{1/(2j)}, k = j+1.
+
+Verification tags: [PDF] = statement read in the paper; [RU] = read in the Russian original; [abs] = abstract only.
+
+## VERDICT: **NO** — for every modulus, prime or composite.
+Nothing in the literature beats N^4 at N ≈ m^{1/4}, k = 3. Bourgain–Garaev Thm 1 is unimproved since 2014; every
+subsequent "energy of reciprocals" paper either reproves its shape (function fields), or works only for k = 2, or
+works only for N below p^{1/18}. The gap between what is proved (p^{1/18} ≈ p^{0.0556}) and what is needed
+(p^{1/4} = p^{0.25}) is a factor 4.5 in the exponent, and there is a **structural reason** for it (§4).
+
+Partial credit, and genuinely useful:
+- The t = 0 (rational) case of the equivalent formulation is **completely solved**, with a power saving off the
+  diagonal — Konyagin–Korolev (§3). So the obstruction is *entirely* the t ≠ 0 terms.
+- A **weaker substitute for the Hölder step does exist and is free** — Korolev's paired system J_q(Y) ≪ Y^2 q^{o(1)}
+  for every composite q and every Y ≤ q (§5.1). If the Hölder step can be arranged around the paired
+  (additive-in-x *and* additive-in-x*) system rather than J_6, no new input is needed at all. This is the single
+  most actionable item in this report.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## 1. The benchmark and its exact arithmetic at N = m^{1/4}
+
+### J. Bourgain, M. Z. Garaev, "Kloosterman sums in residue rings", Acta Arith. 164 (2014), arXiv:1309.1124 [PDF]
+Thm 1 (**any modulus m**, I = [1,N]):
+  J_{2k} < (2k)^{90k^3}(log N)^{4k^2}(N^{2k−1}/m + 1)N^k.
+At k = 3, N = m^{1/4}: N^{2k−1}/m = N^5/N^4 = N, so both terms are equal and J_6 < N^{4+o(1)}. Exactly the obstruction.
+Thm 5 (any m): max_{(a,m)=1} |Σ_{n≤N} e_m(an*)| < (log log m)^{O(1)}(log m)^{−1/2} N for N > m^c. (See §5.3.)
+**Cor 1 names our barrier in print**: the bilinear bound of Thm 3 is nontrivial "unless both N_1, N_2 are within
+m^ε-ratio of an element of {m^{1/(2l)}, l ∈ Z_+}". The exceptional set of that corollary *is* the set of lengths at
+which J_{2k} degenerates. So BG themselves flag m^{1/4}, m^{1/6}, … as the unreachable lengths.
+
+### J. Bourgain, M. Z. Garaev, Izv. Math. 78 (2014), arXiv:1211.4184 — **prime p only** [PDF]
+| statement | bound | range | at N = p^{1/4}, k = 3 |
+|---|---|---|---|
+| Thm 1 (arbitrary interval I) | J_{2k} < \|I\|^{2k²/(k+1)+o(1)} + \|I\|^{2k+o(1)}/p | all \|I\| | k=3: N^{4.5} + N^2 — **worse than N^4** |
+| Thm 2 (ternary, fixed λ ∉ I^{−1}∪{0}) | J < \|I\|^{2/3+o(1)} | \|I\| < p^{3/46} ≈ p^{0.0652} | out of range |
+| Thm 3 (**exactly our J_6**) | J_6 < \|I\|^{3+o(1)} | \|I\| < p^{1/18} ≈ p^{0.0556} | out of range |
+| Thm 4 | J_{2k} < \|I\|^{k+o(1)} | \|I\| < p^{c/k²}, c = 1/4; k=3: p^{1/36} | out of range |
+| Thm 5 | = Acta Arith. Thm 1, for p | all N | N^4 |
+
+So even for primes, the best available at p^{1/4} is min(N^{4.5}+N^2, N^4) = N^4. The optimal bound N^{3+o(1)} is known
+only up to p^{1/18}. The three small exponents 3/46, 1/18, 1/36 are exactly as the brief anticipated.
+
+### No improvement exists — citation sweep
+Full citation lists of both papers (Semantic Scholar, 21 and 78 citing works) were scanned. Every citing item that
+touches energy of reciprocals either (a) is k = 2, (b) reproduces BG's shape in another setting, or (c) uses BG as a
+black box. In particular:
+- **C. Bagshaw, "Lattices in function fields and applications", arXiv:2304.05009, Mathematika 2025** [PDF]. Gives the
+  function field version of BG: E^{inv}_{F,k}(m) ≤ q^{km+o(m)} + q^{m(3k−1)−r+o(m)} — *identical shape* (N^k + N^{3k−1}/m),
+  no gain. Its genuine improvements (Thms 2.1, 2.2) are for polynomial curves y = f(x), not the hyperbola.
+- **C. Bagshaw, I. E. Shparlinski, arXiv:2112.02257** [PDF]. Thm 2.2: E^{inv}_{q,r}(m) ≤ (q^{(7m−r)/2} + q^{2m})q^{o(m)} —
+  the function field analogue of Heath-Brown's **k = 2** bound. Nothing for k ≥ 3.
+- **I. E. Shparlinski, A. Zumalacárregui, "Sums of inverses in thin sets of finite fields", arXiv:1611.07647** [PDF].
+  Thm 1.1: N_k(γ,m,ψ) ≤ q^{(k+o(1))m} — optimal, but only for m < n/(4k²−2k), i.e. the F_{q^n} analogue of BG Thm 4's
+  p^{1/(4k²)} range. For k = 3 that is dimension < n/30. Out of range, and it is a *lower*-bound-for-sumsets paper.
+- **A. Mohammadi, arXiv:2608.01203 (Aug 2026)** [PDF]. Boxes in F_{q}, q = p^n: bilinear Kloosterman bound nontrivial for
+  |B_1||B_2| ≥ q^{1/2+ε}; Cor 1 gives |kB^{−1}| ≥ p^{−δ}min{|B|²,q} for some k = k(δ). Qualitative sumset expansion, no
+  energy exponent, and the range is above the square root.
+- **Yao Zhi, arXiv:2608.15458 (Aug 2026)** [PDF]. Asymptotics for Σ m_i x_i^{−s} ≡ λ with m_i in arbitrary sets, x_i in
+  intervals; five terms need N > p^{14/29+ε}, six terms N > p^{8/17+ε}, α_r → 1/3 + 4/(9√r). The main input is a
+  *centered fourth moment* (k = 2). Far above p^{1/4} and not an energy bound for k ≥ 3.
+- **Garaev–Pardo–Shparlinski, arXiv:2410.03991** [abs]; **Garaev–Shparlinski, arXiv:2304.07953** (Mathematika 2023,
+  *lower* bounds / omega-results for exponential sums with inverses) [abs]; **Shkredov, arXiv:1802.09066** [PDF, grep] —
+  none contains an energy bound for reciprocals of an interval for k ≥ 3.
+- **Shkredov, "On some multiplicative questions" / higher-energy papers**: the higher energies E_k there are of the
+  *Schoen–Shkredov* type (a_1−a_2 = … = a_{2k−1}−a_{2k}) for arbitrary sets, not the 2k-fold additive energy of I^{−1}.
+  No statement about modular inverses of an interval was found.
+- **Murphy–Petridis–Roche-Newton–Rudnev–Shkredov, Macourt, Kerr**: no energy-of-I^{−1} result for k ≥ 3 located.
+  Kerr–Mohammadi (arXiv:1803.10373) and Kerr (arXiv:1210.1623) cover polynomial curves/congruences, not xy ≡ λ.
+
+**Answer to question 1: no. Not for any moduli, prime or composite, at N ≈ m^{1/4}, k ≥ 3.**
+
+## 2. What breaks, and exactly where (answer to question 4)
+
+### 2a. BG Acta Arith., §4, the Cauchy–Schwarz at (3) — the composite-modulus bottleneck [PDF, proof read]
+The proof splits λ by the successive minima of Γ_λ = {(u,v): λu ≡ v (mod m)} against D = {|u| ≤ N^k, |v| ≤ kN^{k−1}}.
+- **Case 2** (degenerate, µ_2 > 1) collapses to the *rational* equation 1/x_1+…+1/x_k = 1/x_{k+1}+…+1/x_{2k} and is
+  bounded by Karatsuba's Lemma 3 by N^{k+o(1)}. This case is **already optimal** and cannot be improved (§3).
+- **Case 1** (µ_2 ≤ 1) gives |Γ_λ ∩ D| ≤ 30kN^{2k−1}/m, and then inequality (3) applies Cauchy–Schwarz:
+    Σ_{λ∈Ω'} |J(λ)|² ≤ (max_λ |Γ_λ ∩ D|) · #{x_1…x_k = y_1…y_k, Σ_i ∏_{j≠i}x_j = Σ_i ∏_{j≠i}y_j}
+  and the second factor is again Karatsuba's Lemma 3 = N^{k+o(1)}. Product: N^{3k−1+o(1)}/m.
+**This single Cauchy–Schwarz is the whole loss.** At k = 3, N = m^{1/4}: vol(D) = N^5 = m^{5/4}, so a *typical* λ has
+|Γ_λ ∩ D| ≈ N^5/m = N^{... } = m^{1/4} / … ≈ 1 on average, while the *maximum* is ≈ N. Step (3) charges every λ the
+maximum. To get N^{4−c} one needs a genuine second-moment bound for Σ_{λ∈Ω'}|J(λ)|² that does not decouple —
+equivalently, to count the integer solutions of
+  (x_2x_3+x_1x_3+x_1x_2)·y_1y_2y_3 − (y_2y_3+y_1y_3+y_1y_2)·x_1x_2x_3 = m·t,   x_i, y_i ≤ N,
+summed over t ≠ 0, |t| ≪ N^5/m ≈ N, beating the trivial "max × diagonal".
+
+### 2b. BG Izvestiya, Lemma 13 — why the prime result stops at p^{1/18} [PDF, proof read]
+Thm 3 (J_6 ≪ N^{3+o(1)}) rests on Lemma 13, which requires N < 0.1 p^{1/18} J^{2/9} (J = #{x^{−1}+y^{−1}+z^{−1} ≡ λ});
+the binding case is small J (≈ N^ε), giving N < p^{1/18}. Lemma 13 runs Heath-Brown's lattice argument in **three**
+dimensions: Γ = {(u,v,w): (a²−2aλ^{−1})u + (a−λ^{−1})v + w ≡ 0 (mod p)} against D = {|u| ≤ 3N, |v| ≤ 3N², |w| ≤ N³}.
+**vol(D) = N^6.** The argument needs the successive minima to be controlled, which requires N^6 ≲ p, i.e. **N ≲ p^{1/6}**.
+At N = p^{1/4} one has N^6 = p^{3/2} ≫ p and D ∩ Γ carries ≈ p^{1/2} points: the method returns nothing at all, with a
+factor-of-1.5 margin in the exponent. So p^{1/6} is a hard ceiling for this technique and p^{1/4} is beyond it.
+This, not a numerical inefficiency, is why 1/18 has not been pushed to 1/4.
+(The k = 2 case is easy by contrast because the lattice is 2-dimensional: vol = N^3, ceiling N ≲ p^{1/3} — which is why
+Heath-Brown/Cilleruelo–Garaev/BG Cor 4 all succeed there, cf. Report 3.)
+
+## 3. Question 2: the equivalent formulation. t = 0 is SOLVED; t ≠ 0 is untouched
+
+### S. V. Konyagin, M. A. Korolev, "On a symmetric Diophantine equation with reciprocals", Trudy MIAN 294 (2016) 76–86 = Proc. Steklov Inst. Math. 294 (2016) 67–77 [RU, full text read: mathnet tm3732]
+For I_r(N) = #{1/x_1+…+1/x_r = 1/x_{r+1}+…+1/x_{2r}, 1 ≤ x_i ≤ N} (this is *exactly* the t = 0 case of the brief):
+- **Thm 1**: the number J_r(N) of **irreducible** solutions (no x_1,…,x_r occurs among x_{r+1},…,x_{2r}) satisfies
+    J_r(N) < N^{r−δ(r)}((15/16)ln N + 30r²)^{10r³},  δ(r) = r/(2(2r−1)).
+  For r = 3: **J_3(N) ≪ N^{2.7+o(1)}** — a genuine power saving off the diagonal.
+- **Thm 2**: an asymptotic formula for I_r(N) with remainder uniform in all parameters; the main term is **r! N^r**,
+  contributed by the solutions where (x_{r+1},…,x_{2r}) is a permutation of (x_1,…,x_r). For r = 2 the earlier bound
+  quoted there is I_2(N) = 2N² + O(N (ln N)^7).
+- Applications given in §3 are precisely to short Kloosterman sums Σ_{x≤N} e_p(ax*) with N ≤ p^c.
+
+### S. V. Konyagin, M. A. Korolev, "Irreducible solutions of an equation involving reciprocals", Mat. Sb. 208:12 (2017) 107–123 = Sb. Math. 208 (2017) 1818–1834 [RU, full text read: mathnet sm8801]
+**Thm 1** sharpens the above for r ≥ 3:
+  J_r(N) < N^{r−r/(2(2r−1))} e^{(3r)³}((1/r)ln N + 9)^{10r²} exp(26r^{3/2}√(ln N)/ln(r ln N)).
+Consequences stated there: **J_r(N) = o(N^{r−1/4})** for every fixed r ≥ 3, and J_r(N) ≤ N^{r−1/5} uniformly for
+3 ≤ r ≤ (1/16)(ln N)^{1/3}.
+
+*Caveat on δ(r).* The displayed exponent came through the PDF text layer garbled. δ(r) = r/(2(2r−1)) is reconstructed
+from the papers' own worked arithmetic in sm8801 (they deduce N^{r−1/4}·N^{0.007+0.009+0.032} < N^{r−1/5}, which forces
+δ(3) = 3/10, and δ(r) = r/(2(2r−1)) ↓ 1/4 as r → ∞, matching their claim "o(N^{r−1/4}) for every fixed r ≥ 3").
+Read δ(r) off the printed formula before quoting it in a paper; the qualitative point (power saving off the diagonal,
+r = 3 giving ≈ N^{2.7}) is not in doubt.
+
+**So for the rational (t = 0) question in the brief the true count is 3!·N³(1+o(1)) = 6N³(1+o(1)), with non-diagonal
+solutions ≪ N^{2.7+o(1)}.** This is a complete and sharp answer, and it is better than Karatsuba's Lemma 3 (the lemma
+BG actually use: ≤ (2k)^{80k³}(log N)^{4k²}N^k), which only gives N^{3+o(1)} with no saving off the diagonal.
+
+### t ≠ 0: nothing
+No literature was found counting solutions of F(x,y) = n uniformly in n for this sextic (F = e_2(x)y_1y_2y_3 −
+e_2(y)x_1x_2x_3), nor for the associated inequality version. The nearest relative, **M. A. Korolev, "On a Diophantine
+inequality with reciprocals", Trudy MIAN 299 (2017) 144–154** [abs], is a different problem (a lower bound for
+#{n ≤ N : α ≤ {(a n̄ + bn)/q} < β}), not an archimedean t ≠ 0 count. The Vaughan–Wooley paucity literature
+(e.g. arXiv:2211.10500) covers Vinogradov-type symmetric systems, not reciprocals.
+Note the heuristic is favourable — for fixed t ≠ 0 one expects ≈ N^6/N^5 = N solutions, so ≈ N·N = N² total against a
+budget of N^3 — but **uniformity in n is exactly the hard part** (divisor-type spikes), and this is the same
+difficulty as §2a in different clothing.
+
+## 4. Question 3: weaker substitutes in the Hölder step
+
+### 4.1 **The paired system — a real, free substitute** [PDF: Korolev slides, "5. New estimates"]
+For the inhomogeneous sum S(X,Y) = ΣΣ e_q(a x*y* + b·…) Korolev uses
+  |S(X,Y)|^8 ≪ (XY)^8 · qY · I_2(X)·J_2(Y)/(XY)^4,
+where J_2(Y) counts the **paired** system
+  y_1* + y_2* ≡ y_3* + y_4* (mod q)  AND  y_1 + y_2 ≡ y_3 + y_4 (mod q),  Y < y_j ≤ 2Y.
+**Lemma (Korolev, 2018): for any composite q and any Y ≤ q,  J_q(Y) ≪ 2^{ω(q)}τ_3(q)Y² ≪ Y² q^{o(1)}.**
+This is essentially optimal (the diagonal is Y²) and — crucially — **holds in the entire range Y ≤ q, with no
+threshold**, because the two equations together are rigid. If the Hölder/Cauchy arrangement in the target application
+can be set up so that the second factor is this paired system rather than J_6, **the obstruction disappears without any
+new input**. This is the most promising line found. (Caveat: 2^{ω(q)}τ_3(q) is q^{o(1)} but for squarefree m with many
+prime factors it is (log m)^{O(1)}-sized — harmless.)
+
+### 4.2 Σ_λ J_2(λ)J_4(λ), and J_6 with one structured variable
+No literature. Searched for mixed/weighted energies of I^{−1}, for J_6 with a variable restricted to Farey or
+convergent-denominator sets, and for "Kloosterman fraction" energies at N ≈ m^{1/4}: nothing that separates the
+variables in this way. The Bettin–Chandee trilinear Kloosterman fraction line (arXiv:1502.00769, and arXiv:2604.25177,
+"Trilinear Kloosterman fractions I", 2026) is structurally different — arbitrary coefficients on all three variables,
+with the modulus itself a variable — and does not yield a J_6 bound for a fixed modulus.
+
+### 4.3 Bounds at N ≈ m^{1/4} obtained *without* an energy input
+- **BG Acta Arith. Thm 5** [PDF]: for **arbitrary m** and any N > m^c,
+    max_{(a,m)=1} |Σ_{n≤N} e_m(an*)| < (log log m)^{O(1)}(log m)^{−1/2} · N,
+  proved from Bourgain's multilinear sum-product Lemma 1 (k = k(γ) large), **not** from J_{2k}. This *does* cover
+  N = m^{1/4} for squarefree m — but it is a **log saving only**, and it is a *linear* (one-variable) sum.
+- **Korolev (Sb. Math. 207 (2016) 1142–1158; slides Thm M.K. 2016)** [PDF slides]: for d = rad(q), c_1 = 900,
+  c_2 = 160^{−4}, and max(d^{15}, e^{c_1(log q)^{2/3}}) ≤ N ≤ √q,
+    |Σ_{c<n≤c+N} e_q(an* + bn)| ≤ N exp(−c_2 (log N)³/(log q)²),
+  which at N = q^{1/4} is a power saving q^{−c_2/64} (minuscule but genuine). **Fatal caveat for the present purpose:
+  the hypothesis rad(q)^{15} ≤ N makes this a *powerful-modulus* theorem — it is vacuous for squarefree m**, where
+  rad(m) = m.
+- **Korolev Thms 2–4 (2017–18)** [PDF slides], arbitrary composite q, sums with Λ(n): nontrivial only for
+  N ≥ q^{5/8} (b = 0) or N ≥ q^{3/4} (b ≠ 0). Nothing near q^{1/4}.
+- **Bourgain (2005) / Baker (2012)**: N ≥ q^{1/2+ε}. Nothing near q^{1/4}.
+
+## 5. Assessment: how hard is this?
+
+**Hard, and it is a recognised barrier rather than an oversight.** Three independent indications:
+
+1. *The technique has a computable ceiling.* The only known route to optimal J_{2k} bounds for reciprocals is
+   Heath-Brown's lattice/geometry-of-numbers argument. For k = 3 it lives in dimension 3 with a body of volume N^6,
+   so it is confined to N ≲ p^{1/6}; the published range p^{1/18} is a lossy version of that ceiling. N = m^{1/4} sits
+   beyond the ceiling by a factor 1.5 in the exponent, so this is not a matter of optimising constants — a different
+   idea is required. For k = 2 the same method has ceiling p^{1/3} > p^{1/2}·(1/2)… which is why k = 2 is solved at
+   every length of interest and k = 3 is solved at none.
+2. *Everyone who needs it routes around it.* BG's own Cor 1 excises the lengths m^{1/(2l)}; Karatsuba's original
+   mean-value theorem is stated exactly in the regime X^{2k−1} ≪ q where the diagonal dominates; Korolev's composite
+   results all live above q^{5/8}; the 2026 papers (Yao Zhi, Mohammadi) work above the square root. No paper in
+   30 years (Karatsuba 1995 → BG 2014 → 2026) claims the sub-square-root, sub-p^{1/6} regime for k ≥ 3.
+3. *The t = 0 shadow is sharp but does not transfer.* Konyagin–Korolev prove the rational equation has count
+   r!N^r(1 + o(1)) with power-saving paucity — i.e. the conjectured truth J_6 ≈ N^3 is *correct and provable* in the
+   archimedean limit. The entire difficulty is the m·t ≠ 0 terms, i.e. a **uniform-in-n count for a singular sextic in
+   6 variables in a box of side N with N^6 ≫ m**. That is the "variety in a small box beyond the completion range"
+   problem, which is the same wall as the modular-hyperbola-in-short-boxes problem, one dimension up.
+
+**Which barrier is it?** Not the Paley-graph/sum-product barrier: sum-product methods (Bourgain's Lemma 1) *do* apply
+here and give the log-saving Thm 5 for all N > m^c; they are simply too weak to produce a power. It is precisely the
+**modular-hyperbola-in-small-boxes barrier in dimension 3**: the k = 2 case is the classical
+#{xy ≡ λ (mod m), x,y ∈ box}, solved by Heath-Brown; our k = 3 case is the 3-dimensional analogue
+#{xyz ≡ λ} / the associated symmetric-function lattice, for which BG's Lemma 11 itself needs N < p^{1/8}. Any proof of
+J_6 ≪ N^{4−c} at m^{1/4} would very likely first give new results on points of the 3-dimensional modular hyperbola in
+boxes past the geometry-of-numbers range — a well-known open problem (Shparlinski's survey, arXiv:1103.2879, lists
+the composite/higher-dimensional cases as open).
+
+**Recommendation.** Do not wait on a J_6 improvement. Restructure the Hölder step around Korolev's paired system
+(§4.1), which is unconditional, optimal, and valid for every composite modulus at every length.
+
+## Sources
+- https://arxiv.org/abs/1309.1124 — Bourgain–Garaev, Acta Arith. 164 (2014) [Thm 1, Thm 5, Cor 1, §4 proof, Lemma 3]
+- https://arxiv.org/abs/1211.4184 — Bourgain–Garaev, Izv. Math. 78 (2014) [Thms 1–6, Lemmas 10–13, §9.3]
+- http://mi.mathnet.ru/eng/tm3732 — Konyagin–Korolev, Proc. Steklov Inst. Math. 294 (2016) 67–77
+- https://www.mathnet.ru/eng/sm8801 — Konyagin–Korolev, Sb. Math. 208 (2017) 1818–1834
+- http://www.mathnet.ru/eng/tm3847 — Korolev, Proc. Steklov Inst. Math. 299 (2017) 132–142
+- https://www.mathnet.ru/eng/sm8648 — Korolev, Sb. Math. 207 (2016) 1142–1158
+- https://hkumath.hku.hk/~imr/event/SRC/files/slides_Maxim_Korolev.pdf — Korolev, survey slides (paired-system lemma)
+- https://arxiv.org/abs/2304.05009 — Bagshaw, Mathematika 2025 (function field BG analogue)
+- https://arxiv.org/abs/2112.02257 — Bagshaw–Shparlinski (function field, k = 2)
+- https://arxiv.org/abs/1611.07647 — Shparlinski–Zumalacárregui
+- https://arxiv.org/abs/2608.01203 — Mohammadi (2026)
+- https://arxiv.org/abs/2608.15458 — Yao Zhi (2026)
+- https://arxiv.org/abs/2410.03991 — Garaev–Pardo–Shparlinski
+- https://arxiv.org/abs/2304.07953 — Garaev–Shparlinski, Mathematika 2023
+- https://arxiv.org/abs/1103.2879 — Shparlinski, "Modular hyperbolas"
+- https://arxiv.org/abs/1502.00769 , https://arxiv.org/abs/2604.25177 — Bettin–Chandee; trilinear Kloosterman fractions

@@ -1172,3 +1172,22 @@ Lemma A″ structurally right but with a wrong kernel weight in step (1) and a s
 §36 ADDENDUM (J₆ numerics, j6-energy.ts, data/j6-energy-b025.txt): at N = m^{1/4} the true J₆ is 1.41–1.53 times the model 6N′³ + N′⁶/m for primes, balanced p₁p₂, p·small and
 101·9901 (0.91 for the many-factor modulus), i.e. J₆/N′⁴ = 0.21–0.39 — the diagonal dominates, as expected, and Bourgain–Garaev's N⁴ is the obstruction only in the proof, not in
 the truth. A literature search for any J₆ improvement at this size is running.
+
+## 38. THE J₆ OBSTRUCTION: no bound exists, but a SUBSTITUTE may (16 Sep; literature round 8, side agent; report scratchpad/lit/report5.md) — NOT READ
+NEGATIVE ANSWER (the expected one). No improvement of Bourgain–Garaev Theorem 1 for k ≥ 3 exists at N ≈ m^{1/4}, for any moduli, prime included: the citation lists of both BG
+papers were swept; every later "energy of reciprocals" result is k = 2, or reproduces BG's shape elsewhere, or lives far outside the range (Izvestiya Thm 2 needs p^{3/46},
+Thm 3 — which is exactly J₆ ≪ N^{3+o(1)} — needs p^{1/18}, Thm 4 needs p^{1/36}; Izvestiya Thm 1 gives N^{4.5} at k = 3, worse than N⁴). Where it would have to be improved:
+ • composite m: the Cauchy–Schwarz at (3) of BG Acta Arith. §4 charges every λ the maximum |Γ_λ ∩ D| ≤ 30kN^{2k−1}/m when the average is ≈ 1 at N = m^{1/4} — that single step
+   is the whole loss of one factor N;
+ • prime m: Izvestiya Lemma 13 runs Heath-Brown's lattice argument in dimension 3 against a body of volume N⁶, so it needs N ≲ p^{1/6} — a hard ceiling, not a lossy constant.
+ The barrier is named in print (BG's Corollary 1 excises the lengths m^{1/(2l)}); it is the modular-hyperbola-in-small-boxes barrier one dimension up, NOT the sum-product barrier.
+ Also: the archimedean truth is a theorem (Konyagin–Korolev, Steklov 294 (2016), Sb. Math. 208 (2017)): the rational equation 1/x₁+1/x₂+1/x₃ = 1/y₁+1/y₂+1/y₃ with variables ≤ N has
+ r!N^r(1+o(1)) solutions, the non-diagonal ones ≪ N^{r−3/10} — so the whole obstruction is the t ≠ 0 terms of the congruence.
+THE LEAD (to evaluate, then test, then read). Korolev's PAIRED system — counting y with y₁* + y₂* ≡ y₃* + y₄* AND y₁ + y₂ ≡ y₃ + y₄ simultaneously — satisfies
+ J_q(Y) ≪ 2^{ω(q)}τ₃(q)Y² ≪ Y²q^{o(1)} for ANY composite q and ANY Y ≤ q, with NO threshold. If the Hölder arrangement of BG's Theorem 3 can be rebuilt so that the energy that
+ appears is the paired one rather than J₆, the exceptional sizes m^{1/(2j)} — and with them the band at u ≈ H^{1/3} — disappear with no new input. That would turn §36's T2 into a
+ theorem: Off*_f(H) = O(H), i.e. part I's Hypothesis (E).
+ WHAT TO CHECK, in order: (1) Korolev's exact statement and hypotheses (the report warns his power-saving result at q^{1/4} assumes rad(q)^{15} ≤ N, vacuous for squarefree m — so
+ it must be the paired-system bound, not that one, that we use); (2) whether a Cauchy–Schwarz/Poisson arrangement of our residual sum Σ_{n₁,n₂}α β e_m(a n₁*n₂*) produces the paired
+ system (both the reciprocals and the arguments summing to the same residue) rather than the plain energy — this is the real question; (3) the exponent count that results; (4) a
+ numerical test of the paired count at our sizes before anything is claimed (F24).
