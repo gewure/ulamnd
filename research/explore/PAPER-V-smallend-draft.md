@@ -247,3 +247,34 @@ STILL MISSING (the reading's list, in order of weight):
    Lemma A″ from S_{a,h}(1) to S_{a,h}(q₀).
  (M3) C_GM for THEOREM 8.1 specifically: §39's trace is of Theorem 7.1; 8.1's proof says only "by similar arguments", so the K-invariant variant's δ^{−O(1)} must be re-derived.
  (M4) Scope caveats in the statement: D < 0, u squarefree, δ_S(c) non-uniform and non-effective as c → 0, constants depending on f, D and on A/η in S2′.
+
+## S6 (the level-summed off-diagonal) — written out, after §40 (M1)
+CLAIM. With a = u² (or pu′², O1), h = O_f(1), q₀ = lcm(j, e, m²) as in S1′ and Z₂ ≥ 1,
+  Σ_{q₀ ≤ EM²} off(a q₀; Z₂) ≪_{f,ε} H^{ε}\,(1 + Z₂),
+where off(q; Z₂) is the off-diagonal of ⟨α_q|K_q k_{Z₂²,1}|α_q⟩, i.e. the weighted count of ordered pairs of DISTINCT family points at point-pair distance ≤ Z₂², modulo Γ₀(q).
+PROOF. (1) By the CRT decomposition of §16 FOLLOW-UP (valid at prime powers, §21 R1: a common projective zero mod p^k forces p^k | Res because x³Res, y³Res ∈ (Q_{g₁}, Q_{g₂}),
+and each form has ≤ 2 zeros mod p^k for p ∤ ah by Hensel), for a fixed pair (g₁, g₂) of distinct family points,
+  Σ_{q₀} ∏_{p^k ∥ q₀} |R_{p^k}(g₁) ∩ R_{p^k}(g₂)| ≤ ∏_{p | (q₀, 2D)}(p^{v_p} + p^{v_p−1}) · Σ_{q₀' | Res, (q₀', 2Dah) = 1} 2^{ω(q₀')} ≪_D τ₃(N² − 4h²),
+where the O_D(1) primes p | 2D (there v_p(q₀) ≤ 1 for p | j and (em, 2D) = 1) are PULLED OUT FIRST with the trivial factor p + 1, and Res = u⁴(N² − 4h²) contributes only through
+N² − 4h² because the remaining q₀' are coprime to u (§36). So the level sum costs a divisor factor, not a factor EM².
+(2) By Lemma A″'s parametrisation (undilation, lift to level one, local counts), the pairs at distance u(g₁,g₂) ≤ Z₂² are indexed by N = ⟨G₁,G₂⟩ ∈ (2h, 2h(1 + 2Z₂²)] =: (2h, M],
+with weight (4h/(N + 2h))^{1/2} ≍ h^{1/2}N^{−1/2}, and for each N the number of Γ₀⁰(u)-orbits is ≤ P₁(N)·2^{ω(u)}g₂(N), P₁(N) ≪ (hN)^{o(1)}h^{1/2}, g₂(N)² | N² − 4h².
+(3) Combining (1) and (2), the level-summed off-diagonal is
+  ≪_D h^{1/2}·2^{ω(u)} Σ_{2h < N ≤ M} N^{−1/2}·(hN)^{o(1)}h^{1/2}·τ₃(N² − 4h²)·g₂(N).
+By Cauchy–Schwarz in N, Σ_N N^{−1/2}τ₃(N²−4h²)g₂(N) ≤ (Σ_N N^{−1/2}τ₃(N²−4h²)²)^{1/2}(Σ_N N^{−1/2}g₂(N)²)^{1/2}, or more simply by Nair–Tenenbaum/Henriot (uniform in the
+discriminant) Σ_{N≤M}τ₃(N²−4h²)^{A} ≪_A M(log M)^{3^A−1} and the divisor-switching bound Σ_{2h<N≤M}N^{−1/2}g₂(N) ≪ τ₃(u)M^{1/2} of Lemma A″ step (4): Hölder with exponents
+(1+ε, (1+ε)/ε) gives Σ_N N^{−1/2}τ₃(N²−4h²)g₂(N) ≪_ε M^{1/2}(log M)^{O(1)}τ₃(u)^{1+ε}·H^{ε}. Since M ≍ hZ₂², this is ≪ H^{ε}(1 + Z₂), and 2^{ω(u)}τ₃(u) = 6^{ω(u)} ≪_ε H^{ε} —
+pointwise divisor-size, averaged in the application by Σ_{u∼U}6^{ω(u)}/u ≍ (log U)^6/6! (§36, §37). □
+[TO CHECK IN THE READING: the Hölder step's exponents; whether Henriot's uniform Nair–Tenenbaum bound applies to τ₃ of N² − 4h² with N in a short range; and whether the pull-out
+of the p | 2D primes in (1) is uniform in the level.]
+
+## S5′ (the K₂ dictionary) — written out, after §40 (M2)
+By definition (GM §4.1, arXiv 2505.00493) the second kernel quantity is
+  ⟨α_q|Δ_q k_{Z₂²,1}|α_q⟩ ≤ ⟨α_q|K_q k_{Z₂²,1}|α_q⟩ = Σ_{σ₁,σ₂ ∈ L_{ah}} |Γ_{σ₁ i}|^{−1}|Γ_{σ₂ i}|^{−1} Σ_{τ₁,τ₂ ∈ T_q} α_q(τ₁σ₁)α_q(τ₂σ₂) Σ_{γ∈Γ₀(q)} k(u(γτ₁σ₁ i, τ₂σ₂ i)),
+the inequality because k ≥ 0 and the subtracted volume term is ≥ 0 (GM do the same, "drop the integral by positivity"). Unfolding the γ-sum as in PROOFS §17 Step 1, the right side is
+  Σ_{g₂ ∈ Γ₀(q)\S_{a,h}(q₀)} |Γ_{g₂}|^{−1} Σ_{g₁ ∈ S_{a,h}(q₀)} k(u(g₁, g₂)) = diag(q) + off(q; Z₂),
+where S_{a,h}(q₀) = {g : det g = ah, a | B, a q₀ | C} is the family at level q = a q₀ (GM Lemma 3.1), diag(q) = Σ_{g ∈ Γ₀(q)\S_{a,h}(q₀)}|Γ_g|^{−1}·k(0) is the count of S5, and off
+is the quantity of S6. Lemma A″ is proved at q₀ = 1; for q₀ > 1 the family S_{a,h}(q₀) is the subset of S_{a,h}(1) cut out by the congruences C ≡ 0 (mod a q₀), i.e. by the local
+conditions of (1) in S6, and the level-summed statement of S6 is exactly what replaces a separate Lemma A″ at each q₀: one proves the pair count at q₀ = 1 and sums the local
+intersection factors over the levels. [TO CHECK: that the unfolding is legitimate with the stabiliser weights, i.e. that Σ_{τ} α_q(τσ) counts each Γ₀(q)-orbit of S_{a,h}(q₀)
+exactly once with weight |Γ_g|^{−1}; GM's Prop 4.1 does this at q₀ = 1 and the same computation should give it in general.]
