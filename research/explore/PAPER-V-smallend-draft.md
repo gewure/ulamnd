@@ -211,3 +211,11 @@ OPEN (inherited, §37(10)): with p | a the admissibility factor can produce leve
 and the shape q = a·d of GM Lemma 3.1 both need an argument. There are O_D(1) such levels; what is missing is the validity of the parametrisation at them, not their number.
 A clean way out, to be checked: absorb the factor p of j into a (i.e. work at (a, h) = (p u′², |D|/p) with the level p·lcm(e, m²)·u′² read as a·lcm(e, m²) with a already carrying p),
 so that gcd(a, q₀) = 1 again and the j-Möbius runs only over the primes of 2D not dividing u.
+
+## O6″ (parameters, final form) — after PROOFS §39
+Take C := 24 (PROOFS §39: the printed proof of Grimmelt–Merikoski's Theorem 8.1 gives δ^{−20}, and δ^{−10} whenever AD ≥ 1, which holds here; 24 is the safe value against the
+Prop 6.1 "T ≥ L" gap, and nothing below depends on the exact value because η′ is chosen after C). Parameters, in this order: c > 0 given; η′ := c/(200C); δ := η′/2; η := c/100;
+δ₃ := δ. Then δ < η, δ < 2η′ and Cη′ + 2η + O(δ) ≤ c/200 + c/50 + O(c/400) < 1.172c = 3c(1 − 2θ)/2 at θ = 7/64, so
+  δ_S(c) = min(2δ/3, η, 2η′ − δ, 1.172c − Cη′ − 2η − O(δ)) = 2δ/3 = c/(600C) = c/14400,
+i.e. δ_S(c) ≍ c with an explicit constant, and the citation of C is only through the choice of η′.
+

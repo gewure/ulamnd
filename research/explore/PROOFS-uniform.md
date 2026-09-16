@@ -1146,8 +1146,7 @@ RESULT: no divisor-size loss survives as a constraint; §34's dichotomy is a FAL
    and level-set splitting lose). BUT IT IS HARMLESS: Λ = τ(g₀) enters |Σ| as Λ^{1/(k₁k₂)}, and with the band-optimal k₁ ≍ 2/(9ζ), k₂ = 2 the loss exponent is Λ^{9ζ/4} ≤
    0.52ζ/log log H against the saving 0.1875ζ — the same linear rate in ζ, smaller by log log H (measured ratio 0.79, 0.48, 0.22, 0.14 at log H = 10², 10³, 10⁶, 10⁹).
  • Grimmelt–Merikoski's constants, traced through §7 of arXiv 2505.00489: δ^{−C} with C = 20 (δ₁ = δ², then δ₁^{−2} from the ℓ₂-sum and δ₁^{−8} from the dyadic (L,T) sum; C does
-   not improve with larger J; safe value C ≤ 24); their (AD)^{o(1)} is (log AD)^{O(1)} provided Prop 6.2's c₀(η) ≍ η^{−10} (the printed inequality reads correctly only as
-   ηc₀^{1/10} ≫ 1 — an apparent typo); their q^{o(1)} is 1 in our use (β on h = 1, H = 1, so Rankin–Selberg (2.25) is never invoked). Our parameter inequality becomes
+   not improve with larger J; safe value C ≤ 24); their (AD)^{o(1)} is (log AD)^{O(1)} provided Prop 6.2's c₀(η) ≍ η^{−10} [§39: the paper genuinely prints ηc₀^{1/10} ≫ 1 — our "apparent typo" was a pdftotext superscript artifact]; their q^{o(1)} is 1 in our use (β on h = 1, H = 1, so Rankin–Selberg (2.25) is never invoked). Our parameter inequality becomes
    20η′ + 2η + O(δ) < 3c(1−2θ)/2 (small end), i.e. C_GM = 20 in the draft's O6′.
 CONSEQUENCE FOR THE BAND: the binding item is Bourgain–Garaev's Hölder constant with k₁ ≍ 2/(9ζ) → ∞, giving f(H) = 1.15(log log H/log H)^{1/3} — wider than the polylog branch,
 narrower than the divisor branch. With §32 F2's in-band fallback on Theorem E, the band costs ≍ H(log H)^{0.63}(log log H)^{4/3} and everything outside sums to O(H). So:
@@ -1199,3 +1198,24 @@ So at both sizes the paired count is essentially exactly its trivial diagonal 2Y
 threshold. This is exactly the shape of the bound reported in literature round 8 (Jp ≪ Y²m^{o(1)}), and it is the strongest numerical signal we have had for any of the inputs:
 where the plain energy J₆ is at its barrier, the paired system is trivial. The open question is not the bound but whether our residual sum can be rearranged so that the paired
 system, rather than J₆, is what appears (§38, check (2)) — a source-verification agent is on Korolev's exact statement and on whether such a substitution is known.
+
+## 39. C_GM DERIVED INDEPENDENTLY (16 Sep; fresh model instance; scratchpad/reader-cgm/) — SUPERSEDES §36's trace
+TASK 1 (the exponent in δ^{−O(1)} of arXiv 2505.00489 Theorems 7.1/8.1). The proof gives δ₁^{−10} with δ₁ = min{δ, δ·AD} — NOT δ² as the paper's §7.2 says in passing: the companion
+[8] = arXiv 2404.08502 §7.3 states the change of variables as "δ ↦ δ₁ := min{δ, δAD} ≥ δ²", so δ² is only the worst case of that min. Since AD ≥ 1 in any real application,
+δ₁ = δ and C = 10; unconditionally C = 20. Verified step by step: §7.1 unskewing loses nothing; the free K-type index gives δ₁^{−2} (peak at m ≍ 1/δ₁, J-independent); the dyadic
+(L,T) sum gives δ₁^{−8}, and the paper's own "the sum converges since 2J′ ≥ 10" confirms the L⁸ reading; Cauchy–Schwarz does not halve it. CORRECTION to §36's attribution: the L⁸
+does NOT come from Prop 6.1's T²L and Prop 6.2's L⁴ (those give L²T² and L⁵); it comes from Lemma 4.3's error term (1 + ℓ⁶) via Prop 6.2's hypothesis Z^ν > c₀L⁶ and §7.4's
+insertion, times Prop 6.1's weight L and Prop 5.1's (1 + L). Since Lemma 4.3's ℓ⁶ is explicitly not optimised, C is improvable only by sharpening that lemma. C does not improve
+with larger J (both losses come from the peak L ≍ T ≍ 1/δ₁, where the denominator is ≍ 1). ONE GAP FOUND in GM: the L⁷ step applies Prop 6.1 with weight L to the exceptional block,
+but Prop 6.1 as stated requires T ≥ L, and the exceptional ν sit in the block T ≍ 1 where the weight is L³, giving c₀L¹⁰ and hence C = 12 (24 unconditional) — under which reading
+2J′ ≥ 10 is borderline, so the authors presumably intend the L⁷.
+TASK 2 ((AD)^{o(1)}). It IS (log AD)^{O(1)}, roughly (log AD)^{11}: choose η ≍ 1/log(AD), then X_j^η = O(1) and Prop 6.2's c₀ ≍ η^{−10} ≪ (log AD)^{10}. The "typo" flagged in §36 is
+not one — the paper prints νZ^{ν/10} ≥ ηc₀^{1/10} ≫ 1 (a pdftotext superscript artifact in our extract), and that is the reading that makes c₀ ≫ η^{−10} the requirement. Two
+printed imprecisions in GM: c₀ is silently dropped from the §7.4 display though η = o(1) forces c₀ → ∞; and X_j^η is (AD)^{o(1)} only if X_j ≤ (AD)^{O(1)}, which the theorem does
+not require.
+TASK 3 (q^{o(1)}). Confirmed = 1 in our use: (2.25) is the sole source of both q^{o(1)} and H^{1/2} in Theorem 8.1, and with β on h = 1 its left side is |λ_V(1)|² = 1, so it is
+not invoked. No other q-dependence enters the proof except θ = θ(Γ,χ), which is explicit. (Theorem 7.1 carries no q^{o(1)} at all — the factor is exactly the price of the
+Rankin–Selberg step unique to Theorem 8.1.)
+RECOMMENDATION ADOPTED: use C = 24 in the parameter inequalities (safe against the Prop 6.1 gap), record that the printed proof gives 20 and that C = 10 when AD ≥ 1, and cite it as
+"following the proof of [GM, Theorem 8.1, §7.2–§7.4] one may take δ^{−10} when AD ≥ 1, and δ^{−20} unconditionally; we do not optimise this and use only that the exponent is
+absolute" — never as the paper's own statement. Design the parameters so that η′ is chosen AFTER C, so the exact value is not load-bearing.
