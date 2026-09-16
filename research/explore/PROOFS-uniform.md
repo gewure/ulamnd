@@ -1102,3 +1102,8 @@ FIRST-PASS CLASSIFICATION (mine; to be checked when the readings resume):
 CONSEQUENCE FOR THE PROGRAMME: T2 (Off* = O(H)) requires removing or averaging the three (c) items near the band; T1 as stated in §32 should be replaced by the dichotomy above.
 Theorems M and S are unaffected. TO REQUEUE when the rate limit resets: (1) the audit (GM's exponents; the τ(t) item; the Rankin step), (2) the confirming read of PAPER-V-thmM.md,
 (3) the reading of the small-end pieces (S1′, S2′, Lemma A″, O5, O6′).
+§34 NUMERICS (shiu-ap-test.ts, data/shiu-ap-test.txt): for n_z = c₀ + (tm)z, z ≤ 400, the ratio R = (mean τ(n_z))/(τ(g₀)·log max n_z), g₀ = gcd(c₀, tm), is
+1.007, 0.526, 0.370, 0.307, 1.047 (m = 1000003, t = 1, 2, 6, 30, 97) and similarly ≤ 1.05 for m = 1005973, 4000037, and 0.19–0.38 for m = 4849845 (where g₀ > 1, τ(g₀) up to 8).
+So Σ_{z≤Z}τ(|n_z|) ≪ τ(g₀)·Z·log is the right shape, the smaller ratios coming from the ∏_{p|tm}(1 + 1/p)-type factors: the ONLY pointwise loss in Lemma E's divisor step is
+τ(g₀) ≤ τ(t)τ(m), and of these τ(m) is averaged over the moduli in the application. τ(t) (t the Dirichlet denominator) remains the single class-(c) item; it is harmless for
+Theorems M and S and matters only inside the band.

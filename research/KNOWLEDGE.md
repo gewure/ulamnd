@@ -569,6 +569,11 @@ discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suff
 sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
 contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
 
+F49. "A band where no method works costs δ·H log H, so it would be worse than Theorem E" (PROOFS-uniform §32 F10 phrasing, 16 Sep).
+Inside such a band the already-proved per-piece bound (paper III Theorem E: 𝒫_u(H/u) ≪ (H/u)(log H)^{−c}log log H, uniform in u ≤ H^{1−ε}) still applies, so the band costs
+δ·H(log H)^{1−c}log log H: a method that degenerates can never make the total worse than what is already proved. Found by a reading of §31 and confirmed in §34.
+Rule: when a method degenerates on a sub-range, compare it with the best ALREADY-PROVED bound on that sub-range, never with the trivial bound.
+
 F48. "With E = X^{1/2} the θ-factor is 1 and the bound X^{1/2}u beats the trivial X" (PROOFS-uniform §14, 15 Sep night).
 A dyadic block of a weighted decomposition (divisor level e ∼ E with weights κ(e) ≍ 1/e) was compared with the trivial size of the WHOLE sum
 (X) instead of its own (X/E); the dominant block e ≈ 1 was never examined, and a "θ-free" range H^{1/3} was announced. Found by a reading.
