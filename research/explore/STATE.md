@@ -489,4 +489,9 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - 16 Sep: THEOREM M has three independent readings (PROOFS §28, §30, §35), the last confirming the merged text after eight bookkeeping fixes (REVISION 2). Binding constraint
   part III Step 3: δ_M < 4η/7 ≈ 5.7e−5. Paper V skeleton (research/paper-V/main.tex, 4 pp) now carries the statements and Theorem M's proof skeleton. Still running: the
   small-end reading and the o(1) audit.
+- 16 Sep: the o(1) AUDIT is complete (PROOFS §36). No divisor-size loss constrains the chain: τ₃(Res) is really τ₃(N²−4h²) and averages to (log M)^4 under Σ_N N^{−1/2};
+  the §25 Rankin factor belongs to a branch that squarefreeness of u deletes; Lemma E's τ(t) is irreducible but self-cancelling (it enters as Λ^{1/(k₁k₂)}, i.e. 0.52ζ/log log H
+  against a saving 0.1875ζ). Grimmelt–Merikoski's constants traced: δ^{−20}, (log AD)^{O(1)}, and q^{o(1)} = 1 in our use; hence C_GM = 20 in the small-end O6′ (to apply once
+  the small-end reading lands). The binding item is Bourgain–Garaev's Hölder constant as k₁ ≍ 2/(9ζ) → ∞: band width 1.15(log log H/log H)^{1/3}, T1 = H(log H)^{0.63+o(1)}
+  supported, T2 (Off* = O(H), part I's Hypothesis (E)) blocked solely by a J₆-type input at N ≈ m^{1/4}.
 
