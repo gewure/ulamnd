@@ -91,8 +91,24 @@ Let $f$ be as above. There is $\delta_M>0$ (any $\delta_M<4\eta/7$ with the para
 Consequently, with part~III's Theorem on the range $u>H^{1/2+\varepsilon}$ applied at $\varepsilon=0.03$,
 $\sum_{u>H^{0.47}}w(u)\mathcal P_u(H/u)=c_{\mathrm{off}}(f)H+O(H^{1-\delta_M})$.
 \end{theorem}
-\todo{Proof in PAPER-V-thmM.md: Lemma~K (smooth incomplete Kloosterman sums), Lemma~\ref{lem:E}, Corollary~\ref{cor:B}, Lemma~S (Mellin separation) and Steps R1--R5
-(reduction, Type~I, Type~II, residual, covering). Two readings; a confirming read of the merged text is running.}
+\todo{Full proof in research/explore/PAPER-V-thmM.md (with REVISION 1 and REVISION 2 merged); three independent readings, recorded in PROOFS-uniform.md §28, §30, §35, the last
+confirming the merged text. What follows is the skeleton to be expanded into the paper text.}
+
+\paragraph{Structure of the proof.} Fix a smooth dyadic partition of the range of $u$, with ramps of relative width $H^{-\kappa}$ at the two ends; the transition zones are
+$\ll H^{1-\kappa}(\log H)^C$ by the trivial bound $\mathcal P_u(Y)\ll Y$. For one block $U\in[H^{0.47}/4,2H^{0.53}]$, $Y=H/U$, $a=\log U/\log H\in[0.46,0.54]$:
+\begin{enumerate}
+\item[R1.] \emph{Reduction.} The dilation average contributes $\ll U(\log H)^C$; the moduli $d'>YH^{\eta}$ are part~III's Step~3, $\ll H^{1-\eta+3\varepsilon'}$; the moduli
+$d'\le Y^{1-\delta}$ are $\ll UY^{1-\delta}$ by Shiu's theorem; on the remaining range the finite Fourier expansion applies, the frequencies $k>K_1$ cost $H^{1-\eta}$, and a
+Mellin transform separates the coefficients $\xi_k(d',H/u)$ from $u$, at a cost of $\ll Y(\log H)^3$ after summing over $k$ and $d'$.
+\item[R5.] \emph{Decomposition.} $w=c_f(1*\chi_D*\gamma)$ with $\sum_n|\gamma(n)|n^{-1/2-\varepsilon}<\infty$; the factor $n_3>H^{\delta_3}$ is removed trivially; the atoms
+$n_1$ (weight $1$) and $n_2$ (weight $\chi_D$) are split into smooth dyadic boxes. Three cases exhaust the boxes.
+\item[R2.] \emph{Type I:} an atom of length $N\ge Y^{1/2}H^{3\delta}$ gives, by Lemma~K applied for each modulus and cofactor, a saving $H^{-1.79\delta}$.
+\item[R3.] \emph{Type II:} an atom of length $U_2\in[H^{3\delta},UY^{-1/2}H^{-3\delta}]$ gives, by Cauchy--Schwarz over $(d',u_1)$ and Weil's bound for the resulting incomplete
+Kloosterman sums, a saving $H^{-1.45\delta}$.
+\item[R4.] \emph{The residual:} both atoms of size between $UY^{-1/2}H^{-3\delta}$ and $Y^{1/2}H^{3\delta}$. Then both exceed $m^{1/3}$ for $m=d'/(k,d')$, and
+Corollary~\ref{cor:B} gives a saving $H^{-0.028}$.
+\end{enumerate}
+Summing the three savings against the $O(\log H)$ blocks, the binding constraint is part~III's Step~3, which yields $\delta_M<4\eta/7$.
 \section{The small dilations}
 \begin{lemma}[the off-diagonal at one level does not grow with the dilation]\label{lem:Aoff}
 Let $h\ge1$, $u$ squarefree with $(u,2h)=1$, $a=u^2$, and let $F_u$ be the set of positive definite forms $g=\bigl(\begin{smallmatrix}A&B\\B&C\end{smallmatrix}\bigr)$ with

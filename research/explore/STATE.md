@@ -486,4 +486,7 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
 - 16 Sep: three readings (o(1) audit, merged Theorem M, small-end pieces) were killed by a session rate limit; requeue after reset. Hand audit (PROOFS §34): the o(1)'s matter only
   for the band, not for Theorems M/S; corrected dichotomy — polylog losses ⇒ Off* = O(H); divisor-size losses ⇒ fall back on Theorem E (no loss, no gain). One genuinely pointwise
   item found: τ(t) in Lemma E's Dirichlet denominator.
+- 16 Sep: THEOREM M has three independent readings (PROOFS §28, §30, §35), the last confirming the merged text after eight bookkeeping fixes (REVISION 2). Binding constraint
+  part III Step 3: δ_M < 4η/7 ≈ 5.7e−5. Paper V skeleton (research/paper-V/main.tex, 4 pp) now carries the statements and Theorem M's proof skeleton. Still running: the
+  small-end reading and the o(1) audit.
 
