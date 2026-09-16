@@ -498,4 +498,8 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   C_GM = 20 would otherwise break δ < 2η′; rate 1.172c; δ_S(c) ≈ c/1000). Lemma A″ is u-free only up to 6^{ω(u)}, which averages to (log U)^6/6! — class (b). S1 is now written out;
   still unwritten: S3/O4, the K₁ lemma at composite levels, the K₂ diagonal over levels, the Cauchy–Schwarz over levels, O1/O2 in full, and C_GM as a citable statement.
   J₆ numerics (data/j6-energy-b025.txt): at N = m^{1/4} the truth is the diagonal (J₆/N⁴ = 0.21–0.39), so Bourgain–Garaev's N⁴ is a proof artefact; literature search running.
+- 16 Sep: the Theorem S draft is COMPLETE for the first time — S1 (reduction), S2′ (two-scale main terms), S1′ (admissibility), Lemma A″ (+ REVISION 2), S3/S4/S5/O4 (Theorem 8.1
+  per block, K₁ at the composite levels, the K₂ diagonal over levels, the smoothness hypotheses), O1/O2, O5, O6′. One inherited open item: gcd(a, q₀) > 1 when p | (u, D), with a
+  proposed way out (absorb p into a). Two readings launched: a full reading of Theorem S, and an independent derivation of C_GM (the exponent in Grimmelt–Merikoski's δ^{−O(1)},
+  traced to 20 in §36), which decides the parameter admissibility δ < 2η′.
 
