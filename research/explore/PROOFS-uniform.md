@@ -1247,3 +1247,22 @@ the paired mechanism (two symmetric functions pinning two roots) has no six-vari
 the lemma had three inaccuracies (dyadic block not [1,Y]; q need not be composite; in the paper I_q is the paired count and J_q the plain energy — the names are swapped).
 STATUS OF THE BAND, unchanged from §38: it needs a J₆-type bound below N⁴ at N ≈ m^{1/4} (none exists; the barrier is named in print) or a genuinely different mechanism. The
 consequences stand as in §36: T1 (Off* ≪ H(log H)^{0.63+o(1)} for D < 0, once the map is written out) is supported; T2 (Off* = O(H), part I's Hypothesis (E)) is blocked.
+
+## 42. C_GM FOR THEOREM 8.1 (16 Sep; fresh model instance; scratchpad/reader-cgm2/) — RESOLVES §40's M3, FAVOURABLY
+ANSWER: for Theorem 8.1 as stated one may take δ^{−6}, i.e. C = 6 — CHEAPER than Theorem 7.1's C = 10, not more expensive. Trace:
+ • Unskewing (R₁ = X, R₂ = 1) is loss-free: f₁(x, y) = f(Xx, Xy) ∈ C^J_δ(1, Y/X) with the SAME δ; the support gives u ≍ X/Y, which is why the theorem's main factor is (X/Y)^{1/2+o(1)}.
+ • §7.2's verification of (5.1) does NOT transfer (it uses r₁, r₂ ≍ 1, false on a full K-orbit), but the direct computation works: Ω preserves right type 0 and the y∂_x∂_θ term
+   annihilates it, so Ω^{J₀}F₁ ≪ δ^{−2J₀} provided Y/X ≤ 1; and ∂_φ F₁ ≪ δ^{−1} because the rotation Killing field ż = 1 + z² is nearly horizontal on the support. Hence
+   δ₁ = min{δ, δ·(X/Y)} = δ whenever X ≥ Y. In our application X/Y ≍ L·u·|D|^{−1/2}, so δ₁ = δ as soon as L·u ≥ |D|^{1/2} — the same condition that makes the block non-trivial.
+ • Right type 0 forces ℓ₂ = 0 in the spectral expansion (P^{(ℓ₁,ℓ₂)}_ν has right type ℓ₂), confirmed by the companion's own remark that after Cauchy–Schwarz one kernel lives on
+   K\G/K. Consequently the α₁-factor loses only the dyadic (L,T) sum, δ₁^{−8}, and the α₂-factor has L ≡ 1, collapsing its (L,T) sum to δ₁^{−2} and leaving the free-index loss
+   δ₁^{−2}: C₁ ≪ δ₁^{−8}, C₂ ≪ δ₁^{−4}, and the geometric mean gives δ₁^{−6}.
+ • The Prop 6.1 "T ≥ L" gap cannot occur in C₂ (L = 1 makes it automatic); in C₁ the strict reading would give δ₁^{−7} total, but it needs 2J′ > 10 while Theorem 8.1 hardwires
+   J = 10, so the L⁷ reading is the only internally consistent one for 8.1 as stated.
+ • The Hecke rearrangement adds no power of δ; with H = 1 (our case) the outer Cauchy–Schwarz is vacuous, (2.25) is never invoked, and even the residual (1+|ν_V|)^{o(1)} = δ^{−o(1)}
+   disappears — so δ^{−6} is a clean power with no hidden δ^{−o(1)}.
+VALUES: C = 6 justified for Theorem 8.1; C = 7 if one insists on immunity to the T ≥ L gap; C = 14 if one also refuses X ≥ Y (δ₁ ≥ δ²). Our previously adopted C = 24 remains safe
+in every reading, merely not tight. CITATION (adopted): "Following the proof of [GM, Theorem 8.1] through §7.1–§7.4 — the unskewing R₁ = X, R₂ = 1 is loss-free, right type 0 forces
+ℓ₂ = 0 so that the second K-type sum is absent and the α₂-side majorant may be taken at L = 1, and δ₁ = δ since X ≥ Y — one may take δ^{−6}; we do not optimise this and use only
+that the exponent is absolute." Keep choosing η′ AFTER C.
+CONSEQUENCE for the small end: with C = 6 the optimised parameters are δ = η = η′ = t with 9t = 1.171875c, t = 0.1302c, giving δ_S(c) = (2/3)t ≈ 0.0868c ≈ c/12 (against c/29 at C = 20).

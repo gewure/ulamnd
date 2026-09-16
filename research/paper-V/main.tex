@@ -218,10 +218,10 @@ Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1. Under reading.}
 
 \begin{remark}[on the implied constant imported from the kernel theorem]\label{rem:CGM}
 Theorem~8.1 of~\cite{GrimmeltMerikoski2025kernel} is stated with an unspecified factor $\delta^{-O(1)}$, where $\delta$ is the smoothness parameter of the input function. Following
-its proof (\S7.2--\S7.4 there, together with \S7.3 of~\cite{GrimmeltMerikoski2024divisor}, which gives $\delta_1=\min\{\delta,\delta\,AD\}$) one may take $\delta^{-10}$ whenever
-$AD\ge1$, which holds in our application, and $\delta^{-20}$ unconditionally. We do not optimise this: below we fix a constant $C=24$, and the parameters are chosen \emph{after}
-$C$, so that only the fact that the exponent is absolute is used. With $c>0$ given, $\eta'=c/(200C)$, $\delta=\eta'/2$, $\eta=c/100$ and $\delta_3=\delta$, the constraints
-$\delta<\eta$, $\delta<2\eta'$ and $C\eta'+2\eta+O(\delta)<\tfrac32c(1-2\theta)$ all hold, and $\delta_S(c)=2\delta/3=c/(600C)$.
+its proof through \S7.1--\S7.4 --- the unskewing with $R_1=X$, $R_2=1$ is loss-free; $F$ of right type $0$ forces $\ell_2=0$, so that the second $K$-type sum is absent and the
+$\alpha_2$-side majorant may be taken at $L=1$; and $\delta_1=\delta$ because $X\ge Y$, which here reads $Lu\ge|D|^{1/2}$ and holds on every non-trivial block --- one may take
+$\delta^{-6}$. We do not optimise this and use only that the exponent is absolute: fixing $C=6$ and choosing the parameters \emph{after} $C$, namely
+$\delta=\eta=\eta'=\tfrac19\cdot\tfrac32c(1-2\theta)$, all the constraints hold and $\delta_S(c)=\tfrac23\delta\approx c/12$.
 \end{remark}
 \section{What remains: the band at $u=H^{1/3}$}
 Theorems~\ref{thm:M} and~\ref{thm:S} leave a neighbourhood of $\alpha=1/3$ uncovered, and the two mechanisms fail there for unrelated reasons. On the upper side the balanced

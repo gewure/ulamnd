@@ -278,3 +278,11 @@ is the quantity of S6. Lemma A″ is proved at q₀ = 1; for q₀ > 1 the family
 conditions of (1) in S6, and the level-summed statement of S6 is exactly what replaces a separate Lemma A″ at each q₀: one proves the pair count at q₀ = 1 and sums the local
 intersection factors over the levels. [TO CHECK: that the unfolding is legitimate with the stabiliser weights, i.e. that Σ_{τ} α_q(τσ) counts each Γ₀(q)-orbit of S_{a,h}(q₀)
 exactly once with weight |Γ_g|^{−1}; GM's Prop 4.1 does this at q₀ = 1 and the same computation should give it in general.]
+
+## O6⁗ (parameters, final) — after PROOFS §42
+Take C = 6 for Theorem 8.1 (PROOFS §42: the unskewing is loss-free, right type 0 forces ℓ₂ = 0, and δ₁ = δ since X ≥ Y, i.e. L·u ≥ |D|^{1/2}, which holds on every non-trivial block;
+C = 7 and C = 14 are the conservative readings, and the earlier C = 24 remains safe). With δ = η = η′ = t and the budget 3c(1 − 2θ)/2 = 1.171875c at θ = 7/64:
+  t = 1.171875c/9 = 0.1302c,  δ_S(c) = (2/3)t ≈ 0.0868c ≈ c/12,
+all constraints (δ < η is an equality — replace by δ = 0.99η if strictness is wanted; δ < 2η′ ✓; Cη′ + 2η + O(δ) < 1.171875c ✓) holding. The citation of C enters only through the
+choice of η′, and the theorem's shape δ_S(c) ≍ c does not depend on its value.
+
