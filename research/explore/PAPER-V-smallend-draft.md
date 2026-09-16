@@ -193,3 +193,21 @@ Z₀ = Lu/(Z₁Z₂) — admissible since Z₀ ≥ 1 for u ≤ L^{1/2} — gives
 i.e. the block's own trivial size X/(EM) times (u²E²M²/X)^{1/2−θ} (KNOWLEDGE F48: each block is compared with its own trivial size; the level count is EM and the level size u²EM²,
 so the M-dependence is the one recorded in O6′(c)). Summing over the O(log²H) boxes and blocks and over u ≤ H^{1/3−c} as in S8 gives Theorem S with
 δ_S(c) = min(2δ/3, η, 2η′ − δ, 1.172c − Cη′ − 2η − O(δ)) and the parameters of O6′(b).
+
+## O1, O2 written out — after §29 and §37
+Recall w is supported on SQUAREFREE u (paper III set-up), so no non-squarefree dilation occurs; the levels m² from μ² are the only non-squarefree ones (O5).
+O2 (the prime 2). Either b is odd, so D is odd and ω(2) = 0 and w is supported on odd u; or b is even, so ω(2) = 1, P₂ = 0 and w is supported on even u, with u = 2u′, u′ odd
+squarefree, and Q_u/4 = u′²x² + |D|/4: the pair is (a, h) = (u′², |D|/4), gcd(a, h) = 1, a odd. (ω(2) = 2 would make 2 a fixed prime divisor of f, excluded.) So a is always odd and
+u′ is odd squarefree; the prime 2 enters only through the moduli, where it is excluded by the admissibility factor 1_{(k,2D)=1} of S1′, and through the local factor at 2 of the
+level a·lcm(j, e, m²), which is ≤ |P¹(Z/2)| = 3. The Hensel step of O5 is not used at p = 2 (−4ah is never a unit there); the trivial factor p + 1 = 3 is.
+O1 (odd p | (u, D)). Let p ∥ |D| (for non-fundamental D there are O_D(1) primes with bounded exponent, treated the same way) and u = p u′, u′ squarefree, p ∤ u′. Then Q_u = u²x² − D
+has content p and Q_u/p = p u′²x² + |D|/p, so (a, h) = (p u′², |D|/p) with gcd(a, h) = 1. The undilation of Lemma A″ uses δ = diag(1, 1/u′): G = δ g δ = (m, p u′ℓ; p u′ℓ, p k) has
+det G = p h = |D| and p | B_G, p | C_G, u′ | B_G; the conjugated group is Γ₀(p) ∩ Γ₀⁰(u′) (NOT Γ₀⁰(u′) — §37(7)). Since p ∥ |D| and p ∤ m, G mod p is a rank-one form, so its unique
+projective zero is its kernel line and the condition C(τ.G) ≡ 0 (p) already forces B(τ.G) ≡ 0 (p): the local factor at p is 1, both for the diagonal and for pairs, and the diagonal
+is ≍ u/p. The counts at the primes of u′ are those of Lemma A″ step (3) (p ∤ u′), the determinant is |D| = O(1), and the level p u′² being a non-square is harmless (GM Lemma 3.1
+requires only gcd(a, h) = 1). Numerics: the weighted diagonal is exactly (4/3)∏_{p|u′}(p − χ_{−3}(p)) for D = −3, and the off-diagonal is flat in u′ on the admissible u′
+(data/gm-kernel-count-a3u2-h1.txt, restricted to the support of w).
+OPEN (inherited, §37(10)): with p | a the admissibility factor can produce levels q₀ with p | j, hence gcd(a, q₀) = p > 1. Then §16's CRT factorisation P¹(Z/aq₀) ≅ P¹(Z/a) × P¹(Z/q₀)
+and the shape q = a·d of GM Lemma 3.1 both need an argument. There are O_D(1) such levels; what is missing is the validity of the parametrisation at them, not their number.
+A clean way out, to be checked: absorb the factor p of j into a (i.e. work at (a, h) = (p u′², |D|/p) with the level p·lcm(e, m²)·u′² read as a·lcm(e, m²) with a already carrying p),
+so that gcd(a, q₀) = 1 again and the j-Möbius runs only over the primes of 2D not dividing u.
