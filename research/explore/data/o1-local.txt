@@ -1,0 +1,8 @@
+# npx tsx o1-local.ts   (defaults: DS=3,15,7,35,11,51  UP=1,7,11,13,17,19,23,29,31,37,41,43  CMAX=4000)
+# Brute force of Lemma A''' step (3)(b) over ALL of SL2(F_p), for every p | P:
+#   (i) p does not divide A_G; (ii) G mod p is rank one with kernel (0:1);
+#   (iii) the condition p | B(tau.G) is implied by p | C(tau.G) -- it imposes nothing;
+#   (iv) #{cosets Gamma_0(p)\SL2(F_p) with p | C(tau.G)} = 1 for a single form;
+#   (v)  <= 1 for an ordered pair.
+forms tested: 2421, pairs tested: 9114, FAILURES: 0
+# omega(P) = 1: |D| = 3, 7, 11.   omega(P) = 2: |D| = 15, 35, 51.

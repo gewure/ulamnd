@@ -1290,3 +1290,39 @@ S5″ and S6′ (FINAL), one of them by DELETING material.
    h^{3/2+o(1)} should be stated; the kernel definitions are in arXiv 2505.00489 §1; the "[TO CHECK]" brackets are discharged by this reading.
 STATUS OF THEOREM S after §40 + §43: the chain is complete in writing for a = u² (u squarefree, (u,2h) = 1, D < 0), modulo (i) Lemma A″ at determinant p h for the O1 case, and
 (ii) a reading of the final S5″/S6′ text. δ_S(c) ≈ c/12 with C = 6 (§42).
+
+## 44. LEMMA A‴: LEMMA A″ AT DETERMINANT P·h, IN GENERAL FORM (16 Sep; derivation + brute force; PAPER-V-O1-lemmaA3.md, scripts o1-local.ts, gm-kernel-count-amul.ts) — NOT READ
+
+This discharges item (i) of §43's status line ("Lemma A″ at determinant p h for the O1 case") and, in the general form, the two cases O1 had flagged as
+still to write ("two special primes dividing u"; "non-fundamental D with p² | D"). Full text in PAPER-V-O1-lemmaA3.md.
+
+(1) THE NORMAL FORM. With c := gcd(u², |D|) the content of Q_u = u²x² + |D|y² and u squarefree, v_p(c) = min(2, v_p(D)) ∈ {0,1,2}, so c = P·s² uniquely with
+P := ∏_{p|u, v_p(D)=1} p squarefree and s := ∏_{p|u, v_p(D)≥2} p. Then, with u′ := u/(Ps),
+  a = u²/c = P u′²,  h = |D|/(P s²),  gcd(a,h) = 1,  h₀ := P h = |D|/s² = O_D(1),  P ∥ h₀,  (u′, 2h₀) = 1.
+Lemma A″ is the case P = s = 1; O2's even branch is P = 1, s = 2; ω(P) ≥ 2 and v_p(D) ≥ 2 are now inside the same statement — a prime with v_p(D) ≥ 2 enters s,
+not P, and leaves a entirely (v_p(a) = 0), so it does not appear in the local count at all.
+
+(2) THE LEMMA. off(a; Z) ≪_{D,ε} (Zu)^{ε}(1 + Z^{1/2}) uniformly in u — with NO factor h^{O(1)}, because the undilated determinant h₀ is O_D(1), not a growing parameter.
+
+(3) THE PROOF is A″'s steps (1), (2), (4) verbatim with (h, u) ↦ (h₀, u′): undilation by δ = diag(1, 1/u′) carries F onto F′ = {G ∈ S_{h₀} : Pu′ | B_G, P | C_G}
+and Γ₀(a) onto Γ₀(P) ∩ Γ₀⁰(u′) (O1's group; §37(7)); the level-one lift gives P₁(N) ≪_D N^{o(1)} (the h₀^{1/2} of A″(2) is absorbed); the summation is A″(4) with h₀.
+
+(4) THE ONE NEW STEP is (3)(b), the primes p | P. There BOTH p | B(τ.G) and p | C(τ.G) are imposed, but they collapse to one: G ∈ F′ has p | B_G, p | C_G, and
+p ∤ A_G — since p | A_G would give p² | det G = h₀, against p ∥ h₀ — so G ≡ (A_G, 0; 0, 0) (mod p) is RANK ONE with kernel L₀ = (0:1), its unique projective zero.
+For L₂ = L₀ one has G L₂ ≡ 0, hence L₁ ⊥_G L₂ for EVERY L₁: the B-condition imposes nothing. So c_p(G) = 1 and c_p(G₁,G₂) ≤ 1 — the primes of P contribute
+nothing to the pair count, and the coset bound is A″(3)'s with u′ in place of u. (This is the mechanism O1 asserted; it is now proved and tested.)
+
+(5) BRUTE FORCE (o1-local.ts, data/o1-local.txt). Claims (i)-(v) of (4) checked over ALL of SL₂(F_p) for every p | P: 2421 forms and 9114 ordered pairs,
+|D| = 3, 7, 11 (ω(P) = 1) and |D| = 15, 35, 51 (ω(P) = 2), u′ ≤ 43 coprime to 2D. ZERO FAILURES.
+
+(6) INDEPENDENT CONFIRMATION from the kernel count (gm-kernel-count-amul.ts). For a = 3u′², h = 1 the diagonal is c_d(u′) = (4/3)∏_{p|u′}(p − χ_{−3}(p)) exactly
+for u′ = 5, 7, 11, 13 (the u′ = 1 entry differs only because the script drops the stabiliser weight of the elliptic point of determinant 3). For a = 15u′², h = 1
+the ratios c_d(u′)/c_d(1) are EXACTLY ∏_{p|u′}(p − χ_{−15}(p)) = 8 and 12 at u′ = 7, 11, with no discrepancy at all. In both cases the P-factor is bounded,
+NOT ≍ P — which is (4). The off-diagonal (K₂ − c_d)/√T at T = 64 shows no growth in u′ in either family
+(14.98, 10.83, 5.89, 11.44, 8.20 for P = 3; 13.84, 15.01, 12.94 for P = 15). Data: data/gm-kernel-count-a3u2-adm.txt, data/gm-kernel-count-a15u2.txt.
+
+(7) CONSEQUENCE FOR SCOPE. With Lemma A‴, S6′'s parenthesis "the claim is scoped to a = u² and O1 is carried separately" can go: S6′ holds for a = P u′² with the
+local count of (3) throughout, and the level sum is unchanged because gcd(a, q₀) = 1 always (O1's "clean reason": p ∤ h and k | aℓ² + h ≡ h (mod p) force p ∤ k,
+so j never runs over p — an argument that uses only p ∥ h₀, hence covers ω(P) ≥ 2 as well).
+
+STILL TO BE READ: (C1) the conjugation δΓ₀(a)δ^{−1} = Γ₀(P) ∩ Γ₀⁰(u′) with surjectivity (an identity, checked symbolically only); (C2)-(C4) are covered by (5)-(6).

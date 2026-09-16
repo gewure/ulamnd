@@ -1,0 +1,11 @@
+# AMUL=15 H=1 US=1,7,11 TS=4,16,64 npx tsx gm-kernel-count-amul.ts
+# a = 15u'^2, h = 1 (D = -15, P = 15, omega(P) = 2 -- the "two special primes" case);
+# admissible u' only, i.e. (u',30) = 1, squarefree.
+h=1  columns: u  #Lambda  c_d  K2(T) for T in [4,16,64]  ;  (K2-c_d)/sqrt(T)
+1	4	4.00	26.59	53.49	114.71	;	11.293	12.373	13.839
+7	36	32.00	42.12	74.60	152.04	;	5.060	10.649	15.005
+11	52	48.00	58.12	88.28	151.49	;	5.060	10.069	12.936
+# Diagonal: c_d(u')/c_d(1) = 8 and 12, EXACTLY prod_{p|u'} (p - chi_{-15}(p))
+#   (chi_{-15}(7) = -1 -> 8; chi_{-15}(11) = -1 -> 12). No elliptic discrepancy here.
+#   So both primes of P = 15 contribute a bounded factor, not ~ 15.
+# Off-diagonal: (K2-c_d)/sqrt(T) at T=64 is 13.84, 15.01, 12.94 -- no growth in u'.

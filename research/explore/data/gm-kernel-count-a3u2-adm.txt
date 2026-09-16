@@ -1,0 +1,12 @@
+# AMUL=3 H=1 US=1,5,7,11,13 TS=4,16,64 npx tsx gm-kernel-count-amul.ts
+# a = 3u'^2, h = 1 (D = -3, P = 3, omega(P) = 1); admissible u' only, i.e. (u',6) = 1, squarefree.
+h=1  columns: u  #Lambda  c_d  K2(T) for T in [4,16,64]  ;  (K2-c_d)/sqrt(T)
+1	2	2.00	27.32	55.51	121.86	;	12.658	13.377	14.983
+5	10	8.00	14.05	52.84	94.65	;	3.024	11.210	10.831
+7	10	8.00	8.00	24.63	55.09	;	0.000	4.157	5.886
+11	18	16.00	30.53	54.44	107.48	;	7.266	9.609	11.435
+13	18	16.00	30.53	46.49	81.61	;	7.266	7.624	8.201
+# Diagonal: c_d(u') = (4/3) prod_{p|u'} (p - chi_{-3}(p)) exactly for u' = 5,7,11,13
+#   (6,6,12,12 -> 8,8,16,16). The u'=1 entry is 2, not 4/3, because the script ignores the
+#   stabiliser weight of the elliptic point (2,1,2) of determinant 3. The P-factor is O(1), NOT ~ 3.
+# Off-diagonal: (K2-c_d)/sqrt(T) at T=64 is 14.98, 10.83, 5.89, 11.44, 8.20 -- no growth in u'.
