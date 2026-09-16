@@ -517,4 +517,8 @@ cycloidal lines, a conceptual proof of the inert identity, and the error term.
   congruence exists only when the phase carries an additive term (ours is the b = 0 case), the four-variable energy was never the obstruction at N ≈ m^{1/4}, and the mechanism has
   no six-variable analogue. The band at H^{1/3} is back to needing a J₆ bound (named barrier) or a different mechanism.
 - 16 Sep: Theorem S — S6 (level-summed off-diagonal) and S5′ (the K₂ dictionary) are now written out; C_GM for Theorem 8.1 specifically is being re-derived (§40 M3).
+- 16 Sep: C_GM for Theorem 8.1 settled (PROOFS §42), resolving §40's M3 favourably: C = 6, cheaper than Theorem 7.1's 10, because the unskewing R₁ = X, R₂ = 1 is loss-free, right
+  type 0 forces ℓ₂ = 0 (so the α₂-side majorant sits at L = 1) and δ₁ = δ whenever X ≥ Y, i.e. L·u ≥ |D|^{1/2}, which holds on every non-trivial block; with H = 1 there is no hidden
+  δ^{−o(1)} either. Conservative readings: 7, or 14 without X ≥ Y; the earlier 24 stays safe. Small-end parameters final (O6⁗): δ = η = η′ = 1.171875c/9, δ_S(c) ≈ c/12.
+  Still running: the reading of S6 (the level-summed off-diagonal) and S5′ (the K₂ dictionary) — the two steps Theorem S rests on.
 
