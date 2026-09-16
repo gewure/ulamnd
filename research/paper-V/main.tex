@@ -69,19 +69,68 @@ kN/d'))/\sin^2(\pi k/d')$ for the coefficients of the finite Fourier expansion o
 modulus at hand, $e_m(z)=\e(z/m)$, and $\varepsilon>0$ is arbitrarily small. Parameters: $\delta=10^{-3}$, $\eta=\delta/10$, $\delta_3=\delta$, $\varepsilon'=\eta/7$,
 $\kappa=\delta/2$, $K_1=H^{2\eta}$.
 \section{The energy of reciprocals and bilinear Kloosterman fractions}
-\begin{lemma}[energy of reciprocals, every squarefree modulus]\label{lem:E}
-Let $m\ge2$ be squarefree, $1\le N\le m$, and $J_4(N)=\#\{x\in[1,N]^4:(x_i,m)=1,\ x_1^\ast+x_2^\ast\equiv x_3^\ast+x_4^\ast\ (\mathrm{mod}\ m)\}$. Then for every $\varepsilon>0$,
+
+We write $x^\ast$ for the inverse of $x$ modulo the modulus at hand and $e_m(z)=\e(z/m)$.
+
+\begin{lemma}[smooth incomplete Kloosterman sums]\label{lem:K}
+Let $q\ge1$ be squarefree, $a\in\Z$, $X>0$ and $T\ge1$, and let $W$ be smooth, supported in an interval of length at most $4X$, with $\|W\|_\infty\ll1$ and $\int|W''|\ll T^2/X$. Then
 \[
-J_4(N)\ll_\varepsilon m^{\varepsilon}\bigl(N^2+N^{7/2}m^{-1/2}\bigr).
+\sum_{(v,q)=1}W(v)\,e_q(av^\ast)\ \ll\ \tau(q)\Bigl(1+\frac Xq\Bigr)T^2q^{1/2}(a,q)^{1/2}.
 \]
 \end{lemma}
-\todo{Proof written in PAPER-V-thmM.md (Cilleruelo--Garaev's argument, transferred to composite moduli); two readings recorded in PROOFS-uniform.md §28, §30.}
+\begin{proof}
+Split $v$ into classes modulo $q$ and apply Poisson summation in each: the sum equals $\sum_{h}\widehat W(h/q)S(a,h;q)/q$ with $S(a,h;q)$ the Kloosterman sum. For squarefree $q$,
+Weil's bound at the primes and twisted multiplicativity give $|S(a,h;q)|\le\tau(q)(a,h,q)^{1/2}q^{1/2}$, which covers $h=0$, where $S(a,0;q)=c_q(a)$ is a Ramanujan sum and
+$|c_q(a)|\le(a,q)\le q^{1/2}(a,q)^{1/2}$. Since $\widehat W(\xi)\ll\min(X,T^2/(X\xi^2))$, one has $q^{-1}\sum_h|\widehat W(h/q)|\ll T^2(1+X/q)$.
+\end{proof}
+
+\begin{lemma}[additive energy of reciprocals, every squarefree modulus]\label{lem:E}
+Let $m\ge2$ be squarefree, $1\le N\le m$, and
+$J_4(N)=\#\{x\in[1,N]^4:(x_i,m)=1,\ x_1^\ast+x_2^\ast\equiv x_3^\ast+x_4^\ast\ (\mathrm{mod}\ m)\}$. Then for every $\varepsilon>0$,
+\[
+J_4(N)\ \ll_\varepsilon\ m^{\varepsilon}\bigl(N^2+N^{7/2}m^{-1/2}\bigr).
+\]
+\end{lemma}
+\begin{proof}
+\emph{Step 1: a hyperbola in a square box.} Let $(\lambda,m)=1$, $K\in\Z$ and $1\le M\le m$; we claim
+$I:=\#\{(x,y)\in(K,K+M]^2:xy\equiv\lambda\ (m)\}\ll_\varepsilon m^{\varepsilon}(M^{3/2}m^{-1/2}+1)$. For $M=1$ this is trivial, so let $M\ge2$. Writing $x=K+x'$, $y=K+y'$ with
+$1\le x',y'\le M$, the congruence becomes $x'y'+Kx'+Ky'\equiv b:=\lambda-K^2\ (m)$. Put $T=\lfloor(m/M)^{1/2}\rfloor\ge1$; by Dirichlet's theorem there are $1\le t\le T$ and $u_0$
+with $tK\equiv u_0\ (m)$ and $|u_0|\le\min(m/T,m/2)$. Multiplying by $t$,
+\[
+tx'y'+u_0x'+u_0y'=b_0+zm,\qquad |b_0|<m/2,\quad |z|\le\frac{TM^2}m+\frac{2M}T+\frac12\le 5M^{3/2}m^{-1/2}+\tfrac12 .
+\]
+For each $z$ this is $(tx'+u_0)(ty'+u_0)=n_z:=t(b_0+zm)+u_0^2$, and $|n_z|\le7m^2$. Now $n_z\equiv t^2(x'+K)(y'+K)\equiv t^2\lambda\ (m)$, and $\lambda$ is a unit with
+$1\le t^2\le m/M<m$, so $m\nmid n_z$ and in particular $n_z\ne0$. Each $z$ therefore contributes at most $\tau(|n_z|)\ll_\varepsilon m^{\varepsilon}$ pairs, and summing over the
+$\ll M^{3/2}m^{-1/2}+1$ admissible $z$ gives the claim.
+
+\emph{Step 2: from energy to hyperbolas.} Let $J_2(\lambda)=\#\{x,y\le N,\ (xy,m)=1:x^\ast+y^\ast\equiv\lambda\}$, so $J_4=\sum_\lambda J_2(\lambda)^2$ and
+$\sum_\lambda J_2(\lambda)=N'^2\le N^2$ with $N'=\#\{x\le N:(x,m)=1\}$. For a unit $\lambda$ the congruence $x^\ast+y^\ast\equiv\lambda$ is equivalent to
+$(x-\lambda^\ast)(y-\lambda^\ast)\equiv\lambda^{\ast2}$, a unit hyperbola in a square box with equal shifts, so Step~1 gives $J_2(\lambda)\ll m^{\varepsilon}(N^{3/2}m^{-1/2}+1)$.
+If $g=\gcd(\lambda,m)>1$ then $p\mid g$ forces $x\equiv-y\ (p)$, hence $x\equiv-y\ (g)$ and $g\le2N$; modulo $m/g$ the residue $\lambda$ is a unit, so Step~1 applied there gives
+$J_2(\lambda)\ll m^{\varepsilon}(g^{1/2}N^{3/2}m^{-1/2}+1)$ when $N\le m/g$, while $J_2(\lambda)\le N$ always. Using $\sum_{\gcd(\lambda,m)=g}J_2(\lambda)\le N(2N/g+1)$ and summing
+over the divisors $g\le2N$ of $m$ yields the lemma; in the range $N>m/g$ one uses $4N^4/m\le4N^{7/2}m^{-1/2}$.
+\end{proof}
+
+\begin{lemma}[Bourgain--Garaev]\label{lem:B}
+Let $m\ge2$, $(a,m)=1$, $1\le N_1,N_2\le m$, and let $\alpha_1,\alpha_2$ be coefficients bounded by $1$ and supported on units. Then for all $k_1,k_2\ge1$,
+\[
+\Bigl|\sum_{x_1\le N_1}\sum_{x_2\le N_2}\alpha_1(x_1)\alpha_2(x_2)e_m(ax_1^\ast x_2^\ast)\Bigr|^{2k_1k_2}\le m\,N_1^{2k_1k_2-2k_1}N_2^{2k_1k_2-2k_2}J_{2k_1}(N_1)J_{2k_2}(N_2).
+\]
+\end{lemma}
+\begin{proof}
+This is the inequality established in the proof of Theorem~3 of~\cite{BourgainGaraev2014}: two applications of H\"older's inequality followed by Cauchy--Schwarz, using
+$\sum_\lambda J_{k}(\lambda)\le N^{k}$ and that $a$ is a unit.
+\end{proof}
 
 \begin{corollary}\label{cor:B}
-For squarefree $m$, $(a,m)=1$, $m^{1/3}\le N_1,N_2\le m$ and coefficients $|\alpha_i|\le1$ supported on units,
-$\sum_{x_1\le N_1}\sum_{x_2\le N_2}\alpha_1(x_1)\alpha_2(x_2)e_m(ax_1^\ast x_2^\ast)\ll_\varepsilon m^{\varepsilon}(N_1N_2)^{15/16}$.
+For squarefree $m$ and $m^{1/3}\le N_1,N_2\le m$, under the hypotheses of Lemma~\ref{lem:B},
+$\bigl|\sum\sum\alpha_1\alpha_2e_m(ax_1^\ast x_2^\ast)\bigr|\ll_\varepsilon m^{\varepsilon}(N_1N_2)^{15/16}$.
 \end{corollary}
-\todo{From \cite{BourgainGaraev2014}, proof of Theorem~3, together with Lemma~\ref{lem:E}.}
+\begin{proof}
+Take $k_1=k_2=2$ in Lemma~\ref{lem:B} and insert Lemma~\ref{lem:E}: for $N_i\ge m^{1/3}$ the second term of the energy bound dominates, $N_i^{7/2}m^{-1/2}\ge N_i^2$, so the
+right-hand side is $\ll m^{1+4\varepsilon}(N_1N_2)^4(N_1N_2)^{7/2}m^{-1}=m^{4\varepsilon}(N_1N_2)^{15/2}$.
+\end{proof}
+
 \section{The pieces around $u=H^{1/2}$}
 \begin{theorem}\label{thm:M}
 Let $f$ be as above. There is $\delta_M>0$ (any $\delta_M<4\eta/7$ with the parameters above, so $\delta_M=5\cdot10^{-5}$ is admissible) such that
