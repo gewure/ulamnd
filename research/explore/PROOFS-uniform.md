@@ -1191,3 +1191,11 @@ THE LEAD (to evaluate, then test, then read). Korolev's PAIRED system — counti
  it must be the paired-system bound, not that one, that we use); (2) whether a Cauchy–Schwarz/Poisson arrangement of our residual sum Σ_{n₁,n₂}α β e_m(a n₁*n₂*) produces the paired
  system (both the reciprocals and the arguments summing to the same residue) rather than the plain energy — this is the real question; (3) the exponent count that results; (4) a
  numerical test of the paired count at our sizes before anything is claimed (F24).
+§38 NUMERICS (paired-energy.ts, data/paired-energy.txt; F24 before any claim). The PAIRED count Jp(Y) = #{y₁*+y₂* ≡ y₃*+y₄* AND y₁+y₂ ≡ y₃+y₄ (mod m), y_i ≤ Y, (y_i,m) = 1},
+against the plain J₄, for primes, balanced p₁p₂, a many-factor modulus and p·small:
+ β = 1/4 (Y ≈ m^{1/4}): Jp/Y′² = 1.969, 1.978, 1.969, 1.978, 1.929, 1.964 — while J₄/(2Y′² + Y′⁴/m) = 1.10, 1.12, 1.10, 1.12, 0.96, 1.11;
+ β = 1/2 (Y ≈ m^{1/2}): Jp/Y′² = 1.999, 2.000, 1.999, 2.000, 2.040, 1.999.
+So at both sizes the paired count is essentially exactly its trivial diagonal 2Y′² — there are almost NO non-trivial solutions of the paired system, at any modulus type, with no
+threshold. This is exactly the shape of the bound reported in literature round 8 (Jp ≪ Y²m^{o(1)}), and it is the strongest numerical signal we have had for any of the inputs:
+where the plain energy J₆ is at its barrier, the paired system is trivial. The open question is not the bound but whether our residual sum can be rearranged so that the paired
+system, rather than J₆, is what appears (§38, check (2)) — a source-verification agent is on Korolev's exact statement and on whether such a substitution is known.
