@@ -213,8 +213,16 @@ under reading.}
 Let $f$ be as above with $D<0$. For every $c>0$ there is $\delta_S(c)>0$ with
 $\sum_{u\le H^{1/3-c}}w(u)\mathcal P_u(H/u)\ll_f H^{1-\delta_S(c)}$.
 \end{theorem}
-\todo{Proof outline S1--S8 in PAPER-V-smallend-draft.md, resting on \cite{GrimmeltMerikoski2025kernel} Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1, with
-Lemma~\ref{lem:Aoff} and the diagonal count; $\delta_S(c)\asymp c$ once the exponent in the kernel theorem's $\delta^{-O(1)}$ is named. Under reading.}
+\todo{Proof in research/explore/PAPER-V-smallend-draft.md (S1, S1$'$, S2$'$, S3--S5, O1, O2, O4--O6$''$, Lemma~\ref{lem:Aoff}), resting on \cite{GrimmeltMerikoski2025kernel}
+Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1. Under reading.}
+
+\begin{remark}[on the implied constant imported from the kernel theorem]\label{rem:CGM}
+Theorem~8.1 of~\cite{GrimmeltMerikoski2025kernel} is stated with an unspecified factor $\delta^{-O(1)}$, where $\delta$ is the smoothness parameter of the input function. Following
+its proof (\S7.2--\S7.4 there, together with \S7.3 of~\cite{GrimmeltMerikoski2024divisor}, which gives $\delta_1=\min\{\delta,\delta\,AD\}$) one may take $\delta^{-10}$ whenever
+$AD\ge1$, which holds in our application, and $\delta^{-20}$ unconditionally. We do not optimise this: below we fix a constant $C=24$, and the parameters are chosen \emph{after}
+$C$, so that only the fact that the exponent is absolute is used. With $c>0$ given, $\eta'=c/(200C)$, $\delta=\eta'/2$, $\eta=c/100$ and $\delta_3=\delta$, the constraints
+$\delta<\eta$, $\delta<2\eta'$ and $C\eta'+2\eta+O(\delta)<\tfrac32c(1-2\theta)$ all hold, and $\delta_S(c)=2\delta/3=c/(600C)$.
+\end{remark}
 \section{What remains: the band at $u=H^{1/3}$}
 Theorems~\ref{thm:M} and~\ref{thm:S} leave a neighbourhood of $\alpha=1/3$ uncovered, and the two mechanisms fail there for unrelated reasons. On the upper side the balanced
 Type~II atoms sit at $d^{1/4}$, where the available energy input for reciprocals is exactly at its threshold: what would be needed is a bound for the six-fold energy
