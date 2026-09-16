@@ -1155,3 +1155,20 @@ narrower than the divisor branch. With §32 F2's in-band fallback on Theorem E, 
  T2 (Off* = O(H) = paper I's Hypothesis (E)) is blocked SOLELY by the Bourgain–Garaev k → ∞ constant — i.e. by the J₆-type input at N ≈ m^{1/4}, or a different tool at the
  exceptional sizes — not by any divisor bookkeeping.
 TO APPLY after the small-end reading lands: C_GM = 20 in PAPER-V-smallend-draft.md O6′.
+
+## 37. READING of the small-end pieces (16 Sep; fresh model instance; scripts reader-smallend2/step4b.py, step4h.py, res_local.py, blocks.py, misc.py) — CORRECTIONS ADOPTED
+VERDICTS: S2′ sound (the volume cancellation is real and is GM's own reason for the two-scale difference; §33(1) is genuinely closed); S1′ correct in outline (three fixes);
+Lemma A″ structurally right but with a wrong kernel weight in step (1) and a step-(4) display that is FALSE without d ≤ M (the conclusion survives); O5 correct as far as it goes
+(two gaps); O6′ right in shape with three wrong items. All fixes applied as PAPER-V-smallend-draft.md REVISION 2. Highlights:
+ • Step (3) of Lemma A″ verified exhaustively by brute force (coset bijection; c_p = p − χ_{−h}(p), 0 failures in 2124 triples; pair count ≤ 2 unless G₁ ≡ λG₂, 0 failures in 49912
+   pairs; all 1144 scalar cases satisfy p² | N² − 4h²; CRT product = brute force for u = 15, 21).
+ • Step (4) as written was false (mid/RHS = 12, 37, 119 for u = 15015, 255255, 4849845); with d ≤ M reinstated the ratio is ≤ 1.003 in every case tested, true LHS/RHS ≤ 0.52.
+ • Lemma A″ is uniform in u only up to 6^{ω(u)} — pointwise class (c), but AVERAGED in the application: Σ_{u∼U}6^{ω(u)}/u ≍ (log U)^6/6!, class (b). Add it to §36's table on that
+   footing. The honest h-dependence is h^{3/2+o(1)} (measured), not h^{O(1)}.
+ • O6′: the parameter choice fails δ < 2η′ once C_GM ≥ 20 — which §36's trace says it is. Tying δ = η′/2 repairs it for every C_GM. This is the concrete way GM's unstated exponent
+   bites: not the size of δ_S but the admissibility of the parameters. Also 1.172c (not 1.336c), "E = M = 1 dominates" is false, and δ_S(c) ≈ c/1000.
+ • Still unwritten: S1 with the smooth cuts and symmetrised root sum; S3/O4; the K₁ lemma at the composite levels; the K₂ diagonal summed over levels; the Cauchy–Schwarz over levels;
+   O1/O2 beyond the §29 sketch; and C_GM as a citable statement.
+§36 ADDENDUM (J₆ numerics, j6-energy.ts, data/j6-energy-b025.txt): at N = m^{1/4} the true J₆ is 1.41–1.53 times the model 6N′³ + N′⁶/m for primes, balanced p₁p₂, p·small and
+101·9901 (0.91 for the many-factor modulus), i.e. J₆/N′⁴ = 0.21–0.39 — the diagonal dominates, as expected, and Bourgain–Garaev's N⁴ is the obstruction only in the proof, not in
+the truth. A literature search for any J₆ improvement at this size is running.

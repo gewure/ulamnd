@@ -108,3 +108,32 @@ Saving per box (S7, corrected): the block E = M = 1 dominates and the box total 
 Admissible choice: η′ = c/(100 C_GM), η = c/100, δ = c/1000 — then C_GM η′ + 2η + O(δ) < 3c(1−2θ)/2 = 1.336c (θ = 7/64), δ < η, δ < 2η′ all hold, and
   Σ_{u ≤ H^{1/3−c}} |w(u)| (H/u)(u³/H)^{(1−2θ)/2} ≪ H^{1 − 3c(1−2θ)/2 + O(c/100)} ≪ H^{1−c},
 so δ_S(c) ≍ c (the constant (1−2θ)/2·3 − O(1/100) is explicit once C_GM is known; before that, only δ_S(c) ≍_{GM} c is justified — §33(5)).
+
+## REVISION 2 (16 Sep, after the reading of the new sections — PROOFS §37). These SUPERSEDE the corresponding text above.
+LEMMA A″. (a) Step (1): the kernel weight is (1 + u)^{−1/2} = (4h/(N + 2h))^{1/2} ≍ (h/N)^{1/2} — NOT (N/(2h) − 1)^{−1/2}/√2 (the §21 R3 fix had not been carried over); with it,
+ step (4) reads Σ_N N^{−1/2}g₂(N) and no extra h is lost. (b) Step (4)'s display is FALSE without the restriction d ≤ M (without it the first half is ≍ u^{1/2+o(1)}); the restriction
+ is automatic: d² | N² − 4h² with 0 < N² − 4h² ≤ M² forces d ≤ M. Write it. (c) Step (4)'s justification must be: with (d, 2h) = 1 write d = d₊d₋, d₊² | N − 2h, d₋² | N + 2h;
+ then N − 2h ≥ d − 4h, and with the corrected weight the draft's "N ≥ d ⇒ least term ≤ d^{−1/2}" is exactly right. (d) Constants: ∏c_p ≤ 2^{ω(u)}g₂(N) (not 4^{ω(u)});
+ ρ(d²) = 2^{ω(d)} EXACTLY for (d, 2h) = 1; τ₃(u) = 3^{ω(u)}. (e) Honest dependences: the bound is uniform in u only up to 6^{ω(u)} (so the heading "u-free" overstates; pointwise it is
+ a divisor-size factor, class (c), but it is averaged in the application by Σ_{u∼U}6^{ω(u)}/u ≍ (log U)^6/6!, class (b)); the h-dependence is h^{3/2+o(1)}, not h^{O(1)} — measured
+ off/(√T·h^{3/2}) ∈ [2.3, 11.4] with no trend for h ≤ 17, while off/(√T·h²) falls monotonically. (f) State in step (2) that the coset count is independent of the representative and
+ that the stabiliser of a pair of distinct points is ±I; the representation bound of step (2) is uniform only for bounded disc, i.e. for h = |D| = O(1).
+S2′. The second scale's bound is no larger than 𝒜₁'s, the honest ratio being (L/X₂)^{1/2−θ} (the skew grows with X₂), not L/X₂. Let ψ₂ be supported on |t| ∈ [1, 2] (avoid double
+ scaling); keep the amplitude ≍ Y and the coefficient (1/k)λμ²(k) in the display, writing (1/k)ψ₁(k/K) = (1/K)ψ̃₁(k/K); the Poisson error is O_A((X₂/k)^{−A}) = O_A(K^{−ηA}), so reaching
+ K^{−A} costs A/η and constants depending on A, η, ψ; state X₂ > L (i.e. η(1 − δ) > δ) and q₀ ≤ 2K.
+S1′. (a) "at the primes p | j (so p | 2D, p | h)" is wrong for p = 2 with D odd: say "p | 2D"; at p = 2 the Hensel step fails because −4ah is never a unit mod 2, and the local factor
+ is ≤ |P¹(Z/2)| = 3. (b) Order matters: κ is supported on split squarefree integers, so λ = 1 * κ reproduces λ only AFTER the j-Möbius — state the decomposition in that order.
+ (c) (k, u) = 1 is unconditional (p | (k,u) ⇒ p | |D| ⇒ p | 2D, excluded), not a consequence of content removal. (d) OPEN: when p | (u, D) the O1 renormalisation puts p | a, and the
+ j-Möbius then produces levels with gcd(a, q₀) > 1; both §16's CRT factorisation and Lemma 3.1's shape q = ad need an argument there (O_D(1) levels, but validity is what is missing).
+O5. (a) The primes p | ah must be pulled OUT of the product before the divisor bound (there the resultant mechanism can degenerate); their contribution is ∏_{p|(q₀,2D)}(p^v + p^{v−1})
+ = O_D(1), using v_p(q₀) ≤ 1 for p | j and (em, 2D) = 1. (b) The m²-part needs §22 (G2)'s sharper c_{p^k} ≤ 2p^{⌊v_p(N²−4h²)/2⌋}; cross-reference it. (c) ⟨1⟩ ≍ c_d(u)ρ*(q₀) presumes
+ gcd(a, q₀) = 1 (fails exactly in the O1 case) and has been checked numerically only for squarefree e. (d) τ₃(u⁴(N²−4h²)) is pointwise per pair and must be carried through the N-sum:
+ Σ_N N^{−1/2}τ₃(·)g₂(N) ≪ M^{1/2+o(1)}.
+O6′. (a) 3c(1 − 2θ)/2 = 1.172c at θ = 7/64 (not 1.336c). (b) The parameter choice must tie δ to η′: with C_GM = 20 (PROOFS §36) the stated δ = c/1000, η′ = c/(100C_GM) VIOLATES
+ δ < 2η′; take δ = η′/2 = c/(200·max(1, C_GM)), which gives δ < η and δ < 2η′ for every C_GM, with the budget C_GMη′ + 2η + O(δ) ≈ 3.3·10^{−4} ≪ 1.172c. (c) "E = M = 1 dominates" is
+ FALSE (the per-block bound is increasing in M, exponent 1 − 3θ = 0.672): state instead that the total over blocks is ≪ (X^{1/2+θ}u^{1−2θ}Y^{η(1−3θ)} + X^{1/2}u)Y^{O(δ)}. (d) The (E, M)
+ block trivial sizes must be written (level u²EM², number of levels EM). (e) Honest exponent: δ_S(c) = min(2δ/3, η, 2η′ − δ, 1.172c − C_GMη′ − 2η − O(δ)) ≈ c/1000 — still ≍ c, but the
+ earlier line "≪ H^{1−c}" was false about the theorem; also Σ_u|w|(H/u)^{1−δ} ≈ H^{1−2δ/3+o(1)}.
+STILL NOT WRITTEN (the reading's list): S1 itself with the smooth cuts and the symmetrised root sum; S3/O4 (f ∈ C^{10}_δ for the box weights); the K₁ lemma at the levels
+u²lcm(j,e,m²); the K₂ diagonal summed over levels; the Cauchy–Schwarz over levels with the coefficients κ(e)μ(m) and the per-block choice of Z₀, Z₁, Z₂; O1/O2 beyond §29's sketch;
+and C_GM itself (§36 traces C = 20 but that is our trace, not Grimmelt–Merikoski's statement).
