@@ -1219,3 +1219,21 @@ Rankin–Selberg step unique to Theorem 8.1.)
 RECOMMENDATION ADOPTED: use C = 24 in the parameter inequalities (safe against the Prop 6.1 gap), record that the printed proof gives 20 and that C = 10 when AD ≥ 1, and cite it as
 "following the proof of [GM, Theorem 8.1, §7.2–§7.4] one may take δ^{−10} when AD ≥ 1, and δ^{−20} unconditionally; we do not optimise this and use only that the exponent is
 absolute" — never as the paper's own statement. Design the parameters so that η′ is chosen AFTER C, so the exact value is not load-bearing.
+
+## 40. FULL READING of Theorem S (16 Sep; fresh model instance; scripts reader-thmS-full/blk.py, loc.py, res.py, exps.py) — CORRECTIONS ADOPTED
+VERDICT: GAP — not yet a complete proof; nothing fatal or false, the architecture is sound and δ_S ≍ c survives, but two load-bearing steps are only sketched and S3 has two
+substantive errors. Referee's call: major revision. All fixes applied as PAPER-V-smallend-draft.md REVISION 3.
+CONFIRMED CORRECT: every hypothesis of Theorem 8.1 is met at our blocks (Γ congruence, α₁ = I, α₂ ∈ L_c, H = 1 so Rankin–Selberg is not invoked, X/Y = Lu|D|^{−1/2} > δ, the two
+kernels are exactly k_{Z₁²,R} with R = L/K and k_{Z₂²,1}); S2′ is sound (the volume terms cancel because ∫F_i depends on ψ₂^{(i)} only through its mass, and the second scale's
+residue is O_A(K^{−ηA})); Lemma A″ with REVISION 2 is correct, verified numerically (c_p = p − χ_{−h}(p): 0 failures/1748; pair count ≤ 2 and p² | N²−4h² in the scalar case:
+0 failures/71563; ρ(d²) = 2^{ω(d)} exactly for (d,2h) = 1; Σ_N N^{−1/2}g₂(N)/(3τ₃(u)M^{1/2}) ≤ 0.023); the K₁ restatement is verbatim GM §1.2 and is citable; S1's cuts, smoothing
+and small-box bound; the F48 discipline in intent (the block trivial size L/(EM) is the right one).
+ERRORS FIXED: S3's per-block display lost a factor M (it used |κμ| ≪ 1/(EM); μ has no 1/m decay); S3's admissibility claim "Z₀ ≥ 1 for u ≤ L^{1/2}" is false — it needs uEM ≤ L^{1/2},
+so the dichotomy of §21 R6 must be reinstated (blocks with EM > L^{1/2}/u by their own trivial size); S1(1) dropped the /k in the density term; S1(6) invented an e-truncation that
+is neither present nor needed and mixed the u-summation factor 2/3 into a per-piece error; Lemma A″'s BODY still carries the superseded weight, 4^{ω(u)} and the step-(4) display;
+S4's R-range; O4's normalisation (pull Y/K out; f is not a product).
+O1 CLOSED CLEANLY: for p | (u, D), p ∥ |D|, one has p ∤ h after content removal and k | aℓ² + h ≡ h (mod p), so p ∤ k automatically — j never runs over p and gcd(a, q₀) = 1 always.
+δ_S RECOMPUTED: 3(1−2θ)/2 = 75/64 = 1.171875 at θ = 7/64; the draft's parameters give only c/6000, but they are far from optimal — δ = η = η′ = t with 23t = 1.171875c gives
+δ_S(c) ≈ 0.034c ≈ c/29. That is the honest headline; c/1000 and c/14400 were artefacts of a bad choice.
+STILL MISSING: (M1) S6, the level-summed off-diagonal — the crux, on which the theorem rests; (M2) the K₂ dictionary from GM's kernel quantity to the orbit-pair count at level a·q₀,
+including Lemma A″ at q₀ > 1; (M3) C_GM for Theorem 8.1 specifically (§39 traced Theorem 7.1; 8.1's proof says only "by similar arguments"); (M4) the scope caveats in the statement.

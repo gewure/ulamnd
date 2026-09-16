@@ -219,3 +219,31 @@ Prop 6.1 "T ≥ L" gap, and nothing below depends on the exact value because η�
   δ_S(c) = min(2δ/3, η, 2η′ − δ, 1.172c − Cη′ − 2η − O(δ)) = 2δ/3 = c/(600C) = c/14400,
 i.e. δ_S(c) ≍ c with an explicit constant, and the citation of C is only through the choice of η′.
 
+
+## REVISION 3 (16 Sep, after the full reading — PROOFS §40). These SUPERSEDE the corresponding text above.
+LEMMA A″ — merge REVISION 2 into the BODY (a referee reads the body): kernel weight (1+u)^{−1/2} = (4h/(N+2h))^{1/2} ≍ h^{1/2}N^{−1/2} (the body's (N/(2h)−1)^{−1/2}/√2 is unbounded as
+ N → 2h⁺ and is wrong); constant 2^{ω(u)}, not 4^{ω(u)}; step (4) with d ≤ M, which is AUTOMATIC (d² | N²−4h², 0 < N²−4h² ≤ M² ⇒ d ≤ M, and the same inequality gives N ≥ d, all that
+ step (4) needs once the weight is N^{−1/2}). State the lemma for h = O(1) (step (2)'s representation bound is uniform only for bounded discriminant). The 6^{ω(u)} is already
+ absorbed by the lemma's own (hZu)^ε, so the statement is not overstated.
+S1(1) — the density term must read ½ϱ(k)∫T/k: the /k was missing. (This is the main term being cancelled.)
+S1(6) — there is no e-truncation and none is needed (the block bound decays like E^{−2θ} and the block trivial size like 1/E, so all dyadic E sum); only the m-tail costs Y^{1−η}.
+ The per-piece error exponent is min(δ, η, 2η′ − δ) — the factor 2/3 belongs to the u-summation, not to a single piece. State the order (k-cuts → m-tail → boxes) consistently.
+S3 — two fixes. (a) With the stated Z's and inputs the per-block bound is (block trivial L/(EM))·M·(u²E²M²/L)^{1/2−θ}: the draft's display silently used |κ(e)μ(m)| ≪ 1/(EM), i.e. it
+ lost a factor M (μ has no 1/m decay). Harmless (M ≤ Y^η, and the budget carries 2η) but must be written. (b) "Z₀ ≥ 1 for u ≤ L^{1/2}" is FALSE: Z₀ = L/(u²E²M²) ≥ 1 needs uEM ≤ L^{1/2}.
+ Reinstate the dichotomy of §21 R6: blocks with EM > L^{1/2}/u are bounded by their own trivial size L/(EM) ≤ L^{1/2}u and sum geometrically. With it the box total is
+ ≪ (L^{1/2+θ}u^{1−2θ}Y^{η(1−2θ)} + L^{1/2}u)Y^{O(δ+η+η′)}, relative saving (u³/H)^{(1−2θ)/2}.
+O4 — pull the tent amplitude Y/K out of F explicitly (Definition 2 normalises ‖f‖_∞ ≤ 1); note f is not a product (ψ₂(ℓ/L) depends on y too) and give the one-line mixed-derivative
+ bound (each ∂_y produces 1/y ≍ 1/Y).
+S4 — the honest R-range is R = L/K ∈ [Y^{−η−3δ}, Y^{δ}], and it is 1/R ≤ Y^{η+3δ} that bounds the 1/(qR) term while R ≤ Y^{δ} bounds the 1 + R term.
+O1 — the clean reason, replacing "absorb p into a": for p | (u,D) with p ∥ |D|, after content removal (a,h) = (pu′², |D|/p) and p ∤ h; since k | aℓ² + h ≡ h (mod p), p ∤ k
+ AUTOMATICALLY. So j never runs over p, gcd(a, q₀) = 1 always, and §16's CRT and Lemma 3.1's q = a·d are untouched. (Still to write: two special primes dividing u, and
+ non-fundamental D with p² | D, where Q_u/p is not as claimed — O_D(1) cases, a sentence each.)
+O6‴ (parameters, optimised) — the draft's choice is far from optimal. Maximising min(δ, η, 2η′ − δ, 3c(1−2θ)/2 − C η′ − 2η) at C = 20 by δ = η = η′ = t gives 23t = 1.171875c,
+ t = 0.05096c and δ_S(c) ≈ 0.034c ≈ c/29 (with the u-summation factor 2/3 + c). The earlier c/1000 and c/14400 were artefacts of a non-optimal choice; c/29 is the honest headline.
+STILL MISSING (the reading's list, in order of weight):
+ (M1) S6 — the LEVEL-SUMMED off-diagonal, the crux: carrying τ₃(u⁴(N²−4h²)) and g₂(N) through Σ_N N^{−1/2}, and pulling the primes p | ah out of the product first. Without it
+   ΣK₂ ≪ H^{o(1)}(uEM + Z₂) has no proof and the theorem rests on nothing.
+ (M2) The K₂ DICTIONARY: ⟨α_q|Δk_{Z₂²,1}|α_q⟩ ≤ ⟨α_q|K_q k|α_q⟩ = diagonal + off-diagonal at level a·q₀, with GM's functional and the stabiliser weights, and the extension of
+   Lemma A″ from S_{a,h}(1) to S_{a,h}(q₀).
+ (M3) C_GM for THEOREM 8.1 specifically: §39's trace is of Theorem 7.1; 8.1's proof says only "by similar arguments", so the K-invariant variant's δ^{−O(1)} must be re-derived.
+ (M4) Scope caveats in the statement: D < 0, u squarefree, δ_S(c) non-uniform and non-effective as c → 0, constants depending on f, D and on A/η in S2′.
