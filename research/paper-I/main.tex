@@ -1356,6 +1356,29 @@ the \texttt{riesz} scripts and \path{research/experiments/galois.ts} (Section~\r
 \path{research/experiments/run.ts} (Section~\ref{sec:spiral} and the negative results),
 \path{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
 
+\medskip\noindent\textbf{Formal verification.} A formalisation in Lean~4 against the Mathlib library of
+the elementary content of Theorems~\ref{thm:expansion} and~\ref{thm:smoothed} is in progress in the same
+repository (directory \path{research/lean/PairSingularSeries}). The file \path{STATUS.md} there lists,
+statement by statement, what is verified and under which hypotheses, and \path{Axioms.lean} lets the
+reader confirm in one command that no verified statement depends on anything beyond the standard axioms
+of Lean's logic. At the time of writing the following are verified without any hypothesis: the closed
+form of $B_d(m)$ in the proof of Theorem~\ref{thm:smoothed}, valid for $1\le m\le d$ and every $H$; the
+diagonal value $B_d(d)$; the bracket identity $B_d(m)+B_d(d-m)$ that defines $\mathrm{Off}^\ast_f$, and
+the bound $|B_d(m)+B_d(d-m)|\le d/4$ (which the formal proof shows to hold for every $d\ge2$, not only
+for $d\le H$ as stated above); the factorisation $(1-\omega_{f,2}(p,h)/p)(1-1/p)^{-2}=
+\bigl((1-\omega_f(p)/p)(1-1/p)^{-1}\bigr)^2(1+g_p(h))$ of the local factors; and the identities
+$\sum_{h\le H}\nu_f(d,h)=\omega_f(d)^2H/d+\Psi_d(H)$ and
+$\sum_{h\le H}(H-h)\nu_f(d,h)=\omega_f(d)^2H^2/(2d)+\sum_{s,s'}B_d(s'-s)$ on which both proofs rest.
+In the formalisation $c^f_q(h)$ is \emph{defined} by the divisor sum
+$\sum_{d\mid q}d\,\mu(q/d)\,\nu_f(d,h)\,\omega_f(q/d)^2$, which agrees with the exponential-sum
+definition of Section~\ref{sec:heur} for squarefree $q$ and needs no exponential sums. Two points of
+scope are stated plainly, because they are what a formal reader would find: the constant $C(f)$ enters
+Theorem~\ref{thm:expansion} as a hypothesis, namely the convergence of its partial products over
+$p\le x$ (Landau's prime ideal theorem, which is not in Mathlib), exactly as the theorem uses it; and the
+asymptotic of Theorem~\ref{thm:smoothed} is to be verified conditionally on Theorem~\ref{thm:dirichlet}
+and on Shiu's theorem, both stated as hypotheses, while the exact identities of both theorems carry no
+hypothesis at all. The list will be updated as the formalisation proceeds.
+
 \section*{AI-assisted research: disclosure}
 This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and
 Claude Opus~5, used interactively by the author in September 2026 as research assistants. The author posed the questions, set the

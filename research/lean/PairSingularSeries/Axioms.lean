@@ -7,3 +7,11 @@ import PairSingularSeries
 #print axioms PairSingularSeries.B_diag
 #print axioms PairSingularSeries.bracket_eq
 #print axioms PairSingularSeries.bracket_abs_le
+#print axioms PairSingularSeries.dvd_eval_iff
+#print axioms PairSingularSeries.filter_range_dvd_eq_singleton
+#print axioms PairSingularSeries.sum_roots_indicator
+#print axioms PairSingularSeries.sum_weight_nu
+#print axioms PairSingularSeries.sum_nu
+#print axioms PairSingularSeries.psi_zero
+#print axioms PairSingularSeries.sum_nu_weighted
+#print axioms PairSingularSeries.Tfac_eq

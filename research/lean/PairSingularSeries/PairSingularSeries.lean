@@ -1,3 +1,4 @@
 import PairSingularSeries.Defs
 import PairSingularSeries.Bd
 import PairSingularSeries.Bracket
+import PairSingularSeries.Finite

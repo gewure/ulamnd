@@ -1,10 +1,10 @@
 /-
 # The pair singular series of a polynomial: definitions
 
-Formalisation of the objects of paper I (J. Reichardt, "The pair singular series of a polynomial I"),
-Section 3.  Everything is defined in arithmetic form: root counts modulo `d` are counted over
-`Finset.range d`, and the root Ramanujan sum `cf` is DEFINED by its divisor sum, so that no exponential
-sum appears anywhere.  See research/lean/FORMAL-PLAN.md for the correspondence with the paper.
+Formalisation of the objects of paper I (J. Reichardt, "The pair singular series of a polynomial
+I"), Section 3.  Everything is defined in arithmetic form: root counts modulo `d` are counted over
+`Finset.range d`, and the root Ramanujan sum `cf` is DEFINED by its divisor sum, so that no
+exponential sum appears anywhere.  See research/lean/FORMAL-PLAN.md for the paper correspondence.
 -/
 import Mathlib
 
@@ -23,7 +23,8 @@ def roots (f : ℤ[X]) (d : ℕ) : Finset ℕ :=
 
 /-- `ν_f(d, h)`: the number of `x ∈ [0, d)` with `d ∣ f(x)` and `d ∣ f(x + h)`. -/
 def nu (f : ℤ[X]) (d : ℕ) (h : ℤ) : ℕ :=
-  ((range d).filter (fun x : ℕ => (d : ℤ) ∣ f.eval (x : ℤ) ∧ (d : ℤ) ∣ f.eval ((x : ℤ) + h))).card
+  ((range d).filter
+    (fun x : ℕ => (d : ℤ) ∣ f.eval (x : ℤ) ∧ (d : ℤ) ∣ f.eval ((x : ℤ) + h))).card
 
 /-- The local factor of the Bateman–Horn constant `C(f)` at `p`: `(1 - ω_f(p)/p)/(1 - 1/p)`. -/
 noncomputable def Efac (f : ℤ[X]) (p : ℕ) : ℝ :=
@@ -49,7 +50,8 @@ noncomputable def Spartial (f : ℤ[X]) (h : ℤ) (x : ℕ) : ℝ :=
 /-- The root Ramanujan sum `c^f_q(h) := ∑_{d ∣ q} d μ(q/d) ν_f(d,h) ω_f(q/d)^2`.
 For squarefree `q` this equals `∑_{s,s'} c_q(s' - s - h)` of the paper; we never need that form. -/
 def cf (f : ℤ[X]) (q : ℕ) (h : ℤ) : ℤ :=
-  ∑ d ∈ q.divisors, (d : ℤ) * ArithmeticFunction.moebius (q / d) * nu f d h * (omega f (q / d) : ℤ) ^ 2
+  ∑ d ∈ q.divisors,
+    (d : ℤ) * ArithmeticFunction.moebius (q / d) * nu f d h * (omega f (q / d) : ℤ) ^ 2
 
 /-- `b(q) = ∏_{p ∣ q} (p - ω_f(p))^{-2}`. -/
 noncomputable def bfun (f : ℤ[X]) (q : ℕ) : ℝ :=
@@ -63,9 +65,11 @@ noncomputable def Fterm (f : ℤ[X]) (h : ℤ) (q : ℕ) : ℝ :=
 noncomputable def Pfac (f : ℤ[X]) (p : ℕ) : ℝ :=
   1 - (omega f p : ℝ) ^ 2 / ((p : ℝ) - omega f p) ^ 2
 
-/-- `W_f(d) = d b(d) ∏_{p ∤ d} (1 - ω_f(p)^2/(p - ω_f(p))^2)`, the product over primes not dividing `d`. -/
+/-- `W_f(d) = μ(d)² d b(d) ∏_{p ∤ d} (1 - ω_f(p)^2/(p - ω_f(p))^2)`: the paper's `W_f` on squarefree
+`d`, and `0` off squarefree `d` (the paper's sums over `d` run over squarefree `d` only). -/
 noncomputable def W (f : ℤ[X]) (d : ℕ) : ℝ :=
-  (d : ℝ) * bfun f d * ∏' p : Nat.Primes, (if (p : ℕ) ∣ d then 1 else Pfac f p)
+  ((ArithmeticFunction.moebius d : ℤ) : ℝ) ^ 2 * (d : ℝ) * bfun f d *
+    ∏' p : Nat.Primes, (if (p : ℕ) ∣ d then 1 else Pfac f p)
 
 /-- `a_f(d) = W_f(d) ω_f(d)`. -/
 noncomputable def a (f : ℤ[X]) (d : ℕ) : ℝ := W f d * omega f d
