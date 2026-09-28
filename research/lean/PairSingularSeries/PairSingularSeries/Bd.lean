@@ -1,10 +1,11 @@
-/-
+import PairSingularSeries.Defs
+
+/-!
 # The closed form of `B_d(m)` (paper I, proof of Theorem 5, "an elementary computation")
 
 For `1 ≤ m ≤ d` and every `H ≥ 0` (also when `d > H`, and also when `m > H`):
   `B_d(m) = -Hm/d + m²/(2d) + H/2 - m/2 + (d/2) φ({(H - m)/d})`.
 -/
-import PairSingularSeries.Defs
 
 namespace PairSingularSeries
 

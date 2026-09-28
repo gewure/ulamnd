@@ -20,8 +20,10 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | L8  B_d(m) + B_d(d−m) = bracket, 1 ≤ m ≤ d−1 | `bracket_eq` | Bracket.lean | PROVED |
 | L9  \|bracket\| ≤ d/4 — for EVERY d ≥ 2, not only d ≤ H (stronger than the paper states; the paper's d ≤ H restriction is not needed for this bound, only for its use) | `bracket_abs_le` | Bracket.lean | PROVED |
 | 0 ≤ φ ≤ 1/4 on [0,1) | `phi_bounds` | Bracket.lean | PROVED |
-| L1  ω, ν multiplicative (CRT) | — | — | TODO |
-| L2  c^f multiplicative; c^f_p = pν − ω² | — | — | TODO |
+| tool: CRT COUNTING — for coprime m,n and ANY predicates P,Q: #{x<mn : P(x mod m) ∧ Q(x mod n)} = #{a<m : P a}·#{b<n : Q b} (not in Mathlib in this form) | `card_filter_crt`, `crt_injOn`, `crt_image` | CRT.lean | PROVED |
+| L1  ω, ν multiplicative; ω(1) = ν(1,h) = 1; ω(0) = ν(0,h) = 0 | `omega_mul`, `nu_mul`, `omega_one`, `nu_one`, `omega_zero`, `nu_zero` | CRT.lean | PROVED |
+| L2  c^f = (d ↦ dν(d,h)) ∗ (m ↦ μ(m)ω(m)²) as arithmetic functions; multiplicative; c^f_1 = 1, c^f_0 = 0; c^f_p = pν(p,h) − ω(p)² | `cf_eq_mul`, `cf_mul`, `cf_one`, `cf_zero`, `cf_prime` | Mult.lean | PROVED |
+| L2′ b multiplicative, b(1) = 1, b(p) = (p−ω(p))⁻²; F_h multiplicative, F_h(0) = 0, F_h(1) = 1, F_h(p) = g_p(h), F_h(p^k) = 0 for k ≥ 2 | `bfun_mul`, `bfun_one`, `bfun_prime`, `Fterm_mul`, `Fterm_zero`, `Fterm_one`, `Fterm_prime`, `Fterm_prime_pow` | Mult.lean | PROVED |
 | L3  T_p(h) = E_p²(1 + g_p(h)) for ω(p) < p | — | — | TODO |
 | L4  Σ_{h≤H} ν(d,h) = ω(d)²H/d + Ψ_d(H) | — | — | TODO |
 | L5  Σ_{h≤H} c^f_q(h) = Σ_{d\|q} dμ(q/d)ω(q/d)²Ψ_d(H), q > 1 squarefree | — | — | TODO |

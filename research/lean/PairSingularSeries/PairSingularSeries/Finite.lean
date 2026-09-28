@@ -1,4 +1,6 @@
-/-
+import PairSingularSeries.Bracket
+
+/-!
 # The finite identities in `h` (paper I, proofs of Theorems 1 and 5)
 
 * `Tfac_eq`:        `T_p(h) = E_p² (1 + g_p(h))` whenever `ω_f(p) ≠ p` and `p ≥ 2`   (L3).
@@ -7,7 +9,6 @@
 * `sum_nu_weighted`:`∑_{h≤H} (H-h) ν_f(d,h) = ω_f(d)² H²/(2d) + ∑_{s,s'} B_d(s'-s)`      (L6).
 * `psi_zero`:       `ψ_d(0, H) = -{H/d}`                                                (L9′).
 -/
-import PairSingularSeries.Bracket
 
 namespace PairSingularSeries
 

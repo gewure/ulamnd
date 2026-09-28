@@ -15,3 +15,12 @@ import PairSingularSeries
 #print axioms PairSingularSeries.psi_zero
 #print axioms PairSingularSeries.sum_nu_weighted
 #print axioms PairSingularSeries.Tfac_eq
+#print axioms PairSingularSeries.card_filter_crt
+#print axioms PairSingularSeries.omega_mul
+#print axioms PairSingularSeries.nu_mul
+#print axioms PairSingularSeries.cf_mul
+#print axioms PairSingularSeries.cf_prime
+#print axioms PairSingularSeries.bfun_mul
+#print axioms PairSingularSeries.Fterm_mul
+#print axioms PairSingularSeries.Fterm_prime
+#print axioms PairSingularSeries.Fterm_prime_pow

@@ -1,4 +1,6 @@
-/-
+import PairSingularSeries.Bd
+
+/-!
 # The diagonal value, the bracket, and its bound (paper I, proof of Theorem 5)
 
 * `B_diag`:      `B_d(d) = -H/2 + (d/2) φ({H/d})`.
@@ -6,7 +8,6 @@
 * `bracket_abs_le`: `|bracket| ≤ d/4` — for every `d ≥ 2`, not only `d ≤ H`.
 * `phi_bounds`:  `0 ≤ φ(θ) ≤ 1/4` on `[0, 1)`.
 -/
-import PairSingularSeries.Bd
 
 namespace PairSingularSeries
 

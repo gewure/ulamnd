@@ -1,4 +1,6 @@
-/-
+import Mathlib
+
+/-!
 # The pair singular series of a polynomial: definitions
 
 Formalisation of the objects of paper I (J. Reichardt, "The pair singular series of a polynomial
@@ -6,7 +8,6 @@ I"), Section 3.  Everything is defined in arithmetic form: root counts modulo `d
 `Finset.range d`, and the root Ramanujan sum `cf` is DEFINED by its divisor sum, so that no
 exponential sum appears anywhere.  See research/lean/FORMAL-PLAN.md for the paper correspondence.
 -/
-import Mathlib
 
 open Polynomial Finset
 
