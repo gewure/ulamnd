@@ -1,2 +1,3 @@
-import PairSingularSeries.Basic
 import PairSingularSeries.Defs
+import PairSingularSeries.Bd
+import PairSingularSeries.Bracket
