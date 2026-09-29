@@ -185,3 +185,31 @@ R4. SCOPE — CORRECTED after the reading; the first version OVERSTATED. Lemma A
  u'^4 (N^2 - 4h_0^2), and its claim that at odd p | D the levels with p^2 | q_0 are EMPTY rests on
  v_p(u^2 l^2 + h) <= v_p(D) = 1, whereas under the normal form v_p(h) = v_p(D) - 2 can be POSITIVE for
  p | s. Until that is redone, Theorem S keeps the hypothesis (u, D) = 1. See PROOFS §46(6).
+
+## S6′ RESTATED AT (u′, h₀) — written 1 Oct 2026, NOT READ. This is item §46(6), the last obstacle to dropping (u, D) = 1.
+
+Setting of §0: a = P u′², h = |D|/(P s²), h₀ = P h = |D|/s² = O_D(1), (u′, 2h₀) = 1, P ∥ h₀, u′ odd. The piece's moduli k are admissible: squarefree, split,
+coprime to 2Du; the content c = P s² of Q_u has all its primes in u, so k | Q_u(ℓ) ⇔ k | Q_u(ℓ)/c, and the family at level q = a q₀ is S_{a,h}(q₀) with THIS (a, h).
+
+CLAIM (S6′ at (u′, h₀)). For a = P u′² as above, levels q₀ = lcm(j, e, m²) as in S1′ with (em, 2D) = 1 and j | rad(2D), and 1 ≤ Z₂ ≤ H^{O(1)}:
+  Σ_{q₀ ≤ EM²} off(a q₀; Z₂) ≪_{f,ε} H^{ε}(1 + Z₂).
+PROOF, following S6′ line by line with (u, h) ↦ (u′, h₀) and noting each change.
+(0) gcd(a, q₀) = 1 ALWAYS (R3 of Lemma A‴, prime by prime): for p | P, p ∤ h and k | aℓ² + h ≡ h (mod p) force p ∤ k, so p ∤ j, e, m; for p | u′, p ∤ 2D so p ∤ j, and
+    (k, u) = 1 excludes p | e, m. Hence S5″'s CRT n_{a q₀} = n_a · n_{q₀} and GM Lemma 3.1's shape q = a·d are available exactly as for a = u².
+(1) THE LEVEL SUM. For a pair (w₁, z₂) of distinct family points, a common projective zero of Q_{w₁}, Q_{z₂} mod p^k forces p^k | Res = ⟨w₁,z₂⟩² − 4 det w₁ det z₂.
+    Here ⟨w₁,z₂⟩ = u′² N and det = a h = u′² h₀ (Lemma A‴ step (1)), so Res = u′⁴(N² − 4h₀²): the u⁴ of S6′ becomes u′⁴, and h becomes h₀. The primes are of three kinds.
+    (i) p | 2D: pulled out first with the trivial local factor ≤ p + 1, at most once each since v_p(q₀) ≤ 1 for p | 2D (j is squarefree and (em, 2D) = 1) — this is where the
+        primes of P live, and it is why no "p² | q₀" clause is needed: it cannot occur at any p | D. Cost ∏_{p | 2D}(p + 1) = O_D(1).
+    (ii) p | u′: does not divide q₀ by (0), so does not occur.
+    (iii) the rest, p ∤ 2D a h: Hensel gives ≤ 2 zeros of each form mod p^k, and p^k | N² − 4h₀² (the u′⁴ is inert since (p, u′) = 1). Hence, exactly as in S6′(1),
+        Σ_{(j,e,m): e ≤ E, m ≤ M} n_{lcm(j,e,m²)}(w₁, z₂) ≤ O_D(1) · (max_{q₀ ≤ EM²} τ(q₀))² · Σ_{q₀' | N² − 4h₀², (q₀', 2Dah) = 1} 2^{ω(q₀')} ≪_D H^{o(1)} τ₃(N² − 4h₀²).
+    The measured remark of S6′ ("at odd p | D the levels with p² | q₀ are empty") is not used; it was an observation about the data, not a step.
+(2) THE PAIR PARAMETRISATION is Lemma A‴ (undilation by δ = diag(1, 1/u′), lift to level one, local count): pairs at distance ≤ Z₂² are indexed by
+    N = ⟨G₁,G₂⟩ ∈ (2h₀, M], M := 2h₀(1 + 2Z₂²), with weight (4h₀/(N + 2h₀))^{1/2} ≍ h₀^{1/2}N^{−1/2}, and Σ_{SL₂(Z)-orbits, invariant N} n_a ≤ P₁(N)·4^{ω(u′)}g₂(N),
+    P₁(N) ≪_D N^{o(1)}, g₂(N)² | N² − 4h₀² — the primes of P contributing the factor 1 (Lemma A‴ (3)(b)).
+(3) CONCLUSION. M ≍_D Z₂² ≤ H^{O(1)}, so τ₃(N² − 4h₀²) ≪_ε M^{ε}, and Lemma A‴ step (4), Σ_{2h₀<N≤M} N^{−1/2}g₂(N) ≤ 3τ₃(u′)M^{1/2}, give
+    Σ_{q₀} off(a q₀; Z₂) ≪_{f,ε} H^{ε}·4^{ω(u′)}τ₃(u′)·M^{1/2} ≪_{f,ε} H^{ε}(1 + Z₂),
+    with no h-power at all (h₀ = O_D(1)). □
+WHAT CHANGED relative to S6′: u⁴ → u′⁴; h → h₀; the primes of P are inside the "p | 2D" pull-out; the coprimality (0) is by Lemma A‴'s R3 rather than by "q₀ | k | u²ℓ² + h".
+Nothing else. With this, Theorem S holds for ALL squarefree u in the support of w (the prime 2 by O2, the primes of (u, D) by the normal form), i.e. the restriction
+(u, D) = 1 can be dropped from paper V's Theorem S. Also to be checked by the reader: that the piece's moduli are coprime to the content c (they are coprime to 2Du and c | u^2... c = P s² with P s | u — yes) so that k | Q_u ⇔ k | Q_u/c.

@@ -6,14 +6,13 @@
 \newtheorem{theorem}{Theorem}\newtheorem{proposition}[theorem]{Proposition}\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
 \newcommand{\Z}{\mathbb{Z}}\newcommand{\R}{\mathbb{R}}\newcommand{\Off}{\mathrm{Off}}\newcommand{\e}{\mathrm{e}}
+\newcommand{\F}{\mathbb F}
 \newcommand{\todo}[1]{\textcolor{red!70!black}{\small\sffamily[#1]}}
 \title{The pair singular series of a polynomial V:\\ the dilated pieces below $H^{1/2}$}
 \author{Jasper Reichardt\thanks{Independent researcher. Correspondence: jasperreichardt@gmail.com.}}
 \date{16 September 2026 --- working draft, not for circulation}
 \begin{document}\maketitle
 \begin{abstract}
-\todo{Draft. The proofs of Theorems~\ref{thm:M} and~\ref{thm:S} are in research/explore/PAPER-V-thmM.md and PAPER-V-smallend-draft.md and are under adversarial reading;
-nothing here is to be circulated before those readings are recorded.}
 For a monic irreducible quadratic $f$ without fixed prime divisor, part~III decomposed the Ces\`aro off-diagonal $\Off^\ast_f(H)$ into pieces indexed by the dilation $u$ and
 proved that the pieces with $u>H^{1/2+\varepsilon}$ contribute a main term $c_{\mathrm{off}}(f)H$. This paper treats dilations below that threshold. We prove that the pieces with
 $H^{0.47}<u\le H^{0.53}$ contribute $O(H^{1-\delta})$, so that $\sum_{u>H^{0.47}}w(u)\mathcal P_u(H/u)=c_{\mathrm{off}}(f)H+O(H^{1-\delta})$; the input is a bilinear estimate for
@@ -22,8 +21,6 @@ Cilleruelo and Garaev. For negative discriminants we prove a second result at th
 automorphic kernel method of Grimmelt and Merikoski with the leading coefficient $u^2$ tracked. What remains is a neighbourhood of $u=H^{1/3}$.
 \end{abstract}
 \section{Introduction}
-\todo{Working draft: the proofs are in research/explore/PAPER-V-thmM.md and PAPER-V-smallend-draft.md and are under adversarial reading.}
-
 \paragraph{The problem.} Let $f=t^2+bt+c\in\Z[t]$ be monic, irreducible, without fixed prime divisor, of discriminant $D$. Part~III~\cite{ReichardtIII} wrote the Ces\`aro
 off-diagonal of the pair singular series as a sum of \emph{pieces},
 \[
@@ -140,9 +137,9 @@ Let $f$ be as above. There is $\delta_M>0$ (any $\delta_M<4\eta/7$ with the para
 Consequently, with part~III's Theorem on the range $u>H^{1/2+\varepsilon}$ applied at $\varepsilon=0.03$,
 $\sum_{u>H^{0.47}}w(u)\mathcal P_u(H/u)=c_{\mathrm{off}}(f)H+O(H^{1-\delta_M})$.
 \end{theorem}
-\todo{Full proof in research/explore/PAPER-V-thmM.md (with REVISION 1 and REVISION 2 merged); three independent readings, recorded in PROOFS-uniform.md §28, §30, §35, the last
-confirming the merged text. What follows is the skeleton to be expanded into the paper text.}
-
+\begin{proof}[Proof of Theorem~\ref{thm:M}] The proof occupies the rest of this section. It is organised as a reduction to a Mellin-separated bilinear form
+(Step~R1), a decomposition of the weight $w$ with a covering of the resulting boxes (Step~R5), and three estimates: a Type~I bound (Step~R2), a Type~II bound (Step~R3) and the
+residual balanced case (Step~R4), the last being where Corollary~\ref{cor:B} is used.
 \paragraph{Notation for the proof.} Put $\delta=10^{-3}$, $\eta=\delta/10$, $\delta_3=\delta$, $\varepsilon'=\eta/7$, $\kappa=\delta/2$ and $K_1=H^{2\eta}$; all implied constants
 depend on $f$ and on these parameters. For an admissible modulus $d'$ and a unit $a$ let $G_{d'}(a,Y)=\sum_{r\in R_{d'}}B^{(Y)}_{d'}(\langle ar\rangle_{d'})$, let $\bar G_{d'}(Y)$ be
 its mean over the units and $G^\circ=G-\bar G$; let $\rho_k(d';a)=\sum_{r\in R_{d'}}\e(kar/d')$, $\epsilon_{d'}(k)=c_{d'}(k)/\varphi(d')$ and
@@ -196,42 +193,206 @@ $k\le K_1$ gives $\ll UY\,H^{-0.028}$.
 \paragraph{Conclusion.} Per block the errors are $H^{1-4\eta/7}$ from R1(b), $H^{1-\eta}$ from R1(d), $UY^{1-\delta}$ from R1(c), $UY^{\delta}$ from the mean terms,
 $H^{1-\delta_3/2+\varepsilon}$ from the $n_3$-tail, $H^{1-\kappa}(\log H)^C$ from the ramps, and the three savings above. With $O(\log H)$ blocks the binding constraint is R1(b), and
 Theorem~\ref{thm:M} follows for every $\delta_M<4\eta/7$.
+\end{proof}
 
 \section{The small dilations}
-\begin{lemma}[the off-diagonal at one level does not grow with the dilation]\label{lem:Aoff}
-Let $h\ge1$, $u$ squarefree with $(u,2h)=1$, $a=u^2$, and let $F_u$ be the set of positive definite forms $g=\bigl(\begin{smallmatrix}A&B\\B&C\end{smallmatrix}\bigr)$ with
-$AC-B^2=ah$, $a\mid B$, $a\mid C$. For $Z\ge1$,
-\[
-\sum_{g_2\in\Gamma_0(a)\backslash F_u}\ \sum_{\substack{g_1\in F_u,\ g_1\ne g_2\\ u(g_1,g_2)\le Z}}\bigl(1+u(g_1,g_2)\bigr)^{-1/2}\ \ll_\varepsilon\ (hZu)^{\varepsilon}h^{O(1)}\bigl(1+Z^{1/2}\bigr),
-\]
-uniformly in $u$, where $u(\cdot,\cdot)$ is the point-pair invariant.
-\end{lemma}
-\todo{Proof in PAPER-V-smallend-draft.md (undilation to $\Gamma_0^0(u)$, lift to level one, a local count of common orthogonal lines, and a sum over the quantised distances);
-under reading.}
 
+Throughout this section $D<0$. We write $h$ for a positive integer, $\Gamma_0(q)$ for the Hecke congruence subgroup, $\Gamma_0^0(u)=\{\gamma:u\mid b,\ u\mid c\}$, and for
+positive definite forms $g_i=\bigl(\begin{smallmatrix}A_i&B_i\\B_i&C_i\end{smallmatrix}\bigr)$ we put $\langle g_1,g_2\rangle=A_1C_2+A_2C_1-2B_1B_2$, so that the point-pair
+invariant of the associated points of the upper half plane is $u(g_1,g_2)=(\cosh d-1)/2$ with $\cosh d=\langle g_1,g_2\rangle/(2\sqrt{\det g_1\det g_2})$. The kernel method
+of Grimmelt and Merikoski is used in the form of their Theorem~8.1~\cite{GrimmeltMerikoski2025kernel} and Lemma~3.1~\cite{GrimmeltMerikoski2025quadratic}; we follow their
+notation, in particular $\Delta_q$, $K_q$, the kernel quantities $\mathcal K_1(q;Z,R)$, $\mathcal K_2(q;Z)$ and the functional $\alpha_q$ on the Heegner set.
+
+\subsection{The family of a dilated piece, and its normal form}\label{sec:normal}
+The piece $\mathcal P_u(Y)$ counts the roots of $Q_u(\ell)=u^2\ell^2+|D|$ modulo admissible $k$, which are coprime to $2Du$. The content of $Q_u$ is $c=\gcd(u^2,|D|)$, and since
+$u$ is squarefree, $v_p(c)=\min(2,v_p(D))$ for $p\mid u$, so $c=Ps^2$ with
+\[
+P=\prod_{p\mid u,\ v_p(D)=1}p,\qquad s=\prod_{p\mid u,\ v_p(D)\ge2}p,\qquad u'=u/(Ps),\qquad a=Pu'^2,\qquad h=\frac{|D|}{Ps^2},\qquad h_0=Ph=\frac{|D|}{s^2}.
+\]
+Then $\gcd(a,h)=1$, $P\parallel h_0$, $h_0=O_D(1)$, and $(u',h_0)=1$; moreover $u'$ is odd: either $D$ is odd and $w$ is supported on odd $u$ (a root of $f$ modulo $2$ would
+be a fixed prime divisor), or $D$ is even, hence $4\mid D$ (discriminants are $\equiv0,1\bmod4$), and the prime $2$ enters $s$. Since the primes of $c$ divide $u$ and $k$ is
+coprime to $u$, $k\mid Q_u(\ell)$ if and only if $k\mid a\ell^2+h$: the piece is a Type~I sum for $a\ell^2+h$ in the sense of~\cite{GrimmeltMerikoski2025quadratic}, and by
+Lemma~3.1 there the pairs $(k,\ell)$ with $k\equiv0\ (q_0)$ correspond to the family
+\[
+\mathcal S_{a,h}(q_0)=\bigl\{g=\bigl(\begin{smallmatrix}A&B\\B&C\end{smallmatrix}\bigr):\ AC-B^2=ah,\ A,C>0,\ a\mid B,\ aq_0\mid C\bigr\}
+\]
+at level $q=aq_0$, the functional being $\alpha_q(g)=\mathbf 1_{q\mid c(g)}\mathbf 1_{a\mid b(g)}$ on the Heegner set $\Lambda_{ah}$ (their $b^2-ac=ah$ is a slip for $ac-b^2=ah$).
+The case $P=s=1$ is $a=u^2$, the case treated in our earlier drafts; the general normal form costs nothing extra, as Lemma~\ref{lem:Aoff} shows.
+
+\subsection{The off-diagonal at one level does not grow with the dilation}
+\begin{lemma}\label{lem:Aoff}
+Let $(a,h)=(Pu'^2,|D|/(Ps^2))$ be as in \S\ref{sec:normal}, $F=\mathcal S_{a,h}(1)$, and for $Z\ge1$
+\[
+\mathrm{off}(a;Z)=\sum_{g_2\in\Gamma_0(a)\backslash F}\ \sum_{\substack{g_1\in F,\ g_1\ne g_2\\ u(g_1,g_2)\le Z}}\bigl(1+u(g_1,g_2)\bigr)^{-1/2},
+\]
+the orbits counted with the $\mathrm{SL}_2(\Z)$-stabiliser weights $|\Gamma_g|^{-1}\le1$. Then $\mathrm{off}(a;Z)\ll_{D,\varepsilon}(Zu)^{\varepsilon}(1+Z^{1/2})$, uniformly in
+$u$: the $u$-dependence is the divisor factor $12^{\omega(u')}$, absorbed by $(Zu)^\varepsilon$, and there is no power of $h$.
+\end{lemma}
+\begin{proof}
+\emph{(1) Undilation.} Let $\delta=\mathrm{diag}(1,1/u')$ and $G=\delta g\delta$. For $g\in F$ write $B=au'^2B_1$... more precisely $B=aB_1$, $C=aC_1$; then
+$G=\bigl(\begin{smallmatrix}A&Pu'B_1\\Pu'B_1&PC_1\end{smallmatrix}\bigr)$ has $\det G=ah/u'^2=h_0$, and $g\mapsto G$ is a bijection of $F$ onto
+$F'=\{G:\det G=h_0,\ Pu'\mid B_G,\ P\mid C_G\}$, with $\delta\Gamma_0(a)\delta^{-1}=\{\gamma:u'\mid b,\ Pu'\mid c\}=\Gamma_0(P)\cap\Gamma_0^0(u')$ (using $(P,u')=1$). The map is
+an isometry of the associated points, and $\langle g_1,g_2\rangle=u'^2\langle G_1,G_2\rangle=:u'^2N$ with $1+2u(g_1,g_2)=N/(2h_0)$. Hence $N\in\Z$, $N>2h_0$ for $g_1\ne g_2$, and
+\[
+\mathrm{off}(a;Z)=\sum_{2h_0<N\le2h_0(1+2Z)}\Bigl(\frac{4h_0}{N+2h_0}\Bigr)^{1/2}P_u(N),\qquad P_u(N)=\#\bigl\{(\Gamma_0(P)\cap\Gamma_0^0(u'))\text{-orbits of pairs }(G_1,G_2)\in F'^2,\ \langle G_1,G_2\rangle=N\bigr\}.
+\]
+\emph{(2) Lift to level one.} The stabiliser in $\mathrm{SL}_2(\Z)$ of a pair of distinct points is $\pm I$, so each orbit lies in a unique $\mathrm{SL}_2(\Z)$-orbit of pairs
+of determinant-$h_0$ forms with $\langle G_1,G_2\rangle=N$, and $P_u(N)=\sum_{\mathcal O}\#\{\tau\in(\Gamma_0(P)\cap\Gamma_0^0(u'))\backslash\mathrm{SL}_2(\Z):\tau.G_1,\tau.G_2\in F'\}$
+over the $P_1(N)$ such orbits, evaluated at any representative. Taking $G_2$ among the reduced forms of determinant $h_0$ and observing that $W=2h_0G_1-NG_2$ lies in the
+rank-two lattice $G_2^\perp$ with $-\det W=h_0(N^2-4h_0^2)$, the number of representations of a fixed integer by a definite binary lattice gives $P_1(N)\ll_D N^{o(1)}$ ---
+here $h_0=O_D(1)$ is what makes the bound uniform.
+\emph{(3) The local count.} By the Chinese remainder theorem the coset space factors over the primes of $Pu'$; parametrise $T_p\backslash\mathrm{SL}_2(\F_p)$ by the ordered pair of
+distinct lines spanned by the rows of $\tau$, and $\Gamma_0(p)\backslash\mathrm{SL}_2(\F_p)$ by the second row $L_2\in\mathbb P^1(\F_p)$. Then $p\mid B(\tau.G)$ reads $L_1\perp_GL_2$
+and $p\mid C(\tau.G)$ reads $Q_G(L_2)=0$. For $p\mid u'$ (so $p\nmid2h_0$) the condition is $u'\mid B$ only: for one form there are $p-\chi_{-h_0}(p)$ cosets; for a pair, $L_2$ must
+be an eigenline of $G_2^{-1}G_1$, whose characteristic polynomial is $\lambda^2-(N/h_0)\lambda+1$, so there are at most $2$ cosets unless $G_2^{-1}G_1$ is scalar modulo $p$, in which
+case $p^2\mid N^2-4h_0^2$ and there are at most $p+1$. For $p\mid P$ both conditions are imposed, and they collapse to one: $p\mid B_G$, $p\mid C_G$ and $p\parallel h_0=\det G$
+force $p\nmid A_G$, so $G\equiv\mathrm{diag}(A_G,0)$ is of rank one modulo $p$, its unique projective zero is its kernel line $L_0$, and for $L_2=L_0$ one has $GL_2\equiv0$, so
+$L_1\perp_GL_2$ for every $L_1$. Hence the local factor at $p\mid P$ is $1$, for one form and for pairs, and altogether the number of cosets for a pair is at most $2^{\omega(u')}g_2(N)$
+with $g_2(N)=\prod_{p\mid u',\,p^2\mid N^2-4h_0^2}p$.
+\emph{(4) The sum over $N$.} With $M=2h_0(1+2Z)$ and $d$ running over the divisors of $u'$ with $d\le M$ (which is automatic, since $d^2\mid N^2-4h_0^2<M^2$),
+\[
+\sum_{2h_0<N\le M}N^{-1/2}g_2(N)\ \le\ \sum_{d\mid u',\,d\le M}d\sum_{\substack{N\le M\\ d^2\mid N^2-4h_0^2}}N^{-1/2}\ \le\ \sum_{d\mid u',\,d\le M}d\cdot2^{\omega(d)}\bigl(d^{-1/2}+2M^{1/2}/d^2\bigr)\ \le\ 3\tau_3(u')M^{1/2},
+\]
+because the $2^{\omega(d)}$ classes $N\bmod d^2$ with $d^2\mid N^2-4h_0^2$ each have $N\ge d$. Combining (1)--(4), $\mathrm{off}(a;Z)\ll_{D,\varepsilon}N^{o(1)}2^{\omega(u')}\tau_3(u')M^{1/2}\ll(Zu)^{\varepsilon}(1+Z^{1/2})$.
+\end{proof}
+The mechanism is that the distances between family points are quantised: $\cosh d\in(2h_0)^{-1}\Z$ independently of the dilation, so the number of pairs at distance $\le Z$ is
+governed by the divisors of $N^2-4h_0^2$, not by the size of the level. Numerically, for $a=3u'^2$ and $a=15u'^2$ ($D=-3$, $-15$) the diagonal is exactly
+$c\prod_{p\mid u'}(p-\chi_{-h_0}(p))$ with the factor at the primes of $P$ equal to $1$, and $\mathrm{off}(a;Z)/Z^{1/2}$ shows no growth in $u'$; the local count of step~(3) was also
+checked by enumerating $\mathrm{SL}_2(\F_p)$ for $141$ normal forms, nine of them with $D$ non-fundamental.
+
+\subsection{Theorem S}
 \begin{theorem}\label{thm:S}
-Let $f$ be as above with $D<0$. For every $c>0$ there is $\delta_S(c)>0$ with
-\[\sum_{\substack{u\le H^{1/3-c}\\ (u,D)=1}}w(u)\mathcal P_u(H/u)\ \ll_f\ H^{1-\delta_S(c)}.\]
+Let $f$ be as above with $D<0$. For every $c>0$,
+\[\sum_{\substack{u\le H^{1/3-c}\\ (u,D)=1}}w(u)\mathcal P_u(H/u)\ \ll_{f,c}\ H^{1-\delta_S(c)},\qquad \delta_S(c)=\tfrac23\cdot\tfrac19\cdot\tfrac32c(1-2\theta)\approx\frac{c}{12},\]
+where $\theta=7/64$ is the Kim--Sarnak bound. The parameters below may be taken as $\delta=\eta=\eta'=\frac19\cdot\frac32c(1-2\theta)$.
 \end{theorem}
 \begin{remark}[on the coprimality restriction]\label{rem:uD}
-The restriction $(u,D)=1$ is not expected to be necessary, and it is not present in Theorem~\ref{thm:M}. It is there because the off-diagonal input, Lemma~\ref{lem:Aoff}, is proved
-at determinant $h$ after undilation, whereas a dilation $u$ divisible by a prime of $D$ leads, after removing the content of $Q_u$, to a family of determinant $Ph$ with $P\mid D$.
-The corresponding restatement of Lemma~\ref{lem:Aoff} is available, and behaves better than the case treated here: the undilated determinant is then $O_D(1)$, and the primes
-of $P$ contribute a local factor $1$ rather than a factor $\asymp P$, because the form is of rank one modulo each of them. What is not yet in place is the corresponding restatement
-of the \emph{level sum} at the undilated determinant, and it is for that reason, not for want of the off-diagonal bound, that we state Theorem~\ref{thm:S} with the restriction.
-The prime $2$ is already normalised away and requires no hypothesis.
+Every step of the proof is written for the general normal form of \S\ref{sec:normal}; the only place where $(u,D)=1$ is still used is the level sum of \S\ref{sec:S6}, whose
+restatement at $(u',h_0)$ is recorded in the repository and awaits an independent reading. Once that is in, the restriction disappears. The prime $2$ needs no hypothesis.
 \end{remark}
-\todo{Proof in research/explore/PAPER-V-smallend-draft.md (S1, S1$'$, S2$'$, S3--S5, O1, O2, O4--O6$''$, S5$''$, S6$'$, Lemma~\ref{lem:Aoff}), resting on
-\cite{GrimmeltMerikoski2025kernel} Theorem~8.1 and \cite{GrimmeltMerikoski2025quadratic} Lemma~3.1. S5$''$/S6$'$ read (PROOFS \S43, \S45); the removal of $(u,D)=1$ waits on the
-reading of Lemma A$'''$ (PROOFS \S44).}
 
-\begin{remark}[on the implied constant imported from the kernel theorem]\label{rem:CGM}
-Theorem~8.1 of~\cite{GrimmeltMerikoski2025kernel} is stated with an unspecified factor $\delta^{-O(1)}$, where $\delta$ is the smoothness parameter of the input function. Following
-its proof through \S7.1--\S7.4 --- the unskewing with $R_1=X$, $R_2=1$ is loss-free; $F$ of right type $0$ forces $\ell_2=0$, so that the second $K$-type sum is absent and the
-$\alpha_2$-side majorant may be taken at $L=1$; and $\delta_1=\delta$ because $X\ge Y$, which here reads $Lu\ge|D|^{1/2}$ and holds on every non-trivial block --- one may take
-$\delta^{-6}$. We do not optimise this and use only that the exponent is absolute: fixing $C=6$ and choosing the parameters \emph{after} $C$, namely
-$\delta=\eta=\eta'=\tfrac19\cdot\tfrac32c(1-2\theta)$, all the constraints hold and $\delta_S(c)=\tfrac23\delta\approx c/12$.
+\subsubsection*{Step S1: the reduction}
+Fix $u$ squarefree with $u\le H^{1/3-c}$ and $Y=H/u$. Since $R^{(u)}_k$ is symmetric and $0\notin R^{(u)}_k$ (as $k$ is coprime to $2D$), pairing $x\leftrightarrow k-x$ in the
+definition of the piece gives the exact identity
+\begin{equation}\label{eq:S1}
+\sum_{x\in R^{(u)}_k}B^{(Y)}_k(\langle x\rangle_k)=\frac12\sum_{\ell\ne0,\ k\mid a\ell^2+h}T(\ell)-\frac{\varrho(k)}{2k}\int_\R T,\qquad T(t)=(Y-|t|)^+,\quad\varrho(k)=|R^{(u)}_k|,
+\end{equation}
+the shape ``count minus density times mass'' of~\cite{GrimmeltMerikoski2025quadratic}. The small moduli $k\le Y^{1-\delta}$ contribute $\ll\sum_{k\le Y^{1-\delta}}|\lambda(k)|\varrho(k)\ll Y^{1-\delta}(\log Y)^{O(1)}$,
+since for each pair $\{x,k-x\}$ the bracket $B^{(Y)}_k(m)+B^{(Y)}_k(k-m)$ lies in $[-k/4,k/4]$ (part~I, proof of Theorem~5) and Shiu's theorem bounds the sum; no smoothing is needed there,
+the identity being exact for each $k$. The large moduli $k>Y^{1+\eta}$ contribute $\ll Y^{1-\eta}(\log Y)^{11}$ by part~III's Lemma~tail, uniformly in $u\le Y^3$. To hand a smooth
+weight to the kernel theorem we insert $\psi_1$, supported on $[Y^{1-\delta}/2,2Y^{1+\eta}]$ and equal to $1$ on $[Y^{1-\delta},Y^{1+\eta}]$, and remove the two transition ranges by the
+same two bounds. On the window we write, in this order,
+\[
+\lambda(k)\mu^2(k)\mathbf 1_{(k,2D)=1}=\sum_{j\mid(k,\mathrm{rad}\,2D)}\mu(j)\sum_{e\mid k}\kappa(e)\sum_{m^2\mid k}\mu(m),
+\]
+with $\kappa$ supported on split squarefree integers (so that $1*\kappa$ reproduces $\lambda$ only after the $j$-M\"obius) and $(k,u)=1$ automatic (a prime of $(k,u)$ would divide
+$|D|$, hence $2D$); the tail $m>M:=Y^{\eta}$ is removed \emph{before} any further decomposition at a cost $\ll Y^{1-\eta+\varepsilon}$, and no truncation in $e$ is needed. Then $T$ is
+decomposed into smooth dyadic boxes $T_L(\ell)=Y\psi_2(\ell/L)$ in $|\ell|\sim L$, the two kinks of $T$ at $\ell=\pm Y$ smoothed at scale $\Delta=Y^{1-\eta'}$, which changes the sum by
+$\ll Y^{1+\delta-2\eta'+\varepsilon}$ in total and gives $\psi_2^{(J)}\ll Y^{J\eta'}$. A box $(L,K)$, $K$ dyadic in $[Y^{1-\delta},Y^{1+\eta}]$, has trivial size $\ll(Y/K)LH^{\varepsilon}$, so
+the boxes with $L\le Y^{1-3\delta}$ contribute $\ll Y^{1-2\delta+\varepsilon}$ together and the kink of $T$ at $\ell=0$ never matters. The outcome: for every $u$,
+\begin{equation}\label{eq:S1out}
+\mathcal P_u(Y)=\sum_{\text{boxes }(L,K)}\ \sum_{j,e,m\le M}\mu(j)\kappa(e)\mu(m)\,\mathfrak B(L,K;q_0)+O\bigl(Y^{1-\min(\delta,\eta,2\eta'-\delta)+\varepsilon}\bigr),\qquad q_0=\mathrm{lcm}(j,e,m^2),
+\end{equation}
+with $O(\log^2H)$ boxes, $Y^{1-3\delta}\le L\le Y$, and
+$\mathfrak B(L,K;q_0)=\frac12\sum_{k\equiv0\,(q_0)}\frac1k\psi_1(k/K)\bigl[\sum_{k\mid a\ell^2+h}T_L(\ell)-\varrho(k)\int T_L/k\bigr]$; the levels are $q=aq_0$ with
+$\gcd(a,q_0)=1$ (for $p\mid P$, $k\mid a\ell^2+h\equiv h\ (p)$ and $p\nmid h$ force $p\nmid k$; for $p\mid u'$, $p\nmid2D$ and $(k,u)=1$).
+
+\subsubsection*{Step S2: the two-scale form}
+Following \S5 of~\cite{GrimmeltMerikoski2025quadratic}, replace $T_L$ by a second weight $T^{(2)}(\ell)=(\int T_L)\,\psi(\ell/X_2)/(X_2\int\psi)$ of the same mass at the scale
+$X_2=K^{1+\eta}>L$ (i.e.\ $\eta(1-\delta)>\delta$, which the parameters satisfy). The density terms of the two scales are identical, so
+$\mathfrak B(L,K;q_0)=\mathcal A_1-\mathcal A_2+\mathcal E$, where $\mathcal A_i=\langle I|\Delta_qF_i|\alpha_q\rangle$ is built from $(\psi_1,T_L)$, resp.\ $(\psi_1,T^{(2)})$, exactly as in
+their \S5, and $\mathcal E$ is the second-scale sum $\sum_{k\equiv0(q_0)}\frac1k\psi_1(k/K)[\sum_{k\mid a\ell^2+h}T^{(2)}(\ell)-\varrho(k)\int T^{(2)}/k]$, which Poisson summation modulo $k$
+evaluates: for $k\sim K$ the range $X_2$ exceeds $k$ by the factor $K^{\eta}$, the dual frequencies are $\ge K^{\eta}$, and $\mathcal E\ll_A K^{-A}$ for every $A$, uniformly in $u$
+(the constants depend on $A,\eta,\psi$). The skew of $F_1$ is $X/Y=Lu|D|^{-1/2}$ with $x$-range $R=L/K\in[Y^{-\eta-3\delta},Y^{\delta}]$; that of $F_2$ is larger by $X_2/L$, and its bound
+is smaller than that of $\mathcal A_1$ by $(L/X_2)^{1/2-\theta}$, so only $\mathcal A_1$ is estimated below.
+
+\subsubsection*{Step S3: the hypotheses of the kernel theorem}
+In Iwasawa coordinates $x=\ell/k$, $y=\sqrt h/(uk)$ the weight of $\mathcal A_1$ is $F(g)=(Y/K)f(x,y)$ with $f(x,y)=\psi_2(\ell/L)\tilde\psi_1(k/K)$, $\tilde\psi_1(t)=\psi_1(t)/t$;
+$f$ is supported on $|x|\asymp L/K$, $y\asymp\sqrt h/(uK)$, is not a product (the argument of $\psi_2$ depends on $y$ too), and each $\partial_y$ produces a factor $1/y$, so
+$\partial_x^{J_1}\partial_y^{J_2}f\ll(Y^{\eta'})^{J_1+J_2}(L/K)^{-J_1}(\sqrt h/(uK))^{-J_2}$, the only non-dyadic scale being the kink smoothing. After splitting the $x$-support (of ratio
+$\le4$) into $O(1)$ smooth dyadic pieces, $f\in C^{10}_{\delta_{\mathrm{GM}}}(X,Y)$ in the sense of Definition~2 of~\cite{GrimmeltMerikoski2025kernel} with $\delta_{\mathrm{GM}}^{-1}\asymp Y^{\eta'}$,
+and $X/Y=Lu|D|^{-1/2}>\delta_{\mathrm{GM}}$ on every box. The Hecke variable is trivial, so their Rankin--Selberg input is not invoked; $q^{o(1)}=(u^2q_0)^{o(1)}=H^{o(1)}$; and the
+unspecified $\delta_{\mathrm{GM}}^{-O(1)}$ of Theorem~8.1 is $\delta_{\mathrm{GM}}^{-C}$ with $C=6$ by Remark~\ref{rem:CGM}. Theorem~8.1 then gives, for every $Z_0,Z_1,Z_2\ge1$ with
+$Z_0Z_1Z_2\ge X/Y+1$,
+\begin{equation}\label{eq:GM}
+|\mathcal A_1|\ \ll\ H^{o(1)}Y^{C\eta'}\,\frac YK\,(Lu)^{1/2}Z_0^{\theta}\,\mathcal K_1(q;Z_1,R)^{1/2}\mathcal K_2(q;Z_2)^{1/2}.
+\end{equation}
+
+\subsubsection*{Step S4: the first kernel quantity}
+The example in \S1.2 of~\cite{GrimmeltMerikoski2025kernel} gives, for $q\ge1$, $Z\ge1$ and $0<R\le H^{O(1)}$, $\mathcal K_1(q;Z,R)\ll H^{o(1)}(1+R+1/(qR)+Z/q)$ (the cases
+$c=0$, $b=0$, $bc\ne0$ of $\gamma\in\Gamma_0(q)$; we checked it numerically at our levels). Summed over the levels $q=a\,\mathrm{lcm}(j,e,m^2)$ of a block $e\sim E$, $m\sim M$, with
+$1/R\le Y^{\eta+3\delta}$ and $R\le Y^{\delta}$,
+\begin{equation}\label{eq:K1}
+\sum_{\text{levels}}\mathcal K_1\ \ll_D\ H^{o(1)}Y^{3\delta+\eta}\bigl(EM+Z_1/a\bigr).
+\end{equation}
+
+\subsubsection*{Step S5: the second kernel quantity, the dictionary and the diagonal}
+By definition (\S4.1 of~\cite{GrimmeltMerikoski2025quadratic}) and since $\alpha_q\ge0$ and the subtracted volume term is $\ge0$,
+$\langle\alpha_q|\Delta_qk|\alpha_q\rangle\le\langle\alpha_q|K_qk|\alpha_q\rangle$, and the smooth kernel may be replaced by the majorant $\mathbf 1_{u\le Z_2^2}(1+u)^{-1/2}$. Unfolding
+the $\gamma$-sum once gives the orbit form $\mathrm{diag}(q)+\mathrm{off}(q;Z_2)$ with the $\mathrm{SL}_2(\Z)$-stabiliser weights on the $g_2$-side and the $g_1$-side unweighted
+(with $\Gamma_0(q)$-stabilisers the identity fails by a factor $2$). Unfolding a second time, as in Proposition~4.1 of~\cite{GrimmeltMerikoski2025quadratic},
+\begin{equation}\label{eq:bridge}
+\mathrm{off}(aq_0;Z_2)=\sum_{z_2\in\Lambda_{ah}}|\Gamma_{z_2}|^{-1}\sum_{\substack{w_1\in\mathcal S_{ah}\\ w_1\ne z_2}}k\bigl(u(w_1,z_2)\bigr)\,n_{aq_0}(w_1,z_2),\qquad
+n_q(w_1,z_2)=\#\{\tau\in\Gamma_0(q)\backslash\mathrm{SL}_2(\Z):\alpha_q(\tau\diamond w_1)=\alpha_q(\tau\diamond z_2)=1\},
+\end{equation}
+with $\mathcal S_{ah}$ the set of all forms of determinant $ah$, and for $\gcd(a,q_0)=1$ the Chinese remainder theorem gives $n_{aq_0}=n_a\,n_{q_0}$ with
+$n_{q_0}=\#\{(c_0:d_0)\in\mathbb P^1(\Z/q_0):q_0\mid Q_{w_1}(c_0,d_0),\ q_0\mid Q_{z_2}(c_0,d_0)\}$. Summing $n_a$ over the $\mathrm{SL}_2(\Z)$-orbits of pairs with invariant $N$ is the
+count $P_u(N)$ of Lemma~\ref{lem:Aoff}: the $a$-part of the off-diagonal is that lemma, and the $q_0$-part is the level sum below. The diagonal is the weighted number of
+$\Gamma_0(q)$-orbits of the family, $\mathrm{diag}(q)=c_d(u)\rho^\ast(q_0)$ with $c_d(u)\asymp u$ exactly $\prod_{p\mid u'}(p-\chi_{-h_0}(p))$ times a factor $O_D(1)$, and
+$\rho^\ast(q_0)\le2^{\omega(q_0)}\prod_{p\mid(q_0,2D)}(p+1)\ll_D2^{\omega(q_0)}$ the number of projective zeros modulo $q_0$; hence $\sum_{\text{levels}}\mathrm{diag}\ll_DH^{o(1)}uEM$.
+
+\subsubsection*{Step S6: the level-summed off-diagonal}\label{sec:S6}
+Let $a=u^2$. For $1\le Z_2\le H^{O(1)}$ we claim
+\begin{equation}\label{eq:S6}
+\sum_{q_0\le EM^2,\ (q_0,u)=1}\mathrm{off}(aq_0;Z_2)\ \ll_{f,\varepsilon}\ H^{\varepsilon}(1+Z_2),
+\end{equation}
+uniformly in $u$. Fix a pair $(w_1,z_2)$ of distinct family points with invariant $N=\langle w_1,z_2\rangle/u^2\in(2h,M]$, $M=2h(1+2Z_2^2)$. A common projective zero of
+$Q_{w_1},Q_{z_2}$ modulo $p^k$ forces $p^k\mid\mathrm{Res}=\langle w_1,z_2\rangle^2-4\det w_1\det z_2=u^4(N^2-4h^2)$, because $x^3\mathrm{Res},y^3\mathrm{Res}\in(Q_{w_1},Q_{z_2})$, and Hensel's
+lemma gives at most $2$ zeros of each form modulo $p^k$ when $p\nmid2ah$. The $O_D(1)$ primes $p\mid2D$ are pulled out first with the trivial factor $p+1$ each, at most once
+since $v_p(q_0)\le1$ there ($j$ is squarefree and $(em,2D)=1$); the primes of $u$ do not divide $q_0$, the family $\mathcal S_{u^2,h}(q_0)$ being empty otherwise
+($Aq_0C'-u^2B'^2=h$ would force $p\mid h$); so the $u^4$ is inert, and, the number of $(j,e,m)$ with a given $\mathrm{lcm}$ being at most $\tau(q_0)^2=H^{o(1)}$,
+\[
+\sum_{(j,e,m):\,e\le E,\,m\le M}n_{\mathrm{lcm}(j,e,m^2)}(w_1,z_2)\ \le\ \prod_{p\mid2D}(p+1)\cdot H^{o(1)}\sum_{q_0'\mid N^2-4h^2,\ (q_0',2Dah)=1}2^{\omega(q_0')}\ \ll_D\ H^{o(1)}\tau_3(N^2-4h^2),
+\]
+using $\sum_{d\mid n}2^{\omega(d)}\le\tau_3(n)$. The level sum therefore costs a divisor factor, not a factor $EM^2$. Now $N^2-4h^2\ge4h+1>0$ for distinct points, $\tau_3(N^2-4h^2)\ll M^{\varepsilon}$,
+$M\asymp hZ_2^2\le H^{O(1)}$, and Lemma~\ref{lem:Aoff} (steps (2)--(4), with $P_1(N)\ll(hN)^{o(1)}h^{1/2}$ and $\sum_{2h<N\le M}N^{-1/2}g_2(N)\le3\tau_3(u)M^{1/2}$) give
+$\sum_{q_0}\mathrm{off}(aq_0;Z_2)\ll H^{\varepsilon}2^{\omega(u)}\tau_3(u)h^{3/2}M^{1/2}\ll H^{\varepsilon}(1+Z_2)$, the $u$-factor $6^{\omega(u)}$ being pointwise a divisor-size factor
+and averaged in the application by $\sum_{u\sim U}6^{\omega(u)}/u\asymp(\log U)^5$. This proves~\eqref{eq:S6}. (The hypothesis $Z_2\le H^{O(1)}$ is where the $\varepsilon$-powers,
+all of which are $M^{\varepsilon}$, become $H^{\varepsilon}$; it holds in Step~S7 after the dichotomy there.) Together with Step~S5, $\sum_{\text{levels}}\mathcal K_2\ll H^{o(1)}(uEM+Z_2)$.
+
+\subsubsection*{Step S7: the per-box bound}
+Fix a box $(L,K)$ and a block $(E,M)$ of levels, and apply~\eqref{eq:GM} to every level with the same $Z_0,Z_1,Z_2$. Pull the coefficients out by $|\kappa(e)\mu(m)|\ll H^{o(1)}/E$
+--- $\mu$ has no decay in $m$, and this costs a factor $M$ --- and apply Cauchy--Schwarz over the $EM$ levels:
+\[
+\sum_{\text{levels}}|\kappa(e)\mu(m)|\,|\mathcal A_1|\ \ll\ H^{o(1)}Y^{C\eta'}\frac YK\,\frac1E\,(Lu)^{1/2}Z_0^{\theta}\Bigl(\sum\mathcal K_1\Bigr)^{1/2}\Bigl(\sum\mathcal K_2\Bigr)^{1/2}.
+\]
+If $uEM\le L^{1/2}$ choose $Z_1=u^2EM$, $Z_2=uEM$ and $Z_0=Lu/(Z_1Z_2)=L/(u^2E^2M^2)\ge1$; then by~\eqref{eq:K1} and Step~S6 the right-hand side is
+$\ll H^{o(1)}Y^{C\eta'+3\delta+\eta}\,\frac YK\,\frac{L}{EM}\cdot M\Bigl(\frac{u^2E^2M^2}L\Bigr)^{1/2-\theta}$: the block's own trivial size $(Y/K)L/(EM)$ times $M(u^2E^2M^2/L)^{1/2-\theta}$.
+If $uEM>L^{1/2}$ the block is bounded by its trivial size $(Y/K)L/(EM)<(Y/K)L^{1/2}u$, and these blocks sum geometrically. Since the block bound decays like $E^{-2\theta}$ against a
+trivial size like $1/E$, all dyadic $E$ sum without truncation, and $M\le Y^{\eta}$ gives $\sum_MM^{1-2\theta}\ll Y^{\eta(1-2\theta)}$. Hence, for the box,
+\[
+\sum_{\text{blocks}}\ \ll\ H^{o(1)}Y^{C\eta'+3\delta+\eta}\,\frac YK\Bigl(L^{1/2+\theta}u^{1-2\theta}Y^{\eta(1-2\theta)}+L^{1/2}u\Bigr)
+=\ \frac YK\,L\cdot H^{o(1)}Y^{O(\delta+\eta+\eta')}\Bigl[\Bigl(\frac{u^2}L\Bigr)^{(1-2\theta)/2}+\frac u{L^{1/2}}\Bigr],
+\]
+a relative saving $(u^2/L)^{(1-2\theta)/2}Y^{O(\delta+\eta+\eta')}$ against the box's trivial size, with $u^2/L\le u^2/Y^{1-3\delta}$.
+
+\subsubsection*{Step S8: parameters and summation}
+Summing over the $O(\log^2H)$ boxes and adding the errors of~\eqref{eq:S1out}, each piece satisfies
+\[
+\mathcal P_u(H/u)\ \ll\ \frac Hu\Bigl[\Bigl(\frac{u^3}H\Bigr)^{(1-2\theta)/2}H^{C\eta'+2\eta+O(\delta)}+H^{-\min(\delta,\eta,2\eta'-\delta)+\varepsilon}\Bigr],
+\]
+using $u^2/Y=u^3/H$. With $\theta=7/64$, $\frac32(1-2\theta)=1.171875$, and for $u\le H^{1/3-c}$ the first bracket is $\le H^{-1.171875c+C\eta'+2\eta+O(\delta)}$. Take $C=6$
+(Remark~\ref{rem:CGM}) and $\delta=\eta=\eta'=t$ with $9t=1.171875c$, so that $C\eta'+2\eta+O(\delta)\le8t$ and the first term is $\le H^{-t}$, while $\min(\delta,\eta,2\eta'-\delta)=t$.
+Finally $\sum_{u\le H^{1/3-c}}|w(u)|(H/u)^{1-t}\ll H^{1-t}\sum_{u\le H^{1/3}}|w(u)|u^{t-1}\ll H^{1-t+t/3}(\log H)^{O(1)}=H^{1-2t/3+o(1)}$, since $\sum_{u\le U}|w(u)|\ll U$. This is
+Theorem~\ref{thm:S} with $\delta_S(c)=2t/3=\frac23\cdot\frac{1.171875c}9\approx0.087c$. \qed
+
+\begin{remark}[verification record]
+Theorem~\ref{thm:M} was read three times by independent model readers (the third confirming the merged text) and Theorem~\ref{thm:S}'s components in five rounds, each
+recorded with its corrections in the repository (\path{research/explore/PROOFS-uniform.md}, \S28--\S46); the local count of Lemma~\ref{lem:Aoff} and the identities of
+Steps~S5--S6 were brute-forced on small cases. The identities of part~I on which the pieces rest are formally verified in Lean~4 (part~I, \emph{Data and code}). No human
+expert has checked this paper.
 \end{remark}
+
 \section{What remains: the band at $u=H^{1/3}$}
 Theorems~\ref{thm:M} and~\ref{thm:S} leave a neighbourhood of $\alpha=1/3$ uncovered, and the two mechanisms fail there for unrelated reasons. On the upper side the balanced
 Type~II atoms sit at $d^{1/4}$, where the available energy input for reciprocals is exactly at its threshold: what would be needed is a bound for the six-fold energy
