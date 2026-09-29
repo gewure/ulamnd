@@ -569,6 +569,14 @@ discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suff
 sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
 contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
 
+F52. "Take C = 6 and δ = η = η′ = t with 9t = 1.171875c, so that Cη′ + 2η + O(δ) ≤ 8t" (paper V, Step S8, and the notes O6⁗/§42; ERRATA 44, 1 Oct).
+With C = 6 and η = t the two named terms are ALREADY 8t, so the inequality asserted O(δ) = 0 while the text itself carried two δ-losses (the box reduction's Y^{δ} and the
+un-halved K₁-loss). A saving constant was thus announced (c/12) that the argument does not give (≈ 0.075c). Found by a reading that re-summed every loss against its step.
+Rule: an "O(δ)" in a budget is a number, not a symbol — list every loss with its exponent and its step, sum them, and show the sum is below the slack; never write "≤" for
+a budget whose named terms already exhaust it. When a reduction replaces one sum by a family of sub-sums, compare the TOTAL of the sub-sums' trivial sizes with the original
+(here Σ_K Y/K = Y^{δ}, not 1). And a restriction added for a proof's convenience must be checked against the support of the object being summed (here "(u,D) = 1" against a
+weight supported on even u for even D — the theorem was empty there).
+
 F51. "The subtraction of H²/(2d) is allowed because Σ_{d|q} μ(q/d) = 0 for q > 1" (paper I, proof of Theorem 5; ERRATA 43, 30 Sep).
 The cancellation is right for every q > 1, but the sum over q starts at q = 1, where nothing cancels: the q = 1 term is Σ_h w(h) − κ, the
 difference between the weight's total and the subtracted constant. In Theorem 1 (w = 1, κ = H) it is 0, so "d ≥ 2" is right there; in
@@ -998,6 +1006,8 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
   a generalisation would absorb the difference — absorption hides imported errors (F50).
 - Any Möbius (or other) cancellation stated "for q > 1": write down the q = 1 term explicitly; never copy a summation range from an
   argument whose boundary term vanished for a different reason (F51).
+- Any exponent budget: every loss listed with its step and summed explicitly; "O(δ)" is never an excuse. Any added restriction: checked against the
+  support of the summand (F52).
 - Files: research/paper-I/STATUS.md, research/ERRATA.md (project-wide, incl. the external assessment items 11–15),
   research/reviews/ (external assessments, archived with the revision assessed), research/paper-II/ROADMAP.md (plan,
   historical), LITERATURE*.md (surveys).

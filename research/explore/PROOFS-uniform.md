@@ -1446,3 +1446,23 @@ VERDICT: correct modulo repairs. Every step tested numerically passes (resultant
 CONCLUSION: with (1) and (3) written into paper V, Theorem S holds for D < 0 (any discriminant, fundamental not required), every squarefree u ≤ H^{1/3−c} in the support of w,
 the only structural hypothesis u′ odd (automatic from O2); δ_S(c) ≈ c/12 unchanged; implied constant polynomial in |D|. The paper edits are held until the reading of the paper
 text (launched in parallel) returns, so that both sets go in as one pass.
+
+## 48. READING of PAPER V's TEXT (1 Oct; fresh model instance; the small-dilations section as written into main.tex) — CORRECTIONS ADOPTED, RESTRICTION DROPPED
+
+VERDICT: "not yet correct as written". The architecture of Theorem S and the proof of Lemma lem:Aoff are right; two things were wrong at the level of what the paper CLAIMS.
+(1) THE LOSS BUDGET DID NOT CLOSE. The text said "C η′ + 2η + O(δ) ≤ 8t"; with C = 6, η = t the first two terms are already 8t, so the O(δ) had to be 0 — but the text carried
+   explicit δ-losses: K₁'s Y^{3δ+η} (copied into S7 un-halved by the Cauchy–Schwarz) and the box reduction's amplitude Y/K ≤ Y^{δ} (Σ_K Y/K over dyadic K ≥ Y^{1−δ} is Y^{δ}: the
+   small moduli carry trivial size Y^{1+δ} in total). Honest budget at δ = η = η′ = t: GM 6t + K₁ (η+3δ)/2 = 2t + M-sum η(1−2θ) = 0.78t + box reduction t = (10 − 2θ)t = 9.78t.
+   Balance 1.171875c − 9.78t = 2t/3 ⇒ t = 9(1−2θ)c/(2(32−6θ)) = 0.112c, δ_S = 2t/3 = 3(1−2θ)c/(32−6θ) = 0.0748c — NOT c/12 = 0.0868c. The same error is in O6⁗ and in §42's
+   "consequence" line (t = 1.171875c/9): the paper inherited it. (The L ≥ Y^{1−3δ} slack costs nothing: the absolute bound is increasing in L.) Paper corrected; §42's and O6⁗'s
+   δ_S ≈ c/12 are SUPERSEDED by this section. ERRATA 44, KNOWLEDGE F52.
+(2) THE RESTRICTION (u,D) = 1 MADE THE THEOREM VACUOUS FOR EVEN D: paper III supports w on EVEN u exactly when D is even. With §47 the restriction is dropped (the paper now says
+   why no such restriction could be imposed).
+(3) Local repairs adopted: rem:CGM had been deleted by my rewrite and was cited twice — restored; S2's "η(1−δ) > δ" is false at δ = η — second scale now X₂ = K^{1+2η};
+   Lemma statement 12^{ω(u′)} → 6^{ω(u′)} (2^ω from step (3), 3^ω from step (4)); the garbled "B = a u′² B₁ … more precisely" fixed; S1 imposes (m,2D) = 1 with §45(3)'s reason;
+   S1 defines ϱ(k) := #{x : ax² + h ≡ 0 (k)} for all k (§47(1)); coordinates y = √(h/a)/k = √|D|/(uk) (general, since a/h = u²/|D|); Z₀ = 2L/(u²E²M²) so that
+   Z₀Z₁Z₂ = 2Lu ≥ X/Y + 1; Z₁/a = Ps²EM = O_D(1)EM; "h^{3/2}M^{1/2}" double count removed; step (4)'s N^{o(1)} → M^{ε}; diag(1,1/u′) renamed ι (δ is a parameter).
+Confirmed by the reading: eq:S1 with ½ϱ(k)∫T/k; all error exponents; S2 (bar (3)); eq:GM consistent with §42; S7's arithmetic exact (L^{39/64}u^{25/32}E^{−7/32}M^{25/32} both
+sides); Z₀ ≥ 1 ⇔ uEM ≤ L^{1/2}; S6 contains all §45 repairs; the verification record true; Theorem M's numbers (1.79δ, 1.45δ, 0.3462, 0.183, 4η/7) match the notes.
+STATUS: Theorem S as now printed — D < 0 any discriminant, all squarefree u ≤ H^{1/3−c} in the support of w, δ_S(c) = 3(1−2θ)c/(32−6θ) ≈ 0.075c — awaits a confirming reading of
+the rewritten text. Caveat carried in the paper: eq:GM and the K₁ example rest on Grimmelt–Merikoski as traced in §42; no human expert has checked either.

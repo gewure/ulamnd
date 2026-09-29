@@ -588,3 +588,12 @@ route before being applied (the checks are described in the items). We agree wit
     computation that follows in the paper already sums a_f(d) over d ≤ H including d = 1, so it was internally consistent with the CORRECT
     identity. Paper text fixed (proof of Theorem 5, two displays). The CORRECTED identity is now formally verified (Lean, `eq_smoothed_exact`, research/lean/PairSingularSeries/PairSingularSeries/Theorems.lean), as is Theorem 1's eq. (identity) exactly as printed (`eq_identity`); the common core is `weighted_identity` with a general weight and constant, whose `q = 1` remainder `Ψ_1 = Σ_h w(h) − κ` is exactly the term at issue. Rule: a cancellation "because Σ_{d|q} μ(q/d) = 0 for q > 1" always leaves a
     q = 1 term; check it separately every time the subtracted constant is not literally the weight's total.
+
+44. **Paper V, Theorem S: the stated constant δ_S(c) ≈ c/12 was not proved by the written argument; the correct value of the SAME argument is δ_S(c) = 3(1−2θ)c/(32−6θ) ≈ 0.075c;
+    and the restriction (u,D) = 1 in the earlier statement made the theorem vacuous for even D (1 Oct 2026; found by a fresh reading of the paper text, PROOFS §48; no human
+    check).** The loss budget "Cη′ + 2η + O(δ) ≤ 8t" hid two explicit losses under "O(δ)": the box reduction's Σ_K Y/K = Y^{δ} (the small moduli k ≈ Y^{1−δ} carry trivial size
+    Y^{1+δ} in total) and the K₁-loss Y^{(η+3δ)/2}; with them the budget is (10−2θ)t against 1.171875c, giving t ≈ 0.112c and δ_S = 2t/3 ≈ 0.0748c. The notes (O6⁗, PROOFS §42)
+    carried the same slip and the paper inherited it. Separately, paper III supports w on even u exactly when D is even, so "(u,D) = 1" emptied the theorem there; the restriction
+    is now dropped, justified by the level-sum restatement of PROOFS §47 (the family is empty at levels with gcd(a,q₀) > 1, both terms of the bracket being the (a,h)-terms).
+    CONSEQUENCE: the shape δ_S(c) ≍ c and everything downstream (the band accounting of the last section) unchanged; the number in the abstract, the theorem and Remark
+    rem:CGM corrected; the theorem now covers every D < 0. The paper's proof displays the budget term by term so that it can be checked against its step.
