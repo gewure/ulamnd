@@ -569,6 +569,16 @@ discriminant: Henriot 2012), and on the O(log log Y) ranges left the saving suff
 sits in moduli Y … 16Y). Rule: when a method loses a factor from the length of a summation range, measure how much of the range
 contributes before calling the loss intrinsic; and never promote "our bound fails" to "the problem needs more". (ERRATA 38)
 
+F51. "The subtraction of H²/(2d) is allowed because Σ_{d|q} μ(q/d) = 0 for q > 1" (paper I, proof of Theorem 5; ERRATA 43, 30 Sep).
+The cancellation is right for every q > 1, but the sum over q starts at q = 1, where nothing cancels: the q = 1 term is Σ_h w(h) − κ, the
+difference between the weight's total and the subtracted constant. In Theorem 1 (w = 1, κ = H) it is 0, so "d ≥ 2" is right there; in
+Theorem 5 (w = H − h, κ = H²/2) it is −H/2, and "d ≥ 2" was copied. Invisible in prose because the term is O(H) and the theorem's O_f(1)
+absorbs it; found only when the proof was written for a GENERAL weight and constant (the Lean formalisation), where the remainder Ψ_1 is a
+named object that refuses to be zero. Confirmed numerically (gap exactly H/2 for f(t) = t).
+Rule: a cancellation "for q > 1" (or "for n ≠ 0", "for d ≥ 2") always leaves the boundary term; compute it explicitly every time, and
+never inherit a range of summation from a neighbouring argument whose boundary term happened to vanish. When a fixed constant replaces a
+sum's exact total, the difference is the boundary term.
+
 F50. "Steps (1), (2) and (4) are Lemma A″'s verbatim" (PAPER-V-O1-lemmaA3.md, Lemma A‴, 16 Sep).
 The sentence was TRUE, and that was the fault. Lemma A″'s BODY in the working file predates its own REVISION 2/3, so copying it verbatim into the
 generalisation re-imported two errors the project had already found and fixed there: a wrong kernel weight ((N/2h₀ − 1)^{−1/2}/√2 in place of
@@ -986,6 +996,8 @@ roots of quadratic congruences (Gaussian primes, Acta Arith. 79 (1997)).
   sum: list every condition on the summation variables and check its invariance under the group (F28).
 - Any step imported "verbatim" from another document: read that document's REVISION/errata blocks first, and re-derive rather than copy whenever
   a generalisation would absorb the difference — absorption hides imported errors (F50).
+- Any Möbius (or other) cancellation stated "for q > 1": write down the q = 1 term explicitly; never copy a summation range from an
+  argument whose boundary term vanished for a different reason (F51).
 - Files: research/paper-I/STATUS.md, research/ERRATA.md (project-wide, incl. the external assessment items 11–15),
   research/reviews/ (external assessments, archived with the revision assessed), research/paper-II/ROADMAP.md (plan,
   historical), LITERATURE*.md (surveys).

@@ -1575,7 +1575,12 @@ $d$ of degree in $(N,M(N)]$ (the finite-support lemma of part~I), for $f=t^2-D$ 
 variable \texttt{D}; the data for $D=u$ ($N\le2$ for the primes $q\le43$, $N\le3$ for $q\le7$) are in
 \texttt{research/paper-III/data/offq*.dat}. The runs for $D=u^2+1$ ($q\le43$) and $D=u^3+u$ ($q\le23$) are in
 \texttt{research/paper-III/data/offq-D2.log}, \texttt{research/paper-III/data/offq-D3.log} and the tables \texttt{research/paper-III/data/offq-D*-table.dat}. Over $\Z$ the exact off-diagonal of $t^2+1$ to $10^7$ is in part~II,
-Section~5.3.
+Section~5.3. The identities of part~I on which this paper rests --- Theorem~1 there, its equation
+(identity), and the exact identity behind its Theorem~5 that defines $\mathrm{Off}^\ast_f$ --- are formally
+verified in Lean~4 against Mathlib in the same repository (\path{research/lean/PairSingularSeries}; the
+scope and the hypotheses are recorded in its \path{STATUS.md}). The verification found that the exact
+identity was missing a term $C^2H/2$ in an earlier version of part~I; it is $O(H)$ and affects nothing
+here.
 
 \section*{AI-assisted research: disclosure}
 This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and

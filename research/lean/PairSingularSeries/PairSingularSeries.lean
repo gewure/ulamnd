@@ -13,3 +13,7 @@ import PairSingularSeries.Identity3
 import PairSingularSeries.Regroup
 import PairSingularSeries.Identity4
 import PairSingularSeries.Theorems
+import PairSingularSeries.Split
+import PairSingularSeries.Tail
+import PairSingularSeries.Split2
+import PairSingularSeries.Asymptotic

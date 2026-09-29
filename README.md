@@ -41,10 +41,27 @@ model readers cannot catch). `main.tex` is the scaffold with interview slots, `I
 Nothing here proves anything about primes without the Hardy–Littlewood conjecture, and nothing here bears on the
 Riemann Hypothesis (`research/paper-II/LITERATURE.md`, §0, has the sentence we allow ourselves).
 
+## Formal verification (Lean 4 / Mathlib)
+
+The elementary core of paper I — Theorem 1 in full, and Theorem 5's exact identities, split and part (i)
+unconditionally, with its asymptotic conditional on three named inputs — is formally verified in Lean 4
+against Mathlib: `research/lean/PairSingularSeries/` (56 theorems, no `sorry`; `Axioms.lean` prints the
+standard axioms for each; `STATUS.md` is the statement-by-statement table; `../FORMAL-PLAN.md` the plan
+and the paper-to-Lean correspondence). The three inputs stated as hypotheses, because none is in Mathlib,
+are the existence of the Bateman–Horn constant `C(f)` (Landau), paper I's Theorem 2 (Dedekind zeta) and
+Shiu's theorem. The formalisation found one correction to paper I (ERRATA 43: a missing `+H/2` in the
+exact identity behind Theorem 5, `O(H)`, no consequence for the theorem) and produced four
+project-independent tools that are candidates for Mathlib: a Chinese-remainder counting lemma for
+arbitrary predicates, absolute summability of a multiplicative function vanishing off squarefree numbers
+from its values at primes, regrouping of a double series along divisor antidiagonals, and a tail bound by
+discrete Abel summation. Build: `elan`, then `lake exe cache get && lake build` in that directory.
+
 ## Layout
 - `research/paper-I` … `paper-IV` — sources, `refs.bib`, a `STATUS.md` or `README.md`, `scripts/`, `data/`
 - `research/experiments/` — the scripts and results behind paper I (`REPORT-full.md`, `CONCLUSIONS.md`)
 - `research/lib/` — the shared TypeScript number-theory library (spiral, sieve, polynomials, F_q[u], ζ); `research/tests/`
+- `research/lean/` — the Lean 4 / Mathlib formalisation of paper I's Theorems 1 and 5 (`PairSingularSeries/`,
+  with `STATUS.md` and `Axioms.lean`) and its plan `FORMAL-PLAN.md`
 - `research/reviews/` — external assessments, archived with the revision they assessed
 - `src/` — the Ulam-nD web workbench (Next.js), a visual companion that imports the library from `research/lib`;
   nothing in the papers depends on it

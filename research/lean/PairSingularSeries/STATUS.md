@@ -28,7 +28,7 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | L4  Σ_{h≤H} ν(d,h) = ω(d)²H/d + Ψ_d(H) | — | — | TODO |
 | L6  weighted version with (H − h) | — | — | TODO |
 | L9′ ψ_d(0,H) = −{H/d} | — | — | TODO |
-| L10 ω ≤ 1 ⇒ Off ≡ 0, Off* ≡ 0 (Theorem 5(i)) | — | — | TODO |
+| L10 **Theorem 5(i)**: ω(p) ≤ 1 ∀p ⇒ ω(d) ≤ 1 for squarefree d ⇒ Off* ≡ 0 | `omega_prod_primeFactors_of_squarefree`, `omega_le_one_of_squarefree`, `OffStar_eq_zero_of_omega_le_one` | Split2.lean | PROVED |
 
 ## Tier 2 — analysis: THEOREM 1 IS PROVED, and both exact identities (Theorem 1's eq. (identity), Theorem 5's, corrected)
 
@@ -50,17 +50,24 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | A5  **eq. (identity)**: Σ_{h≤H}(S_f(h) − C²) = C² Σ_d W(d) Ψ_d(H) — exactly as printed | `eq_identity` | Theorems.lean | PROVED |
 | A6  eq. (split) | — | — | TODO |
 | A7  **THEOREM 5, the exact identity, CORRECTED** (ERRATA 43): Σ_{h≤H}(H−h)(S_f(h) − C²) = C²(Σ_d W(d) Σ_{s,s'} B_d(s'−s) + H/2). The paper's display lacked the +H/2 (the q = 1 remainder Ψ_1 = −H/2); found by this formalisation. | `eq_smoothed_exact`, `PsiW_smoothed_one` | Theorems.lean | PROVED |
-| A7′ Off* absolutely convergent; the diagonal/off-diagonal split (A6) | — | — | TODO |
-| L10 ω ≤ 1 ⇒ Off ≡ 0, Off* ≡ 0 (Theorem 5(i)) | — | — | TODO |
+| A6  B_d(m) depends on m mod d; B_d(d) = −H²/(2d) for d > H; the pairing (s,s') ↔ (s',s): Σ_{s,s'} B_d(s'−s) = ω(d)B_d(d) + ½Σ_{s≠s'} bracket | `B_congr`, `B_diag_gt`, `sum_offdiag_B`, `sum_B_split` | Split.lean | PROVED |
+| A7′ \|W(d)\| ≤ μ²db(d)·Σ\|B\|; the diagonal series summable; Off*(H) absolutely convergent; Σ_d W·ΣΣB = Σ_d a(d)B_d(d) + Off*(H); Theorem 5's identity in split form | `abs_W_le`, `summable_diag`, `summable_oterm`, `tsum_split`, `eq_smoothed_split` | Split2.lean | PROVED |
+| L10 **Theorem 5(i)**: ω(p) ≤ 1 ∀p ⇒ ω(d) ≤ 1 for squarefree d ⇒ Off* ≡ 0 | `omega_prod_primeFactors_of_squarefree`, `omega_le_one_of_squarefree`, `OffStar_eq_zero_of_omega_le_one` | Split2.lean | PROVED |
 
-## Tier 3 — conditional — all TODO
+## Tier 3 — conditional on the named inputs: PROVED
 
-Hypotheses (each a Lean hypothesis, never an axiom):
-  (E1) `Tendsto (Cpartial f) atTop (𝓝 C)`, `0 < C`   — Landau's prime ideal theorem for Q[t]/(f).
-  (E2) `∃ K, ∀ H ≥ 2, |Σ_{d≤H} a f d − C⁻¹ log H| ≤ K`   — paper I, Theorem 2 (Dedekind zeta).
-  (E3) `∃ K, ∀ H ≥ 1, Σ_{d≤H} d |a f d| ≤ K H`   — Shiu 1980.
-T5a tail Σ_{d>H} a(d)/d = O(1/H) from (E2) by Abel summation (Mathlib `sum_mul_eq_sub_integral_mul`);
-T5b THEOREM 5 (smoothed); T5c Theorem 5(ii) as an equivalence.
+| paper | Lean | file | status |
+|---|---|---|---|
+| tool (Mathlib candidate): discrete Abel identity Σ_{H<d≤X} a(d)/d = Σ_{H<d≤X}(A(d)−A(H))/(d(d+1)) + (A(X)−A(H))/(X+1); Σ_{H<d≤X} 1/(d(d+1)) = 1/(H+1) − 1/(X+1); log x ≤ 2√x; d^{−3/2} ≤ 2(1/√(d−1) − 1/√d) | `sum_Ioc_div_eq`, `sum_Ioc_one_div_mul_succ`, `log_le_two_sqrt`, `inv_mul_sqrt_le` | Tail.lean | PROVED |
+| T5a  TAIL BOUND: if \|A(n) − L log n\| ≤ K (n ≥ 1) and Σ\|a(d)\|/d < ∞ then \|Σ_{d>H} a(d)/d\| ≤ (2K + 4\|L\|)/H — no integrals | `tail_div_le` | Tail.lean | PROVED |
+| the diagonal series split at H: Σ_d a(d)B_d(d) = −(H/2)Σ_{d≤H}a(d) + ½Σ_{d≤H} d a(d)φ({H/d}) − (H²/2)Σ_{d>H} a(d)/d; \|a(d)\|/d ≤ Bsum·\|B(d)\| | `tsum_dterm_split`, `abs_a_div_le`, `summable_abs_a_div` | Asymptotic.lean | PROVED |
+| T5b  **THEOREM 5, eq. (smoothed)**: under (E1) with C > 0, (E2), (E3): for all H ≥ 2, \|Σ_{h≤H}(1−h/H)(S_f(h)−C²) + ½C log H − (C²/H)Off*(H)\| ≤ (C²/2)K₂ + C²K₃/8 + C²(K₂ + 2/C) + C²/2 | `smoothed` | Asymptotic.lean | PROVED |
+| T5c  Theorem 5(ii) as an equivalence (leading term iff Off* = o(H log H)) | — | — | immediate from `smoothed`; not separately stated |
+
+Hypotheses, as Lean hypotheses (never axioms):
+  (E1) `Tendsto (Cpartial f) atTop (𝓝 C)`, and `0 < C` for eq. (smoothed) — Landau's prime ideal theorem for Q[t]/(f).
+  (E2) `∀ n ≥ 1, |Σ_{d ∈ Icc 1 n} a f d − C⁻¹ log n| ≤ K₂` — paper I, Theorem 2 (Dedekind zeta).
+  (E3) `∀ n ≥ 1, Σ_{d ∈ Icc 1 n} d |a f d| ≤ K₃ n` — Shiu 1980.
 
 ## Not formalised, by design
 (E1)–(E3) themselves, and Chebotarev for the exponent r_f in Theorem 5(ii)'s trivial bound.

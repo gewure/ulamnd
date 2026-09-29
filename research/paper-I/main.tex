@@ -1364,40 +1364,35 @@ the \texttt{riesz} scripts and \path{research/experiments/galois.ts} (Section~\r
 \path{research/experiments/run.ts} (Section~\ref{sec:spiral} and the negative results),
 \path{research/paper-I/gen-macros.ts} (tables). Random seeds are fixed.
 
-\medskip\noindent\textbf{Formal verification.} A formalisation in Lean~4 against the Mathlib library of
-Theorems~\ref{thm:expansion} and~\ref{thm:smoothed} is in progress in the same repository (directory
-\path{research/lean/PairSingularSeries}). The file \path{STATUS.md} there lists, statement by statement,
-what is verified and under which hypotheses, and \path{Axioms.lean} lets the reader confirm in one command
-that no verified statement depends on anything beyond the standard axioms of Lean's logic. At the time of
-writing, \emph{Theorem~\ref{thm:expansion} is verified in full}: the exact finite identity
-$\prod_{p\le x}\frac{1-\omega_{f,2}(p,h)/p}{(1-1/p)^2}=\Bigl(\prod_{p\le x}\frac{1-\omega_f(p)/p}{1-1/p}\Bigr)^2
-\prod_{p\le x}\bigl(1+g_p(h)\bigr)$ for every $x$, the absolute convergence of
-$\sum_q\mu(q)^2b(q)c^f_q(h)$ and its Euler product $\prod_p(1+g_p(h))$, the identity
-\eqref{eq:expansion} in the form: if the partial products of $C(f)$ over $p\le x$ converge to $C$, then those
-of $S_f(h)$ converge to $C^2\sum_q\mu(q)^2b(q)c^f_q(h)$; and the identity~\eqref{eq:identity} exactly as
-printed, with the series over $d$ absolutely convergent. The hypotheses are exactly those of
-Section~\ref{sec:sum}: positive degree, no fixed prime divisor, and the resultant condition (for $h\ne0$ a
-nonzero integer divisible by every prime modulo which $f(t)$ and $f(t+h)$ have a common root), the last
-being the form in which irreducibility is used. Of Theorem~\ref{thm:smoothed}, the following are verified
-under the same hypotheses: the exact identity
-$\sum_{h\le H}(H-h)(S_f(h)-C^2)=C^2\bigl(\sum_{d\ge1}W_f(d)\sum_{s,s'}B_d(s'-s)+H/2\bigr)$ of its proof
---- it was the formal treatment, with a general weight and a general subtracted constant, that exposed the
-missing term $C^2H/2$ mentioned there --- and, without any hypothesis, the closed form of $B_d(m)$, valid
-for $1\le m\le d$ and every $H$; the diagonal value $B_d(d)$; the bracket identity $B_d(m)+B_d(d-m)$ that
-defines $\mathrm{Off}^\ast_f$, and the bound $|B_d(m)+B_d(d-m)|\le d/4$ (which the formal proof shows to
-hold for every $d\ge2$, not only for $d\le H$ as stated above); and the identities
-$\sum_{h\le H}\nu_f(d,h)=\omega_f(d)^2H/d+\Psi_d(H)$ and
-$\sum_{h\le H}(H-h)\nu_f(d,h)=\omega_f(d)^2H^2/(2d)+\sum_{s,s'}B_d(s'-s)$ on which its proof rests. In the
-formalisation $c^f_q(h)$ is \emph{defined} by the divisor sum
-$\sum_{d\mid q}d\,\mu(q/d)\,\nu_f(d,h)\,\omega_f(q/d)^2$, which agrees with the exponential-sum definition
-of Section~\ref{sec:heur} for squarefree $q$; its multiplicativity, and that of $\omega_f$ and $\nu_f$, is
-proved from a general counting form of the Chinese remainder theorem. Two points of scope are stated
-plainly, because they are what a formal reader would find: the constant $C(f)$ enters
-Theorem~\ref{thm:expansion} as a hypothesis, namely the convergence of its partial products (Landau's prime
-ideal theorem, which is not in Mathlib), exactly as the theorem uses it; and the asymptotic of
-Theorem~\ref{thm:smoothed} is to be verified conditionally on Theorem~\ref{thm:dirichlet} and on Shiu's
-theorem, both stated as hypotheses, while the exact identities of both theorems carry no hypothesis at all.
-The list will be updated as the formalisation proceeds.
+\medskip\noindent\textbf{Formal verification.} Theorems~\ref{thm:expansion} and~\ref{thm:smoothed} are
+formally verified in Lean~4 against the Mathlib library, in the same repository (directory
+\path{research/lean/PairSingularSeries}; 56 theorems, no \texttt{sorry}; the file \path{Axioms.lean}
+prints, for every statement, only the standard axioms of Lean's logic, and \path{STATUS.md} lists the
+statements one by one). What is verified, and under what, is the following. Every statement takes the
+hypotheses of Section~\ref{sec:sum} in the form the proofs use: positive degree, no fixed prime divisor,
+and the resultant condition (for $h\ne0$ a nonzero integer divisible by every prime modulo which $f(t)$
+and $f(t+h)$ have a common root). \emph{Theorem~\ref{thm:expansion}} is verified in full: the exact finite
+identity $\prod_{p\le x}\frac{1-\omega_{f,2}(p,h)/p}{(1-1/p)^2}=\bigl(\prod_{p\le x}\frac{1-\omega_f(p)/p}{1-1/p}\bigr)^2
+\prod_{p\le x}(1+g_p(h))$ for every $x$, the absolute convergence of $\sum_q\mu(q)^2b(q)c^f_q(h)$ and its
+Euler product, hence~\eqref{eq:expansion} in the form ``if the partial products of $C(f)$ converge to $C$
+then those of $S_f(h)$ converge to $C^2\sum_q\mu(q)^2b(q)c^f_q(h)$'', and~\eqref{eq:identity} exactly as
+printed. Of \emph{Theorem~\ref{thm:smoothed}}: the exact identity of its proof, in the corrected form
+$\sum_{h\le H}(H-h)(S_f(h)-C^2)=C^2\bigl(\sum_{d\ge1}W_f(d)\sum_{s,s'}B_d(s'-s)+H/2\bigr)$ (it was the
+formal treatment, with a general weight and a general subtracted constant, that exposed the term $C^2H/2$
+missing from an earlier version of the display); its split into the diagonal and $\mathrm{Off}^\ast_f(H)$,
+with $\mathrm{Off}^\ast_f(H)$ absolutely convergent; part~(i); and~\eqref{eq:smoothed} itself as an
+explicit bound, $\bigl|\sum_{h\le H}(1-h/H)(S_f(h)-C^2)+\tfrac12C\log H-\tfrac{C^2}H\mathrm{Off}^\ast_f(H)\bigr|
+\le\tfrac{C^2}2K_2+\tfrac{C^2K_3}8+C^2(K_2+2/C)+\tfrac{C^2}2$ for $H\ge2$, \emph{conditionally} on three
+inputs stated as hypotheses because none of them is available in Mathlib: the convergence of the partial
+products of $C(f)$ to some $C>0$ (Landau's prime ideal theorem), Theorem~\ref{thm:dirichlet} in the form
+$|\sum_{d\le n}a_f(d)-C^{-1}\log n|\le K_2$ for $n\ge1$, and Shiu's theorem in the form
+$\sum_{d\le n}d\,|a_f(d)|\le K_3n$. The tail $\sum_{d>H}a_f(d)/d=O(1/H)$ is derived from the second of
+these by discrete partial summation, with no integrals. Two smaller facts the formal proof adds: the bound
+$|B_d(m)+B_d(d-m)|\le d/4$ holds for every $d\ge2$, not only for $d\le H$; and $c^f_q(h)$, defined in the
+formalisation by the divisor sum $\sum_{d\mid q}d\,\mu(q/d)\,\nu_f(d,h)\,\omega_f(q/d)^2$, is multiplicative
+by a general counting form of the Chinese remainder theorem, with no exponential sums anywhere. The
+constants $C(f)$ and the two $O(1)$ inputs are the honest boundary of what is verified; everything
+else in the two theorems is.
 
 \section*{AI-assisted research: disclosure}
 This work was carried out with heavy use of large language models, the Anthropic models Claude Fable~5.1 and

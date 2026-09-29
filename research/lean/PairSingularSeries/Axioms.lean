@@ -47,3 +47,12 @@ import PairSingularSeries
 #print axioms PairSingularSeries.Sf_eq
 #print axioms PairSingularSeries.eq_identity
 #print axioms PairSingularSeries.eq_smoothed_exact
+#print axioms PairSingularSeries.sum_B_split
+#print axioms PairSingularSeries.summable_diag
+#print axioms PairSingularSeries.tsum_split
+#print axioms PairSingularSeries.eq_smoothed_split
+#print axioms PairSingularSeries.OffStar_eq_zero_of_omega_le_one
+#print axioms PairSingularSeries.sum_Ioc_div_eq
+#print axioms PairSingularSeries.tail_div_le
+#print axioms PairSingularSeries.tsum_dterm_split
+#print axioms PairSingularSeries.smoothed
