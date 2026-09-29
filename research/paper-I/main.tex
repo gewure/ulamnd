@@ -559,21 +559,29 @@ group of $f$ on ordered pairs of roots.
 \begin{proof}
 Multiply~\eqref{eq:expansion} by $H-h$ and sum. As in the proof of Theorem~\ref{thm:expansion},
 \[
-\sum_{h\le H}(H-h)\bigl(S_f(h)-C^2\bigr)=C^2\sum_{d\ge2}W_f(d)\sum_{s,s'\bmod d}B_d(s'-s),\qquad
+\sum_{h\le H}(H-h)\bigl(S_f(h)-C^2\bigr)=C^2\sum_{d\ge1}W_f(d)\sum_{s,s'\bmod d}B_d(s'-s)+\frac{C^2H}2,\qquad
 B_d(m)=\sum_{\substack{h\le H\\h\equiv m\ (d)}}(H-h)-\frac{H^2}{2d},
 \]
-the subtraction of $H^2/(2d)$ being allowed because $\sum_{d\mid q}\mu(q/d)=0$ for $q>1$. An elementary
+the subtraction of $H^2/(2d)$ being allowed for $q>1$ because $\sum_{d\mid q}\mu(q/d)=0$; the term
+$C^2H/2$ is what the subtraction leaves behind at $q=1$, where $\sum_{h\le H}(H-h)=H(H-1)/2$ differs
+from $H^2/2$ by $-H/2$. (In the proof of Theorem~\ref{thm:expansion} the corresponding term vanishes,
+because $\sum_{h\le H}1=H$ exactly.) Since $B_1(0)=-H/2$, the right-hand side equals
+$C^2\sum_{d\ge2}W_f(d)\sum_{s,s'}B_d(s'-s)+\tfrac12C^2H\,(1-W_f(1))$; an earlier version of this proof
+omitted the last term, which is $O(H)$ and leaves~\eqref{eq:smoothed} unchanged. It was found in the
+course of the formal verification and confirmed numerically for $f(t)=t$, where the discrepancy is
+exactly $H/2$. An elementary
 computation gives, for $1\le m\le d$ and every $d\ge1$ (also for $d>H$),
 \[
 B_d(m)=-\frac{Hm}d+\frac{m^2}{2d}+\frac H2-\frac m2+\frac d2\,\phi\Bigl(\Bigl\{\frac{H-m}d\Bigr\}\Bigr),
 \qquad\text{so}\qquad
 B_d(d)=-\frac H2+\frac d2\,\phi\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr),
 \]
-and $B_d(m)+B_d(d-m)$ is the bracket in the definition of $\mathrm{Off}^\ast_f$. The diagonal is
+and $B_d(m)+B_d(d-m)$ is the bracket in the definition of $\mathrm{Off}^\ast_f$. The diagonal,
+together with the term $C^2H/2$, is $C^2$ times
 \[
-\sum_d a_f(d)B_d(d)=-\frac H2\sum_{d\le H}a_f(d)+\frac12\sum_{d\le H}d\,a_f(d)\,\phi\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr)-\frac{H^2}2\sum_{d>H}\frac{a_f(d)}d,
+\sum_{d\ge1}a_f(d)B_d(d)+\frac H2=-\frac H2\sum_{d\le H}a_f(d)+\frac12\sum_{d\le H}d\,a_f(d)\,\phi\Bigl(\Bigl\{\frac Hd\Bigr\}\Bigr)-\frac{H^2}2\sum_{d>H}\frac{a_f(d)}d+\frac H2,
 \]
-using $B_d(d)=-H^2/(2d)$ for $d>H$. By Theorem~\ref{thm:dirichlet} the first term is
+using $B_d(d)=-H^2/(2d)$ for $d>H$; the last term is $O(H)$. By Theorem~\ref{thm:dirichlet} the first term is
 $-\frac{H}{2C}\log H+O(H)$ and, by partial summation, $\sum_{d>H}a_f(d)/d=1/(CH)+o(1/H)$, so the third
 term is $O(H)$. In the second, $0\le\phi\le\tfrac14$ and $\sum_{d\le H}d\,|a_f(d)|=O(H)$ by Shiu's
 theorem~\cite{Shiu1980} for the non-negative multiplicative function $d\,|a_f(d)|$, whose value at $p$

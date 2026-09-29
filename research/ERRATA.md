@@ -575,3 +575,16 @@ route before being applied (the checks are described in the items). We agree wit
     only after S3's dichotomy. (c) SCOPE: Theorem S in research/paper-V/main.tex now carries the restriction (u,D) = 1, with a remark saying why. The reason is NOT Lemma A‴,
     which is proved and read, but its consumer: S6′'s level sum must be restated at (u′,h₀), including its claim that levels with p² | q₀ are empty, which rests on
     v_p(u²ℓ²+h) ≤ v_p(D) = 1 and can fail when v_p(h) = v_p(D) − 2 > 0. Until that is redone the restriction stands.
+
+43. **Paper I, proof of Theorem 5: the displayed exact identity was missing its `d = 1` term (30 Sep 2026; found while formalising the proof in
+    Lean, confirmed numerically; no human check).** The proof displayed `Σ_{h≤H}(H−h)(S_f(h)−C²) = C² Σ_{d≥2} W_f(d) Σ_{s,s'} B_d(s'−s)` with
+    `B_d(m) = Σ_{h≡m}(H−h) − H²/(2d)`, "the subtraction of H²/(2d) being allowed because Σ_{d|q} μ(q/d) = 0 for q > 1". The cancellation is right
+    for every q > 1, but at q = 1 the subtracted constant does not match the weight: Σ_{h≤H}(H−h) = H(H−1)/2, not H²/2, so the d = 1 term
+    `W_f(1) B_1(0) = −(H/2) W_f(1)` does not vanish and a term `C²H/2` is left over. Correct identity: `= C² Σ_{d≥1} W_f(d) Σ B_d(s'−s) + C²H/2`,
+    equivalently `= C² Σ_{d≥2} W_f(d) Σ B_d(s'−s) + ½C²H(1 − W_f(1))`. In Theorem 1's identity (weight 1, constant H/d) the analogous term is
+    Σ_{h≤H} 1 − H = 0, which is why d ≥ 2 is right there and one is tempted to copy it. Numerical check for f(t) = t, H = 12 (research/explore/
+    thm5-d1-check.py): LHS −17.5881, the paper's RHS −23.5880, corrected RHS −17.5880 — the gap is exactly H/2 = 6. CONSEQUENCE: none for the
+    theorem. The missing term is O(H), so eq. (smoothed) with its O_f(1), part (i), part (ii) and Hypothesis (E) are unchanged; the diagonal
+    computation that follows in the paper already sums a_f(d) over d ≤ H including d = 1, so it was internally consistent with the CORRECT
+    identity. Paper text fixed (proof of Theorem 5, two displays). Rule: a cancellation "because Σ_{d|q} μ(q/d) = 0 for q > 1" always leaves a
+    q = 1 term; check it separately every time the subtracted constant is not literally the weight's total.
