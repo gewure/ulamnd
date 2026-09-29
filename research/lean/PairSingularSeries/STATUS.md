@@ -26,12 +26,11 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | L2′ b multiplicative, b(1) = 1, b(p) = (p−ω(p))⁻²; F_h multiplicative, F_h(0) = 0, F_h(1) = 1, F_h(p) = g_p(h), F_h(p^k) = 0 for k ≥ 2 | `bfun_mul`, `bfun_one`, `bfun_prime`, `Fterm_mul`, `Fterm_zero`, `Fterm_one`, `Fterm_prime`, `Fterm_prime_pow` | Mult.lean | PROVED |
 | L3  T_p(h) = E_p²(1 + g_p(h)) for ω(p) < p | — | — | TODO |
 | L4  Σ_{h≤H} ν(d,h) = ω(d)²H/d + Ψ_d(H) | — | — | TODO |
-| L5  Σ_{h≤H} c^f_q(h) = Σ_{d\|q} dμ(q/d)ω(q/d)²Ψ_d(H), q > 1 squarefree | — | — | TODO |
 | L6  weighted version with (H − h) | — | — | TODO |
 | L9′ ψ_d(0,H) = −{H/d} | — | — | TODO |
 | L10 ω ≤ 1 ⇒ Off ≡ 0, Off* ≡ 0 (Theorem 5(i)) | — | — | TODO |
 
-## Tier 2 — analysis: THEOREM 1 IS PROVED
+## Tier 2 — analysis: THEOREM 1 IS PROVED, and both exact identities (Theorem 1's eq. (identity), Theorem 5's, corrected)
 
 | paper | Lean | file | status |
 |---|---|---|---|
@@ -42,11 +41,16 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | A2  Σ_q \|F_h(q)\| < ∞; Σ_e F_h(p^e) = 1 + g_p(h); ∏_{p≤x}(1+g_p(h)) → Σ_q F_h(q) (Euler product, Mathlib `EulerProduct.eulerProduct`) | `summable_abs_Fterm`, `tsum_Fterm_pow`, `tendsto_prod_one_add_gfac` | Expansion.lean | PROVED |
 | A3  THEOREM 1, exact finite form: ∏_{p≤x} T_p(h) = (∏_{p≤x} E_p)² ∏_{p≤x}(1+g_p(h)) for EVERY x — unconditional | `Spartial_eq` | Expansion.lean | PROVED |
 | A3  **THEOREM 1** (eq. expansion): if ∏_{p≤x} E_p → C then ∏_{p≤x} T_p(h) → C²·Σ_q F_h(q), i.e. S_f(h) = C(f)² Σ_{q sqfree} b(q) c^f_q(h) — hypotheses: `Admissible f`, `h ≠ 0`, convergence of C(f)'s partial products | `expansion` | Expansion.lean | PROVED |
-| A4  Σ_d d b(d)\|Ψ_d(H)\| < ∞ | — | — | TODO |
-| A5  eq. (identity): Σ_{h≤H}(S_f(h) − C²) = C² Σ_{d≥2} W(d) Ψ_d(H) | — | — | TODO |
+| tool (Mathlib candidate): REGROUPING a summable double series over ℕ×ℕ vanishing on the axes along divisor antidiagonals, Σ'_q Σ_{dm=q} G(d,m) = Σ' G (extracted from Mathlib's L-series convolution proof) | `hasSum_sum_divisorsAntidiagonal`, `tsum_sum_divisorsAntidiagonal` | Regroup.lean | PROVED |
+| L5  Σ_{h≤H} w(h) c^f_q(h) = Σ_{d\|q} dμ(q/d)ω(q/d)² Ψ^{w,κ}_d for squarefree q > 1, ANY weight w and constant κ; Σ_{d\|q} μ(d) = 0 for q > 1; coprimality of d and q/d for squarefree q | `sum_weight_cf`, `sum_moebius_divisors`, `coprime_div_of_squarefree`, `omega_div_mul` | Identity.lean | PROVED |
+| A4  for h ≠ 0, squarefree d with ν(d,h) ≠ 0 divides N_h (finite support); Σ_d \|A(d)\| < ∞, Σ_m \|B(m)\| < ∞, G summable on ℕ×ℕ | `nu_ne_zero_dvd`, `summable_abs_Aterm`, `summable_abs_Bterm`, `summable_Gterm` | Identity2/3.lean | PROVED |
+| the antidiagonal identity Σ_{dm=q} G(d,m) = Σ_{h≤H} w(h)F'_h(q) + [q=1]Ψ_1; the Euler product Σ_m [coprime d m] B(m) = ∏_{p∤d} P_p | `sum_antidiag_Gterm`, `tsum_Bd` | Identity2/4.lean | PROVED |
+| **THE WEIGHTED IDENTITY**: Σ_{h≤H} w(h)(Σ_q F_h(q) − 1) = Σ_d W(d) Ψ^{w,κ}_d − Ψ^{w,κ}_1, for ANY w, κ | `weighted_identity` | Identity4.lean | PROVED |
+| S_f(h) := lim ∏_{p≤x} T_p(h); S_f(h) = C² Σ_q F_h(q) (Theorem 1 in the paper's form) | `Sf`, `Sf_eq` | Theorems.lean | PROVED |
+| A5  **eq. (identity)**: Σ_{h≤H}(S_f(h) − C²) = C² Σ_d W(d) Ψ_d(H) — exactly as printed | `eq_identity` | Theorems.lean | PROVED |
 | A6  eq. (split) | — | — | TODO |
-| A7  THEOREM 5 exact identity; Off* absolutely convergent | — | — | TODO |
-| L5  Σ_{h≤H} c^f_q(h) = Σ_{d\|q} dμ(q/d)ω(q/d)²Ψ_d(H), q > 1 squarefree | — | — | TODO |
+| A7  **THEOREM 5, the exact identity, CORRECTED** (ERRATA 43): Σ_{h≤H}(H−h)(S_f(h) − C²) = C²(Σ_d W(d) Σ_{s,s'} B_d(s'−s) + H/2). The paper's display lacked the +H/2 (the q = 1 remainder Ψ_1 = −H/2); found by this formalisation. | `eq_smoothed_exact`, `PsiW_smoothed_one` | Theorems.lean | PROVED |
+| A7′ Off* absolutely convergent; the diagonal/off-diagonal split (A6) | — | — | TODO |
 | L10 ω ≤ 1 ⇒ Off ≡ 0, Off* ≡ 0 (Theorem 5(i)) | — | — | TODO |
 
 ## Tier 3 — conditional — all TODO

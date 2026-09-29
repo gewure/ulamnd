@@ -35,3 +35,15 @@ import PairSingularSeries
 #print axioms PairSingularSeries.Spartial_eq
 #print axioms PairSingularSeries.tendsto_prod_one_add_gfac
 #print axioms PairSingularSeries.expansion
+#print axioms PairSingularSeries.sum_weight_cf
+#print axioms PairSingularSeries.sum_moebius_divisors
+#print axioms PairSingularSeries.sum_antidiag_Gterm
+#print axioms PairSingularSeries.nu_ne_zero_dvd
+#print axioms PairSingularSeries.summable_abs_Aterm
+#print axioms PairSingularSeries.summable_abs_Bterm
+#print axioms PairSingularSeries.tsum_sum_divisorsAntidiagonal
+#print axioms PairSingularSeries.tsum_Bd
+#print axioms PairSingularSeries.weighted_identity
+#print axioms PairSingularSeries.Sf_eq
+#print axioms PairSingularSeries.eq_identity
+#print axioms PairSingularSeries.eq_smoothed_exact

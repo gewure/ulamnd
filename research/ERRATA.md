@@ -586,5 +586,5 @@ route before being applied (the checks are described in the items). We agree wit
     thm5-d1-check.py): LHS −17.5881, the paper's RHS −23.5880, corrected RHS −17.5880 — the gap is exactly H/2 = 6. CONSEQUENCE: none for the
     theorem. The missing term is O(H), so eq. (smoothed) with its O_f(1), part (i), part (ii) and Hypothesis (E) are unchanged; the diagonal
     computation that follows in the paper already sums a_f(d) over d ≤ H including d = 1, so it was internally consistent with the CORRECT
-    identity. Paper text fixed (proof of Theorem 5, two displays). Rule: a cancellation "because Σ_{d|q} μ(q/d) = 0 for q > 1" always leaves a
+    identity. Paper text fixed (proof of Theorem 5, two displays). The CORRECTED identity is now formally verified (Lean, `eq_smoothed_exact`, research/lean/PairSingularSeries/PairSingularSeries/Theorems.lean), as is Theorem 1's eq. (identity) exactly as printed (`eq_identity`); the common core is `weighted_identity` with a general weight and constant, whose `q = 1` remainder `Ψ_1 = Σ_h w(h) − κ` is exactly the term at issue. Rule: a cancellation "because Σ_{d|q} μ(q/d) = 0 for q > 1" always leaves a
     q = 1 term; check it separately every time the subtracted constant is not literally the weight's total.

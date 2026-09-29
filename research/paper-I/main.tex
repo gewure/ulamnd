@@ -1369,19 +1369,24 @@ Theorems~\ref{thm:expansion} and~\ref{thm:smoothed} is in progress in the same r
 \path{research/lean/PairSingularSeries}). The file \path{STATUS.md} there lists, statement by statement,
 what is verified and under which hypotheses, and \path{Axioms.lean} lets the reader confirm in one command
 that no verified statement depends on anything beyond the standard axioms of Lean's logic. At the time of
-writing, \emph{Theorem~\ref{thm:expansion} is verified}: the exact finite identity
+writing, \emph{Theorem~\ref{thm:expansion} is verified in full}: the exact finite identity
 $\prod_{p\le x}\frac{1-\omega_{f,2}(p,h)/p}{(1-1/p)^2}=\Bigl(\prod_{p\le x}\frac{1-\omega_f(p)/p}{1-1/p}\Bigr)^2
 \prod_{p\le x}\bigl(1+g_p(h)\bigr)$ for every $x$, the absolute convergence of
-$\sum_q\mu(q)^2b(q)c^f_q(h)$ and its Euler product $\prod_p(1+g_p(h))$, and hence the identity
+$\sum_q\mu(q)^2b(q)c^f_q(h)$ and its Euler product $\prod_p(1+g_p(h))$, the identity
 \eqref{eq:expansion} in the form: if the partial products of $C(f)$ over $p\le x$ converge to $C$, then those
-of $S_f(h)$ converge to $C^2\sum_q\mu(q)^2b(q)c^f_q(h)$. The hypotheses are exactly those of
+of $S_f(h)$ converge to $C^2\sum_q\mu(q)^2b(q)c^f_q(h)$; and the identity~\eqref{eq:identity} exactly as
+printed, with the series over $d$ absolutely convergent. The hypotheses are exactly those of
 Section~\ref{sec:sum}: positive degree, no fixed prime divisor, and the resultant condition (for $h\ne0$ a
 nonzero integer divisible by every prime modulo which $f(t)$ and $f(t+h)$ have a common root), the last
 being the form in which irreducibility is used. Of Theorem~\ref{thm:smoothed}, the following are verified
-without any hypothesis: the closed form of $B_d(m)$, valid for $1\le m\le d$ and every $H$; the diagonal
-value $B_d(d)$; the bracket identity $B_d(m)+B_d(d-m)$ that defines $\mathrm{Off}^\ast_f$, and the bound
-$|B_d(m)+B_d(d-m)|\le d/4$ (which the formal proof shows to hold for every $d\ge2$, not only for $d\le H$
-as stated above); and the identities $\sum_{h\le H}\nu_f(d,h)=\omega_f(d)^2H/d+\Psi_d(H)$ and
+under the same hypotheses: the exact identity
+$\sum_{h\le H}(H-h)(S_f(h)-C^2)=C^2\bigl(\sum_{d\ge1}W_f(d)\sum_{s,s'}B_d(s'-s)+H/2\bigr)$ of its proof
+--- it was the formal treatment, with a general weight and a general subtracted constant, that exposed the
+missing term $C^2H/2$ mentioned there --- and, without any hypothesis, the closed form of $B_d(m)$, valid
+for $1\le m\le d$ and every $H$; the diagonal value $B_d(d)$; the bracket identity $B_d(m)+B_d(d-m)$ that
+defines $\mathrm{Off}^\ast_f$, and the bound $|B_d(m)+B_d(d-m)|\le d/4$ (which the formal proof shows to
+hold for every $d\ge2$, not only for $d\le H$ as stated above); and the identities
+$\sum_{h\le H}\nu_f(d,h)=\omega_f(d)^2H/d+\Psi_d(H)$ and
 $\sum_{h\le H}(H-h)\nu_f(d,h)=\omega_f(d)^2H^2/(2d)+\sum_{s,s'}B_d(s'-s)$ on which its proof rests. In the
 formalisation $c^f_q(h)$ is \emph{defined} by the divisor sum
 $\sum_{d\mid q}d\,\mu(q/d)\,\nu_f(d,h)\,\omega_f(q/d)^2$, which agrees with the exponential-sum definition

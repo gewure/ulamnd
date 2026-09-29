@@ -7,3 +7,9 @@ import PairSingularSeries.Mult
 import PairSingularSeries.Hyp
 import PairSingularSeries.SqfreeSummable
 import PairSingularSeries.Expansion
+import PairSingularSeries.Identity
+import PairSingularSeries.Identity2
+import PairSingularSeries.Identity3
+import PairSingularSeries.Regroup
+import PairSingularSeries.Identity4
+import PairSingularSeries.Theorems
