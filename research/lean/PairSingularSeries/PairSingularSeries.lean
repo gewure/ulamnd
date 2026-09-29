@@ -4,3 +4,6 @@ import PairSingularSeries.Bracket
 import PairSingularSeries.Finite
 import PairSingularSeries.CRT
 import PairSingularSeries.Mult
+import PairSingularSeries.Hyp
+import PairSingularSeries.SqfreeSummable
+import PairSingularSeries.Expansion

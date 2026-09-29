@@ -31,12 +31,23 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | L9′ ψ_d(0,H) = −{H/d} | — | — | TODO |
 | L10 ω ≤ 1 ⇒ Off ≡ 0, Off* ≡ 0 (Theorem 5(i)) | — | — | TODO |
 
-## Tier 2 — analysis, unconditional — all TODO
+## Tier 2 — analysis: THEOREM 1 IS PROVED
 
-A1 Σ_p \|g_p(h)\| < ∞; A2 Σ_q F_h(q) absolutely convergent and = ∏_p(1+g_p(h)) (Mathlib
-`EulerProduct.eulerProduct_tprod`); A3 THEOREM 1 (expansion) with hypothesis "Cpartial → C";
-A4 Σ_d d b(d)\|Ψ_d(H)\| < ∞; A5 eq. (identity); A6 eq. (split); A7 THEOREM 5 exact identity,
-Off* absolutely convergent.
+| paper | Lean | file | status |
+|---|---|---|---|
+| hypotheses on f: deg ≥ 1; no fixed prime divisor ω(p) < p; the resultant condition (for h ≠ 0 a nonzero N_h divisible by every prime with ν(p,h) ≠ 0) | `Admissible` (structure) | Hyp.lean | DEFINED |
+| tool: ω(d) = #roots of f̄ in ZMod d; ROOT BOUND ω(p) ≤ deg f for primes p ∤ lc(f) | `omega_eq_card_zmod`, `omega_le_natDegree` | Hyp.lean | PROVED |
+| tool (Mathlib candidate): a multiplicative F with F(0)=0, F(1)=1, F(p^k)=0 for k≥2 and Σ_p \|F(p)\| < ∞ is absolutely summable; the bound Σ_{q<N}\|F q\| ≤ ∏_{p<N}(1+\|F p\|) | `summable_abs_of_squarefree_mult`, `sum_range_abs_le_prod`, `abs_le_prod_primeFactors`, `eq_zero_of_not_squarefree` | SqfreeSummable.lean | PROVED |
+| A1  \|g_p(h)\| ≤ 4(deg f)²/p² for p > 2 deg f, p ∤ lc, ν(p,h)=0; Σ_p \|g_p(h)\| < ∞ | `abs_gfac_le`, `summable_gabs` | Expansion.lean | PROVED |
+| A2  Σ_q \|F_h(q)\| < ∞; Σ_e F_h(p^e) = 1 + g_p(h); ∏_{p≤x}(1+g_p(h)) → Σ_q F_h(q) (Euler product, Mathlib `EulerProduct.eulerProduct`) | `summable_abs_Fterm`, `tsum_Fterm_pow`, `tendsto_prod_one_add_gfac` | Expansion.lean | PROVED |
+| A3  THEOREM 1, exact finite form: ∏_{p≤x} T_p(h) = (∏_{p≤x} E_p)² ∏_{p≤x}(1+g_p(h)) for EVERY x — unconditional | `Spartial_eq` | Expansion.lean | PROVED |
+| A3  **THEOREM 1** (eq. expansion): if ∏_{p≤x} E_p → C then ∏_{p≤x} T_p(h) → C²·Σ_q F_h(q), i.e. S_f(h) = C(f)² Σ_{q sqfree} b(q) c^f_q(h) — hypotheses: `Admissible f`, `h ≠ 0`, convergence of C(f)'s partial products | `expansion` | Expansion.lean | PROVED |
+| A4  Σ_d d b(d)\|Ψ_d(H)\| < ∞ | — | — | TODO |
+| A5  eq. (identity): Σ_{h≤H}(S_f(h) − C²) = C² Σ_{d≥2} W(d) Ψ_d(H) | — | — | TODO |
+| A6  eq. (split) | — | — | TODO |
+| A7  THEOREM 5 exact identity; Off* absolutely convergent | — | — | TODO |
+| L5  Σ_{h≤H} c^f_q(h) = Σ_{d\|q} dμ(q/d)ω(q/d)²Ψ_d(H), q > 1 squarefree | — | — | TODO |
+| L10 ω ≤ 1 ⇒ Off ≡ 0, Off* ≡ 0 (Theorem 5(i)) | — | — | TODO |
 
 ## Tier 3 — conditional — all TODO
 

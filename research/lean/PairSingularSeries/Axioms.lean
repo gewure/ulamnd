@@ -24,3 +24,14 @@ import PairSingularSeries
 #print axioms PairSingularSeries.Fterm_mul
 #print axioms PairSingularSeries.Fterm_prime
 #print axioms PairSingularSeries.Fterm_prime_pow
+#print axioms PairSingularSeries.omega_eq_card_zmod
+#print axioms PairSingularSeries.omega_le_natDegree
+#print axioms PairSingularSeries.summable_abs_of_squarefree_mult
+#print axioms PairSingularSeries.sum_range_abs_le_prod
+#print axioms PairSingularSeries.abs_gfac_le
+#print axioms PairSingularSeries.summable_gabs
+#print axioms PairSingularSeries.summable_abs_Fterm
+#print axioms PairSingularSeries.tsum_Fterm_pow
+#print axioms PairSingularSeries.Spartial_eq
+#print axioms PairSingularSeries.tendsto_prod_one_add_gfac
+#print axioms PairSingularSeries.expansion
