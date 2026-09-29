@@ -1422,3 +1422,27 @@ ADDENDUM to §46 (same day): the coverage gap the reading found in our own scrip
 form from (D, u) instead of hardcoding it, and additionally tests §0 itself — c = Ps², a = u²/c, gcd(a,h) = 1, P ∥ h₀, (u′,h₀) = 1 — alongside (i)–(v). Result: 141 configurations
 with P > 1, |D| ∈ {3,7,11,12,15,20,24,35,40,51,55,60,84,99,115,135,175,235} of which NON-FUNDAMENTAL (s > 1) are {12,20,24,40,60,84,99,135,175}, 5942 forms and 13680 ordered pairs,
 ZERO FAILURES. Data: data/o1-local2.txt. o1-local.ts is kept, with its caveat, as the record of what §44 actually rested on when it was written.
+
+## 47. READING of "S6′ at (u′, h₀)" (1 Oct; fresh model instance; 11 test discriminants incl. non-fundamental) — CORRECTIONS ADOPTED; THE RESTRICTION (u,D) = 1 CAN GO
+
+VERDICT: correct modulo repairs. Every step tested numerically passes (resultant Res = u′⁴(N² − 4h₀²) on ~22,000 family pairs; n_a ≤ 2^{ω(u′)}g₂(N) at composite a = 45, 63, 75,
+147 with 0 violations; level sums Σ_{q₀≤40} n_{q₀}/τ₃(N²−4h₀²) ≤ 0.111). Two things must be written differently, one of them a GENUINE GAP IN PAPER V's TEXT for c > 1:
+
+(1) THE DENSITY TERM. Paper V's (S1)/(S1out) writes the count as k | aℓ² + h but the density as ϱ(k) = |R^{(u)}_k| = #{x mod k : u²x² ≡ D}. These agree on admissible k and DISAGREE
+    at every prime of the content c = Ps² (2 included, O2's even branch): D = −3, u = 3: k = 3 gives 3 vs 0; D = −15, u = 15: k = 15 gives 15 vs 0; D = −12, u = 2: k = 2 gives
+    2 vs 1. Consequence: at a level with p | (j, P) the family is empty (count ≡ 0) but the paper's 𝔅(L,K;q₀) is a pure density sum of TRIVIAL size (measured 0.14–0.15 of (Y/K)L),
+    not a GM discrepancy. The total over j is unaffected (Möbius kills non-admissible k whatever the summand), so the THEOREM IS NOT WRONG, but the level-by-level bound does not
+    apply as written. REPAIR (one line): define ϱ(k) := #{x mod k : ax² + h ≡ 0} for ALL k in (S1) and (S1out) — content removal before the j-Möbius for BOTH terms. Then the
+    levels with gcd(a, q₀) > 1 are identically zero.
+(2) CLAIM (0) IS RIGHT IN SUBSTANCE, MIS-WORDED: "p ∤ k, so p ∤ j" is false — j runs over ALL divisors of rad 2D including the primes of P. What is true: S_{a,h}(q₀) is EMPTY when
+    gcd(a, q₀) > 1 (for p | P: a q₀ | C gives p² | C, a | B gives p² | B², so p² | ah against v_p(ah) = 1; for p | u′: p³ | C, p⁴ | B² against v_p(ah) = 2). Verified on every
+    q₀ ≤ 40 in all 11 cases. The clause "(k,u) = 1 excludes p | e, m" is unnecessary.
+(3) v_p(q₀) ≤ 1 at p | 2D needs (em, 2D) = 1, which rests on §45(3) (Möbius annihilation), NOT on the emptiness remark; that remark is FALSE for non-fundamental D even with
+    (u, D) = 1 (D = −63, u = 1: 9 | ℓ² + 63 at ℓ = 3, 6, 9, …). Paper V's S1 display has Σ_{m²|k} μ(m) UNRESTRICTED while S6 invokes (em, 2D) = 1: impose it in S1.
+(4) Resultant, N ∈ Z (a | ⟨g₁,g₂⟩ termwise; in fact P | N, harmless), Hensel primes p ∤ 2Dah for p ∤ 2Du′, P₁(N) ≪_D N^{o(1)} (finitely many lattices G₂^⊥ for fixed D): all
+    correct. "This is where the primes of P live" is misleading: by (2) no prime of P divides a nonempty level's q₀.
+(5) Z₂ ≤ H^{O(1)} available from S7's dichotomy uEM ≤ L^{1/2}, independent of (u, D).
+(6) Unclear: state "u′ odd" in the CLAIM; say that the level sum now includes q₀ with (q₀, s) > 1 (handled by the p | 2D pull-out); align 2^{ω} (paper) vs 4^{ω} (notes).
+CONCLUSION: with (1) and (3) written into paper V, Theorem S holds for D < 0 (any discriminant, fundamental not required), every squarefree u ≤ H^{1/3−c} in the support of w,
+the only structural hypothesis u′ odd (automatic from O2); δ_S(c) ≈ c/12 unchanged; implied constant polynomial in |D|. The paper edits are held until the reading of the paper
+text (launched in parallel) returns, so that both sets go in as one pass.

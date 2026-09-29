@@ -186,16 +186,17 @@ R4. SCOPE — CORRECTED after the reading; the first version OVERSTATED. Lemma A
  v_p(u^2 l^2 + h) <= v_p(D) = 1, whereas under the normal form v_p(h) = v_p(D) - 2 can be POSITIVE for
  p | s. Until that is redone, Theorem S keeps the hypothesis (u, D) = 1. See PROOFS §46(6).
 
-## S6′ RESTATED AT (u′, h₀) — written 1 Oct 2026, NOT READ. This is item §46(6), the last obstacle to dropping (u, D) = 1.
+## S6′ RESTATED AT (u′, h₀) — written 1 Oct 2026; READ (PROOFS §47): correct modulo repairs, adopted below in brackets. Item §46(6) is CLOSED.
 
 Setting of §0: a = P u′², h = |D|/(P s²), h₀ = P h = |D|/s² = O_D(1), (u′, 2h₀) = 1, P ∥ h₀, u′ odd. The piece's moduli k are admissible: squarefree, split,
 coprime to 2Du; the content c = P s² of Q_u has all its primes in u, so k | Q_u(ℓ) ⇔ k | Q_u(ℓ)/c, and the family at level q = a q₀ is S_{a,h}(q₀) with THIS (a, h).
 
-CLAIM (S6′ at (u′, h₀)). For a = P u′² as above, levels q₀ = lcm(j, e, m²) as in S1′ with (em, 2D) = 1 and j | rad(2D), and 1 ≤ Z₂ ≤ H^{O(1)}:
+CLAIM (S6′ at (u′, h₀)). For a = P u′² as above (u′ ODD, imported from O2), with (em, 2D) = 1 imposed in S1 [§47(3)] and the level sum including q₀ with (q₀, s) > 1, levels q₀ = lcm(j, e, m²) as in S1′ with (em, 2D) = 1 and j | rad(2D), and 1 ≤ Z₂ ≤ H^{O(1)}:
   Σ_{q₀ ≤ EM²} off(a q₀; Z₂) ≪_{f,ε} H^{ε}(1 + Z₂).
 PROOF, following S6′ line by line with (u, h) ↦ (u′, h₀) and noting each change.
-(0) gcd(a, q₀) = 1 ALWAYS (R3 of Lemma A‴, prime by prime): for p | P, p ∤ h and k | aℓ² + h ≡ h (mod p) force p ∤ k, so p ∤ j, e, m; for p | u′, p ∤ 2D so p ∤ j, and
-    (k, u) = 1 excludes p | e, m. Hence S5″'s CRT n_{a q₀} = n_a · n_{q₀} and GM Lemma 3.1's shape q = a·d are available exactly as for a = u².
+(0) [REPAIRED §47(2)] The levels with gcd(a, q₀) > 1 carry an EMPTY family: for p | P, a q₀ | C and a | B give p² | ah against v_p(ah) = 1; for p | u′, p³ | C, p⁴ | B² against
+    v_p(ah) = 2. (The earlier wording "p ∤ k so p ∤ j" was wrong: j runs over all divisors of rad 2D.) For this to make the level-by-level bound apply, BOTH terms of the
+    bracket must be the (a,h)-terms: define ϱ(k) := #{x mod k : ax² + h ≡ 0} for all k [§47(1)]; then those levels vanish identically. Hence S5″'s CRT n_{a q₀} = n_a · n_{q₀} and GM Lemma 3.1's shape q = a·d are available exactly as for a = u².
 (1) THE LEVEL SUM. For a pair (w₁, z₂) of distinct family points, a common projective zero of Q_{w₁}, Q_{z₂} mod p^k forces p^k | Res = ⟨w₁,z₂⟩² − 4 det w₁ det z₂.
     Here ⟨w₁,z₂⟩ = u′² N and det = a h = u′² h₀ (Lemma A‴ step (1)), so Res = u′⁴(N² − 4h₀²): the u⁴ of S6′ becomes u′⁴, and h becomes h₀. The primes are of three kinds.
     (i) p | 2D: pulled out first with the trivial local factor ≤ p + 1, at most once each since v_p(q₀) ≤ 1 for p | 2D (j is squarefree and (em, 2D) = 1) — this is where the
