@@ -62,7 +62,8 @@ OffStar.  Paper ↔ Lean: see ../FORMAL-PLAN.md §1.
 | T5a  TAIL BOUND: if \|A(n) − L log n\| ≤ K (n ≥ 1) and Σ\|a(d)\|/d < ∞ then \|Σ_{d>H} a(d)/d\| ≤ (2K + 4\|L\|)/H — no integrals | `tail_div_le` | Tail.lean | PROVED |
 | the diagonal series split at H: Σ_d a(d)B_d(d) = −(H/2)Σ_{d≤H}a(d) + ½Σ_{d≤H} d a(d)φ({H/d}) − (H²/2)Σ_{d>H} a(d)/d; \|a(d)\|/d ≤ Bsum·\|B(d)\| | `tsum_dterm_split`, `abs_a_div_le`, `summable_abs_a_div` | Asymptotic.lean | PROVED |
 | T5b  **THEOREM 5, eq. (smoothed)**: under (E1) with C > 0, (E2), (E3): for all H ≥ 2, \|Σ_{h≤H}(1−h/H)(S_f(h)−C²) + ½C log H − (C²/H)Off*(H)\| ≤ (C²/2)K₂ + C²K₃/8 + C²(K₂ + 2/C) + C²/2 | `smoothed` | Asymptotic.lean | PROVED |
-| T5c  Theorem 5(ii) as an equivalence (leading term iff Off* = o(H log H)) | — | — | immediate from `smoothed`; not separately stated |
+| T5c  **Theorem 5(ii)**: under (E1)–(E3), Σ_{h≤H}(1−h/H)(S_f(h)−C²) + ½C log H = o(log H) ⇔ Off*(H) = o(H log H) | `smoothed_iff` | Equivalence.lean | PROVED |
+| CODA: irreducibility over ℚ ⇒ the resultant condition (Bézout in ℚ[X], denominators cleared by `IsLocalization.integerNormalization`); `Admissible f` from `Irreducible (f.map (algebraMap ℤ ℚ))` and ω(p) < p | `isCoprime_map_comp`, `exists_int_bezout`, `resultant_condition_of_irreducible`, `admissible_of_irreducible` | Irreducible.lean | PROVED |
 
 Hypotheses, as Lean hypotheses (never axioms):
   (E1) `Tendsto (Cpartial f) atTop (𝓝 C)`, and `0 < C` for eq. (smoothed) — Landau's prime ideal theorem for Q[t]/(f).

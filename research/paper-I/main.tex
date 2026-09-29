@@ -1366,12 +1366,14 @@ the \texttt{riesz} scripts and \path{research/experiments/galois.ts} (Section~\r
 
 \medskip\noindent\textbf{Formal verification.} Theorems~\ref{thm:expansion} and~\ref{thm:smoothed} are
 formally verified in Lean~4 against the Mathlib library, in the same repository (directory
-\path{research/lean/PairSingularSeries}; 56 theorems, no \texttt{sorry}; the file \path{Axioms.lean}
+\path{research/lean/PairSingularSeries}; 61 theorems, no \texttt{sorry}; the file \path{Axioms.lean}
 prints, for every statement, only the standard axioms of Lean's logic, and \path{STATUS.md} lists the
 statements one by one). What is verified, and under what, is the following. Every statement takes the
 hypotheses of Section~\ref{sec:sum} in the form the proofs use: positive degree, no fixed prime divisor,
 and the resultant condition (for $h\ne0$ a nonzero integer divisible by every prime modulo which $f(t)$
-and $f(t+h)$ have a common root). \emph{Theorem~\ref{thm:expansion}} is verified in full: the exact finite
+and $f(t+h)$ have a common root); the last is derived, in the formalisation, from irreducibility of $f$
+over $\Q$, so that the hypotheses are literally those stated above. \emph{Theorem~\ref{thm:expansion}} is
+verified in full: the exact finite
 identity $\prod_{p\le x}\frac{1-\omega_{f,2}(p,h)/p}{(1-1/p)^2}=\bigl(\prod_{p\le x}\frac{1-\omega_f(p)/p}{1-1/p}\bigr)^2
 \prod_{p\le x}(1+g_p(h))$ for every $x$, the absolute convergence of $\sum_q\mu(q)^2b(q)c^f_q(h)$ and its
 Euler product, hence~\eqref{eq:expansion} in the form ``if the partial products of $C(f)$ converge to $C$
@@ -1380,7 +1382,7 @@ printed. Of \emph{Theorem~\ref{thm:smoothed}}: the exact identity of its proof, 
 $\sum_{h\le H}(H-h)(S_f(h)-C^2)=C^2\bigl(\sum_{d\ge1}W_f(d)\sum_{s,s'}B_d(s'-s)+H/2\bigr)$ (it was the
 formal treatment, with a general weight and a general subtracted constant, that exposed the term $C^2H/2$
 missing from an earlier version of the display); its split into the diagonal and $\mathrm{Off}^\ast_f(H)$,
-with $\mathrm{Off}^\ast_f(H)$ absolutely convergent; part~(i); and~\eqref{eq:smoothed} itself as an
+with $\mathrm{Off}^\ast_f(H)$ absolutely convergent; parts~(i) and~(ii); and~\eqref{eq:smoothed} itself as an
 explicit bound, $\bigl|\sum_{h\le H}(1-h/H)(S_f(h)-C^2)+\tfrac12C\log H-\tfrac{C^2}H\mathrm{Off}^\ast_f(H)\bigr|
 \le\tfrac{C^2}2K_2+\tfrac{C^2K_3}8+C^2(K_2+2/C)+\tfrac{C^2}2$ for $H\ge2$, \emph{conditionally} on three
 inputs stated as hypotheses because none of them is available in Mathlib: the convergence of the partial

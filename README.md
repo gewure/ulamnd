@@ -3,40 +3,43 @@
 A research repository. It began on 8 September 2026 as a web workbench for looking at n-dimensional Ulam spirals; the
 spiral hypotheses were refuted on the first day (`research/experiments/CONCLUSIONS.md`), and what survived is a
 programme in analytic number theory about the pair singular series S_f(h) of an irreducible polynomial f and the
-second-order term of its mean. It is written up in four papers, every number of which is generated from code in this
-repository.
+second-order term of its mean. It is written up in five papers and a working draft, every number of which is generated
+from code in this repository, and the elementary core of paper I is formally verified in Lean 4.
 
 ## Where to start
-1. `research/KNOWLEDGE.md` — section 0b: the state, the ordered next steps and the do-not-claim list; section 0c: the
-   external assessment of 12 September 2026 and what it found; section 3: our own errors, F1–F29, each with the rule
-   that follows from it.
-2. `research/ERRATA.md` — every correction to the papers, by date and cause, including the three findings of the
-   external assessment (items 11–13) and one of our own found while applying them (item 14).
-3. The papers, in order.
+1. `research/KNOWLEDGE.md` — the state, the ordered next steps and the do-not-claim list; the error record F1–F51,
+   each with the rule that follows from it (F48–F51 are from the September–October work on the dilated pieces and
+   the Lean formalisation).
+2. `research/ERRATA.md` — every correction to the papers, by date and cause (43 items; the last three: the
+   extension of paper III's proved range, the opening of paper V, and the `+H/2` that the formalisation found in
+   paper I's Theorem 5 display).
+3. `research/lean/PairSingularSeries/STATUS.md` — what is formally verified and under which hypotheses.
+4. The papers, in order.
 
-## The papers (`research/paper-*/main.tex`; `tectonic main.tex` compiles each)
-| | content | status (15 September 2026) |
+## The papers (`research/paper-*/main.tex`; `tectonic main.tex` compiles each; all on Zenodo, versions updated continuously)
+| | content | status (30 September 2026) |
 |---|---|---|
-| I | The pair singular series, its Dedekind zeta function and the variance of prime values: exact identity, diagonal Dirichlet series ζ_K(s+1)E_f(s), closed formula for quadratics, Cesàro theorem for linear f, Conjecture 1 (first power of C(f), Cesàro form), exact test on 25 quadratics | v9, 31 pp. Corrected 13 Sep: the sharp-sum claims were false and are gone. Preprint ready; awaiting an arXiv endorser 14 Sep: the author's reviewing model conversation found an unproved non-vanishing claim in the proof of Theorem 3's asymptotic; re-proved via Perron with a power-saving error, unconditionally (ERRATA 26). |
-| II | Zeros of Dedekind zeta functions in the second moment: E_f as an infinite product of Artin L-functions of the plethystic exponents Ψ_N, natural boundary, RH-conditional explicit formula, Ω-theorem, every coefficient for t²+1 | 24 pp. Corrected 13 Sep: the general-f theorem now has the log-polynomial at s = −2/3 Sections 2–4 read adversarially 14 Sep: seven expository fixes, no statement changed (ERRATA 24). 15 Sep: two proof defects found by an outside reading (empty parameter set; the Ω-theorem's Landau argument) repaired, the Ω-theorem now with an explicit constant (ERRATA 31). |
-| III | The off-diagonal in Cesàro form: decomposition into pieces, unconditional small and far moduli, the main term c_off(f)·H, the window as the single open input, a function-field theorem | 27 pp. Read adversarially on 13 Sep (fresh reader): core sound, seven findings fixed (`research/ERRATA.md` item 18), one stated exponent corrected |
-| IV | The second spectrum: the pieces oscillate at the even Maass parameters of SL₂(Z) with Katok–Sarnak amplitudes; a spectral argument for u = 1; uniformity in u as the open problem | 31 pp. The u = 1 theorem's orbit error (found by the external assessment) was repaired on 13 Sep (groups Γ₀(e), e \| rad(2D)); a second adversarial reading passed the repair but found the **remainder bound unproved**; carrying the proposed route out showed why: the remainder contains smoothed Hooley sums of the same order as the main term (Remark `rem:gaps`). The exact expansion and its leading terms are proved; the error term is open. For **smooth windows** the full theorem is proved (Theorem `thm:smooth`, 13 Sep): phase predicted with no free parameter and observed to 0.035 rad, amplitude predicted 0.0600 and observed 0.0597; on the restricted object the level-2 newform line and the oldform correction appear at their predicted sizes Sections 2–4 read adversarially 14 Sep: nine fixes incl. the real-argument definition of the piece and its Riesz means, one reader claim rejected (ERRATA 25). Internal phase finished; external review is what remains. |
+| I | The pair singular series S_f(h), its expansion in root Ramanujan sums, the diagonal Dirichlet series ζ_K(s+1)E_f(s), the Cesàro asymptotic −½C(f) log H with the off-diagonal Off*_f as the single obstruction, Conjecture 1, exact tests on 25 quadratics | 32 pp. **Theorems 1 and 5 formally verified in Lean 4/Mathlib** (`research/lean`): Theorem 1 in full, Theorem 5's identities, split and part (i) unconditionally, its asymptotic conditionally on three named inputs (Landau, Theorem 2, Shiu). The verification found and fixed a missing `C²H/2` in the exact identity of Theorem 5's proof (ERRATA 43; `O(H)`, theorem unchanged). Hypothesis (E) — Off* = O(H) — is the open problem of the whole programme. |
+| II | Zeros of Dedekind zeta functions in the second moment: E_f as a product of Artin L-functions of plethystic exponents, natural boundary, RH-conditional explicit formula, Ω-theorem with explicit constant | 24 pp. Unchanged since 15 Sep (two proof defects repaired then, ERRATA 31). |
+| III | The off-diagonal in Cesàro form: decomposition into dilated pieces; **Theorem E**: Off*_f(H) ≪ H(log H)^{1−c} log log H unconditionally for monic irreducible quadratics, hence the leading term of Conjecture 1 in Cesàro form; power saving for the pieces with u > H^{1/2+ε} (dispersion over u + Weil); the main term c_off(f)·H; Theorem A conditional on the window; a function-field theorem | 32 pp. **Frozen since 15 Sep** (corrections only). Range of the proved power saving extended from u > H^{2/3+ε} to u > H^{1/2+ε} on 15 Sep (ERRATA 40); three adversarial readings. Cites Grimmelt–Merikoski 2025. |
+| IV | The second spectrum: the pieces oscillate at the even Maass parameters of SL₂(Z) with Katok–Sarnak amplitudes; exact expansion proved; full theorem for smooth windows; the sharp-window error term open | 31 pp. Cross-references updated to paper III's new range; otherwise unchanged since 15 Sep. |
+| V | **The dilated pieces below H^{1/2}** (new, 16 Sep): Theorem M — the pieces with H^{0.47} < u ≤ H^{0.53} are O(H^{1−δ}) (energy of reciprocals for every squarefree modulus, Bourgain–Garaev, Mellin separation); Theorem S — for D < 0 the pieces with u ≤ H^{1/3−c} and (u,D) = 1 are O(H^{1−δ_S}), δ_S ≈ c/12, via Grimmelt–Merikoski's kernel theorem with the dilation tracked; the band u ≈ H^{1/3} identified as the single remaining obstruction (a six-fold reciprocal energy at N ≈ m^{1/4}, at a barrier named in Bourgain–Garaev's own corollary) | 7 pp. Theorems proved and read (three readings for M, two for S) **in the exploration notes** (`research/explore/PAPER-V-*.md`, `PROOFS-uniform.md` §12–§46); the paper is a skeleton whose proofs are pointers. **Writing the proofs into the paper is the current task.** |
+| dilation | Dilated pieces, Hecke correspondences and the second spectrum: what a piece with dilation u *is* — every computable Maass line as an oldform projection at level u², closed forms for the level-one lines at prime u, newform lines vanish for inert u | 11 pp working draft. Descriptive counterpart of paper V (V bounds how *big* a piece is); its open error term is what V addresses. To be finalised after V. |
+
+**What is proved about the conjecture, in one line.** The leading term of Conjecture 1 in Cesàro form is a theorem for
+monic irreducible quadratics (III, Theorem E). The constant A_f needs Off* = O(H); power savings are proved for the
+dilated pieces with u > H^{1/2+ε} (III), u ≈ H^{1/2} (V, Theorem M) and u ≤ H^{1/3−c}, D < 0 (V, Theorem S); the band
+u ≈ H^{1/3} is open and no route to it is currently known (`research/explore/PROOFS-uniform.md` §31–§41).
 
 **Python package (15 September 2026).** `research/python/ulamnd/` ports the parts of the TypeScript machinery that other
 researchers are most likely to want: roots of polynomial congruences, the Bateman–Horn constant and pair singular series
 of a quadratic with exact tails, the pieces of paper IV (sharp and smooth window), the spectral tests, and the Maass-form
-predictions of the smooth-window theorem. Only numpy and mpmath are needed; `research/python/README.md` has three
-one-minute examples and the tests cross-check every module against the TypeScript output or brute force.
+predictions of the smooth-window theorem. Only numpy and mpmath are needed; `research/python/README.md` has examples.
 
-**Follow-up draft (15 September 2026).** `research/paper-dilation/` — "Dilated pieces, Hecke correspondences and the
-second spectrum": the coefficient of every computable Maass line in the piece with dilation u as an oldform projection at
-level u², with an explicit closed form for the level-one lines at odd prime u, tested parameter-free on 21 (u,D) pairs and
-on a level-3 newform. Working draft, not for circulation; three lemmas still to be proved in full (see its STATUS.md).
-
-**Case study (started 14 September 2026).** `research/case-study/` scaffolds a fifth, methodological paper: how this
-programme was produced (test-driven origin, guardrails, evolution of the prompting, the complete error record, what
-model readers cannot catch). `main.tex` is the scaffold with interview slots, `INTERVIEW.md` the questionnaire,
-`SOURCES.md` maps every claim to its evidence, `scripts/process-record.py` regenerates every process number from git. Its Appendix C is a one-page map of this repository (which files matter, what each is for, how everything is regenerated); read it first if you are new here.
+**Case study (started 14 September 2026).** `research/case-study/` scaffolds a methodological paper: how this programme
+was produced (test-driven origin, guardrails, the complete error record, adversarial model readings, what model readers
+cannot catch — and now what a proof assistant catches that neither can). Its Appendix C is a one-page map of this
+repository.
 
 Nothing here proves anything about primes without the Hardy–Littlewood conjecture, and nothing here bears on the
 Riemann Hypothesis (`research/paper-II/LITERATURE.md`, §0, has the sentence we allow ourselves).

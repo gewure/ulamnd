@@ -17,3 +17,5 @@ import PairSingularSeries.Split
 import PairSingularSeries.Tail
 import PairSingularSeries.Split2
 import PairSingularSeries.Asymptotic
+import PairSingularSeries.Equivalence
+import PairSingularSeries.Irreducible

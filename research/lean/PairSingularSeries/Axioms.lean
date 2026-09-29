@@ -56,3 +56,8 @@ import PairSingularSeries
 #print axioms PairSingularSeries.tail_div_le
 #print axioms PairSingularSeries.tsum_dterm_split
 #print axioms PairSingularSeries.smoothed
+#print axioms PairSingularSeries.smoothed_iff
+#print axioms PairSingularSeries.isCoprime_map_comp
+#print axioms PairSingularSeries.exists_int_bezout
+#print axioms PairSingularSeries.resultant_condition_of_irreducible
+#print axioms PairSingularSeries.admissible_of_irreducible

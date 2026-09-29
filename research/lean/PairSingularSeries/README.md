@@ -8,7 +8,7 @@ against Mathlib, with every object stated in arithmetic form (root counts modulo
 the root Ramanujan sum defined by its divisor sum), so no exponential sums appear. `STATUS.md` is the
 statement-by-statement table; `../FORMAL-PLAN.md` records the plan and the paper ↔ Lean correspondence.
 
-## What is verified (56 theorems, no `sorry`, standard axioms only)
+## What is verified (61 theorems, no `sorry`, standard axioms only)
 
 * **Theorem 1 in full**: the exact finite identity `∏_{p≤x} T_p(h) = (∏_{p≤x} E_p)² ∏_{p≤x}(1 + g_p(h))`
   (`Spartial_eq`), the absolute convergence of `∑_q μ(q)² b(q) c^f_q(h)` and its Euler product, hence
@@ -32,7 +32,9 @@ statement-by-statement table; `../FORMAL-PLAN.md` records the plan and the paper
 
 Every theorem takes `Admissible f`: positive degree, no fixed prime divisor (`ω_f(p) < p`), and the
 resultant condition (for `h ≠ 0` a nonzero integer divisible by every prime modulo which `f(t)`, `f(t+h)`
-have a common root) — the form in which irreducibility is used. Beyond that:
+have a common root). `admissible_of_irreducible` derives it from irreducibility of `f` over `ℚ` together
+with "no fixed prime divisor" — the paper's own hypotheses, literally. Part (ii) of Theorem 5 is
+`smoothed_iff`. Beyond that:
 
 | hypothesis | where | what it is |
 |---|---|---|
@@ -49,7 +51,7 @@ no hypothesis beyond `Admissible f`. Nothing is an axiom: `Axioms.lean` prints, 
     elan (https://github.com/leanprover/elan) · then in this directory:
     lake exe cache get && lake build          # ~1 min after the cache
     grep -c sorry PairSingularSeries/*.lean   # every count is 0
-    lake env lean Axioms.lean                 # 56 lines, each ending in the standard three axioms
+    lake env lean Axioms.lean                 # 61 lines, each ending in the standard three axioms
 
 Toolchain and Mathlib revision are pinned in `lean-toolchain` and `lake-manifest.json`.
 
@@ -59,4 +61,4 @@ Toolchain and Mathlib revision are pinned in `lean-toolchain` and `lake-manifest
 identities in `h`) · `CRT`, `Mult` (multiplicativity) · `Hyp` (the hypotheses; root bound via `ZMod p`) ·
 `SqfreeSummable`, `Expansion` (Theorem 1) · `Identity`–`Identity4`, `Regroup`, `Theorems` (the weighted
 identity and both paper identities) · `Split`, `Split2` (diagonal/off-diagonal, part (i)) · `Tail`,
-`Asymptotic` (the tail bound and eq. (smoothed)).
+`Asymptotic` (the tail bound and eq. (smoothed)) · `Equivalence` (part (ii)) · `Irreducible` (irreducibility ⇒ the resultant condition).
