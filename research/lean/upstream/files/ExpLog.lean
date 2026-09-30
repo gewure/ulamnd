@@ -92,7 +92,8 @@ theorem summable_norm_of_summable_primes {F : Type*} [NormedField F] {f : ℕ �
     simp only [ha, Set.indicator_apply, Set.mem_ofPred_eq]
   refine summable_of_sum_range_le (c := g 0 + Real.exp (∑' p, a p)) hg0 fun N ↦ ?_
   obtain ⟨-, hH⟩ := summable_and_hasSum_smoothNumbers_prod_primesBelow_tsum hg₁ hgmul hgsum N
-  have hH' : HasSum ((N.smoothNumbers : Set ℕ).indicator g) (∏ p ∈ N.primesBelow, ∑' n : ℕ, g (p ^ n)) :=
+  have hH' : HasSum ((N.smoothNumbers : Set ℕ).indicator g)
+      (∏ p ∈ N.primesBelow, ∑' n : ℕ, g (p ^ n)) :=
     hasSum_subtype_iff_indicator.mp hH
   -- (1) `∑_{n<N} g n ≤ g 0 + ∑' (indicator)`
   have h1 : ∑ n ∈ range N, g n ≤ g 0 + ∏ p ∈ N.primesBelow, ∑' n : ℕ, g (p ^ n) := by
